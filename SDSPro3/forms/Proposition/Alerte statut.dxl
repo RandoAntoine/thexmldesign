@@ -1,0 +1,853 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Proposition\Alerte statut" alias="F_Aler" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" language="fr" type="response" conflictaction="mergeconflicts">
+<noteinfo noteid="319df2" unid="6FD904E161689348852587F1005168A4" sequence="54">
+<created><datetime>20220222T094912,04-05</datetime></created>
+<modified><datetime>20250319T074100,58-05</datetime></modified>
+<revised><datetime>20250319T073924,39-05</datetime></revised>
+<lastaccessed><datetime>20250319T074100,57-05</datetime></lastaccessed>
+<addedtofile><datetime>20220222T180009,05-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "F_Aler"
+</lotusscript></code></globals><code event="windowtitle"><formula>"Alerte de statut "</formula></code><code event="queryopen"><lotusscript>Sub Queryopen(Source As Notesuidocument, Mode As Integer, Isnewdoc As Variant, Continue As Variant)
+	If Mode = 1 Then
+		Continue = False
+	End If
+End Sub
+</lotusscript></code><code event="querymodechange"><lotusscript>Sub Querymodechange(Source As Notesuidocument, Continue As Variant)
+	Continue = False
+End Sub</lotusscript></code>
+<actionbar borderstyle="none" bgcolor="#d2b06a" bordercolor="#2f2f2f"><actionbarstyle repeat="resize"><imageref name="bg_Actions"/></actionbarstyle>
+<actionbuttonstyle bgcolor="none"/><font size="8pt" style="bold"/><border/>
+<action title="Payé par client"><imageref name="act_Crochet"/><code event="click"><lotusscript>Sub Click(Source As Button)
+			' Assigner le statut 94 à la proposition et à l'alerte
+	Call FAler_acClientPayer
+End Sub</lotusscript></code></action>
+<action title="Payé partiellement"><imageref name="act_Facture"/><code event="click"><lotusscript>Sub Click(Source As Button)
+	' Assigner le statut 84 à la proposition et à l'alerte
+	Call FAler_acClientPayerPartiellement
+End Sub</lotusscript></code></action>
+<action title="Annuler alerte"><imageref name="act_Croix"/><code event="click"><lotusscript>Sub Click(Source As Button)
+	' Assigner le statut 99 à l'alerte
+	Call FAler_acAnnulerAlerte
+End Sub</lotusscript></code></action></actionbar>
+<background allowoverride="false"/>
+<body><richtext>
+<pardef id="1" leftmargin="1in" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="authors" allowmultivalues="true" kind="computed" name="Auteur" listinputseparators="comma" listdisplayseparator="comma"><code event="defaultvalue"><formula>"[Alertes]"</formula></code></field></run><run><font color="red"/></run><run><font size="8pt" color="red"/><field type="authors" allowmultivalues="true" kind="computed" name="AuteurAdmin" listinputseparators="comma" listdisplayseparator="comma"><code event="defaultvalue"><formula>"[Admin]"</formula></code></field></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_Langue"/></run><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_Serveur"/></run><run><font size="8pt" color="red"/></run></par>
+<par def="1"><run><font size="8pt" color="red"/>Identificateurs : </run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Form"><code event="defaultvalue"><formula>"F_Aler"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" style="bold underline" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>Aler_NoProposition</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="18" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>Aler_NbProposition</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="27" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Titre"><code event="defaultvalue"><formula>"Alerte de statut " + Aler_NoProposition</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="36" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run></par>
+<pardef id="2" leftmargin="1in" hide="notes web mobile"/>
+<par def="2"><run><font size="8pt" color="red"/>Autres champs : </run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Aler_NoProposition"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata> </par>
+<pardef id="3" leftmargin="1in" rightmargin="100%" hide="notes web mobile"/><subformref name="Entete | SF_Ente"/>
+<pardef id="4"/>
+<par def="4"/>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="11.3861in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="6" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Aler_NbAlertes &lt; 2</formula></code></pardef>
+<par def="6"><run><font size="9pt"/>Nb alertes :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="7" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Aler_NbAlertes &lt; 2</formula></code></pardef>
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="8" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Aler_NbAlertes &lt; 2</formula></code></pardef>
+<par def="8"><run><font size="9pt"/><field type="number" kind="computed" name="Aler_NbAlertes"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(@IsNull(@ThisValue); 1; @ThisValue)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="10" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="10"><run><font size="9pt"/>Statut alerte :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="11" keepwithnext="true" keeptogether="true"/>
+<par def="11"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="12" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="9pt"/><field borderstyle="none" type="text" kind="computed" name="Aler_StatutAlerte"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>     <run><font size="9pt" color="maroon"/><field borderstyle="none" type="text" kind="computedfordisplay" name="Aler_StatutAlerteDesc_1"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@GetField("Aler_StatutAlerteDescFR")</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="15" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" style="italic"/></run></par></tablecell></tablerow></table>
+<pardef id="13" hide="print"/>
+<par def="13"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="11.3750in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="15" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="15"><run><font size="8pt" style="bold" color="maroon"/>Proposition</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="16" rightmargin="3.9368in" keepwithnext="true" keeptogether="true"/>
+<par def="16"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="13"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="11.3861in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="17" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="17"><run><font size="9pt"/>No proposition :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="18" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="18"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="19" keepwithnext="true" keeptogether="true"/>
+<par def="19"><run><font size="9pt"/><field type="number" kind="computed" name="Aler_NbProposition"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt" color="red"/>  </run><actionhotspot hotspotstyle="none"><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Info"/></picture><run><font size="9pt" color="red"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FAler_hsOuvrirProposition
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="10"><run><font size="9pt"/>Statut proposition :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="11"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="12"><run><font size="9pt"/><field borderstyle="none" type="text" kind="computed" name="Aler_StatutProposition"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>     <run><font size="9pt" color="maroon"/><field borderstyle="none" type="text" kind="computedfordisplay" name="Aler_StatutPropositionDesc_1"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>v_NomTable := "Prop_Statut_FR";
+v_Cle := Aler_StatutProposition;
+
+@Replace(v_Cle; @IfError(@DbLookup( "" : "NoCache"; "" : ""; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup( "" : "NoCache"; "" : ""; "V_Tabl20"; v_NomTable; 5); ""))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="14" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="17"><run><font size="9pt"/>Type de proposition :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="20" keepwithnext="true" keeptogether="true"/>
+<par def="20"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="19"><run><font size="9pt"/><field borderstyle="none" type="text" kind="computed" name="Aler_TypeProposition"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>     <run><font size="9pt" color="maroon"/><field borderstyle="none" type="text" allowmultivalues="true" kind="computed" name="Aler_TypePropositionDescFR" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="14" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="10"><run><font size="9pt"/>Statut proposition actuel :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="11"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="12"><run><font size="9pt"/><field borderstyle="none" type="text" kind="computedfordisplay" name="Aler_StatutPropositionActuel_1"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@DbLookup("" : "NoCache"; ""; "V_Prop22"; @Text(Aler_NbProposition); 4;[FailSilent])</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>     <run><font size="9pt" color="maroon"/><field borderstyle="none" type="text" kind="computedfordisplay" name="Aler_StatutPropActuelDesc_1"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@DbLookup("" : "NoCache"; ""; "V_Prop22"; @Text(Aler_NbProposition); "Prop_StatutDescFR" ;[FailSilent])</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="14" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="17"><run><font size="9pt"/>Client :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="20"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="19"><run><font size="9pt"/><field borderstyle="none" type="text" kind="computed" name="Aler_ClientNoFmt"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>     <run><font size="9pt" color="maroon"/><field borderstyle="none" type="text" kind="computed" name="Aler_ClientNomInterne"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="14" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata> <actionhotspot hotspotstyle="none"> <picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Info"/></picture><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FAler_hsInfoClient
+End Sub</lotusscript></code></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="10"><run><font size="9pt"/>Statut suggéré :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="11"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="12"><run><font size="9pt"/><field borderstyle="none" type="text" kind="computed" name="Aler_StatutSuggere"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>     <run><font size="9pt" color="maroon"/><field borderstyle="none" type="text" kind="computedfordisplay" name="Aler_StatutSuggereDesc_1"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>v_NomTable := "Prop_Statut_FR";
+v_Cle := Aler_StatutSuggere;
+
+@Replace(v_Cle; @IfError(@DbLookup( "" : "NoCache"; "" : ""; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup( "" : "NoCache"; "" : ""; "V_Tabl20"; v_NomTable; 5); ""))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="14" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow></table>
+<pardef id="21" firstlineleftmargin="1in"/>
+<par def="21"><run><font size="9pt"/></run></par>
+<table widthtype="fitwindow" rowdisplay="tabs" firsttabindent="25px" leftmargin="0.7500in" refwidth="11.8840in"><tablerowstyle><font size="8pt" style="bold" color="maroon"/></tablerowstyle><tablecolumn width="100%"/>
+<tablerow tablabel="Relations">
+<tablecell>
+<pardef id="23" leftmargin="0.2500in" hide="print" keepwithnext="true" keeptogether="true"/>
+<par def="23"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="11.2674in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="25" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="25"><run><font size="8pt" style="bold" color="maroon"/>Bons de commande</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="16"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<pardef id="26" leftmargin="0.2500in" keepwithnext="true" keeptogether="true"/>
+<par def="26"><run><font size="3pt"/></run></par>
+<pardef id="27" leftmargin="0.2500in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="27"><run><font size="9pt" color="red"/>KILO</run></par>
+<pardef id="28" leftmargin="0.2500in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>v_Serveur := @Subset(@DbName; 1) ;
+@Contains(@LowerCase(v_Serveur); "zulu")</formula></code></pardef>
+<par def="28"><run><font size="9pt" color="red"/></run><embeddedview name="V_BCom72" widthtype="fitwindow" width="97%" height="1.9688in" database="85258194007C495C"><code event="showsinglecategory"><formula>@Text(Aler_NbProposition)</formula></code></embeddedview><run><font size="9pt" color="red"/></run></par>
+<pardef id="29" leftmargin="0.2500in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>v_Serveur := @Subset(@DbName; 1) ;
+!@Contains(@LowerCase(v_Serveur); "zulu")</formula></code></pardef>
+<par def="29"><run><font size="9pt" color="red"/>ZULU</run></par>
+<par def="29"><run><font size="9pt"/></run><embeddedview name="V_BCom72" widthtype="fitwindow" width="97%" height="1.9688in" database="0004445752528935"><code event="showsinglecategory"><formula>@Text(Aler_NbProposition)</formula></code></embeddedview><run><font size="9pt"/></run></par>
+<par def="26"><run><font size="9pt" color="red"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="11.2674in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="30" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="30"><run><font size="8pt" style="bold" color="maroon"/>Bons de travail</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="31" keepwithnext="true" keeptogether="true"/>
+<par def="31"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="26"><run><font size="3pt"/></run></par>
+<par def="27"><run><font size="9pt" color="red"/>KILO</run></par>
+<par def="28"><run><font size="9pt" color="red"/></run><embeddedview name="V_BTra73" widthtype="fitwindow" width="97%" height="1.9688in" database="85258171004D6802"><code event="showsinglecategory"><formula>Aler_NbPropositionFmt</formula></code></embeddedview><run><font size="9pt" color="red"/></run></par>
+<par def="29"><run><font size="9pt" color="red"/>ZULU</run></par>
+<par def="29"><run><font size="9pt"/></run><embeddedview name="V_BTra73" widthtype="fitwindow" width="97%" height="1.9688in" database="0004445752903935"><code event="showsinglecategory"><formula>Aler_NbPropositionFmt</formula></code></embeddedview><run><font size="9pt"/></run></par>
+<par def="26"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="11.2674in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="30"><run><font size="8pt" style="bold" color="maroon"/>Commissions</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="31"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="26"><run><font size="3pt"/></run></par>
+<par def="27"><run><font size="9pt" color="red"/>KILO</run></par>
+<par def="28"><run><font size="9pt" color="red"/></run><embeddedview name="V_Prop72" widthtype="fitwindow" width="97%" height="1.9688in" database="85257F570065003F"><code event="showsinglecategory"><formula>Aler_NoProposition</formula></code></embeddedview><run><font size="9pt" color="red"/></run></par>
+<par def="29"><run><font size="9pt" color="red"/>ZULU</run></par>
+<par def="29"><run><font size="9pt"/></run><embeddedview name="V_Prop72" widthtype="fitwindow" width="97%" height="1.9688in" database="0004445758057870"><code event="showsinglecategory"><formula>Aler_NoProposition</formula></code></embeddedview><run><font size="9pt"/></run></par>
+<par def="26"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="11.2674in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="30"><run><font size="8pt" style="bold" color="maroon"/>Contrats de service</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="31"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="26"><run><font size="3pt"/></run></par>
+<par def="27"><run><font size="9pt" color="red"/>KILO</run></par>
+<par def="28"><run><font size="9pt" color="red"/></run><embeddedview name="V_CSCo72" widthtype="fitwindow" width="97%" height="1.9688in" database="0004391639206018"><code event="showsinglecategory"><formula>Aler_ClientNoFmt</formula></code></embeddedview><run><font size="9pt" color="red"/></run></par>
+<par def="29"><run><font size="9pt" color="red"/>ZULU</run></par>
+<par def="29"><run><font size="9pt"/></run><embeddedview name="V_CSCo72" widthtype="fitwindow" width="97%" height="1.9688in" database="0004446170037037"><code event="showsinglecategory"><formula>Aler_ClientNoFmt</formula></code></embeddedview><run><font size="9pt"/></run></par>
+<par def="26"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow tablabel="Historique">
+<tablecell>
+<pardef id="33" leftmargin="0.2500in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="33"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="11.2674in"><tablecolumn width="0.1250in"/><tablecolumn width="1.0632in"/><tablecolumn width="2.3819in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<pardef id="35" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="35"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="36" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="36"><run><font size="8pt" style="bold" color="maroon"/>Date</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="37" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="37"><run><font size="8pt" style="bold" color="maroon"/>Utilisateur</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="38" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="38"><run><font size="8pt" style="bold" color="maroon"/>Description</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="39" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="39"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="40" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="40"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="41" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="41"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="42" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="42"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<pardef id="43" leftmargin="0.2500in" hide="notes web mobile" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNewDoc</formula></code></pardef>
+<par def="43"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<par def="33"><run><font size="9pt"/></run><run><font size="9pt"/><field type="richtext" kind="computed" name="SIHi_Historique"><code event="defaultvalue"><formula>SIHi_Historique</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="27"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par></tablecell></tablerow>
+<tablerow tablabel="Notes">
+<tablecell>
+<par def="23"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="11.2674in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="45" leftmargin="0.0785in" hide="print" keepwithnext="true" keeptogether="true"/>
+<par def="45"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="46" hide="print" keepwithnext="true" keeptogether="true"/>
+<par def="46"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="23"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" leftmargin="0.2500in" rightmargin="97%" refwidth="11.2778in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="47" hide="print" keepwithnext="true" keeptogether="true"/>
+<par def="47"><run><font size="9pt"/><field type="richtext" kind="editable" name="Inte_Notes"/></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="23"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="5" leftmargin="1in" rightmargin="100%"/>
+<par def="5"><run><font size="9pt"/></run></par>
+<par def="5"><run><font size="9pt"/></run></par>
+<pardef id="48" leftmargin="1in" rightmargin="100%" hide="notes web"/><subformref name="Historique | SF_Histo"/>
+<par def="48"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<par def="48"><run><font size="8pt" color="red"/></run></par></richtext></body>
+<item name="$$Tabl_Valeurs" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Dim nuiws As New Notesuiworkspace
+	Dim nuid As Notesuidocument
+	Set nuid = nuiws.Currentdocument
+	Call nuid.Refresh
+End Sub<break/></text></item>
+<item name="$Tabl_Valeurs_O" sign="true">
+<rawitemdata type="14">
+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
+</rawitemdata></item>
+<item name="HistoDC_1" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Tabl_ValeurDefaut" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$$Pret_Contenu" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Dim nuiws As New Notesuiworkspace
+	Dim nuid As Notesuidocument
+	Set nuid = nuiws.Currentdocument
+	Call nuid.Refresh
+End Sub<break/></text></item>
+<item name="$Pret_Contenu_O" sign="true">
+<rawitemdata type="14">
+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
+</rawitemdata></item>
+<item name="PRET_Quand" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="PRET_Retour" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="PRET_QUAND30" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Note_DateRelance" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Docu_Date" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="OriginalModTime" sign="true"><datetime>20061214T172750,79-05</datetime></item>
+<item name="DOCU_ICONETYPEDOCUMENT" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_Quantite" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_PrixUnitaire" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_PrixTotal" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_CoutUnitaire" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_CoutTotal" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_Profit" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_NbUtilisateursLicenseSDS" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_NbUtilisateursLicenseSDSM" summary="false" sign="true"><number>0</number></item>
+<item name="HISTODP" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Prod_FraisEntretienAlloc" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_NotesInclus" summary="false" sign="true"><number>0</number></item>
+<item name="Prix_PrixParUtilisateur" summary="false" sign="true"><number>0</number></item>
+<item name="$$Prod_Quantite" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Onfocus(Source As Field)
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Onfocus From Source Call Onfocus
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Onfocus:1:12
+Sub Onfocus(Source As Field)
+	Call FProd_Entering
+End Sub
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Call FProd_Exiting
+End Sub<break/><break/></text></item>
+<item name="$$Prod_PrixUnitaire" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Onfocus(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Onfocus From Source Call Onfocus
+End Sub
+
+'++LotusScript Development Environment:2:2:Onfocus:1:12
+Sub Onfocus(Source As Field)
+	Dim nuiws As New NotesUIWorkspace
+	If nuiws.CurrentDocument.EditMode Then
+		Call nuiws.CurrentDocument.Selectall
+	End If
+End Sub<break/><break/></text></item>
+<item name="$$Prod_CoutUnitaire" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Onfocus(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Onfocus From Source Call Onfocus
+End Sub
+
+'++LotusScript Development Environment:2:2:Onfocus:1:12
+Sub Onfocus(Source As Field)
+	Dim nuiws As New NotesUIWorkspace
+	If nuiws.CurrentDocument.EditMode Then
+		Call nuiws.CurrentDocument.Selectall
+	End If
+End Sub<break/><break/></text></item>
+<item name="$$Prod_FraisEntretienMensuels" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Entering(Source As Field)
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Entering From Source Call Entering
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Entering:1:12
+Sub Entering(Source As Field)
+	Call FProd_Entering
+End Sub
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Call FProd_Exiting
+End Sub<break/></text></item>
+<item name="$$Prod_FraisEntretienAnnuels" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Entering(Source As Field)
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Entering From Source Call Entering
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Entering:1:12
+Sub Entering(Source As Field)
+	Call FProd_Entering
+End Sub
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Call FProd_Exiting
+End Sub<break/></text></item>
+<item name="Prod_ClasseIcone" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_CategorieIcone" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_Quantite" summary="false" sign="true"><number>0</number></item>
+<item name="PROD_PRIXUNITAIRE" summary="false" sign="true"><number>0</number></item>
+<item name="PROD_PRIXTOTAL" summary="false" sign="true"><number>0</number></item>
+<item name="PROD_COUTUNITAIRE" summary="false" sign="true"><number>0</number></item>
+<item name="PROD_COUTTOTAL" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_Profit" summary="false" sign="true"><number>0</number></item>
+<item name="PROD_NBUTILISATEURSCALCULE" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_Garantie" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_FraisEntretienMensuels" summary="false" sign="true"><number>0</number></item>
+<item name="PROD_FRAISENTRETIENANNUELS" summary="false" sign="true"><number>0</number></item>
+<item name="PROD_FRAISENTRETIENTOTAL" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_NbUtilisateursInclus" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_PrixParUtilisateur" summary="false" sign="true"><number>0</number></item>
+<item name="$Prod_Quantite_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEgBHAAQAAAB0BAgCAAAAANwCTANYAwAAAAAwAPAAJABEAP//DAEA
+AAAAAAAAAAMAAAAYABQCAAAAABQCFAIAAAAAAAAAAGwBbAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAIAAAD4AiAEAAAAAPgC+AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAIAQgBAIAAADMAFgDAAAAAMwAzABYA1gDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAARwAAAAAAAAB0BAAACAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAYAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAMAgAAAABgAA8AJAAkAFAAUgBPAEQAXwBRAFUAQQBOAFQASQBUAEUAAAB4AAMATgBFAFcA
+AACMAAYARABFAEwARQBUAEUAAAAAAEwBCgBJAE4ASQBUAEkAQQBMAEkAWgBFAAAAAAC4AAkAVABF
+AFIATQBJAE4AQQBUAEUAAACUAAYATwBCAEoARQBDAFQAAAAAANwAAAAAAAAA9AEPACgARwBMAE8A
+QgBBAEwAUwApAEYAXwBQAFIATwBEAAAAuAEPACgARwBsAG8AYgBhAGwAcwApAEYAXwBQAHIAbwBk
+AAAAKAEGAFMATwBVAFIAQwBFAAAAAAA4AQoAQgBJAE4ARABFAFYARQBOAFQAUwAAAAAAmAELAE8A
+QgBKAEUAQwBUAE4AQQBNAEUAXwAAAGABBQBGAEkARQBMAEQAAAD//wYAJQBMAFMASQBEAEUAAAAA
+AHQBBwBPAE4ARgBPAEMAVQBTAAAA//8HAEUAWABJAFQASQBOAEcAAAD//w4ARgBQAFIATwBEAF8A
+RQBOAFQARQBSAEkATgBHAAAAAADMAQ0ARgBQAFIATwBEAF8ARQBYAEkAVABJAE4ARwAAAP//BgBG
+AF8AUABSAE8ARAAAAAAA//8QAE4ATwBUAEUAUwBVAEkAVwBPAFIASwBTAFAAQQBDAEUAAAAAAP//
+BgAlAEwAUwBYAFUASQAAAAAABQB4BAAAAADuR8+uGAAAAAAAmAAARToXmIJMFwQAAAAIAAAAbAEA
+APQAAAAAAAAAAgAAALAAXAEAAAAAAAAAAAAAAAAAAAAAsACwAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+XAFcAQAAAAAAAAAAAQAAAAIAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAQBcAQAAEAEGCAAAAAAaAAAAPAH//wAA
+AAAQAAAAWAMAACwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAxYTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAAAABkAAAA
+AAAAAAAAAAAAAAAAAgDAAAAAzAIAAAAAXAQBAP//AAADACAAAAAAAOAACQIAAMwACAAAABQCAABQ
+AQAAAAAAAAEAAAAEAgQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQC
+BAIAAAAAAAAAAAEAAAAHAAAAMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAEAAAAAAOAACQIAAMwACAAAAAAAAABkAQAA
+AAAAAAEAAACsAqwCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwCrAIA
+AAAAAAAAAAEAAAAHAAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAEAAAAAAOAACQIAAMwAEwAAAFABAAAtAQAAAAAA
+ABMAvAJkAQAA1wAAAAAAAAAYAAAABAC8AZCSVReYgkwXfAQAACEA3AKYCwAACABAACAEAAB4AQAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAgAJAlgDGgDAAPgB//8AAAAAEAAAAAAAAADQAQAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIVEyntLmkQv10A
+3QERhrcAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAIATAPoAwAAzAAAAAoAAQD//wAA
+EgAUAAAAAAD//wkCAAAAAAAGAAAAAFgDTAP//wAAAAAEAAEAAAAJAlgDCQJYAxkAIQDcAnAGAAAI
+AEAAAAAAAJwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAEAEsAAAAAANK8AB0AABoMAFtcAUmwAMrMAKYaDQBH
+XAHLLQEAAGwBGg4AR1wBy9cAAAAUAhoPAB0aEwAp+AIjGhQAHRoXACkgBCMaGAAdAgAAABEAHAAA
+AAAA//8BAAMAAwAAAAcA9AAJAFABEQBkARUACgAAAP8=
+</rawitemdata></item>
+<item name="$Prod_PrixUnitaire_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEQBVAAQAAAAEBCwCAAAAAAQAFAIkAwAAAAA4APgALABMANgBFAEA
+AAAAAAAAAAIAAAAYAGwBAAAAAAAAAAAAAAAAAAAAAGwBbAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAMAAADMACQDJAMkA8wAzAAgAiACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAAVQAAAAAAAAAEBAAALAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAUAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAwAgAAAABoABMAJAAkAFAAUgBPAEQAXwBQAFIASQBYAFUATgBJAFQAQQBJAFIARQAAAIAA
+AwBOAEUAVwAAAJQABgBEAEUATABFAFQARQAAAAAAVAEKAEkATgBJAFQASQBBAEwASQBaAEUAAAAA
+AMAACQBUAEUAUgBNAEkATgBBAFQARQAAAJwABgBPAEIASgBFAEMAVAAAAAAA5AAAAAAAAACgAQ8A
+KABHAEwATwBCAEEATABTACkARgBfAFAAUgBPAEQAAAD//w8AKABHAGwAbwBiAGEAbABzACkARgBf
+AFAAcgBvAGQAAAAwAQYAUwBPAFUAUgBDAEUAAAAAAEABCgBCAEkATgBEAEUAVgBFAE4AVABTAAAA
+AABoAQsATwBCAEoARQBDAFQATgBBAE0ARQBfAAAA8AEFAEYASQBFAEwARAAAAP//BgAlAEwAUwBJ
+AEQARQAAAAAACAIHAE8ATgBGAE8AQwBVAFMAAAB4AQUATgBVAEkAVwBTAAAAtAEQAE4ATwBUAEUA
+UwBVAEkAVwBPAFIASwBTAFAAQQBDAEUAAAAAAP//BgAlAEwAUwBYAFUASQAAAAAA//8PAEMAVQBS
+AFIARQBOAFQARABPAEMAVQBNAEUATgBUAAAA//8IAEUARABJAFQATQBPAEQARQAAAAAA//8JAFMA
+RQBMAEUAQwBUAEEATABMAAAA//8PAE4ATwBUAEUAUwBVAEkARABPAEMAVQBNAEUATgBUAAAABQAI
+BAAAAACEeizrGAAAAAAAoAAARToXmIJMFwQAAAAIAAAAbAEAAPwAAAAAAAAAAgAAALAAXAEAAAAA
+AAAAAAAAAAAAAAAAsACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAFcAQAAAAAAAAAAAQAAAAIAAAAG
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAMAAQBcAQAAGAEGCAAAAAAaAAAARAH//wAAAAAQAAAAIAIAADQBAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AxYTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAAAAAAAAgDAAAAA8AIA
+AAAAXAQBAP//AAADACAAAAAAAOgACQIAAMwACAAAAAAAAABYAQAAAAAAAAIAAAAEAuAC4ALgAgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCBAIAAAAAAAAAAAEAAAAKAAAAJAAA
+AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAADAAEA4AIAAOgACQIAAMwAGgDAAKQB//8AAAAAEAAAACQDAAB8AQAAAAAAAAEAAAAA
+AwADAAAAAAADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIV
+EyntLmkQv10A3QERhrcAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAIAFAKwAgAAzAAA
+AAoAAQD//wAAEgAUAAAAAAD//wkCAAAAAAAGAAAAACACFAL//wAAAAAEAAEAAAAJAiACCQIgAhkA
+AwACAAAAAABsAQkCAAAgAhMAAABYAQAALQEAAAAAAAARABAFAAAAALgBCQLiBQAAAAAAAAAAAAAA
+AAAAAAAAAAAAJAMQAAAAAAAAAAwCAAAAAAAAAgAAALQD2AMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAALQD2AMAAAAABBUTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAA
+AAAAAABkAAAAAAAAAAAAAAAAAAAAAgAUAgAAAAAgAgAACgABAP//AAARABAE2APYA9wBAAClBgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAASABQAAAAAAPQBCgAAAAAA7wYAAAAAJAMUAv//AAAAAAMAAQAA
+AAoACQIkAwQAWQAAAAAA0sQAHQAAGgsAW1wBSbAAyswAphoMAEdcAcstAQAAbAEaDQAdGhEAXuAC
+KyACJKYaEgBL4AItAAMjLbQDIzgOABoTAEvgAi0AAyMs2AMjGhQAGhUAHQIAAAARABgAAAAAAP//
+AQADAAMAAAAGAPwACABYAQ8ACgAAAAA=
+</rawitemdata></item>
+<item name="$Prod_CoutUnitaire_O" sign="true">
+<rawitemdata type="14">
+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
+AQADAAMAAAAGAPwACABYAQ8ACgAAAAA=
+</rawitemdata></item>
+<item name="$Prod_FraisEntretienMensuels_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEgBHAAQAAAB0BCgCAAAAANwCTANYAwAAAABMAAAAQABgAGgBKAF8
+AAAAAAAAAAMAAAAYABQCAAAAABQCFAIAAAAAbAFsAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAIAAAD4AiAEAAAAAPgC+AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAIAQgBAIAAADMAFgDAAAAAMwAzABYA1gDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAARwAAAAAAAAB0BAAAKAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAYAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAsAgAAAAAMAR0AJAAkAFAAUgBPAEQAXwBGAFIAQQBJAFMARQBOAFQAUgBFAFQASQBFAE4A
+TQBFAE4AUwBVAEUATABTAAAAlAADAE4ARQBXAAAAqAAGAEQARQBMAEUAVABFAAAAAACUAQoASQBO
+AEkAVABJAEEATABJAFoARQAAAAAA1AAJAFQARQBSAE0ASQBOAEEAVABFAAAAsAAGAE8AQgBKAEUA
+QwBUAAAAAAD4AAAAAAAAABQCDwAoAEcATABPAEIAQQBMAFMAKQBGAF8AUABSAE8ARAAAANgBDwAo
+AEcAbABvAGIAYQBsAHMAKQBGAF8AUAByAG8AZAAAAEQBBgBTAE8AVQBSAEMARQAAAAAAVAEKAEIA
+SQBOAEQARQBWAEUATgBUAFMAAAAAALgBCwBPAEIASgBFAEMAVABOAEEATQBFAF8AAACAAQUARgBJ
+AEUATABEAAAA//8GACUATABTAEkARABFAAAAAAD//wgARQBOAFQARQBSAEkATgBHAAAAAAD//wcA
+RQBYAEkAVABJAE4ARwAAAP//DgBGAFAAUgBPAEQAXwBFAE4AVABFAFIASQBOAEcAAAAAAOwBDQBG
+AFAAUgBPAEQAXwBFAFgASQBUAEkATgBHAAAA//8GAEYAXwBQAFIATwBEAAAAAAD//xAATgBPAFQA
+RQBTAFUASQBXAE8AUgBLAFMAUABBAEMARQAAAAAA//8GACUATABTAFgAVQBJAAAAAAAFAHgEAAAA
+ADHX4QYYAAAAAAC0AABFOheYgkwXBAAAAAgAAABsAQAAEAEAAAAAAAACAAAAsABcAQAAAAAAAAAA
+AAAAAAAAAACwALAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAVwBAAAAAAAAAAABAAAAAgAAAAYAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAwABAFwBAAAsAQYIAAAAABoAAABYAf//AAAAABAAAABYAwAASAEAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFhMp
+7S5pEL9dAN0BEYa3AAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAACAMAAAADMAgAAAABc
+BAEA//8AAAMAIAAAAAAA/AAJAgAAzAAIAAAAFAIAAGwBAAAAAAAAAQAAAAQCBAIAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIEAgAAAAAAAAAAAQAAAAcAAAAxAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAMAAQAAAAAA/AAJAgAAzAAIAAAAAAAAAIQBAAAAAAAAAQAAAKwCrAIAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArAKsAgAAAAAAAAAAAQAAAAcAAAA8AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAMAAQAAAAAA/AAJAgAAzAATAAAAbAEAANYAAAAAAAAAEwC8AoQBAADXAAAAAAAAABgAAAAEANwB
+kJJVF5iCTBd8BAAAIQDcApgLAAAIAEAAIAQAAJgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAkCWAMaAMAAGAL//wAA
+AAAQAAAAAAAAAPABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAhUTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAAAABkAAAA
+AAAAAAAAAAAAAAAAAgBMA+gDAADMAAAACgABAP//AAASABQAAAAAAP//CQIAAAAAAAYAAAAAWANM
+A///AAAAAAQAAQAAAAkCWAMJAlgDGQAhANwCcAYAAAgAQAAAAAAAvAEAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA
+AAQASwAAAAAA0tgAHQAAGgwAW1wBSbAAyswAphoNAEdcAcvWAAAAbAEaDgBHXAHL1wAAABQCGg8A
+HRoTACn4AiMaFAAdGhcAKSAEIxoYAB0CAAAAEQAcAAAAAAD//wEAAwADAAAABwAQAQkAbAERAIQB
+FQAKAAAAAA==
+</rawitemdata></item>
+<item name="$Prod_FraisEntretienAnnuels_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEgBHAAQAAAB0BCgCAAAAANwCTANYAwAAAABMAAwBQABgAAAAKAF8
+AAAAAAAAAAMAAAAYABQCAAAAABQCFAIAAAAAbAFsAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAIAAAD4AiAEAAAAAPgC+AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAIAQgBAIAAADMAFgDAAAAAMwAzABYA1gDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAARwAAAAAAAAB0BAAAKAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAYAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAsAgAAAABoARwAJAAkAFAAUgBPAEQAXwBGAFIAQQBJAFMARQBOAFQAUgBFAFQASQBFAE4A
+QQBOAE4AVQBFAEwAUwAAAAAAlAADAE4ARQBXAAAAqAAGAEQARQBMAEUAVABFAAAAAACUAQoASQBO
+AEkAVABJAEEATABJAFoARQAAAAAA1AAJAFQARQBSAE0ASQBOAEEAVABFAAAAsAAGAE8AQgBKAEUA
+QwBUAAAAAAD4AAAAAAAAABQCDwAoAEcATABPAEIAQQBMAFMAKQBGAF8AUABSAE8ARAAAANgBDwAo
+AEcAbABvAGIAYQBsAHMAKQBGAF8AUAByAG8AZAAAAEQBBgBTAE8AVQBSAEMARQAAAAAAVAEKAEIA
+SQBOAEQARQBWAEUATgBUAFMAAAAAALgBCwBPAEIASgBFAEMAVABOAEEATQBFAF8AAACAAQUARgBJ
+AEUATABEAAAA//8GACUATABTAEkARABFAAAAAAD//wgARQBOAFQARQBSAEkATgBHAAAAAAD//wcA
+RQBYAEkAVABJAE4ARwAAAP//DgBGAFAAUgBPAEQAXwBFAE4AVABFAFIASQBOAEcAAAAAAOwBDQBG
+AFAAUgBPAEQAXwBFAFgASQBUAEkATgBHAAAA//8GAEYAXwBQAFIATwBEAAAAAAD//xAATgBPAFQA
+RQBTAFUASQBXAE8AUgBLAFMAUABBAEMARQAAAAAA//8GACUATABTAFgAVQBJAAAAAAAFAHgEAAAA
+ACS2wPMYAAAAAAC0AABFOheYgkwXBAAAAAgAAABsAQAAEAEAAAAAAAACAAAAsABcAQAAAAAAAAAA
+AAAAAAAAAACwALAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAVwBAAAAAAAAAAABAAAAAgAAAAYAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAwABAFwBAAAsAQYIAAAAABoAAABYAf//AAAAABAAAABYAwAASAEAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFhMp
+7S5pEL9dAN0BEYa3AAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAACAMAAAADMAgAAAABc
+BAEA//8AAAMAIAAAAAAA/AAJAgAAzAAIAAAAFAIAAGwBAAAAAAAAAQAAAAQCBAIAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIEAgAAAAAAAAAAAQAAAAcAAAAxAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAMAAQAAAAAA/AAJAgAAzAAIAAAAAAAAAIQBAAAAAAAAAQAAAKwCrAIAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArAKsAgAAAAAAAAAAAQAAAAcAAAA8AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAMAAQAAAAAA/AAJAgAAzAATAAAAbAEAANYAAAAAAAAAEwC8AoQBAADXAAAAAAAAABgAAAAEANwB
+kJJVF5iCTBd8BAAAIQDcApgLAAAIAEAAIAQAAJgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAkCWAMaAMAAGAL//wAA
+AAAQAAAAAAAAAPABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAhUTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAAAABkAAAA
+AAAAAAAAAAAAAAAAAgBMA+gDAADMAAAACgABAP//AAASABQAAAAAAP//CQIAAAAAAAYAAAAAWANM
+A///AAAAAAQAAQAAAAkCWAMJAlgDGQAhANwCcAYAAAgAQAAAAAAAvAEAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA
+AAQASwAAAAAA0tgAHQAAGgwAW1wBSbAAyswAphoNAEdcAcvWAAAAbAEaDgBHXAHL1wAAABQCGg8A
+HRoTACn4AiMaFAAdGhcAKSAEIxoYAB0CAAAAEQAcAAAAAAD//wEAAwADAAAABwAQAQkAbAERAIQB
+FQAKAAAA/w==
+</rawitemdata></item>
+<item name="Prod_NbUtilisateursLicense" summary="false"><number>0</number></item>
+<item name="Aler_NbProposition_1" summary="false"><number>0</number></item>
+<item name="$SubForm_RepIDs" sign="true"><textlist><text>0000000000000000</text><text>0000000000000000</text></textlist></item>
+<item name="Aler_NbAlertes" summary="false"><number>0</number></item>
+<item name="Aler_NbProposition" summary="false"><number>0</number></item>
+<item name="HistoDC" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="HistoDM" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>F_Aler</text></item></form>
+
+</database>

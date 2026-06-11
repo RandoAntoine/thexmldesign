@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_NotesFormula" hide="v3 v4strict" designerversion="8.5.3" comment="1.0">
+<noteinfo noteid="3f0a6a" unid="9A10AEF4F1E8C35F852589A20078ED89" sequence="18">
+<created><datetime dst="true">20230501T180051,29-04</datetime></created>
+<modified><datetime>20250319T074102,33-05</datetime></modified>
+<revised><datetime>20250319T073634,45-05</datetime></revised>
+<lastaccessed><datetime>20250319T074102,32-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20230501T183538,78-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>
+
+' Traitement des erreurs
+Const gc_TypeElement_SINF = "SL"
+Const gc_Element_SINF = "SI_NotesFormula"
+
+' Based on « Validating a Notes formula from LotusScript » submitted to the 
+' SearchDomino.com tip exchange by member Christian Cloutier
+
+Const NULLHANDLE = 0
+Const NO_ERROR = 0
+Const ERR_FORMULA_COMPILATION = &amp;h500 + 1
+
+Declare Function NSFFormulaCompile Lib "nnotes.dll" ( _
+ByVal FormulaName As Long, _
+ByVal FormulaNameLength As Integer, _
+ByVal FormulaText As LMBCS String, _
+ByVal FormulaTextLength As Integer, _
+rethFormula As Long, _
+retFormulaLength As Integer, _
+retCompileError As Integer, _
+retCompileErrorLine As Integer, _
+retCompileErrorColumn As Integer, _
+retCompileErrorOffset As Integer, _
+retCompileErrorLength As Integer _
+) As Integer
+
+Declare Sub OSMemFree Lib "nnotes.dll"(ByVal hHandle As Long)
+
+Declare Function OSLoadString Lib "nnotes.dll" ( _
+ByVal hmodule As Long, _
+ByVal status As Integer, _
+ByVal s As String, _
+ByVal slen As Integer _
+) As Integer
+
+</lotusscript></code><code event="terminate"><lotusscript>Sub Terminate
+	
+End Sub
+
+
+</lotusscript></code><code event="SINF_ValiderFormule"><lotusscript>Function SINF_ValiderFormule(p_Formule As String, p_Erreur As String) As Boolean
+	On Error GoTo GererErreur
+	' ================================================================================
+	' SINF_ValiderFormule - This function uses the Lotus C API To Return a Notes error's Text message.
+	'
+	' Return Value: True if formula is valid, False in an error was found
+	'				p_Erreur - The text associated With the Notes API Error code, including the error offset.
+	' ================================================================================
+	Dim a_Resultat As Variant
+
+	SINF_ValiderFormule = False
+	
+	a_Resultat = SINF_CheckFormulaValid(p_Formule)
+	If a_Resultat(0) = NO_ERROR Then
+		SINF_ValiderFormule = True
+	Else
+		p_Erreur = SINF_GetAPIError(a_Resultat(0)) &amp; " (POS=" &amp; CStr(a_Resultat(1)) &amp; ",LEN=" &amp; CStr(a_Resultat(2)) &amp; ")"
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINF, gc_Element_SINF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINF_GetAPIError"><lotusscript>Function SINF_GetAPIError(p_ErrorCode As Integer) As String
+	On Error GoTo GererErreur
+	' ================================================================================
+	' GetAPIError - This function uses the Lotus C API To Return a Notes error's Text message.
+	'
+	' Return Value: String - The text associated With the Notes API Error code.
+	' ================================================================================
+	
+	Dim iRetVal As Integer
+	Dim sError As String * 1024
+	
+	SINF_GetAPIError = "Undefined formula error"
+
+	sError = String(1024, 0)
+	iRetVal = OSLoadString(0&amp;, p_ErrorCode, sError, 1023)
+	If iRetval &lt;&gt; 0 Then
+		SINF_GetAPIError = Left$(sError, iRetVal)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINF, gc_Element_SINF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINF_Evaluate"><lotusscript>Function SINF_Evaluate(p_Formule As String, pnd As NotesDocument) As Variant
+	On Error GoTo GererErreur
+	' ================================================================================
+	' SINF_Evaluate - This function checks to see if the formula is valid before executing it.
+	'
+	' Return Value: An array if the formula was executed without error
+	'			 or A string containing the error message if the formula was found to be invalid
+	'			 or False if an execution error occured.
+	' ================================================================================
+	Dim v_Erreur As String
+
+	SINF_Evaluate = False
+	
+	If SINF_ValiderFormule(p_Formule, v_Erreur) Then
+		If pnd Is nothing then
+			SINF_Evaluate = Evaluate(p_Formule)
+		else
+			SINF_Evaluate = Evaluate(p_Formule, pnd)
+		End if
+	Else
+		SINF_Evaluate = v_Erreur
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINF, gc_Element_SINF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINF_CheckFormulaValid"><lotusscript>Function SINF_CheckFormulaValid(p_Formula As String) As Variant
+	On Error GoTo GererErreur
+	' ================================================================================
+	' CheckFormulaValid - This Function uses the Lotus C API To check the syntax of a Notes formula.
+	'
+	' Return Value: Variant - A 3 elements array containing:
+	' Index 0 - The compilation error code Or NO_ERROR (0) If valid
+	' Index 1 - The compilation error offset In formula Or NO_ERROR If valid 
+	' Index 2 - The compilation error length Or NO_ERROR If valid
+	'
+	' Note: The compilation error code at Index 0 can Then be passed To GetAPIError() To Get more info about the error.
+	' ================================================================================
+	
+	Dim iError As Integer
+	Dim hFormula As Long
+	Dim wFormulaLen As Integer
+	Dim iCompileError As Integer
+	Dim iCompileErrorLine As Integer
+	Dim iCompileErrorColumn As Integer
+	Dim iCompileErrorOffset As Integer
+	Dim iCompileErrorLength As Integer
+	Dim iArray(2) As Integer
+	
+	iArray(0) = NO_ERROR
+	iArray(1) = NO_ERROR
+	iArray(2) = NO_ERROR
+	SINF_CheckFormulaValid = iArray
+
+	iError = NSFFormulaCompile(0, 0, _
+	p_Formula, _
+	Len(p_Formula), _
+	hFormula, _
+	wFormulaLen, _
+	iCompileError, _
+	iCompileErrorLine, _
+	iCompileErrorColumn, _
+	iCompileErrorOffset, _
+	iCompileErrorLength)
+	
+	If hFormula &lt;&gt; NULLHANDLE Then
+		Call OSMemFree(hFormula)
+	End If
+	
+	If iError = ERR_FORMULA_COMPILATION Then
+		iArray(0) = iCompileError
+		iArray(1) = iCompileErrorOffset
+		iArray(2) = iCompileErrorLength
+		SINF_CheckFormulaValid = iArray
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINF, gc_Element_SINF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,45-05</datetime></item></scriptlibrary>
+
+</database>

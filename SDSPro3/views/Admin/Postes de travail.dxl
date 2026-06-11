@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><view name="Admin\Postes de travail" alias="V_InPC" hide="web mobile" showinmenu="false" publicaccess="false" designerversion="8.5.3" comment="K:PosteDeTravail" unreadmarks="none" onopengoto="lastopened" onrefresh="displayindicator" headers="simple" opencollapsed="true" showresponsehierarchy="false" showmargin="true" shrinkrows="true" extendlastcolumn="true" showhierarchies="false" unreadcolor="black" rowlinecount="1" headerlinecount="1" rowspacing="1" bgcolor="white" altrowcolor="#e6eff4" totalscolor="gray" headerbgcolor="white" boldunreadrows="false" evaluateactions="false" allownewdocuments="false" allowcustomizations="true" hidemarginborder="false" marginwidth="0px" marginbgcolor="white" uniquekeys="false" formatnoteid="BE560B95CACBE116852567C90064D48D">
+<noteinfo noteid="555ad6" unid="9406F5E74CBA24B38525880D0070589B" sequence="30">
+<created><datetime>20220322T152707,15-05</datetime></created>
+<modified><datetime>20260105T014844,34-05</datetime></modified>
+<revised><datetime>20250319T073935,83-05</datetime></revised>
+<lastaccessed><datetime>20260226T114835,60-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014844,33-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="selection"><formula>SELECT Form = "F_InPC"</formula></code><code event="queryopendocument"><lotusscript>Sub Queryopendocument(Source As Notesuiview, Continue As Variant)
+	Continue = False
+End Sub
+</lotusscript></code><code event="querypaste"><lotusscript>Sub Querypaste(Source As Notesuiview, Continue As Variant)
+	Continue = False
+End Sub</lotusscript></code>
+<actionbar borderstyle="none" linestyle="double" bgcolor="silver" bordercolor="#2f2f2f">
+<actionbuttonstyle bgcolor="silver"/><font size="8pt" style="bold"/><border width="0px 0px 1px"/>
+<action title="(Espacement)" align="right"><code event="label"><formula>""</formula></code></action></actionbar>
+<column sort="ascending" hidedetailrows="false" listseparator="newline" itemname="NomPoste" width="10" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false"><font size="9pt"/><columnheader title="Poste de travail"><font size="8pt" style="bold"/></columnheader><datetimeformat show="date" date="yearmonthday" fourdigityearfor21stcentury="true" time="hourminutesecond" zone="never" dateformat="yearmonthdayweekday" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1="-" dateseparator2="-" dateseparator3=" " timeseparator=":" timeformat24="true" preference="usersetting"/><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/></column>
+<column hidedetailrows="false" listseparator="newline" itemname="Date" width="7" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false"><font size="9pt"/><columnheader title="Date"><font size="8pt" style="bold"/></columnheader><datetimeformat show="date" date="yearmonthday" fourdigityearfor21stcentury="true" time="hourminutesecond" zone="never" dateformat="yearmonthdayweekday" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1="-" dateseparator2="-" dateseparator3=" " timeseparator=":" timeformat24="true" preference="usersetting"/><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/></column>
+<item name="TmpViewDesignCollation" sign="true"><text>fr</text></item></view>
+
+</database>

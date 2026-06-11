@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_NotesAPI" hide="v3 v4strict" designerversion="8.5.3" comment="1.1a">
+<noteinfo noteid="555712" unid="41720BD8167644D5852586B40011FB86" sequence="76">
+<created><datetime dst="true">20210410T231625,02-04</datetime></created>
+<modified><datetime>20260105T014837,25-05</datetime></modified>
+<revised><datetime>20250319T073634,51-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,24-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,24-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>Const SINAPI_APIModule = "NNOTES"  ' Windows
+
+Declare Public Function SINAPI_DesignRefresh Lib SINAPI_APIModule Alias "DesignRefresh" _
+(  Byval S As String, Byval hDB As Long, Byval F As Long, Byval zA As Long, Byval zM As Long) As Integer
+
+Declare Public Function SINAPI_OSPathNetConstruct Lib SINAPI_APIModule Alias "OSPathNetConstruct" _
+(  Byval zP As Long, Byval S As String, Byval F As String, Byval N As String) As Integer
+
+Declare Public Function SINAPI_NSFDbInfoGet Lib SINAPI_APIModule Alias "NSFDbInfoGet" _
+(  Byval hDB As Long, Byval D As String) As Integer
+Declare Public Sub SINAPI_NSFDbInfoModify Lib SINAPI_APIModule Alias "NSFDbInfoModify" _
+(  Byval S As String, Byval W As Integer, Byval D As String)
+Declare Public Function SINAPI_NSFDbInfoSet Lib SINAPI_APIModule Alias "NSFDbInfoSet" _
+(  Byval hDB As Long, Byval D As String) As Integer
+
+Declare Public Function SINAPI_NSFDbOpen Lib SINAPI_APIModule Alias "NSFDbOpen" _
+(  Byval P As String, hDB As Long) As Integer
+Declare Public Function SINAPI_NSFDbClose Lib SINAPI_APIModule Alias "NSFDbClose" _
+(  Byval hDB As Long) As Integer
+
+Declare Public Function SINAPI_NSFItemSetText Lib SINAPI_APIModule Alias "NSFItemSetText" _
+(  Byval hNT As Long, Byval N As String, Byval D As String, Byval nD As Integer) As Integer
+
+Declare Public Function SINAPI_NSFNoteOpen Lib SINAPI_APIModule Alias "NSFNoteOpen" _
+(  Byval hDB As Long, Byval NoteID As Long, Byval F As Integer, hNT As Long) As Integer
+Declare Public Function SINAPI_NSFNoteClose Lib SINAPI_APIModule Alias "NSFNoteClose" _
+(  Byval hNT As Long) As Integer
+Declare Public Function SINAPI_NSFNoteUpdate Lib SINAPI_APIModule Alias "NSFNoteUpdate" _
+(  Byval hNT As Long, Byval F As Integer) As Integer
+Declare Public Function SINAPI_NSFNoteGetInfo Lib SINAPI_APIModule Alias "NSFNoteGetInfo" _
+( ByVal hNT As Long, ByVal M As Integer, V As Any) As Integer
+
+Declare Public Function SINAPI_ConvertTIMEDATEToText Lib SINAPI_APIModule Alias "ConvertTIMEDATEToText" _
+( ByVal zI As Long, ByVal zT As Long, T As Long, ByVal S As String, ByVal nS As Integer, nT As Integer) As Integer
+
+Declare Public Function SINAPI_MailGetMessageBodyComposite Lib SINAPI_APIModule Alias "MailGetMessageBodyComposite" ( ByVal hNT As Long, ByVal N As String, ByVal D As String, nD As Long) As Integer
+Declare Public Function SINAPI_ExportRTF Lib "nxrtf" Alias "ExportRTF" (ByVal sTempFile As String, ByVal flags As Long, hmod As Long, ByVal altlibrary As String, ByVal sRTFFile As String) As Integer
+
+' Utilisé par VNDB_ChangerIDReplique
+Type SINAPI_TIMEDATE
+	Innards(1) As Long
+End Type
+Type SINAPI_DBREPLICAINFO
+	ID As SINAPI_TIMEDATE  'ID that is same for all replica files
+	Flags As Integer     'Replication flags
+	CutoffInterval As Integer   'Automatic Replication Cutoff
+	Cutoff As SINAPI_TIMEDATE       'Replication cutoff date
+End Type
+Declare Public Function SINAPI_NSFDbReplicaInfoGet Lib SINAPI_APIModule Alias "NSFDbReplicaInfoGet" (Byval hdb As Long, hdbr As SINAPI_DBREPLICAINFO) As Integer
+Declare Public Function SINAPI_NSFDbReplicaInfoSet Lib SINAPI_APIModule Alias "NSFDbReplicaInfoSet" (Byval hdb As Long, hdbr As SINAPI_DBREPLICAINFO) As Integer
+Declare Public Function SINAPI_NSFDbClearReplHistory Lib "nnotes.dll" Alias "NSFDbClearReplHistory" (ByVal hdb As Long, flags As Integer) As Integer</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,51-05</datetime></item></scriptlibrary>
+
+</database>

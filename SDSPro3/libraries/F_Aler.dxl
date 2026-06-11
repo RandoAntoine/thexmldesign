@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_Aler" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="555832" unid="950C4D9878C8DA4C8525885D004E21B7" sequence="25">
+<created><datetime dst="true">20220610T101324,39-04</datetime></created>
+<modified><datetime>20260105T014837,87-05</datetime></modified>
+<revised><datetime>20250319T073733,89-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,86-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,86-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SDSP_MasquePNav"
+Use "SDSP_Navigation"
+Use "SDSP_Alertes"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_FAler As NotesSession
+Dim gndb_FAler As NotesDatabase
+
+Dim gnuiws_FAler As NotesUIWorkspace
+Dim gnuid_FAler As NotesUIDocument
+Dim gnd_FAler As NotesDocument
+
+
+Const gc_NomTableStatut_FAler = "Aler_Statut"
+
+' Traitement des erreurs
+Const gc_TypeElement_FAler = "SL"
+Const gc_Element_FAler = "F_Aler"
+
+
+
+</lotusscript></code><code event="FAler_acClientPayer"><lotusscript>Sub FAler_acClientPayer
+	'---------------------------------------------------------------------	
+	'changer le statut de la prop a 94, selon le statut actuel de la prop.
+	'---------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_StatutPayee As String
+	Dim nd_DB As NotesDocument
+	Dim v_Resultat As Integer			
+	
+	Dim v_NbMaj As Integer
+	Dim v_NbAnn As Integer	
+	Dim v_Message As String
+	
+	' Initialisations
+	Call FAler_Initialisations
+	
+	v_StatutPayee = "94" 
+	
+	' Demander le commentaire
+	Set nd_DB = SITp_ndTemp("SDSP3.acAlerteClientPayer")	
+	nd_DB.Form = "DB_Comm"	
+	nd_DB.DB_CommentaireRequis = "1"  'Commentaire obligatoire	
+	nd_DB.DB_NouveauStatut = v_StatutPayee 'Payé par client
+	
+	If Not gnuiws_FAler.DialogBox("DB_Comm", True, True, False, False, False, False,_
+	xGDK_xMessage("SI", 97, xLangue, ""), nd_DB, True, False, False) Then
+		Print xGDK_xMessage("SI", 1, xLangue, "")
+		Exit Sub
+	End If
+	 
+	Call nd_DB.save(True, False)
+	
+	v_Resultat = SDSPAl_acChangerStatutProposition(gnd_FAler, nd_DB, v_StatutPayee)
+	Select Case v_Resultat
+		Case 1:
+			v_NbMaj = v_NbMaj + 1
+		Case 2:
+			v_NbAnn = v_NbAnn + 1
+	End Select
+	
+	If v_NbAnn &gt; 0 Then
+		v_Message = "Fin maj.  " &amp; CStr(v_NbAnn) &amp; " Alerte annulée."
+	Else	
+		v_Message = "Fin maj.  " &amp; CStr(v_NbMaj) &amp; " Alerte traitée."
+	End If
+	
+	gnd_FAler.SaveOptions = "0"
+	Call gnuid_FAler.Close
+	
+	MessageBox v_Message, 64, "Changement de statut"
+	'Print v_Message	' Action terminée.
+	
+	Call gnuiws_FAler.ViewRefresh
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FAler, gc_Element_FAler, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FAler_hsInfoClient"><lotusscript>Sub FAler_hsInfoClient
+' ------------------------------------------------------------------------
+' Afficher le document du client par rapport aux infos du document courant
+' ------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	
+	' Initialisations
+	Call FAler_Initialisations
+	
+	
+	' Ouvrir un client
+	' ----------------
+	Call SICl_OuvrirClient(xVar(gnd_FAler, "Aler_ClientNoFmt", ""))
+	
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FAler, gc_Element_FAler, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FAler_Initialisations"><lotusscript>Sub FAler_Initialisations
+	On Error GoTo GererErreur
+	
+	If gns_FAler Is Nothing Then
+		Set gns_FAler = New NotesSession
+		Set gndb_FAler = gns_FAler.Currentdatabase
+		
+		Set gnuiws_FAler = New NotesUIWorkspace
+		Set gnuid_FAler = gnuiws_FAler.CurrentDocument
+		Set gnd_FAler = gnuid_FAler.Document
+	End If
+		
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FAler, gc_Element_FAler, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FAler_hsOuvrirProposition"><lotusscript>Sub FAler_hsOuvrirProposition
+	'-------------------------------------------
+	' Permet d'ouvrir le document de proposition
+	'-------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_NoProposition As String
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nuid As NotesUIDocument
+	Dim nd_Prop As NotesDocument
+	Dim nd_PNav As NotesDocument
+	Dim v_Prefix As String
+	
+	' Initialisations
+	Call FAler_Initialisations
+	
+	' Sélectionner le proposition
+	' ---------------------------
+	v_NoProposition = xVar(gnd_FAler, "Aler_NoProposition", "")
+	
+	Set nd_Prop = xSDSP3_xndProp(v_NoProposition, True)  'SDSP3
+	Set nd_PNav = New NotesDocument(gndb_FAler)
+	
+	
+	Set nuid = nuiws.CurrentDocument
+	
+	v_Prefix = Left(xVar(nuid.document, "BCom_NoBonCommandeFmt", ""), 1)
+	If v_Prefix = "" Then
+		v_Prefix = "P"
+	End If
+	
+	nd_PNav.Form = "F_PNav0.00"
+	nd_PNav.PNav_Titre = Trim(v_Prefix &amp; CStr(xVar(nd_Prop, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(nd_Prop, "Prop_ClientNomInterne", xVar(nd_Prop, "Prop_ClientNom", "")))
+	nd_PNav.Prop_NoProposition = xVar(nd_Prop, "Prop_NoProposition", "")
+	nd_PNav.Prop_ClientNomInterne = xVar(nd_Prop, "Prop_ClientNomInterne", "")
+	
+	nd_PNav.PNav_EditMode = 0	
+	Call nuiws.Editdocument(True, nd_PNav)		
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FAler, gc_Element_FAler, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FAler_acAnnulerAlerte"><lotusscript>Sub FAler_acAnnulerAlerte
+	'-----------------------------------------------------------------------------------------	
+	'changer le statut de l"Alerte a 99.
+	'-----------------------------------------------------------------------------------------
+
+	On Error GoTo GererErreur
+	
+	Dim nd_DB As NotesDocument			
+	
+	Dim v_StatutAnnulee As String
+	Dim v_StatutDesc As String	
+	Dim v_Message As String
+	
+	Dim v_NbMaj As Integer
+	
+	Dim v_Commentaire As String
+	Dim v_UserName As String
+	
+	
+	' Initialisations
+	Call FAler_Initialisations
+	
+	
+	' Demander le commentaire
+	Set nd_DB = New NotesDocument(gndb_FAler)
+	nd_DB.DB_CommentaireRequis = "1"  'Commentaire obligatoire
+	
+	v_StatutAnnulee = "99"
+	v_StatutDesc = xDescTabl(v_StatutAnnulee, "Aler_Statut_FR", True)
+	nd_DB.DB_NouveauStatut = v_StatutAnnulee 'Alerte Annulée
+	
+	If Not gnuiws_FAler.DialogBox("DB_Comm", True, True, False, False, False, False,_
+	xGDK_xMessage("SI", 97, xLangue, ""), nd_DB, True, False, False) Then
+		Print xGDK_xMessage("SI", 1, xLangue, "")
+		Exit Sub
+	End If
+	
+	v_Commentaire = xVar(nd_DB, "DB_Commentaire", "")
+	'v_UserName =  gns_FAler.UserName  
+	
+	
+	' Mettre à jour l'historique de l'alerte
+	If SDSPAl_AssignerStatut (gnd_FAler, v_StatutAnnulee, v_Commentaire) Then					
+		v_NbMaj = v_NbMaj + 1
+	End If
+
+	
+	v_Message = "Fin maj.  " &amp; CStr(v_NbMaj) &amp; " Alerte annulée."
+	
+	
+	gnd_FAler.SaveOptions = "0"
+	Call gnuid_FAler.Close
+	
+	MessageBox v_Message, 64, "Changement de statut"
+	
+	Call gnuiws_FAler.ViewRefresh
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FAler, gc_Element_FAler, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FAler_acClientPayerPartiellement"><lotusscript>Sub FAler_acClientPayerPartiellement
+	'-----------------------------------------------------------------------------------------	
+	'changer le statut de la prop a 84: Payé partiellement, selon le statut actuel de la prop.
+	'-----------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_StatutPayee As String
+	Dim nd_DB As NotesDocument
+	Dim v_Resultat As Integer			
+	
+	Dim v_NbMaj As Integer
+	Dim v_NbAnn As Integer	
+	Dim v_Message As String
+	
+	' Initialisations
+	Call FAler_Initialisations
+	
+	v_StatutPayee = "84" 
+	
+	' Demander le commentaire
+	Set nd_DB = SITp_ndTemp("SDSP3.acAlerteClientPayer")	
+	nd_DB.Form = "DB_Comm"	
+	nd_DB.DB_CommentaireRequis = "1"  'Commentaire obligatoire	
+	nd_DB.DB_NouveauStatut = v_StatutPayee 'Payé par client
+	
+	If Not gnuiws_FAler.DialogBox("DB_Comm", True, True, False, False, False, False,_
+	xGDK_xMessage("SI", 97, xLangue, ""), nd_DB, True, False, False) Then
+		Print xGDK_xMessage("SI", 1, xLangue, "")
+		Exit Sub
+	End If
+	
+	Call nd_DB.save(True, False)
+	
+	v_Resultat = SDSPAl_acChangerStatutProposition(gnd_FAler, nd_DB, v_StatutPayee)
+	Select Case v_Resultat
+		Case 1:
+			v_NbMaj = v_NbMaj + 1
+		Case 2:
+			v_NbAnn = v_NbAnn + 1
+	End Select
+	
+	If v_NbAnn &gt; 0 Then
+		v_Message = "Fin maj.  " &amp; CStr(v_NbAnn) &amp; " Alerte annulée."
+	Else	
+		v_Message = "Fin maj.  " &amp; CStr(v_NbMaj) &amp; " Alerte traitée."
+	End If
+		
+	gnd_FAler.SaveOptions = "0"
+	Call gnuid_FAler.Close
+	
+	MessageBox v_Message, 64, "Changement de statut"
+	
+	Call gnuiws_FAler.ViewRefresh
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FAler, gc_Element_FAler, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073733,89-05</datetime></item></scriptlibrary>
+
+</database>

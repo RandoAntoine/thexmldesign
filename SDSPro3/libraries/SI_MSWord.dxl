@@ -1,0 +1,1063 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_MSWord" hide="v3 v4strict" designerversion="8.5.3" comment="4.5a">
+<noteinfo noteid="5557ba" unid="0135141B8C41AB82852586B400124213" sequence="76">
+<created><datetime dst="true">20210410T231925,63-04</datetime></created>
+<modified><datetime>20260105T014837,65-05</datetime></modified>
+<revised><datetime>20250319T073634,67-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,64-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,64-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_tString"
+'
+'	Les fonctions définies dans cette bibliothèque de script permettent de démarrer Word afin d'y faire des opérations simples
+
+'	Fonctions disponibles
+'
+'	================
+'	DemarrerWord97
+'	================
+'	Démarre le programme Ms Word 97
+'	Syntaxe:				flag = Demarre_Word97
+'	Paramètres:			Aucun.
+'	Valeur retournée:	True indique que l'ouverture du programme word a bien fonctionnée.
+'							False indique que l'ouverture du programme word a échouée.
+'
+'
+'	===============
+'	FermerWord97
+'	===============
+'	Ferme le programme Ms Word 97
+'	Syntaxe:				Flag = Ferme_Word97
+'	Paramètre:			Aucun.
+'	Valeur retournée:	True indique que la fermeture du programme word a bien fonctionnée.
+'							False indique que fermeture du programme word a échouée.
+'
+'
+'	==================
+'	OuvrirDocument
+'	==================
+'	Ouvre un document word dont le chemin est fournit en paramètre.
+'	Syntaxe:				Flag = Ouvrir_Document( p_CheminFichier )
+'	Paramètres:			p_CheminFichier	String			Chemin d'accès du fichier à ouvrir
+'	Valeur retournée:	True indique que l'ouverture du document word a bien fonctionnée.
+'							False indique que l'ouverture du document word a échouée.
+'
+'
+'	==================
+'	NouveauDocument
+'	==================
+'	Crée un nouveau document word.
+'	Syntaxe:				Flag = Nouveau_Document
+'	Paramètres:			Aucun.
+'	Valeur retournée:	True indique que la création du document word a bien fonctionnée.
+'							False indique que la création du document word a échouée.
+'
+'
+'	=================
+'	EnregistrerDocument
+'	=================
+'	Sauvegarde un document Word.
+'	Syntaxe:				Flag = Sauver_Document(p_CheminFichier, p_MotPasse)
+'	Paramètres:			p_CheminFichier	String			Chemin d'accès au fichier à enregistrer.
+'							p_MotPasse		string			Mot de passe pour le document
+'	Valeur retournée:	True indique que le document a été sauvegardé.
+'							False indique que le document n'a pas été sauvegardé.
+'
+'
+'	==================
+'	FermerDocument
+'	==================
+'	Syntaxe:				Flag = Fermer_Document
+'	Paramètres:			Aucun.
+'	Valeur retournée:	True indique que le document a été fermé.
+'							False indique que le document n'a pas été fermé.
+'
+'
+'	==================
+'	Inserer_Texte
+'	==================
+'	Remplace le texte sélectionné ou insère du texte où le curseur se trouve
+'	Syntaxe:				Flag = Inserer_Texte(p_Texte)
+'	Paramètres:			p_Texte				String			Texte à insérer à la place de la sélection.
+'	Valeur retournée:	True indique que l'insetion du texte a fonctionnée.
+'							False indique que l'insertion du texte a échouée.
+'
+'
+'	==================
+'	Selectionner_Signet
+'	==================
+'	Recherche et sélectionne le signet fournit en paramètre.
+'	Syntaxe:				Flag = Selectionner_Signet(p_NomSignet)
+'	Paramètres:			p_NomSignet		String			Nom du signet à sélectionner
+'	Valeur retournée:	True indique que la sélection du signet a fonctionnée.
+'							False indique que la sélection du signet a échouée.
+'
+'
+'	================
+'	Remplacer_Signet
+'	================
+'	Remplace remplace tous les signet (v_NomSignet) d'un document Word par le texte(v_Texte.)
+'	Syntaxe:				Flag = RemplacerSignet(v_NomSignet, v_Texte)
+'	Paramètres:			p_NomSignet	Stirng			Nom du signet qui se trouve dans le document ouvert.
+'							p_Texte			String			Texte à insérer à la place du signet.
+'	Valeur retournée:	True indique que le signet a été trouvé et remplacé.
+'							False indique que le signet ne fut pas trouvé, donc non remplacé.
+'
+'
+'	==============
+'	Trouver_Texte
+'	==============
+
+
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim g_WordApp_SIMW As Variant
+Dim g_WordDoc_SIMW As Variant
+
+Dim g_WordActif_SIMW As Integer
+Dim g_WordVersion_SIMW As Integer
+Dim g_DocumentsOuverts_SIMW As Integer
+
+
+' Assignation de la police
+Dim g_Police_SIMW As String
+Dim g_Taille_SIMW As Variant
+Dim g_Gras_SIMW As Variant
+Dim g_Italique_SIMW As Variant
+
+' Convertir PDF
+Const APIModule = "NNOTES"
+Declare Function MailGetMessageBodyComposite Lib APIModule Alias "MailGetMessageBodyComposite" ( ByVal hNT As Long, ByVal N As String, ByVal D As String, nD As Long) As Integer
+Declare Function ExportRTF Lib "nxrtf" Alias "ExportRTF" (ByVal sTempFile As String, ByVal flags As Long, hmod As Long, ByVal altlibrary As String, ByVal sRTFFile As String) As Integer
+
+Declare Function FindWindow Lib "user32" Alias "FindWindowA" _
+(ByVal lpClassName As String, ByVal lpWindowName As String) As Long
+Declare Function SetForegroundWindow Lib "user32" (ByVal hWnd As Long) As Long
+
+' Traitement des erreurs
+Const gc_TypeElement_SIMW = "SL"
+Const gc_Element_SIMW = "SI_MSWord"
+
+
+</lotusscript></code><code event="SIMW_RemplacerSignetObjetOLE"><lotusscript>Function SIMW_RemplacerSignetObjetOLE(p_Rechercher As String, p_TypeObjet As String, p_Fichier As String, p_AjouterChar As Long) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_RemplacerSignetObjetOLE = False
+	
+	Dim obj_Range As Variant
+	Dim obj_Find As Variant
+		
+	' Assignation de la plage à rechercher à tout le document g_WordDoc_SIMW
+	Set obj_Range = g_WordDoc_SIMW.Content
+	
+	' Rechercher la première occurence de p_Rechercher
+	obj_Range.Find.execute p_Rechercher
+	Set obj_Find = obj_Range.Find
+	
+	If obj_Find.Found = True Then
+		' Allonger la sélection
+		If p_AjouterChar &gt; 0 Then
+			obj_Range.End = obj_Range.End + p_AjouterChar
+		End If
+		
+		Call obj_Range.Select
+		g_WordApp_SIMW.Selection.InlineShapes.AddOLEObject p_TypeObjet,p_Fichier, False, False
+		
+	End if
+			
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_RemplacerSignet"><lotusscript>Function SIMW_RemplacerSignet(p_Signet As String, p_Texte As String) As Integer
+	
+	On Error GoTo GererErreur
+	
+	SIMW_RemplacerSignet = False
+	
+	'On se positionne sur tous les signet du même nom
+	If SIMW_SelectionnerSignet(p_Signet) Then
+		'Remplacer la sélection(signet) par le texte(p_Texte)
+		g_WordApp_SIMW.Selection.Text = p_Texte
+		SIMW_RemplacerSignet = True
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_AssignerPolice"><lotusscript>Function SIMW_AssignerPolice(Byval p_Police As String, Byval p_Taille As Variant, Byval p_Gras As Variant, _
+Byval p_Italique As Variant) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_AssignerPolice = False
+	
+	' Initialiser les variables globales avec les paramètres
+	g_Police_SIMW = p_Police
+	g_Taille_SIMW = p_Taille
+	g_Gras_SIMW = p_Gras
+	g_Italique_SIMW = p_Italique
+	
+	SIMW_AssignerPolice = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, Getthreadinfo(1), "", False)
+	Exit Function
+End Function	
+
+</lotusscript></code><code event="SIMW_AfficherDocument"><lotusscript>Sub SIMW_AfficherDocument(p_Afficher As Boolean)
+	On Error GoTo GererErreur
+	
+	g_WordApp_SIMW.Visible = p_Afficher
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+
+</lotusscript></code><code event="SIMW_EnregistrerNotesItemRTF"><lotusscript>Public Sub SIMW_EnregistrerNotesItemRTF(pnd As NotesDocument, p_CheminFichier As String)
+	' Description: Functions to generate RTF and PDF Documents from NotesDocuments
+	Dim v_TempDoc As NotesDocument
+	Dim v_TempRti As NotesRichTextItem
+	
+	On Error GoTo GererErreur
+	
+	Set v_TempDoc = pnd.ParentDatabase.CreateDocument()
+	Set v_TempRti = v_TempDoc.CreateRichTextItem("Body")
+	
+	Call pnd.RenderToRTItem(v_TempRti)
+	v_TempDoc.Form = "Render"
+	Call v_TempDoc.Save(True, False)
+	
+	Call SIMW_ConvertirNotesItemRTF(v_TempRti, p_CheminFichier)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIMW_RemplacerSignetWordArt"><lotusscript>Function SIMW_RemplacerSignetWordArt(p_Signet As String, p_Texte As String) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_RemplacerSignetWordArt = False
+	
+	Dim i As Long
+	
+	If g_WordDoc_SIMW.InlineShapes.Count &gt; 0 Then
+		
+		For i = 1 To g_WordDoc_SIMW.InlineShapes.Count
+			g_WordDoc_SIMW.InlineShapes(i).Select
+			
+			If g_WordDoc_SIMW.InlineShapes(i).Type = 3 Then
+				
+				If Trim(g_WordApp_SIMW.Selection.InlineShapes(i).TextEffect.Text) = p_Signet Then
+					g_WordApp_SIMW.Selection.InlineShapes(i).TextEffect.Text = p_Texte
+					SIMW_RemplacerSignetWordArt = True
+					Exit For
+				End If
+				
+			End If
+			
+		Next
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_AttendreFinImpression"><lotusscript>Sub SIMW_AttendreFinImpression
+	On Error GoTo GererErreur
+	
+	Do Until g_WordApp_SIMW.BackgroundPrintingStatus = 0
+		Sleep 1
+	Loop
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIMW_FermerDocument"><lotusscript>Function SIMW_FermerDocument
+	On Error GoTo GererErreur
+	
+	SIMW_FermerDocument = False
+	
+	If g_DocumentsOuverts_SIMW &gt; 0 Then
+		' Fermeture du document
+		g_WordDoc_SIMW.Saved = True		'Evite la boite de demande de sauvegarde
+		g_WordDoc_SIMW.Close			'Ferme le document
+		
+		g_DocumentsOuverts_SIMW = g_DocumentsOuverts_SIMW - 1
+	End If
+	
+	SIMW_FermerDocument = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_SupprimerPagesVideFinDocument"><lotusscript>Function SIMW_SupprimerPagesVideFinDocument As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_SupprimerPagesVideFinDocument = False
+	
+	Dim i As Long
+	
+	' Boucler de la dernière page jusqu'au début et supprimer les pages vide
+	For i = CLng(g_WordDoc_SIMW.Paragraphs.Count) To 1 Step -1
+		
+		If Asc(Trim(g_WordDoc_SIMW.Paragraphs(i).Range.Text)) = 13 Or Asc(Trim(g_WordDoc_SIMW.Paragraphs(i).Range.Text)) = 10 Then
+			' Si première charactère trouvé sur la page est un retour de chariot ou saut de ligne
+			g_WordDoc_SIMW.Paragraphs(i).Range.Select
+			g_WordDoc_SIMW.Application.Selection.TypeBackspace
+			'g_WordDoc_SIMW.Paragraphs(i).Range.Delete
+		Else
+			SIMW_SupprimerPagesVideFinDocument = True
+			Exit Function
+		End If
+		
+	Next i
+	
+	SIMW_SupprimerPagesVideFinDocument = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_ConvertirNotesItemRTF"><lotusscript>Public Sub SIMW_ConvertirNotesItemRTF(p_Item As NotesRichTextItem, p_CheminFichier As String) '--&gt; SIMW_EnregistreNotesItemRTF
+%REM
+	Description: Converts an NotesRichTextItem to an RTF-Document and saves it under the filePath
+	Generates and removes a temporary File while Working
+%END REM
+	On Error GoTo GererErreur
+	On Error 75 Resume Next
+	
+	Dim v_FichierBody As String
+	Dim v_FichierFonts As String
+	Dim v_FichierSize As Long
+	Dim nd As NotesDocument
+	
+	Set nd = p_Item.Parent
+	v_FichierBody = p_CheminFichier &amp; "_Body.cd"
+	v_FichierFonts = p_CheminFichier &amp; "_Fonts.cd"
+	
+	Kill p_CheminFichier &amp; ".cd"
+	Kill v_FichierBody
+	Kill v_FichierFonts
+	
+	Call MailGetMessageBodyComposite(nd.handle , "Body", v_FichierBody, v_FichierSize)
+	Call MailGetMessageBodyComposite(nd.handle , "$Fonts", v_FichierFonts, v_FichierSize)
+	Call SIMW_ConcatenerFichiers(v_FichierFonts, v_FichierBody, p_CheminFichier &amp; ".cd") 'make one file
+	Call ExportRTF(p_CheminFichier &amp; ".cd", 0, 0, "", p_CheminFichier)
+	
+	Kill p_CheminFichier &amp; ".cd"
+	Kill v_FichierBody
+	Kill v_FichierFonts
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIMW_OuvrirDocument"><lotusscript>Function SIMW_OuvrirDocument(p_CheminFichier As String) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_OuvrirDocument = False
+	
+	' Vérifie l'existance du fichier
+	If Len(Dir(p_CheminFichier)) &gt; 0 Then
+		' Ouverture du fichier word
+		g_WordApp_SIMW.Documents.Open p_CheminFichier
+		Set g_WordDoc_SIMW = g_WordApp_SIMW.ActiveDocument
+		
+		'Mode édition - Requis pour modifier le document
+		If g_WordDoc_SIMW.ActiveWindow.View.ReadingLayout Then
+			g_WordDoc_SIMW.ActiveWindow.View.ReadingLayout = False
+		End If
+				
+		g_DocumentsOuverts_SIMW = g_DocumentsOuverts_SIMW + 1
+		SIMW_OuvrirDocument = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), p_CheminFichier, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_AjouterTexte"><lotusscript>Function SIMW_AjouterTexte(p_Rechercher As String, _
+	p_AjouterChar As Long, p_Texte As String) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_AjouterTexte = False
+	
+	Dim obj_Find As Variant
+	Dim obj_Range As Variant
+		
+	' Assignation de la plage à rechercher à tout le document g_WordDoc_SIMW
+	Set obj_Range = g_WordDoc_SIMW.Content
+	
+	' Rechercher la première occurence de p_Rechercher
+	obj_Range.Find.execute p_Rechercher
+	Set obj_Find = obj_Range.Find
+	If obj_Find.Found = True Then
+		' Allonger la sélection
+		If p_AjouterChar &gt; 0 Then
+			obj_Range.End = obj_Range.End + p_AjouterChar
+		End If
+	End if
+		
+		Call obj_Range.Select
+		
+	obj_Range.InsertAfter(p_Texte)
+		
+		SIMW_AjouterTexte = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+		Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_ConvertirRTFenPDF"><lotusscript>Function SIMW_ConvertirRTFenPDF(p_CheminRTF As String, p_CheminPDF As String, p_FermerWord As Boolean) As Boolean
+	On Error GoTo GererErreur
+	
+	SIMW_ConvertirRTFenPDF = False
+	
+	' Convertir rtf en pdf
+	If SIMW_DemarrerWord(False) Then
+		If SIMW_OuvrirDocument(p_CheminRTF) Then
+			' conversion PDF
+			If SIMW_EnregistrerDocumentPDF(False, p_CheminPDF) Then
+				SIMW_ConvertirRTFenPDF = True
+			End If
+			
+			SIMW_FermerDocument
+		End If
+		
+		Kill p_CheminRTF
+		If p_FermerWord Then
+			Call SIMW_FermerWord
+		End If
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_PositionnerEtiquetteSuivante"><lotusscript>Function SIMW_PositionnerEtiquetteSuivante As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_PositionnerEtiquetteSuivante = False
+	
+	' Etiquette suivante
+	g_WordApp_SIMW.Selection.MoveRight(12)
+	
+	SIMW_PositionnerEtiquetteSuivante = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_EnregistrerDocumentPDF"><lotusscript>Function SIMW_EnregistrerDocumentPDF(p_AfficherDB As Integer, p_CheminFichier As String) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_CheminFichier As Variant
+	
+	SIMW_EnregistrerDocumentPDF = False
+	
+	' Afficher la boite de dialogue
+	If p_AfficherDB Or p_CheminFichier = "" Then ' ==========
+		v_CheminFichier = p_CheminFichier
+		If g_WordApp_SIMW.Dialogs(84).Show(v_CheminFichier) Then
+			SIMW_EnregistrerDocumentPDF = True
+		End If
+		
+	'Sauvegarde du document sans l'ajouter dans les documents récents de Word (False)
+	Else
+		g_WordDoc_SIMW.SaveAs p_CheminFichier, 17,,, False
+		SIMW_EnregistrerDocumentPDF = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), p_CheminFichier, True) ' Muet
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_ImprimerDocument"><lotusscript>Function SIMW_ImprimerDocument(p_AfficherDB As Integer) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_DialogWindow As Variant
+	
+	SIMW_ImprimerDocument = False
+	
+	' Afficher la boite de dialogue
+	If p_AfficherDB Then
+		Call g_WordApp_SIMW.Dialogs(88).Show
+				
+		'v_DialogWindow = FindWindow("#32770", "")
+		v_DialogWindow = FindWindow("OpusApp", "")
+		
+		If 	v_DialogWindow &lt;&gt; 0 Then		
+			Call SetForegroundWindow(v_DialogWindow)
+		End If				
+				
+		SIMW_ImprimerDocument = True
+		
+	'Imprime le document Word
+	Else
+		g_WordDoc_SIMW.PrintOut
+		SIMW_ImprimerDocument = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_RemplacerSignetZoneTexte"><lotusscript>Function SIMW_RemplacerSignetZoneTexte(p_Signet As String, p_Texte As String) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_RemplacerSignetZoneTexte= False
+	
+	Dim i As Long
+	Dim TextFrame As Variant
+	
+	If g_WordDoc_SIMW.Shapes.Count &gt; 0 Then
+		
+		For i = 1 To g_WordDoc_SIMW.Shapes.Count
+			If g_WordDoc_SIMW.Shapes(i).Type = 17 Then
+				g_WordDoc_SIMW.Shapes(i).Select
+				Set TextFrame = g_WordDoc_SIMW.Shapes(i).TextFrame
+				
+				If Trim(Replace( Replace(TextFrame.TextRange.Text, Chr(13), ""), Chr(10), "")) = p_Signet Then
+					TextFrame.TextRange = p_Texte
+					SIMW_RemplacerSignetZoneTexte = True
+				End If
+			End If
+		Next
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_InsererImage"><lotusscript>Function SIMW_InsererImage(p_CheminFichier As String, p_Rechercher As String, p_AjouterChar As Long, _
+p_DegreRotation As Variant, p_EchelleHauteur As Variant, p_EchelleLargeur As Variant, p_AjouterLigne As Boolean)
+	On Error GoTo GererErreur
+	
+	SIMW_InsererImage = False
+	
+	Dim obj_Find As Variant
+	Dim obj_Range As Variant
+	Dim v_ShapeIndex As Integer
+	Dim v_WordVisible As Boolean
+	
+	' Assignation de la plage à rechercher à tout le document g_WordDoc_SIMW
+	Set obj_Range = g_WordDoc_SIMW.Content
+	
+	' Rechercher la première occurence de p_Rechercher
+	obj_Range.Find.execute p_Rechercher
+	Set obj_Find = obj_Range.Find
+	If obj_Find.Found = True Then
+		' Allonger la sélection
+		If p_AjouterChar &gt; 0 Then
+			obj_Range.End = obj_Range.End + p_AjouterChar
+		End If
+				
+		Call obj_Range.Select			
+			
+		g_WordApp_SIMW.Selection.InlineShapes.AddPicture p_CheminFichier, False, True, obj_Range
+		
+		' Utilisé lorqu'on insert plusieurs image en boucle
+		If p_AjouterLigne Then
+			g_WordDoc_SIMW.InlineShapes(g_WordDoc_SIMW.InlineShapes.Count).Range.InsertAfter Chr(13)
+		End If
+		
+		v_WordVisible = g_WordApp_SIMW.Visible
+		
+		' Note : Word doit être visible l'ors de la conversion en shape pour faire la rotation
+		If Not v_WordVisible Then
+			g_WordApp_SIMW.Visible = True
+		End If			
+						
+		' Convertir en image pour la modification				
+		g_WordDoc_SIMW.InlineShapes(g_WordDoc_SIMW.InlineShapes.Count).ConvertToShape 	
+		
+		v_ShapeIndex = g_WordDoc_SIMW.Shapes.Count
+									
+		' Ajuster la taille et degré de rotation de l'image		
+		g_WordDoc_SIMW.Shapes(v_ShapeIndex).IncrementRotation p_DegreRotation					
+		
+		g_WordDoc_SIMW.Shapes(v_ShapeIndex).ScaleHeight p_EchelleHauteur, False
+		g_WordDoc_SIMW.Shapes(v_ShapeIndex).ScaleWidth p_EchelleLargeur, False
+									
+		' Re-convertir en InlineShape après la modification
+		g_WordDoc_SIMW.Shapes(v_ShapeIndex).ConvertToInlineShape
+		
+		g_WordApp_SIMW.Visible = v_WordVisible
+										
+		SIMW_InsererImage = True
+	End If
+		
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_FermerWord"><lotusscript>Function SIMW_FermerWord As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_FermerWord = False
+	
+	If g_WordActif_SIMW Then
+		' Attendre la fin des impressions
+		Call SIMW_AttendreFinImpression
+		
+		' Fermer les documents ouverts
+		ForAll v_Document In g_WordApp_SIMW.Documents
+			Set g_WordDoc_SIMW = v_Document
+			Call SIMW_FermerDocument
+		End ForAll
+		
+		' Fermer Word
+		Call g_WordApp_SIMW.Quit
+		Set g_WordApp_SIMW = Nothing
+		
+		g_DocumentsOuverts_SIMW = 0
+		g_WordActif_SIMW = False
+	End If
+	
+	SIMW_FermerWord = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_SupprimerTexte"><lotusscript>Function SIMW_SupprimerTexte(p_Rechercher As String, p_AjouterChar As Long) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_SupprimerTexte = False
+	
+	Dim obj_Find As Variant
+	Dim obj_Range As Variant
+	
+	' Assignation de la plage à rechercher à tout le document g_WordDoc_SIMW
+	Set obj_Range = g_WordDoc_SIMW.Content
+	
+	' Rechercher la première occurence de p_Rechercher
+	obj_Range.Find.execute p_Rechercher
+	Set obj_Find = obj_Range.Find
+	If obj_Find.Found = True Then
+		' Allonger la sélection
+		If p_AjouterChar &gt; 0 Then
+			obj_Range.End = obj_Range.End + p_AjouterChar
+		End If
+		
+		' Supprimer la sélection
+		Call obj_Range.Delete
+		
+		SIMW_SupprimerTexte = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_InsererTexte"><lotusscript>Function SIMW_InsererTexte(p_Texte) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_InsererTexte = False
+	
+	' Assigner la police
+	If g_Police_SIMW &lt;&gt; "" Then
+		g_WordApp_SIMW.Selection.Font.Name = g_Police_SIMW
+	End If
+	If IsNumeric(g_Taille_SIMW) Then
+		g_WordApp_SIMW.Selection.Font.Size = g_Taille_SIMW
+	End If
+	If IsNumeric(g_Gras_SIMW) Then
+		g_WordApp_SIMW.Selection.Font.Bold = g_Gras_SIMW
+	End If
+	If IsNumeric(g_Italique_SIMW) Then
+		g_WordApp_SIMW.Selection.Font.Italic = g_Italique_SIMW
+	End If
+	
+	' Insérer le texte
+	g_WordApp_SIMW.Selection.TypeText(p_Texte)
+	
+	SIMW_InsererTexte = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+
+</lotusscript></code><code event="SIMW_SelectionnerSignet"><lotusscript>Function SIMW_SelectionnerSignet(p_NomSignet As String) As Integer
+	On Error Goto GererErreur
+	On Error 213 Goto SignetNotFound
+	
+	SIMW_SelectionnerSignet = False
+	
+	'Vérifie s'il y a un document d'ouvert
+	If g_WordApp_SIMW.Documents.Count &gt;= 1 Then
+		
+		'Sélection du signet
+		g_WordApp_SIMW.ActiveDocument.Bookmarks(p_NomSignet).Select
+		SIMW_SelectionnerSignet = True
+		
+	End If
+	
+SignetNotFound :
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_EnregistrerDocument"><lotusscript>Function SIMW_EnregistrerDocument(p_AfficherDB As Integer, p_CheminFichier As String, _
+p_MotPasse As String) As Integer
+	On Error Goto GererErreur
+	
+	Dim v_CheminFichier As Variant
+	
+	SIMW_EnregistrerDocument = False
+	
+	' Afficher la boite de dialogue
+	If p_AfficherDB Or p_CheminFichier = "" Then  ' =========
+		v_CheminFichier = p_CheminFichier
+		If g_WordApp_SIMW.Dialogs(84).Show(v_CheminFichier) Then
+			SIMW_EnregistrerDocument = True
+		End If
+		
+	'Sauvegarde du document sans l'ajouter dans les documents récents de Word (False)
+	Else
+		If Len(p_MotPasse) = 0 Then
+			g_WordDoc_SIMW.SaveAs p_CheminFichier,,,, False
+		Else
+			g_WordDoc_SIMW.SaveAs p_CheminFichier,,,p_MotPasse, False
+		End If
+		
+		SIMW_EnregistrerDocument = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), p_CheminFichier, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_ConcatenerFichiers"><lotusscript>Sub SIMW_ConcatenerFichiers (p_file_font_cd As String, p_file_text_cd As String, file_export_cd As String)
+' this routine combines file_font_cd with file_text_cd
+' ommitting 1st 2 bytes of file_text_cd and
+' writes the result to file_export_cd
+' there is always even number of bytes in CD-records so we can use Integer so transfer the data
+	
+	Dim i As Integer
+	Dim v_f As Integer
+	Dim v_fnew As Integer
+	
+' output file
+	v_fnew = FreeFile
+	Open file_export_cd  For Binary As #v_fnew
+	
+' $fonts
+	v_f = FreeFile
+	Open p_file_font_cd For Binary As #v_f
+	Do Until EOF (v_f)
+		Get #v_f,,i
+		Put #v_fnew,, i
+	Loop
+	Close #v_f
+	
+' rich text
+	Open p_file_text_cd For Binary As #v_f
+' skip 2 bytes	
+	Seek #v_f, 3
+	Do Until EOF (v_f)
+		Get #v_f,,i
+		Put #v_fnew,, i
+	Loop
+	Close
+	
+End Sub
+
+</lotusscript></code><code event="SIMW_NouveauDocument"><lotusscript>Function SIMW_NouveauDocument As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_NouveauDocument = False
+	
+	'Création du nouveau document
+	g_WordApp_SIMW.Documents.Add
+	Set g_WordDoc_SIMW = g_WordApp_SIMW.ActiveDocument
+	 
+	g_DocumentsOuverts_SIMW = g_DocumentsOuverts_SIMW + 1
+	SIMW_NouveauDocument = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_TrouverRemplacer"><lotusscript>Function SIMW_TrouverRemplacer(p_Rechercher As String, p_Remplacer As String) As Integer
+	On Error Goto GererErreur
+	On Error 213 Resume Next
+	
+	SIMW_TrouverRemplacer = False
+	
+	Dim v_Remplacer As String
+	Dim obj_Range As Variant
+	
+	'Asignation de la plage à rechercher à tout le document g_WordDoc_SIMW
+	Set obj_Range = g_WordDoc_SIMW.Content
+	
+	v_Remplacer = p_Remplacer
+	
+	If Not SItS_Remplacer(v_Remplacer, Chr(10), "") Then
+		Exit Function
+	End If
+	Do
+		If Len(v_Remplacer) &lt;= 250 Then
+			'Remplacement de tous les occurences de TextToFind par ReplaceWith
+			Call obj_Range.Find.Execute(p_Rechercher, False, False, False, False, _
+			False, True, 1, False, v_Remplacer, 2)
+			v_Remplacer = ""
+		Else
+			'Remplacement de tous les occurences de TextToFind par les premiers 250 lettres de ReplaceWith
+			Call obj_Range.Find.Execute(p_Rechercher, False, False, False, False, _
+			False, True, 1, False, Left(v_Remplacer, 250 - Len(p_Rechercher)) &amp; p_Rechercher, 2)
+			v_Remplacer = Right(v_Remplacer, Len(v_Remplacer) - (250 - Len(p_Rechercher)))
+		End If
+	Loop Until v_Remplacer = ""
+	
+	SIMW_TrouverRemplacer = True
+	Exit Function
+	
+'Execute([FindText], [MatchCase], [MatchWholeWord], [MatchWildcards], [MatchSoundsLike], _
+'[MatchAllWordForms], [Forward], [Wrap], [Format], [ReplaceWith], [Replace]) As Boolean
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), p_Rechercher &amp; "--&gt;" &amp; p_Remplacer, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_DemarrerWord"><lotusscript>Function SIMW_DemarrerWord(p_Visible As Boolean) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_DemarrerWord = False
+	
+	If Not g_WordActif_SIMW Then
+		'Création d'un objet Microsoft Word 8.0 (démarrage de l'application WINWORD)
+		Set g_WordApp_SIMW = CreateObject("Word.application")
+		g_WordVersion_SIMW = Cint(Strleft(g_WordApp_SIMW.Version, "."))
+		
+		'Mode d'exécution - Rendre visible pour tester seulement
+		g_WordApp_SIMW.Visible = p_Visible
+		
+								
+		' Initialisations
+		g_Taille_SIMW = ""
+		g_Gras_SIMW = ""
+		g_Italique_SIMW = ""
+		
+		g_DocumentsOuverts_SIMW = 0
+		g_WordActif_SIMW = True
+	End If
+	
+	SIMW_DemarrerWord = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SIMW_InsererDocument"><lotusscript>Function SIMW_InsererDocument(p_CheminFichier As String, p_Rechercher As String, _
+p_AjouterChar As Long) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_InsererDocument = False
+	
+	Dim obj_Find As Variant
+	Dim obj_Range As Variant
+	
+	' Assignation de la plage à rechercher à tout le document g_WordDoc_SIMW
+	Set obj_Range = g_WordDoc_SIMW.Content
+	
+	' Rechercher la première occurence de p_Rechercher
+	obj_Range.Find.execute p_Rechercher
+	Set obj_Find = obj_Range.Find
+	If obj_Find.Found = True Then
+		' Allonger la sélection
+		If p_AjouterChar &gt; 0 Then
+			obj_Range.End = obj_Range.End + p_AjouterChar
+		End If
+		
+		' Remplacer p_Remplacer par le contenu du document
+		obj_Range.InsertFile p_CheminFichier,,,,
+		
+		SIMW_InsererDocument = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_NbPages"><lotusscript>Function SIMW_NbPages As Long
+	' Retourne le nombre de pages
+	On Error GoTo GererErreur
+			
+	SIMW_NbPages = g_WordApp_SIMW.ActiveDocument.ActiveWindow.Panes(1).Pages.Count
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_SupprimerLigne"><lotusscript>Function SIMW_SupprimerLigne(p_Rechercher As String, p_NbrLignesFin As Long) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_SupprimerLigne = False
+	
+	Dim obj_Find As Variant
+	Dim obj_Range As Variant
+	Dim v_NoParagraphSelection As Long
+	Dim i As Integer
+	
+	' Assignation de la plage à rechercher à tout le document g_WordDoc_SIMW
+	Set obj_Range = g_WordDoc_SIMW.Content
+	
+	' Rechercher la première occurence de p_Rechercher
+	obj_Range.Find.execute p_Rechercher
+	Set obj_Find = obj_Range.Find
+	
+	If obj_Find.Found = True Then
+		
+		' Supprimer la sélection
+		Call obj_Range.Select
+		g_WordDoc_SIMW.Application.Selection.TypeBackspace
+		
+		' Retourne le numéro du paragraph de la ligne du sélection
+		v_NoParagraphSelection = g_WordDoc_SIMW.Application.ActiveDocument.Range(0, g_WordApp_SIMW.Selection.paragraphs(1).Range.End).paragraphs.Count
+		
+		g_WordDoc_SIMW.Paragraphs(v_NoParagraphSelection).Range.Select
+		
+		' Supprimer la ligne du sélection si paragraphe vide
+		If Asc(Trim(g_WordDoc_SIMW.Paragraphs(v_NoParagraphSelection).Range.Text)) = 13 Or Asc(Trim(g_WordDoc_SIMW.Paragraphs(v_NoParagraphSelection).Range.Text)) = 10 Then
+			g_WordDoc_SIMW.Application.Selection.TypeBackspace
+		End If
+		
+		' Supprimer les lignes supplémentaire (lignes après la sélection)
+		For i = 1 To p_NbrLignesFin
+			
+			' Retourne le numéro du paragraph sélectionné
+			v_NoParagraphSelection = g_WordDoc_SIMW.Application.ActiveDocument.Range(0, g_WordApp_SIMW.Selection.paragraphs(1).Range.End).paragraphs.Count
+			
+			g_WordDoc_SIMW.Paragraphs(v_NoParagraphSelection).Range.Select
+			
+			' Supprimer la ligne si paragraphe vide
+			If Asc(Trim(g_WordDoc_SIMW.Paragraphs(v_NoParagraphSelection).Range.Text)) = 13 Or Asc(Trim(g_WordDoc_SIMW.Paragraphs(v_NoParagraphSelection).Range.Text)) = 10 Then
+				g_WordDoc_SIMW.Application.Selection.TypeBackspace
+			End If
+			
+		Next
+		
+		SIMW_SupprimerLigne = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMW_NouveauDocumentEtiquettes"><lotusscript>Function SIMW_NouveauDocumentEtiquettes(p_Format As Variant, p_LabelId As String) As Integer
+	On Error GoTo GererErreur
+	
+	SIMW_NouveauDocumentEtiquettes = False
+	
+	' Un document doit être ouvert pour créer des étiquettes (!!!)
+	If g_WordApp_SIMW.Documents.Count = 0 Then
+		If Not SIMW_NouveauDocument Then
+			Exit Function
+		End If
+	End If
+	
+	'Création du nouveau document
+	If g_WordVersion_SIMW &gt;= 12 Then
+		If p_LabelId &lt;&gt; "" Then
+			Set g_WordDoc_SIMW = g_WordApp_SIMW.MailingLabel.CreateNewDocumentById(p_LabelId)
+			SIMW_NouveauDocumentEtiquettes = True
+		End If
+	Else
+		If p_Format &lt;&gt; "" Then
+			SIMW_NouveauDocumentEtiquettes = True
+			Set g_WordDoc_SIMW = g_WordApp_SIMW.MailingLabel.CreateNewDocument(p_Format)
+		End If
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMW, gc_Element_SIMW, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,67-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="DB_PMan" hide="v3 v4strict" designerversion="8">
+<noteinfo noteid="555686" unid="7D0F8A23CE6DAC49852586B40011FB3B" sequence="76">
+<created><datetime dst="true">20210410T231624,27-04</datetime></created>
+<modified><datetime>20260105T014836,90-05</datetime></modified>
+<revised><datetime>20250319T073636,64-05</datetime></revised>
+<lastaccessed><datetime>20260105T014836,89-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014836,89-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_DBPMan As NotesSession
+Dim gndb_DBPMan As NotesDatabase
+Dim gnuiws_DBPMan As NotesUIWorkspace
+
+' Traitement des erreurs
+Const gc_TypeElement_DBPMan = "SL"
+Const gc_Element_DBPMan = "DB_PMan"
+
+</lotusscript></code><code event="DBPMan_Initialisations"><lotusscript>Sub DBPMan_Initialisations
+	On Error Goto GererErreur
+	
+	If gns_DBPMan Is Nothing Then
+		Set gns_DBPMan = New NotesSession
+		Set gndb_DBPMan = gns_DBPMan.CurrentDatabase
+		Set gnuiws_DBPMan = New NotesUIWorkspace
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPMan, gc_Element_DBPMan, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBPMan_Queryclose"><lotusscript>Function DBPMan_Queryclose(p_Source As NotesUIDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim i As Integer
+	Dim v_ValeurItem As String
+	Dim a_NbUtilisateursObligatoire As Variant
+	Dim a_QuantiteModifiable As Variant
+	
+	' Initialisations
+	DBPMan_Queryclose = False
+	
+	Set nd = p_Source.document
+	
+	If p_Source.DialogBoxCanceled = False Then
+		
+		a_NbUtilisateursObligatoire = xVarArray(nd, "DB_NbUtilisateursObligatoire")
+		a_QuantiteModifiable = xVarArray(nd, "DB_QuantiteModifiable")
+		
+		' Valider Nb utilisateurs obligatoire
+		'------------------------------------
+		If Isarray(a_NbUtilisateursObligatoire) Then
+			
+			For i = 0 To Ubound(a_NbUtilisateursObligatoire)
+				
+				v_ValeurItem = xVar(nd, "DB_NbUtilisateurs" &amp; Cstr(i +1), "")
+				
+				If a_NbUtilisateursObligatoire(i) = "1" And xVar(nd, "DB_Code" &amp; Cstr(i + 1), "") &lt;&gt; "" Then
+					
+				' Valider si champ vide
+					If v_ValeurItem = "" Then
+						Messagebox xGDK_xMessage("SI", 201, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+						Exit Function
+						
+				' Valider si valeur numérique
+					Elseif Not Isnumeric(v_ValeurItem) Then
+						Messagebox xGDK_xMessage("SI", 12, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+						Exit Function
+						
+					Else
+				' Valider si valeur &gt; 0
+						If v_ValeurItem &lt; 1 Then
+							Messagebox xGDK_xMessage("SI", 16, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+							Exit Function
+						End If
+						
+					End If
+					
+				End If
+				
+			Next
+			
+		End If
+		
+		' Valider quantité modificable
+		' ----------------------------
+		If Isarray(a_QuantiteModifiable) Then
+			
+			For i = 0 To Ubound(a_QuantiteModifiable)
+				
+				v_ValeurItem = xVar(nd, "DB_QT" &amp; Cstr(i +1), "")
+				
+				If a_QuantiteModifiable(i) = "1" And xVar(nd, "DB_Code" &amp; Cstr(i +1), "") &lt;&gt; "" Then
+					
+				' Valider si champ vide
+					If v_ValeurItem = "" Then
+						Messagebox xGDK_xMessage("SI", 201, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+						Exit Function
+						
+				' Valider si valeur numérique
+					Elseif Not Isnumeric(v_ValeurItem) Then
+						Messagebox xGDK_xMessage("SI", 12, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+						Exit Function
+						
+					Else
+				' Valider si valeur &gt; 0
+						If v_ValeurItem &lt; 1 Then
+							Messagebox xGDK_xMessage("SI", 16, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+							Exit Function
+						End If
+					End If
+					
+				End If
+				
+			Next
+			
+		End If
+		
+	End If
+	
+	DBPMan_Queryclose = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPMan, gc_Element_DBPMan, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073636,64-05</datetime></item></scriptlibrary>
+
+</database>

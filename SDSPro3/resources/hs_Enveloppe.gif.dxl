@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="hs_Enveloppe.gif" alias="hs_Enveloppe" noquery="true" publicaccess="false" designerversion="6.5" comment="2.0">
+<noteinfo noteid="18b2" unid="F3823D80EC83E87B85257DEB0069F3E6" sequence="15">
+<created><datetime>20150213T141717,18-05</datetime></created>
+<modified><datetime dst="true">20190830T091559,39-04</datetime></modified>
+<revised><datetime dst="true">20180718T105547,34-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091559,37-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205710,19-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Steve Cochrane/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhFAAUAPcAAP///+/v7////7KysqKioo+Pj8DAwC8vLwAgHwAAAAAAAAAAAAAAAAAAAAAA
+AAAAAEYAAAAzADAAMwAtADAAMAAwADAALQAwADAAMAAwAC0AAAAAAAKQ/P///wAApu1WAGztVgAU
+P/e/AwAAAPtB97+QlPy/6s33v5CU/L+o8VYAo+1WAAAAAABM7VYAAAAAAM7cWAA/AMGB4hP3v3cB
+AADFEve/AGlWAFAvQMGmLvm/4hP3v3cBAADFEve/oHEAAAgAAAAsUfe/BEQAAKjxVgAAAAAAvBRp
+AAAAAADM3FgAAAAARkFUMzIAAgBEOlwAAHwm83/g7VYA1Px7gUhBQABQL0DB4O1WAP6g978Xs/e/
+AABAAAAAAAADAAAATEFAACwAAABIQUAASPBWANsU838AAEAAAAAAAExBQAAIFfN/DND9f0xBQAAx
+IPN/TEFAAMbe839MQUAAAAAAAAQBAABt3vN/OPBWAJz0VgAAAAAALAAAAD8AwYFE7lYAAAIAABAA
+AABA1P1/KwAAAPNXQADy9FYAhO5WAON5+78EBMGBAAIAAPL0VgDzV0AAKwAAAD8AwYG47lYAnPRW
+AD8AwYEEBMGBxFdAACBYQADA7lYAMtH3vwQEwYGc9FYA9PRWAMhXQABYAAAAPwDBgbjuVgAAAgAA
+WAAAAJz0VgAAAAAAzO5WAAACAADo7lYAndfzfwAAAAAA71YA1Px7gcRXQABQL0DBAO9WAP6g978X
+s/e/AABAAAAAAAArAAAAyFdAAHDyVgDEV0AARPBWANsU838AAEAAAAAAAG/wVgAAAACAOP/3v2/w
+VgBMUFQAAwAAAAAAAAABAAAAnPRWAAAAAAAsAAAARDpcTWVzIGRvY3VtZW50c1xNeSBQaWN0dXJl
+c1xTZXKc71YAEAAAAFwAAADEV0AAkaP3vwAAQAAgWEAAEAAAAAAAAAADAAAAAAAAAMjvVgBMIAAA
+IAAAALBjeIGRo/e/AJBwgdBjeIFMIAAAAAAAAAyQcIEAkHCBsGN4gSH5BAEAAB0ALAAAAAAUABQA
+QAhmADsIHEiwoMFuCAF0U4iwoUKG3Qo2nEjRYAeKGBsSdJiRI8KDHSOCBECypEmSHwV6TAhxoUaV
+ITFahDlxJsiaNi/GFLlxJ06dC1tORJnSI9GjL1dmhDiQ5cmTKZv65CkxZM6rBAMCADs=
+</gif>
+<item name="$FileSize" sign="true"><number>905</number></item>
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime>20070131T150010,14-05</datetime></item>
+<item name="$EditFilePath"><text>C:\Users\patrickb\AppData\Local\Temp\notesFFF692\~hs_Enveloppe.gif</text></item></imageresource>
+
+</database>

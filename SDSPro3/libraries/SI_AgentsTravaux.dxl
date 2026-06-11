@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_AgentsTravaux" hide="v3 v4strict" designerversion="8.5.3" comment="1.1f">
+<noteinfo noteid="55581e" unid="82AD8A96923AB9798525884C006203A1" sequence="26">
+<created><datetime dst="true">20220524T135034,57-04</datetime></created>
+<modified><datetime>20260105T014837,83-05</datetime></modified>
+<revised><datetime>20250319T073638,55-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,82-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,82-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_GestionErreurs"
+Use "SI_Historique"
+Use "x_GDK"
+Use "x_SIAg"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SIAT As Notessession
+Dim gndb_SIAT As Notesdatabase
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIAT = "SL"
+Const gc_Element_SIAT = "SI_Travaux"
+
+</lotusscript></code><code event="SIAT_Initialisations"><lotusscript>Sub SIAT_Initialisations
+	If gns_SIAT Is Nothing Then
+		Set gns_SIAT = New Notessession
+		Set gndb_SIAT = gns_SIAT.Currentdatabase
+		Call xSIAg_Initialisations
+	End If
+End Sub
+
+</lotusscript></code><code event="SIAT_CreerDossier"><lotusscript>Function SIAT_CreerDossier(p_BaseDocuments As Variant, p_NomDossier As String, p_AliasDossier As String, p_NomModele As String, _
+pnd As NotesDocument) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de soumettre un agent.  PAS TESTÉ
+	' p_BaseDocuments:
+	'		NotesDatabase, Nom usuel ou nul.  Si nul, utilise la base de documents courante.
+	' p_NomDossier
+	'		Nom du dossier à créer.
+	' p_AliasDossier
+	'		Alias du dossier à créer.  Optionnel
+	' p_NomModele
+	'		Nom ou alias de la vue qui sert de modèle (design) au nouveau dossier.  Optionnel
+	' pnd
+	'		Document à ajouter au dossier.  Optionnel.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim i As Integer
+	
+	SIAT_CreerDossier = ""	
+	If pnd Is Nothing Or p_NomDossier = "" Then
+		Exit Function
+	End If
+	Call SIAT_Initialisations
+	
+	Set nd = SIAT_ndNouveauTravail("CD", p_NomDossier, p_BaseDocuments)
+	
+	nd.Trav_NomDossier = p_NomDossier
+	nd.Trav_AliasDossier = p_AliasDossier
+	nd.Trav_NomModele = p_NomModele
+	If Not (pnd Is Nothing) Then
+		nd.Trav_DocumentUNID = pnd.UniversalID
+	End If
+	
+	nd.HistoDC = Now
+	nd.HistoUC = gns_SIAT.Username
+	
+	If nd.Save(False, False) Then
+		SIAT_CreerDossier = xVar(nd, "Trav_NoTravail", "")
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIAT, gc_Element_SIAT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAT_ParametresAgent"><lotusscript>Function SIAT_ParametresAgent(p_Document As Variant) As Variant
+	On Error Goto GererErreur
+	
+	Dim v_TypeName As String
+	Dim i As Integer
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim j As Integer
+	
+	SIAT_ParametresAgent = ""
+	
+	' Array
+	If Isarray(p_Document) Then
+		If Datatype(p_Document(Lbound(p_Document))) = 35 Then
+			Redim a_Documents(Ubound(p_Document) - Lbound(p_Document) + 1) As Variant
+			For i = Lbound(p_Document) To Ubound(p_Document)
+				If Datatype(p_Document(i)) = 35 Then										' Product Object
+					v_TypeName = Lcase(Typename(p_Document))
+					' Document
+					If v_TypeName = "notesdocument" Then
+						Set nd = p_Document
+						j = j + 1
+						a_Documents(j) = nd.UniversalID
+					End If
+				End If
+			Next
+			Redim Preserve a_Documents(j) As Variant
+			SIAT_ParametresAgent = a_Documents
+		Else
+			SIAT_ParametresAgent = p_Document
+		End If
+		
+	' Pas un array
+	Elseif Datatype(p_Document) = 35 Then										' Product Object
+		v_TypeName = Lcase(Typename(p_Document))
+		' Collection de documents
+		If v_TypeName = "notesdocumentcollection" Then
+			Set ndc = p_Document
+			Redim a_Documents(ndc.Count - 1) As Variant
+			Set nd = ndc.GetFirstDocument
+			Do Until nd Is Nothing
+				a_Documents(i) = nd.UniversalID
+				i = i + 1
+				Set nd = ndc.GetNextDocument(nd)
+			Loop
+			SIAT_ParametresAgent = a_Documents
+		' Document
+		Elseif v_TypeName = "notesdocument" Then
+			Set nd = p_Document
+			SIAT_ParametresAgent = nd.UniversalID
+		End If
+		
+	' Id du document
+	Else
+		SIAT_ParametresAgent = p_Document
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIAT, gc_Element_SIAT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAT_ExecuterAgent"><lotusscript>Function SIAT_ExecuterAgent(p_BaseDocuments As Variant, Byval p_NomAgent As String, p_NoteId As String, _
+p_Parametres As Variant) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de soumettre un agent.  PAS TESTÉ
+	' p_BaseDocuments:
+	'		NotesDatabase, Nom usuel ou nul.  Si nul, utilise la base de documents courante.
+	' p_NomAgent
+	'		Nom de l'agent
+	' NoteId
+	'		NoteId à passer à l'agent.  Si nul, passe le note Id du travail pour récupérer les parametres.
+	' p_Parametres
+	'		Paramètres(s) utilisés par l'agent  Utilisé seulement si p_NoteId est nul.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	
+	SIAT_ExecuterAgent = ""	
+	Call SIAT_Initialisations
+	
+	Set nd = SIAT_ndNouveauTravail("XA", p_NomAgent, p_BaseDocuments)
+	
+	nd.Trav_NomAgent = p_NomAgent
+	nd.Trav_NoteId = p_NoteId
+	nd.Trav_Parametres = SIAT_ParametresAgent(p_Parametres)
+	
+	nd.HistoDC = Now
+	nd.HistoUC = gns_SIAT.Username
+	
+	If nd.Save(False, False) Then
+		SIAT_ExecuterAgent = xVar(nd, "Trav_NoTravail", "")
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIAT, gc_Element_SIAT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAT_ndNouveauTravail"><lotusscript>Function SIAT_ndNouveauTravail(p_Action As String, p_Description As String, p_BaseDocuments As Variant) As NotesDocument
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim v_Unique As String
+	Dim v_TypeName As String
+	
+	Set SIAT_ndNouveauTravail = Nothing
+	v_Unique = xUnique("")
+	
+	' Créer le travail
+	Set nd = gndb_xSIAg.Createdocument
+	nd.Form = "F_Trav"
+	Call nd.ReplaceItemValue("$PublicAccess", "1")
+	nd.Cle = v_Unique
+	nd.Description = p_Action &amp; ";" &amp; p_Description
+	nd.Trav_NoTravail = v_Unique
+	nd.Trav_Action = p_Action
+	nd.Trav_Description = p_Description
+	
+	' Ajouter la base de documents
+	If Datatype(p_BaseDocuments) = 35 Then										' Product Object
+		v_TypeName = Lcase(Typename(p_BaseDocuments))
+		' Database
+		If v_TypeName = "notesdatabase" Then
+			nd.Trav_Serveur = p_BaseDocuments.Server
+			nd.Trav_Fichier = p_BaseDocuments.FilePath
+			nd.Trav_NomDB = p_BaseDocuments.Title
+		Else
+			nd.Trav_Serveur = gndb_SIAT.Server
+			nd.Trav_Fichier = gndb_SIAT.FilePath
+			nd.Trav_NomDB = gndb_SIAT.Title
+		End If
+	Elseif Cstr(p_BaseDocuments) &lt;&gt; "" Then
+		nd.Trav_NomDB = p_BaseDocuments
+	Else
+		nd.Trav_Serveur = gndb_SIAT.Server
+		nd.Trav_Fichier = gndb_SIAT.FilePath
+		nd.Trav_NomDB = gndb_SIAT.Title
+	End If
+	
+	Set SIAT_ndNouveauTravail = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIAT, gc_Element_SIAT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAT_MajDocument"><lotusscript>Function SIAT_MajDocument(pnd As NotesDocument, p_Items As Variant) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de soumettre un agent.
+	' pnd
+	'		Document à mettre à jour
+	' p_Items
+	'		Tableau des noms des items à mettre à jour ou liste des items et des valeurs.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim i As Integer
+	Dim ni_Items As NotesItem
+	Dim ni As NotesItem
+	
+	SIAT_MajDocument = ""	
+	If pnd Is Nothing Then
+		Exit Function
+	End If
+	Call SIAT_Initialisations
+	
+	Set nd = SIAT_ndNouveauTravail("MD", xVar(pnd, "Form", "") &amp; " / " &amp; xVar(pnd, "Cle", ""), pnd.ParentDatabase)
+	
+	nd.Trav_DocumentUNID = pnd.UniversalID
+	If Isarray(p_Items) Then
+		nd.Trav_Items = p_Items
+		For i = Lbound(p_Items) To Ubound(p_Items)
+			If pnd.HasItem(p_Items(i)) Then
+				Set ni = pnd.GetFirstItem(p_Items(i))
+				Call ni.CopyItemToDocument(nd, p_Items(i))
+'				Call nd.ReplaceItemValue(p_Items(i), xVar(pnd, p_Items(i), ""))
+			End If
+		Next
+	ElseIf IsList(p_Items) Then
+		
+		ForAll v_Elem In p_Items
+			If ni_Items Is Nothing then
+				Set ni_Items = New NotesItem(nd, "Trav_Items", ListTag(v_Elem))
+			Else
+				Call ni_Items.AppendToTextList(ListTag(v_Elem))
+			End If
+
+			Set ni = pnd.GetFirstItem(ListTag(v_Elem))
+			Call ni.CopyItemToDocument(nd, ListTag(v_Elem))
+		End ForAll
+	Elseif p_Items &lt;&gt; "" Then
+		nd.Trav_Items = p_Items
+		If pnd.HasItem(p_Items) Then
+			Set ni = pnd.GetFirstItem(p_Items)
+			Call ni.CopyItemToDocument(nd, p_Items)
+'			Call nd.ReplaceItemValue(p_Items, xVar(pnd, p_Items, ""))
+		End If
+	Else
+		Exit Function
+	End If
+	
+	nd.HistoDC = Now
+	nd.HistoUC = gns_SIAT.Username
+	
+	If nd.Save(False, False) Then
+		SIAT_MajDocument = xVar(nd, "Trav_NoTravail", "")
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIAT, gc_Element_SIAT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073638,55-05</datetime></item></scriptlibrary>
+
+</database>

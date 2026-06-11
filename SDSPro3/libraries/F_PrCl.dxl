@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_PrCl" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="5556d2" unid="E091434B8B6FC6C0852586B40011FB55" sequence="76">
+<created><datetime dst="true">20210410T231624,53-04</datetime></created>
+<modified><datetime>20260105T014837,09-05</datetime></modified>
+<revised><datetime>20250319T073639,64-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,08-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,08-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "x_SICl"
+Use "x_PJ"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_FPrCl = "SL"
+Const gc_Element_FPrCl = "F_PrCl"
+
+' Déclarations globales
+' ----------------------------------
+Dim gnuiws_FPrCl As NotesUIWorkspace
+Dim gnuid_FPrCl As NotesUIDocument
+Dim gnd_FPrCl As NotesDocument
+
+Dim gns_FPrCl As NotesSession
+Dim gndb_FPrCl As NotesDatabase
+
+
+
+
+
+
+</lotusscript></code><code event="FPrCl_Initialisations"><lotusscript>Sub FPrCl_Initialisations
+	If gns_FPrCl Is Nothing Then
+		Set gns_FPrCl = New NotesSession
+		Set gndb_FPrCl = gns_FPrCl.Currentdatabase		
+		Set gnuiws_FPrCl = New NotesUIWorkspace
+	End If
+	
+	If gnuiws_FPrCl Is Nothing Then
+		Set gnuiws_FPrCl = New NotesUIWorkspace
+		Set gnuid_FPrCl = gnuiws_FPrCl.CurrentDocument
+		Set gnd_FPrCl = gnuid_FPrCl.Document
+	End If
+End Sub
+
+</lotusscript></code><code event="FPrCl_hsAfficherClient"><lotusscript>Sub FPrCl_hsAfficherClient
+	On Error GoTo GererErreur
+	
+	Dim v_ClientNoFmt As String
+	Dim nd As NotesDocument
+	Dim nd_ClieSICl As NotesDocument
+	
+	Set gnuiws_FPrCl = Nothing
+	
+	Call FPrCl_Initialisations
+	
+	Set nd = gnuiws_FPrCl.Currentdocument.Document
+	
+	v_ClientNoFmt = xVar(nd, "PrCl_ClientNoFmt", "")
+	
+	Set nd_ClieSICl = xSICl_xndClie(v_ClientNoFmt, False)
+
+	If not nd_ClieSICl Is Nothing Then
+	Call gnuiws_FPrCl.EditDocument(False, nd_ClieSICl)
+	Else
+		MessageBox xGDK_xMessage("SI", 78, "", v_ClientNoFmt), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit sub
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPrCl, gc_Element_FPrCl, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073639,64-05</datetime></item></scriptlibrary>
+
+</database>

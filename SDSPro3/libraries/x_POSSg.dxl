@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_POSSg" hide="v3 v4strict" designerversion="8.5.3" comment="1.0">
+<noteinfo noteid="555766" unid="6C0700A5AB922257852586B40011FBA4" sequence="76">
+<created><datetime dst="true">20210410T231625,32-04</datetime></created>
+<modified><datetime>20260105T014837,44-05</datetime></modified>
+<revised><datetime>20250319T073637,41-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,43-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,43-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+'
+' Cette bibliothèque de script permet d'extraire un document ou un item d'un document.  Les documents
+' à extraire se trouvent dans la base de documents courante.
+'
+' Instructions
+'	1.	Renommer le script library.  Le nouveau nom devrait être x_SICT ou SICT est le type de document.
+'	2.	Inscrire le nom de l'item qui contient la clé et le nom de la vue de recherche dans la section (Declarations).
+'	3.	Remplacer toutes les occurences de SICT par l'identifiant du type de document.  Les subs seront 
+'		automatiquement renommés.
+
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_xSICT
+Dim gns_xPOSSg As Notessession
+Dim gndb_xPOSSg As Notesdatabase
+
+' Section 2 - Définition des valeurs conservées dans la cache
+Dim gnv_xPOSSg As Notesview				' La vue d'ou est extrait le document
+Dim gnd_xPOSSg As Notesdocument		' Le document qui contient les informations recherchées
+
+' Section 3 - Les constantes à définir
+Const gc_NomItemCle_xPOSSg = "POSSg_Nom"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVue_xPOSSg = "V_POSSg20"			' Le nom de la vue de recherche
+
+</lotusscript></code><code event="Initialisation_xPOSSg"><lotusscript>Sub Initialisation_xPOSSg
+	' Initialisation des variables globales
+	If gns_xPOSSg Is Nothing Then
+		Set gns_xPOSSg = New Notessession
+		Set gndb_xPOSSg = gns_xPOSSg.Currentdatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="xndPOSSg"><lotusscript>Function xndPOSSg(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call Initialisation_xPOSSg
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCle_xPOSSg, p_Cle, p_Cache, gndb_xPOSSg, gc_NomVue_xPOSSg, gnv_xPOSSg, gnd_xPOSSg)
+	
+	' Retourne le document défini en variable globale
+	Set xndPOSSg = gnd_xPOSSg
+End Function
+
+</lotusscript></code><code event="xVarPOSSg"><lotusscript>Function xVarPOSSg(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xVarPOSSg = xVar(xndPOSSg(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073637,41-05</datetime></item></scriptlibrary>
+
+</database>

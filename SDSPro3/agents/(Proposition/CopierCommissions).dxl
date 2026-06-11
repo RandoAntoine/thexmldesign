@@ -1,0 +1,811 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="(Proposition\CopierCommissions)" alias="A_Comm" hide="v3" publicaccess="false" designerversion="8.5.3" comment="1.2" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" restrictions="unrestricted" enabled="false">
+<noteinfo noteid="555962" unid="0AC8025CCBA4B57885258C0C006DD97C" sequence="5">
+<created><datetime>20250108T145951,00-05</datetime></created>
+<modified><datetime>20260105T014838,40-05</datetime></modified>
+<revised><datetime>20250319T073736,79-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,39-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,39-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073736,31-05</datetime></designchange>
+<trigger type="agentlist"/>
+<documentset type="selected"/><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SDSP_Proposition"
+Use "SDSP_Site"
+Use "SI_GestionErreurs"
+Use "x_GDK"
+Use "x_SDSC3"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gnv_Prod30 As NotesView
+Dim g_NoSitePrincipal As String
+
+Const c_ndbAlias = "SDSP3"
+Const c_ndbAliasMSG = "SDSPP"
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_Comm"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error Goto GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	
+	Dim ndb As Notesdatabase
+	Dim nv As NotesView
+	Dim ndc As NotesDocumentCollection
+	Dim nd As Notesdocument
+	Dim v_NoProposition As String
+	Dim v_NomVue As String
+	Dim v_Autorise As String
+	Dim v_Langue As String
+	
+	
+	Set gns_A = New NotesSession
+	Set ndb = gns_A.Currentdatabase
+	Set ndc = ndb.UnprocessedDocuments
+	
+	Set gnv_Prod30 = ndb.GetView("V_Prod30")
+	Call gnv_Prod30.Refresh
+	
+	v_Langue = xLangue
+	
+	If ndc.Count &gt; 1 Then
+		Messagebox xGDK_xMessage(c_ndbAliasMSG, 62, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	Elseif ndc.Count = 0 Then
+		Print xGDK_xMessage("SI", 2, "", "")
+		Exit Sub
+	End If
+	
+	Set nd = ndc.Getfirstdocument
+	If xVar(nd, "Form", "") &lt;&gt; "F_Prop" Then
+		Messagebox xGDK_xMessage(c_ndbAliasMSG, 63, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	If xVar(nd, "Prop_Statut", "") &lt;&gt; "60" And xVar(nd, "Prop_Statut", "") &lt;&gt; "90" Then
+		If v_Langue = "EN" Then
+			v_Autorise = "Autorised"
+		Else
+			v_Autorise = "Autorisée"
+		End If
+		' La proposition sélectionnée n'est pas dans un statut autorisé.
+		Messagebox xGDK_xMessage(c_ndbAliasMSG, 74, v_Langue, v_Autorise), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	v_NoProposition = xVar(nd, "Prop_NoProposition", "")
+	v_NomVue = "V_Site22"
+	Set nv = ndb.GetView(v_NomVue)
+	Call nv.Refresh
+	Set ndc= nv.GetAllDocumentsByKey(v_NoProposition, True)
+	If ndc.Count &gt; 1 Then
+		' Sélectionner les succursales à copier
+		Set ndc = nuiws.PickListCollection(PICKLIST_CUSTOM, True, ndb.Server, ndb.FilePath, v_NomVue,_
+		xGDK_xMessage(c_ndbAliasMSG, 106, "", ""), xGDK_xMessage(c_ndbAliasMSG, 109, "", ""), v_NoProposition)
+		
+		If ndc.Count = 0 Then
+			Print xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+	Else
+		' Demander une confirmation
+		If nuiws.Prompt(PROMPT_YESNO, xGDK_xMessage(c_ndbAliasMSG, 106, "", ""), _
+		xGDK_xMessage(c_ndbAliasMSG, 107, "", "")) &lt;&gt; 1 Then
+			Print xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+	End If
+	
+	If A_CopierPropositionComm(nd, ndc) Then
+		Print "Copie dans SDS Commissions terminée."
+	Else
+		Msgbox "Erreur lors de la copie dans SDS-Commissions.", 16,"Erreur.  Copie annulé"
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Lsi_info(2), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_DupliquerServices"><lotusscript>Function A_DupliquerServices(p_UNIDSO As String,pnd_NS As NotesDocument, _
+pnd_NP As NotesDocument, pndb_NP As Notesdatabase, p_Heure As Variant, p_Origine As String) As Boolean
+	'-----------------------------------------------------------------------------------------------------------------------
+	' p_UNIDSO = Unique document identifier pour Succursale Originale
+	' pnd_NS = NouvelleSuccursale
+	' pnd_NP = Nouvelle proposition
+	' pndb_NP = Base de documents de la nouvelle proposition
+	' p_heure = Heure qu'il était au début de la procédure pour mettre la même sur tous les
+	' nouveaux éléments créés
+	'-----------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim ndc_Services As NotesDocumentCollection
+	Dim nd_Service As NotesDocument
+	Dim nd_SProd As NotesDocument
+	Dim nd_Serv As NotesDocument
+	Dim a_Items As Variant
+	Dim v_Commission As String 
+	
+	'Initialisations
+	A_DupliquerServices = False
+	
+	a_Items = Evaluate(|"PrixUnitaire" : "CoutUnitaire" : "CoutTotal": "PrixTotal" : "Profit" : "Quantite" : "VerificationTechnique"| &amp; _
+	|  : "Garantie" : "CategorieDescFR" : "CategorieDescEN" : "ContratRequis"|)
+	
+	Set ndc_Services = gnv_Prod30.GetAllDocumentsByKey((xVar(pnd_NS, "Site_NoSite", "") &amp; ";SV."), False)
+	
+	Set nd_Service = ndc_Services.GetFirstDocument
+	
+	'Boucler pour créer des copies de tous les équipements
+	While Not nd_Service Is Nothing
+		
+		' Extraire le document de produit service
+		' ---------------------------------------
+		Set nd_SProd = xSDSBB_xndProd(xVar(nd_Service,"Prod_CleProduit","")	, True)
+		
+		If nd_SProd Is Nothing Then
+			' 108 - Le produit d'équipement &amp; n'existe pas.
+			Print xGDK_xMessage(c_ndbAliasMSG, 108, "", xVar(nd_Service, "Prod_CodeProduit", ""))
+		End If
+		
+		'Créer la copie du Service
+		Set nd_Serv = New NotesDocument(pndb_NP)
+		nd_Serv.Form = "F_Serv"
+		'Call nd_Service.CopyAllItems(nd_Serv)
+		Call nd_Serv.MakeResponse(pnd_NS)
+		nd_Serv.Origine = p_Origine
+		nd_Serv.Succ_ClientNom = xVar(pnd_NS, "Succ_ClientNom", "")
+		nd_Serv.Serv_Code = xVar(nd_Service, "Prod_CodeProduit", "")
+		nd_Serv.Serv_DescriptionFR  = xVar(nd_Service, "Prod_DescProduitFR", "")
+		nd_Serv.Serv_DescriptionEN  = xVar(nd_Service, "Prod_DescProduitEN", "")
+		nd_Serv.Serv_Categorie = xVar(nd_Service, "Prod_CategorieProduit", "")
+		nd_Serv.Serv_DescriptionFR  = xVar(nd_Service, "Prod_DescProduitFR", "")
+		nd_Serv.Serv_DescriptionEN  = xVar(nd_Service, "Prod_DescProduitEN", "")
+		nd_Serv.Serv_UniteFR = xSDSBB_xVarProd(xVar(nd_Service,"Prod_CleProduit",""), "Prod_UniteEN", "", True)
+		nd_Serv.Serv_UniteEN = xSDSBB_xVarProd(xVar(nd_Service,"Prod_CleProduit",""), "Prod_UniteEN", "", True)
+		
+		If xVar(nd_Serv,"Prod_TypeDescendant", "") = "C" Then
+			nd_Serv.Serv_Type = "1"
+		End If
+		
+		Forall v_ItemServ In a_Items
+			Call nd_Serv.ReplaceItemValue("Serv_" &amp; v_ItemServ, xVar(nd_Service, "Prod_" &amp; v_ItemServ, ""))
+		End Forall
+
+		' Si le produit, dans SDS Base II, est à commission
+		v_Commission = xVar(nd_SProd, "Prod_Commissions", "")
+		If v_Commission = "1" Or (xVar(pnd_NP, "Prop_Type", "") &lt; "2" And v_Commission = "2") Then
+			nd_Serv.Serv_ExempterCommission = ""
+		Else
+			nd_Serv.Serv_ExempterCommission = "1"
+		End If
+		
+		nd_Serv.HistoDC = p_Heure
+		nd_Serv.HistoUC = gns_A.UserName
+		nd_Serv.HistoDM = ""
+		nd_Serv.HistoUM = ""
+		
+		'Initialiser les clés pour que l'équipement soit classé dans la nouvelle copie de succursale
+		Call nd_Serv.ReplaceItemValue("CleProposition", pnd_NP.UniversalID)
+		
+		'Réinitialiser la sécurité
+		Call A_AssignerSecurite(nd_Serv)
+		Call nd_Serv.Save(True,False)
+		
+		Set nd_Service = ndc_services.GetNextDocument(nd_Service)
+		
+		
+	Wend
+	
+	A_DupliquerServices = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Lsi_info(2), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="A_DupliquerComposants"><lotusscript>Function A_DupliquerComposants(p_CleProduit As String, pnd_NE As Notesdocument,_
+pnd_NS As NotesDocument, pnd_NP As NotesDocument, pndb_NP As Notesdatabase, _
+p_Heure As Variant, p_Origine As String) As Boolean
+	'-----------------------------------------------------------------------------------------------------------------------
+	' p_UNIDEO = Unique document identifier pour Equipement Original
+	' pnd_NE = Nouvel Équipement
+	' p_UNIDNS = Unique document identifier pour Nouvelle succursale
+	' pnd_NP = nouvelle proposition
+	' pndb_NP = Base de documents de la nouvelle proposition
+	' p_heure = Heure qu'il était au début de la procédure pour mettre la même sur tous les
+	' nouveaux éléments créés
+	'-----------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndc_Equipements As NotesDocumentCollection
+	Dim nd_Equipement As NotesDocument
+	Dim nd_EProd As NotesDocument
+	Dim nd_Equi As NotesDocument
+	Dim a_Items As Variant
+	
+	'Initialisations
+	A_DupliquerComposants = False
+	
+	a_Items = Evaluate(|"PrixUnitaire" : "CoutUnitaire" : "CoutTotal": "PrixTotal" : "Profit" : "FraisEntretien" : "Equi_FraisEntretienAnnuels" : "VerificationTechnique" | &amp; _
+	| : "Quantite" : "Garantie" : "ContratRequis" : "CategorieIcone"|)
+	
+	' Chercher tous les équipements pour la succursale
+	' ------------------------------------------------
+	Set ndc_Equipements = xSDSBB_xndcProd_Comp(p_CleProduit)
+	
+	Set nd_Equipement = ndc_Equipements.GetFirstDocument
+	
+	'Boucler pour créer des copies de tous les équipements
+	While Not nd_Equipement Is Nothing
+		
+		' Extraire le document de produit d'équipement
+		' --------------------------------------------
+		Set nd_EProd = xSDSBB_xndProd(xVar(nd_Equipement,"Prod_CleProduit","")	, True)
+		
+		If nd_EProd Is Nothing Then
+			' 108 - Le produit d'équipement &amp; n'existe pas.
+			Print xGDK_xMessage(c_ndbAliasMSG, 108, "", xVar(nd_Equipement, "Prod_CodeProduit", ""))
+		End If
+		
+		'Créer la copie d'équipement
+		Set nd_Equi = New NotesDocument(pndb_NP)
+		nd_Equi.Form = "F_Comp"
+		'Call nd_Equipement.CopyAllItems(nd_Equi)
+		Call nd_Equi.MakeResponse(pnd_NS)
+		nd_Equi.Origine = p_Origine
+		nd_Equi.Succ_ClientNom = xVar(pnd_NS, "Succ_ClientNom", "")
+		
+		nd_Equi.Equi_Categorie = xVar(nd_Equipement, "Prod_CategorieProduit", "")
+		nd_Equi.Equi_DescriptionFR  = xVar(nd_Equipement, "Prod_DescProduitFR", "")
+		nd_Equi.Equi_DescriptionEN  = xVar(nd_Equipement, "Prod_DescProduitEN", "")
+		
+		If xVar(nd_Equipement,"Prod_TypeDescendant", "") = "C" Then
+			nd_Equi.Equi_Type = "1"
+		Else
+			nd_Equi.Equi_Type = "0"
+		End If
+		
+		Forall v_ItemEqui In a_Items
+			Call nd_Equi.ReplaceItemValue("Equi_" &amp; v_ItemEqui, xVar(nd_Equipement, "Prod_" &amp; v_ItemEqui, ""))
+		End Forall
+		nd_Equi.Equi_ExempterCommission = xVar(nd_Equipement, "Prop_ExempterCommissions", "")
+		
+		nd_Equi.HistoDC = p_Heure
+		nd_Equi.HistoUC = gns_A.Username
+		nd_Equi.HistoDM = ""
+		nd_Equi.HistoUM = ""
+		
+		'Initialiser les clés pour que l'équipement soit classé dans la nouvelle copie de succursale
+		Call nd_Equi.ReplaceItemValue("CleProposition", pnd_NP.UniversalID)
+		Call nd_Equi.ReplaceItemValue("CleSuccursale", pnd_NS.UniversalID)
+		If xVar(pnd_NE, "Form", "") = "F_Equi" Then
+			Call nd_Equi.ReplaceItemValue("CleEquipement", pnd_NE.UniversalID)
+		Else
+			Call nd_Equi.ReplaceItemValue("CleEquipement", xVar(pnd_NE, "CleEquipement", ""))
+		End If
+		
+		'Réinitialiser la sécurité
+		Call A_AssignerSecurite(nd_Equi)
+		Call nd_Equi.Save(True,False)
+		
+		If xVar(nd_Equi,"Prod_TypeDescendant", "") = "C" Then
+			Call A_DupliquerComposants(xVar(nd_Equipement, "Prod_CleProduit", ""), nd_Equi,_
+			pnd_NS, pnd_NP, pndb_NP, p_Heure, p_Origine)
+		End If
+		
+		Set nd_Equipement = ndc_Equipements.GetNextDocument(nd_Equipement)
+	Wend
+	
+	A_DupliquerComposants = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Lsi_info(2), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="A_DupliquerSuccursales"><lotusscript>Function A_DupliquerSuccursales(p_UNIDPO As String, pndc As NotesDocumentCollection, _
+	pnd_NP As NotesDocument, pndb_NP As Notesdatabase, p_Heure As Variant, p_Origine As String, _
+	p_NbSitesCommissionCrees As Integer) As Boolean
+	' -------------------------------------------------------------------------------------------------------------
+	' p_UNIDPO = Unique document identifier pour PropositionOriginale
+	' pndc = Succursales à dupliquer (optionnel)
+	' pnd_NP = NouvelleProposition
+	' pndb_NP = Base de documents de la nouvelle proposition
+	' p_heure = Heure qu'il était au début de la procédure pour mettre la même sur tous les nouveaux éléments créés
+	' p_NbSitesCommissionCrees = Nombre de succursales/sites copié(e)s dans la commission
+	' -------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Succursale As NotesDocument
+	Dim nd_Succ As NotesDocument
+	Dim nd_SiteParent As NotesDocument
+	Dim a_Items As Variant
+	Dim v_Langue As String
+	
+	'Initialisations
+	A_DupliquerSuccursales = False
+	
+	a_Items = Evaluate(|"ClientAdresse1" : "ClientAdresse2" : "ClientVille" : "ClientPays" : "ClientProvince" : "ClientCodePostal" : "ContactNom" | &amp; _
+|  : "ContactTelephone" : "ContactCourriel"|)
+	
+	v_Langue = xVar(pnd_NP, "Prop_Langue", "")
+	
+	' Chercher toutes les succursales pour la proposition
+	' ---------------------------------------------------
+	Set nd_Succursale = pndc.GetFirstDocument
+	
+	'Boucler pour créer des copies de toutes les succursales
+	While Not nd_Succursale Is Nothing
+		' Vérifier si au moins un produit est à commission
+		If Not SDSPS_SiteAvecCommission(nd_Succursale) Then						
+			MessageBox xGDK_xMessage("SDSPP", 123, "", xVar(nd_Succursale, "Site_ClientNomInterne", "")), 64, xGDK_xMessage("SI", 8, "", "")
+			' 123: Le site &amp; ne contient pas de produits générant une commission (SDS Bases II).
+		End If
+		
+		'Créer la copie de la succursale
+		Set nd_Succ = New NotesDocument(pndb_NP)
+		nd_Succ.Form = "F_Succ"
+		'Call nd_Succursale.CopyAllItems(nd_Succ)
+		Call nd_Succ.MakeResponse(pnd_NP)
+		
+		nd_Succ.Description = xVar(nd_Succursale, "Site_BanniereDesc", "")
+		nd_Succ.Origine = p_Origine
+		nd_Succ.Cle = xVar(nd_Succursale, "Site_ClientNomInterne", "")
+		nd_Succ.Prop_Notes = xVar(nd_Succursale, "Site_Note", "")
+		nd_Succ.Succ_ClientNom = xVar(nd_Succursale, "Site_ClientNomInterne", xVar(nd_Succursale, "Site_ClientNom", ""))
+		'nd_Succ.Succ_Banniere = xVarImplode(nd_Succursale, "Site_Banniere", ", ")
+		nd_Succ.Succ_Banniere = xVar(nd_Succursale,"Site_Banniere", "")
+		nd_Succ.Succ_BanniereDesc = xVar(nd_Succursale,"Site_BanniereDesc", "")
+		nd_Succ.Site_NoSite = xVar(nd_Succursale, "Site_NoSite", "")
+		nd_Succ.Succ_Langue = v_Langue
+		nd_Succ.Succ_ContactFonction =  xVar(nd_Succursale, "Site_ContactFonction" &amp; v_Langue, "")
+		
+		If xGDK_xValeurExisteTabl("Civilite" &amp; v_Langue, xVar(nd_Succursale, "Site_ContactTitre", ""), True) Then
+			nd_Succ.Succ_ContactTitre =  xVar(nd_Succursale, "Site_ContactTitre", "")
+		Else
+			nd_Succ.Succ_ContactTitre = xGDK_xVarTabl("Civilite" &amp; v_Langue, "Tabl_ValeurDefaut", "", True)
+		End If
+		
+		Set nd_SiteParent = xSDSP3_xndSite(xVar(nd_Succursale, "Site_NoSiteSDSParent", ""), True)
+		
+		If xVar(nd_Succursale, "Site_NoSite", "") = g_NoSitePrincipal Then
+			nd_Succ.Succ_Type ="0"
+		Elseif  xVar(nd_Succursale, "Site_ServeurSDS", "") = "1" Or _
+		xVar(nd_SiteParent, "Site_ServeurSDS", "") = "1" Then
+			nd_Succ.Succ_Type ="1"
+		Else
+			nd_Succ.Succ_Type ="2"
+		End If
+		
+		nd_Succ.Succ_Usagers = xVar(nd_Succursale, "Site_D0_NbUtilisateurs", 0) + xVar(nd_Succursale, "Site_D2_NbUtilisateurs", 0) &amp; _
+		+ xVar(nd_Succursale, "Site_D3_NbTechniciens", 0)  + xVar(nd_Succursale, "Site_D4_NbUtilisateurs", 0)  + xVar(nd_Succursale, "Site_D5_NbUtilisateurs", 0)
+		
+		nd_Succ.Succ_UsagersVentes = xVar(nd_Succursale, "Site_D1_NbUtilisateurs", 0)
+		
+		nd_Succ.Succ_Langue = xVar(pnd_NP, "Prop_Langue", "")
+		nd_Succ.ContactFonction = xVar(nd_Succursale, "Site_ContactFonctionFR", "")
+		
+		If xVar(nd_Succursale, "Site_ClientPays","") = "CA" Or _
+		xVar(nd_Succursale, "Site_ClientPays","") = "US" Then
+			nd_Succ.Succ_ClientTablePays = ""
+		Else
+			nd_Succ.Succ_ClientTablePays = "1"
+		End If
+		
+		Forall v_ItemSucc In a_Items
+			Call nd_Succ.ReplaceItemValue("Succ_" &amp; v_ItemSucc, xVar(nd_Succursale, "Site_" &amp; v_ItemSucc, ""))
+		End Forall	
+		
+		nd_Succ.HistoDC = p_Heure
+		nd_Succ.HistoUC = gns_A.Username
+		nd_Succ.HistoDM = ""
+		nd_Succ.HistoUM = ""
+		
+		'Réinitialiser la sécurité
+		Call A_AssignerSecurite(nd_Succ)
+		Call nd_Succ.Save(True,False)
+		
+		' Pour chaque succursale on doit copier les équipements, Logiciels et services
+		' ----------------------------------------------------------------------------
+		Call A_DupliquerEquipements(nd_Succursale.UniversalID, nd_Succ, pnd_NP, pndb_NP, p_Heure, p_Origine)
+		Call A_DupliquerLogiciels(nd_Succursale.UniversalID, nd_Succ, pnd_NP, pndb_NP, p_Heure, p_Origine)
+		Call A_DupliquerServices(nd_Succursale.UniversalID, nd_Succ, pnd_NP, pndb_NP, p_Heure, p_Origine)
+		
+		' Si la succursale n'a jamais été copiée dans les commissions, la flaguer
+		If xVar(nd_Succursale, "Site_CommissionCopiee", "") = "" Then	 
+			p_NbSitesCommissionCrees = p_NbSitesCommissionCrees + 1
+			nd_Succursale.Site_CommissionCopiee = "1"
+			Call nd_Succursale.Save(True,False)
+		End If
+		
+		Set nd_Succursale = pndc.GetNextDocument(nd_Succursale)		
+	Wend
+	
+	A_DupliquerSuccursales = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Lsi_info(2), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="A_CopierPropositionComm"><lotusscript>Function A_CopierPropositionComm(pnd_Prop As NotesDocument, pndc As NotesDocumentCollection) As Boolean
+	'Cette Fonction permet de copier une proposition dans la base de calcul des commissions.
+	'Parametres:	pnd_Prop:  L'objet document de la proposition
+	'				pndc : Les succursales (sites)
+	On Error Goto GererErreur
+	
+	Dim v_Heure As Variant
+	Dim nd_Prop As NotesDocument
+	Dim nd_SitePrincipal As NotesDocument
+	Dim v_NbSitesCommissionCrees As Integer
+	Dim v_Statut As String
+	Dim v_TitreDB As String
+	'Dim l_Resume As Variant
+	'Dim l_Commissions As Variant
+	
+	' Initialisations
+	A_CopierPropositionComm =  False
+	Call SDSPP_Initialisations
+	'	v_Heure = Now()
+	
+	Set nd_SitePrincipal = SDSPS_ndSitePlusUtilisateurs(pnd_Prop)
+	g_NoSitePrincipal = xVar(nd_SitePrincipal, "Site_NoSite","")
+	
+	' Copier la proposition
+	' -----------------------------
+	Call xSDSC3_Initialisation
+	
+	'	v_TitreDB = "SDS Commissions III"
+	v_TitreDB = "SDSC3"
+	If gndb_xSDSC3 Is Nothing Then
+		Messagebox xGDK_xMessage("SI", 48, "", v_TitreDB), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	Elseif Not gndb_xSDSC3.Isopen Then
+		Messagebox xGDK_xMessage("SI", 48, "", v_TitreDB), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	'Creer la nouvelle Proposition
+	Set nd_Prop = New NotesDocument(gndb_xSDSC3)
+	Call pnd_Prop.CopyAllItems(nd_Prop, False)
+	Call nd_Prop.Removeitem("Prop_DescDetaillee")	' champ Rich Text, ne pas le copier dans Commission II
+	nd_Prop.Prop_Description = xVar(pnd_Prop, "Prop_DescProposition", "")
+	nd_Prop.Prop_DescriptionComm = xVar(pnd_Prop, "Prop_DescProposition", "")
+	nd_Prop.Description = xVar(pnd_Prop, "Prop_ClientNom", xVar(pnd_Prop, "Prop_ClientNomInterne", ""))
+	nd_Prop.Prop_NbProposition = Cdbl(xVar(pnd_Prop, "Prop_NbProposition", ""))
+	
+	nd_Prop.Prop_Type = xVar(pnd_Prop, "Prop_TypeProposition", "")
+	
+	nd_Prop.Prop_TypeIcone = xSDSBB_xVarTpPp(xVar(nd_Prop, "Prop_Type",""), "TpPp_Icone", "", True)
+	nd_Prop.Origine = c_ndbAlias
+	
+	' Initialiser les champs des commissions
+	'	l_Commissions = SDSI_CalculerCommissions(pnd_Prop)
+	'	nd_Prop.Comm_Boni = l_Commissions("Boni")
+	
+	''nd_Prop.Comm_CommissionCorrection = l_Commissions("CommissionCorrection")
+	''nd_Prop.Prop_CommissionCorrection = xVar(nd_Prop, "Comm_CommissionCorrection", "")
+	nd_Prop.Prop_EQMajoMens = xVarProf("Prof_EQMajoMens", 0)
+	nd_Prop.Prop_LGMajoMens = xVarProf("Prof_LGMajoMens", 0)
+	
+	'Réinitialiser les champs de base
+	'	nd_Prop.HistoDC = v_Heure
+	nd_Prop.HistoUC = gns_SDSPP.Username
+	nd_Prop.HistoDM = ""
+	nd_Prop.HistoUM = ""
+	nd_Prop.Prop_Contrat = ""
+	
+	nd_Prop.Prop_DateTransfert = Now
+	
+	'Réinitialiser la sécurité
+	Call A_AssignerSecurite(nd_Prop)
+	
+	'Effacer l'historique qui avait été copié
+	Call SIHi_EffacerHistorique(nd_Prop)
+	
+	' Assigner le nouveau statut
+	v_Statut = "05"
+	nd_Prop.Prop_Statut = v_Statut
+	nd_Prop.Prop_StatutDate = Now
+	nd_Prop.Prop_StatutIcone = xSDSC3_xIcnTabl(v_Statut, "StatProp_FR", True)
+	nd_Prop.Prop_StatutDescFR = v_Statut &amp; " - " &amp; xSDSC3_xDescTabl(v_Statut, "StatProp_FR", True)
+	nd_Prop.Prop_StatutDescEN = v_Statut &amp; " - " &amp; xSDSC3_xDescTabl(v_Statut, "StatProp_EN", True)
+	
+	' Retirer les documents attachés 
+	If nd_Prop.HasEmbedded Then
+		If nd_Prop.HasItem("$File") Then
+			Call nd_Prop.RemoveItem("$File")
+		End If
+	End If
+	
+	Call nd_Prop.Save(True, False)
+	
+	'Créer des copies de(s) (la) succursale(s)
+	'-------------------------------------------------------
+	v_NbSitesCommissionCrees = xVar(nd_Prop, "Prop_NbSitesCommissionCrees",0)
+	Call A_DupliquerSuccursales(pnd_Prop.UniversalID, pndc, nd_Prop, gndb_xSDSC3, v_Heure, _
+	xVar(nd_Prop, "Origine",""), v_NbSitesCommissionCrees)
+	
+	' Maj la proposition avec le nombre de sites créés
+	If xVar(nd_Prop, "Prop_NbSitesCommissionCrees", 0) &lt;&gt; v_NbSitesCommissionCrees Then
+		pnd_Prop.Prop_NbSitesCommissionCrees = v_NbSitesCommissionCrees
+		Call pnd_Prop.Save(True, False)
+	End If
+	
+	A_CopierPropositionComm = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Lsi_info(2), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="A_DupliquerLogiciels"><lotusscript>Function A_DupliquerLogiciels(p_UNIDSO As String,pnd_NS As NotesDocument, _
+pnd_NP As NotesDocument, pndb_NP As Notesdatabase, p_Heure As Variant, p_Origine As String) As Boolean
+	'-----------------------------------------------------------------------------------------------------------------------
+	' p_UNIDSO = Unique document identifier pour Succursale Originale
+	' pnd_NS = Nouvelle Succursale
+	' pnd_NP = Nouvelle Proposition
+	' pndb_NP = Base de documents de la nouvelle proposition
+	' p_heure = Heure qu'il était au début de la procédure pour mettre la même sur tous les
+	' nouveaux éléments créés
+	'-----------------------------------------------------------------------------------------------------------------------
+	
+	On Error Goto GererErreur
+	
+	Dim ndc_Logiciels As NotesDocumentCollection
+	Dim nd_Logiciel As NotesDocument
+	Dim nd_LProd As NotesDocument
+	Dim nd_Logi As NotesDocument
+	Dim a_Items As Variant
+	Dim v_Quantite As Long
+	Dim v_FraisMensuels As Variant
+	Dim v_Commission As String 
+	
+	a_Items = Evaluate(|"PrixUnitaire" : "CoutUnitaire" : "CoutTotal": "PrixTotal" : "Profit" : "Quantite" : "VerificationTechnique" | &amp; _
+	|: "ContratRequis" : "CategorieDescFR": "CategorieDescEN" : "Garantie" : "CategorieIcone" : "Departement" : "DepartementDescFR" : "DepartementDescEN"|)
+	
+	Set ndc_Logiciels = gnv_Prod30.GetAllDocumentsByKey((xVar(pnd_NS, "Site_NoSite", "") &amp; ";LG."), False)
+	
+	Set nd_Logiciel = ndc_Logiciels.GetFirstDocument
+	
+	'Boucler pour créer des copies de tous les logiciels
+	While Not nd_Logiciel Is Nothing
+		
+		' Extraire le document de produit de logiciel
+		' -------------------------------------------
+		Set nd_LProd = xSDSBB_xndProd(xVar(nd_Logiciel,"Prod_CleProduit","")	, True)
+		
+		If nd_LProd Is Nothing Then
+			' 108 - Le produit de logiciel &amp; n'existe pas.
+			Print xGDK_xMessage(c_ndbAliasMSG, 108, "", xVar(nd_Logiciel, "Prod_CodeProduit", ""))
+		End If
+		
+		'Créer la copie du logiciel
+		Set nd_Logi = New NotesDocument(pndb_NP)
+		nd_Logi.Form = "F_Logi"
+		'Call nd_Logiciel.CopyAllItems(nd_Logi)
+		Call nd_Logi.MakeResponse(pnd_NS)
+		nd_Logi.Origine = p_Origine
+		nd_Logi.Succ_ClientNom = xVar(pnd_NS, "Succ_ClientNom", "")
+		nd_Logi.Logi_Categorie = xVar(nd_Logiciel, "Prod_CategorieProduit", "")
+		nd_Logi.Logi_Code = xVar(nd_Logiciel, "Prod_CodeProduit", "")
+		nd_Logi.Logi_DescriptionFR  = xVar(nd_Logiciel, "Prod_DescProduitFR", "")
+		nd_Logi.Logi_DescriptionEN  = xVar(nd_Logiciel, "Prod_DescProduitEN", "")
+		v_Quantite = xVar(nd_Logiciel, "Prod_Quantite", 0)
+		v_FraisMensuels = SItN_Round(xVar(nd_Logiciel, "Prod_FraisEntretienAnnuels", 0) / 12, 2)
+		nd_Logi.Logi_FraisUnitairesMensuels = v_FraisMensuels
+		nd_Logi.Logi_FraisUnitairesAnnuels = v_FraisMensuels * 12
+		nd_Logi.Logi_FraisTotauxMensuels = v_Quantite * v_FraisMensuels
+		nd_Logi.Logi_FraisTotauxAnnuels = v_Quantite * v_FraisMensuels * 12
+		nd_Logi.Logi_CodeProduitAH = xVar(nd_Logiciel, "Prod_CodeProduitAH", "")
+		
+		If xVarContient(nd_LProd, "Prod_PropOptions", "CR") Then
+			nd_Logi.Logi_ContratRequis = "1"
+		Else
+			nd_Logi.Logi_ContratRequis = "0"
+		End If
+		
+		nd_Logi.Logi_CommissionFixe = xVar(nd_LProd, "Prod_CommissionFixe", 0)
+		
+		Forall v_ItemLogi In a_Items
+			Call nd_Logi.ReplaceItemValue("Logi_" &amp; v_ItemLogi, xVar(nd_Logiciel, "Prod_" &amp; v_ItemLogi, ""))
+		End Forall
+
+		If xVar(nd_LProd, "Prod_NoContratFmt_CS", "") = ""  Then
+			' Si le produit, dans SDS Base II, est à commission
+			v_Commission = xVar(nd_LProd, "Prod_Commissions", "")
+			If v_Commission = "1" Or (xVar(pnd_NP, "Prop_Type", "") &lt; "2" And v_Commission = "2") Then
+				nd_Logi.Logi_ExempterCommission = ""
+			Else
+				nd_Logi.Logi_ExempterCommission = "1"
+			End If
+		Else
+			nd_Logi.logi_ExempterCommission = "1"
+		End If
+		
+		nd_Logi.HistoDC = p_Heure
+		nd_Logi.HistoUC = gns_A.Username
+		nd_Logi.HistoDM = ""
+		nd_Logi.HistoUM = ""
+		
+		'Initialiser les clés pour que l'équipement soit classé dans la nouvelle copie de 
+		'succursale
+		Call nd_Logi.ReplaceItemValue("CleProposition", pnd_NP.UniversalID)
+		
+		'Mettre à jour les informations qui ont peut-être changé depuis la création de 
+		'la proposition originale ex: les prix
+		'------------------------------------------------------------------------------
+		'			Call SDSPP_MajCopieLogi(nd_Logi,pnd_NP,pnd_NS,nd_LProd)
+		
+		nd_Logi.CategorieDescFR = xSDSBB_xVarCate(xVar(nd_Logi, "Logi_Categorie", ""), "Cate_DescCategorieFR", "", True)
+		nd_Logi.CategorieDescEN = xSDSBB_xVarCate(xVar(nd_Logi, "Logi_Categorie", ""), "Cate_DescCategorieEN", "", True)
+		
+		'Réinitialiser la sécurité
+		Call A_AssignerSecurite(nd_Logi)
+		Call nd_Logi.Save(True,False)
+		
+		Set nd_Logiciel = ndc_Logiciels.GetNextDocument(nd_Logiciel)
+		
+	Wend
+	
+	
+	A_DupliquerLogiciels = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Lsi_info(2), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="A_DupliquerEquipements"><lotusscript>Function A_DupliquerEquipements(p_UNIDSO As String, pnd_NS As NotesDocument, _
+pnd_NP As NotesDocument, pndb_NP As Notesdatabase, p_Heure As Variant, p_Origine As String) As Boolean
+	'-----------------------------------------------------------------------------------------------------------------------
+	' p_UNIDSO = Unique document identifier pour Succursale Originale
+	' pnd_NS = Objet de la nouvelle succursale
+	' pnd_NP = Objet de la nouvelle proposition. Cet objet est requis lors du rafraichissement
+	' des données.
+	' pndb_NP = Base de documents de la nouvelle proposition
+	' p_heure = Heure qu'il était au début de la procédure pour mettre la même sur tous les
+	' nouveaux éléments créés
+	'-----------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndc_Equipements As NotesDocumentCollection
+	Dim nd_Equipement As NotesDocument
+	Dim nd_EProd As NotesDocument
+	Dim nd_Equi As NotesDocument
+	Dim a_Items As Variant
+	Dim v_Commission As String 
+	
+	' Initialisations	
+	A_DupliquerEquipements = False
+	
+	a_Items = Evaluate(|"PrixUnitaire" : "CoutUnitaire" : "CoutTotal": "PrixTotal" : "Profit" : "FraisEntretien": "Equi_FraisEntretienAnnuels" : "Quantite" | &amp; _
+	|: "VerificationTechnique" : "ContratRequis" : "CategorieDescFR": "CategorieDescEN" : "Garantie" : "FraisEntretienAnnuels" | &amp; _
+	|: "CategorieIcone" : "Departement": "DepartementDescFR" : "DepartementDescEN"|)
+	
+	Set ndc_Equipements = gnv_Prod30.GetAllDocumentsByKey((xVar(pnd_NS, "Site_NoSite", "") &amp; ";EQ."), False)
+	
+	Set nd_Equipement = ndc_Equipements.GetFirstDocument
+	
+	'Boucler pour créer des copies de tous les équipements
+	While Not nd_Equipement Is Nothing
+		
+		If xVar(nd_Equipement,"Prod_TypeDescendant", "") &lt;&gt; "C" Then
+			
+			' Extraire le document de produit d'équipement
+			' --------------------------------------------
+			Set nd_EProd = xSDSBB_xndProd(xVar(nd_Equipement,"Prod_CleProduit","")	, True)
+			
+			If nd_EProd Is Nothing Then
+				' 108 - Le produit d'équipement &amp; n'existe pas.
+				Print xGDK_xMessage(c_ndbAliasMSG, 108, "", xVar(nd_Equipement, "Prod_CodeProduit", ""))
+			End If
+			
+			Set nd_Equi = New NotesDocument(pndb_NP)
+			'Call nd_Equipement.CopyAllItems(nd_Equi)
+			nd_Equi.Form = "F_Equi"
+			Call nd_Equi.MakeResponse(pnd_NS)
+			nd_Equi.Origine = p_Origine
+			nd_Equi.Succ_ClientNom = xVar(pnd_NS, "Succ_ClientNom", "")
+			
+			nd_Equi.Equi_Categorie = xVar(nd_Equipement, "Prod_CategorieProduit", "")
+			nd_Equi.Equi_DescriptionFR  = xVar(nd_Equipement, "Prod_DescProduitFR", "")
+			nd_Equi.Equi_DescriptionEN  = xVar(nd_Equipement, "Prod_DescProduitEN", "")
+			nd_Equi.Equi_Code = xVar(nd_Equipement, "Prod_CodeProduit", "")
+			nd_Equi.Prop_EQMajoMens = xVar(pnd_NP, "Prop_EQMajoMens", 0)
+			
+			If xVar(nd_Equipement,"Prod_TypeDescendant", "") = "C" Then
+				nd_Equi.Equi_Type = "1"
+			Else
+				nd_Equi.Equi_Type = "0"
+			End If
+			
+			Forall v_ItemEqui In a_Items
+				Call nd_Equi.ReplaceItemValue("Equi_" &amp; v_ItemEqui, xVar(nd_Equipement, "Prod_" &amp; v_ItemEqui, ""))
+			End Forall
+			
+			' Si le produit, dans SDS Base II, est à commission
+			v_Commission = xVar(nd_EProd, "Prod_Commissions", "")
+			If v_Commission = "1" Or (xVar(pnd_NP, "Prop_Type", "") &lt; "2" And v_Commission = "2") Then
+				nd_Equi.Equi_ExempterCommission = ""
+			Else
+				nd_Equi.Equi_ExempterCommission = "1"
+			End If
+			
+			nd_Equi.HistoDC = p_Heure
+			nd_Equi.HistoUC = gns_A.UserName
+			nd_Equi.HistoDM = ""
+			nd_Equi.HistoUM = ""
+			
+			'Initialiser les clés pour que l'équipement soit classé dans la nouvelle copie de succursale
+			Call nd_Equi.ReplaceItemValue("CleProposition", pnd_NP.UniversalID)
+			Call nd_Equi.ReplaceItemValue("CleSuccursale", pnd_NS.UniversalID)
+			
+			
+			'Réinitialiser la sécurité
+			Call A_AssignerSecurite(nd_Equi)
+			Call nd_Equi.Save(True,False)
+			
+%REM
+			If xVar(nd_Equi,"Prod_TypeDescendant", "") = "C" Then
+				Call A_DupliquerComposants(xVar(nd_Equipement, "Prod_CleProduit", ""), nd_Equi,_
+				pnd_NS, pnd_NP, pndb_NP, p_Heure, p_Origine)
+			End If
+%END REM
+			
+		End If
+		
+		Set nd_Equipement = ndc_Equipements.GetNextDocument(nd_Equipement)
+		
+	Wend
+	
+	A_DupliquerEquipements = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Lsi_info(2), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="A_AssignerSecurite"><lotusscript>Sub A_AssignerSecurite(pnd As NotesDocument)
+	On Error Goto GererErreur
+	
+	Dim v As Variant
+	
+	Call pnd.ReplaceItemValue("Lecteur", "")
+	Call pnd.ReplaceItemValue("LecteurAdmin", "[LecteurTous]")
+	Call pnd.ReplaceItemValue("Auteur", "")
+	v = Evaluate(|"[Admin]" : "[Commissions]"|)
+	Call pnd.ReplaceItemValue("AuteurAdmin", v)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Lsi_info(2), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20250108T111318,72-05</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20250319T073736,79-05</datetime></item></agent>
+
+</database>

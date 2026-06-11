@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Projeto" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="555812" unid="887ADE34CD6616578525882B00749F37" sequence="29">
+<created><datetime dst="true">20220421T171349,35-04</datetime></created>
+<modified><datetime>20260105T014837,80-05</datetime></modified>
+<revised><datetime>20250319T073639,26-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,79-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,79-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+
+Use "SI_Projeto"
+Use "SI_Arrays"
+Use "A_Inst"
+
+</lotusscript></code><code event="declarations"><lotusscript>
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SDSPPJ = "SL"
+Const gc_Element_SDSPPJ = "SDSP_Projeto"
+
+
+	' Fonction permettant de sélectionne un document après une recherche FT
+	
+
+
+</lotusscript></code><code event="SDSPPJ_ndSelectionnerSitePrincipal"><lotusscript>Function SDSPPJ_ndSelectionnerSitePrincipal(ByVal p_Query As String,  p_Champs As Variant, ByVal p_Null As Integer, _
+	ByVal p_fDescription As String, ByVal p_Titre As String, p_Categorie As String, p_RechApprox As Boolean, p_NomsDB As Variant) As NotesDocument
+	' Fonction permettant de sélectionne un document après une recherche FT
+	'	Paramètres:		p_Query			String.  Le mot clé à rechercher dans la vue.
+	'							p_Champs		Variant.  Liste de champs à ajouter dans le Query.
+	'							p_Null				Boolean.  L'action à effectuer su le query est vide.
+	'															SISe_PROMPT (0) = Demande la requête à l'utilisateur (Prompt)
+	'															SISe_PICKLIST (1) = Demande à l'utilisateur de choisir dans un picklist
+	'							p_fDescription	String.  Une formule permettant de construire la description de chaque document.
+	'													C'est cette description qui sera affichée dans le dialog box.
+	'							p_RechApprox	String. Permet d'executer une recherche aproximative (fuzzy) en ajoutant 
+	'													une astérix (*) devant et après p_Query.	
+	'							p_NomDB	String. L'origine de la base de recherche
+	'															
+	'	Valeurs retournées:	NotesDocument	. Le document sélectionné.
+	
+	On Error GoTo GererErreur
+	
+	
+	Dim ndb As NotesDatabase
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument	
+	Dim nv_Clie As NotesView
+	Dim v_Description As Variant
+	Dim v_NbResultats As Long
+	Dim v_NomsDB As Variant	
+	Dim v_Query As Variant
+	Dim v_NomsDBSearch As Variant
+	Dim v_Parametres(1) As String	
+	Dim x As Long
+	Dim i As Integer
+	
+	' Initialisations
+	' ------------------
+	Call SISe_Initialisations
+	
+	Set SDSPPJ_ndSelectionnerSitePrincipal = Nothing
+	
+	v_NomsDB = p_NomsDB
+	
+	If p_Titre = "" Then
+		p_Titre = "SI Sélection"
+	End If
+	
+	If Not IsArray(v_NomsDB) Then
+		v_NomsDB = Split(v_NomsDB)	
+	End If
+	
+	If Not SDSPPJ_Initialisations(CStr(v_NomsDB(LBound(v_NomsDB)))) Then
+		Exit Function
+	End If
+	
+	Set nv_Clie = gndb_xPJ.Getview("V_Clie10")
+	
+	If nv_Clie Is Nothing Or p_fDescription = "" Then
+		Exit Function
+	End If
+	
+	ReDim v_NomsDBSearch(UBound(v_NomsDB))				
+	
+	If UBound(v_NomsDB) = 0 Then
+		v_NomsDBSearch(0) = xGDK_xVarNDB(v_NomsDB(LBound(v_NomsDB)), "NDB_NomUsuel", "", True)	
+	Else
+		For i = 0 To UBound(v_NomsDB)
+			v_NomsDBSearch(i) = xGDK_xVarNDB(v_NomsDB(i), "NDB_NomUsuel", "", True)
+		Next
+	End If
+	
+	i = 0
+	
+	' Si le query est vide, effectuer l'action selon le paramètre P_Null
+	' --------------------------------------------------------------------------------------
+	If p_Query = "" Then
+		If p_Null = SISe_PICKLIST Then
+			Set SDSPPJ_ndSelectionnerSitePrincipal = SISe_ndPickList(nv_Clie, p_Titre, p_Categorie)
+			Exit Function
+		End If
+		
+		' Permettre à l'utilisateur de saisir le query à l'aide d'un prompt
+		' ------------------------------------------------------------------------------------
+		v_Query = gnuiws_SISe.Prompt(PROMPT_OKCANCELEDIT, p_Titre, xGDK_xMessage("SI", 69, "", ""))
+		
+		If IsEmpty(v_Query) Then
+			Exit Function
+		ElseIf v_Query = "" Then
+			Set SDSPPJ_ndSelectionnerSitePrincipal = SISe_ndPickList(nv_Clie, p_Titre,p_Categorie)		
+			Exit Function
+		Else
+			If p_RechApprox Then
+				p_Query = "*" &amp; v_Query &amp; "*"
+			Else
+				p_Query = v_Query
+			End If			
+		End If
+	End If
+	
+	' Ajouter les p_Champs au "p_Query", si necessaire
+	If IsArray(p_Champs) Then
+		Dim v_QueryTmp As String
+		ForAll p In p_Champs
+			v_QueryTmp = v_QueryTmp &amp; "FIELD " &amp; p &amp; " contains (" &amp; p_Query &amp; ") OR "			
+		End ForAll
+		p_Query = Left$(v_QueryTmp, Len(v_QueryTmp) - 4)	
+	ElseIf Not p_Champs = "" Then
+		p_Query = "FIELD " &amp; p_Champs &amp; " contains (" &amp; p_Query &amp; ")"
+	End If
+	
+	' Si aucun résultat, afficher un message d'erreur et sortir
+	' ---------------------------------------------------------------------------
+	v_NbResultats = nv_Clie.FTSearch(p_Query)
+	If v_NbResultats = 0 Then
+		
+		If SDSPPJ_ndSelectionnerSitePrincipal Is Nothing And UBound(v_NomsDB) &gt; 0 Then
+			
+			v_Parametres(0) = v_NomsDBSearch(i)
+			v_Parametres(1) = v_NomsDBSearch(i + 1)
+			
+			' Demander une confirmation
+			If gnuiws_SISe.Prompt(PROMPT_YESNO, xGDK_xMessage("SI", 10, "", ""), xGDK_xMessage("SDSPP", 160, "", v_Parametres)) &lt;&gt; 1 Then
+				Exit Function
+			Else
+				
+				Set gns_SIPJ = Nothing
+				i = i + 1
+							
+				If  ArrayContient(v_NomsDB ,v_NomsDB(LBound(v_NomsDB))) Then
+					v_NomsDB  = RetirerArray(v_NomsDB,v_NomsDB(LBound(v_NomsDB)))
+				End If
+				
+				Set SDSPPJ_ndSelectionnerSitePrincipal =  SDSPPJ_ndSelectionnerSitePrincipal(p_Query, p_Champs, p_Null, _
+				p_fDescription, p_Titre,p_Categorie, p_RechApprox, v_NomsDB)
+				
+				If Not SDSPPJ_ndSelectionnerSitePrincipal Is Nothing Then
+					Exit Function
+				End If
+				
+			End If
+			
+		Else
+			MsgBox(xGDK_xMessage("SI", 70, "", ""))
+			Exit Function
+		End If
+		
+	End If
+	
+	' Créer le tableau à partir des résultats obtenu
+	' -------------------------------------------------------------
+	If v_NbResultats &gt; 0 then
+		If v_NbResultats &gt; g_LimiteResultats Then
+			ReDim a_Resultats(g_LimiteResultats - 1)		
+		Else
+			ReDim a_Resultats(v_NbResultats - 1)	
+		End If	
+		x = 0
+		Set nd_Suivant = nv_Clie.GetFirstDocument
+		Do Until nd_Suivant Is Nothing
+			Set nd = nd_Suivant
+			Set nd_Suivant = nv_Clie.GetNextDocument(nd_Suivant)
+			v_Description = Evaluate(p_fDescription, nd)
+			a_Resultats(x) = v_Description(0) + "|" + CStr(nd.UniversalID)
+			x = x + 1
+			'If x = g_LimiteResultats - 1 Then
+			If x = g_LimiteResultats Then
+				Exit Do
+			End If
+		Loop
+		
+		' Permettre à l'utilisateur de sélectionner une valeur dans un dialogbox
+		' -----------------------------------------------------------------------------------------------
+		Set nd_DB = New NotesDocument(gndb_SISe)
+		nd_DB.SISe_NbResultats = v_NbResultats
+		nd_DB.SISe_NbLimite = g_LimiteResultats
+		nd_DB.SISe_Liste = a_Resultats
+		nd_DB.SISe_Type = "0"
+		If gnuiws_SISe.DialogBox( "DB_SISe" , True , True , False , False , False ,False , p_Titre, nd_DB , True , False , False ) Then
+			' Assigner le document choisi par l'utilisateur
+			' -----------------------------------------------------------
+			Set ndb = nv_Clie.Parent
+			Set SDSPPJ_ndSelectionnerSitePrincipal = _
+			ndb.GetDocumentByUNID(CStr(xVar(nd_DB, "SISe_Choix", "")))
+		End If		
+	End if
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPPJ, gc_Element_SDSPPJ, GetThreadInfo(1), p_Query, False)
+	Exit Function
+End Function
+
+
+
+</lotusscript></code><code event="SDSPPJ_Initialisations"><lotusscript>Function SDSPPJ_Initialisations(p_NomDB As String) As Boolean
+	On Error GoTo GererErreur
+
+	Dim v_ndbExisteSurLocal As Boolean
+	Dim v_ndbSurServeur As Boolean
+
+	SDSPPJ_Initialisations = False
+
+	v_ndbExisteSurLocal = AInst_ndbExisteSurLocal(p_NomDB, True)
+	v_ndbSurServeur = AInst_NdbSurServeur(True)
+
+	If Not v_ndbSurServeur And Not v_ndbExisteSurLocal Then		
+		MessageBox xGDK_xMessage("SDSPP", 161, "", p_NomDB) , 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function						
+	End If
+	
+	Set gns_SIPJ = Nothing
+
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function
+	End If
+
+	SDSPPJ_Initialisations = True
+
+	Exit Function
+
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPPJ, gc_Element_SDSPPJ, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPPJ_ndSelectionnerClientSitePrincipal"><lotusscript>Function SDSPPJ_ndSelectionnerClientSitePrincipal(p_NomsDB As Variant, p_Titre As String) As NotesDocument
+	'-------------------------------------------------------------
+	' Le script permet de sélectionner le client du site principal.
+	'--------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd As NotesDocument
+	Dim v_ndbExisteSurLocal As Boolean
+	Dim v_NomsDB As Variant
+	Dim v_NomOrigineDB As String
+	Dim v_ndbSurServeur As Boolean
+	
+	Set SDSPPJ_ndSelectionnerClientSitePrincipal = Nothing
+			
+	v_NomsDB = p_NomsDB
+				
+	' Sélectionner un client
+	' -----------------------
+	Set nd = SDSPPJ_ndSelectionnerSitePrincipal("", ga_ItemsRecherche_SIPJ, SISe_PROMPT, _
+	|Clie_Nom + @If(@IsNull(Clie_Division); ""; " " + Clie_Division) + @If(@IsNull(Clie_ClientNomInterne); ""; " (" + Clie_ClientNomInterne + ")") + @If(Clie_Inactif = "1";| &amp; |+" - | &amp; xGDK_xMessage("SI", 214, "", "") &amp;  |"| &amp; |; "")| , _
+	p_Titre,"", True, v_NomsDB)
+	
+	If xVar(nd, "Clie_Inactif", "") = "1" Then
+		MessageBox xGDK_xMessage("SI", 210, "", xVar(nd, "Clie_Nom" ,"")), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	p_NomsDB = v_NomsDB
+	
+	Set SDSPPJ_ndSelectionnerClientSitePrincipal = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPPJ, gc_Element_SDSPPJ, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073639,26-05</datetime></item></scriptlibrary>
+
+</database>

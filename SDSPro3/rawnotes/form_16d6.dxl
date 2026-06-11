@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><note class="form">
+<noteinfo noteid="16d6" unid="5EFFCC71440C3E7B852579890070F7AA" sequence="294">
+<created><datetime>20120118T153354,34-05</datetime></created>
+<modified><datetime>20260323T085928,76-05</datetime></modified>
+<revised><datetime>20260323T085928,75-05</datetime></revised>
+<lastaccessed><datetime>20260323T085928,75-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205707,97-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<item name="$TITLE"><text>plugin.xml</text></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>plugin.xml</text></item>
+<item name="$Flags"><text>~C4gP</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$FileSize" sign="true"><number>1216</number></item>
+<item name="$FileData" sign="true">
+<rawitemdata type="1">
+YQAYAAAAAADABAAAAQAAAAAAAAAAAAAAYADSBAAAwATABAAAAAAAAAAAPD94bWwgdmVyc2lvbj0i
+MS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHBsdWdpbiBjbGFzcz0icGx1Z2luLkFjdGl2YXRvciIK
+ICBpZD0iS2lsb18yZlNlcnRpMjBJbmZvcm1hdGlxdWVfSW50ZXJuZTVjU0RTNWNzZHNfcHJvcG9z
+aXRpb25zM19uc2YiCiAgbmFtZT0iRG9taW5vIERlc2lnbmVyIiBwcm92aWRlcj0iVE9ETyIgdmVy
+c2lvbj0iMS4wLjAiPgogIDxyZXF1aXJlcz4KICAgIDwhLS1BVVRPR0VOLVNUQVJULUJVSUxERVI6
+IEF1dG9tYXRpY2FsbHkgZ2VuZXJhdGVkIGJ5IG51bGwuIERvIG5vdCBtb2RpZnkuLS0+CiAgICA8
+aW1wb3J0IHBsdWdpbj0ib3JnLmVjbGlwc2UudWkiLz4KICAgIDxpbXBvcnQgcGx1Z2luPSJvcmcu
+ZWNsaXBzZS5jb3JlLnJ1bnRpbWUiLz4KICAgIDxpbXBvcnQgb3B0aW9uYWw9InRydWUiIHBsdWdp
+bj0iY29tLmlibS5jb21tb25zIi8+CiAgICA8aW1wb3J0IG9wdGlvbmFsPSJ0cnVlIiBwbHVnaW49
+ImNvbS5pYm0uY29tbW9ucy54bWwiLz4KICAgIDxpbXBvcnQgb3B0aW9uYWw9InRydWUiIHBsdWdp
+bj0iY29tLmlibS5jb21tb25zLnZmcyIvPgogICAgPGltcG9ydCBvcHRpb25hbD0idHJ1ZSIgcGx1
+Z2luPSJjb20uaWJtLmpzY3JpcHQiLz4KICAgIDxpbXBvcnQgb3B0aW9uYWw9InRydWUiIHBsdWdp
+bj0iY29tLmlibS5kZXNpZ25lci5ydW50aW1lLmRpcmVjdG9yeSIvPgogICAgPGltcG9ydCBvcHRp
+b25hbD0idHJ1ZSIgcGx1Z2luPSJjb20uaWJtLmRlc2lnbmVyLnJ1bnRpbWUiLz4KICAgIDxpbXBv
+cnQgb3B0aW9uYWw9InRydWUiIHBsdWdpbj0iY29tLmlibS54c3AuY29yZSIvPgogICAgPGltcG9y
+dCBvcHRpb25hbD0idHJ1ZSIgcGx1Z2luPSJjb20uaWJtLnhzcC5leHRzbiIvPgogICAgPGltcG9y
+dCBvcHRpb25hbD0idHJ1ZSIgcGx1Z2luPSJjb20uaWJtLnhzcC5kZXNpZ25lciIvPgogICAgPGlt
+cG9ydCBvcHRpb25hbD0idHJ1ZSIgcGx1Z2luPSJjb20uaWJtLnhzcC5kb21pbm8iLz4KICAgIDxp
+bXBvcnQgb3B0aW9uYWw9InRydWUiIHBsdWdpbj0iY29tLmlibS5ub3Rlcy5qYXZhLmFwaSIvPgog
+ICAgPGltcG9ydCBvcHRpb25hbD0idHJ1ZSIgcGx1Z2luPSJjb20uaWJtLnhzcC5yY3AiLz4KICAg
+IDwhLS1BVVRPR0VOLUVORC1CVUlMREVSOiBFbmQgb2YgYXV0b21hdGljYWxseSBnZW5lcmF0ZWQg
+c2VjdGlvbi0tPgogIDwvcmVxdWlyZXM+CjwvcGx1Z2luPgo8P2VjbGlwc2UgdmVyc2lvbj0iMy4w
+Ij8+Cg==
+</rawitemdata></item>
+<item name="$FileNames" sign="true"><text>plugin.xml</text></item></note>
+
+</database>

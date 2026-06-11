@@ -1,0 +1,1537 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Image" hide="v3 v4strict">
+<noteinfo noteid="555982" unid="88863FBCF2629A3A85258C0C006EEFD3" sequence="5">
+<created><datetime>20250108T151143,55-05</datetime></created>
+<modified><datetime>20260105T014838,46-05</datetime></modified>
+<revised><datetime>20250319T073645,22-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,45-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,45-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SI_CourrielsTypes"
+Use "SDSP_Impression"
+Use "x_SDSCSL"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ------------------------------
+Dim gns_SDSIM As Notessession
+Dim gndb_SDSIM As Notesdatabase
+Dim gnd_Prof_SDSIM As NotesDocument
+ ' Variables globales liées à une proposition
+' --------------------------------------------------
+Dim g_LangueProp_SDSIM As String
+' Variables pour tableau des équipements
+' --------------------------------------------------
+Dim ga_Couleurs(1) As Variant
+Dim aa_Entetes_EQ(12) As String
+Dim ga_Formules_EQ(12) As String
+Dim ga_LargeurColonnes_EQ(12) As Double
+' Variables pour tableau des logiciels
+' --------------------------------------------------
+Dim aa_Entetes_LG(9) As String
+Dim ga_Formules_LG(9) As String
+Dim ga_LargeurColonnes_LG(9) As Double
+' Variables pour tableau des services
+' --------------------------------------------------
+Dim aa_Entetes_SV(9) As String
+Dim ga_Formules_SV(9) As String
+Dim ga_LargeurColonnes_SV(9) As Double
+' Variables pour tableau des produits CS
+' --------------------------------------------------
+Dim aa_Entetes_ProdCS(4) As String
+Dim ga_Formules_ProdCS(4) As String
+Dim ga_LargeurColonnes_ProdCS(4) As Double
+' Variables pour courriels types
+' --------------------------------------------------
+Dim gnd_T_Site_EquiEnt As notesdocument
+Dim gnd_T_Site_LogiEnt  As notesdocument
+Dim gnd_T_Site_ServEnt As NotesDocument
+Dim gnd_T_Site_ProdCSEnt As NotesDocument
+' Traitement des erreurs
+' -------------------------------
+Const gc_TypeElement_SDSIM = "SL"
+Const gc_Element_SDSIM = "SDSP_Image"
+
+
+</lotusscript></code><code event="terminate"><lotusscript>Sub Terminate
+End Sub
+
+
+</lotusscript></code><code event="SDSIM_AjouterServices"><lotusscript>Function SDSIM_AjouterServices(pnd_Services() As NotesDocument, pnd_PrIM As NotesDocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer le tableau des services d'un site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim rt_Body As notesrichtextitem
+	Dim nrti_gnd_T_Site_ServEnt As notesrichtextitem	
+	Dim nrti_pnd_PrIM As notesrichtextitem
+	Dim  nrti_SICT_Message As notesrichtextitem
+	
+	' Initialisations
+	SDSIM_AjouterServices = False
+	Set  nrti_pnd_PrIM =  pnd_PrIM.GetFirstItem("Body")
+	
+	' Ajouter entête du logiciel
+	Set nrti_SICT_Message = gnd_T_Site_ServEnt.GetFirstItem("SICT_Message" &amp; g_LangueProp_SDSIM)
+	Call nrti_pnd_PrIM.AppendRTItem(nrti_SICT_Message)	
+	
+	' Construire le tableau des Services
+	Set rt_Body = New notesrichtextitem(gnd_T_Site_ServEnt,"Body") 'créer un champ body temporaire pour générer le tableau
+	Call rt_Body.AppendText("[Site_Service]")
+	Call SICT_AjouterTableau(gnd_T_Site_ServEnt, "[Site_Service]", pnd_Services, ga_Formules_SV, ga_Couleurs, ga_LargeurColonnes_SV, _
+	aa_Entetes_SV, 0 )
+	
+	' Ajouter le tableau dans le document image
+	Set  nrti_gnd_T_Site_ServEnt=  gnd_T_Site_ServEnt.GetFirstItem("Body")
+	Call nrti_pnd_PrIM.AppendRTItem(nrti_gnd_T_Site_ServEnt)		
+	
+	SDSIM_AjouterServices = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), "", False)	
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_GenererSite"><lotusscript>Function SDSIM_GenererSite(pnd_Site As notesdocument, pnd_PrIM As notesdocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer le document image liés à un site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nrti_PrIM_Body As NotesRichTextItem
+	Dim nrti_SICT_Message As NotesRichTextItem
+	Dim nd_T_Site As notesdocument 
+	
+	Set nd_T_Site=  xndSICT("T_Site", False)
+	Set nrti_SICT_Message = nd_T_Site.GetFirstItem("SICT_Message" &amp; g_LangueProp_SDSIM)
+	
+	' Initialisations
+	SDSIM_GenererSite = False	
+	Set  nrti_PrIM_Body =  pnd_PrIM.GetFirstItem("Body")
+	
+	If Not nrti_PrIM_Body Is Nothing Then	
+		
+	' Générer l'Entête du site
+	'------------------------------
+		If Not SDSIM_GenererEnteteSite(pnd_Site, nrti_SICT_Message) Then
+			Exit Function
+		End If
+		
+	' Générer l'Identification d'un site
+	'------------------------------
+		If Not SDSIM_GenererIdentificationSite(pnd_Site, nrti_SICT_Message) Then
+			Exit Function
+		End If
+		
+	 ' Générer le résumé d'un site
+	 '------------------------------	
+		If Not SDSIM_GenererResumeSite(pnd_Site, nrti_SICT_Message) Then
+			Exit Function
+		End If
+		
+	' Ajouter au document image
+		Call nrti_PrIM_Body.AppendRTItem(nrti_SICT_Message)		
+		
+	 ' Générer l'équipement d'un site
+	 ' ------------------------------
+		If Not SDSIM_GenererEquipments(pnd_Site, pnd_PrIM) Then
+			Exit Function
+		End If
+		
+     ' Générer les logiciels d'un site
+	' ------------------------------	
+		If Not SDSIM_GenererLogiciels(pnd_Site, pnd_PrIM) Then
+			Exit Function
+		End If
+		
+	 ' Générer les services d'un site
+      ' ------------------------------	
+		If Not SDSIM_GenererServices(pnd_Site, pnd_PrIM) Then
+			Exit Function
+		End If
+		
+		' Générer les produits CS
+		' -----------------------
+		If Not SDSIM_GenererProduitsCS(pnd_Site, pnd_PrIM) Then
+			Exit Function
+		End If
+		
+	End If
+	
+	
+	SDSIM_GenererSite = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_GenererProposition"><lotusscript>Function SDSIM_GenererProposition(pnd_Prop As notesdocument, pnd_PrIM As notesdocument) As Boolean
+     '------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de prendre une photo des section suivant de la proposition : 
+     ' Entête, Information et Résumé
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd_T_Prop As notesdocument
+	Dim nrti_Body As NotesRichTextItem
+	Dim nrti_PrIM_Body As NotesRichTextItem
+	Dim ni_Prop As Notesitem
+	Dim ni_PrixTotalSDS As NotesItem
+	Dim ni_PrixTotalSV As notesitem
+	Dim v_ValeurItem As String
+	
+	' Initialisations
+	SDSIM_GenererProposition = False
+	
+	Set nd_T_Prop = SICT_ConstruireMessage(pnd_Prop, "T_Prop", g_LangueProp_SDSIM, "", "", "",False, "")
+	
+	If Not pnd_PrIM.HasItem("Body") Then
+		Set nrti_PrIM_Body = New NotesRichTextItem(pnd_PrIM, "Body")
+	Else
+		Set nrti_PrIM_Body =  pnd_PrIM.GetFirstItem("Body")
+	End If	
+	
+	If Not nd_T_Prop  Is Nothing Then
+		
+		Set nrti_Body = nd_T_Prop.GetFirstItem("Body")
+	' Remplacement des signets additionnels pour la proposition
+		
+	' Générer l'Entête de la proposition
+	'------------------------------
+		If Not SDSIM_GenererEnteteProp(pnd_Prop, nrti_Body) Then
+			Exit Function
+		End If
+		
+	' Générer l'Identification d'une proposition
+	'------------------------------
+		If Not SDSIM_GenererIdentificationProp(pnd_Prop, nrti_Body) Then
+			Exit Function
+		End If
+		
+	 ' Générer le résumé d'une proposition
+	 '------------------------------	
+		If Not SDSIM_GenererResumeProp(pnd_Prop, nrti_Body) Then
+			Exit Function
+		End If
+		
+	' Ajouter la proposition en remplaçant le champ richtext du nouveau document image avec celui de nd_T_Prop
+		If Not nrti_Body Is Nothing Then
+			Call nrti_PrIM_Body.AppendRTItem(nrti_Body)
+		End If
+		
+		Set  nd_T_Prop = Nothing	
+		Set nrti_Body = Nothing
+	End If
+	
+	SDSIM_GenererProposition = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_ImageProposition"><lotusscript>Function SDSIM_ImageProposition(pnd_Prop As NotesDocument, p_StatutA As String, p_Username As String) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de créer un image d'une proposition.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd_Docu As NotesDocument
+	Dim nd_PrIM  As NotesDocument
+	Dim rti_Body As NotesRichTextItem
+	Dim ni_Auteur As NotesItem
+	Dim a_Auteur As Variant
+	
+	' Initialisations
+	Call SDSIM_Initialisations(pnd_Prop)
+	SDSIM_ImageProposition = False
+	
+	If p_Username = "" Then
+		p_Username = gns_SDSIM.UserName
+	End If
+	
+	' Créer le document qui contient l'image de la proposition
+	Set nd_Prim = SDSPD_CreerDocumentImage(pnd_Prop, "", "", "", p_StatutA)
+	
+	If Not nd_PrIM Is Nothing Then
+		
+	         ' Générer image du proposition et ou succursal
+		If  SDSIM_GenererProposition(pnd_Prop, nd_PrIM) Then
+			
+                  ' Générer image du ou des sites		
+			If SDSIM_GenererSites(pnd_Prop, nd_PrIM) Then
+				
+		          ' Response au proposition
+				Call nd_PrIM.MakeResponse(pnd_Prop)
+				
+	               ' Assigner securité (lecteurs)
+				Call SDSIM_AssignerSecurite(nd_PrIM, pnd_Prop)
+				
+	              ' Historique
+				nd_PrIM.HistoDC = Now
+				nd_PrIM.HistoUC =  p_Username
+				
+				Set rti_Body = nd_PrIM.GetFirstItem("Body")
+				
+				If Not (rti_Body Is Nothing) Then
+					Call rti_Body.compact
+				End If
+				
+				Set ni_Auteur =  xni(nd_PrIM,"Auteur","")			
+				If ni_Auteur.Contains(gns_SDSIM.UserName) Then
+					a_Auteur =  Fulltrim(Arrayreplace(xVarArray(nd_PrIM, "Auteur"), gns_SDSIM.UserName,""))		
+					nd_PrIM.Auteur = a_Auteur					
+				End If
+				
+				Call nd_PrIM.Save(True,False)	
+				
+				SDSIM_ImageProposition = True			
+			End If	
+			
+		End If
+		
+	End If
+	
+	Exit Function	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_GenererResumeSite"><lotusscript>Function SDSIM_GenererResumeSite(pnd_Site As NotesDocument, pnrti_SICT_Message As notesrichtextitem) As Boolean
+	'-----------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer l'image du résumé d'un site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim Site_ResumeNomChamps(14) As String
+	Dim Site_ResumeValeurChamps(14) As Variant
+	Dim v_Site_PrixTotalEQ_1 As Double
+	Dim v_Site_CoutTotalEQ_1 As Double	
+	Dim v_Site_CoutTotalLG_1 As Double
+	Dim v_Site_PrixTotalSV_1  As Double
+	Dim v_Site_CoutTotalSV_1  As Double
+	Dim v_Site_EntretienAnnuelLG_1 As Double
+	Dim v_TauxMaj As Double
+	Dim v_Site_EntretienMensuelLG_1 As Double
+	
+	' Initialisations
+	SDSIM_GenererResumeSite = False
+	
+	' Site	
+	'---------------	
+ 	 ' Equipement	
+	Site_ResumeNomChamps(0) = "Prop_PrixTotalEQ_1"
+	Site_ResumeNomChamps(1) = "Prop_CoutTotalEQ_1"
+	Site_ResumeNomChamps(2) = "Prop_ProfitEQ_1" 
+	' Logiciels
+	Site_ResumeNomChamps(3) = ""
+	Site_ResumeNomChamps(4) = ""
+	Site_ResumeNomChamps(5) = ""
+	' Services
+	Site_ResumeNomChamps(6) = "Prop_PrixTotalSV_1"
+	Site_ResumeNomChamps(7) = "Prop_CoutTotalSV_1"
+	Site_ResumeNomChamps(8) = "Prop_ProfitSV_1"
+	
+	' Total
+	Site_ResumeNomChamps(9) = "Prop_PrixTotalPR_1"
+	Site_ResumeNomChamps(10) = "Prop_CoutTotalPR_1"
+	Site_ResumeNomChamps(11) = "Prop_ProfitPR_1"
+	
+	' Entretient
+	'-------------
+	
+	Site_ResumeNomChamps(12) = "Prop_EntretienAnnuel5Ans_1"
+	Site_ResumeNomChamps(13) = "Prop_EntretienAnnuel1An_1"
+	Site_ResumeNomChamps(14) = "Prop_EntretienMensuelLG_1"
+	
+	' Calculer les valeurs des champs du resumé
+	
+	v_Site_PrixTotalEQ_1= xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod30"; "| &amp; _
+	xVar(pnd_Site, "Site_NoSite", "") &amp; |"+ ";EQ."; 5 ;[PartialMatch]); 0))|, Nothing)		
+	
+	v_Site_CoutTotalEQ_1  = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod30"; "| &amp; _
+	xVar(pnd_Site, "Site_NoSite", "") &amp; |"+ ";EQ."; 7 ;[PartialMatch]); 0))|, Nothing)	
+	
+	v_Site_CoutTotalLG_1  = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod30"; "| &amp; _
+	xVar(pnd_Site, "Site_NoSite", "") &amp; |"+ ";LG."; 7 ;[PartialMatch]); 0))|, Nothing)	
+	
+	v_Site_PrixTotalSV_1 = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod30"; "| &amp; _
+	xVar(pnd_Site, "Site_NoSite", "") &amp; |"+ ";SV."; 5 ;[PartialMatch]); 0))|, Nothing)		
+	
+	v_Site_CoutTotalSV_1  = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod30"; "| &amp; _
+	xVar(pnd_Site, "Site_NoSite", "") &amp; |"+ ";SV."; 7 ;[PartialMatch]); 0))|, Nothing)
+	
+	v_Site_EntretienAnnuelLG_1  = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod30"; "| &amp; _
+	xVar(pnd_Site, "Site_NoSite", "") &amp; |"+ ";LG."; 8 ;[PartialMatch]); 0))|, Nothing)
+	
+	v_TauxMaj  = xVarProf("Prof_LGMajoMens",1)	
+	v_Site_EntretienMensuelLG_1 = (v_Site_EntretienAnnuelLG_1 * v_TauxMaj)  / 12
+	
+	
+	Site_ResumeValeurChamps(0) = SDSI_FormatDevise(v_Site_PrixTotalEQ_1, g_LangueProp_SDSIM)
+	Site_ResumeValeurChamps(1) = SDSI_FormatDevise(v_Site_CoutTotalEQ_1, g_LangueProp_SDSIM)	
+	Site_ResumeValeurChamps(2) = SDSI_FormatDevise((v_Site_PrixTotalEQ_1 - v_Site_CoutTotalEQ_1), g_LangueProp_SDSIM)
+	Site_ResumeValeurChamps(3) = ""
+	Site_ResumeValeurChamps(4)  = ""
+	Site_ResumeValeurChamps(5)  = ""
+	Site_ResumeValeurChamps(6) = SDSI_FormatDevise(v_Site_PrixTotalSV_1, g_LangueProp_SDSIM)
+	Site_ResumeValeurChamps(7) = SDSI_FormatDevise(v_Site_CoutTotalSV_1, g_LangueProp_SDSIM)
+	Site_ResumeValeurChamps(8)= SDSI_FormatDevise((v_Site_PrixTotalSV_1 - v_Site_CoutTotalSV_1), g_LangueProp_SDSIM)
+	Site_ResumeValeurChamps(9) = SDSI_FormatDevise((v_Site_PrixTotalEQ_1 + 	v_Site_PrixTotalSV_1), g_LangueProp_SDSIM)	
+	Site_ResumeValeurChamps(10) = SDSI_FormatDevise((v_Site_CoutTotalEQ_1 + v_Site_CoutTotalLG_1 + _
+	v_Site_CoutTotalSV_1), g_LangueProp_SDSIM)	
+	Site_ResumeValeurChamps(11) = SDSI_FormatDevise((v_Site_PrixTotalEQ_1 + v_Site_PrixTotalSV_1) - _
+	(v_Site_CoutTotalEQ_1 + v_Site_CoutTotalLG_1 +  v_Site_CoutTotalSV_1), g_LangueProp_SDSIM)	
+	
+	Site_ResumeValeurChamps(12) = SDSI_FormatDevise((v_Site_EntretienAnnuelLG_1 * 5), g_LangueProp_SDSIM)	
+	Site_ResumeValeurChamps(13) = SDSI_FormatDevise((v_Site_EntretienAnnuelLG_1), g_LangueProp_SDSIM)	
+	Site_ResumeValeurChamps(14) = SDSI_FormatDevise((v_Site_EntretienMensuelLG_1), g_LangueProp_SDSIM)	
+	
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message,Site_ResumeNomChamps,Site_ResumeValeurChamps)		
+	
+	SDSIM_GenererResumeSite  = True
+	Exit Function
+	
+GererErreur: 
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_CalculerMensualite"><lotusscript>Function SDSIM_CalculerMensualite(p_MontantFinancer As Double) As Double
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de calculer la mensualité pour calculer le résumé d'un site
+%REM
+	v_Bornes := @GetProfileField("F_Prof"; "Prof_BorneTaux");
+	@If(@Elements(v_Bornes) = 0; @Return(0); "");
+	
+	v_Taux := @GetProfileField("F_Prof"; "Prof_ListeTaux");
+	v_Facteur := @If(Prop_MontantFinancer_5 &lt;= v_Bornes[1]; v_Taux[1]; 0);
+	
+	@For(n := 1; n &lt;= @Elements(v_Bornes) &amp; v_Facteur = 0; n := n + 1;
+	v_Facteur := @If(Prop_MontantFinancer_5 &lt;= v_Bornes[n]; v_Taux[n]; 0));
+	
+	@Round(Prop_MontantFinancer_5 * @If(n = 0; 0; n &gt; @Elements(v_Bornes); v_Taux[@Elements(v_Bornes)]; v_Facteur) / 1000; 0.01)
+%END REM
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	Dim a_Bornes As Variant
+	Dim i As Integer
+	Dim a_Taux As Variant
+	SDSIM_CalculerMensualite = 0
+	a_Bornes = xVarArray(gnd_Prof_SDSIM, "Prof_BorneTaux")
+	If Not Isarray(a_Bornes) Then
+		Exit Function
+	End If
+	
+	i = PositionArraySuperieur(a_Bornes, p_MontantFinancer)
+	If i &lt; 0 Then
+		Exit Function
+	End If
+	
+	a_Taux = xVarArray(gnd_Prof_SDSIM, "Prof_ListeTaux")
+	If Not Isarray(a_Bornes) Then
+		Exit Function
+	Elseif i &lt; Lbound(a_Taux) Or i &gt; Ubound(a_Taux) Then
+		Exit Function
+	End If
+	
+	SDSIM_CalculerMensualite= p_MontantFinancer * a_Taux(i) / 1000
+	Exit Function
+	
+GererErreur: 
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), "", False)	
+	Exit Function
+End Function
+
+</lotusscript></code><code event="Outils_______________"><lotusscript>Sub Outils_______________	
+End Sub
+
+</lotusscript></code><code event="SDSIM_GenererEquipments"><lotusscript>Function SDSIM_GenererEquipments(pnd_Site As NotesDocument , pnd_PrIM As notesdocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer une liste des équipments
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nv As NotesView
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As Notesdocument
+	Dim nd As NotesDocument	
+	Dim nd_Equipments() As NotesDocument
+	Dim k As Integer
+	
+	' Initialisations
+	SDSIM_GenererEquipments = False		
+	k = -1	
+	Redim Preserve nd_Equipments(1000) As NotesDocument
+	
+	' Générer l'équipement
+	'------------------------------------------------------
+	Set nv = gndb_SDSIM.GetView("V_Prod30")
+	Call nv.Refresh
+	
+	Set ndc = nv.GetAllDocumentsByKey((xVar(pnd_Site, "Site_NoSite", "") &amp; ";EQ."), False)
+	
+	If ndc.Count &gt; 0 Then
+		
+		Set nd_Suivant = ndc.GetFirstDocument
+		
+		Do Until nd_Suivant Is Nothing
+			
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+			
+			If xVar(nd, "Prod_TypeDescendant", "") &lt;&gt; "C" Then
+				k = k + 1
+				
+				nd.Tmp_CleTri = xVar(nd, "Prod_DepartementDesc" &amp; g_LangueProp_SDSIM, "") &amp; ";" &amp; xVar(nd, "Prod_CategorieDesc" &amp; g_LangueProp_SDSIM, "") &amp; _
+				";" &amp; xVar(nd, "Prod_DescProduit" &amp; g_LangueProp_SDSIM, "")
+				
+				Set nd_Equipments(k) = nd
+				If k = 253 Then 
+					Exit Do ' Limit de 255 lignes dans un tableau.  Si cela arrive, créer tableau avec premier 255 records.
+				End If							
+			End If
+			
+		Loop
+		
+		If k &gt;= 0 Then
+			Redim Preserve nd_Equipments(k) As NotesDocument
+			
+			Call TrierArrayDocs(nd_Equipments, "Tmp_CleTri", "")		
+			
+			If Not SDSIM_AjouterEquipments(nd_Equipments, pnd_PrIM) Then
+				Exit Function
+			End If	
+			
+			
+		End If
+	End If
+	
+	SDSIM_GenererEquipments = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Site, "Site_NoSite", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_GenererEnteteSite"><lotusscript>Function SDSIM_GenererEnteteSite(pnd_Site As NotesDocument, pnrti_SICT_Message As notesrichtextitem) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer l'image de l'entête d'un site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim Site_EnteteNomChamps(1) As String
+	Dim Site_EnteteValeurChamps(1) As Variant
+	
+	' Initialisations
+	SDSIM_GenererEnteteSite = False
+	
+	' Champs de l'entête d'un site-------------------
+	Site_EnteteNomChamps(0) = "Site_ClientNomInterne"
+	Site_EnteteNomChamps(1) = "Site_BanniereDesc"
+	
+	Site_EnteteValeurChamps(0) =   xVar(pnd_Site,"Site_ClientNomInterne","")	
+	Site_EnteteValeurChamps(1) =  xVarImplode(pnd_Site, "Site_BanniereDesc", ", ") 
+	
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message,Site_EnteteNomChamps,Site_EnteteValeurChamps)		
+	
+	SDSIM_GenererEnteteSite = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="Sites____________"><lotusscript>Sub Sites____________
+	
+End Sub
+
+</lotusscript></code><code event="SDSIM_AjouterLogiciels"><lotusscript>Function SDSIM_AjouterLogiciels(pnd_Logiciels() As NotesDocument, pnd_PrIM As NotesDocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer le tableau des logiciels d'un site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim rt_Body As notesrichtextitem
+	Dim nrti_gnd_T_Site_LogiEnt As notesrichtextitem	
+	Dim nrti_pnd_PrIM As notesrichtextitem
+	Dim  nrti_SICT_Message As notesrichtextitem
+	
+	' Initialisations
+	SDSIM_AjouterLogiciels = False
+	Set  nrti_pnd_PrIM =  pnd_PrIM.GetFirstItem("Body")
+	
+	' Ajouter entête du logiciel
+	Set nrti_SICT_Message = gnd_T_Site_LogiEnt.GetFirstItem("SICT_Message" &amp; g_LangueProp_SDSIM)
+	Call nrti_pnd_PrIM.AppendRTItem(nrti_SICT_Message)	
+	
+	' Construire le tableau des logiciels
+	Set rt_Body = New notesrichtextitem(gnd_T_Site_LogiEnt,"Body") 'créer un champ body temporaire pour générer le tableau
+	Call rt_Body.AppendText("[Site_Logiciel]")
+	Call SICT_AjouterTableau(gnd_T_Site_LogiEnt, "[Site_Logiciel]", pnd_Logiciels, ga_Formules_LG, ga_Couleurs, ga_LargeurColonnes_LG, _
+	aa_Entetes_LG, 0 )
+	
+	' Ajouter le tableau dans le document image
+	Set  nrti_gnd_T_Site_LogiEnt =  gnd_T_Site_LogiEnt.GetFirstItem("Body")
+	Call nrti_pnd_PrIM.AppendRTItem(nrti_gnd_T_Site_LogiEnt)		
+	
+	SDSIM_AjouterLogiciels = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), "", False)	
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_Initialisations"><lotusscript>Sub SDSIM_Initialisations(pnd_Prop As notesdocument)
+	
+	If gns_SDSIM Is Nothing Then
+		Set gns_SDSIM = New Notessession
+		Set gndb_SDSIM= gns_SDSIM.Currentdatabase				
+		Set gnd_Prof_SDSIM = gndb_SDSIM.GetProfileDocument("F_Prof")
+		
+		' Initialise la langue
+		'g_LangueProp_SDSIM = xVar(pnd_Prop, "Prop_Langue", "FR")
+		' Initialise la langue (langue du rep.)
+		g_LangueProp_SDSIM = xSIRR_xVarRepr(xVar(pnd_Prop, "Prop_NoRepresentant", ""), "Repr_Langue", "FR", True)
+		
+		' Initialiser les courriels types		
+		Set  gnd_T_Site_EquiEnt =  xndSICT("T_Site_EquiEnt", False)
+		Set  gnd_T_Site_LogiEnt =  xndSICT("T_Site_LogiEnt", False)
+		Set  gnd_T_Site_ServEnt =  xndSICT("T_Site_ServEnt", False)
+		Set  gnd_T_Site_ProdCSEnt = xndSICT("T_Site_ProdCSEnt", False)
+		
+		' Initialiser les tableaux globaux
+		
+		' Définir les colonnes du tableau
+		ga_Couleurs(0) = COLOR_WHITE
+		ga_Couleurs(1) = Evaluate("236:231:213")
+		
+	     '------------------------------------------------------------------------------------------------------------------------------	
+  	     ' Intialise variables pour tableau des équipements
+          '------------------------------------------------------------------------------------------------------------------------------	
+		
+		' Définir les formules du tableau
+		ga_Formules_EQ(0) =  |@Text(Prod_DepartementDesc| &amp;  g_LangueProp_SDSIM &amp; |)|  	
+		ga_Formules_EQ(1) = |@Text(Prod_CodeProduit)|
+		ga_Formules_EQ(2) = |@Text(Prod_DescProduit| &amp;  g_LangueProp_SDSIM &amp; |)|  
+		ga_Formules_EQ(3) = |@Text(Prod_Quantite)|
+		ga_Formules_EQ(4) = |@Text(Prod_PrixUnitaire;| &amp; |"F2"| &amp; | )|
+		ga_Formules_EQ(5) = |@Text(Prod_PrixTotal;| &amp; |"F2"| &amp; | )|
+		ga_Formules_EQ(6) = |@Text(Prod_CoutUnitaire;| &amp; |"F2"| &amp; | )|
+		ga_Formules_EQ(7) = |@Text(Prod_CoutTotal;| &amp; |"F2"| &amp; | )|				
+		ga_Formules_EQ(8) = |@Text((Prod_PrixTotal - Prod_CoutTotal)  ;| &amp; |"F2"| &amp; | )|
+		ga_Formules_EQ(9) = |@Text(@If(Prod_CategorieDescFR = "Imprimante"; @Text(Prod_Quantite); "0"))|
+		
+		'If xLangue = "EN" Then
+		'	ga_Formules_EQ(9) = |@Text(@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod22"; @Text(Prod_NoSite + ";" + "Printer");6; [PARTIALMATCH]); 0)))|
+		'Else
+		'	ga_Formules_EQ(9) = |@Text(@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod22"; @Text(Prod_NoSite + ";" + "Imprimante");6; [PARTIALMATCH]); 0)))|
+		'End If		
+		'ga_Formules_EQ(10) = |@Text(@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod22"; @Text(Prod_NoSite + ";" + "PC");6; [PARTIALMATCH]); 0)))|
+		
+		ga_Formules_EQ(10) = |@Text(@If(Prod_CategorieDescFR = "PC"; @Text(Prod_Quantite); "0"))|
+		ga_Formules_EQ(12) = |@Text((Prod_Quantite * (@If(@IsNull(Prod_FraisEntretienAnnuels); 0; Prod_FraisEntretienAnnuels))) ;| &amp; |"F2"| &amp; | )|
+		ga_Formules_EQ(11) = |@Text(@If(Prod_ExempterCommission = "1"; "Non"; "Oui"))|
+		
+		' Définir les colonnes du tableau
+		ga_LargeurColonnes_EQ(0) = 2
+		ga_LargeurColonnes_EQ(1) =	3
+		ga_LargeurColonnes_EQ(2) = 8
+		ga_LargeurColonnes_EQ(3) = 1
+		ga_LargeurColonnes_EQ(4) = 2
+		ga_LargeurColonnes_EQ(5) = 2
+		ga_LargeurColonnes_EQ(6) = 2
+		ga_LargeurColonnes_EQ(7) = 2
+		ga_LargeurColonnes_EQ(8) = 2
+		ga_LargeurColonnes_EQ(9) = 1
+		ga_LargeurColonnes_EQ(10) = 1
+		ga_LargeurColonnes_EQ(11) = 1
+		ga_LargeurColonnes_EQ(12) = 2		
+		
+		' Définir les entêtes du tableau	
+		aa_Entetes_EQ(0) = "Dept."
+		aa_Entetes_EQ(1) = "Code"		
+		aa_Entetes_EQ(2) = "Description"	
+		
+		If g_LangueProp_SDSIM = "EN" Then
+			aa_Entetes_EQ(3) = "Qty"	
+			aa_Entetes_EQ(4) = "Unit Price"	
+			aa_Entetes_EQ(5) = "Total Price"	
+			aa_Entetes_EQ(6) = "Unit Cost"	
+			aa_Entetes_EQ(7) = "Total Cost"	
+			aa_Entetes_EQ(8) = "Profit"	
+			aa_Entetes_EQ(9) = "Prt."
+			aa_Entetes_EQ(10) = "PC"
+			aa_Entetes_EQ(11) = "CC"			
+			aa_Entetes_EQ(12) = "Annual"
+		Else
+			aa_Entetes_EQ(3) = "Qté"	
+			aa_Entetes_EQ(4) = "Prix unitaire"	
+			aa_Entetes_EQ(5) = "Prix total"	
+			aa_Entetes_EQ(6) = "Coût unitaire"	
+			aa_Entetes_EQ(7) = "Coût total"	
+			aa_Entetes_EQ(8) = "Profit"
+			aa_Entetes_EQ(9) = "Imp."
+			aa_Entetes_EQ(10) = "PC"
+			aa_Entetes_EQ(11) = "CC"			
+			aa_Entetes_EQ(12) = "Annuel"
+		End If
+		
+		
+		'------------------------------------------------------------------------------------------------------------------------------	
+  	     ' Intialise variables pour tableau des logiciels
+          '------------------------------------------------------------------------------------------------------------------------------	
+		
+		' Définir les formules du tableau		
+		
+		ga_Formules_LG(0) =  |@Text(Prod_CategorieDesc| &amp;  g_LangueProp_SDSIM &amp; |)|  	
+		ga_Formules_LG(1) = |@Text(Prod_CodeProduit)|
+		ga_Formules_LG(2) = |@Text(Prod_DescProduit| &amp;  g_LangueProp_SDSIM &amp; |)|  
+		ga_Formules_LG(3) = |@Text(Prod_Quantite)|
+		ga_Formules_LG(4) = |@Text(Prod_CodeProduitAH)|								
+		ga_Formules_LG(5) = |@Text((Prod_Quantite * (@If(@IsNull(Prod_FraisEntretienAnnuels); 0; Prod_FraisEntretienAnnuels)))/12 ;| &amp; |"F2"| &amp; | )|
+		'ga_Formules_LG(5) =	|v_TotalMensuel := (Prod_Quantite * (@If(@IsNull(Prod_FraisEntretienAnnuels); 0; Prod_FraisEntretienAnnuels))/12); v_Valeur := @If(v_TotalMensuel - @Integer(v_TotalMensuel) &gt;0;@Integer(v_TotalMensuel) +1
+';@Integer(v_TotalMensuel));
+'@Text(v_Valeur;"F2")|				
+		ga_Formules_LG(6) = |@Text((Prod_Quantite * (@If(@IsNull(Prod_FraisEntretienAnnuels); 0; Prod_FraisEntretienAnnuels))) ;| &amp; |"F2"| &amp; | )|
+		ga_Formules_LG(7) = |@Text(@If(Prop_ExempterCommissions = "1"; "Non"; "Oui"))|
+		ga_Formules_LG(8) = |@Text(Prod_NbUtilisateursCalcule)|
+		ga_Formules_LG(9) = |@Text(Prod_NbUtilisateursLicense)|
+		
+		' Définir les colonnes du tableau
+		
+		ga_LargeurColonnes_LG(0) = 4
+		ga_LargeurColonnes_LG(1) = 3
+		ga_LargeurColonnes_LG(2) = 8
+		ga_LargeurColonnes_LG(3) = 1
+		
+		ga_LargeurColonnes_LG(4) = 3
+		ga_LargeurColonnes_LG(5) = 2
+		ga_LargeurColonnes_LG(6) = 2
+		ga_LargeurColonnes_LG(7) = 1
+		ga_LargeurColonnes_LG(8) = 2		
+		ga_LargeurColonnes_LG(9) = 2
+		
+		
+		' Définir les entêtes du tableau	
+		
+		aa_Entetes_LG(0) = "Cat."
+		aa_Entetes_LG(1) = "Code"		
+		aa_Entetes_LG(2) = "Description"	
+		
+		If g_LangueProp_SDSIM = "EN" Then
+			aa_Entetes_LG(3) = "Qty"				
+			aa_Entetes_LG(4) = "Maintenance Code"	
+			aa_Entetes_LG(5) = "Monthly"			
+			aa_Entetes_LG(6) = "Annual"				
+			aa_Entetes_LG(7) = "CC"	
+			aa_Entetes_LG(8) = "Users"	
+			aa_Entetes_LG(9) = "Licenses"				
+		Else
+			aa_Entetes_LG(3) = "Qté"	
+			aa_Entetes_LG(4) = "Code entretien"	
+			aa_Entetes_LG(5) = "Mensuel"	
+			aa_Entetes_LG(6) = "Annuel"	
+			aa_Entetes_LG(7) = "CC"	
+			aa_Entetes_LG(8) = "Util."	
+			aa_Entetes_LG(9) = "Licenses"			
+		End If
+		
+		'------------------------------------------------------------------------------------------------------------------------------	
+  	     ' Intialise variables pour tableau des services
+          '------------------------------------------------------------------------------------------------------------------------------	
+		
+		' Définir les formules du tableau
+		ga_Formules_SV(0) =  |@Text(Prod_CategorieDesc| &amp;  g_LangueProp_SDSIM &amp; |)|  	
+		ga_Formules_SV(1) = |@Text(Prod_CodeProduit)|
+		ga_Formules_SV(2) = |@Text(Prod_DescProduit| &amp;  g_LangueProp_SDSIM &amp; |)|  
+		ga_Formules_SV(3) = |@Text(Prod_Quantite)|		
+		ga_Formules_SV(4) = |@Text(Prod_PrixUnitaire;| &amp; |"F2"| &amp; | )|
+		ga_Formules_SV(5) = |@Text(Prod_PrixTotal;| &amp; |"F2"| &amp; | )|
+		ga_Formules_SV(6) = |@Text(Prod_CoutUnitaire;| &amp; |"F2"| &amp; | )|
+		ga_Formules_SV(7) = |@Text(Prod_CoutTotal;| &amp; |"F2"| &amp; | )|
+		ga_Formules_SV(8) = |@Text((Prod_PrixTotal - Prod_CoutTotal)  ;| &amp; |"F2"| &amp; | )|
+		ga_Formules_SV(9) = |@Text(@If(Prop_ExempterCommissions = "1"; "Non"; "Oui"))|
+		
+		' Définir les colonnes du tableau
+		ga_LargeurColonnes_SV(0) = 4
+		ga_LargeurColonnes_SV(1) =	3
+		ga_LargeurColonnes_SV(2) = 8
+		ga_LargeurColonnes_SV(3) = 1
+		
+		ga_LargeurColonnes_SV(4) = 2
+		ga_LargeurColonnes_SV(5) = 2
+		ga_LargeurColonnes_SV(6) = 2
+		ga_LargeurColonnes_SV(7) = 2
+		ga_LargeurColonnes_SV(8) = 2
+		ga_LargeurColonnes_SV(9) = 1
+		
+		' Définir les entêtes du tableau	
+		
+		aa_Entetes_SV(0) = "Cat."
+		aa_Entetes_SV(1) = "Code"		
+		aa_Entetes_SV(2) = "Description"		
+		
+		If g_LangueProp_SDSIM = "EN" Then
+			aa_Entetes_SV(3) = "Qty"	
+			aa_Entetes_SV(4) = "Unit Price"	
+			aa_Entetes_SV(5) = "Total Cost"
+			aa_Entetes_SV(6) = "Unit Cost"
+			aa_Entetes_SV(7) = "Total Cost"
+		Else
+			aa_Entetes_SV(3) = "Qté"	
+			aa_Entetes_SV(4) = "Prix unitaire"	
+			aa_Entetes_SV(5) = "Prix total"	
+			aa_Entetes_SV(6) = "Coût unitaire"	
+			aa_Entetes_SV(7) = "Coût total"	
+		End If
+		
+		aa_Entetes_SV(8) = "Profit"	
+		aa_Entetes_SV(9) = "CC"	
+			
+		'------------------------------------------------------------------------------------------------------------------------------	
+		' Intialise variables pour tableau des produits CS
+		'------------------------------------------------------------------------------------------------------------------------------	
+		
+		' Définir les formules du tableau
+		ga_Formules_ProdCS(0) =   |@Text(CSPr_NoContratFmt)| 
+		ga_Formules_ProdCS(1) =  |@Text(CSPr_CodeProduit)|
+		ga_Formules_ProdCS(2) =   |@Text(CSPr_DescProduit| &amp;  g_LangueProp_SDSIM &amp; |)|    
+		ga_Formules_ProdCS(3) =  |@Text(@If(@IsNull(CSPr_DateDebut); CSCo_DateDebut; CSPr_DateDebut); "S0D0")|  
+		ga_Formules_ProdCS(4) =   |@Text(@If(@IsNull(CSPr_DateFin); CSCo_DateFin; CSPr_DateFin); "S0D0")| 
+		
+		' Définir les colonnes du tableau
+		ga_LargeurColonnes_ProdCS(0) = 3
+		ga_LargeurColonnes_ProdCS(1) =	3
+		ga_LargeurColonnes_ProdCS(2) = 8
+		ga_LargeurColonnes_ProdCS(3) = 2
+		ga_LargeurColonnes_ProdCS(4) = 2
+		
+		' Définir les entêtes du tableau			
+		
+		aa_Entetes_ProdCS(2) = "Description"		
+		
+		If g_LangueProp_SDSIM = "EN" Then
+			aa_Entetes_ProdCS(0) = "Contract No"
+			aa_Entetes_ProdCS(1) = "Maintenance Code"		
+			aa_Entetes_ProdCS(3) = "Start Date"	
+			aa_Entetes_ProdCS(4) = "End Date"	
+		Else
+			aa_Entetes_ProdCS(0) = "No contrat"	
+			aa_Entetes_ProdCS(1) = "Code entretien"	
+			aa_Entetes_ProdCS(3) = "Date début"
+			aa_Entetes_ProdCS(4) = "Date Fin"		
+		End If
+		
+		
+	End If	
+	
+End Sub
+
+</lotusscript></code><code event="SDSIM_GenererEnteteProp"><lotusscript>Function SDSIM_GenererEnteteProp(pnd_Prop As NotesDocument, pnrti_SICT_Message As NotesRichTextItem) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer l'image de l'entête d'une proposition.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	' Initialisations
+	SDSIM_GenererEnteteProp = False
+		'Type et Statut
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message, "Prop_StatutDesc_1", _
+	xVar(pnd_Prop, Cstr("Prop_StatutDesc" &amp; g_LangueProp_SDSIM), "" ))
+	
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message, "Prop_TypeDesc_1", _
+	xVar(pnd_Prop, "Prop_TypePropositionDesc" &amp; xLangue, ""))
+	
+	' contact / projet
+	
+	If xVar(pnd_Prop, "Prop_NomContactSerti", "") = "" Then
+		Call SDSIM_RemplacerSignets(pnrti_SICT_Message, "Prop_NomRepresentant", _
+		xVar(pnd_Prop, "Prop_NomRepresentant", ""))
+	Else
+		Call SDSIM_RemplacerSignets(pnrti_SICT_Message, "Prop_NomRepresentant", _
+		xVar(pnd_Prop, "Prop_NomContactSerti", ""))
+	End If
+	
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message, "Prop_DescProposition", _
+	xVar(pnd_Prop, Cstr("Prop_DescProposition"), "" ))
+	
+	SDSIM_GenererEnteteProp= True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_GenererIdentificationSite"><lotusscript>Function SDSIM_GenererIdentificationSite(pnd_Site As NotesDocument , pnrti_SICT_Message As notesrichtextitem) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer l'image de l'identification d'un site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As notesdocument
+	Dim Site_IdentificationNomChamps(9) As String
+	Dim Site_IdentificationValeurChamps(9) As Variant
+	Dim i As Integer
+	
+	' Initialisations
+	SDSIM_GenererIdentificationSite = False
+	
+	' Champs de l'identification d'un site-------------------	
+	Site_IdentificationNomChamps(0) = "Site_ClientAdresse1"
+	Site_IdentificationNomChamps(1) = "Site_ClientAdresse2"
+	Site_IdentificationNomChamps(2) = "Site_ClientVille"	
+	Site_IdentificationNomChamps(3) = "Site_ClientCodePostal"
+	Site_IdentificationNomChamps(4) = "Site_ContactNom"
+	Site_IdentificationNomChamps(5) = "Site_ContactTitre"
+	Site_IdentificationNomChamps(6) = "Site_ContactTelephone"
+	Site_IdentificationNomChamps(7) = "Site_ContactTelecopieur"
+	Site_IdentificationNomChamps(8) = "Site_ContactCourriel"
+	
+	Site_IdentificationNomChamps(9) = "Site_Langue"
+	
+	
+     ' Adresse de livraison &amp; Contact------------------------------------------------
+	For i =  Lbound(Site_IdentificationNomChamps) To Ubound(Site_IdentificationNomChamps)
+		Site_IdentificationValeurChamps(i) =  xVar(pnd_Site,Site_IdentificationNomChamps(i) ,"")
+	Next
+	
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message,Site_IdentificationNomChamps,Site_IdentificationValeurChamps)		
+	
+	' Fonction contact		
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message, "Site_ContactFonction_1", _
+	xEvaluate( |@Replace(Site_ContactFonction; @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "Cont_FonctionsSDS| &amp; g_LangueProp_SDSIM &amp; |"; 4); ""); @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "Cont_FonctionsSDS| &amp; g_LangueProp_SDSIM &amp; |"; 5); ""))|, pnd_Site))
+	
+	' Pays &amp; Province
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "Site_ClientProvince_1",xEvaluate( |@Replace(Site_ClientProvince; @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "ISO3166-2| &amp; "CA" &amp; g_LangueProp_SDSIM &amp; |"; 4); ""); @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "ISO3166-2| &amp; "CA" &amp; g_LangueProp_SDSIM &amp; |"; 5); ""))
+|, pnd_Site))
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "Site_ClientPays_1",xEvaluate( |@Replace(Site_ClientPays; @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "ISO3166-1| &amp; g_LangueProp_SDSIM &amp; |"; 4); ""); @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "ISO3166-1| &amp; g_LangueProp_SDSIM &amp; |"; 5); ""))
+|, pnd_Site))
+	
+	SDSIM_GenererIdentificationSite = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_GenererLogiciels"><lotusscript>Function SDSIM_GenererLogiciels(pnd_Site As NotesDocument, pnd_PrIM As NotesDocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer une liste des logiciels
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nv As NotesView
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As Notesdocument
+	Dim nd As NotesDocument	
+	Dim nd_Logiciels() As NotesDocument
+	Dim k As Integer
+	
+	' Initialisations
+	SDSIM_GenererLogiciels = False		
+	k = -1	
+	Redim Preserve nd_Logiciels(1000) As NotesDocument
+	
+	' Générer l'équipement
+	'------------------------------------------------------
+	Set nv = gndb_SDSIM.GetView("V_Prod30")
+	Call nv.Refresh
+	
+	Set ndc = nv.GetAllDocumentsByKey((xVar(pnd_Site, "Site_NoSite", "") &amp; ";LG."), False)
+	
+	If ndc.Count &gt; 0 Then
+		
+		Set nd_Suivant = ndc.GetFirstDocument
+		
+		Do Until nd_Suivant Is Nothing
+			
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+			
+			If xVar(nd, "Prod_TypeDescendant", "") &lt;&gt; "C" Then
+				k = k +1
+				
+				nd.Tmp_CleTri = xVar(nd, "Prod_CategorieProduit", "") &amp; ";" &amp; xVar(nd, "Prod_CategorieDesc" &amp; g_LangueProp_SDSIM, "") &amp; ";" &amp; xVar(nd, "Prod_DescProduit" &amp; g_LangueProp_SDSIM, "")
+				
+				Set nd_Logiciels(k) = nd
+				If k = 253 Then 
+					Exit Do ' Limit de 255 lignes dans un tableau.  Si cela arrive, créer tableau avec premier 255 records.
+				End If							
+			End If
+			
+		Loop
+		
+		If k &gt;= 0 Then
+			Redim Preserve nd_Logiciels(k) As NotesDocument
+			
+			Call TrierArrayDocs(nd_Logiciels, "Tmp_CleTri", "")		
+			
+			If Not SDSIM_AjouterLogiciels(nd_Logiciels, pnd_PrIM) Then
+				Exit Function
+			End If	
+			
+		End If
+	End If
+	
+	SDSIM_GenererLogiciels = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Site, "Site_NoSite", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_GenererProduitsCS"><lotusscript>Function SDSIM_GenererProduitsCS(pnd_Site As NotesDocument, pnd_PrIM As NotesDocument) As Boolean	
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer une liste des équipments
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	
+	Dim nv As NotesView
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument	
+	Dim nd_ProduitsCS() As NotesDocument
+	Dim k As Integer
+	
+	' Initialisations
+	SDSIM_GenererProduitsCS = False		
+	
+	Call xSDSCSL_Initialisations
+	
+	k = -1	
+	ReDim Preserve nd_ProduitsCS(1000) As NotesDocument
+	
+	' Générer les produits CS
+	'------------------------------------------------------
+	
+	If Not gndb_xSDSCSL Is Nothing Then
+	
+	Set nv = gndb_xSDSCSL.GetView("V_CSPr70")
+	Call nv.Refresh
+	
+	Set ndc = nv.GetAllDocumentsByKey(xVar(pnd_Site, "Site_ClientNoFmt", ""), True)
+	
+	If ndc.Count &gt; 0 Then
+		
+		Set nd_Suivant = ndc.GetFirstDocument
+		
+		Do Until nd_Suivant Is Nothing
+			
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+						
+				k = k + 1
+				
+				nd.Tmp_CleTri = xVar(nd, "Prod_DescProduit" &amp; g_LangueProp_SDSIM, "") &amp; ";" &amp; xVar(nd, "Prod_NoContratFmt_CS", "")
+				
+				Set nd_ProduitsCS(k) = nd
+				If k = 253 Then 
+					Exit Do ' Limit de 255 lignes dans un tableau.  Si cela arrive, créer tableau avec premier 255 records.
+				End If							
+						
+		Loop
+		
+		If k &gt;= 0 Then
+			ReDim Preserve nd_ProduitsCS(k) As NotesDocument
+			
+			Call TrierArrayDocs(nd_ProduitsCS, "Tmp_CleTri", "")		
+			
+			If Not SDSIM_AjouterProduitsCS(nd_ProduitsCS, pnd_PrIM) Then
+				Exit Function
+			End If	
+			
+			
+		End If
+	End If
+	End if
+	
+	SDSIM_GenererProduitsCS = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, GetThreadInfo(1), _
+	xVar(pnd_Site, "Site_NoSite", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_AjouterProduitsCS"><lotusscript>Function SDSIM_AjouterProduitsCS(pnd_ProduitsCS() As NotesDocument, pnd_PrIM As NotesDocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer le tableau des produits CS d'un site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	
+	Dim rt_Body As NotesRichTextItem
+	Dim nrti_gnd_T_Site_ProdCSEnt As NotesRichTextItem	
+	Dim nrti_pnd_PrIM As NotesRichTextItem
+	Dim  nrti_SICT_Message As NotesRichTextItem
+	
+	' Initialisations
+	SDSIM_AjouterProduitsCS = False
+	Set  nrti_pnd_PrIM =  pnd_PrIM.GetFirstItem("Body")
+	
+	' Ajouter entête de l'équipement
+	Set nrti_SICT_Message = gnd_T_Site_ProdCSEnt.GetFirstItem("SICT_Message" &amp; g_LangueProp_SDSIM)
+	Call nrti_pnd_PrIM.AppendRTItem(nrti_SICT_Message)	
+	
+	' Construire le tableau des Produits			
+	Set rt_Body = New NotesRichTextItem(gnd_T_Site_ProdCSEnt,"Body") 'créer un champ body temporaire pour générer le tableau
+	Call rt_Body.AppendText("[Site_ProduitsCS]")
+	Call SICT_AjouterTableau(gnd_T_Site_ProdCSEnt, "[Site_ProduitsCS]", pnd_ProduitsCS, ga_Formules_ProdCS, ga_Couleurs, ga_LargeurColonnes_ProdCS, _
+	aa_Entetes_ProdCS, 0 )
+	
+	' Ajouter le tableau dans le document image
+	Set  nrti_gnd_T_Site_ProdCSEnt =  gnd_T_Site_ProdCSEnt.GetFirstItem("Body")
+	Call nrti_pnd_PrIM.AppendRTItem(nrti_gnd_T_Site_ProdCSEnt)		
+	
+	SDSIM_AjouterProduitsCS = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, GetThreadInfo(1), "", False)	
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_RemplacerSignets"><lotusscript>Sub SDSIM_RemplacerSignets(p_nrti_SICT_Message As notesrichtextItem, p_NomChamps As Variant, p_ValeurChamps As Variant)
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de remplacer des signets
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur	
+	
+	Dim i As Integer
+	
+	If Isarray(p_NomChamps) Then
+		For i =  Lbound(p_NomChamps) To Ubound(p_ValeurChamps)
+			
+			If  Cstr(p_ValeurChamps(i)) = "" Then
+				p_ValeurChamps(i) = " "
+			End If
+			
+			Call SItRT_Remplacer(p_nrti_SICT_Message, "[" &amp; p_NomChamps(i) &amp; "]", p_ValeurChamps(i))
+		Next	
+	Else
+		Call SItRT_Remplacer(p_nrti_SICT_Message, "[" &amp; p_NomChamps &amp; "]", p_ValeurChamps)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSIM_GenererSites"><lotusscript>Function SDSIM_GenererSites(pnd_Prop As notesdocument, pnd_PrIM As notesdocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer le document image liés à une site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim ndc_Sites As NotesDocumentCollection
+	Dim nd_Site As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	
+	' Initialisations
+	SDSIM_GenererSites = False
+	
+	' Batir la liste des sites
+	Set ndc_Sites = xSDSP3_xndcSite(xVar(pnd_Prop, "Prop_NoProposition", ""))
+	
+	If ndc_Sites.Count &gt; 0 Then
+		
+		Set nd_Suivant = ndc_Sites.GetFirstDocument
+		
+		Do Until nd_Suivant Is Nothing
+			
+			Set nd_Site = nd_Suivant
+			Set nd_Suivant = ndc_Sites.Getnextdocument(nd_Suivant)
+			
+			If Not  SDSIM_GenererSite(nd_Site, pnd_PrIM) Then
+				Exit Function
+			End If
+			
+		Loop
+	End If
+	
+	SDSIM_GenererSites = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_AjouterEquipments"><lotusscript>Function  SDSIM_AjouterEquipments(pnd_Equipments() As Notesdocument, pnd_PrIM As notesdocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer le tableau des équipments d'un site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim rt_Body As notesrichtextitem
+	Dim nrti_gnd_T_Site_EquiEnt As notesrichtextitem	
+	Dim nrti_pnd_PrIM As notesrichtextitem
+	Dim  nrti_SICT_Message As notesrichtextitem
+	
+	' Initialisations
+	SDSIM_AjouterEquipments = False
+	Set  nrti_pnd_PrIM =  pnd_PrIM.GetFirstItem("Body")
+	
+	' Ajouter entête de l'équipement
+	Set nrti_SICT_Message = gnd_T_Site_EquiEnt.GetFirstItem("SICT_Message" &amp; g_LangueProp_SDSIM)
+	Call nrti_pnd_PrIM.AppendRTItem(nrti_SICT_Message)	
+	
+	' Construire le tableau des Produits			
+	Set rt_Body = New notesrichtextitem(gnd_T_Site_EquiEnt,"Body") 'créer un champ body temporaire pour générer le tableau
+	Call rt_Body.AppendText("[Site_Equipement]")
+	Call SICT_AjouterTableau(gnd_T_Site_EquiEnt, "[Site_Equipement]", pnd_Equipments, ga_Formules_EQ, ga_Couleurs, ga_LargeurColonnes_EQ, _
+	aa_Entetes_EQ, 0 )
+	
+	' Ajouter le tableau dans le document image
+	Set  nrti_gnd_T_Site_EquiEnt =  gnd_T_Site_EquiEnt.GetFirstItem("Body")
+	Call nrti_pnd_PrIM.AppendRTItem(nrti_gnd_T_Site_EquiEnt)		
+	
+	SDSIM_AjouterEquipments = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), "", False)	
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_AssignerSecurite"><lotusscript>Function SDSIM_AssignerSecurite(pnd_PrIM As NotesDocument, pnd_Prop As NotesDocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Assigner la sécurité au document image de la proposition
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim ni As notesitem
+	
+	' Initialisations
+	SDSIM_AssignerSecurite = False
+	
+	' Sécurité	
+	If Not pnd_PrIM.HasItem("LecteurAdmin") Then
+		Set ni = New NotesItem(pnd_PrIM, "LecteurAdmin", pnd_Prop.LecteurAdmin, READERS)		
+	End If
+	
+	If Not pnd_PrIM.HasItem("Lecteur") Then
+		Set ni = New NotesItem(pnd_PrIM, "Lecteur", pnd_Prop.Lecteur, READERS)
+	Else
+		Set ni = pnd_PrIM.GetFirstItem("Lecteur")
+	End If	
+	REM Call ni.AppendToTextList(pnd_Prop.Auteur)
+	
+	'If Not pnd_PrIM.HasItem("AuteurAdmin") Then
+	'	Set ni = New NotesItem(pnd_PrIM, "AuteurAdmin", pnd_Prop.AuteurAdmin, AUTHORS)	
+	'End If	
+	'If Not pnd_PrIM.HasItem("Auteur") Then
+	'	Set ni = New NotesItem(pnd_PrIM, "Auteur", "", AUTHORS)
+	'End If
+	
+	SDSIM_AssignerSecurite = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_GenererResumeProp"><lotusscript>Function SDSIM_GenererResumeProp(pnd_Prop As NotesDocument, pnrti_SICT_Message As NotesRichTextItem) As Boolean
+	'-----------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer l'image du résumé d'un site.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim Prop_ResumeNomChamps(23) As String
+	Dim Prop_ResumeValeurChamps(23) As Variant
+	Dim v_TauxMaj As Double
+	Dim v_Prop_Entretien5Ans_1 As Double
+	Dim v_Prop_EntretienAnnuelLG_1 As Double
+	Dim v_Prop_EntretienMensuelLG_1 As Double
+	Dim v_Prop_MontantFinancer_1 As Double
+	Dim v_Prop_Mensualite As Double
+	Dim v_ProfitNetContribMargNet As Double
+	Dim v_ContribMarginalesBrutes As Double 
+	Dim l_Sommaire As Variant
+	Dim l_Commissions  As Variant
+	
+	' Initialisations
+	SDSIM_GenererResumeProp = False
+	
+	' Proposition	
+	'---------------	
+     ' Equipement	
+	Prop_ResumeNomChamps(0) = "Prop_PrixTotalEQ_1"
+	Prop_ResumeNomChamps(1) = "Prop_CoutTotalEQ_1"
+	Prop_ResumeNomChamps(2) = "Prop_ProfitEQ_1" 
+	' Logiciels
+	Prop_ResumeNomChamps(3) = "Prop_ProfitNetPR_1"
+	Prop_ResumeNomChamps(4) = "Prop_PaiementNetMensuel_1"
+	Prop_ResumeNomChamps(5)  = "Prop_EscompteMensualite_1"
+	' Services
+	Prop_ResumeNomChamps(6) = "Prop_PrixTotalSV_1"
+	Prop_ResumeNomChamps(7) = "Prop_CoutTotalSV_1"
+	Prop_ResumeNomChamps(8) = "Prop_ProfitSV_1"
+	
+	' Total
+	Prop_ResumeNomChamps(9) = "Prop_PrixTotalPR_1"
+	Prop_ResumeNomChamps(10) = "Prop_CoutTotalPR_1"
+	Prop_ResumeNomChamps(11) = "Prop_ProfitPR_1"
+	Prop_ResumeNomChamps(12) = "Prop_MontantFinancer_1"
+	
+	' Entretient
+	'---------------	
+	' Equipement		
+	'Prop_ResumeNomChamps(13) =  "Prop_EntretienAnnuel1An_1"
+	Prop_ResumeNomChamps(13) = "Prop_PaiementNetMensuel1An_1"
+	' Logiciel SDS 	
+	'Prop_ResumeNomChamps(14) = "Prop_EntretienAnnuel5Ans_1"
+	Prop_ResumeNomChamps(14) = "Prop_PaiementNetMensuel5Ans_1"
+	' Logiciels
+	Prop_ResumeNomChamps(15) = "Prop_EntretienAnnuelLG_1" 
+	Prop_ResumeNomChamps(16) = "Prop_EntretienMensuelLG_1"
+	
+	Prop_ResumeNomChamps(17) ="Prop_Mensualite_1"
+	
+	'Ajustements
+	'----------------		
+	Prop_ResumeNomChamps(18) = "Prop_Escompte_1"
+	Prop_ResumeNomChamps(19) = "Prop_EscompteCorporatif_1"
+	
+	'Financement
+	'------------------	
+	Prop_ResumeNomChamps(20) = "Prop_MontantFinancer_1"
+	Prop_ResumeNomChamps(21) = "Prop_Mensualite_1"
+	
+	' Profit
+	'------------------
+	Prop_ResumeNomChamps(22) = "Prop_ProfitNetContribMargNet_1"	
+	Prop_ResumeNomChamps(23) = "Prop_TotalAjuste_1"
+	
+	' Calculer les valeurs des champs du resumé
+	l_Sommaire =  SDSI_CalculerSommaire(pnd_Prop)
+	l_Commissions = SDSPCP_CalculerCommissions(pnd_Prop)
+	
+	'v_Prop_EntretienAnnuelEQ_1  = l_Sommaire("EntretienAnnuelEQ") 	
+	
+	v_TauxMaj  = xVarProf("Prof_EQMajoMens",1)	
+	'v_Prop_EntretienMensuelEQ_1 = (v_Prop_EntretienAnnuelEQ_1 * v_TauxMaj)  / 12
+	
+	v_Prop_EntretienAnnuelLG_1 = 	 l_Sommaire("EntretienAnnuelLG") 		
+	
+	v_TauxMaj  = xVarProf("Prof_LGMajoMens",1)	
+	v_Prop_EntretienMensuelLG_1 = (v_Prop_EntretienAnnuelLG_1 * v_TauxMaj)  / 12
+	
+	v_Prop_Entretien5Ans_1= (v_Prop_EntretienAnnuelLG_1  * 5)
+	
+	v_Prop_MontantFinancer_1 = l_Sommaire("PrixTotalPR")  - xVar(pnd_Prop, "Prop_EscompteMontant",0) - xVar(pnd_Prop, "Prop_EscompteCorporatif",0)
+	
+	v_Prop_Mensualite = SDSIM_CalculerMensualite(v_Prop_MontantFinancer_1)
+	
+	Prop_ResumeValeurChamps(0) = SDSI_FormatDevise(l_Sommaire("PrixTotalEQ"), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(1) = SDSI_FormatDevise(l_Sommaire("CoutTotalEQ"), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(2) = SDSI_FormatDevise(l_Sommaire("PrixTotalEQ") - l_Sommaire("CoutTotalEQ"), g_LangueProp_SDSIM)
+	
+	Prop_ResumeValeurChamps(3)  = SDSI_FormatDevise((l_Sommaire("ProfitPR") - xVar(pnd_Prop, "Prop_EscompteMontant",0) - xVar(pnd_Prop, "Prop_EscompteCorporatif",0)), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(4)  = SDSI_FormatDevise((v_Prop_EntretienMensuelLG_1 - xVar(pnd_Prop, "Prop_EscompteMensualite", 0)), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(5)  = SDSI_FormatDevise((xVar(pnd_Prop, "Prop_EscompteMensualite", 0) ), g_LangueProp_SDSIM) 	
+	Prop_ResumeValeurChamps(6) = SDSI_FormatDevise(l_Sommaire("PrixTotalSV"), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(7) = SDSI_FormatDevise(l_Sommaire("CoutTotalSV"), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(8) =	SDSI_FormatDevise((l_Sommaire("PrixTotalSV") - l_Sommaire("CoutTotalSV")), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(9) =	SDSI_FormatDevise(l_Sommaire("PrixTotalPR"), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(10) =	SDSI_FormatDevise((l_Sommaire("CoutTotalEQ") + l_Sommaire("CoutTotalSV")), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(11) = SDSI_FormatDevise(l_Sommaire("ProfitPR"), g_LangueProp_SDSIM)	
+	Prop_ResumeValeurChamps(12) = SDSI_FormatDevise(v_Prop_MontantFinancer_1, g_LangueProp_SDSIM)
+	'Prop_ResumeValeurChamps(13) = SDSI_FormatDevise(v_Prop_EntretienAnnuelLG_1, g_LangueProp_SDSIM)	
+	Prop_ResumeValeurChamps(13) = SDSI_FormatDevise(((v_Prop_EntretienMensuelLG_1 - xVar(pnd_Prop, "Prop_EscompteMensualite", 0)) * 12), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(14) = SDSI_FormatDevise((((v_Prop_EntretienMensuelLG_1 - xVar(pnd_Prop, "Prop_EscompteMensualite", 0)) * 12) * 5)  , g_LangueProp_SDSIM)
+	'Prop_ResumeValeurChamps(14) = SDSI_FormatDevise(v_Prop_Entretien5Ans_1, g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(15) = SDSI_FormatDevise(v_Prop_EntretienAnnuelLG_1, g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(16) = SDSI_FormatDevise((v_Prop_EntretienMensuelLG_1), g_LangueProp_SDSIM)
+	
+	Prop_ResumeValeurChamps(17) = SDSI_FormatDevise(SDSI_MensualiteFinancement(v_Prop_MontantFinancer_1), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(18) =SDSI_FormatDevise((xVar(pnd_Prop, "Prop_EscompteMontant", 0) ), g_LangueProp_SDSIM) 	
+	Prop_ResumeValeurChamps(19) =SDSI_FormatDevise((xVar(pnd_Prop, "Prop_EscompteCorporatif", 0)), g_LangueProp_SDSIM) 	
+	
+	Prop_ResumeValeurChamps(20) =	SDSI_FormatDevise(l_Sommaire("PrixTotalPR") - xVar(pnd_Prop, "Prop_EscompteMontant", 0)  - xVar(pnd_Prop, "Prop_EscompteCorporatif", 0), g_LangueProp_SDSIM)
+	Prop_ResumeValeurChamps(21) = SDSI_FormatDevise(v_Prop_Mensualite, g_LangueProp_SDSIM)
+	
+	v_ContribMarginalesBrutes = l_Commissions("ReferenceEQ") + l_Sommaire("PrixTotalSV") - xVar(pnd_Prop, "Prop_EscompteMontant", 0)  - xVar(pnd_Prop, "Prop_EscompteCorporatif", 0)
+	
+	v_ProfitNetContribMargNet = v_ContribMarginalesBrutes  - l_Sommaire("CoutTotalSV")  - l_Commissions("CommRepresentantNettesPR") - _
+	l_Commissions("CommDirecteurNettesPR")  + l_Commissions("CommRepresentantLG")  + l_Commissions("CommDirecteurLG")		
+	
+	Prop_ResumeValeurChamps(22) = SDSI_FormatDevise(v_ProfitNetContribMargNet, g_LangueProp_SDSIM)
+	
+	Prop_ResumeValeurChamps(23) = SDSI_FormatDevise(l_Sommaire("TotalAjuste"), g_LangueProp_SDSIM) 
+	
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message,Prop_ResumeNomChamps,Prop_ResumeValeurChamps)
+	
+	SDSIM_GenererResumeProp = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSIM_GenererIdentificationProp"><lotusscript>Function SDSIM_GenererIdentificationProp(pnd_Prop As NotesDocument, pnrti_SICT_Message As NotesRichTextItem) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer l'image de l'identification d'une proposition.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	' Initialisations
+	SDSIM_GenererIdentificationProp = False
+	
+		' no. client	
+	If xvar(pnd_Prop,"Prop_ClientNoFmt","") = "" Then
+		Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "Numéro de client :", " ")
+		Call SDSIM_RemplacerSignets(pnrti_SICT_Message, "Prop_ClientNoFmt", " ")
+	Else
+		
+		If  g_LangueProp_SDSIM = "EN" Then
+			Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "Numéro de client :", "Customer Number :")			
+		Else
+			Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "Numéro de client :", "Numéro de client :")			
+		End If		
+		
+	End If
+	
+		' Adresse de facturation 		
+	If  g_LangueProp_SDSIM = "EN" Then			
+		If xvar(pnd_Prop,"Prop_ClientPays","") = "US" Then
+			Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "ProvinceEtatFact", "State :")
+		Else
+			Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "ProvinceEtatFact", "Province :")
+		End If				
+	Else
+		If xvar(pnd_Prop,"Prop_ClientPays","") &lt;&gt; "US" Then
+			Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "ProvinceEtatFact", "Province :")
+		Else
+			Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "ProvinceEtatFact", "État :")
+		End If	
+	End If
+	
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "Prop_ClientProvince_1",xEvaluate( |@Replace(Prop_ClientProvince; @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "ISO3166-2| &amp; "CA" &amp; g_LangueProp_SDSIM &amp; |"; 4); ""); @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "ISO3166-2| &amp; "CA" &amp; g_LangueProp_SDSIM &amp; |"; 5); ""))
+|, pnd_Prop))
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message , "Prop_ClientPays_1",xEvaluate( |@Replace(Prop_ClientPays; @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "ISO3166-1| &amp; g_LangueProp_SDSIM &amp; |"; 4); ""); @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "ISO3166-1| &amp; g_LangueProp_SDSIM &amp; |"; 5); ""))
+|, pnd_Prop))
+	
+	' Fonction contact		
+	Call SDSIM_RemplacerSignets(pnrti_SICT_Message, "Prop_ContactFonction_1", _
+	xEvaluate( |@Replace(Prop_ContactFonction; @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "Cont_FonctionsSDS| &amp; g_LangueProp_SDSIM &amp; |"; 4); ""); @IfError(@DbLookup(""; @ServerName : "SI_GDK.nsf"; "V_Tabl20"; "Cont_FonctionsSDS| &amp; g_LangueProp_SDSIM &amp; |"; 5); ""))|, pnd_Prop))
+	
+	SDSIM_GenererIdentificationProp = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="Proposition____________"><lotusscript>Sub Proposition____________
+End Sub
+
+</lotusscript></code><code event="SDSIM_GenererServices"><lotusscript>Function SDSIM_GenererServices(pnd_Site As NotesDocument, pnd_PrIM As NotesDocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de générer une liste des services
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nv As NotesView
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As Notesdocument
+	Dim nd As NotesDocument	
+	Dim nd_Services() As NotesDocument
+	Dim k As Integer
+	
+	' Initialisations
+	SDSIM_GenererServices = False		
+	k = -1	
+	Redim Preserve nd_Services(1000) As NotesDocument
+	
+	' Générer l'équipement
+	'------------------------------------------------------
+	Set nv = gndb_SDSIM.GetView("V_Prod30")
+	Call nv.Refresh
+	
+	Set ndc = nv.GetAllDocumentsByKey((xVar(pnd_Site, "Site_NoSite", "") &amp; ";SV."), False)
+	
+	If ndc.Count &gt; 0 Then
+		
+		Set nd_Suivant = ndc.GetFirstDocument
+		
+		Do Until nd_Suivant Is Nothing
+			
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+			
+			If xVar(nd, "Prod_TypeDescendant", "") &lt;&gt; "C" Then
+				k = k +1
+				
+				nd.Tmp_CleTri = xVar(nd, "Prod_CategorieProduit", "") &amp; ";" &amp; xVar(nd, "Prod_CategorieDesc" &amp; g_LangueProp_SDSIM, "") &amp; ";" &amp; xVar(nd, "Prod_DescProduit" &amp; g_LangueProp_SDSIM, "")
+				
+				Set nd_Services(k) = nd
+				If k = 253 Then 
+					Exit Do ' Limit de 255 lignes dans un tableau.  Si cela arrive, créer tableau avec premier 255 records.
+				End If							
+			End If
+			
+		Loop
+		
+		If k &gt;= 0 Then
+			Redim Preserve nd_Services(k) As NotesDocument
+			
+			Call TrierArrayDocs(nd_Services, "Tmp_CleTri", "")		
+			
+			If Not SDSIM_AjouterServices(nd_Services, pnd_PrIM) Then
+				Exit Function
+			End If	
+		End If
+	End If
+	
+	SDSIM_GenererServices = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSIM, gc_Element_SDSIM, Getthreadinfo(1), _
+	xVar(pnd_Site, "Site_NoSite", ""), False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073645,22-05</datetime></item></scriptlibrary>
+
+</database>

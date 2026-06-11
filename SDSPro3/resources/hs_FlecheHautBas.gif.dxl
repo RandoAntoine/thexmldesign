@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="hs_FlecheHautBas.gif" alias="hs_FlecheHautBas" publicaccess="false" designerversion="8">
+<noteinfo noteid="16b6" unid="5736C7DF5E2E399A85257DEB0069DF4C" sequence="15">
+<created><datetime>20150213T141624,44-05</datetime></created>
+<modified><datetime>20260105T014845,57-05</datetime></modified>
+<revised><datetime dst="true">20180718T105547,27-04</datetime></revised>
+<lastaccessed><datetime>20260105T014845,56-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205707,78-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhFAAUAKUzACBQaSFRaiJSaiRTayVUbCZVbShWbipYcDJedTVhdzljejxmfD9ofkBpfkty
+hk50iFJ3i1d7jlt+kV2Akl+Ck5iuupqwu52yvaG1wKK2wKS4wqe6xKu9xqy+x7TEzLXFzbbGzr3L
+0r/M1MHO1cXR2MrV28vW3OLo7OXq7ezw8u7x8/H09vT29/b4+ff5+vj6+vr7/P39/f7+/v//////
+/////////////////////////////////////////////yH+EUNyZWF0ZWQgd2l0aCBHSU1QACH5
+BAEAAD8ALAAAAAAUABQAAAaTwJ9wKJytVjOikgjrUA4AwEGycS2HpkZ0u12Qrh4CdzbjCjjKknhL
+JptHQxhj3HZvFS0hh163RzNCE1xRdYMAED8yBoaFgwMwKoN9bYMoKYx9higxBZh+WwIvPxGGAJ9b
+D0IYpawAFkItCnyUWwgrQyIBrVwgShq6uxVXIQmsCB9XQiwXDwJRAQ4Vt8lELycneVdBADs=
+</gif>
+<item name="$FileSize" sign="true"><number>395</number></item>
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime>20140321T094858,22-05</datetime></item></imageresource>
+
+</database>

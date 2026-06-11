@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_OneSpanSign_Paquet" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="55583a" unid="6027A192DC8E43828525885D0050303B" sequence="25">
+<created><datetime dst="true">20220610T103552,27-04</datetime></created>
+<modified><datetime>20260105T014837,89-05</datetime></modified>
+<revised><datetime>20250319T073636,05-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,88-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,88-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "x_GDK"
+' =============================================================
+' Le script permet d'extraire les informations d'un paquet.
+' =============================================================
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SDSPOSSP As NotesSession
+Dim gndb_SDSPOSSP As NotesDatabase
+
+Dim g_TypeNDBCourante_SDSPOSSP As String
+Dim g_Url_SDSPOSSP As String
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SDSPOSSP = "SL"
+Const gc_Element_SDSPOSSP = "SDSP_OneSpanSign_Paquet"
+
+
+Class SDSP_clOSSP_Paquet
+	
+	Public CleIntegration As String
+	Public PackageID As String
+	Public Resultat As Integer
+	Public JSON As String
+	Public Expediteur As SDSPOSSP_clExpediteur	
+	Public Signataires List As SDSPOSSP_clSignataire
+	
+	Sub New(p_CleIntegration As String, p_PackageID As String)
+		
+		Dim v_URL As String
+		Dim v_Reponse As Integer
+		Dim v_ReponseJSON As String
+		
+		Call SDSPOSSP_Initialisations
+		
+		me.CleIntegration = p_CleIntegration
+		me.PackageID = p_PackageID	
+		me.Resultat = 0
+		
+		' Construire l'URL
+		v_URL = g_Url_SDSPOSSP &amp; "/packages/" &amp; me.PackageID
+		
+		If SDSPOSSP_EnvoyerTransactionGet(me.CleIntegration, v_URL, v_Reponse, v_ReponseJSON) = False Then
+			Me.Resultat = -1
+			Exit Sub
+		End If
+		Me.JSON = v_ReponseJSON
+		
+		If TraiterJSON(v_ReponseJSON) = False Then
+			Me.Resultat = -2
+		End If
+		
+	End Sub
+	
+	
+	Function TraiterJSON(p_ReponseJSON As String) As Boolean
+		On Error GoTo GererErreur
+		
+		Dim njsonn As NotesJSONNavigator
+		Dim njsone_Sender As NotesJSONElement
+		Dim njsone_SenderElement As NotesJSONElement
+		Dim njsone_Roles As NotesJSONElement
+		Dim njsone As NotesJSONElement
+		Dim njsona_Roles As NotesJSONArray
+		Dim njsone_RolesElement As NotesJSONElement
+		
+		Dim njsone_Signers As NotesJSONElement	
+		Dim njsona_Signers As NotesJSONArray
+		Dim njsone_SignerElement As NotesJSONElement
+		Dim njsoneSigner As NotesJSONElement
+		
+		Dim v_IdExpediteur As String
+		Dim v_NomExpediteur As String
+		Dim v_PrenomExpediteur As String
+		Dim v_CourrielExpediteur As String
+		
+		Dim v_IdSignataire As String
+		Dim v_NomSignataire  As String
+		Dim v_PrenomSignataire  As String
+		Dim v_CourrielSignataire  As String
+		
+		Set njsonn = gns_SDSPOSSP.Createjsonnavigator(p_ReponseJSON)
+		Set njsone_Sender = njsonn.Getelementbyname("sender")
+		
+		Print p_ReponseJSON
+		
+		If Not njsone_Sender Is Nothing Then
+			
+			Set njsone_SenderElement = njsone_Sender.Value.Getelementbyname("lastName")
+			v_NomExpediteur = njsone_SenderElement.Value
+			Set njsone_SenderElement = njsone_Sender.Value.Getelementbyname("firstName")
+			v_PrenomExpediteur = njsone_SenderElement.Value
+			Set njsone_SenderElement = njsone_Sender.Value.Getelementbyname("email")
+			v_CourrielExpediteur = njsone_SenderElement.Value
+			Set njsone_SenderElement = njsone_Sender.Value.Getelementbyname("id")
+			v_IdExpediteur = njsone_SenderElement.Value
+			
+			' Créer le Expediteur
+			Set Me.Expediteur = New SDSPOSSP_clExpediteur(v_IdExpediteur, v_NomExpediteur, v_PrenomExpediteur, v_CourrielExpediteur)
+			
+		End If
+		
+		Set njsone_Roles = njsonn.Getelementbyname("roles")		
+		Set njsona_Roles = njsone_Roles.Value
+		Set njsone_RolesElement = njsona_Roles.GetFirstElement
+		
+		Do Until njsone_RolesElement Is Nothing
+			
+			Set njsone_Signers  = njsone_RolesElement.Value.Getelementbyname("signers") 	
+			Set njsona_Signers = njsone_Signers.Value	
+			Set njsone_SignerElement = njsona_Signers.GetFirstElement
+			
+			Do While Not njsone_SignerElement Is Nothing				
+				Set njsoneSigner = njsone_SignerElement.Value.Getelementbyname("lastName")
+				v_NomSignataire = njsoneSigner.Value
+				Set njsoneSigner = njsone_SignerElement.Value.Getelementbyname("firstName")
+				v_PrenomSignataire = njsoneSigner.Value
+				Set njsoneSigner = njsone_SignerElement.Value.Getelementbyname("email")
+				v_CourrielSignataire = njsoneSigner.Value
+				Set njsoneSigner = njsone_SignerElement.Value.Getelementbyname("id")
+				v_IdSignataire = njsoneSigner.Value	
+				
+				' Créer le Signataire	
+				Set Me.Signataires(v_IdSignataire) = New SDSPOSSP_clSignataire(v_IdSignataire, v_NomSignataire, v_PrenomSignataire, v_CourrielSignataire)
+				
+				Set njsone_SignerElement = njsona_Signers.Getnextelement					
+			loop		
+			
+			Set njsone_RolesElement = njsona_Roles.Getnextelement
+		Loop
+			
+		
+		TraiterJSON = True
+		Exit Function
+		
+GererErreur:
+		Me.Resultat = -24			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSP, gc_Element_SDSPOSSP, GetThreadInfo(1), "", False)
+		Exit Function
+	End Function
+	
+End Class
+Class SDSPOSSP_clExpediteur
+	Public Id As String
+	Public Nom As String
+	Public Prenom As String
+	Public Courriel As String
+		
+	Sub New(v_IdExpediteur As String, v_NomExpediteur As String, v_PrenomExpediteur As String, v_CourrielExpediteur As String)
+		On Error GoTo GererErreur
+
+		Me.Id = v_IdExpediteur
+		Me.Nom = v_NomExpediteur
+		Me.Prenom = v_PrenomExpediteur
+		Me.Courriel = v_CourrielExpediteur
+
+		Exit Sub
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSP, gc_Element_SDSPOSSP, GetThreadInfo(1), "", False)
+		Exit Sub
+	End Sub
+End Class
+
+
+Class SDSPOSSP_clSignataire
+	Public Id As String
+	Public Nom As String
+	Public Prenom As String
+	Public Courriel As String
+	
+	Sub New(v_IdExpediteur As String, v_NomExpediteur As String, v_PrenomExpediteur As String, v_CourrielExpediteur As String)
+		On Error GoTo GererErreur
+
+		Me.Id = v_IdExpediteur
+		Me.Nom = v_NomExpediteur
+		Me.Prenom = v_PrenomExpediteur
+		Me.Courriel = v_CourrielExpediteur
+
+		Exit Sub
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSP, gc_Element_SDSPOSSP, GetThreadInfo(1), "", False)
+		Exit Sub
+	End Sub
+End Class
+</lotusscript></code><code event="SDSPOSSP_EnvoyerTransactionPut"><lotusscript>Function SDSPOSSP_EnvoyerTransactionPut (p_CleIntegration As String, p_Url As String, p_Statut As String, p_Reponse As Integer, p_ReponseJSON As String) As Boolean	
+	
+	On Error GoTo GererErreur
+	
+	Dim objHttp As Variant
+	Dim v_Reponse As String
+	Dim v_JSON As String
+
+	
+	SDSPOSSP_EnvoyerTransactionPut = False
+	
+
+	' Paramètre 
+	v_JSON = |{"status": "| &amp; UCase(p_Statut) &amp; |"}|
+	
+	' --- instantiate an MSXML XMLHTTP object
+	Set objHttp = CreateObject("Microsoft.XMLHTTP")
+	
+	' --- open a PUT request and set the Content-type header 
+	objHttp.open "PUT", p_Url, False
+	objHttp.setRequestHeader "Accept", "application/json"
+	objHttp.setRequestHeader "Content-type", "application/json"
+	objHttp.setRequestHeader "Authorization", "Basic " &amp; p_CleIntegration
+	objHttp.send (v_JSON)
+	
+	v_Reponse = objHTTP.Status
+	p_ReponseJSON = objHttp.responseText
+	Set objHttp = Nothing
+	
+	p_Reponse = CInt(v_Reponse)
+	If p_Reponse &lt; 300 Then
+		SDSPOSSP_EnvoyerTransactionPut = True
+	Else
+		Call SIGE_TraiterErreurManuelle(gc_TypeElement_SDSPOSSP, gc_Element_SDSPOSSP, GetThreadInfo(1), 0, v_Reponse, p_ReponseJSON, False)
+	End If
+	
+	
+EnregistrerLog:
+	'Call SIGE_OuvrirLog(gc_TypeElement_SDSPOSSP, gc_Element_SDSPOSSP)
+	Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+	Call SIGE_AjouterLog("Requête : PUT / " &amp; p_URL, 0, 0, False)
+	Call SIGE_AjouterLog("Paramètre :"  &amp; v_Json, 0, 0, False)
+	Call SIGE_AjouterLog("Reponse : " &amp; CStr(p_Reponse), 0, 0, False)
+	Call SIGE_AjouterLog("JSON    :", 0, 0, False)
+	Call SIGE_AjouterLog(p_ReponseJSON, 0, 0, False)
+	Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+	'Call SIGE_EnregistrerLog
+	
+
+	Exit Function
+	
+GererErreur:
+	Set objHttp = Nothing
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSP, gc_Element_SDSPOSSP, GetThreadInfo(1), p_URL, False)
+	GoTo EnregistrerLog
+End Function
+
+</lotusscript></code><code event="SDSPOSSP_Initialisations"><lotusscript>Sub SDSPOSSP_Initialisations
+	If gns_SDSPOSSP Is Nothing Then
+		Set gns_SDSPOSSP = New NotesSession
+		Set gndb_SDSPOSSP = gns_SDSPOSSP.CurrentDatabase
+		
+		g_TypeNDBCourante_SDSPOSSP = xGDK_TypeNDBCourante
+		If g_TypeNDBCourante_SDSPOSSP = "P" Or g_TypeNDBCourante_SDSPOSSP = "L" Then		' Production ou Local
+			g_Url_SDSPOSSP = "https://apps.e-signlive.ca/api"
+		Else																			' Développement/Tests
+			g_Url_SDSPOSSP = "https://sandbox.esignlive.com/api"
+		End If
+	End If
+End Sub
+
+</lotusscript></code><code event="SDSPOSSP_EnvoyerTransactionGet"><lotusscript>Function SDSPOSSP_EnvoyerTransactionGet (p_CleIntegration As String, p_Url As String, p_Reponse As Integer, p_ReponseJSON As String) As Boolean
+	On Error GoTo GererErreur
+	Dim objHttp As Variant
+	Dim v_Reponse As String
+	
+	SDSPOSSP_EnvoyerTransactionGet = False
+	
+	' --- instantiate an MSXML XMLHTTP object
+	Set objHttp = CreateObject("Microsoft.XMLHTTP")
+	
+	' --- open a new POST request and set the Content-type header 
+	objHttp.open "GET", p_url, False
+	objHttp.setRequestHeader "Accept", "application/json"
+	objHttp.setRequestHeader "Content-type", "application/json"
+	objHttp.setRequestHeader "Authorization", "Basic " &amp; p_CleIntegration
+	objHttp.send
+	
+	v_Reponse = objHTTP.Status
+	p_ReponseJSON = objHttp.responseText
+	Set objHttp = Nothing
+	
+	p_Reponse = CInt(v_Reponse)
+	If p_Reponse &lt; 300 Then
+		SDSPOSSP_EnvoyerTransactionGet = True
+	Else
+		Call SIGE_TraiterErreurManuelle(gc_TypeElement_SDSPOSSP, gc_Element_SDSPOSSP, GetThreadInfo(1), 0, v_Reponse, p_ReponseJSON, False)
+	End If
+	
+EnregistrerLog:
+	'	Call SIGE_OuvrirLog(gc_TypeElement_SLOSSP, gc_Element_SLOSSP)
+	Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+	Call SIGE_AjouterLog("Requête : " &amp; p_url, 0, 0, False)
+	Call SIGE_AjouterLog("Reponse : " &amp; CStr(p_Reponse), 0, 0, False)
+	Call SIGE_AjouterLog("JSON    :", 0, 0, False)
+	Call SIGE_AjouterLog(p_ReponseJSON, 0, 0, False)
+	Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+	'	Call SIGE_EnregistrerLog
+	
+	Exit Function
+	
+GererErreur:
+	Set objHttp = Nothing
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSP, gc_Element_SDSPOSSP, GetThreadInfo(1), p_URL, False)
+	GoTo EnregistrerLog
+End Function
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073636,05-05</datetime></item></scriptlibrary>
+
+</database>

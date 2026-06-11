@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><outline name="Menu Bannière" alias="O_Bann" hide="web v3 v4strict" publicaccess="false" designerversion="8" language="fr" comment="3.0">
+<noteinfo noteid="11b6" unid="DA459D35F84813DE852572450055636A" sequence="10">
+<created><datetime>20061215T103240,10-05</datetime></created>
+<modified><datetime>20260105T014836,78-05</datetime></modified>
+<revised><datetime dst="true">20180718T105544,82-04</datetime></revised>
+<lastaccessed><datetime>20260105T014836,77-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205659,32-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Bruno Beauparlant/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Bruno Beauparlant/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Bruno Beauparlant/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Steve Cochrane/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<outlineentry label="Menu principal" type="action" displayimage="false"><code event="value"><formula>@SetTargetFrame("Navigateur");
+@Command([OpenPage] ; "P_Menu");
+@SetTargetFrame("Contenu");
+@Command([OpenView] ; "V_Prop01")</formula></code></outlineentry>
+<outlineentry label="Admin" type="action" displayimage="false"><code event="value"><formula>@SetTargetFrame("Navigateur");
+@Command([OpenPage] ; "P_MAdm");
+@SetTargetFrame("Contenu");
+@Command([OpenView] ; "V_Tabl")</formula></code><code event="hidewhen"><formula>@IsNotMember("[Admin]" : "[Base]"; @UserRoles)</formula></code></outlineentry>
+<outlineentry type="action" displayimage="false"><code event="value"><formula>@Command([FileCloseWindow])</formula></code><code event="label"><formula>"Fermer"</formula></code></outlineentry></outline>
+
+</database>

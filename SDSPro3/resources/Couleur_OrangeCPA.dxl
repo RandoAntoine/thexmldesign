@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="Couleur_OrangeCPA" alias="cl_OCPA" publicaccess="false" designerversion="8" imagename="Couleur 2013 CPA.jpg">
+<noteinfo noteid="1612" unid="27E512071CA983FA85257B82006E04E2" sequence="6">
+<created><datetime dst="true">20130606T160142,10-04</datetime></created>
+<modified><datetime>20260105T014845,39-05</datetime></modified>
+<revised><datetime dst="true">20180718T105546,20-04</datetime></revised>
+<lastaccessed><datetime>20260105T014845,38-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205707,08-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><jpeg>
+/9j/4AAQSkZJRgABAQEAYABgAAD/4QBoRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUA
+AAABAAAARgEoAAMAAAABAAMAAAExAAIAAAASAAAATgAAAAAAAJOjAAAD6AAAk6MAAAPoUGFpbnQu
+TkVUIHYzLjUuMTAA/9sAQwAHBQUGBQQHBgUGCAcHCAoRCwoJCQoVDxAMERgVGhkYFRgXGx4nIRsd
+JR0XGCIuIiUoKSssKxogLzMvKjInKisq/9sAQwEHCAgKCQoUCwsUKhwYHCoqKioqKioqKioqKioq
+KioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioq/8AAEQgACgAKAwEiAAIRAQMRAf/E
+AB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAE
+EQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZH
+SElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1
+tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEB
+AQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXET
+IjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFla
+Y2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+x8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8AfRRRX5Ufsx//2Q==
+</jpeg>
+<item name="$FileSize" sign="true"><number>739</number></item>
+<item name="$MimeType" sign="true"><text>image/jpeg</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20130529T141456,00-04</datetime></item></imageresource>
+
+</database>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_SIAi" hide="v3 v4strict" designerversion="8.5.3" comment="2.1 Aide">
+<noteinfo noteid="3f0aa2" unid="9E79FFBB9074C524852589A2007A0321" sequence="17">
+<created><datetime dst="true">20230501T181241,93-04</datetime></created>
+<modified><datetime>20250319T074102,55-05</datetime></modified>
+<revised><datetime>20250319T073638,59-05</datetime></revised>
+<lastaccessed><datetime>20250319T074102,54-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20230501T183540,12-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+'
+' Cette bibliothèque de script permet d'extraire un document ou un item d'un document.  Les documents
+' à extraire se trouvent dans la base de documents courante.
+'
+' Instructions
+'	1.	Renommer le script library.  Le nouveau nom devrait être x_SIAi où SIAi est le type de document.
+'	2.	Inscrire le nom de l'item qui contient la clé et le nom de la vue de recherche dans la section (Déclarations).
+'	3.	Remplacer toutes les occurences de SIAi par l'identifiant du type de document.  Les subs seront 
+'		automatiquement renommés.
+
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_xSIAi
+Dim gns_xSIAi As Notessession
+Dim gndb_xSIAi As Notesdatabase
+
+' Section 2 - Définition des valeurs conservées dans la cache
+Dim gnv_xSIAi As Notesview				' La vue d'ou est extrait le document
+Dim gnd_xSIAi As Notesdocument		' Le document qui contient les informations recherchées
+
+' Section 3 - Les constantes à définir
+Const gc_NomItemCle_xSIAi = "SIAi_Nom"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVue_xSIAi = "V_SIAi20"		' Le nom de la vue de recherche
+
+</lotusscript></code><code event="xndSIAi"><lotusscript>Function xndSIAi(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call Initialisation_xSIAi
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCle_xSIAi, p_Cle, p_Cache, gndb_xSIAi, gc_NomVue_xSIAi, gnv_xSIAi, gnd_xSIAi)
+	
+	' Retourne le document défini en variable globale
+	Set xndSIAi = gnd_xSIAi
+End Function
+
+</lotusscript></code><code event="xVarSIAi"><lotusscript>Function xVarSIAi(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	Dim nd As NotesDocument
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Set nd = xndSIAi(p_Cle, p_Cache)
+	xVarSIAi = xVar(nd, p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="Initialisation_xSIAi"><lotusscript>Sub Initialisation_xSIAi
+	' Initialisation des variables globales
+	If gns_xSIAi Is Nothing Then
+		Set gns_xSIAi = New Notessession
+		Set gndb_xSIAi = gns_xSIAi.Currentdatabase
+	End If
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073638,59-05</datetime></item></scriptlibrary>
+
+</database>

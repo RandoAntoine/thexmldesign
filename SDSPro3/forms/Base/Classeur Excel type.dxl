@@ -1,0 +1,338 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Base\Classeur Excel type" alias="F_SIXT" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" comment="2.0" conflictaction="mergeconflicts">
+<noteinfo noteid="2f21b2" unid="2DDC5CBD60070072852587AB007A4F58" sequence="165">
+<created><datetime>20211214T171557,04-05</datetime></created>
+<modified><datetime>20250319T074050,88-05</datetime></modified>
+<revised><datetime>20250319T073750,86-05</datetime></revised>
+<lastaccessed><datetime>20250319T074050,87-05</datetime></lastaccessed>
+<addedtofile><datetime>20211214T172828,16-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Declare
+Use "F_SIXT"
+Use "SL_SecuriteMasque"
+</lotusscript></code></globals><code event="windowtitle"><formula>@If(@IsNewDoc; "Nouveau classeur type"; SIXT_Nom + " - Classeur type")</formula></code><code event="postsave"><lotusscript>Sub Postsave(Source As Notesuidocument)
+	Call SIXT_Postsave(Source)
+End Sub
+</lotusscript></code><code event="queryopen"><lotusscript>Sub Queryopen(Source As Notesuidocument, Mode As Integer, Isnewdoc As Variant, Continue As Variant)
+	Call SLSM_QueryOpen(Source, Mode, Isnewdoc, Continue)
+End Sub
+</lotusscript></code><code event="querymodechange"><lotusscript>Sub Querymodechange(Source As Notesuidocument, Continue As Variant)
+	Call SLSM_Querymodechange(Source, Continue)
+End Sub</lotusscript></code>
+<actionbar borderstyle="none" bgcolor="silver" bordercolor="#2f2f2f"><actionbarstyle height="31px" repeat="hrepeat"><imageref name="bg_Actions"/></actionbarstyle>
+<actionbuttonstyle bgcolor="none"/><font size="8pt"/><border width="0px 0px 1px"/></actionbar>
+<background allowoverride="false"/>
+<body><richtext>
+<pardef id="1" leftmargin="1in" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/>Identificateurs : </run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Form"><code event="defaultvalue"><formula>"F_SIXT"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" style="bold underline" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>SIXT_Nom</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="19" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>SIXT_Description</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="28" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt"/></run><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Titre"><code event="defaultvalue"><formula>@If(@IsNewDoc; "Nouveau classeur type"; "Classeur type - " + SIXT_Nom)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="34" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run></par>
+<par def="1"><run><font size="8pt" color="red"/>Sécurité : </run><run><font size="8pt" color="red"/><field type="authors" kind="computedwhencomposed" name="Auteurs"><code event="defaultvalue"><formula>"[Base]"</formula></code></field></run><run><font size="8pt" style="bold" color="red"/></run></par>
+<par def="1"><run><font size="9pt" color="red"/>Autres champs : </run></par>
+<pardef id="2" leftmargin="1in" rightmargin="100%" hide="notes web mobile"/><subformref name="Entete | SF_Ente"/>
+<pardef id="3" leftmargin="1in" rightmargin="100%"/>
+<par def="3"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="11.8229in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="4" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="4"><run><font size="9pt"/>Nom :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="5" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>!@IsNewDoc</formula></code></pardef>
+<par def="5"><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="6" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="1.9688in" borderstyle="single" type="text" kind="editable" name="SIXT_Nom"><code event="inputvalidation"><formula>REM {Il faut utiliser une vue dans laquelle une colonne contient les UNIDs};
+v_Cle := SIXT_Nom;
+v_NomVue := "V_SIXT1";
+v_NoColonneUNID := 3;
+
+@If(v_Cle = NULL; @Return(@Failure("Le nom est obligatoire.")); "");
+v_Lookup := @DbLookup("" : "NoCache"; ""; v_NomVue; v_Cle; v_NoColonneUNID);
+@If(@IsError(v_Lookup); @Success; @Elements(v_Lookup) = 1 &amp; v_Lookup = @Text(@DocumentUniqueID); @Success; @Failure("Le classeur type est déjà défini."))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="7" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="9pt"/>Description :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="8" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2000in" width="4.7243in" borderstyle="single" type="text" kind="editable" name="SIXT_Description"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Catégorie(s) :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="10" hide="edit copy previewedit" keepwithnext="true" keeptogether="true"/>
+<par def="10"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field type="keyword" allowmultivalues="true" kind="editable" name="SIXT_Categorie" listinputseparators="comma" listdisplayseparator="comma"><keywords ui="dialoglist" allownew="true"><formula>v_NomVue := "V_SIXT10";
+
+@DbColumn("" : "NoCache"; ""; v_NomVue; 1)</formula></keywords></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="11" firstlineleftmargin="1in"/>
+<par def="11"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="11.8125in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="12" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="9pt" style="bold" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="13" keepwithnext="true" keeptogether="true"/>
+<par def="13"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="3"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="11.8229in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50.0069%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="49.9931%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Langue(s) disponible(s) :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="14" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="9pt"/></run><picture width="12px" height="16px"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="15" leftmargin="0" hide="read preview previewedit" keepwithnext="true" keeptogether="true"/>
+<par def="15"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.7875in" width="1.9688in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="SIXT_Langues" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="1" ui="listbox"><formula>v_NomTable := "ISO639-1xFR";
+
+v_Valeurs := @DbLookup("" : "NoCache"; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 6);
+@If(@IsError(v_Valeurs); ""; v_Valeurs)</formula></keywords><code event="defaultvalue"><formula>v_NomTable := "ISO639-1xFR";
+
+v_Valeurs := @DbLookup("" : "NoCache"; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 3);
+@If(@IsError(v_Valeurs); ""; v_Valeurs)</formula></code><code event="inputvalidation"><formula>@If(SIXT_Langues = ""; @Failure("Au moins une langue doit être sélectionnée."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par>
+<pardef id="16" leftmargin="0" hide="edit copy" keepwithnext="true" keeptogether="true"/>
+<par def="16"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" allowmultivalues="true" kind="computedfordisplay" name="SIXT_Langues_1" listinputseparators="comma newline" listdisplayseparator="newline"><code event="defaultvalue"><formula>v_NomTable := "ISO639-1xFR";
+
+v_Valeurs := @DbLookup("" : "NoCache"; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 4);
+v_Descriptions := @DbLookup("" : "NoCache"; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 5);
+@If(@IsError(v_Valeurs) | @IsError(v_Descriptions); ""; @Replace(SIXT_Langues; v_Valeurs; v_Descriptions))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="17" keepwithnext="true" keeptogether="true"/>
+<par def="17"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="18" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@Elements(SIXT_Langues) &lt; 2</formula></code></pardef>
+<par def="18"><run><font size="9pt"/>Langue par défaut :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="19" align="right" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@Elements(SIXT_Langues) &lt; 2</formula></code></pardef>
+<par def="19"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="20" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@Elements(SIXT_Langues) &lt; 2</formula></code></pardef>
+<par def="20"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.9840in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIXT_LangueDefaut"><keywords helperbutton="false" recalcchoices="true" columns="1" ui="combobox"><formula>v_NomTable := "ISO639-1xFR";
+
+v_Valeurs := @DbLookup("" : "NoCache"; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 6);
+@If(@IsError(v_Valeurs); ""; "" : v_Valeurs)</formula></keywords><code event="inputtranslation"><formula>@If(@Elements(SIXT_Langues) = 1; SIXT_Langues; @ThisValue)</formula></code><code event="inputvalidation"><formula>@If(SIXT_LangueDefaut = ""; @Success; !@IsMember(SIXT_LangueDefaut; SIXT_Langues); @Failure("La langue par défaut doit être une des langues disponibles."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="21" leftmargin="1in" rightmargin="100%" hide="notes web"/>
+<par def="21"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="11.8229in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="1.0236in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="22" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@Elements(SIXT_Langues) &lt; 2</formula></code></pardef>
+<par def="22"><run><font size="9pt"/>Associations langues - fichiers :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="23" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@Elements(SIXT_Langues) &lt; 2</formula></code></pardef>
+<par def="23"><run><font size="9pt"/></run><picture width="12px" height="16px"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="24" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@Elements(SIXT_Langues) &lt; 2</formula></code></pardef>
+<par def="24"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" allowmultivalues="true" kind="computedfordisplay" name="SIXT_Langues_2" listinputseparators="comma newline" listdisplayseparator="newline"><code event="defaultvalue"><formula>v_NomTable := "ISO639-1xFR";
+
+v_Valeurs := @DbLookup("" : "NoCache"; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 4);
+v_Descriptions := @DbLookup("" : "NoCache"; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 5);
+@If(@IsError(v_Valeurs) | @IsError(v_Descriptions); ""; @Replace(SIXT_Langues; v_Valeurs; v_Descriptions))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="24"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="25" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@Elements(SIXT_Langues) &lt; 2</formula></code></pardef>
+<par def="25"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="editable" name="SIXT_NomsFichiers" listinputseparators="comma newline" listdisplayseparator="newline"><code event="inputvalidation"><formula>@If(@Elements(SIXT_Langues) &lt; 2; @Success; @Elements(SIXT_Langues) != @Elements(SIXT_NomsFichiers); @Failure("Le nombre de classeurs doit être identique au nombre de langues sélectionnées."); @Success)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="21"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="11.8229in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="26" leftmargin="0.0785in" hide="print" keepwithnext="true" keeptogether="true"/>
+<par def="26"><run><font size="9pt"/>Classeur(s) MS Excel :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="27" align="right" hide="print" keepwithnext="true" keeptogether="true"/>
+<par def="27"><run><font size="9pt"/></run><picture width="12px" height="16px"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="28" hide="print" keepwithnext="true" keeptogether="true"/>
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><field type="richtextlite" kind="editable" name="SIXT_Fichiers" onlyallow="attachment" firstdisplay="attachment"/></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="29" leftmargin="1.0785in" rightmargin="100%"/>
+<par def="29"><run><font size="9pt"/></run></par>
+<pardef id="30" leftmargin="1.0785in" hide="print"/>
+<par def="30"><run><font size="9pt"/>Notes :</run></par>
+<par def="30"><run><font size="9pt"/></run><run><font size="9pt"/><field type="richtext" kind="editable" name="SIXT_Notes"/></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="30"><run><font size="9pt"/></run></par><subformref name="Historique | SF_Histo"/>
+<par def="3"><run><font size="9pt" color="red"/></run></par></richtext></body>
+<item name="$$Tabl_Valeurs" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Dim nuiws As New Notesuiworkspace
+	Dim nuid As Notesuidocument
+	Set nuid = nuiws.Currentdocument
+	Call nuid.Refresh
+End Sub<break/></text></item>
+<item name="$Tabl_Valeurs_O" sign="true">
+<rawitemdata type="14">
+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
+</rawitemdata></item>
+<item name="HistoDC_1" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Tabl_ValeurDefaut" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$$Pret_Contenu" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Dim nuiws As New Notesuiworkspace
+	Dim nuid As Notesuidocument
+	Set nuid = nuiws.Currentdocument
+	Call nuid.Refresh
+End Sub<break/></text></item>
+<item name="$Pret_Contenu_O" sign="true">
+<rawitemdata type="14">
+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
+</rawitemdata></item>
+<item name="PRET_Quand" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="PRET_Retour" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="PRET_QUAND30" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="OriginalModTime" sign="true"><datetime>20070129T175825,30-05</datetime></item>
+<item name="$SubForm_RepIDs" sign="true"><textlist><text>0000000000000000</text><text>0000000000000000</text></textlist></item>
+<item name="HistoDC" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="HistoDM" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>F_SIXT</text></item></form>
+
+</database>

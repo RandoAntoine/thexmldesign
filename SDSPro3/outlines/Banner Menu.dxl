@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><outline name="Banner Menu" alias="O_Bann" hide="web v3 v4strict" publicaccess="false" designerversion="8" language="en" comment="3.0">
+<noteinfo noteid="d2a" unid="98C60795E45F25F685257DF1006CC6E8" sequence="22">
+<created><datetime>20150219T144808,08-05</datetime></created>
+<modified><datetime dst="true">20190830T091558,18-04</datetime></modified>
+<revised><datetime dst="true">20180718T105547,57-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091558,16-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205656,49-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<outlineentry type="action" displayimage="false"><code event="value"><formula>@SetTargetFrame("Navigateur");
+@Command([OpenPage] ; "P_Menu");
+@SetTargetFrame("Contenu");
+@Command([OpenView] ; "V_Prop01")</formula></code><code event="label"><formula>"Main Menu"</formula></code></outlineentry>
+<outlineentry label="Admin" type="action" displayimage="false"><code event="value"><formula>@SetTargetFrame("Navigateur");
+@Command([OpenPage] ; "P_MAdm");
+@SetTargetFrame("Contenu");
+@Command([OpenView] ; "V_Tabl")</formula></code><code event="hidewhen"><formula>@IsNotMember("[Admin]" : "[Base]"; @UserRoles)</formula></code></outlineentry>
+<outlineentry type="action" displayimage="false"><code event="value"><formula>@Command([FileCloseWindow])</formula></code><code event="label"><formula>"Close"</formula></code></outlineentry></outline>
+
+</database>

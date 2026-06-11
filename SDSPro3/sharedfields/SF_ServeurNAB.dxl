@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><sharedfield name="SF_ServeurNAB" designerversion="8.5.3">
+<noteinfo noteid="12e78a" unid="113C048B420F11A4852583920013A380" sequence="6">
+<created><datetime>20190129T223430,40-05</datetime></created>
+<modified><datetime dst="true">20190830T091605,12-04</datetime></modified>
+<revised><datetime dst="true">20190415T164102,99-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091605,10-04</datetime></lastaccessed>
+<addedtofile><datetime>20190205T215812,74-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><field type="text" kind="computedfordisplay" name="SF_ServeurNAB"><code event="defaultvalue"><formula>v_NomBase := "NAB";
+@IfError(@DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_NDB20"; v_NomBase; 2); "")</formula></code></field>
+<item name="$HTMLCode" sign="true">
+<rawitemdata type="1">
+</rawitemdata></item></sharedfield>
+
+</database>

@@ -1,0 +1,798 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Navigation" hide="v3 v4strict" designerversion="8" comment="1.0">
+<noteinfo noteid="5557b6" unid="8C21A551231430A7852586B400123C01" sequence="86">
+<created><datetime dst="true">20210410T231910,09-04</datetime></created>
+<modified><datetime>20260105T014837,64-05</datetime></modified>
+<revised><datetime>20250319T073637,56-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,63-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,63-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SI_Arrays"
+Use "x_SDSBB"
+
+%REM
+Item = Element du tableau des options
+Option = No du masque
+
+item = option
+00 = 0.00
+01 = 0.01
+%END REM
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gnuiws_SDSPN As NotesUIWorkspace
+Dim gnuid_SDSPN As NotesUIDocument
+
+' Entering/Exiting
+Dim g_NomItem_SDSPN As String
+Dim g_ValeurItem_SDSPN As String
+
+' Construire menu
+Dim ga_MenuCodes_SDSPN As Variant
+Dim ga_MenuDesc_SDSPN As Variant
+Dim ga_MenuSecRole_SDSPN As Variant
+Dim ga_MenuAction_SDSPN As Variant 
+Dim ga_MenuDecalage_SDSPN As Variant 
+Dim ga_MenuProcessus_SDSPN As Variant
+Dim ga_MenuAfficherSiteConditionnel_SDSPN As Variant 
+Dim ga_MenuAfficherSiteAjouterSDS_SDSPN As Variant 
+Dim ga_MenuAfficherSiteDejaSDS_SDSPN As Variant 		
+Dim ga_MenuAfficherSiteAjouterSDSM_SDSPN As Variant   
+Dim ga_MenuAfficherSiteDejaSDSM_SDSPN As Variant   
+Dim ga_MenuAfficherSiteAucun_SDSPN As Variant   		
+Dim ga_MenuAfficherSiteConditionnelAg_SDSPN As Variant 
+Dim ga_MenuAfficherNC_SDSPN As Variant 
+Dim ga_MenuAfficherSA_SDSPN As Variant 
+Dim ga_MenuAfficherCE_SDSPN As Variant
+Dim g_NotesContrat_SDSPN As Variant
+
+Dim gni_MenuItems_SDSPN As NotesItem
+
+' Traitement des erreurs
+' -------------------------------
+Const gc_TypeElement_SDSPN = "SL"
+Const gc_Element_SDSPN = "SDSP_Navigation"
+
+</lotusscript></code><code event="terminate"><lotusscript>Sub Terminate
+	
+End Sub
+
+
+</lotusscript></code><code event="SDSPN_OuvrirMasqueMenu"><lotusscript>Sub SDSPN_OuvrirMasqueMenu(p_NoItem As String)
+	On Error Goto GererErreur
+	
+	Dim v_OptionItem As String
+	Dim nd_PNav As NotesDocument
+	Dim a_MenuItems As Variant
+	Dim v As Variant
+	Dim v_OptionMax As String
+	Dim v_PosSite As Integer
+	Dim v_NoItem As String
+	
+	Set nd_PNav = gnuid_SDSPN.Document
+	
+	v_OptionMax = xVar(nd_PNav, "PNav_MenuOptionMax", "0.00")
+	a_MenuItems = xVarArray(nd_PNav, "PNav_MenuItems")
+	
+	If p_NoItem = "**" Then
+		If v_OptionMax &gt;= "9" Then
+			Exit Sub
+		End If
+		
+		v_OptionItem = v_OptionMax
+		v = Arraygetindex(a_MenuItems, v_OptionItem)
+		If Isnull(v) Then
+			If Left(v_OptionItem, 1) = "2" Then
+				nd_PNav.PNav_DernierSiteOuvert = Cint(Strleft(Strright(v_OptionItem, "."), ".")) + 1
+				
+				If Cint(Strleft(Strright(v_OptionItem, "."), ".")) + 1 &gt; xVar(nd_PNav, "PNav_MaxSiteOuvert", 0) Then
+					nd_PNav.PNav_MaxSiteOuvert = Cint(Strleft(Strright(v_OptionItem, "."), ".")) + 1
+				End If				
+				
+				'Print Strleft(Strright(v_OptionItem, "."), ".")
+				Call SDSPN_ConstruireMenu(nd_PNav)
+				a_MenuItems = xVarArray(nd_PNav, "PNav_MenuItems")
+				v = Arraygetindex(a_MenuItems, v_OptionItem)
+				If Isnull(v) Then
+					Messagebox "Erreur de navigation (M2)", 16, "Opération annulée"
+					Exit Sub
+				End If
+			Else
+				Messagebox "Erreur de navigation (M3)", 16, "Opération annulée"
+				Exit Sub
+			End If
+		End If
+		p_NoItem = Format(v, "000")
+		
+	Else
+		v_OptionItem = a_MenuItems(Cint(p_NoItem))
+		If xVar(nd_PNav, "PNav_MenuProc" &amp; p_NoItem, "0") = "1" Then
+			If v_OptionItem &gt; v_OptionMax Then
+				Messagebox "Erreur de navigation (M4)", 16, "Opération annulée"
+				Exit Sub
+			End If
+		End If
+		
+		' Si masque courant, ne rien faire
+		If p_NoItem = xVar(nd_PNav, "PNav_MenuItemCourant", "") Then
+			Exit Sub
+		End If
+	End If
+	
+	' Ouvrir le masque suivant
+	Call SDSPN_OuvrirMasque(p_NoItem, False)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), xVar(nd_PNav, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPN_Initialisations"><lotusscript>Sub SDSPN_Initialisations
+	
+	If gnuiws_SDSPN Is Nothing Then
+		Set gnuiws_SDSPN = New NotesUIWorkspace
+		Set gnuid_SDSPN = gnuiws_SDSPN.CurrentDocument
+	End If
+End Sub
+
+</lotusscript></code><code event="SDSPN_Entering"><lotusscript>Sub SDSPN_Entering
+	On Error Goto GererErreur
+	
+	g_NomItem_SDSPN = gnuid_SDSPN.CurrentField
+	g_ValeurItem_SDSPN = xVarImplode(gnuid_SDSPN.Document, g_NomItem_SDSPN, "") 
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPN_OuvrirMasquePrecedent"><lotusscript>Function SDSPN_OuvrirMasquePrecedent As Boolean
+	On Error Goto GererErreur
+	
+	Dim nd_PNav As NotesDocument
+	Dim nuid As NotesUIDocument
+	Dim a_MenuItems As Variant
+	Dim v_OptionPrecedente As String
+	Dim v_MenuOptionMax As String
+	Dim i As Variant
+	Dim j As Variant
+	
+	SDSPN_OuvrirMasquePrecedent = False
+	Set nd_PNav = gnuid_SDSPN.Document
+	
+	' Déterminer le masque précédent
+	a_MenuItems = xVarArray(nd_PNav, "PNav_MenuItems")
+	If Not Isarray(a_MenuItems) Then
+		Messagebox "Erreur de navigation (P1)", 16, "Opération annulée"
+		Exit Function
+	End If
+	i = Cint(xVar(nd_PNav, "PNav_MenuItemCourant", "000"))
+	If Isnull(i) Then
+		Messagebox "Erreur de navigation (P2)", 16, "Opération annulée"
+		Exit Function
+	Elseif i = 0 Then
+		Messagebox "Erreur de navigation (P3)", 16, "Opération annulée"
+		Exit Function
+	End If
+	
+	j = i - 1
+	
+	' Ouvrir le masque précédent
+	v_OptionPrecedente = a_MenuItems(j)
+	v_MenuOptionMax = xVar(nd_PNav, "PNav_MenuOptionMax", "0.00")
+	If v_OptionPrecedente &lt; "8" And v_OptionPrecedente &gt; v_MenuOptionMax Then
+		i = Arraygetindex(a_MenuItems, v_MenuOptionMax)
+		SDSPN_OuvrirMasquePrecedent = SDSPN_OuvrirMasque(Format(i, "000"), False)
+	Else
+		SDSPN_OuvrirMasquePrecedent = SDSPN_OuvrirMasque(Format(j, "000"), False)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), xVar(nd_PNav, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPN_OuvrirMasqueSuivant"><lotusscript>Function SDSPN_OuvrirMasqueSuivant As Boolean
+	On Error Goto GererErreur
+	
+	Dim nd_PNav As NotesDocument
+	Dim nuid As NotesUIDocument
+	Dim a_MenuItems As Variant
+	Dim i As Variant
+	Dim j As Variant
+	
+	SDSPN_OuvrirMasqueSuivant = False
+	Set nd_PNav = gnuid_SDSPN.Document
+	
+	' Déterminer le masque suivant
+	a_MenuItems = xVarArray(nd_PNav, "PNav_MenuItems")
+	If Not Isarray(a_MenuItems) Then
+		Messagebox "Erreur de navigation (S1)", 16, "Opération annulée"
+		Exit Function
+	End If
+	i = Cint(xVar(nd_PNav, "PNav_MenuItemCourant", "000"))
+	If Isnull(i) Then
+		Messagebox "Erreur de navigation (S2)", 16, "Opération annulée"
+		Exit Function
+	Elseif i = Ubound(a_MenuItems) Then
+		Messagebox "Erreur de navigation (S3)", 16, "Opération annulée"
+		Exit Function
+	End If
+	
+	j = i + 1
+	
+	
+	' Ouvrir le masque suivant		
+	SDSPN_OuvrirMasqueSuivant = SDSPN_OuvrirMasque(Format(j, "000"), False)
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), xVar(nd_PNav, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPN_ConstruireMenu"><lotusscript>Function SDSPN_ConstruireMenu(pnd_PNav As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_TypeProposition As String
+	Dim nd As NotesDocument
+	Dim a_Menu As Variant
+	Dim i As Integer
+	Dim a_NoSite As Variant
+	Dim a_NomSite As Variant
+	Dim v_DernierSiteOuvert As Integer
+	Dim j As Integer
+	Dim k As Integer
+	Dim s As String
+	Dim v_NoItem As Integer
+	Dim v_ServeurSDSBB As String
+	Dim ni_SV_SDSM As NotesItem
+	Dim ni_SV_SDS As NotesItem
+	Dim v_CleAlias As String
+	
+	SDSPN_ConstruireMenu = False
+	v_NoItem = -1
+	v_CleAlias ="V_MOpti20" &amp; xLangue
+
+	' Extraire les paramètres du menu
+	If Not Isarray(ga_MenuCodes_SDSPN) Then
+		v_ServeurSDSBB = xGDK_xFormulaNDB("SDSBB")
+		ga_MenuCodes_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 1); "")|)
+		
+		If ga_MenuCodes_SDSPN(0) = "" Then
+			Exit Function
+		End If
+		ga_MenuDesc_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 3); "")|)
+		ga_MenuSecRole_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 4); "")|)
+		ga_MenuAction_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 5); "")|)
+		ga_MenuDecalage_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 6); "")|)
+		ga_MenuProcessus_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 7); "")|)
+		ga_MenuAfficherSiteConditionnel_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 8); "")|) 
+		ga_MenuAfficherSiteAjouterSDS_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 9); "")|)   	
+		ga_MenuAfficherSiteDejaSDS_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 10); "")|)  		
+		ga_MenuAfficherSiteAjouterSDSM_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 11); "")|)   
+		ga_MenuAfficherSiteDejaSDSM_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 12); "")|)   
+		ga_MenuAfficherSiteAucun_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 13); "")|)   		
+		ga_MenuAfficherSiteConditionnelAg_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 14); "")|)
+		ga_MenuAfficherNC_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 15); "")|)
+		ga_MenuAfficherSA_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 16); "")|)
+		ga_MenuAfficherCE_SDSPN = Evaluate(|@IfError(@DbColumn(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |"; 17); "")|)
+		g_NotesContrat_SDSPN = Evaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |";"6.00";18); "")|)
+				
+		pnd_PNav.PNav_MenuProcessus = ga_MenuProcessus_SDSPN
+	End If
+	
+	Set gni_MenuItems_SDSPN = Nothing
+	
+	' Extraire les options du menu
+	v_TypeProposition = xVar(pnd_PNav, "Prop_TypeProposition", "")
+	If v_TypeProposition &lt;&gt; "" Then
+		Set nd = xSDSBB_xndTpPp(v_TypeProposition, True)
+		a_Menu = xVarArray(nd, "TpPp_MenuSDSP3")
+	End If
+	If Not Isarray(a_Menu) Then
+		a_Menu = Evaluate(|"0.00" : "0.01"|)
+	End If
+	
+	' Si client existant
+	If v_TypeProposition ="2" And xVar(pnd_PNav, "Prop_NbSites", 0) &gt; 1 Then
+		If IsNull(ArrayGetIndex(a_Menu, "0.01")) Then	
+			' Insert "0.01" dans le menu et trier a_Menu
+			'a_Menu = ArrayAppend(a_Menu, CStr("0.01"))	'Retourne un variant			
+			ReDim Preserve a_Menu(UBound(a_Menu) + 1)
+			a_Menu(UBound(a_Menu)) = "0.01"						
+			Call TrierArray(a_Menu)
+		End If
+	End If
+	
+	' Ajouter la première page (0.00  Client)
+	i = Lbound(a_Menu)
+	If a_Menu(i) &lt;&gt; "0.00" Then
+		Exit Function
+	End If
+	
+	' Construire le menu - avant les sites (0)
+	Do Until Left(a_Menu(i), 1) &gt; "0"
+		Call SDSPN_AjouterOptionMenu(pnd_PNav, a_Menu(i), a_Menu(i), "", v_NoItem)
+		i = i + 1
+		
+		If i &gt; Ubound(a_Menu) Then
+			Goto FinSub
+		End If
+	Loop
+	
+	' Construire le menu - sites (2)
+	a_NoSite = xvarArray(pnd_PNav, "PNav_NoSite")
+	a_NomSite = xvarArray(pnd_PNav, "PNav_NomSite")
+	v_DernierSiteOuvert = xVar(pnd_PNav, "PNav_DernierSiteOuvert", 0)
+	If Left(a_Menu(i), 1) = "2" Then
+		If Isarray(a_NoSite) Then
+			For j = Lbound(a_NoSite) To Ubound(a_NoSite)
+				s = Strleft(a_Menu(i), ".") &amp; "." &amp; Format(j, "00") &amp; "."
+				
+				' 2.xx.00 - Nom du site
+				Call SDSPN_AjouterOptionMenu(pnd_PNav, s &amp; "00", a_Menu(i), a_NomSite(j), v_NoItem)
+				
+				' 2.xx.yy - Sous-items
+				If j = (v_DernierSiteOuvert - 1) Then
+					k = i + 1
+					Do Until Left(a_Menu(k), 1) &gt; "2"
+						Call SDSPN_AjouterOptionMenu(pnd_PNav, s &amp; Strrightback(a_Menu(k), "."), a_Menu(k), "", v_NoItem)
+						k = k + 1
+					Loop
+				End If
+			Next
+			i = k
+		End If
+		
+		Do Until Left(a_Menu(i), 1) &gt; "2"
+			i = i + 1
+		Loop
+	End If
+	
+	' Construire le menu - après les sites (6-7)
+	Do Until Left(a_Menu(i), 1) &gt; "7"
+		Call SDSPN_AjouterOptionMenu(pnd_PNav, a_Menu(i), a_Menu(i), "", v_NoItem)
+		i = i + 1
+	Loop
+	
+	' Construire le menu - après le processus (8-9)
+	Do Until i &gt; Ubound(a_Menu)
+		Call SDSPN_AjouterOptionMenu(pnd_PNav, a_Menu(i), a_Menu(i), "", v_NoItem)
+		i = i + 1
+	Loop
+	
+%REM
+	' Si menu option max pas disponible dans le menu
+	If Left(xVar(pnd_PNav, "PNav_MenuOptionMax", ""), 1) = "2" Then
+		If Isnull(Arraygetindex(gni_MenuItems_SDSPN.Values, xVar(pnd_PNav, "PNav_MenuOptionMax", ""))) Then
+			For i = 0 To Ubound(gni_MenuItems_SDSPN.Values)
+				If Left(gni_MenuItems_SDSPN.Values(i),1) = "2" Then
+					pnd_PNav.PNav_MenuOptionMax = gni_MenuItems_SDSPN.Values(i)
+					Exit For
+				End If
+			Next			
+		End If
+	End If
+%END REM
+	
+	' Initialiser les options de menu non utilisées
+	For j = v_NoItem + 1 To 99
+		s = Format(j, "000")
+		Call pnd_PNav.ReplaceItemValue("PNav_MenuDesc" &amp; s, "")
+		Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; s, "")
+		Call pnd_PNav.ReplaceItemValue("PNav_MenuFond" &amp; s, "")
+		Call pnd_PNav.ReplaceItemValue("PNav_MenuProc" &amp; s, "")
+	Next
+	
+FinSub:	
+	SDSPN_ConstruireMenu = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPN_AjouterOptionMenu"><lotusscript>Sub SDSPN_AjouterOptionMenu(pnd_PNav As NotesDocument, p_Option As String, _
+	p_OptionOriginale As String, p_DescItem As String, p_NoItem As Integer)
+	On Error Goto GererErreur
+	
+	Dim v_iOption As Integer
+	Dim s As String
+	Dim v As Variant
+	Dim v_NoItem As String
+	Dim v_NoSite As String
+	Dim v_ASDS As Variant
+	Dim v_ASDSM As Variant
+	Dim v_ClieSDS As Variant
+	Dim v_ClieSDSM As Variant
+	Dim v_CE As Variant
+	Dim v_TypeProp As String
+	Dim v_AfficherTypeProp(2) As String
+	'Dim v_AfficherTypeProp As String
+	
+	v_iOption = Arraygetindex(ga_MenuCodes_SDSPN, p_OptionOriginale)
+	If Isnull(v_iOption) Then
+		Exit Sub
+	End If
+	
+	' Ajouter les options conditionnel au menu
+	If ga_MenuAfficherSiteConditionnel_SDSPN(v_iOption) = "1" And Left(p_Option, 1) = "2" Then
+		
+		v_NoSite = xVarElem(pnd_PNav, "PNav_NoSite", Cint(Strleft(Strright(p_Option, "."), ".")), "")
+		
+		If ga_MenuAfficherSiteAjouterSDS_SDSPN(v_iOption) = "1" Then					
+			v_ASDS = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Site20"; "| &amp; v_NoSite  &amp; |"; 4); "")|)			
+		Else
+			v_ASDS = Evaluate(|"0"|)			
+		End If
+		
+		If ga_MenuAfficherSiteAjouterSDSM_SDSPN(v_iOption) = "1" Then					
+			v_ASDSM = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Site20"; "| &amp; v_NoSite  &amp; |"; 5); "")|)			
+		Else
+			v_ASDSM = Evaluate(|"0"|)			
+		End If
+		
+		If ga_MenuAfficherSiteDejaSDS_SDSPN(v_iOption) = "1" Then					
+			v_ClieSDS = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Site20"; "| &amp; v_NoSite  &amp; |"; 6); "")|)			
+		Else
+			v_ClieSDS = Evaluate(|"0"|)			
+		End If
+		
+		If ga_MenuAfficherSiteDejaSDSM_SDSPN(v_iOption) = "1" Then					
+			v_ClieSDSM = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Site20"; "| &amp; v_NoSite  &amp; |"; 7); "")|)			
+		Else
+			v_ClieSDSM = Evaluate(|"0"|)			
+		End If
+		
+		If ga_MenuAfficherSiteAjouterSDS_SDSPN(v_iOption) = "1" Or _
+		ga_MenuAfficherSiteAjouterSDSM_SDSPN(v_iOption) = "1"  Or _
+		ga_MenuAfficherSiteDejaSDS_SDSPN(v_iOption) = "1"  Or _
+		ga_MenuAfficherSiteDejaSDSM_SDSPN(v_iOption) = "1"  Or _
+		ga_MenuAfficherSiteAucun_SDSPN(v_iOption) = "1" Then
+			
+			If v_ASDS(0)  &lt;&gt; "1" Then
+				If v_ASDSM(0) &lt;&gt; "1" Then
+					If v_ClieSDS(0)  &lt;&gt; "1" Then
+						If v_ClieSDSM(0)  &lt;&gt; "1" Then
+							If ga_MenuAfficherSiteAucun_SDSPN(v_iOption) &lt;&gt; "1"  Then
+								Exit Sub
+							End If						
+						End If			
+					End If
+				End If
+			End If			
+		End If		
+		
+	End If
+	
+	
+	If ga_MenuAfficherSiteConditionnelAg_SDSPN(v_iOption) =  "1" And Left(p_Option, 1) &gt; "2" And Left(p_Option, 1) &lt; "8"  Then
+		
+		v_TypeProp = xVar(pnd_PNav, "Prop_TypeProposition", "")
+		
+		If v_TypeProp = "0" And ga_MenuAfficherNC_SDSPN(v_iOption) &lt;&gt; "1" Then		
+			v_AfficherTypeProp(0) = v_TypeProp 			
+		Elseif v_TypeProp = "1" And ga_MenuAfficherSA_SDSPN(v_iOption) &lt;&gt;  "1" Then		
+			v_AfficherTypeProp(1) = v_TypeProp 
+		Elseif  v_TypeProp = "2" And ga_MenuAfficherCE_SDSPN(v_iOption) &lt;&gt;  "1" Then	
+			v_AfficherTypeProp(2) = v_TypeProp 
+		End If
+		
+		'If v_AfficherTypeProp = xVar(pnd_PNav, "Prop_TypeProposition", "") Then
+		If Not Isnull(Arraygetindex(v_AfficherTypeProp, v_TypeProp)) Then			
+			' Vérifier les droits de l'utilisateur
+			If ga_MenuSecRole_SDSPN(v_iOption) &lt;&gt; "" Then
+				s = |@IsMember("| &amp; ga_MenuSecRole_SDSPN(v_iOption) &amp; |"; @UserRoles)|
+				v = Evaluate(s)
+				If v(0) &lt;&gt; 1 Then
+					Exit Sub
+				End If
+			End If	
+		End If					
+		
+	Else
+		
+		' Vérifier les droits de l'utilisateur
+		If ga_MenuSecRole_SDSPN(v_iOption) &lt;&gt; "" Then
+			s = |@IsMember("| &amp; ga_MenuSecRole_SDSPN(v_iOption) &amp; |"; @UserRoles)|
+			v = Evaluate(s)
+			If v(0) &lt;&gt; 1 Then
+				Exit Sub
+			End If
+		End If	
+		
+	End If
+	
+	' Ajouter l'option au menu
+	p_NoItem = p_NoItem + 1
+	If gni_MenuItems_SDSPN Is Nothing Then
+		Call pnd_PNav.ReplaceItemValue("PNav_MenuItems", p_Option)
+		Set gni_MenuItems_SDSPN = pnd_PNav.GetFirstItem("PNav_MenuItems")
+	Else
+		Call gni_MenuItems_SDSPN.AppendToTextList(p_Option)
+	End If
+	
+	' Description
+	If p_DescItem = "" Then
+		p_DescItem = ga_MenuDesc_SDSPN(v_iOption)
+	End If
+	If ga_MenuDecalage_SDSPN(v_iOption) = "1" Then
+		p_DescItem = "   " &amp; p_DescItem
+	End If
+	v_NoItem = Format(p_NoItem, "000")
+	Call pnd_PNav.ReplaceItemValue("PNav_MenuDesc" &amp; v_NoItem, p_DescItem)
+	
+	' Affichage de l'option
+	If ga_MenuAction_SDSPN(v_iOption) &lt;&gt; "1" Then					' Libellé (pas une action)
+		Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "1")
+		Call pnd_PNav.ReplaceItemValue("PNav_MenuFond" &amp; v_NoItem, "0" &amp; ga_MenuDecalage_SDSPN(v_iOption) &amp; "0")
+	Else
+		If ga_MenuProcessus_SDSPN(v_iOption) &lt;&gt; "1" Then
+			'If xVar(pnd_PNav, "PNav_MenuDesc" &amp; v_NoItem, "") = "Contract" Then
+			If g_NotesContrat_SDSPN(0) = "1" And Left(p_Option, 1) = "6" Then				
+				If xVar(pnd_PNav, "Prop_NotesContrat", "") &lt;&gt; "" Then
+					Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "3")
+				Else
+					Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "2")
+				End If	
+			Else
+				Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "2")
+			End if
+			
+		Elseif p_Option &lt;= xVar(pnd_PNav, "PNav_MenuOptionMax", "0.00") Then
+
+			If g_NotesContrat_SDSPN(0) = "1" And Left(p_Option, 1) = "6" Then				
+				If xVar(pnd_PNav, "Prop_NotesContrat", "") &lt;&gt; "" Then
+					Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "3")
+				Else
+					Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "2")
+				End if	
+				
+			Else
+				Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "2")
+			End if
+
+			
+		Else
+			If g_NotesContrat_SDSPN(0) = "1" And Left(p_Option, 1) = "6" Then				
+				If xVar(pnd_PNav, "Prop_NotesContrat", "") &lt;&gt; "" Then
+					Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "4")
+				Else
+					Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "1")
+				End If	
+			Else
+				Call pnd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; v_NoItem, "1")
+			End if
+			
+		End If
+		If p_Option = xVar(pnd_PNav, "PNav_MenuOptionCourante", "0.00") Then
+			Call pnd_PNav.ReplaceItemValue("PNav_MenuFond" &amp; v_NoItem, _
+			"0" &amp; ga_MenuDecalage_SDSPN(v_iOption) &amp; "1")
+		Else
+			Call pnd_PNav.ReplaceItemValue("PNav_MenuFond" &amp; v_NoItem, _
+			"0" &amp; ga_MenuDecalage_SDSPN(v_iOption) &amp; "0")
+		End If
+		Call pnd_PNav.ReplaceItemValue("PNav_MenuProc" &amp; v_NoItem, _
+		ga_MenuProcessus_SDSPN(v_iOption))
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPN_OuvrirMasque"><lotusscript>Function SDSPN_OuvrirMasque(p_NoItem As String, p_ProcessusTermine As Boolean) As Boolean
+	' p_NoItem = Element du tableau PNav_MenuItems qui contient l'option
+	On Error Goto GererErreur
+	
+	Dim v_NoItem As Integer
+	Dim nd_PNav As NotesDocument
+	Dim nuid As NotesUIDocument
+	Dim a_MenuItems As Variant
+	Dim v_Option As String
+	Dim v_CleAlias As String
+	Dim v_NotesContrat As Variant
+	Dim v_ServeurSDSBB As string
+	Dim s As String
+	
+	SDSPN_OuvrirMasque = False
+	Set nd_PNav = gnuid_SDSPN.Document
+	
+	' Vérifie si item du masque n'est pas null
+	If p_NoItem = "" Then
+		Exit Function
+	End If
+			
+	' Vérifier que le masque existe
+	a_MenuItems = xVarArray(nd_PNav, "PNav_MenuItems")
+	If Not Isarray(a_MenuItems) Then
+		Messagebox "Erreur de navigation (O1)", 16, "Opération annulée"
+		Exit Function
+	End If
+	v_NoItem = Cint(p_NoItem)
+	If v_NoItem &gt; Ubound(a_MenuItems) Then
+		Messagebox "Erreur de navigation (O2)", 16, "Opération annulée"
+		Exit Function
+	End If
+	
+	' Fermer le masque courant
+	nd_PNav.SaveOptions = "0"
+	Call gnuid_SDSPN.Close
+	
+	' Griser l'option précédente
+	s = xVar(nd_PNav, "PNav_MenuItemCourant", "000")
+	
+	Call nd_PNav.ReplaceItemValue("PNav_MenuFond" &amp; s, Left(xVar(nd_PNav, "PNav_MenuFond" &amp; s, "000"), 2) &amp; "0")
+	'Print "PNav_MenuFond" &amp; s &amp; " := " &amp; Left(xVar(nd_PNav, "PNav_MenuFond" &amp; s, "000"), 2) &amp; "0"
+	
+	' Ouvrir le masque désiré
+	v_Option = a_MenuItems(v_NoItem)
+	Select Case Left(v_Option, 1)
+	Case "2" :
+		s = Strrightback(v_Option, ".")
+		nd_PNav.Form = "F_PNav2.00." &amp; s
+		If s = "00" Then
+			nd_PNav.PNav_DernierSiteOuvert = Cint(Strleft(Strright(v_Option, "."), ".")) + 1
+			
+			If Cint(Strleft(Strright(v_Option, "."), ".")) + 1 &gt; xVar(nd_PNav, "PNav_MaxSiteOuvert", 0) Then
+				nd_PNav.PNav_MaxSiteOuvert = Cint(Strleft(Strright(v_Option, "."), ".")) + 1
+			End If		
+			
+		End If	
+								
+	Case Else
+		nd_PNav.Form = "F_PNav" &amp; v_Option
+	End Select
+	nd_PNav.PNav_MenuItemCourant = p_NoItem
+	nd_PNav.PNav_MenuOptionCourante = v_Option
+	nd_PNav.Titre = Trim(xVar(nd_PNav, "PNav_Titre", "") &amp; " - " &amp; xVar(nd_PNav, "PNav_MenuDesc000", ""))
+	nd_PNav.PNav_Titre = xVar(nd_PNav, "PNav_Titre", "")
+	If p_ProcessusTermine Then
+		nd_PNav.PNav_MenuOptionMax = "9"
+	Elseif xVar(nd_PNav, "PNav_MenuProc" &amp; p_NoItem, "0") = "1" Then
+		If v_Option &lt; "8" And v_Option &gt; xVar(nd_PNav, "PNav_MenuOptionMax", "0.00") Then
+			nd_PNav.PNav_MenuOptionMax = v_Option
+		End If
+	End If
+	
+	' Colorer la nouvelle option ***
+	s = Left(xVar(nd_PNav, "PNav_MenuFond" &amp; p_NoItem, "000"), 2) &amp; "1"
+	Call nd_PNav.ReplaceItemValue("PNav_MenuFond" &amp; p_NoItem, s)
+	'	Print "PNav_MenuFond" &amp; p_NoItem &amp; " := " &amp; s
+	
+	'If xVar(nd_PNav, "PNav_MenuDesc" &amp; p_NoItem, "") = "Contract" Then	
+	
+ 
+	If Left(v_Option, 1) = "6"  Then	
+		
+		v_CleAlias ="V_MOpti20" &amp; xLangue
+		v_ServeurSDSBB = xGDK_xFormulaNDB("SDSBB")
+		v_NotesContrat = Evaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  v_CleAlias &amp; |";"6.00";18); "")|)
+										
+		If  v_NotesContrat(0) = "1" And xVar(nd_PNav, "Prop_NotesContrat", "") &lt;&gt; "" Then
+			Call nd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; p_NoItem, "3")
+		Else
+			Call nd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; p_NoItem, "2")
+		End If	
+	Else
+		Call nd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; p_NoItem, "2")
+	End If
+	
+	
+	
+	REM Call nd_PNav.ReplaceItemValue("PNav_MenuHide" &amp; p_NoItem, "2")
+	
+	Set nuid = gnuiws_SDSPN.EditDocument(True, nd_PNav)
+	If nuid Is Nothing Then
+		Messagebox "Erreur de navigation (O3)", 16, "Opération annulée"
+		Exit Function
+	End If
+	Set nd_PNav = Nothing
+	Delete gnuid_SDSPN
+	Set gnuid_SDSPN = nuid
+	Set nd_PNav = gnuid_SDSPN.Document
+	If xVar(nd_PNav, "PNav_EditMode", "") = "1" Then
+		Call nd_PNav.RemoveItem("SaveOptions")
+	End If
+	
+	SDSPN_OuvrirMasque = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), xVar(nd_PNav, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPN_MajSitesNav"><lotusscript>Sub SDSPN_MajSitesNav(pnd_PNav As NotesDocument)
+	On Error Goto GererErreur
+	
+	Dim v_NoProposition As String
+	Dim a As Variant
+	Dim v_NbSites As Integer
+	Dim i As Integer
+	Dim v_DernierSiteOuvert As Integer
+	
+	Call pnd_PNav.ReplaceItemValue("PNav_NoSite", "")
+	Call pnd_PNav.ReplaceItemValue("PNav_NomSite", "")
+	
+	' Extraire les sites
+	v_NoProposition = xVar(pnd_PNav, "Prop_NoProposition", "")
+	a = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Site21"; "| &amp; v_NoProposition &amp; |"; 2); "")|)
+	If a(0) = "" Then
+		v_NbSites = 0
+	Else		
+		Call pnd_PNav.ReplaceItemValue("PNav_NoSite", a)
+		v_NbSites = Ubound(a) + 1
+		'a = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Site21"; "| &amp; v_NoProposition &amp; |"; 3); "")|)
+		a = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Site21"; "| &amp; v_NoProposition &amp; |"; 9); "")|)
+		Call pnd_PNav.ReplaceItemValue("PNav_NomSite", a)		
+	End If
+	pnd_PNav.Prop_NbSites = v_NbSites
+	
+	' Dernier site ouvert
+	If v_NbSites = 0 Then
+		pnd_PNav.PNav_DernierSiteOuvert = 0
+		pnd_PNav.PNav_MaxSiteOuvert = 0
+	Else
+		v_DernierSiteOuvert = xVar(pnd_PNav, "PNav_DernierSiteOuvert", 0) 
+		If v_DernierSiteOuvert &gt; v_NbSites Then
+			pnd_PNav.PNav_DernierSiteOuvert = 1
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), xVar(pnd_PNav, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPN_Exiting"><lotusscript>Sub SDSPN_Exiting
+	On Error Goto GererErreur
+	
+	On Error 4412 Resume Next
+	
+	If g_NomItem_SDSPN &lt;&gt; "" Then
+		If xVarImplode(gnuid_SDSPN.Document, g_NomItem_SDSPN, "") &lt;&gt; g_ValeurItem_SDSPN Then
+			Call gnuid_SDSPN.Refresh
+		End If
+		g_NomItem_SDSPN = ""
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPN_NoOption"><lotusscript>Function SDSPN_NoOption(p_NoItem As String, pnd_PNav As NotesDocument) As String
+	On Error Goto GererErreur
+	
+	Dim a_MenuItems As Variant
+	
+	If p_NoItem = "**" Then
+		SDSPN_NoOption = xVar(pnd_PNav, "PNav_MenuOptionMax", "0.00")
+	Else
+		a_MenuItems = xVarArray(pnd_PNav, "PNav_MenuItems")
+		SDSPN_NoOption = a_MenuItems(p_NoItem)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPN, gc_Element_SDSPN, Getthreadinfo(1), xVar(pnd_PNav, "Cle", ""), False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073637,56-05</datetime></item></scriptlibrary>
+
+</database>

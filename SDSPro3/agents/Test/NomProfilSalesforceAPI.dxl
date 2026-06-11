@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Test\NomProfilSalesforceAPI" alias="T_NPSF" hide="v3" noreplace="true" publicaccess="false" designerversion="8.5.3" comment="Test web service" activatable="false" enabled="false">
+<noteinfo noteid="4d985e" unid="7613FBD6D717D6A385258C0D005532E7" sequence="1">
+<created><datetime>20250109T103035,91-05</datetime></created>
+<modified><datetime>20250109T103038,08-05</datetime></modified>
+<revised><datetime>20250109T103037,85-05</datetime></revised>
+<lastaccessed><datetime>20250109T103038,05-05</datetime></lastaccessed>
+<addedtofile><datetime>20250109T103038,05-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250109T103015,23-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="never" runlocation="specific" runserver="CN=Zulu/O=Serti Informatique"/></trigger><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+Dim g_NomProfilSalesforceAPI_SDSPSf As String
+
+' Traitement des erreurs
+' -------------------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "T_NPSF"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+
+	Dim v_NomProfilSalesforceAPI As String
+
+	' Initialisations
+	call A_Initialisations
+	
+	v_NomProfilSalesforceAPI = SDSPSf_NomProfilSalesforceAPI
+	stop
+
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="SDSPSf_NomProfilSalesforceAPI"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_NomProfilSalesforceAPI As String
+	On Error GoTo GererErreur	
+	
+	If g_NomProfilSalesforceAPI_SDSPSf &lt;&gt; "" Then
+		SDSPSf_NomProfilSalesforceAPI = g_NomProfilSalesforceAPI_SDSPSf
+	Else
+		SDSPSf_NomProfilSalesforceAPI = xVarProf("Prof_NomProfilSalesforceAPI", "")
+		If SDSPSf_NomProfilSalesforceAPI = "" Then
+			If xGDK_TypeNDBCourante = "P" Then
+				SDSPSf_NomProfilSalesforceAPI = "RapidRTC"
+			End If
+		End If
+		g_NomProfilSalesforceAPI_SDSPSf = SDSPSf_NomProfilSalesforceAPI
+	End If
+	
+	Exit Function	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Function	
+End Function
+</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="16EBB89B587FA98385258C0D00554E34">
+<agentmodified><datetime>20250109T103038,08-05</datetime></agentmodified>
+<agentrun><datetime>20251203T193054,39+00</datetime></agentrun>
+<runlog>Started running agent 'Test\NomProfilSalesforceAPI|T_NPSF' on 03/12/2025 19:30:02
+Found 0 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Test\NomProfilSalesforceAPI|T_NPSF' on 03/12/2025 19:30:54
+</runlog></rundata>
+<item name="$POID"><datetime>20230301T110013,04-05</datetime></item></agent>
+
+</database>

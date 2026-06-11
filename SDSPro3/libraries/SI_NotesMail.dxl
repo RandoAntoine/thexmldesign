@@ -1,0 +1,587 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_NotesMail" hide="v3 v4strict" designerversion="8.5.3" comment="2.2">
+<noteinfo noteid="55571a" unid="E7F862B81F4B2BCA852586B40011FB89" sequence="76">
+<created><datetime dst="true">20210410T231625,05-04</datetime></created>
+<modified><datetime>20260105T014837,27-05</datetime></modified>
+<revised><datetime>20250319T073637,20-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,26-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,26-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "SI_Insertions"
+Use "x_NAB"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SINM As NotesSession
+Dim gndb_SINM As NotesDatabase
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SINM = "SL"
+Const gc_Element_SINM = "SI_NotesMail"
+
+
+
+</lotusscript></code><code event="SINM_AjouterRendezVous"><lotusscript>Function SINM_AjouterRendezVous(pndb As NotesDatabase, Byval p_Date As Variant, Byval p_HeureDebut As Variant,_
+Byval p_HeureFin As Variant, p_Objet As String, p_Endroit As String, p_Categorie As Variant,_
+p_Origine As String, p_OrigineCle As String) As NotesDocument
+	' ----------------------------------------------------------------------------------------------------
+	' Le script créé un document de type "Rendez-vous" dans la base de documents de courrier électronique.
+	'	Paramètres:
+	'	pndb		: nom de la base des courriels de l'utilisateur
+	'	p_Date		: date du rendez-vous
+	'	p_HeureDebut: heure de début du rendez-vous
+	'	p_HeureFin	: heure de fin du rendez-vous
+	'	p_Objet		: titre du rendez-vous
+	'	p_Endroit	: lieu du rendez-vous
+	'	p_Categorie	: catégorie du rendez-vous
+	'	p_Origine	: code de la base de documents d'origine (ex: SRSPc pour SRS Placements)
+	'	p_OrigineCle: valeur de la clé du document source
+	'
+	'	Valeur retournée:
+	'	NotesDocument: document du rendez-vous dans l'agenda
+	' ----------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Prof As NotesDocument
+	Dim nd As NotesDocument
+	Dim v_Maj As Boolean
+	
+	Dim v_Date As Variant
+	Dim i As Integer
+	Dim v_Principal As String
+	
+	' Initialisations
+	Set SINM_AjouterRendezVous = Nothing
+	Call SINM_Initialisations
+	
+	' Validations
+	If pndb Is Nothing Then
+		Exit Function
+	Elseif Not pndb.IsOpen Then
+		Exit Function
+	End If
+	
+	If Not Isdate(p_Date) Then
+		Exit Function
+	End If
+	
+	If p_Objet = "" Then
+		Exit Function
+	End If
+	
+	v_Maj = False
+	
+	' Extraire le profil de la base de courriel
+	Set nd_Prof = pndb.GetProfileDocument("CalendarProfile")
+	
+	' Vérifier que le RV n'existe pas dans la db de courriels
+	Set nd = SINM_ndAppointment(pndb, p_Origine, p_OrigineCle)
+	If nd Is Nothing Then
+		' Création du rendez-vous dans l'agenda
+		Set nd = New NotesDocument(pndb)
+		nd.Form = "Appointment"	
+		nd.AppointmentType = "0"
+		If p_Origine = "SIEv_Reference" Then		' Compatibilité avec version &lt; 2.0
+			Call nd.ReplaceItemValue("SIEv_Reference", p_OrigineCle)
+		Else
+			Call nd.ReplaceItemValue("SINM_Origine", p_Origine)
+			Call nd.ReplaceItemValue("SINM_OrigineCle", p_OrigineCle)
+		End If
+		
+		v_Principal = xVar(nd_Prof, "Owner", gns_SINM.UserName)
+		
+		Call nd.ReplaceItemValue("$AlarmDisabled", "1")
+		Call nd.ReplaceItemValue("$AltPrincipal", v_Principal)
+		Call nd.ReplaceItemValue("$BusyName", v_Principal)
+		Call nd.ReplaceItemValue("$BusyPriority", "1")
+		Call nd.ReplaceItemValue("$CSVersion", "2")
+		Call nd.ReplaceItemValue("$ExpandGroups", "3")
+		Call nd.ReplaceItemValue("$HFFlags", "1")
+		Call nd.ReplaceItemValue("$IconSwitcher", "Appointment")
+		Call nd.ReplaceItemValue("$PublicAccess", "1")
+		Call nd.ReplaceItemValue("ExcludeFromView", Evaluate(|"D" : "S"|))
+		
+		nd.AltChair = v_Principal
+		nd.Chair = v_Principal
+		nd.From = v_Principal
+		nd.Principal = v_Principal
+		nd.SchedulerSwitcher = "1"
+		nd.SequenceNum = 1
+		nd.UpdateSeq = 1
+		nd.OrgTable = "P0"
+		Call nd.ReplaceItemValue("_ViewIcon", 160)
+		
+		v_Maj = True
+	End If
+	
+	v_Maj = SIIx_MajItem(nd, "Subject", p_Objet, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "Location", p_Endroit, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "Categories", p_Categorie, False) Or v_Maj
+	
+	' Date et heure de début du rendez-vous
+	v_Maj = SIIx_MajItem(nd, "StartDate", p_Date, True) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "StartDateTime", p_Date + p_HeureDebut, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "StartTime", p_HeureDebut, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "CalendarDateTime", p_Date + p_HeureDebut, False) Or v_Maj
+	
+	' Date et heure de fin du rendez-vous
+	v_Maj = SIIx_MajItem(nd, "EndDate", p_Date, True) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "EndDateTime", p_Date + p_HeureFin, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "EndTime", p_HeureFin, False) Or v_Maj
+	
+	If v_Maj Then
+		If nd.IsNewNote Then	
+			Call nd.Save(True, False)
+			nd.ApptUNID = Cstr(nd.UniversalID)
+		End If
+		
+		Call nd.Save(False, False)
+	End If
+	
+	Set SINM_AjouterRendezVous = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINM, gc_Element_SINM, Getthreadinfo(1), pndb.Title, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINM_ndAppointment"><lotusscript>Function SINM_ndAppointment(pndb As NotesDatabase, p_Origine As String, p_OrigineCle As String) As NotesDocument
+	' ----------------------------------------------------------------------------------------------------
+	' Le script extrait le document "Appointment" qui se trouve dans l'agenda.
+	'	Paramètres:
+	'	pndb		: nom de la base des courriels de l'utilisateur
+	'	p_Origine	: code de la base de documents d'origine (ex: SRSPc pour SRS Placements)
+	'	p_OrigineCle: valeur de la clé du document source
+	'
+	'	Valeur retournée:
+	'	NotesDocument: document "Appointment" dans l'agenda
+	' ----------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	
+	Dim v_Formule As String
+	
+	Set SINM_ndAppointment = Nothing
+	
+	' Construction de la formule de recherche
+	v_Formule = |Form = "Appointment"|
+	If p_Origine = "SIEv_Reference" Then		' Compatibilité avec version &lt; 2.0
+		v_Formule = v_Formule &amp; | &amp; SIEv_Reference = "| &amp; p_OrigineCle &amp; |"|
+	Else
+		v_Formule = v_Formule &amp; | &amp; SINM_Origine = "| &amp; p_Origine &amp; |"| &amp; | &amp; SINM_OrigineCle = "| &amp; p_OrigineCle &amp; |"|
+	End If
+	
+	Set ndc = pndb.Search(v_Formule, Nothing, 0)
+	If ndc.count &gt; 1 Then
+		Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_SINM, gc_Element_SINM, Getthreadinfo(1), 0, _
+		"Plusieurs documents d'agenda ont été trouvés dans la base de courriels " &amp; pndb.Title &amp; ".", p_Origine &amp; | ; | &amp; p_OrigineCle)
+		Exit Function
+	End If
+	
+	Set SINM_ndAppointment = ndc.GetFirstDocument
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINM, gc_Element_SINM, Getthreadinfo(1), pndb.Title, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINM_Initialisations"><lotusscript>Sub SINM_Initialisations
+	If gns_SINM Is Nothing Then
+		Set gns_SINM = New NotesSession
+	End If
+End Sub
+
+
+</lotusscript></code><code event="SINM_SupprimerAppointment"><lotusscript>Function SINM_SupprimerAppointment(pndb As NotesDatabase, p_Origine As String, p_OrigineCle As String) As Boolean
+	' ----------------------------------------------------------------------------------------------------
+	' Le script supprime le document "Appointment" de l'agenda.
+	'	Paramètres:
+	'	pndb		: nom de la base des courriels de l'utilisateur
+	'	p_Origine	: code de la base de documents d'origine (ex: SRSPc pour SRS Placements)
+	'	p_OrigineCle: valeur de la clé du document source
+	'
+	'	Valeur retournée:
+	'	Boolean: True si le document a été supprimé
+	' ----------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	
+	SINM_SupprimerAppointment = False
+	
+	Set nd = SINM_ndAppointment(pndb, p_Origine, p_OrigineCle)
+	If Not (nd Is Nothing) Then
+		If nd.Remove(True) Then
+			SINM_SupprimerAppointment = True
+		Else
+			Messagebox "Impossible de supprimer le rendez-vous (clé: " &amp; p_OrigineCle &amp;_
+			") de l'agenda. Svp, vérifiez l'agenda", 16, xGDK_xMessage("SI", 0, "", "")
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINM, gc_Element_SINM, Getthreadinfo(1), pndb.Title, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINM_AjouterReunion"><lotusscript>Function SINM_AjouterReunion(pndb As NotesDatabase, Byval p_Date As Variant, Byval p_Heure As Variant, _
+Byval p_NbHeures As Double, p_Objet As String, p_Endroit As String, p_Categorie As Variant, p_Invites As Variant, _
+p_Origine As String, p_OrigineCle As String) As NotesDocument
+	' ------------------------------------------------------------------------------------------------
+	' Le script créé un document de type "Réunion" dans la base de documents de courrier électronique.
+	'	Paramètres:
+	'	pndb		: nom de la base des courriels de l'utilisateur
+	'	p_Date		: date de la réunion
+	'	p_Heure		: heure de la réunion
+	'	p_NbHeures	: nombre d'heures de la réunion
+	'	p_Objet		: titre de la réunion
+	'	p_Endroit	: lieu de la réunion
+	'	p_Categorie	: catégorie de la réunion
+	'	p_Invites	: noms des personnes invitées à la réunion
+	'	p_Origine	: code de la base de documents d'origine (ex: SRSPc pour SRS Placements)
+	'	p_OrigineCle: valeur de la clé du document source
+	'
+	'	Valeur retournée:
+	'	NotesDocument: document de la réunion dans l'agenda
+	' ------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Prof As NotesDocument
+	Dim nd As NotesDocument
+	Dim ndt As New NotesDateTime("")
+	Dim v_Maj As Boolean
+	
+	Dim v_Date As Variant
+	Dim i As Integer
+	Dim v_Principal As String
+	
+	' Initialisations
+	Call SINM_Initialisations
+	
+	' Validations
+	If pndb Is Nothing Then
+		Exit Function
+	Elseif Not pndb.IsOpen Then
+		Exit Function
+	End If
+	If Not Isdate(p_Date) Then
+		Exit Function
+	End If
+	If p_Objet = "" Then
+		Exit Function
+	End If
+	
+	v_Maj = False
+	
+	' Extraire le profil de la base de courriel
+	Set nd_Prof = pndb.GetProfileDocument("CalendarProfile")
+	
+	' Vérifier que la réunion n'existe pas dans la db de courriels
+	Set nd = SINM_ndAppointment(pndb, p_Origine, p_OrigineCle)
+	If nd Is Nothing Then
+		' Création du document de l'agenda
+		Set nd = New Notesdocument(pndb)
+		nd.Form = "Appointment"	
+		nd.AppointmentType = "3"
+		If p_Origine = "SIEv_Reference" Then		' Compatibilité avec version &lt; 2.0
+			Call nd.ReplaceItemValue("SIEv_Reference", p_OrigineCle)
+		Else
+			Call nd.ReplaceItemValue("SINM_Origine", p_Origine)
+			Call nd.ReplaceItemValue("SINM_OrigineCle", p_OrigineCle)
+		End If
+		
+		v_Principal = xVar(nd_Prof, "Owner", gns_SINM.UserName)
+		Call nd.ReplaceItemValue("$AlarmDisabled", "1")
+		Call nd.ReplaceItemValue("$AltPrincipal", v_Principal)
+		Call nd.ReplaceItemValue("$BusyName", xVar(nd_Prof, "Owner", gns_SINM.UserName))
+		Call nd.ReplaceItemValue("$BusyPriority", "1")
+		Call nd.ReplaceItemValue("$CSVersion", "2")
+		Call nd.ReplaceItemValue("$ExpandGroups", "3")
+		Call nd.ReplaceItemValue("$HFFlags", "1")
+		Call nd.ReplaceItemValue("$IconSwitcher", "AllDayEvent")
+		Call nd.ReplaceItemValue("$PublicAccess", "1")
+		Call nd.ReplaceItemValue("ExcludeFromView", Evaluate(|"D" : "S"|))
+		
+		nd.AltChair = v_Principal
+		nd.Chair = v_Principal
+		nd.From = v_Principal
+		nd.Principal = v_Principal
+		nd.SchedulerSwitcher = "1"
+		nd.SequenceNum = 1
+		nd.UpdateSeq = 1
+		nd.OrgTable = "C0"
+		Call nd.ReplaceItemValue("_ViewIcon", 158)
+		
+		v_Maj = True
+	End If
+	
+	v_Maj = SIIx_MajItem(nd, "Subject", p_Objet, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "Location", p_Endroit, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "Categories", p_Categorie, False) Or v_Maj
+	
+	' Date et heure de début du rendez-vous
+	v_Maj = SIIx_MajItem(nd, "StartDate", p_Date, True) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "StartDateTime", p_Date + p_Heure, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "StartTime", p_Heure, False) Or v_Maj
+	ndt.LSLocalTime = p_Date + p_Heure
+	v_Maj = SIIx_MajItem(nd, "CalendarDateTime", ndt.LSLocalTime, False) Or v_Maj
+	
+	' Date et heure de fin du rendez-vous
+	v_Maj = SIIx_MajItem(nd, "EndDate", p_Date, True) Or v_Maj
+	Call ndt.AdjustHour(p_NbHeures)
+	v_Maj = SIIx_MajItem(nd, "EndDateTime", ndt.LSLocalTime, False) Or v_Maj
+	Call ndt.SetAnyDate
+	v_Maj = SIIx_MajItem(nd, "EndTime", ndt.LSLocalTime, False) Or v_Maj
+	
+	' Invités à la réunion
+	v_Maj = SIIx_MajItem(nd, "RequiredAttendees", p_Invites, False) Or v_Maj
+	
+	If v_Maj Then
+		If nd.IsNewNote Then	
+			Call nd.Save(True, False)
+			nd.ApptUNID = Cstr(nd.UniversalID)
+		End If
+		
+		Call nd.Save(False, False)
+	End If
+	
+	Set SINM_AjouterReunion = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINM, gc_Element_SINM, Getthreadinfo(1), pndb.Title, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINM_ndbCourriel"><lotusscript>Function SINM_ndbCourriel(p_Nom As String) As NotesDatabase
+	' -------------------------------------------------------------------------------
+	' Le script permet de retouner la base de documents de courriel de l'utilisateur.
+	'	Paramètre:
+	'	p_Nom	: nom de l'utilisateur (NotesSession.UserName)
+	' -------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim nd As NotesDocument
+	
+	Dim v_NomBase As String
+	
+	' Initialisations
+	Set SINM_ndbCourriel = Nothing
+	Call SINM_Initialisations
+	If gns_SINM Is Nothing Then
+		Set gns_SINM = New NotesSession
+	End If
+	
+	' Extraire le Person Document du carnet d'adresses
+	Set nd = xNAB_xndPerson(p_Nom, True)
+	If nd Is Nothing Then
+		Exit Function
+	End If
+	
+	If xVar(nd, "MailSystem", "") &lt;&gt; "1" Then
+		Exit Function
+	End If
+	
+	v_NomBase = xVar(nd, "MailFile", "")
+	If v_NomBase = "" Then
+		Exit Function
+	Elseif Lcase(Right(v_NomBase, 4)) &lt;&gt; ".nsf" Then
+		v_NomBase = v_NomBase &amp; ".nsf"
+	End If
+	
+	On Error 4060 Resume Next
+	Set ndb = gns_SINM.GetDatabase(xVar(nd, "MailServer", ""), v_NomBase, False)
+	If Not (ndb Is Nothing) Then
+		If ndb.IsOpen Then
+			Set SINM_ndbCourriel = ndb
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINM, gc_Element_SINM, Getthreadinfo(1), p_Nom, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINM_AjouterEvenement"><lotusscript>Function SINM_AjouterEvenement(pndb As NotesDatabase, Byval p_DateDebut As Variant, _
+Byval p_DateFin As Variant, Byval p_NbJours As Integer, p_Objet As String, p_Endroit As String, _
+p_Categorie As Variant, p_Origine As String, p_OrigineCle As String) As NotesDocument
+	' ----------------------------------------------------------------------------------------------
+	' Le script créé un document de type "Event" dans la base de documents de courrier électronique.
+	'	Paramètres:
+	'	pndb		: nom de la base des courriels de l'utilisateur
+	'	p_DateDebut	: date de début de l'évènement
+	'	p_DateFin	: date de fin de l'évènement
+	'	p_NbJours	: nombre de jours de l'évènement
+	'	p_Objet		: titre de l'évènement
+	'	p_Endroit	: lieu de l'évènement
+	'	p_Categorie	: catégorie de l'évènement
+	'	p_Origine	: code de la base de documents d'origine (ex: SRSPc pour SRS Placements)
+	'	p_OrigineCle: valeur de la clé du document source
+	'
+	'	Valeur retournée:
+	'	NotesDocument: document de l'évènement dans l'agenda
+	' ----------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Prof As NotesDocument
+	Dim nd As NotesDocument
+	
+	Dim v_Date As Variant
+	Dim i As Integer
+	Dim v_Principal As String
+	
+	' Initialisations
+	Call SINM_Initialisations
+	
+	' Validations
+	If pndb Is Nothing Then
+		Exit Function
+	Elseif Not pndb.IsOpen Then
+		Exit Function
+	End If
+	If Not Isdate(p_DateDebut) Then
+		Exit Function
+	End If
+	If Not Isdate(p_DateFin) Then
+		If p_NbJours = 0 Then
+			p_DateFin = p_DateDebut
+		Else
+			p_DateFin = p_DateDebut + p_NbJours - 1
+		End If
+	Elseif p_DateFin &lt; p_DateDebut Then
+		p_DateFin = p_DateDebut
+	End If
+	If p_Objet = "" Then
+		Exit Function
+	End If
+	
+	' Extraire le profil de la base de courriel
+	Set nd_Prof = pndb.GetProfileDocument("CalendarProfile")
+	
+	' Vérifier que l'évènement n'existe pas dans la db de courriels
+	Set nd = SINM_ndAppointment(pndb, p_Origine, p_OrigineCle)
+	If nd Is Nothing Then
+	' Création du document de l'agenda
+		Set nd = New Notesdocument(pndb)
+		nd.Form = "Appointment"	
+		nd.AppointmentType = "2"
+		If p_Origine = "SIEv_Reference" Then		' Compatibilité avec version &lt; 2.0
+			Call nd.ReplaceItemValue("SIEv_Reference", p_OrigineCle)
+		Else
+			Call nd.ReplaceItemValue("SINM_Origine", p_Origine)
+			Call nd.ReplaceItemValue("SINM_OrigineCle", p_OrigineCle)
+		End If
+	End If
+	
+	nd.Subject = p_Objet
+	nd.Location = p_Endroit
+	nd.Categories = p_Categorie
+	Call SIIx_AssignerDate(nd, "StartDate", p_DateDebut)
+	nd.StartDateTime = p_DateDebut + Timenumber(4, 0, 0)
+	nd.StartTime = Timenumber(4, 0, 0)
+	Call SIIx_AssignerDate(nd, "EndDate", p_DateFin)
+	nd.EndDateTime = p_DateFin + Timenumber(20, 0, 0)
+	nd.EndTime = Timenumber(20, 0, 0)
+	
+	Redim a(p_DateFin - p_DateDebut) As Variant
+	v_Date = p_DateDebut
+	For i = Lbound(a) To Ubound(a)
+		a(i) = v_Date + Timenumber(4, 0, 0)
+		v_Date = v_Date + 1
+	Next
+	nd.CalendarDateTime = a
+	
+	v_Principal = xVar(nd_Prof, "Owner", gns_SINM.UserName)
+	Call nd.ReplaceItemValue("$AlarmDisabled", "1")
+	Call nd.ReplaceItemValue("$AltPrincipal", v_Principal)
+	Call nd.ReplaceItemValue("$BusyName", xVar(nd_Prof, "Owner", gns_SINM.UserName))
+	Call nd.ReplaceItemValue("$BusyPriority", "1")
+	Call nd.ReplaceItemValue("$CSVersion", "2")
+	Call nd.ReplaceItemValue("$ExpandGroups", "3")
+	Call nd.ReplaceItemValue("$HFFlags", "1")
+	Call nd.ReplaceItemValue("$IconSwitcher", "AllDayEvent")
+	Call nd.ReplaceItemValue("$PublicAccess", "1")
+	Call nd.ReplaceItemValue("ExcludeFromView", Evaluate(|"D" : "S"|))
+	nd.AltChair = v_Principal
+	nd.Chair = v_Principal
+	nd.From = v_Principal
+	nd.Principal = v_Principal
+	nd.SchedulerSwitcher = "1"
+	nd.SequenceNum = 1
+	nd.UpdateSeq = 1
+	nd.OrgTable = "P0"
+	Call nd.ReplaceItemValue("_ViewIcon", 9)
+	Call nd.Save(True, False)
+	
+	nd.ApptUNID = Cstr(nd.UniversalID)
+	Call nd.Save(False, False)
+	
+	Set SINM_AjouterEvenement = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINM, gc_Element_SINM, Getthreadinfo(1), pndb.Title, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINM_AjouterAlarme"><lotusscript>Function SINM_AjouterAlarme(pnd As NotesDocument, p_Moment As Integer, p_Unite As String) As Boolean
+	
+	' ----------------------------------------------------------------------------------------------
+	'Ce script permet d'ajouter une Alarme RDV dans le calendrie de l'invité
+    'Paramètres:
+	'pndb	  : nom de la base des courriels de l'utilisateur
+	'pnd      : le RDV a laquelle sera associé l'Alarme 
+	'p_Moment : Moment d'affichage de la notification d'Alarme (tmpOffset)
+	'P_Unite  : Declenchement d'alarme :Jour(s)|D, Minute(s)|M et Heure(s)|H	($AlarmUnit)
+	'Avant -----&gt; tmpOffsetDir ="1"
+	' ----------------------------------------------------------------------------------------------
+	
+	On Error Goto GererErreur
+	
+	Dim v_Maj As Boolean
+	Dim v_offset As Integer
+	
+	SINM_AjouterAlarme = False
+	v_Maj = False
+	
+	'Activer l'alarme
+	v_Maj = SIIx_MajItem(pnd, "$Alarm", 1, False) Or v_Maj						' System flag
+	v_Maj = SIIx_MajItem(pnd, "$AlarmDisabled", "", False) Or v_Maj			' System flag
+	v_Maj = SIIx_MajItem(pnd, "$AlarmUnit", p_Unite, False) Or v_Maj		' Unit (J/H/M)
+	
+	v_offset = p_Moment
+	Select Case p_Unite
+	Case "M" :
+		v_Maj = SIIx_MajItem(pnd, "$AlarmOffset", v_offset * -1, False) Or v_Maj
+	Case "H" :
+		v_Maj = SIIx_MajItem(pnd, "$AlarmOffset", v_offset * -60, False) Or v_Maj
+	Case Else :
+		v_Maj = SIIx_MajItem(pnd, "$AlarmOffset", v_offset * -1440, False) Or v_Maj
+	End Select
+	
+	If v_Maj Then
+		Call pnd.Save (True, False)
+		SINM_AjouterAlarme = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINM, gc_Element_SINM, Getthreadinfo(1), Cstr(pnd.UniveralId), False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073637,20-05</datetime></item></scriptlibrary>
+
+</database>

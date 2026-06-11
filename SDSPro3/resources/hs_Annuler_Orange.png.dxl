@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="hs_Annuler_Orange.png" alias="hs_Annuler_Orange" publicaccess="false" designerversion="8.5.3" imagename="Annuler_Orange.png">
+<noteinfo noteid="17e6" unid="B0848C312329724D8525823D0076E673" sequence="7">
+<created><datetime>20180223T163842,43-05</datetime></created>
+<modified><datetime>20260105T014845,91-05</datetime></modified>
+<revised><datetime dst="true">20180718T105602,62-04</datetime></revised>
+<lastaccessed><datetime>20260105T014845,90-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205709,38-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><png>
+iVBORw0KGgoAAAANSUhEUgAAAFYAAAAfCAIAAADyY60EAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMcSURBVGhD7VgxciIxENRPICAGp0Q8gYQEJyT+
+AK7CMSEXUCROfa7iCfABfnAHgR3zgovvLuBaGknMNiBrFxd3V7VdXS40Ozurbo20YPNr+5LL71//
+F/7evuaztqC2oLYArC2oZEGn0zHNhtFoNhCMCX+dJDLNchZY8U7wYrHYbDY/HPABQzHlHzGCRKZZ
+wgIrstlYrVaHC8AlyaEJ3Z4kMs1cCyAMK+y1JiHbRD+D5pdPXaQUqU6aWRaIKi/xcFgul2h+P3DY
+7XbT6dQPDgfxi55UgSQsn1QnzSwLsMlj/9tt746D/X4vERwH1iNjRqORROyOMObntxchPTKfJCyf
+VCfNjy3QLeD1OyAuwX6/70PGIEGC0ghFC8YPkjQYx8enScKKfHTVemuOW1KdND+2AGKisLjgAiw7
++t8P3BAJkinviIIFzz2fZ3orNYMESViRt7TAGL3zyYWIuAsEuAVBbcFqIIkWD8+FSVwiCSvythbE
+tRXg8MMK2wkEkH4AtyCunjR+aLe67eGb9ILdC2FfRODqafDu/r2o9v2phUH36V4FJSFg8MjFbeU4
+E2YVCwC9/4FLFhzXxCnvTmZhcq352s/SBX2PdCdDHVxLsKD21IIv8zt8QEF71d8S6uS0m16o80Qh
+egVCsKtfgH4pArIRQpHZvC1ZR4RZ+nPhbeKEVQmeNA4w6MlVuBbmcJ5wLcMCdRwCWj/1Ar4v+KRw
+HPoi62EXl2M3+mHL/r3eAqkWrgr1SRGDZ5llgX4pav2Io9sh248dogu4BQlSIUza9rajbop8tWj1
+470qM0bUhlJ7Jzz0PLMsAFFMvhpFC0S/qD2+F8MvCPlqFG9XAjxFm0OOBTP1QvUoZhY32mD8yV0A
+ciM0G3gpyFBgd4QK6ha4hpjf9aSaRCRkWQCKKlFIpyOAjoj6xS+6vRq1ksqkmkQk5FoAQhgYfyyc
+wvb/p/5Y1koqk2oSkVDCAtCuMHCrf5loJZVJNYlIKGeBUFrdehGR3Px6QqVIdeTr9llSJtVJs4oF
+ZUmPzCfVIdmalEl10qwtqC2oLQBrC2oLtq9/AP9cbqRlqJWbAAAAAElFTkSuQmCC
+</png>
+<item name="$FileSize" sign="true"><number>903</number></item>
+<item name="$MimeType" sign="true"><text>image/png</text></item>
+<item name="$FileModDT" sign="true"><datetime>20180208T114115,20-05</datetime></item></imageresource>
+
+</database>

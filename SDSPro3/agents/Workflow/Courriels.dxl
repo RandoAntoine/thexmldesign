@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Workflow\Courriels" alias="A_WFCo" hide="v3" publicaccess="false" designerversion="8.5.3" comment="** SI Agents 5min" activatable="false" enabled="false">
+<noteinfo noteid="5558de" unid="3BB70D2DECF5FF33852589AC0070CFA9" sequence="12">
+<created><datetime dst="true">20230511T163211,93-04</datetime></created>
+<modified><datetime>20260105T014838,15-05</datetime></modified>
+<revised><datetime>20250319T073750,39-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,14-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,14-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073749,92-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="daily" runlocation="specific" runserver="CN=Zulu/O=Serti Informatique">
+<starttime><datetime>T010000,00</datetime></starttime></schedule></trigger>
+<documentset type="modified"/><code event="options"><lotusscript>Option Public
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "SI_CourrielsTypes"
+Use "x_SIRR"
+Use "SDSP_Proposition"
+Use "SI_CompteurSequentiel"
+Use "x_Tabl"
+Use "x_SIRR"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_WFCo"
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	' ================================================================================
+	' L'agent envoie les courriels en attente d'envoie (envoyé sans connection réseau)
+	' ================================================================================
+	On Error GoTo GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Prop As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Courriel As NotesDocument
+	Dim ni_EnvoyerCourriel As NotesItem
+	Dim nrti As NotesRichTextItem
+	
+	Dim v_Formule As String
+	Dim v_ServeurSIRR As String
+	Dim v_Langue As String
+	Dim v_Destinataires As String
+	Dim v_DestSendTo As String
+	Dim v_DestCopyTo As String
+	Dim a_IdCreateur As Variant
+	Dim a_IdRepresentant As Variant
+	Dim v_NoEquipe As String
+	Dim a_IdEquipeRepresentant As Variant
+	Dim a_IdSuperviseur As Variant
+	Dim a_IdSuperviseursSDep As Variant
+	Dim a_IdVerificateur As Variant
+	Dim a_IdDirecteur As Variant
+	Dim a_IdDirNational As Variant
+	Dim a_IdDirMondial As Variant
+	Dim a_IdTechnique As Variant
+	Dim a_SendTo As Variant
+	Dim a_CopyTo As Variant
+	Dim v_Statut As String
+	Dim v_Commentaire As String
+	Dim v_Principal As String
+	
+	Dim a_IdDirecteur2 As Variant
+	Dim v_Prop_TypeProposition As String
+	Dim v_Prof_DirecteurDestinataire As Variant
+	Dim v_TpPp_DirecteurDestinataire As Variant
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	' Initialisation
+	Call A_Initialisations
+	
+	Print "Début"
+	
+	v_Formule = |Form = "F_Prop" &amp; !@IsNull(SIWF_EnvoyerCourriel)|
+	Set ndc = gndb_A.Search(v_Formule, Nothing, 0)
+	
+	If ndc.Count = 0 Then
+		Exit Sub
+	End If
+	
+	v_ServeurSIRR = xGDK_xFormulaNDB("SIRR")
+	
+	Set nd_Suivant = ndc.GetFirstDocument
+	
+	Do Until nd_Suivant Is Nothing
+		Set nd_Prop = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		
+		' Initialise variables de la proposition
+		' --------------------------------------
+		v_Langue = xSIRR_xVarRepr(xVar(nd_Prop, "Prop_NoRepresentant", ""), "Repr_Langue", "FR", True)
+		
+		' Nom client
+		nd_Prop.Temp_NomClient = xVar(nd_Prop, "Prop_ClientNomInterne",xVar(nd_Prop, "Prop_ClientNom",""))
+		
+		Set ni_EnvoyerCourriel =  xni(nd_Prop, "SIWF_EnvoyerCourriel", "")
+		
+		a_IdCreateur = xVar(nd_Prop, "HistoUC", "")
+		a_IdRepresentant = xVar(nd_Prop, "Prop_IdRepresentant", "")
+		
+		If a_IdCreateur = a_IdRepresentant Then
+			a_IdCreateur = ""
+		End If
+		
+		' Superviseurs du créateur (HistoUC)
+		a_IdSuperviseursSDep = SDSPP_SuperviseursSDep(CStr(a_IdCreateur))
+		
+		' Equipe du représentant
+		v_NoEquipe = xSIRR_xVarRepr_Id(a_IdRepresentant,"", "Repr_NoEquipe", "0")
+		If v_NoEquipe &lt;&gt; "0" Then
+			a_IdEquipeRepresentant = Evaluate(|@IfError(@DbLookup("";| &amp; v_ServeurSIRR &amp; |; "V_Repr22";  "| &amp; v_NoEquipe &amp; |"; 3); "");|)
+		End If
+		
+		' Superviseur
+		a_IdSuperviseur = xVar(nd_Prop,"Prop_IdSuperviseur", "")
+		
+		' Vérificateur
+		a_IdVerificateur = xSDSBB_xVarTpPp(xVar(nd_Prop,"Prop_TypeProposition", ""), "TpPp_VerificateurDestinataire", "", True)
+		
+		' Directeur
+		' Si Prop_Directeur vide retourne TpPp_DirecteurDestinataire
+		' Si Prop_Directeur vide et TpPp_DirecteurDestinataire vide retourne Prof_DirecteurDestinataire
+		' PBE 2022-05-27 Correction Type Mismatch lorsque TpPp_DirecteurDestinataire contient un seul destinataire
+		a_IdDirecteur2 = xVarArray(nd_Prop, "Prop_IdDirecteur")
+		If IsArray(a_IdDirecteur2) Then
+			a_IdDirecteur = a_IdDirecteur2
+		Else
+			v_Prop_TypeProposition = xVar(nd_Prop,"Prop_TypeProposition", "")
+			v_TpPp_DirecteurDestinataire = xSDSBB_xVarTpPp(v_Prop_TypeProposition, "TpPp_DirecteurDestinataire", "", True)
+			If IsArray(v_TpPp_DirecteurDestinataire) Then
+				a_IdDirecteur = v_TpPp_DirecteurDestinataire
+			ElseIf v_TpPp_DirecteurDestinataire &lt;&gt; "" Then
+				a_IdDirecteur = Evaluate(|"| &amp; v_TpPp_DirecteurDestinataire &amp; |"|)
+			Else
+				v_Prof_DirecteurDestinataire = xVarProf("Prof_DirecteurDestinataire", "")
+				If IsArray(v_Prof_DirecteurDestinataire) Then
+					a_IdDirecteur = v_Prof_DirecteurDestinataire
+				ElseIf v_Prof_DirecteurDestinataire &lt;&gt; "" Then
+					a_IdDirecteur = Evaluate(|"| &amp; v_Prof_DirecteurDestinataire &amp; |"|)
+				End If
+			End If
+		End If
+	%REM
+		a_IdDirecteur = xVar(nd_Prop, "Prop_IdDirecteur", _
+		xSDSBB_xVarTpPp(xVar(nd_Prop,"Prop_TypeProposition", ""), "TpPp_DirecteurDestinataire", _
+		xVarProf("Prof_DirecteurDestinataire", ""), True))
+	%END REM
+		
+		a_IdDirNational = xVarArray(nd_Prop, "Prop_IdDirNational") 
+		a_IdDirMondial = xVarArray(nd_Prop, "Prop_IdDirMondial")
+		
+		' Technique
+		a_IdTechnique = xSDSBB_xVarTpPp(xVar(nd_Prop,"Prop_TypeProposition", ""), "TpPp_TechniqueDestinataire", "", True)
+		
+		' Assigner le numéro de proposition si nouveau et pas de numéro
+		If xVar(nd_Prop, "Prop_NbProposition", 0) = 0 Then
+			If SDSPP_AssignerNbProposition(nd_Prop) Then
+				v_MajProp = True
+			End If
+		Else
+			If SDSPP_MajPrefixProposition(nd_Prop)	Then
+				v_MajProp = True
+			End If
+		End If
+		
+		ForAll StatutCourriel In ni_EnvoyerCourriel.Values
+			
+			' Initialise variables pour envoie du courriel
+			' --------------------------------------------
+			v_Statut = ""
+			v_Principal = ""
+			v_Commentaire = ""
+			v_DestSendTo = ""
+			v_DestCopyTo = ""
+			a_SendTo = ""
+			a_CopyTo = ""
+			v_Destinataires = ""
+			
+			If InStr(StatutCourriel, ";") &gt; 0 Then
+				
+				' "statut;commentaire;nom"
+				
+				v_Statut = StrLeft(StatutCourriel, ";")
+				v_Principal = StrRightBack(StatutCourriel, ";")
+				v_Commentaire = Replace(Replace(StatutCourriel, (v_Statut &amp; ";"), "") , (";" &amp; v_Principal ), "")
+				
+				' Déterminer les destinataires en fonction du statut
+				' --------------------------------------------------
+				v_Destinataires = xComplTabl(v_Statut, "Prop_Statut_FR", "2", True)
+				
+				If InStr(v_Destinataires, ";") &gt; 0 Then
+					v_DestSendTo = StrLeft(v_Destinataires, ";")
+					v_DestCopyTo = StrRight(v_Destinataires, ";")
+				Else
+					v_DestSendTo = v_Destinataires
+				End If
+				
+				If v_DestSendTo = "" Then
+					Exit Sub
+				End If
+				
+				' Destinataire - SendTo
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "C", a_IdCreateur, a_SendTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "R", a_IdRepresentant, a_SendTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "E", a_IdEquipeRepresentant, a_SendTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "S", a_IdSuperviseur, a_SendTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "S", a_IdSuperviseursSDep, a_SendTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "V", a_IdVerificateur, a_SendTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "D", a_IdDirecteur, a_SendTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "N", a_IdDirNational, a_SendTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "M", a_IdDirMondial, a_SendTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "T", a_IdTechnique, a_SendTo)
+				
+				' Destinataire - CopyTo
+				Call SDSPP_AjouterDestinataire(v_DestCopyTo, "C", a_IdCreateur, a_CopyTo)
+				Call SDSPP_AjouterDestinataire(v_DestCopyTo, "R", a_IdRepresentant, a_CopyTo)
+				Call SDSPP_AjouterDestinataire(v_DestCopyTo, "E", a_IdEquipeRepresentant, a_CopyTo)
+				Call SDSPP_AjouterDestinataire(v_DestCopyTo, "S", a_IdSuperviseur, a_CopyTo)
+				Call SDSPP_AjouterDestinataire(v_DestSendTo, "S", a_IdSuperviseursSDep, a_CopyTo)
+				Call SDSPP_AjouterDestinataire(v_DestCopyTo, "V", a_IdVerificateur, a_CopyTo)
+				Call SDSPP_AjouterDestinataire(v_DestCopyTo, "D", a_IdDirecteur, a_CopyTo)
+				Call SDSPP_AjouterDestinataire(v_DestCopyTo, "N", a_IdDirNational, a_CopyTo)
+				Call SDSPP_AjouterDestinataire(v_DestCopyTo, "M", a_IdDirMondial, a_CopyTo)
+				Call SDSPP_AjouterDestinataire(v_DestCopyTo, "T", a_IdTechnique, a_CopyTo)
+				
+				If IsArray(a_SendTo) Then
+					
+					' Enlever noms de copy to si déja dans send to
+					a_CopyTo = FullTrim(Replace(a_CopyTo, a_SendTo, ""))
+					
+					If xVar(nd_Prop, "Prop_NePasPartager", "") = "1" And v_NoEquipe &lt;&gt; "0" Then
+						a_IdEquipeRepresentant = FullTrim(Replace(a_IdEquipeRepresentant, a_IdRepresentant, ""))
+						a_CopyTo = FullTrim(Replace(a_CopyTo, a_IdEquipeRepresentant, ""))
+						a_SendTo = FullTrim(Replace(a_SendTo, a_IdEquipeRepresentant, ""))
+					End If
+					
+					nd_Prop.Temp_Comm = v_Commentaire
+					
+					Set nd_Courriel = SICT_ConstruireMessage(nd_Prop, "Statut" &amp; v_Statut, v_Langue, ArrayUnique(a_SendTo), a_CopyTo, "", False, "")
+					
+				End If
+				
+				If Not nd_Courriel Is Nothing Then
+					nd_Courriel.Principal = v_Principal
+					
+					Set nrti = nd_Courriel.GetFirstItem("Body")
+					If xVar(nd_Prop, "Prop_NomRepresentant", "") = "" Then
+						Call SItRT_Remplacer(nrti, "[prop_nomrepresentant]", "")
+					End If
+					Call nd_Courriel.Send(False)
+					Print "Courriel envoyé P:" &amp; xVar(nd_Prop, "Prop_NbProposition", "") &amp; " - " &amp; "S:" &amp; v_Statut &amp; " - " &amp; "ST:"  &amp; v_DestSendTo &amp; " - " &amp; "CC:" &amp; v_DestCopyTo  ' debug
+					v_NbMaj = v_NbMaj + 1
+				End If
+				
+			End If
+			
+		End ForAll
+		
+		nd_Prop.SIWF_EnvoyerCourriel = ""
+		Call nd_Prop.RemoveItem("Temp_Comm")
+		Call nd_Prop.RemoveItem("Temp_NomClient")
+		
+		Call SDSPP_MajPrefixProposition(nd_Prop)
+		
+		Call nd_Prop.Save(True, False)
+		
+	Loop
+	
+	Print "Fin - " &amp; CStr(v_NbMaj) &amp; " courriels envoyés"
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="4B0D63E6EE21DCA485258D8100606496">
+<agentmodified><datetime>20260105T014838,15-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260407T182401,20-04</datetime></agentrun>
+<runlog>Started running agent 'Workflow\Courriels|A_WFCo' on 2026-04-07 06:22:23 PM
+Running on new or modified documents: 1059259 total
+Found 1059259 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Workflow\Courriels|A_WFCo' on 2026-04-07 06:24:01 PM
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073750,39-05</datetime></item></agent>
+
+</database>

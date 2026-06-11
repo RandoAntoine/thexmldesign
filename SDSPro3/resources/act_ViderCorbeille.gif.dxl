@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="act_ViderCorbeille.gif" alias="act_ViderCorbeille" publicaccess="true" designerversion="5" imagename="permanently delete.gif">
+<noteinfo noteid="16d2" unid="5DDC4A10D00F9BC385257CEB00710394" sequence="14">
+<created><datetime dst="true">20140602T163424,84-04</datetime></created>
+<modified><datetime dst="true">20190830T091557,70-04</datetime></modified>
+<revised><datetime dst="true">20180718T105547,01-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091557,68-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205707,95-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Debbie Branco/O=Iris</name><name>CN=Lotus Notes Template Development/O=Lotus Notes</name><name>CN=William Zircher/O=Iris</name><name>CN=Lotus Notes Template Development/O=Lotus Notes</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhFAAUALP/AP////f39+/v78DAwLKysqKioo+Pj4CAgF9fX09PT8DAwC8vLwAgHwAAAAAA
+AAAAACH5BAEAAAoALAAAAAAUABQAQASMUMm5WLuNrTnbAMCBYSBxGcDQSBroAtdbUdaIFS+gKQya
+gzGQoBFiTBjICyFHQNJsNgTRpWkIXqKpa0gcKhrLF9Rl4igWGcNAIBgYLBuzZLFIqNluuLw6Qlxl
+RhJQg2QrPQJZYyQAb1YuiVpcQhcfPzBaJgEqFZaXPzucOSMvO0cMYT9NgXJnNRelHBEAOw==
+</gif></imageresource>
+
+</database>

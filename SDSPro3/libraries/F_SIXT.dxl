@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_SIXT" hide="v3 v4strict" comment="1.1">
+<noteinfo noteid="5556da" unid="7400E77B8B089C3D852586B40011FB58" sequence="76">
+<created><datetime dst="true">20210410T231624,56-04</datetime></created>
+<modified><datetime>20260105T014837,11-05</datetime></modified>
+<revised><datetime>20250319T073636,22-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,10-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,10-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Richard Riopel/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Automatisation/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "x_GDK"
+'
+'	Les fonctions définies dans cette bibliothèque de script permettent la gestion de tous les
+'	opérations reliés au formulaire Lettre type | F_SILT.
+'
+</lotusscript></code><code event="declarations"><lotusscript>
+' Traitement des erreurs
+Const gc_TypeElement_SIXT = "SL"
+Const gc_Element_SIXT = "F_SIXT"
+</lotusscript></code><code event="SIXT_Postsave"><lotusscript>Sub SIXT_Postsave(pnuid_Source As Notesuidocument)
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim nrti As Notesrichtextitem
+	Dim neo As NotesEmbeddedObject
+	Dim nd_Temp As Notesdocument
+	
+	Dim v_aneo As Variant							' Array of NotesEmbeddedObjects
+	Dim v_NomsFichiers As Variant				' Array of strings
+	Dim i As Long
+	
+	Set nd = pnuid_Source.Document
+	
+	' Vérification de la présence de l'item contenant les fichiers et qu'il y a des Fichiers dans l'item
+	Set nrti = nd.Getfirstitem("SIXT_Fichiers")
+	If nrti Is Nothing Then
+		Messagebox xGDK_xMessage("SI", 145, "", ""), 48, xGDK_xMessage("SI", 3, "", "")
+		Call pnuid_Source.GotoField("SIXT_Fichiers")
+		Exit Sub
+	Elseif nrti.Type &lt;&gt; RICHTEXT Then
+		Messagebox xGDK_xMessage("SI", 145, "", ""), 48, xGDK_xMessage("SI", 3, "", "")
+		Call pnuid_Source.GotoField("SIXT_Fichiers")
+	Elseif Isarray(nrti.Embeddedobjects) = False Then
+		Messagebox xGDK_xMessage("SI", 146, "", ""), 48, xGDK_xMessage("SI", 3, "", "")
+		Call pnuid_Source.GotoField("SIXT_Fichiers")
+		Exit Sub				
+	End If
+	
+	' Vérification du nombre de fichiers vs le nombre de langues sélectionnées
+	v_aneo = nrti.EmbeddedObjects
+	If Ubound(v_aneo) &lt;&gt; Ubound(nd.SIXT_Langues) Then
+		Messagebox xGDK_xMessage("SI", 147, "", ""), 48, xGDK_xMessage("SI", 3, "", "")
+		Call pnuid_Source.GotoField("SIXT_Fichiers")
+		Exit Sub
+	End If
+	
+	' Vérification de la présence de toutes les fichiers déclarées (s'il y a plusieurs langues seulement)
+	If Isarray(xVar(nd, "SIXT_Langues", "")) Then
+		v_NomsFichiers = xVar(nd, "SIXT_NomsFichiers", "")
+		If Isarray(v_NomsFichiers) Then
+			For i = Lbound(v_NomsFichiers) To Ubound(v_NomsFichiers)
+				Set neo = nrti.Getembeddedobject(v_NomsFichiers(i))
+				If neo Is Nothing Then
+					Messagebox xGDK_xMessage("SI", 148, "", v_NomsFichiers(i)), 48, _
+					xGDK_xMessage("SI", 3, "", "")
+					Call pnuid_Source.GotoField("SIXT_Fichiers")
+					Exit Sub
+				End If
+			Next
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIXT, gc_Element_SIXT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073636,22-05</datetime></item></scriptlibrary>
+
+</database>

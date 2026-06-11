@@ -1,0 +1,514 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_tNombre" hide="v3 v4strict" designerversion="8.5.3" comment="2.6">
+<noteinfo noteid="55572a" unid="58DFDE6B1C30ECA1852586B40011FB90" sequence="76">
+<created><datetime dst="true">20210410T231625,12-04</datetime></created>
+<modified><datetime>20260105T014837,31-05</datetime></modified>
+<revised><datetime>20250319T073634,16-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,30-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,30-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_GestionErreurs"
+'
+'	Les fonctions définies dans cette bibliothèque permettent de manipuler des nombres (integer, long et double).
+
+
+
+</lotusscript></code><code event="declarations"><lotusscript>
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SItN = "SL"
+Const gc_Element_SItN = "SI_tNombre"
+
+</lotusscript></code><code event="terminate"><lotusscript>Sub Terminate
+	
+End Sub
+
+
+</lotusscript></code><code event="SItN_cdbl"><lotusscript>Function SItN_cdbl(Byval p_Nombre As String) As Double
+	On Error Goto GererErreur
+	
+	Dim v_Nombre As String
+	Dim v_Separateur As Integer
+	Dim i As Integer
+	Dim v_Gauche As String
+	Dim v_Droite As String
+	Dim p As Long
+	
+	SItN_cdbl = 0
+	v_Nombre = Replace(Fulltrim(p_Nombre), " ", "")
+	If v_Nombre = "" Then
+		Exit Function
+	End If
+	
+	v_Separateur = Instr(v_Nombre, ".")
+	If v_Separateur &gt; 0 Then
+		i = Instr(v_Nombre, ",")
+		If i &gt; 0 Then
+			v_Nombre = Replace(v_Nombre, ",", "")
+			v_Separateur = Instr(v_Nombre, ".")
+		End If
+	Else
+		v_Separateur = Instr(v_Nombre, ",")
+	End If		
+	
+	If v_Separateur &gt; 0 Then
+		v_Gauche = Left(v_Nombre, v_Separateur - 1)
+		v_Droite = Right(v_Nombre, Len(v_Nombre) - v_Separateur)
+		If v_Gauche = "" Then
+			v_Gauche = "0"
+		Elseif v_Gauche = "-" Then
+			v_Gauche = "-0"
+		End If
+		If v_Droite = "" Then
+			SItN_cdbl = Cdbl(v_Gauche)
+		Else
+			v_Nombre = v_Gauche &amp; v_Droite
+			p = 10 ^ Len(v_Droite)
+			SItN_cdbl = Cdbl(v_Nombre) / p
+		End If
+	Else
+		SItN_cdbl = Cdbl(v_Nombre)
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), Cstr(p_Nombre), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItN_NombreEnLettresFR"><lotusscript>Function SItN_NombreEnLettresFR(p_Nombre As Long) As String
+	On Error Goto GererErreur
+	
+	Dim v_NombreEnChiffres As String
+	Dim v_NombreEnLettres As String
+	Dim v_TrancheNum As Integer
+	Dim v_TrancheEnLettres As String
+	Dim v_Centaines As Integer
+	Dim v_Dizaines As Integer
+	Dim v_Unites As Integer
+	Dim v_DizainesEnLettres As String
+	Dim v_CentainesEnLettres As String
+	Dim t As Integer
+	
+	Dim a_Tranches As Variant
+	Dim a_Chiffres As Variant
+	Dim a_Dizaines As Variant
+	a_Tranches = Evaluate(|"" : "mille" : "million" : "milliard" : "billion" : "mille billions" : "trillion" : "mille trillions" : "quatrillion" : "mille quatrillions"|)
+	a_Chiffres = Evaluate(|"zéro" : "un" : "deux" : "trois" : "quatre" : "cinq" : "six" : "sept" : "huit" : "neuf" : "dix" : "onze" : "douze" : "treize" : "quatorze" : "quinze" : "seize" : "dix-sept" : "dix-huit" : "dix-neuf"|)
+	a_Dizaines = Evaluate(|"" : "" : "vingt" : "trente" : "quarante" : "cinquante" : "soixante" : "soixante" : "quatre-vingt" : "quatre-vingt"|)
+	
+	' Si le nombre est inférieur à 20, pas de traitement --&gt; retourner la valeur de la table des chiffres
+	If p_Nombre &lt; 20 Then
+		SItN_NombreEnLettresFR = a_Chiffres(p_Nombre)
+		Exit Function
+	End If
+	
+	SItN_NombreEnLettresFR = ""
+	v_NombreEnChiffres = Cstr(p_Nombre)
+	
+	' Boucler sur chaque tranche (bloc de trois chiffres)
+	t = -1
+	Do
+		If Len(v_NombreEnChiffres) &lt; 3 Then
+			v_NombreEnChiffres = Right("00" &amp; v_NombreEnChiffres, 3)
+		End If
+		t = t + 1
+		v_TrancheNum = Cint(Right(v_NombreEnChiffres, 3))
+		
+		' Traduire la tranche en lettres
+		If v_TrancheNum = 1 And t &gt; 0 And t &lt; 2 Then			' Tranche = 001
+			v_TrancheEnLettres = a_Tranches(t)
+		Elseif  v_TrancheNum &gt; 0 Then
+			If v_TrancheNum &lt; 20 Then								' Tranche &lt; 020
+				v_TrancheEnLettres = a_Chiffres(v_TrancheNum)
+			Else
+				' Centaines
+				v_Centaines = v_TrancheNum \ 100					' 123 --&gt; 1
+				v_CentainesEnLettres = ""
+				If v_Centaines &gt;= 1 Then									' Tranche &gt;= 100
+					If v_Centaines &gt;= 2 Then								' Tranche &gt;= 200
+						v_CentainesEnLettres = a_Chiffres(v_Centaines) &amp; " "
+					End If
+					v_CentainesEnLettres = v_CentainesEnLettres &amp; "cent"
+				End If
+				' Dizaines
+				v_TrancheNum = v_TrancheNum Mod 100		' 123 --&gt; 23
+				If v_TrancheNum = 0 Then								' Tranche = x00
+					If v_Centaines &gt; 1 Then								' Tranche &gt; 1xx
+						v_CentainesEnLettres = v_CentainesEnLettres &amp; "s"
+						v_DizainesEnLettres = ""
+					End If
+				Elseif v_TrancheNum &lt; 20 Then						' Tranche &lt; x20
+					v_DizainesEnLettres = a_Chiffres(v_TrancheNum)
+				Else
+					v_Dizaines = v_TrancheNum \ 10				' 23 --&gt; 2
+					v_DizainesEnLettres = a_Dizaines(v_Dizaines)
+					
+					' Unités
+					v_Unites = v_TrancheNum Mod 10				' 23 --&gt; 3
+					If v_Dizaines = 7 Then								' Tranche = x7x
+						If v_Unites = 1 Then								' Tranche = x71
+							v_DizainesEnLettres = v_DizainesEnLettres &amp; "-et-" &amp; a_Chiffres(v_TrancheNum - ((v_Dizaines - 1) * 10))
+						Else
+							v_DizainesEnLettres = v_DizainesEnLettres &amp; "-" &amp; a_Chiffres(v_TrancheNum - ((v_Dizaines - 1) * 10))
+						End If
+					Elseif v_TrancheNum = 80 Then					' Tranche = x80
+						v_DizainesEnLettres = v_DizainesEnLettres &amp; "s"
+					Elseif v_Dizaines = 9 Then							' Tranche = x9x
+						v_DizainesEnLettres = v_DizainesEnLettres &amp; "-" &amp; a_Chiffres(v_TrancheNum - ((v_Dizaines - 1) * 10))
+					Else
+						If v_Unites = 1 And v_Dizaines &lt;&gt; 8 Then	' Tranche = xx1 &amp; Tranche &lt;&gt; x8x
+							v_DizainesEnLettres = v_DizainesEnLettres &amp; "-et-" &amp; a_Chiffres(v_Unites)
+						Elseif v_Unites &gt;= 1 Then						' Tranche &gt;= xx1
+							v_DizainesEnLettres = v_DizainesEnLettres &amp; "-" &amp; a_Chiffres(v_Unites)
+						End If
+					End If
+				End If
+				
+				v_TrancheEnLettres = Fulltrim(v_CentainesEnLettres &amp; " " &amp; v_DizainesEnLettres)
+			End If
+			
+			v_TrancheEnLettres = v_TrancheEnLettres &amp; " " &amp; a_Tranches(t)
+		End If
+		
+		' Ajouter la tranche au nombre en lettres
+		v_NombreEnLettres = v_TrancheEnLettres &amp; " " &amp; v_NombreEnLettres
+		
+		v_NombreEnChiffres = Left(v_NombreEnChiffres, Len(v_NombreEnChiffres) - 3)
+	Loop Until v_NombreEnChiffres = ""
+	
+	SItN_NombreEnLettresFR = Fulltrim(v_NombreEnLettres)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItN_Max"><lotusscript>Function SItN_Max(p_Valeur1 As Double, p_Valeur2 As Double) As Double
+	On Error Goto GererErreur
+	
+	If p_Valeur1 &gt; p_Valeur2 Then
+		SItN_Max = p_Valeur1
+	Else
+		SItN_Max = p_Valeur2
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItN_NombreEnLettres"><lotusscript>Function SItN_NombreEnLettres(p_Nombre As Long, p_Langue As String)
+	On Error Goto GererErreur
+	
+	If p_langue = "EN" Then
+		SItN_NombreEnLettres = SItN_NombreEnLettresEN(p_Nombre)
+	Else
+		SItN_NombreEnLettres = SItN_NombreEnLettresFR(p_Nombre)
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItN_Round"><lotusscript>Function SItN_Round(Byval p_Nombre As Double, p_Places As Integer) As Double
+	On Error Goto GererErreur
+	
+	Dim v As Variant
+	Dim v_Places As String
+	Dim s As String
+	
+	If p_Places &lt; 0 Then
+		SItN_Round = p_Nombre
+	Else
+		If p_Places = 0 Then
+			v = Evaluate(|@Round(| &amp; Cstr(p_Nombre) &amp; |)|)
+		Else
+			v_Places = Cstr(1 / (10 ^ p_Places))
+			s = |@Round(0| &amp; Cstr(p_Nombre) &amp; |; | &amp; v_Places &amp; |)|
+			v = Evaluate(s)
+		End If
+		SItN_Round = v(0)
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), Cstr(p_Nombre), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItN_Format"><lotusscript>Function SItN_Format(Byval p_Nombre As Double, p_Format As String, p_Langue As String) As String
+	'--------------------------------------------------------------------------------------------	
+	' Le script permet de convertir un nombre en texte
+	' Formats permis :	"Fixed" = -999999999.99
+	'					"Standard" = -999 999 999.99
+	' Langue: Utilise les paramètre du poste si langue est nulle
+	' Note : Le script Format(Abs(p_Nombre), "Standard") retourn une message d'erreur de overflow
+	' lorqu'on l'excute sur le serveur.
+	'---------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nint As NotesInternational
+	Dim ns As New NotesSession	
+	Dim v_SeparateurDecimal As String
+	Dim v_SeparateurMille As String
+	Dim v_NombreFix As Double
+	Dim v_Fraction As Double	
+	Dim v_NombreStandard As String
+	Dim v_Nombre As String
+	
+	Select Case p_Langue
+	Case "FR":
+		v_SeparateurDecimal = ","
+		v_SeparateurMille = " "
+	Case "EN":
+		v_SeparateurDecimal = "."	
+		v_SeparateurMille = ","
+	Case Else:
+		Set nint = ns.International
+		v_SeparateurDecimal = nint.DecimalSep	
+		v_SeparateurMille = nint.ThousandsSep
+	End Select
+	
+	v_NombreFix = Abs(Fix(p_Nombre))
+	v_Fraction = Round((Fraction(p_Nombre) * 100),0)	
+	v_Nombre = Cstr(v_NombreFix)
+	
+	If p_Format = "Standard" Then		
+		
+		If v_SeparateurMille = "" Then
+			v_Nombre = v_Nombre &amp; v_SeparateurDecimal &amp; Right("0" &amp; Cstr(v_Fraction), 2)
+		Else
+			Do While Len(v_Nombre) &gt; 3
+				v_NombreStandard = v_SeparateurMille &amp; Right(v_Nombre, 3) &amp; v_NombreStandard
+				v_Nombre = Left(v_Nombre, Len(v_Nombre) - 3)
+			Loop					
+			v_Nombre = v_Nombre &amp; v_NombreStandard &amp; v_SeparateurDecimal &amp; Right("0" &amp; Cstr(v_Fraction), 2)	
+		End If
+		
+	Elseif p_Format = "Fixed" Then		
+		v_Nombre = v_Nombre &amp; v_SeparateurDecimal &amp; Right("0" &amp; Cstr(v_Fraction), 2)			
+	Else					
+		v_Nombre = Cstr(p_Nombre)
+	End If
+	
+	If p_Nombre &lt; 0 Then
+		SItN_Format = "-" &amp; v_Nombre
+	Else
+		SItN_Format = v_Nombre
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), Cstr(p_Nombre), False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SItN_ArrondirHaut"><lotusscript>Function SItN_ArrondirHaut(Byval p_Nombre As Double, p_Arrondi As Double) As Double
+	' p_Arrondi : ex.: 1, 0.5, 0.25. 5
+	On Error Goto GererErreur
+	
+	' Arrondir haut:
+	SItN_ArrondirHaut = SItN_ArrondirBas(p_Nombre, p_Arrondi)
+	If SItN_ArrondirHaut &lt; p_Nombre Then
+		SItN_ArrondirHaut = SItN_ArrondirHaut + p_Arrondi
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), Cstr(p_Nombre), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItN_RoundUp"><lotusscript>Function SItN_RoundUp(Byval p_Nombre As Double) As Double
+	On Error Goto GererErreur
+	
+	If Fraction(p_Nombre) &gt; 0 Then		
+		SItN_RoundUp = Cdbl(Fix(p_Nombre) + 1)
+	Else
+		SItN_RoundUp = p_Nombre
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), Cstr(p_Nombre), False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SItN_NombreEnLettresEN"><lotusscript>Function SItN_NombreEnLettresEN(p_Nombre As Long)
+	On Error Goto GererErreur
+	
+	Dim a_Dizaines As Variant
+	Dim a_Chiffres As Variant
+	Dim a_Tranches As Variant	
+	Dim v_NombreEnChiffres As String
+	Dim t As Integer
+	Dim v_NombreEnLettres As String	
+	Dim v_TrancheEnLettres As String
+	Dim v_TrancheNum As Integer
+	Dim v_Centaines As Integer
+	Dim v_Dizaines As Integer	
+	Dim v_DizainesEnLettres As String
+	Dim v_CentainesEnLettres As String
+	Dim v_Unites As Integer
+	
+	a_Dizaines = Evaluate(|"":"":"Twenty" : "Thirty" : "Forty" : "Fifty" : "Sixty" : "Seventy" : "Eighty" : "Ninety"|)
+	a_Chiffres = Evaluate(|"": "One":"Two":"Three":"Four":"Five":"Six":"Seven":"Eight": "Nine": "Ten": "Eleven": "Twelve": "Thirteen": "Fourteen": "Fifteen": "Sixteen": "Seventeen": "Eighteen": "Nineteen"|)
+	a_Tranches = Evaluate(|"":"":"Thousand":"Million":"Billion":"Trillion":"":"":"":""|)
+	
+	' Si le nombre est inférieur à 20, pas de traitement --&gt; retourner la valeur de la table des chiffres
+	If p_Nombre &lt; 20 Then
+		SItN_NombreEnLettresEN = a_Chiffres(p_Nombre)
+		Exit Function
+	End If
+	
+	SItN_NombreEnLettresEN = ""	
+	v_NombreEnChiffres = Cstr(p_Nombre)
+	
+	t = 0
+	
+	Do While v_NombreEnChiffres &lt;&gt; ""
+		
+		v_TrancheEnLettres = ""	
+		
+		v_TrancheNum = Right("000" &amp; v_NombreEnChiffres, 3)
+		
+		If Len(v_NombreEnChiffres) &lt; 3 Then
+			v_NombreEnChiffres = Right("00" &amp; v_NombreEnChiffres, 3)
+		End If
+		
+		t = t + 1
+		
+		v_TrancheNum = Cint(Right(v_NombreEnChiffres, 3))
+		
+		If v_TrancheNum &gt; 0 And v_TrancheNum &lt; 19 Then
+			
+			v_TrancheEnLettres = a_Chiffres(v_TrancheNum)
+			
+		Else
+			v_Centaines = v_TrancheNum \ 100				
+			v_CentainesEnLettres = ""
+			If v_Centaines &gt;= 1 And v_Centaines =&lt; 9 Then		
+				v_CentainesEnLettres = a_Chiffres(v_Centaines)  &amp; " " &amp; "Hundred" &amp; " "
+			End If
+			
+			' Dizaines
+			v_TrancheNum = v_TrancheNum Mod 100		' 123 --&gt; 23
+			
+			If v_TrancheNum &lt; 20 And  v_TrancheNum &gt; 0 Then
+				
+				v_DizainesEnLettres = a_Chiffres(v_TrancheNum) &amp; " "				
+				
+			Else				
+				
+				v_Dizaines = v_TrancheNum \ 10				' 23 --&gt; 2
+				v_DizainesEnLettres = a_Dizaines(v_Dizaines) &amp; " "			
+				
+				' Unités
+				v_Unites = v_TrancheNum Mod 10				' 23 --&gt; 3			
+				If v_Unites &gt;= 1 And v_Unites =&lt; 9 Then	
+					v_DizainesEnLettres = Trim(v_DizainesEnLettres) &amp; "-" &amp; a_Chiffres(v_Unites)
+				End If	
+				
+			End If
+			
+			v_TrancheEnLettres = Fulltrim(v_CentainesEnLettres &amp; " " &amp; v_DizainesEnLettres)
+			
+		End If
+		
+		If v_TrancheEnLettres &lt;&gt; "" Then 
+			v_NombreEnLettres = v_TrancheEnLettres  &amp; " " &amp; a_Tranches(t) &amp; " " &amp; v_NombreEnLettres
+		End If
+		
+		If Len(v_NombreEnChiffres) &gt; 3 Then			
+               ' Retirer 3 dernier chiffres converti
+			v_NombreEnChiffres = Left(v_NombreEnChiffres, Len(v_NombreEnChiffres) - 3)
+		Else
+			v_NombreEnChiffres = ""
+		End If
+		
+	Loop
+	
+	SItN_NombreEnLettresEN = Trim(v_NombreEnLettres)
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItN_isNumeric"><lotusscript>Function SItN_isNumeric(Byval p_Nombre As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_Nombre As String
+	Dim v_Separateur As Integer
+	Dim i As Integer
+	Dim v_Gauche As String
+	Dim v_Droite As String
+	Dim p As Long
+	
+	SItN_isNumeric = False
+	v_Nombre = Replace(Fulltrim(p_Nombre), " ", "")
+	If v_Nombre = "" Then
+		Exit Function
+	End If
+	
+	v_Separateur = Instr(v_Nombre, ".")
+	If v_Separateur &gt; 0 Then
+		i = Instr(v_Nombre, ",")
+		If i &gt; 0 Then
+			v_Nombre = Replace(v_Nombre, ",", "")
+			v_Separateur = Instr(v_Nombre, ".")
+		End If
+	Else
+		v_Separateur = Instr(v_Nombre, ",")
+	End If		
+	
+	If v_Separateur &gt; 0 Then
+		v_Gauche = Left(v_Nombre, v_Separateur - 1)
+		v_Droite = Right(v_Nombre, Len(v_Nombre) - v_Separateur)
+		
+		' SItN_isNumeric = IsNumeric(v_Gauche) And IsNumeric(v_Droite)
+		SItN_isNumeric = (v_Gauche = "" Or Isnumeric(v_Gauche)) And ( v_Droite = "" Or Isnumeric(v_Droite)) And (v_Gauche &lt;&gt; "" Or v_Droite &lt;&gt; "")
+	Else
+		SItN_isNumeric = Isnumeric(v_Nombre)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), Cstr(p_Nombre), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItN_ArrondirBas"><lotusscript>Function SItN_ArrondirBas(Byval p_Nombre As Double, p_Arrondi As Double) As Double
+	' p_Arrondi : ex.: 1, 0.5, 0.25. 5
+	On Error Goto GererErreur
+	
+	SItN_ArrondirBas = Int((p_Nombre / p_Arrondi)) * p_Arrondi
+	' FIN
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItN, gc_Element_SItN, Getthreadinfo(1), Cstr(p_Nombre), False)
+	Exit Function
+End Function
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,16-05</datetime></item></scriptlibrary>
+
+</database>

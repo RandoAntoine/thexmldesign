@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Temp" hide="v3 v4strict" designerversion="8.5.3" comment="1.3">
+<noteinfo noteid="5557e6" unid="699DB4C7B4132282852587AB007A82C3" sequence="32">
+<created><datetime>20211214T171808,67-05</datetime></created>
+<modified><datetime>20260105T014837,72-05</datetime></modified>
+<revised><datetime>20250319T073634,25-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,71-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,71-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "x_GDK"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SITp As NotesSession
+Dim gndb_Temp_SITp As NotesDatabase
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SITp = "SL"
+Const gc_Element_SITp = "SI_Temp"
+
+</lotusscript></code><code event="SITp_ndTemp"><lotusscript>Function SITp_ndTemp(p_Description As String) As NotesDocument
+	' Fonction permettant de créer un nouveau document temporaire
+	On Error Goto GererErreur
+	
+	Set SITp_ndTemp = Nothing
+	
+	If SITp_Initialisations then
+		Set SITp_ndTemp = New NotesDocument(gndb_Temp_SITp)
+		SITp_ndTemp.Cle = Evaluate(|@Unique|)
+		SITp_ndTemp.Description = p_Description
+		SITp_ndTemp.HistoDC = Now
+		SITp_ndTemp.HistoUC = gns_SITp.UserName
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SITp, gc_Element_SITp, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SITp_Initialisations"><lotusscript>Function SITp_Initialisations As Boolean
+	On Error GoTo GererErreur
+	
+	SITp_Initialisations = False
+	
+	If gns_SITp Is Nothing Then
+		Set gns_SITp = New NotesSession
+		Set gndb_Temp_SITp = xGDK_xndbNDB("SITp")
+	End If
+	
+	If Not (gndb_Temp_SITp Is Nothing) Then
+		SITp_Initialisations = gndb_Temp_SITp.IsOpen
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SITp, gc_Element_SITp, GetThreadInfo(1), "", False)
+	Exit Function
+End function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,25-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Proposition\Ouvrir" alias="A_OPP" hide="v3" publicaccess="false" designerversion="8.5.3" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" restrictions="unrestricted" activatable="false" enabled="false">
+<noteinfo noteid="3a751a" unid="7F3F10AE329D35AB85258935005211F8" sequence="34">
+<created><datetime>20230112T095625,52-05</datetime></created>
+<modified><datetime>20250319T074100,76-05</datetime></modified>
+<revised><datetime>20250319T073743,70-05</datetime></revised>
+<lastaccessed><datetime>20250319T074100,75-05</datetime></lastaccessed>
+<addedtofile><datetime>20230112T233623,87-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073743,24-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="daily" runlocation="any">
+<starttime><datetime>T010000,00</datetime></starttime></schedule></trigger>
+<documentset type="modified"/><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SDSP_PropositionUI"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>
+' Traitement des erreurs
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_OPP"		' Inscrire l'alias de l'agent
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+
+	Dim ns As New NotesSession
+	Dim ndb As NotesDatabase
+	Dim nd_Prop As NotesDocument
+	Dim nd_PNav As NotesDocument
+	Dim nuiws As New NotesUIWorkspace
+	Dim v_DocId As String
+	Dim v_EditMode As Boolean
+	Dim v_Statut As String
+	
+	Set ndb = ns.Currentdatabase
+	v_DocId = ns.Currentagent.ParameterDocId
+	Set nd_Prop = ndb.Getdocumentbyid(v_DocId)
+
+	Set nd_PNav = New NotesDocument(ndb)
+	nd_PNav.Form = "F_PNav0.00"
+	
+	nd_PNav.PNav_Titre = Trim("C" &amp; CStr(xVar(nd_Prop, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(nd_Prop, "Prop_ClientNomInterne", xVar(nd_Prop, "Prop_ClientNom", "")))
+	
+	nd_PNav.Prop_NoProposition = xVar(nd_Prop, "Prop_NoProposition", "")
+	nd_PNav.Prop_ClientNomInterne = xVar(nd_Prop, "Prop_ClientNomInterne", "")
+	
+	v_EditMode = False
+	
+	If SDSPP_AccesAuteur(nd_Prop) Then
+		
+		Select Case SDSPP_EstAuteur(nd_Prop)			
+		Case 1:
+			' si pas role [Admin] - lookup dans table des statut
+			v_EditMode = SDSPP_EditMode(nd_Prop)		
+		Case 2:
+			' Si role [Admin]- toujours ouvrir en edit mode
+			v_EditMode = True			
+	End Select		
+		
+	End If
+	
+	If v_EditMode Then
+		nd_PNav.PNav_EditMode = 1 
+	Else
+		nd_PNav.PNav_EditMode = 0
+		nd_PNav.SaveOptions = "0"
+	End If
+	
+	On Error Resume Next
+	Call nuiws.EditDocument(True, nd_PNav)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="BE29CEC0BE91C0D585258CA80054AF0C">
+<agentmodified><datetime>20250319T074100,76-05</datetime></agentmodified>
+<agentrun><datetime>20260218T094151,34-05</datetime></agentrun>
+<runlog>Started running agent 'Proposition\Ouvrir|A_OPP' on 2026-02-18 09:41:32
+Running on new or modified documents: 1051649 total
+Found 1051649 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Proposition\Ouvrir|A_OPP' on 2026-02-18 09:41:51
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073743,70-05</datetime></item></agent>
+
+</database>

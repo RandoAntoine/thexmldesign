@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Maj geolocalisation" alias="A_MajGL" hide="web v3" publicaccess="false" designerversion="8.5.3" comment="** SI Agents 60min" restrictions="fulladminunrestricted" activatable="false" enabled="false">
+<noteinfo noteid="2e00ea" unid="2FE695DCD8C34EAE852583FC006426C9" sequence="466">
+<created><datetime dst="true">20190516T141355,29-04</datetime></created>
+<modified><datetime>20250319T074052,33-05</datetime></modified>
+<revised><datetime>20250319T073740,89-05</datetime></revised>
+<lastaccessed><datetime>20250319T074052,32-05</datetime></lastaccessed>
+<addedtofile><datetime>20211104T113339,44-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073740,42-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="daily" runlocation="any">
+<starttime><datetime>T010000,00</datetime></starttime></schedule></trigger><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "SI_Insertions"
+Use "x_PJ"
+Use "x_SDSP3"
+Use "x_SICl"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_MajGeoLoc"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	' =====================================================================================
+	' Agent pour maj. la géolocalisation des sites
+	' =====================================================================================
+	On Error Goto GererErreur
+	
+	' Initialisations	
+	Call A_Initialisations
+	
+	' Traitement
+	Call A_Traitement	
+	
+	Exit Sub
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="A_Traitement"><lotusscript>Sub A_Traitement
+	
+	Dim nv As NotesView
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	
+	Dim nd_Clie As NotesDocument
+	
+	Dim v_Origine As String
+	Dim v_NoClientFmt As String
+	
+	Dim v_Formule As String
+	Dim ndc_Sites As NotesDocumentCollection
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	Dim v_Maj As Boolean
+	
+	Print "Début maj. geolocalisation"
+	
+	v_Formule = {Form = "F_Site" &amp; Site_ClientLatitude = 0  &amp; Site_ClientLongitude = 0}
+	
+	Set ndc_Sites = gndb_A.Search(v_Formule, Nothing, 0)
+	
+	If ndc_Sites.Count = 0 Then
+		Exit Sub
+	End If
+	
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)
+	
+	' Boucler les sites	
+	Set nd_Suivant = ndc_Sites.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc_Sites.GetNextDocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		
+		v_Origine = xSDSP3_xVarProp(xVar(nd, "Site_NoProposition", ""), "Prop_Origine", "", False)
+		If v_Origine &lt;&gt; "SF" then
+			v_NoClientFmt = xVar(nd, "Site_ClientNoFmt", "")
+			
+			If v_NoClientFmt &lt;&gt; "" Then
+				Set nd_Clie = xSICl_xndClie(v_NoClientFmt, False)			
+				If nd_Clie Is Nothing Then
+					Set nd_Clie = xPJ_xndClie(v_Origine, xVar(nd, "Site_OrigineCle", ""), False)
+				End If			
+			Else
+				Set nd_Clie = xPJ_xndClie(v_Origine, xVar(nd, "Site_OrigineCle", ""), False)
+			End If
+			
+			If Not nd_Clie Is Nothing Then
+				
+				v_Maj = SIIx_MajItem(nd, "Site_ClientLatitude",xVar(nd_Clie, "Clie_GeoLatitude", 0), False)
+				v_Maj = SIIx_MajItem(nd, "Site_ClientLongitude",xVar(nd_Clie, "Clie_GeoLongitude", 0), False)
+				
+				If v_Maj Then				
+					Call nd.save(True, False)
+					v_NbMaj = v_NbMaj + 1
+					Call SIGE_AjouterLog("Maj... " &amp; xVar(nd, "Site_ClientNomInterne", "") &amp; "  -  " &amp; xVar(nd, "Site_NoSite", ""), 0, 0, False)
+				End If
+			End If
+		End If
+		
+		If (v_NbLus Mod 1000) = 0 Then
+			Print CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus)
+		End If
+	Loop
+	
+	Print "Fin maj. geolocalisation " &amp; CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus)
+	Call SIGE_AjouterLog("Fin maj. geolocalisation " &amp; CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus), 0, 0, False)
+	Call SIGE_EnregistrerLog
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="F8DD5C65223D23E185258C5200475B55">
+<agentmodified><datetime>20250319T074052,33-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260407T180410,73-04</datetime></agentrun>
+<runlog>Started running agent 'Maj geolocalisation|A_MajGL' on 2026-04-07 06:03:20 PM
+Found 0 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Maj geolocalisation|A_MajGL' on 2026-04-07 06:04:10 PM
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073740,89-05</datetime></item></agent>
+
+</database>

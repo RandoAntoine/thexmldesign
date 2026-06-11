@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Document\Envoyer OSsg EN" alias="DB_EnvoiOSSg" hide="web" publicaccess="false" designerversion="8.5.3" language="en" renderpassthrough="true">
+<noteinfo noteid="2d31e6" unid="74A0C4733325EA308525876D006CA52D" sequence="82">
+<created><datetime dst="true">20211013T154641,73-04</datetime></created>
+<modified><datetime>20250319T074051,88-05</datetime></modified>
+<revised><datetime>20250319T073754,75-05</datetime></revised>
+<lastaccessed><datetime>20250319T074051,87-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20211013T160312,59-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Declare
+Use "DB_EnvoiOSSg"
+</lotusscript></code></globals><code event="queryclose"><lotusscript>Sub Queryclose(Source As Notesuidocument, Continue As Variant)
+	Continue =  DBEnvOSSg_Queryclose(Source)	
+End Sub</lotusscript></code>
+<body><richtext>
+<pardef id="1" leftmargin="1in" hide="notes web mobile"/>
+<par def="1"><run><font size="9pt" color="red"/>Autres champs : </run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Cour_UnidParent"><code event="defaultvalue"><formula>@InheritedDocumentUniqueID</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Cour_Initiales"><code event="defaultvalue"><formula>@Left(@Left(From ; " "); 1) + @Left(@Right(From ; " "); 1)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="19" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="number" kind="computed" name="Cour_Envoye"><numberformat format="general" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="Cour_ExpediteurChoix" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>(@Name([CN]; @UserName) + "| 00") : @DbLookup(""; ""; "V_Tabl20"; "SLOSS_BCUsr_EN"; 6; [FailSilent])</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="33" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="Cour_NoRepresentant"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="40" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Cour_Type"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="46" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="CourCC_OneSpanSign" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="52" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Cour_Langue"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="58" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/><field type="richtext" kind="computed" name="BodyCC"><code event="defaultvalue"><formula>"CC: " + @Implode(CourCC_OneSpanSign;", ")</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="64" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/><field type="richtext" kind="computed" name="BodySendTo"><code event="defaultvalue"><formula>@If(Cour_Langue = "EN";"Signer: ";"Signataire: ") + @Implode(SendTo;", ")</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="70" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="1"><run><font size="9pt" color="red"/>Identificateurs : </run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Form"><code event="defaultvalue"><formula>REM {"F_Cour"};
+"Memo"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" style="bold underline" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>@Text(Cour_UnidParent)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="18" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>Cour_NoProposition</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="27" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computedfordisplay" name="Titre"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="36" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="2" leftmargin="1in"/>
+<par def="2"><run><font size="9pt" color="red"/></run></par>
+<table widthtype="fixedleft" refwidth="11.8201in"><tablecolumn width="11.8201in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="3" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="3"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table leftmargin="0" widthtype="fixedleft" refwidth="11.8097in"><tablecolumn width="11.8097in"/>
+<tablerow>
+<tablecell>
+<cellbackground><imageref><code event="value"><formula>"bg_Actions"</formula></code></imageref></cellbackground>
+<pardef id="5" hide="web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font color="blue"/></run><actionhotspot hotspotstyle="none"><run><font color="blue"/></run><picture width="71px" height="32px"><imageref name="hs_Envoyer_Orange_EN"/></picture><code event="click"><lotusscript>Sub Click(Source As Button)
+	
+	Call DBEnvOSSg_acEnvoyer
+End Sub</lotusscript></code></actionhotspot><run><font color="blue"/> </run><actionhotspot hotspotstyle="none"><picture width="81px" height="32px"><imageref name="hs_Annuler_Orange_EN"/></picture><run><font size="9pt" color="red"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBEnvOSSg_acAnnuler
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt" color="red"/> </run></par></tablecell></tablerow></table>
+<par def="3"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par><subformref name="Entete | SF_Ente"/>
+<pardef id="6" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.3153in" leftmargin="0.0889in" rightmargin="99%" refwidth="11.6132in"><tablecolumn width="1.3583in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1771in"/><tablecolumn width="0.7875in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="8" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/>Proposal Number:</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="10" keepwithnext="true" keeptogether="true"/>
+<par def="10"><run><font size="9pt"/> </run><run><font size="9pt"/><field type="text" kind="computed" name="Cour_NoProposition"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="11" keepwithnext="true" keeptogether="true"/>
+<par def="11"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="12" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="9pt"/>Client :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="13" keepwithnext="true" keeptogether="true"/>
+<par def="13"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="14" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="9pt"/><field type="text" kind="computed" name="Cour_ClientNoFmt"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>     <run><font size="9pt" color="maroon"/><field type="text" kind="computed" name="Cour_ClientNom"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="13" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell></tablerow></table>
+<par def="3"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.0889in" rightmargin="99%" refwidth="11.6028in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="15" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="15"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(Theme = ""; "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="16" keepwithnext="true" keeptogether="true"/>
+<par def="16"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="6"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.0889in" rightmargin="99%" refwidth="11.6132in"><tablecolumn width="1.3583in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="17" leftmargin="0.0778in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>!@IsNull(Cour_NoRepresentant)</formula></code></pardef>
+<par def="17"><run><font size="9pt"/>Sent By :</run></par>
+<par def="17"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="18" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Principal != "" | !@IsNull(Cour_NoRepresentant) | Cour_Type = "OSS"</formula></code></pardef>
+<par def="18"><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="19" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>!@IsNull(Cour_NoRepresentant) | Cour_Type = "OSS"</formula></code></pardef>
+<par def="19"><run><font size="9pt"/><field defaultfocus="true" borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="Cour_Principal"><keywords helperbutton="false" recalconchange="true" columns="4" ui="radiobutton"><formula>Cour_ExpediteurChoix</formula></keywords><code event="defaultvalue"><formula>@ThisValue</formula></code><code event="inputvalidation"><formula>@If(Cour_Type = "BC" &amp; @IsNull(@ThisValue) &amp; @IsNull(Cour_NoRepresentant); @Failure("The Send By field is mandatory."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par>
+<pardef id="20" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="20"><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Principal"><code event="defaultvalue"><formula>v_NomTable := "SLOSS_BCUsr_EN";
+v_Cle := Cour_Principal;
+v_NomMailIn := @If(@IsNull(v_Cle); ""; @Replace(v_Cle; @DbLookup(""; ""; "V_Tabl20"; v_NomTable; 4; [FailSilent]); @DbLookup(""; ""; "V_Tabl20"; v_NomTable; 5; [FailSilent])));
+@If(Cour_Principal = "00";@UserName;v_NomMailIn)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<pardef id="21" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "OSS"</formula></code></pardef>
+<par def="21"><run><font size="9pt"/>SERTI</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="22" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>!@IsNull(Cour_NoRepresentant)</formula></code></pardef>
+<par def="22"><run><font size="9pt"/>Reply To :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="23" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>!@IsNull(Cour_NoRepresentant)</formula></code></pardef>
+<par def="23"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="24" leftmargin="0" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="24"><run><font size="9pt" color="red"/><field borderstyle="inset" type="text" kind="computed" name="ReplyTo"><keywords helperbutton="false" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="blue"/></run></par>
+<pardef id="25" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>!@IsNull(Cour_NoRepresentant)</formula></code></pardef>
+<par def="25"><run><font size="9pt" color="blue"/></run><run><font size="9pt"/><field type="text" kind="computed" name="Cour_ReplyToDesc"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="11" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="blue"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="26" leftmargin="0.0778in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "BC" &amp; Cour_Type != "OSS"</formula></code></pardef>
+<par def="26"><run><font size="9pt"/>Send To :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="27" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "BC"</formula></code></pardef>
+<par def="27"><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="28" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "BC"</formula></code></pardef>
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="80%" choicesdialog="addressbook" lookupeachchar="true" lookupaddressonrefresh="true" type="names" allowmultivalues="true" kind="editable" name="SendTo" listinputseparators="comma" listdisplayseparator="comma"><keywords columns="1" ui="dialoglist" allownew="true"/><code event="inputvalidation"><formula>@If(Cour_Type = "BC" &amp; @IsNull(@ThisValue); @Failure("The Send To field is mandatory."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par>
+<pardef id="29" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "OSS"</formula></code></pardef>
+<par def="29"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computedfordisplay" name="Cour_SendToOneSpanSign_1"><code event="defaultvalue"><formula>SendTo</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="30" leftmargin="0.0778in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "BC" &amp; @IsNull(CourCC_OneSpanSign)</formula></code></pardef>
+<par def="30"><run><font size="9pt"/>CC :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="31" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "BC" &amp; @IsNull(CourCC_OneSpanSign)</formula></code></pardef>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="80%" choicesdialog="addressbook" lookupeachchar="true" lookupaddressonrefresh="true" type="names" allowmultivalues="true" kind="editable" name="CopyTo" listinputseparators="comma" listdisplayseparator="comma"><keywords columns="1" ui="dialoglist" allownew="true"/></field></run><run><font size="9pt"/></run></par>
+<pardef id="32" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "BC" &amp; @IsNull(CourCC_OneSpanSign)</formula></code></pardef>
+<par def="32"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="computedfordisplay" name="Cour_CCOneSpanSign_1" listinputseparators="comma semicolon" listdisplayseparator="comma"><code event="defaultvalue"><formula>CourCC_OneSpanSign</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="32"><run><font size="3pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="33" leftmargin="0.0778in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "BC"</formula></code></pardef>
+<par def="33"><run><font size="9pt"/>BCC :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="34" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "BC"</formula></code></pardef>
+<par def="34"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="80%" choicesdialog="addressbook" lookupeachchar="true" lookupaddressonrefresh="true" type="names" allowmultivalues="true" kind="editable" name="Cour_Bcc" listinputseparators="comma" listdisplayseparator="comma"><keywords columns="1" ui="dialoglist" allownew="true"/></field></run><run><font size="9pt"/></run></par>
+<par def="20"><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field usenotesstyle="false" height="0.2028in" width="80%" choicesdialog="addressbook" lookupeachchar="true" lookupaddressonrefresh="true" type="names" allowmultivalues="true" kind="editable" name="BlindCopyTo" listinputseparators="comma" listdisplayseparator="comma"><keywords columns="1" ui="dialoglist" allownew="true"/></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="35" leftmargin="0.0778in" keepwithnext="true" keeptogether="true"/>
+<par def="35"><run><font size="9pt"/>Subject :</run></par>
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="36" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="36"><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="20"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" leftmargin="0" refwidth="10.0778in"><tablecolumn width="81.2049%"/><tablecolumn width="0.1493in"/><tablecolumn width="18.7951%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="38" keepwithnext="true" keeptogether="true"/>
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="100%" borderstyle="single" type="text" kind="editable" name="Subject"><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue); @Failure("L'objet du courriel est obligatoire.");
+@Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="39" keepwithnext="true" keeptogether="true"/>
+<par def="39"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="40" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Cour_Type != "OSS"</formula></code></pardef>
+<par def="40"><run><font size="9pt"/></run><run><font size="9pt" color="red"/><computedtext><code event="value"><formula>v_LenMaxSujet :=80;
+v_LongueurSujet := @Length(Subject);
+
+@If(v_LongueurSujet &gt; v_LenMaxSujet; "(" + @Text(v_LongueurSujet - v_LenMaxSujet) + " characters too long)" ;"")</formula></code></computedtext></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="20"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par></tablecell></tablerow></table>
+<par def="6"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.0889in" rightmargin="99%" refwidth="11.6028in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="15"><run><font size="8pt" style="bold" color="maroon"/>Message</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(Theme = ""; "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="16"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="6"><run><font size="3pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.0889in" rightmargin="99%" refwidth="11.6132in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="41" leftmargin="0.0889in" keepwithnext="true" keeptogether="true"/>
+<par def="41"><run><font size="9pt"/></run><run><font size="9pt"/><field type="richtext" kind="editable" name="Body"><code event="defaultvalue"><formula>@Text(Body)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<pardef id="42" leftmargin="0.0889in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="42"><run><font size="9pt" color="red"/></run></par>
+<pardef id="43" leftmargin="0" keepwithnext="true" keeptogether="true"/>
+<par def="43"><run><font size="9pt"/></run></par>
+<par def="43"><run><font size="9pt"/></run></par>
+<par def="43"><run><font size="9pt"/></run></par>
+<par def="43"><run><font size="9pt"/></run></par>
+<par def="43"><run><font size="9pt"/></run></par>
+<par def="43"><run><font size="9pt"/></run></par>
+<par def="43"><run><font size="9pt"/></run></par></tablecell></tablerow></table></tablecell></tablerow></table>
+<pardef id="44" hide="notes web"/>
+<par def="44"/></richtext></body>
+<item name="Cour_Date" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Cour_Heure" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="HistoDC" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="HistoDM" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$SubForm_RepIDs" sign="true"><text>0000000000000000</text></item>
+<item name="Cour_Envoye" summary="false"><number>0</number></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>DB_EnvoiOSSg</text></item></form>
+
+</database>

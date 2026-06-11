@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Document" hide="v3 v4strict" designerversion="8.5.3" comment="1.0">
+<noteinfo noteid="5556e2" unid="96B1C89B822487F1852586B40011FB5E" sequence="77">
+<created><datetime dst="true">20210410T231624,62-04</datetime></created>
+<modified><datetime>20260105T014837,13-05</datetime></modified>
+<revised><datetime>20250319T073643,51-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,12-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,12-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_DocumentsVentes"
+Use "x_Tabl"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSPD As NotesSession
+Dim gndb_SDSPD As NotesDatabase
+Dim g_NoRep_SDSPD As String
+
+' Le type de document pour les images
+Const g_TypeDocumentIM = 3
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPD = "SL"
+Const gc_Element_SDSPD = "SDSP_Document"
+
+
+</lotusscript></code><code event="SDSPD_CreerDocument_SIDV"><lotusscript>Function SDSPD_CreerDocument_SIDV(p_NoProposition As String, p_TypeDocument As String, p_CheminAcces As String, _
+	p_Description As String, p_UserName As String) As NotesDocument
+	' Script appelé via Impression
+	On Error Goto GererErreur
+	
+	Dim nd_Docu As NotesDocument
+	Dim nd_Prop As NotesDocument
+	
+	' Initialisations
+	Call xSIDocV_Initialisations
+	
+	Set SDSPD_CreerDocument_SIDV = Nothing
+	
+	' Validation
+	If p_TypeDocument = "" Then
+		Exit Function
+	End If
+	
+	Set nd_Prop = xSDSP3_xndProp(p_NoProposition, True)
+	
+	If nd_Prop Is Nothing Then
+		Exit Function
+	End If
+	
+	Set nd_Docu =  SIDocV_CreerDocument("SDSP3" , p_NoProposition, _
+	xVar(nd_Prop, "Prop_DescProposition", "") , xVar(nd_Prop, "Prop_NbPropositionFmt", ""), _
+	xVar(nd_Prop, "Prop_ClientNoFmt", ""), xVar(nd_Prop, "Prop_ClientNom", ""), _
+	p_TypeDocument, "1", p_CheminAcces, p_Description, p_UserName)
+	
+	Set SDSPD_CreerDocument_SIDV = nd_Docu
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPD, gc_Element_SDSPD, GetThreadInfo(1), _
+	xVar(nd_Prop, "Prop_NoProposition", "") &amp; ";" &amp; p_CheminAcces, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPD_AssignerSecurite"><lotusscript>Sub SDSPD_AssignerSecurite(pnd_Prop As NotesDocument, pnd_Docu As NotesDocument, p_TypeDocument As String)
+	On Error Goto GererErreur
+	
+	Dim v_IdCreateur As Variant
+	Dim v_IdRepresentant As Variant
+	Dim v_IdSuperviseur As Variant
+	Dim ni As NotesItem
+	
+	v_IdCreateur = xVar(pnd_Prop, "HistoUC", "")
+	v_IdRepresentant = xVar(pnd_Prop, "Prop_IdRepresentant", "")
+	v_IdSuperviseur = xVar(pnd_Prop,"Prop_IdSuperviseur", "")
+	
+	Set ni = New NotesItem(pnd_Docu, "LecteurAdmin", "[LecteurToutes]", READERS)
+	Set ni = New NotesItem(pnd_Docu, "AuteurAdmin", "[Admin]", AUTHORS)
+	Set ni = New NotesItem(pnd_Docu, "Auteur", xVar(pnd_Prop, "Auteur", ""), AUTHORS)
+	Set ni = New NotesItem(pnd_Docu, "Lecteur", v_IdRepresentant, READERS)
+	
+	If v_IdCreateur &lt;&gt; "" And v_IdCreateur &lt;&gt; v_IdRepresentant Then
+		Call ni.AppendToTextList(v_IdCreateur)
+	End If
+	
+	If Isarray(v_IdSuperviseur) Then
+		If v_IdSuperviseur(0) &lt;&gt; "" Then
+			Call ni.AppendToTextList(v_IdSuperviseur)
+		End If
+	Else
+		If v_IdSuperviseur &lt;&gt; "" Then
+			Call ni.AppendToTextList(v_IdSuperviseur)
+		End If
+	End If
+	
+	Call ni.AppendToTextList("[Technique]")
+	Call ni.AppendToTextList("[Directeur]")
+	
+	If p_TypeDocument = "3" Then
+		If Not pnd_Docu.HasItem("Auteur") Then
+			Set ni = New NotesItem(pnd_Docu, "Auteur", v_IdCreateur, AUTHORS)
+		End If
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPD, gc_Element_SDSPD, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPD_Initialisations"><lotusscript>Sub SDSPD_Initialisations
+	
+	If gns_SDSPD Is Nothing Then
+		Set gns_SDSPD = New NotesSession
+		Set gndb_SDSPD = gns_SDSPD.Currentdatabase
+		g_NoRep_SDSPD = gns_SDSPD.GetEnvironmentString("SDSPP_NoRep")
+	End If
+	
+End Sub
+
+</lotusscript></code><code event="SDSPD_ndAttacherContratSigne"><lotusscript>Function SDSPD_ndAttacherContratSigne(p_CleParent As String, p_UNID As String, p_DescParent As String, _
+p_TypeDocument As String, ByVal p_ClientNoFmt As String, _
+p_NomClient As String, p_NoBC As String, p_Description As String, p_UserName As String) As NotesDocument
+	' ------------------------------------------------------------------------------------------
+	' Le script permet de créer un nouveau document Contrat signé dans la bd SI_DocumentsVentes.
+	' ------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd_Docu As NotesDocument
+	Dim ndb_Temp_SITp As NotesDatabase
+	Dim nd_Temp As NotesDocument	
+	Dim nrti_ContratSigne As NotesRichTextItem
+		
+	Set SDSPD_ndAttacherContratSigne = Nothing
+	
+	If p_UserName = "" Then
+		p_UserName = gns_SDSPD.UserName
+	End If
+	
+	Set ndb_Temp_SITp = xGDK_xndbNDB("SITp")
+	If ndb_Temp_SITp Is Nothing Then
+		Exit Function
+	ElseIf Not ndb_Temp_SITp.IsOpen Then
+		Exit Function
+	End If
+	
+	If p_UNID = "" Then
+		Exit Function
+	End If
+	
+	Set nd_Temp = ndb_Temp_SITp.GetDocumentByUNID(p_UNID)
+	If nd_Temp Is Nothing Then
+		Exit Function
+	End If
+	
+	Set nrti_ContratSigne = nd_Temp.GetFirstItem("DB_ContratSigne")
+	
+	Set nd_Docu = SIDocV_CreerDocument("SDSP3", p_CleParent, p_DescParent, _
+	p_NoBC, p_ClientNoFmt, p_NomClient, _
+	p_TypeDocument, "1", nrti_ContratSigne, p_Description, p_UserName)	
+	
+	Set SDSPD_ndAttacherContratSigne = nd_Docu
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPD, gc_Element_SDSPD, LSI_Info(2), "", False ) 'p_CheminAcces, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPD_CreerDocumentImage"><lotusscript>Function SDSPD_CreerDocumentImage(pnd_Prop As NotesDocument, p_NoSite As String, p_CheminAcces As String, _
+	p_Description As String, p_StatutA As String) As NotesDocument
+	' ------------------------------------------------------------------------
+	' Le script permet de créer un document (p_TypeDocument)
+	' Paramètres:
+	' 		pnd_Prop  			NotesDocument.  Le document de la proposition
+	' 		p_NoSite			String.  Le numéro du site
+	' 		p_CheminAcces		String.  Le chemin du ficher à attacher
+	' 		p_Description		String.  La description du document
+	'		p_StatutA			String.  Le nouveaux statut de la proposition
+	' ------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndb_Parent As NotesDatabase
+	Dim v_NoDocument As String
+	Dim nd_DocIM As NotesDocument		
+	Dim v_StatutDe As String
+	Dim v_StatutA As String
+	
+	Set SDSPD_CreerDocumentImage = Nothing
+	
+	' Initialisations
+	Call SDSPD_Initialisations
+	Call xSIDocV_Initialisations
+	
+	Set ndb_Parent = pnd_Prop.ParentDatabase
+	Set nd_DocIM = New NotesDocument(ndb_Parent)
+	
+	' Image
+	'=======
+	nd_DocIM.Form ="F_PrIM"
+	nd_DocIM.Prop_ClientNomInterne = xVar(pnd_Prop,"Prop_ClientNomInterne","")
+	nd_DocIM.Prop_ClientNoFmt = xVar(pnd_Prop,"Prop_ClientNoFmt","")
+	nd_DocIM.Prop_ClientNom = xVar(pnd_Prop,"Prop_ClientNom","")
+	nd_DocIM.Prop_ClientNom1= xVar(pnd_Prop,"Prop_ClientNom1","")
+	nd_DocIM.Prop_ClientNom2 = xVar(pnd_Prop,"Prop_ClientNom2","")
+	v_NoDocument = xUnique("") &amp; g_NoRep_SDSPD
+	
+	v_StatutDe = xVar(pnd_Prop,"Prop_Statut","")
+	v_StatutA = p_StatutA
+	
+	nd_DocIM.Cle = v_NoDocument
+	nd_DocIM.Description = ""
+	nd_DocIM.Prim_NoDocument = v_NoDocument
+	nd_DocIM.Prim_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	nd_DocIM.Prim_NoSite = ""
+	nd_DocIM.Prim_TypeDocument = g_TypeDocumentIM
+	nd_DocIM.Prim_DescTypeDocumentFR = xSIDocV_xDescTabl(g_TypeDocumentIM, "Docu_Type_FR", True)
+	nd_DocIM.Prim_DescTypeDocumentEN = xSIDocV_xDescTabl(g_TypeDocumentIM, "Docu_Type_EN", True)
+	nd_DocIM.Prim_IconeTypeDocument = xSIDocV_xIcnTabl(g_TypeDocumentIM, "Docu_Type_FR", True)
+	
+	nd_DocIM.Prim_PropStatutDe = v_StatutDe
+	nd_DocIM.Prim_PropStatutIconeDe = xIcnTabl(v_StatutDe, "Prop_Statut_FR", True)
+	nd_DocIM.Prim_PropStatutDescDeFR = xDescTabl(v_StatutDe, "Prop_Statut_FR", True)
+	nd_DocIM.Prim_PropStatutDescDeEN = xDescTabl(v_StatutDe, "Prop_Statut_EN", True)
+	
+	If v_StatutA &lt;&gt; "" Then
+		nd_DocIM.Prim_PropStatutA = v_StatutA
+		nd_DocIM.Prim_PropStatutIconeA = xIcnTabl(v_StatutA, "Prop_Statut_FR", True)
+		nd_DocIM.Prim_PropStatutDescAFR = xDescTabl(v_StatutA, "Prop_Statut_FR", True)
+		nd_DocIM.Prim_PropStatutDescAEN = xDescTabl(v_StatutA, "Prop_Statut_EN", True)
+	End If
+	
+	
+	' Sécurité
+	Call SDSPD_AssignerSecurite(pnd_Prop, nd_DocIM, g_TypeDocumentIM)
+	
+	nd_DocIM.HistoDC = Now
+	nd_DocIM.HistoUC = gns_SDSPD.Username
+	
+	Call nd_DocIM.MakeResponse(pnd_Prop)
+	Call nd_DocIM.Save(True, False)
+	
+	Set SDSPD_CreerDocumentImage = nd_DocIM
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPD, gc_Element_SDSPD, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", "") &amp; ";" &amp; p_CheminAcces, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPD_AttacherContratSigne_SIDV"><lotusscript>Function SDSPD_AttacherContratSigne_SIDV(p_NoProposition As String, p_UNID As String, p_TypeDocument As String, _
+	p_Description As String, p_UserName As String) As NotesDocument
+	
+	On Error Goto GererErreur
+	
+	Dim nd_Docu As NotesDocument
+	Dim nd_Prop As NotesDocument
+	
+	' Initialisations
+	Call SDSPD_Initialisations
+	Call xSIDocV_Initialisations
+	
+	Set SDSPD_AttacherContratSigne_SIDV = Nothing
+	
+	' Validation
+	If p_TypeDocument = "" Then
+		Exit Function
+	End If
+	
+	Set nd_Prop = xSDSP3_xndProp(p_NoProposition, True)
+	
+	If nd_Prop Is Nothing Then
+		Exit Function
+	End If
+	
+	Set nd_Docu =  SDSPD_ndAttacherContratSigne(p_NoProposition, p_UNID,_
+	xVar(nd_Prop, "Prop_DescProposition", "") , p_TypeDocument, _
+	xVar(nd_Prop, "Prop_ClientNoFmt", ""), xVar(nd_Prop, "Prop_ClientNom", ""),_
+	xVar(nd_Prop, "Prop_NbPropositionFmt", ""), p_Description, p_UserName)
+	
+	If nd_Docu Is Nothing Then
+		Exit Function
+	End If
+	Set SDSPD_AttacherContratSigne_SIDV = nd_Docu
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPD, gc_Element_SDSPD, Getthreadinfo(1), _
+	xVar(nd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073643,51-05</datetime></item></scriptlibrary>
+
+</database>

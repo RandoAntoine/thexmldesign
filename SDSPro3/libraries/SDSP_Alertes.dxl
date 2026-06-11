@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Alertes" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="5557fa" unid="73F855D02B0BFEDF852587F1007D9E9F" sequence="30">
+<created><datetime>20220222T175206,07-05</datetime></created>
+<modified><datetime>20260105T014837,75-05</datetime></modified>
+<revised><datetime>20250319T073654,11-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,74-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,74-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "SI_Historique"
+Use "wsc_SDSP3"
+Use "x_SDSP3"
+Use "x_Tabl"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SDSPAl As NotesSession
+Dim gndb_SDSPAl As NotesDatabase
+ 
+' Traitement des erreurs
+Const gc_TypeElement_SDSPAl = "SL"
+Const gc_Element_SDSPAl = "SDS_Alertes"
+
+
+</lotusscript></code><code event="SDSPAl_Initialisations"><lotusscript>Sub SDSPAl_Initialisations
+	On Error GoTo GererErreur
+	
+	If gns_SDSPAl Is Nothing Then
+		Set gns_SDSPAl = New NotesSession
+		Set gndb_SDSPAl = gns_SDSPAl.CurrentDatabase
+	End If
+		
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPAl, gc_Element_SDSPAl, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SDSPAl_AssignerStatut"><lotusscript>Function SDSPAl_AssignerStatut(pnd_Aler As NotesDocument, p_Statut As String, p_Commentaire As String) As Boolean
+	'--------------------------------------------------------------------------------------------------------------------------------
+	'	Ce script assigne un nouveau statut au doc d'alerte et met à jour l'historique du statut.
+	'
+	'	Paramètres:
+	'		pnd						: document d'alerte
+	'		p_Statut				: nouveau statut à assigner
+	'		
+	'--------------------------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	
+	Const c_NomTableStatut = "Aler_Statut_" 
+	
+	SDSPAl_AssignerStatut = False
+	
+	' Initialisations
+	Call SDSPAl_Initialisations
+	
+	
+	' Vérifier si le statut a changé
+	If xVar(pnd_Aler, "Aler_StatutAlerte", "") = p_Statut Then
+		Exit Function
+	End If
+	
+	' Assigner le nouveau statut
+	pnd_Aler.Aler_StatutAlerte = p_Statut
+	pnd_Aler.Aler_StatutAlerteDate = Now
+	pnd_Aler.Aler_StatutAlertePar = gns_SDSPAl.Username
+	pnd_Aler.Aler_StatutAlerteIcone = xIcnTabl(p_Statut, c_NomTableStatut &amp; xLangue, True)
+	pnd_Aler.Aler_StatutAlerteDescFR = xDescTabl(p_Statut, c_NomTableStatut &amp; "FR", True)
+	'pnd_Aler.Aler_StatutAlerteDescEN = xDescTabl(p_Statut, c_NomTableStatut &amp; "EN", True)
+		
+	' Mettre à jour l'historique		
+	
+	SDSPAl_AssignerStatut = SIHi_Ajouter(pnd_Aler, p_Statut &amp; " - " &amp; xDescTabl(p_Statut, c_NomTableStatut &amp; xLangue, True), p_Commentaire, "", True) 
+	
+	Exit Function
+	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPAl, gc_Element_SDSPAl, GetThreadInfo(1), xVar(pnd_Aler, "Aler_NoProposition", "")  &amp; ";"  &amp;_
+	"; " &amp; gns_SDSPAl.UserName, False)
+	Exit Function
+	
+End Function
+
+
+</lotusscript></code><code event="SDSPAl_acChangerStatutProposition"><lotusscript>Function SDSPAl_acChangerStatutProposition(pnd_Aler As NotesDocument, pnd_DB As NotesDocument, p_Statut As String) As Integer
+	'--------------------------------------------------------------------------------------------------------------------------------
+	'	Ce script assigne un nouveau statut au doc d'alerte et met à jour l'historique du statut.
+	'
+	'	Paramètres:
+	'		pnd						: document d'alerte
+	'		p_Statut				: nouveau statut à assigner
+	'		
+	'--------------------------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_Commentaire As String
+	Dim v_NoProposition As String
+	Dim nd_Prop As NotesDocument
+	Dim v_Statut As String
+	Dim ws_Proposition As Cl_proposition
+	Dim v_Ok As String
+	
+	SDSPAl_acChangerStatutProposition = 0
+	
+	' Initialisations
+	Call SDSPAl_Initialisations
+	
+	v_Commentaire = xVar(pnd_DB, "DB_Commentaire", "")
+	
+	'Il faut aller chercher le doc Prop
+	v_NoProposition = xVar(pnd_Aler, "Aler_NoProposition", "")
+	Set nd_Prop = xSDSP3_xndProp(v_NoProposition, True)
+	
+	If nd_Prop Is Nothing Then
+		
+		' Alerte Annuléee car la Proposition n'existe pas
+		If SDSPAl_AssignerStatut (pnd_Aler, "99", v_Commentaire) Then					
+			SDSPAl_acChangerStatutProposition = 2
+		End If
+		
+	Else
+		
+		'Statut proposition actuel :
+		v_Statut = xVar(nd_Prop, "Prop_Statut", "") 
+		
+		'Traiter seulement les prop dont le statut actuel est &lt;= "90"
+		If v_Statut &lt;= "90"  Then
+			Call pnd_DB.save(True, False)
+			
+			Set ws_Proposition = New Cl_proposition
+			v_Ok = ws_Proposition.ChangerStatutSDSP3(v_NoProposition, p_Statut, gns_SDSPAl.UserName, pnd_DB.UniversalId)
+			If v_Ok = "1" then
+				' Mettre à jour l'historique de l'alerte
+				Call SDSPAl_AssignerStatut (pnd_Aler, p_Statut, v_Commentaire)					
+				SDSPAl_acChangerStatutProposition = 1
+			End If
+		Else
+
+			' Alerte Annuléee 
+			If SDSPAl_AssignerStatut (pnd_Aler, "99", v_Commentaire) Then					
+				SDSPAl_acChangerStatutProposition = 2
+			End If
+			
+		End If
+		
+	End If
+	
+	Exit Function
+	
+	
+GererErreur:
+	SDSPAl_acChangerStatutProposition = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPAl, gc_Element_SDSPAl, GetThreadInfo(1), xVar(pnd_Aler, "Aler_NoProposition", "")  &amp; ";"  &amp;_
+	"; " &amp; gns_SDSPAl.UserName, False)
+	Exit Function
+	
+End Function
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073654,11-05</datetime></item></scriptlibrary>
+
+</database>

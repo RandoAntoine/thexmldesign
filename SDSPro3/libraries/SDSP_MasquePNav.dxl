@@ -1,0 +1,3747 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_MasquePNav" hide="v3 v4strict">
+<noteinfo noteid="55597e" unid="DDD0D3F59CC9E07385258C0C006EDCC5" sequence="5">
+<created><datetime>20250108T151054,77-05</datetime></created>
+<modified><datetime>20260105T014838,45-05</datetime></modified>
+<revised><datetime>20250319T073654,00-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,44-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,44-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SDSP_Duplication"
+Use "SDSP_Exportations"
+Use "SDSP_PropositionUI"
+Use "SI_Clients"
+Use "SL_SalesforceAPI"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSPM As NotesSession
+Dim gndb_SDSPM As NotesDatabase
+Dim gnuiws_SDSPM As NotesUIWorkspace
+Dim gnuid_SDSPM As NotesUIDocument
+Dim g_Langue_SDSPM As String
+
+Dim gnd_SDSPM As NotesDocument
+Dim gnv_Prod53B_SDSPM As NotesView
+Dim g_NoProposition_SDSPM As String
+Dim gnd_Prop_SDSPM As NotesDocument
+Dim gnd_Site_SDSPM As NotesDocument
+Dim g_NoSite_SDSPM As String
+'Dim gnv_Prod40_SDSPM As NotesView
+Dim gnv_Prod40b_SDSPM As NotesView
+'Dim gnv_Prod42_SDSPM As NotesView
+
+Dim g_AfficherErreurs_FPNav As Variant
+
+Const gc_NomProgrammeAutoSite_SDSPM = "Site_AjouterSDS"
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPM = "SL"
+Const gc_Element_SDSPM = "SDSP_MasquePNav"
+
+
+</lotusscript></code><code event="SDSPM_ProduitsBanniereDispo"><lotusscript>Function SDSPM_ProduitsBanniereDispo(pa_Bannieres As Variant, p_NomItem As String) As Integer
+	On Error Goto GererErreur
+
+	Dim nd_Prod_SDSBB As NotesDocument
+		
+	Dim a_CleProduitsSDSBB As Variant
+	Dim v_NbProduitsSDSBB As Integer
+	Dim i As Integer
+	Dim j As Integer
+	Dim ni As NotesItem
+	
+	' Initialisations
+	SDSPM_ProduitsBanniereDispo = False
+	
+	' Extraire les produits de SDS Base
+	v_NbProduitsSDSBB = SDSPX_aProduitsProgramme(gnd_Prop_SDSPM, p_NomItem, pa_Bannieres, a_CleProduitsSDSBB)
+	
+	' Aucun produit à afficher
+	If v_NbProduitsSDSBB = 0 Then
+		Exit Function
+	End If
+	
+	' Vérifier que le produit est disponible pour le(s) bannière(s) du client
+	For i= 1 To v_NbProduitsSDSBB
+		Set nd_Prod_SDSBB = xSDSBB_xndProd(a_CleProduitsSDSBB(i -1), True)
+		
+		If Not nd_Prod_SDSBB Is Nothing Then
+			
+			If Isarray(xVarArray(nd_Prod_SDSBB, "Prod_DispoBanniere")) Then
+				Set ni = xni(nd_Prod_SDSBB, "Prod_DispoBanniere", "")
+				
+				If Isarray(pa_Bannieres) Then
+					For j = 0 To Ubound(pa_Bannieres)
+						If ni.Contains(pa_Bannieres(j)) Then
+							Exit For
+						End If
+					Next
+					If j = Ubound(pa_Bannieres) Then
+						If Not ni.Contains(pa_Bannieres(j)) Then
+							Exit Function
+						End If
+					End If
+				Else
+					If Not ni.Contains(pa_Bannieres) Then
+						Exit Function
+					End If
+				End If
+				
+			End If
+			
+		End If
+		
+	Next
+	
+	SDSPM_ProduitsBanniereDispo = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_MajProduitsProgramme_CleParent"><lotusscript>Sub SDSPM_MajProduitsProgramme_CleParent(p_NomItem_De As String, p_NomItem_A As String, p_NoSite As String)
+	On Error GoTo GererErreur
+	
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim nd_Prod As NotesDocument
+	Dim nv_Prod As NotesView
+	
+	Dim v_Formule As String
+	Dim a_Prod As Variant
+	Dim a_CodesProgrammes As Variant
+	Dim a_Cle(1) As String
+	'Dim v_Cle As String
+	Dim a_CleProduits As Variant
+	Dim v_CleProduit_SDSBB As String
+	Dim v_Pos As Variant
+	Dim i As Integer
+	
+	'Initialisations
+	
+	'If gnv_Prod40b_SDSPM Is Nothing Then
+	'	Set gnv_Prod40b_SDSPM = gndb_SDSPM.GetView("V_Prod40")
+	'End If
+	'Call gnv_Prod40b_SDSPM.Refresh
+	
+	v_Formule = |@IfError(@DBLookup(""; "| &amp; gndb_xSDSBB.Server &amp; |" : "| &amp; _
+	Replace(gndb_xSDSBB.FilePath,"\","\\") &amp; |"; "V_Prod55"; "| &amp; p_NomItem_De &amp; |"; 2); "ERR")|
+	
+	a_Prod = Evaluate(v_Formule)
+	
+	If a_Prod(0) &lt;&gt; "ERR" Then
+		
+		For i = LBound(a_Prod) To UBound(a_Prod)
+			Set nd_Prod_SDSBB = xSDSBB_xndProd(a_Prod(i), True)
+			
+			If xVarContient(nd_Prod_SDSBB, "Prod_ProgNomItem3", p_NomItem_De) And xVarContient(nd_Prod_SDSBB, "Prod_ProgNomItem3", p_NomItem_A) Then
+				
+				v_CleProduit_SDSBB = xVar(nd_Prod_SDSBB, "Prod_CleProduit", "")
+				
+				' Extraire le produits déjà sélectionnées
+				a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; p_NoSite &amp; ";" &amp; p_NomItem_De
+				a_CleProduits = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2); "")|)
+				
+				
+				
+				v_Pos = ArrayGetIndex(a_CleProduits, v_CleProduit_SDSBB)
+				
+				If (Not IsNull(v_Pos)) Then
+					
+					'Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(a_CleProduits(v_Pos), True)	
+					
+					a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; p_NoSite
+					a_Cle(1) = a_CleProduits(v_Pos)
+					
+					Call xnd("", a_Cle, False, gndb_SDSPM, "V_Prod26", nv_Prod, nd_Prod)
+					
+					If Not (nd_Prod Is Nothing) Then
+						
+						If xVar(nd_Prod, "Prod_CleParent", "") = p_NomItem_De Then
+							
+							nd_Prod.Prod_CleParent = p_NomItem_A
+							
+							nd_Prod.HistoDM = Now
+							nd_Prod.HistoUM = gns_SDSPM.UserName
+							Call nd_Prod.Save(True, False)
+						End If
+						
+					End If
+					
+				End If
+				
+				
+			End If
+			
+		next
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_MajProduitsProgramme_ON"><lotusscript>Sub SDSPM_MajProduitsProgramme_ON(p_Departement As String, p_NomItem As String, p_Quantite As Long, p_NoSite As String)
+	' 1 = Oui, 0 = Non
+	On Error Goto GererErreur
+	
+	If xVar(gnd_SDSPM, p_NomItem, "") = "1" Then
+		' Mettre à jour les produits associés à l'item
+		Call SDSPM_MajProduitsProgramme(p_Departement, p_NomItem, "", p_Quantite, "", "", p_NoSite)
+	Else
+		' Supprimer les produits associés à l'item
+		Call SDSPM_SupprimerProduitsProgramme(p_NomItem, p_NoSite, Getthreadinfo(1))
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), p_NomItem, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_DescProduits_D"><lotusscript>Sub SDSPM_DescProduits_D(p_NomItem As String, p_Quantite As Variant, pnd_DB As NotesDocument, _
+plni List As NotesItem, p_PrefixeParent As String, p_Cle As String, p_QuantiteDefaut As Variant, p_NbUtilisateursProduit As Long)
+	' Permet d'ajouter les dépendants d'un produit au dialog box
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim v_Quantite As Variant
+	Dim nd_Prod As NotesDocument
+	Dim v_AjouterDependant As Boolean
+	
+	If p_PrefixeParent = "C" Then
+		Set ndc = xSDSBB_xndcProd_Depe("Cate;" &amp; p_Cle)
+	Else
+		Set ndc = xSDSBB_xndcProd_Depe("Prod;" &amp; p_Cle)
+	End If
+	If ndc.Count = 0 Then
+		Exit Sub
+	End If
+	
+	Set nd_Suivant = ndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+		
+		v_AjouterDependant = False
+		
+		v_Quantite = p_Quantite * xVar(nd, "Depe_Quantite", 1)
+		
+		If v_Quantite &gt; 0 Then
+			If xVar(nd, "Depe_PrefixeParent", "") &lt;&gt; "Prod" Then
+				v_AjouterDependant = True
+			ElseIf xVar(nd, "Depe_PrefixeParent", "") = "Prod" And xVarContient(nd, "Depe_TypePropDependant", xVar(gnd_Prop_SDSPM, "Prop_TypeProposition", "")) Then
+				v_AjouterDependant = True
+			End If			
+		End If
+		
+		If v_AjouterDependant Then
+			Call SDSPM_DescProduits_A(p_NomItem, v_Quantite, xVar(nd, "Depe_CleDependant", ""), Nothing, pnd_DB, plni, p_QuantiteDefaut, p_NbUtilisateursProduit)
+		End If
+	Loop
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_acDernierDocument"><lotusscript>Sub SDSPM_acDernierDocument(p_TypeDocument As String)
+	On Error GoTo GererErreur
+	
+	Dim a_Cle(1) As String
+	Dim nv As NotesView
+	Dim nd As NotesDocument
+	
+	' Initialisations
+	Call xSIDocV_Initialisations
+	Set nv = gndb_xSIDocV .GetView("V_Docu22")
+	Call nv.Refresh
+	a_Cle(0) = xVar(gnd_SDSPM, "Prop_NoProposition", "")
+	a_Cle(1) = p_TypeDocument
+	Set nd = nv.GetDocumentByKey(a_Cle, True)
+	If nd Is Nothing Then
+		MessageBox "Il n'y a aucun document du type demandé.", 16, xGDK_xMessage("SI", 1, "", "")
+	Else
+		nd.Form = "F_Docu1"
+		Call gnuiws_SDSPM.EditDocument(False, nd)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_MajProduitsBanniere"><lotusscript>Function SDSPM_MajProduitsBanniere(p_Departement As String, p_Classe As String, pa_Bannieres As Variant, p_NomItem As Variant)
+	On Error GoTo GererErreur
+	
+	Dim a_CategoriesProduit As Variant
+	Dim a_CleProduitsProp As Variant	
+	Dim a_CleProduitsSDSBB As Variant
+	Dim a_CodeProduitsSDSBB As Variant
+	Dim a_DescProduitsSDSBB As Variant
+	Dim a_PrixProduitsSDSBB As Variant	
+	Dim a_ProdAutoSite_SDSBB As Variant
+	Dim a_Cle(1) As String
+	Dim v_Cle As String
+	Dim a_CleProduits As Variant
+	
+	
+	Dim i As Integer
+	Dim j As Integer
+	Dim k As Integer
+	
+	Dim v_Banniere As Variant
+	Dim v_ClasseProduit As String	
+	Dim v_NbProduits As Integer
+	Dim v_NomItem As Variant
+	Dim v_NomItemRetires As String	
+	
+	Dim v_Pos As Variant
+	Dim v_ProduitRetire As Boolean
+	Dim v_Quantite As Long	
+	Dim v_TypeAjout As String
+	
+	Dim ni_DispoBanniere As NotesItem
+	Dim ni_Retires As NotesItem	
+	Dim nd_Prod As NotesDocument
+	Dim nd_Prod_SDSBB As NotesDocument
+	
+	
+	' Initialisations
+	SDSPM_MajProduitsBanniere = False
+	
+	If gnv_Prod40b_SDSPM Is Nothing Then
+		Set gnv_Prod40b_SDSPM = gnd_Prop_SDSPM.ParentDatabase.GetView("V_Prod40")
+	End If
+	Call gnv_Prod40b_SDSPM.Refresh
+	
+	'If gnv_Prod42_SDSPM Is Nothing Then
+	'	Set gnv_Prod42_SDSPM = gnd_Prop_SDSPM.ParentDatabase.GetView("V_Prod42")
+	'End If
+	'	Call gnv_Prod42_SDSPM.Refresh
+	
+	If gnv_Prod53B_SDSPM Is Nothing Then
+		Set gnv_Prod53B_SDSPM = gndb_xSDSBB.GetView("V_Prod53")
+	End If
+	Call gnv_Prod53B_SDSPM.Refresh
+	
+	If Not Isarray(p_NomItem) Then
+		v_NomItem = Split(p_NomItem,";")
+	Else
+		v_NomItem = p_NomItem
+	End If
+	
+	' Construire le tableau des produits disponibles
+	v_NbProduits = SDSPX_aProduitsBannieres(p_Classe, pa_Bannieres, a_CleProduitsSDSBB, _
+	a_CodeProduitsSDSBB, a_DescProduitsSDSBB, False, gnd_Prop_SDSPM, gnd_Site_SDSPM, a_PrixProduitsSDSBB)
+	
+	a_Cle(0) = g_NoProposition_SDSPM &amp; ";"
+	a_CleProduitsProp = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2;[PartialMatch]); "")|)
+	
+	For j = 0 To Ubound(v_NomItem)
+		
+		' Extraire les produits déjà sélectionnées
+		a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; v_NomItem(j)
+		a_CleProduits = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2); "")|)
+		
+		' Aucun produit
+		If v_NbProduits = 0 And a_CleProduits(0) = "" Then
+			Exit Function
+		End If
+		
+		v_Banniere = pa_Bannieres
+		
+		If Not Isarray(v_Banniere) Then
+			v_Banniere = Split(pa_Bannieres,";")		
+		End If
+		
+		' Mettre à jour les produits de la proposition qui sont dans SDS Base
+		For i = 1 To v_NbProduits
+			Set nd_Prod_SDSBB = xSDSBB_xndProd(a_CleProduitsSDSBB(i -1), True)
+			
+			v_ClasseProduit = xVar(nd_Prod_SDSBB, "Prod_ClasseProduit", "")
+			
+			If xVarContient(nd_Prod_SDSBB, "Prod_AjoutTypeProposition", xVar(gnd_Prop_SDSPM, "Prop_TypeProposition", "")) And _
+			v_ClasseProduit &lt;&gt; "AH" And v_ClasseProduit &lt;&gt; "CS" Then
+				
+				a_CategoriesProduit = xVarArray(nd_Prod_SDSBB, "Prod_CategorieProduit")
+				
+				v_ProduitRetire = False
+				
+				If Isarray(a_CategoriesProduit) Then
+					For k = 0 To Ubound(a_CategoriesProduit)	
+						
+						v_NomItemRetires = xSDSBB_xVarCate(xVarElem(nd_Prod_SDSBB, "Prod_CategorieProduit", k, ""), "Cate_ProgNomItemRetires", "", True)
+						If v_NomItemRetires &lt;&gt; "" Then
+							If gnd_Site_SDSPM.HasItem(v_NomItemRetires) Then
+								Set ni_Retires = gnd_Site_SDSPM.GetFirstItem(v_NomItemRetires)
+								If ni_Retires.Values(0) &lt;&gt; "" Then
+									If ni_Retires.Contains(a_CleProduitsSDSBB(i -1)) Then
+										v_ProduitRetire = True
+									End If
+								End If
+							End If
+						End If
+					Next
+				Else
+					v_NomItemRetires = xSDSBB_xVarCate(xVar(nd_Prod_SDSBB, "Prod_CategorieProduit", ""), "Cate_ProgNomItemRetires", "", True)
+					If v_NomItemRetires &lt;&gt; "" Then
+						If gnd_Site_SDSPM.HasItem(v_NomItemRetires) Then
+							Set ni_Retires = gnd_Site_SDSPM.GetFirstItem(v_NomItemRetires)
+							If ni_Retires.Values(0) &lt;&gt; "" Then
+								If ni_Retires.Contains(a_CleProduitsSDSBB(i -1)) Then
+									v_ProduitRetire = True
+								End If
+							End If
+						End If
+					End If
+				End If
+				
+				v_Quantite = SDSPX_xQuantiteDefaut(nd_Prod_SDSBB, "")
+				a_Cle(1) = a_CleProduitsSDSBB(i -1)
+				
+				v_TypeAjout = xVar(nd_Prod_SDSBB, "Prod_Limiter", "")
+				
+				v_Pos = Arraygetindex(a_CleProduits, a_CleProduitsSDSBB(i -1))
+				
+				If Not nd_Prod_SDSBB Is Nothing Then
+					Set ni_DispoBanniere = xni(nd_Prod_SDSBB, "Prod_DispoBanniere", "")
+				End If
+				
+				If Isarray(v_Banniere) Then
+					Forall banniere In v_Banniere
+						If ni_DispoBanniere.Contains(banniere) Then
+							
+							If Isnull(v_Pos) Then
+								
+								'If xVar(gnd_Site_SDSPM, "Site_AjouterSDS", "") = "1" Then
+								
+								If (v_TypeAjout = "3" Or _
+								v_TypeAjout = "2") Then
+									If Isnull(Arraygetindex(a_CleProduitsProp, a_CleProduitsSDSBB(i -1))) Then
+										If Not v_ProduitRetire Then
+											If xVarContient(nd_Prod_SDSBB, "Prod_ProgNomItem3", CStr(v_NomItem(j))) Then												
+												Call SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, nd_Prod_SDSBB, v_Quantite, "", _
+												"", p_Departement, "", Cstr(v_NomItem(j)), True, True, gnd_Site_SDSPM)	
+											End if
+										End If
+									End If
+									
+								Else
+									If Not v_ProduitRetire Then
+										If xVarContient(nd_Prod_SDSBB, "Prod_ProgNomItem3", CStr(v_NomItem(j))) Then	
+											Call SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, nd_Prod_SDSBB, v_Quantite, "", _
+											"", p_Departement, "", Cstr(v_NomItem(j)), True, True, gnd_Site_SDSPM)	
+										End if
+									End If
+									
+									
+								End If
+								
+								'End If
+								
+							Else
+								v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+								Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+								'v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+								'Set nd_Prod = gnv_Prod42_SDSPM.GetDocumentByKey(v_Cle, True)
+								If Not nd_Prod Is Nothing Then
+									Call SDSPX_ModifierProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, nd_Prod, v_Quantite, "", "", "", True, nd_Prod_SDSBB)
+									a_CleProduits(v_Pos) = ""
+								End If
+							End If
+							Exit Forall
+							
+						Else
+							If Not Isnull(v_Pos) Then
+								a_CleProduits(v_Pos) = ""
+							End If
+						End If
+					End Forall
+				End If
+				
+			End If
+		Next
+		
+		' Supprimer les produits qui ne sont plus disponibles
+		For i = Lbound(a_CleProduits) To Ubound(a_CleProduits)
+			If a_CleProduits(i) &lt;&gt; "" Then
+				v_Pos = Arraygetindex(a_CleProduitsSDSBB, a_CleProduits(i))
+				
+				If Isnull(v_Pos) Then
+					a_Cle(1) = a_CleProduits(i)
+				Else
+					a_Cle(1) = a_CleProduitsSDSBB(v_Pos)
+				End If
+				'v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+				
+				v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+				Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+				'Set nd_Prod = gnv_Prod42_SDSPM.GetDocumentByKey(v_Cle, True)
+				
+				If Not nd_Prod Is Nothing Then
+					Set nd_Prod_SDSBB = xSDSBB_xndProd(a_Cle(1), True)
+					
+					If nd_Prod_SDSBB Is Nothing Then												
+						If xVar(nd_Prod, "Prod_ClasseProduit","") = p_Classe Then
+							Call SDSPX_SupprimerProduit(nd_Prod, GetThreadInfo(1))	
+						End If	
+					Else
+						
+						If Not nd_Prod_SDSBB Is Nothing Then
+							Set ni_DispoBanniere = xni(nd_Prod_SDSBB, "Prod_DispoBanniere", "")
+						End If
+						
+						If Isarray(v_Banniere) Then
+							Forall banniere In v_Banniere
+								If Not ni_DispoBanniere.Contains(banniere) Then	
+									
+									If ni_DispoBanniere.Values(0) &lt;&gt; "" Then
+										If xVar(nd_Prod, "Prod_ClasseProduit","") = p_Classe Then
+											Call SDSPX_SupprimerProduit(nd_Prod, GetThreadInfo(1))	
+										End if											
+									End if								
+									
+									Exit Forall
+								End If
+							End Forall							
+						End If
+					End If
+				End If
+			End If
+		Next
+		
+	Next
+	
+	SDSPM_MajProduitsBanniere = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPM_ValiderProduitsDepartement"><lotusscript>Function SDSPM_ValiderProduitsDepartement(p_Departement As String, p_Categorie As String, _
+p_NomItem As String, pa_CleProduitsNonDisponible As Variant) As Boolean
+	' Vérifie ques les produits sélectionnés pour un item sont encore actifs
+	On Error Goto GererErreur
+	
+	Dim v_CleParent As String
+	Dim v_Formule As String
+	Dim a_CleProduits As Variant
+	Dim v_NbProduits As Integer
+	Dim a_CleProduitsSDSBB As Variant
+	Dim i As Integer
+	Dim k As Integer
+	Dim v_Pos As Variant
+	
+	SDSPM_ValiderProduitsDepartement = False
+	
+	' Extraire les produits du département
+	v_CleParent = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; p_NomItem
+	v_Formule = |@IfError(@DBLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; v_CleParent &amp; |"; 2); "")|
+	a_CleProduits = Evaluate(v_Formule)
+	If a_CleProduits(0) = "" Then
+		SDSPM_ValiderProduitsDepartement = True
+		Exit Function
+	End If
+	
+	' Construire le tableau des produits disponibles
+	v_NbProduits = SDSPX_aProduitsDepartement(p_Categorie, p_Departement, a_CleProduitsSDSBB, _
+	"", "", "", "", False, Nothing, Nothing)
+	
+	If Not IsArray(a_CleProduitsSDSBB) Then
+		Exit Function
+	End If
+	
+	' Vérifier si tous les produits sont disponibles
+	ReDim pa_CleProduitsNonDisponible(UBound(a_CleProduits))
+	k = -1
+	
+	' Vérifier si tous les produits sont disponibles
+	For i = LBound(a_CleProduits) To UBound(a_CleProduits)
+		v_Pos = ArrayGetIndex(a_CleProduitsSDSBB, a_CleProduits(i))
+		If IsNull(v_Pos) Then
+			'Exit Function
+			k = k + 1
+			pa_CleProduitsNonDisponible(k) = a_CleProduits(i)
+		End If
+	Next
+	
+	If k &gt;= 0 Then
+		ReDim Preserve pa_CleProduitsNonDisponible(k)
+	End If
+	
+	If pa_CleProduitsNonDisponible(0) &lt;&gt; "" Then
+		Exit Function
+	End If
+	
+	SDSPM_ValiderProduitsDepartement = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), v_CleParent, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_MajProduitsProgramme"><lotusscript>Sub SDSPM_MajProduitsProgramme(p_Departement As String, p_NomItem As String, pa_Bannieres As Variant, p_Quantite As Variant, _
+p_QuantiteDefaut As Variant, p_PrixUnitaire As Variant, p_NoSite As String)
+	' Met à jour tous les produits associés à un item
+	On Error Goto GererErreur
+	
+	If p_NoSite = "" Then
+		Call SDSPP_MajProduitsProgramme(gnd_Prop_SDSPM, p_Departement, p_NomItem, pa_Bannieres, _
+		p_Quantite, p_QuantiteDefaut, p_PrixUnitaire, g_NoSite_SDSPM, "")
+	Else
+		Call SDSPP_MajProduitsProgramme(gnd_Prop_SDSPM, p_Departement, p_NomItem, pa_Bannieres, _
+		p_Quantite, p_QuantiteDefaut, p_PrixUnitaire, p_NoSite, "")
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), p_NomItem, False)
+	Exit Sub
+	
+End Sub
+
+</lotusscript></code><code event="SDSPM_SelectionnerProduitsManuel"><lotusscript>Sub SDSPM_SelectionnerProduitsManuel(pndc_Produits As NotesDocumentCollection, p_VerifierBanniere As Boolean, pa_ProduitsNonValide As Variant)
+	On Error Goto GererErreur
+	
+	Dim nd_Prix_SDSBB_AH As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_Prod As NotesDocument
+	Dim nd_DB As NotesDocument
+	
+	Dim v_QuantiteModifiable As Boolean
+	Dim v_NbUtilisateursModifiable As Boolean
+	Dim a_QuantiteModifiable As Variant
+	Dim a_NbUtilisateursModifiable As Variant
+	Dim i As Integer
+	Dim v_Quantite As Integer
+	Dim v_NbUtilisateurs As Long
+	Dim v_CleProduit As String
+	Dim k As Integer
+	
+	Const c_MaxProduits = 10
+	
+	Redim a_QuantiteModifiable(pndc_Produits.Count -1)
+	Redim a_NbUtilisateursModifiable(pndc_Produits.Count -1)
+	Redim pa_ProduitsNonValide(pndc_Produits.Count - 1)
+	
+	' Construire le dialog box
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	
+	Set nd_Suivant = pndc_Produits.Getfirstdocument
+	
+	v_NbUtilisateursModifiable = False
+	v_QuantiteModifiable = False
+	
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = pndc_Produits.Getnextdocument(nd_Suivant)
+		i = i + 1
+		
+		v_Quantite = xVar(nd, "Prod_Quantite", 0)
+		v_NbUtilisateurs = SDSPX_NbUtilisateursDepartements(nd, gnd_Prop_SDSPM, gnd_Site_SDSPM, "", "")
+		
+		'If Not Isnull(Arraygetindex(xSDSBB_xVarProd(xVar(nd, "Prod_CleProduit", ""), "Prod_PropOptionsMontants", "", True), "QM")) Then
+		If xVarContient(nd, "Prod_PropOptionsMontants", "QM") Then
+			a_QuantiteModifiable(i -1) = "1"
+			v_QuantiteModifiable = True
+		Else
+			a_QuantiteModifiable(i -1) = "0"
+		End If
+		
+		a_NbUtilisateursModifiable(i -1) = xVar(nd, "Prod_NbUtilisateursObligatoire","0")
+		If a_NbUtilisateursModifiable(i -1) = "1" Then
+			v_NbUtilisateursModifiable = True
+		End If
+		
+		Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(xVar(nd, "Prod_CleProduit", ""), xVar(gnd_Prop_SDSPM, "Prop_Devise", ""), _
+		xVar(gnd_Site_SDSPM, "Site_ClientPays", ""), xVar(gnd_Site_SDSPM, "Site_ClientProvince", ""), v_NbUtilisateurs)
+		
+		Call nd_DB.ReplaceItemValue("DB_Cle" &amp; Cstr(i), xVar(nd, "Prod_CleProduit",""))
+		Call nd_DB.ReplaceItemValue("DB_Code" &amp; Cstr(i), xVar(nd, "Prod_CodeProduit",""))
+		Call nd_DB.ReplaceItemValue("DB_Desc" &amp; Cstr(i), xVar(nd, "Prod_DescProduit" &amp; g_Langue_SDSPM,""))
+		
+		If g_Langue_SDSPM = "EN" Then
+			Call nd_DB.ReplaceItemValue("DB_NbUtilisateursDesc" &amp; Cstr(i), xVar(nd, "Prod_LibelleNbUtilisateurs" &amp; g_Langue_SDSPM,"user(s)"))
+		Else
+			Call nd_DB.ReplaceItemValue("DB_NbUtilisateursDesc" &amp; Cstr(i), xVar(nd, "Prod_LibelleNbUtilisateurs" &amp; g_Langue_SDSPM,"utilisateur(s)"))
+		End If
+		
+		' Si LG prix = prix mensuel
+		If xVar(nd, "Prod_ClasseProduit", "") = "LG" Then
+			
+			Call nd_DB.ReplaceItemValue("DB_Prix" &amp; Cstr(i), xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0))
+			
+			Call nd_DB.ReplaceItemValue("DB_DescTypePrix" &amp; Cstr(i), xSDSBB_xDescTabl(xSDSBB_xComplTabl(xSDSBB_xVarProd(xVar(nd, "Prod_CleProduitAH", ""), "Prod_ClasseProduit", "", True), _
+			"Prod_Classe_" &amp; xLangue, "1",True), "Prod_TypePrix_" &amp; g_Langue_SDSPM, True))
+			
+		Else
+			Call nd_DB.ReplaceItemValue("DB_Prix" &amp; Cstr(i), xVar(nd, "Prod_PrixUnitaire",0))
+			
+			Call nd_DB.ReplaceItemValue("DB_DescTypePrix" &amp; Cstr(i), xSDSBB_xDescTabl(xSDSBB_xComplTabl(xVar(nd, "Prod_ClasseProduit",""), _
+			"Prod_Classe_" &amp; xLangue, "1",True), "Prod_TypePrix_" &amp; g_Langue_SDSPM, True))
+		End If
+		
+		Call nd_DB.ReplaceItemValue("DB_QT" &amp; Cstr(i), v_Quantite)
+		
+		If i &gt;= c_MaxProduits Then
+			Exit Do
+		End If
+		
+	Loop
+	
+	nd_DB.DB_Continue = "1"
+	nd_DB.DB_QuantiteModifiable = a_QuantiteModifiable
+	nd_DB.DB_NbUtilisateursObligatoire = a_NbUtilisateursModifiable
+	
+	' Afficher le dialog box
+	If v_QuantiteModifiable Or v_NbUtilisateursModifiable Then
+		
+		If Not gnuiws_SDSPM.DialogBox("DB_PMan", True, True, True, False, False, False, xGDK_xMessage("SDSPP", 27, "", ""), nd_DB, _
+		True, True) Then
+			Exit Sub
+		End If
+		If xVar(nd_DB, "DB_Continue", "") &lt;&gt; "1" Then
+		' Opération annulée
+			Print xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+		
+	End If
+	
+	For i = 1 To pndc_Produits.Count
+		v_CleProduit = xVar(nd_DB, "DB_Cle" &amp; Cstr(i), "")
+		
+		If v_QuantiteModifiable Then
+			v_Quantite = xVar(nd_DB, "DB_QT" &amp; Cstr(i), 0)
+		End If
+		
+		If v_NbUtilisateursModifiable Then
+			v_NbUtilisateurs = xVar(nd_DB, "DB_NbUtilisateurs" &amp; Cstr(i), 0)
+		End If
+		
+		' Créer le produit
+		Set nd_Prod = SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, v_CleProduit, v_Quantite, "", _
+		"", "", "", "", True, p_VerifierBanniere, gnd_Site_SDSPM)
+		
+		If Not (nd_Prod Is Nothing) Then
+			If xVarContient(nd_Prod, "Prod_ClasseProduit", "LG") And xVar(gnd_Prop_SDSPM, "Prop_Statut", "0") &lt; "50" Then
+				If SDSPX_RecalculerPrix(gnd_Prop_SDSPM, nd_Prod, True, False, True, v_NbUtilisateurs, Nothing) Then
+					Call nd_Prod.Save(True, False)
+					
+					Call SDSPX_RecalculerPrixDependants(gnd_Prop_SDSPM, nd_Prod, True, False, True, v_NbUtilisateurs, Nothing)
+				End If
+			End If
+			
+		Else 
+			pa_ProduitsNonValide(k) = xSDSBB_xVarProd(v_CleProduit, "Prod_DescProduit" &amp; xLangue, "", True)
+			k = k + 1
+		End If
+		
+	Next
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_SupprimerProduitsDepartement"><lotusscript>Sub SDSPM_SupprimerProduitsDepartement(p_NomItem As String, p_NoSite As String)
+	On Error Goto GererErreur
+	
+	Call SDSPM_SupprimerProduitsProgramme(p_NomItem, p_NoSite, Getthreadinfo(1))
+	Call gnd_SDSPM.ReplaceItemValue(p_NomItem, "")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), p_NomItem, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_VerifierClient_PJ"><lotusscript>Function SDSPM_VerifierClient_PJ(p_nd As NotesDocument, p_Parametres As String) As Boolean
+	' ------------------------------------------------------------------------------------------
+	' Le script permet de vérifier l'adresse du client/prospect Projeto
+	' ------------------------------------------------------------------------------------------
+	
+	On Error Goto GererErreur
+	
+	'Dim v_Parametres(1) As String
+	
+	' Initialisations
+	SDSPM_VerifierClient_PJ = False
+
+
+	Dim a_NomItemsClient_SIPJCl As Variant
+	Dim i As Integer
+	Dim l_ItemsClie List As String
+	Dim v_Langue As String
+	Dim v_NomItemsVide As String	
+	Dim v_ValeurItem As String
+	Dim v(2) As Variant
+	
+	If xVar(p_nd, "Prop_Origine", "") = "SF" Then
+		SDSPM_VerifierClient_PJ = True
+		Exit Function
+	End If
+	
+	If Not (p_nd Is Nothing) Then
+		
+		v_Langue = xLangue
+		
+		a_NomItemsClient_SIPJCl = Evaluate(|"Pays" : "Province": "Adresse1": "Ville": "CodePostal"|)
+		
+		l_ItemsClie("Clie_Pays;FR") = "Pays"
+		l_ItemsClie("Clie_Pays;EN") = "Country"
+		
+		l_ItemsClie("Clie_Province;FR") = "Province"
+		l_ItemsClie("Clie_Province;EN") = "Province"
+		
+		l_ItemsClie("Clie_Adresse1;FR") = "Addresse"
+		l_ItemsClie("Clie_Adresse1;EN") = "Address"
+		
+		l_ItemsClie("Clie_Ville;FR") = "Ville"
+		l_ItemsClie("Clie_Ville;EN") = "City"
+		
+		l_ItemsClie("Clie_CodePostal;FR") = "Code postal"
+		l_ItemsClie("Clie_CodePostal;EN") = "Postal Code"
+		
+		
+		For i = 0 To UBound(a_NomItemsClient_SIPJCl)
+			v_ValeurItem = xVarElem(p_nd, "Clie_" &amp; a_NomItemsClient_SIPJCl(i), 0, "")
+			If v_ValeurItem = "" Then
+				If v_NomItemsVide = "" Then
+					v_NomItemsVide = Chr(13) &amp; "- " &amp; l_ItemsClie("Clie_" &amp; a_NomItemsClient_SIPJCl(i) &amp; ";" &amp; v_Langue)
+				Else
+					v_NomItemsVide = v_NomItemsVide &amp; Chr(13) &amp; "- " &amp; l_ItemsClie("Clie_" &amp; a_NomItemsClient_SIPJCl(i) &amp; ";" &amp; v_Langue)
+				End If
+			End If
+		Next
+		
+		If v_NomItemsVide &lt;&gt; "" Then
+			
+			If xVar(p_nd, "Prop_Origine", "") = "SICl" Then
+				v(0) = xVar(p_nd, "Clie_ClientNomInterne", "")
+			Else	
+				v(0) = xVar(p_nd, "Clie_ClientNomInterne", xVar(p_nd, "Clie_Nom", ""))
+			End If
+			
+			v(1) = p_Parametres
+			v(2) = Chr(13) &amp; v_NomItemsVide
+			MessageBox xGDK_xMessage("SDSPP", 33 ,"", v), 16, xGDK_xMessage("SI", 1, "", "")
+			'Impossible d'ajouter le site &amp;0 car l’information suivante à propos du client est manquante. &amp;1
+			Exit Function
+		End If
+		
+		SDSPM_VerifierClient_PJ = True
+		
+	End If
+	
+	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_CalculerTotauxUtilisateursDepts"><lotusscript>Sub SDSPM_CalculerTotauxUtilisateursDepts(pnd_Prop As NotesDocument, pnd_Nav As NotesDocument)
+	On Error Goto GererErreur
+	'----------------------------------------------------------------------------------------------
+	' Le script permet de construire le tableaux d'affichage des départements "User Count" dans le 
+	' formulaire résumé "F_PNav8.01".
+	'----------------------------------------------------------------------------------------------
+	
+	Dim nv_Sites As NotesView
+	Dim v_NoProposition As String
+	Dim nvec_Sites As NotesViewEntryCollection
+	Dim v_PosSite As Integer
+	Dim v_NbSites As Integer
+	Dim nve_Suivant As NotesViewEntry
+	Dim nve_Site As NotesViewEntry
+	Dim nd_Site As NotesDocument
+	Dim a_NbUtilisateurs As Variant
+	
+	' Initialisations
+	Set nv_Sites = gndb_SDSPM.GetView("V_Site21")
+	Call nv_Sites.Refresh
+
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	Set nvec_Sites = nv_Sites.GetAllEntriesByKey(v_NoProposition, True)
+	v_NbSites = nvec_Sites.Count
+	
+	If v_NbSites = 0 Then
+		Exit Sub
+	End If
+	
+	ReDim a_NomSites(v_NbSites) As String
+	ReDim a_Comptabilite(v_NbSites) As Integer
+	ReDim a_Ventes(v_NbSites) As Integer
+	ReDim a_Service(v_NbSites) As Integer
+	ReDim a_Atelier(v_NbSites) As Integer
+	ReDim a_BodyShop(v_NbSites) As Integer
+	ReDim a_Pieces(v_NbSites) As Integer
+	
+	v_PosSite = -1
+	Set nve_Suivant = nvec_Sites.GetFirstEntry
+	Do Until nve_Suivant Is Nothing
+		Set nve_Site = nve_Suivant
+		Set nve_Suivant = nvec_Sites.GetNextEntry(nve_Suivant)
+		Set nd_Site = nve_Site.Document
+		v_PosSite = v_PosSite + 1
+		
+		a_NomSites(v_PosSite) = xVar(nd_Site, "Site_ClientNomInterne","")
+
+		Call SDSPS_NbUtilisateursParDepartement(nd_Site, a_NbUtilisateurs)
+		a_Comptabilite(v_PosSite) = a_NbUtilisateurs(0)
+		a_Ventes(v_PosSite) = a_NbUtilisateurs(1)
+		a_Service(v_PosSite) = a_NbUtilisateurs(2)
+		a_Atelier(v_PosSite) = a_NbUtilisateurs(3)
+		a_BodyShop(v_PosSite) = a_NbUtilisateurs(4)
+		a_Pieces(v_PosSite) = a_NbUtilisateurs(5)
+	Loop
+	
+	pnd_Nav.PNav_NomSite = a_NomSites
+	pnd_Nav.Prop_D0_NbUtilisateurs = a_Comptabilite
+	pnd_Nav.Prop_D1_NbUtilisateurs = a_Ventes
+	pnd_Nav.Prop_D2_NbUtilisateurs = a_Service
+	pnd_Nav.Prop_D3_NbTechniciens = a_Atelier
+	pnd_Nav.Prop_D4_NbUtilisateurs = a_BodyShop
+	pnd_Nav.Prop_D5_NbUtilisateurs = a_Pieces
+	
+	Call gnuid_SDSPM.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_hsDescProduits"><lotusscript>Sub SDSPM_hsDescProduits(p_NomItem As String, p_NomItemQuantite As String, p_QuantiteDefaut As Variant, p_DBType As String, p_NbUtilisateursProduit As Long)
+	' Permet d'afficher les produits associés à un code de programme
+	On Error Goto GererErreur
+	
+	Dim v_Quantite As Variant
+	Dim v_NbProduitsSDSBB As Integer
+	Dim a_CleProduitsSDSBB As Variant
+	Dim nd_DB As NotesDocument
+	Dim i As Integer
+	Dim nd_ProdSDSBB As NotesDocument
+	Dim lni List As NotesItem
+	
+	' Initialisations
+	Call xSDSBB_Initialisations
+	
+	' Extraire les produits associés au programme
+	v_NbProduitsSDSBB = SDSPX_aProduitsProgramme(gnd_Prop_SDSPM, p_NomItem, "", a_CleProduitsSDSBB)
+	If v_NbProduitsSDSBB = 0 Then
+		Messagebox xGDK_xMessage("SDSPP", 72, "", ""), 16, p_NomItem
+		Exit Sub
+	End If
+	
+	If p_NomItemQuantite = "" Then
+		v_Quantite = p_QuantiteDefaut
+	Else
+		v_Quantite = xVar(gnd_SDSPM, p_NomItemQuantite, p_QuantiteDefaut)
+	End If
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	
+	' Ajouter les produits associés au programme
+	For i = Lbound(a_CleProduitsSDSBB) To Ubound(a_CleProduitsSDSBB)
+		Set nd_ProdSDSBB = xSDSBB_xndProd(a_CleProduitsSDSBB(i), True)
+		If Not (nd_ProdSDSBB Is Nothing) Then
+			Call SDSPM_DescProduits_A(p_NomItem, v_Quantite, a_CleProduitsSDSBB(i), nd_ProdSDSBB, nd_DB, lni, "", p_NbUtilisateursProduit)
+		End If
+	Next 
+	
+	' Afficher le dialog box
+	nd_DB.DB_Devise = xVar(gnd_Prop_SDSPM, "Prop_Devise", "CAD")
+	nd_DB.DB_NomItem = p_NomItem
+	' Produits associés
+	Call gnuiws_SDSPM.DialogBox("DB_DPrd" &amp; p_DBType, True, True, True, False, True, True, xGDK_xMessage("SDSPP", 105, "", ""), nd_DB, _
+	True, True, True)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+
+
+</lotusscript></code><code event="SDSPM_AfficherProduitsNonDispo"><lotusscript>Sub SDSPM_AfficherProduitsNonDispo(pa_CleProduitsNonDisponible As Variant)
+	' Permet d'afficher la liste des produits non disponible
+	On Error Goto GererErreur
+	
+	Dim nd_DB As NotesDocument
+	Dim a_ProduitsNonDisponible As Variant
+	Dim i As Integer
+	
+	If Isarray(pa_CleProduitsNonDisponible) Then
+		
+		Redim a_ProduitsNonDisponible(Ubound(pa_CleProduitsNonDisponible))
+		
+		If pa_CleProduitsNonDisponible(0) &lt;&gt; "" Then
+			
+			For i = 0 To Ubound(pa_CleProduitsNonDisponible)
+				If pa_CleProduitsNonDisponible(i)  &lt;&gt; "" Then
+					a_ProduitsNonDisponible(i) = xSDSBB_xVarProd(pa_CleProduitsNonDisponible(i), "Prod_DescProduit" &amp; xLangue, "", True) &amp; _
+					" (" &amp; xSDSBB_xVarProd(pa_CleProduitsNonDisponible(i), "Prod_CodeProduit", "", True) &amp; ")"
+				End If
+			Next
+			
+			Set nd_DB = New NotesDocument(gndb_SDSPM)
+			nd_DB.DB_ProdND = a_ProduitsNonDisponible
+			
+			Call gnuiws_SDSPM.Dialogbox("DB_PND", True, True, True, False, False, False, _
+			xGDK_xMessage("SDSPP", 101, "", ""), nd_DB, True, False, False)
+			
+		End If
+		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_hsSupprimerProduitsProgramme"><lotusscript>Sub SDSPM_hsSupprimerProduitsProgramme(p_NomItem As String, p_NoSite As String)
+	On Error Goto GererErreur
+	
+	Call SDSPM_SupprimerProduitsProgramme(p_NomItem, p_NoSite, Getthreadinfo(1))
+	
+	Call gnd_SDSPM.ReplaceItemValue(p_NomItem, "")
+	
+	Call gnuid_SDSPM.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_VerifierClient_SICl"><lotusscript>Function SDSPM_VerifierClient_SICl(p_nd As NotesDocument, p_Parametres As String) As Boolean
+
+	On Error GoTo GererErreur
+	' -----------------------------------------------------------
+	' Le script permet de vérifier l'adresse du client SI Clients
+	' -----------------------------------------------------------
+	
+	Dim v_Parametres(1) As String
+	
+	' Initialisations
+	SDSPM_VerifierClient_SICl = False
+	
+
+	Dim a_NomItemsClient_SICl As Variant
+	Dim i As Integer
+	Dim l_ItemsClie List As String
+	Dim v_Langue As String
+	Dim v_NomItemsVide As String	
+	Dim v_ValeurItem As String
+	Dim v(2) As Variant
+	
+	If xVar(p_nd, "Prop_Origine", "") = "SF" Then
+		SDSPM_VerifierClient_SICl = True
+		Exit Function
+	End If
+	
+
+	If Not (p_nd Is Nothing) Then
+		
+		v_Langue = xLangue
+		
+		a_NomItemsClient_SICl = Evaluate(|"Pays" : "Province": "Adresse1": "Ville": "CodePostal"|)
+		
+		l_ItemsClie("Clie_ClientPays;FR") = "Pays"
+		l_ItemsClie("Clie_ClientPays;EN") = "Country"
+		
+		l_ItemsClie("Clie_ClientProvince;FR") = "Province"
+		l_ItemsClie("Clie_ClientProvince;EN") = "Province"
+		
+		l_ItemsClie("Clie_ClientAdresse1;FR") = "Addresse"
+		l_ItemsClie("Clie_ClientAdresse1;EN") = "Address"
+		
+		l_ItemsClie("Clie_ClientVille;FR") = "Ville"
+		l_ItemsClie("Clie_ClientVille;EN") = "City"
+		
+		l_ItemsClie("Clie_ClientCodePostal;FR") = "Code postal"
+		l_ItemsClie("Clie_ClientCodePostal;EN") = "Postal Code"
+		
+	
+		For i = 0 To UBound(a_NomItemsClient_SICl)
+			v_ValeurItem = xVarElem(p_nd, "Clie_" &amp; a_NomItemsClient_SICl(i), 0, "")
+			If v_ValeurItem = "" Then
+				If v_NomItemsVide = "" Then
+					v_NomItemsVide = Chr(13) &amp; "- " &amp; l_ItemsClie("Clie_" &amp; a_NomItemsClient_SICl(i) &amp; ";" &amp; v_Langue)
+				Else
+					v_NomItemsVide = v_NomItemsVide &amp; Chr(13) &amp; "- " &amp; l_ItemsClie("Clien_" &amp; a_NomItemsClient_SICl(i) &amp; ";" &amp; v_Langue)
+				End If
+			End If
+		Next
+		
+		If v_NomItemsVide &lt;&gt; "" Then
+			
+			If xVar(p_nd, "Prop_Origine", "") = "SICl" Then
+				v(0) = xVar(p_nd, "Clie_ClientNomInterne", "")
+			Else	
+				v(0) = xVar(p_nd, "Clie_ClientNomInterne", xVar(p_nd, "Clie_Nom", ""))
+			End If
+			
+			v(1) = p_Parametres
+			v(2) = Chr(13) &amp; v_NomItemsVide
+			MessageBox xGDK_xMessage("SDSPP", 33 ,"", v), 16, xGDK_xMessage("SI", 1, "", "")
+			'Impossible d'ajouter le site &amp;0 car l’information suivante à propos du client est manquante. &amp;1
+			Exit Function
+		End If
+		
+		SDSPM_VerifierClient_SICl = True
+	End If
+	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_InitSite"><lotusscript>Function SDSPM_InitSite(pnd_PNav As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_Option As String
+	Dim v_PosSite As Integer
+	
+	SDSPM_InitSite = False
+	Set gnd_Site_SDSPM = Nothing
+	
+	If Not (pnd_PNav Is Nothing) Then
+		v_Option = xVar(pnd_PNav, "PNav_MenuOptionCourante", ".0.")
+		'If Left(v_Option, 1) = "4" Then
+		'	v_PosSite = Cint(Strright(v_Option, ".")) - 1
+		'Else
+		v_PosSite = Cint(Strleft(Strright(v_Option, "."), "."))
+		'End If
+		g_NoSite_SDSPM = xVarElem(pnd_PNav, "PNav_NoSite", v_PosSite, "")
+		pnd_PNav.Site_NoSite = g_NoSite_SDSPM
+	End If	
+	
+	Set gnd_Site_SDSPM = xSDSP3_xndSite(g_NoSite_SDSPM, True)
+	If gnd_Site_SDSPM Is Nothing Then
+		Messagebox xGDK_xMessage("SDSPP", 12, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	If Not (pnd_PNav Is Nothing) Then
+		pnd_PNav.Site_AjouterSDS = xVar(gnd_Site_SDSPM, "Site_AjouterSDS", "")
+		pnd_PNav.Site_AjouterSDSM = xVar(gnd_Site_SDSPM, "Site_AjouterSDSM", "")
+	End If
+	
+	SDSPM_InitSite = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPM_acImporterContratsService"><lotusscript>Function SDSPM_acImporterContratsService(p_SelectionnerClient As Boolean) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim nd_Clie As NotesDocument
+	Dim v_ClientNoFmt As String
+	Dim v_NbCS As Integer
+	
+	' Initialisations
+	'Call xSDSCS_Initialisations
+	Call xSDSCSL_Initialisations
+	
+	SDSPM_acImporterContratsService = False
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp("") Then
+		Exit Function
+	End If
+	
+	' Extraire le site
+	If Not SDSPM_InitSite(Nothing) Then
+		Exit Function
+	End If
+	
+	If xVarElem(gnd_Site_SDSPM, "Site_NoContratFmt_CS", 0, "") &lt;&gt; "" Then
+		If gnuiws_SDSPM.Prompt(PROMPT_YESNO, xGDK_xMessage("SI", 10, "", ""), xGDK_xMessage("SDSPP", 154, "", "")) &lt;&gt; 1 Then
+			Print "Le contract existant n'a pas été importé" 
+			Exit Function
+		End If
+	End If
+	
+	If p_SelectionnerClient Then
+		Set nd_Clie = SICl_ndSelectionnerClient("")
+		If nd_Clie Is Nothing Then
+			Exit Function
+		End If
+		v_ClientNoFmt = xVar(nd_Clie, "Clie_ClientNoFmt", "")
+	End If
+		
+	' Importer le(s) contrat(s) de service	
+	v_NbCS = SDSPP_ImporterContratsService(gnd_Prop_SDSPM, gnd_Site_SDSPM, v_ClientNoFmt, "")
+	
+	Select Case v_NbCS
+		Case 0
+			' Ce client n'a pas de contrat de service à importer.
+			MessageBox xGDK_xMessage("SDSPP", 139, "", ""), 16, xGDK_xMessage("SI", 1, "", "")					
+			Exit Function
+		Case -3
+			'la base SDS Contrats de service local est introuvable, Opération annulée
+			MessageBox xGDK_xMessage ("SDSPP", 185, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		Case Is &gt;0 
+			'Les contrats de service ont été importés.
+			MessageBox xGDK_xMessage("SDSPP", 142, "", CStr(v_NbCS))
+		Case else
+			' Une erreur s'est produite pendant l'importation des contrats de service.
+			MessageBox xGDK_xMessage("SDSPP", 144, "", ""), 16, xGDK_xMessage("SI", 1, "", "")			
+	End Select
+	
+	Call gnuid_SDSPM.Refresh				
+	SDSPM_acImporterContratsService = True		
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), xVar(gnd_Prop_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_hsRetirerProduitsProgrammeAuto"><lotusscript>Function SDSPM_hsRetirerProduitsProgrammeAuto(p_Categorie As String, p_NomItem As String, p_NomItemRetire As String) As Integer
+	' Permet de sélectionner parmis les produits d'une catégorie.  Quantité par défaut.
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim ni_Retires As NotesItem
+	
+	Dim v_Cle As String
+	
+	SDSPM_hsRetirerProduitsProgrammeAuto = False
+	Call xSDSBB_Initialisations
+	
+	' Sélectionner les produits à supprimer avec un picklist
+	v_Cle = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; p_Categorie
+	
+	Set ndc = gnuiws_SDSPM.PickListCollection(PICKLIST_CUSTOM, True, gndb_SDSPM.Server, _
+	gndb_SDSPM.FilePath, "V_Prod18", xGDK_xMessage("SDSPP", 27, "", ""), xGDK_xMessage("SDSPP", 50, "", ""), _
+	v_Cle)
+	If ndc.Count = 0 Then
+		Exit Function
+	End If
+	
+	' Extraire le site
+	If Not SDSPM_InitSite(Nothing) Then
+		Exit Function
+	End If
+	
+	If gnd_Site_SDSPM.HasItem(p_NomItemRetire) Then
+		Set ni_Retires = gnd_Site_SDSPM.GetFirstItem(p_NomItemRetire)
+	End If
+	
+	' Supprimer les produits sélectionnés
+	Set nd_Suivant = ndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+		
+		If ni_Retires Is Nothing Then
+			Call gnd_Site_SDSPM.ReplaceItemValue(p_NomItemRetire, xVar(nd, "Prod_CleProduit", ""))
+			Set ni_Retires = gnd_Site_SDSPM.GetFirstItem(p_NomItemRetire)
+		Else
+			Call ni_Retires.AppendToTextList(xVar(nd, "Prod_CleProduit", ""))
+		End If
+		
+		Call SDSPX_SupprimerProduit(nd, GetThreadInfo(1))
+	Loop
+	
+	gnd_Site_SDSPM.HistoDC = Now
+	gnd_Site_SDSPM.HistoUC = gns_SDSPM.UserName
+	Call gnd_Site_SDSPM.Save(True, False)
+	
+	
+	Call SDSPM_InitProduitsProgramme(gnd_SDSPM, p_NomItem, _
+	gc_NomProgrammeAutoSite_SDSPM, p_Categorie)
+	
+	Call SDSPM_InitProduitsRetires(gnd_SDSPM, p_NomItemRetire)
+	
+	Call gnuid_SDSPM.Refresh
+	
+	SDSPM_hsRetirerProduitsProgrammeAuto = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_SelectionnerClient_SF"><lotusscript>Function SDSPM_SelectionnerClient_SF(pnd_Prop As NotesDocument, p_Message As String) As String
+	' -------------------------------------------------------------------------------------
+	' Le script permet de sélectioner un client de Salesforce
+	' -------------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim ns As New NotesSession
+	Dim v_NomProfilAPI As String
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim cl_Account As SLSf_clObject
+	Dim v_URL As String
+	Dim v_Resultat As Integer
+	Dim v_ReponseJSON As String
+	Dim njsonn As NotesJSONNavigator
+	Dim njsone As NotesJSONElement
+	Dim njsona As NotesJSONArray
+	Dim njsono As NotesJSONObject
+	Dim l_Liste List As Variant
+	Dim v_Parametres(1) As String
+	Dim v_ClientValide As Boolean
+	
+	Dim v_ID As String
+	Dim v_AccountId As String
+	Dim v_Choix As Variant
+	
+	Dim a_Cles() As String
+	Dim a_Choix() As String
+
+	Dim v_Count As Long
+	Dim v_PosChoix As Long
+	
+	SDSPM_SelectionnerClient_SF = ""
+	v_Parametres(1) = "client"
+	v_ClientValide = False
+	
+	v_Count = -1
+
+	' Extraire la liste des clients SERTI de Salesforce
+	v_NomProfilAPI = SDSPSf_NomProfilSalesforceAPI
+	Set cl_ConnexionAPI = New SLSf_clConnexionAPI(v_NomProfilAPI)
+	If cl_ConnexionAPI.Resultat = 1 Then
+		v_URL = cl_ConnexionAPI.URL_API &amp; "query/?q=SELECT+Id,Name+from+Account+WHERE+SERTI_ID__c+=+null"
+		v_Resultat = SLSf_ExecuteGET(v_URL, cl_ConnexionAPI.CleAcces, v_ReponseJSON)
+		If v_Resultat &lt; 0 Then
+			Exit Function
+		End If
+	End If
+	
+	Set njsonn = ns.Createjsonnavigator(v_ReponseJSON)
+	Set njsone = njsonn.GetElementByPointer("/records")
+	Set njsona = njsone.Value
+	Set njsone = njsona.Getfirstelement
+	Do Until njsone Is Nothing
+		
+		Set njsono = njsone.Value
+		If SLJS_ExtraireListe_Objet(njsono, "", l_Liste) = 1 Then
+			
+			v_Count = v_Count +1	
+			
+			ReDim Preserve a_Cles(v_Count)
+			ReDim Preserve a_Choix(v_Count)
+			
+			a_Cles(v_Count)  = l_Liste("Id")
+			a_Choix(v_Count)  = l_Liste("Name")
+
+		End If
+
+		Set njsone = njsona.Getnextelement
+	Loop
+	
+	Call Trier2Arrays(a_Choix, a_Cles)
+	
+
+	If v_Count = -1 Then
+		Exit Function
+	End If
+	
+	v_Choix = gnuiws_SDSPM.Prompt (PROMPT_OKCANCELLIST, xGDK_xMessage("SI", 198, "", ""),xGDK_xMessage("SI", 86, "", ""), "", a_Choix)		
+	
+	If IsEmpty(v_Choix) Then
+		Exit Function
+	End If
+	
+	v_PosChoix = ArrayGetIndex(a_Choix, v_Choix)
+	v_AccountId = a_Cles(v_PosChoix)
+	
+	Set cl_Account = New SLSf_clObject(cl_ConnexionAPI, "Account", v_AccountId)
+	If cl_Account.Resultat = 1 Then				
+		v_ClientValide = SDSPM_VerifierClient_SF( cl_Account, v_Parametres(1))		
+	End If		
+
+	
+	
+	If v_ClientValide Then
+		SDSPM_SelectionnerClient_SF = cl_Account.ExtraireValeur("Id", "")		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_VerifierClient_SF"><lotusscript>Function SDSPM_VerifierClient_SF( p_clClient As SLSf_clObject, p_Parametres As String) As Boolean
+
+	On Error GoTo GererErreur
+	' -----------------------------------------------------------
+	' Le script permet de vérifier l'adresse du client SI Clients
+	' -----------------------------------------------------------
+	
+	Dim v_Parametres(1) As String
+	
+	' Initialisations
+	SDSPM_VerifierClient_SF = False
+	
+
+	Dim a_NomItemsClient As Variant
+	Dim i As Integer
+	Dim l_ItemsClie List As String
+	Dim v_Langue As String
+	Dim v_NomItemsVide As String	
+	Dim v_ValeurItem As String
+	Dim v(2) As Variant
+		
+		v_Langue = xLangue
+		
+		a_NomItemsClient = Evaluate(|"BillingCountryCode" : "BillingStateCode": "BillingStreet": "BillingCity": "BillingPostalCode"|)
+		
+		l_ItemsClie("BillingCountryCode;FR") = "Pays"
+		l_ItemsClie("BillingCountryCode;EN") = "Country"
+		
+		l_ItemsClie("BillingStateCode;FR") = "Province"
+		l_ItemsClie("BillingStateCode;EN") = "Province"
+		
+		l_ItemsClie("BillingStreet;FR") = "Addresse"
+		l_ItemsClie("BillingStreet;EN") = "Address"
+		
+		l_ItemsClie("BillingCity;FR") = "Ville"
+		l_ItemsClie("BillingCity;EN") = "City"
+		
+		l_ItemsClie("BillingPostalCode;FR") = "Code postal"
+		l_ItemsClie("BillingPostalCode;EN") = "Postal Code"
+		
+	
+		For i = 0 To UBound(a_NomItemsClient)
+			
+			v_ValeurItem = p_clClient.ExtraireValeur(a_NomItemsClient(i), "")
+			
+			If v_ValeurItem = "" Then
+				If v_NomItemsVide = "" Then
+					v_NomItemsVide = Chr(13) &amp; "- " &amp; l_ItemsClie( a_NomItemsClient(i) &amp; ";" &amp; v_Langue)
+				Else
+					v_NomItemsVide = v_NomItemsVide &amp; Chr(13) &amp; "- " &amp; l_ItemsClie( a_NomItemsClient(i) &amp; ";" &amp; v_Langue)
+				End If
+			End If
+		Next
+		
+		If v_NomItemsVide &lt;&gt; "" Then
+			
+			v(0) = p_clClient.ExtraireValeur("Name", "")			
+			v(1) = p_Parametres
+			v(2) = Chr(13) &amp; v_NomItemsVide
+			MessageBox xGDK_xMessage("SDSPP", 33 ,"", v), 16, xGDK_xMessage("SI", 1, "", "")
+			'Impossible d'ajouter le site &amp;0 car l’information suivante à propos du client est manquante. &amp;1
+			Exit Function
+		End If
+		
+		SDSPM_VerifierClient_SF = True
+
+	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPM_DescProduits_A"><lotusscript>Sub SDSPM_DescProduits_A(p_NomItem As String, p_Quantite As Variant, p_CleProduit As String, _
+pnd_ProdSDSBB As NotesDocument, pnd_DB As NotesDocument, plni List As NotesItem, p_QuantiteDefaut As Variant, p_NbUtilisateursProduit As Long)
+	' Permet d'ajouter un produit au dialog box
+	On Error Goto GererErreur
+	
+	Dim nd_ProdSDSBB As NotesDocument
+	Dim nd_PrixSDSBB_AH As NotesDocument
+	Dim nd_PrixSDSBB As NotesDocument
+	Dim nv_Prod40 As NotesView
+	Dim nd_Prod As NotesDocument
+	
+	Dim v_Quantite As Variant
+	Dim v_ValeurItemPaie As Variant
+	Dim v_NbUtilisateursProduit As Long
+	Dim v_PrixUnitaire As String
+	Dim v_PrixTotal As String
+	Dim v_FraisMensuel As String
+	Dim d As Double
+	
+	If pnd_ProdSDSBB Is Nothing Then
+		Set nd_ProdSDSBB = xSDSBB_xndProd(p_CleProduit, True)
+	Else
+		Set nd_ProdSDSBB = pnd_ProdSDSBB
+	End If
+	
+	v_Quantite = SDSPX_xQuantiteDefaut(nd_ProdSDSBB, p_QuantiteDefaut)
+	If p_Quantite &gt; 0 Then
+		If v_Quantite &gt; 0 Then
+			v_Quantite = p_Quantite * v_Quantite
+		Else
+			v_Quantite = p_Quantite
+		End If
+	End If
+	
+	If gnd_SDSPM.HasItem("Site_D0_NbEmployesPaie") Then
+		v_ValeurItemPaie = xVar(gnd_SDSPM, "Site_D0_NbEmployesPaie", "")
+	End If
+	
+	If xVar(nd_ProdSDSBB, "Prod_ClasseProduit", "") = "LG" Then
+		
+		If p_NbUtilisateursProduit &gt; 0 Then
+			v_NbUtilisateursProduit = p_NbUtilisateursProduit
+		Else
+			v_NbUtilisateursProduit = SDSPX_NbUtilisateursDepartements(nd_ProdSDSBB, gnd_Prop_SDSPM, gnd_Site_SDSPM, "", v_ValeurItemPaie) 
+		End If
+%REM
+		If v_NbUtilisateursProduit = 0 Then
+			If xVar(nd_ProdSDSBB, "Prod_ProgNomItem3", "") = "Site_D0_ModuleSDSDrive" Then
+				Call xnd("", (xVar(gnd_Prop_SDSPM, "Prop_NoProposition", "") &amp; ";" &amp; xVar(gnd_Site_SDSPM, "Site_NoSite", "") &amp; ";" &amp; "Site_D0_ModuleSDSDrive") , False, gndb_SDSPM, "V_Prod40", nv_Prod40, nd_Prod)
+				If Not nd_Prod Is Nothing Then
+					v_NbUtilisateursProduit = xVar(nd_Prod, "Prod_NbUtilisateursCalcule", 0)
+				End If
+			End If
+		End If
+%END REM
+	Else
+		v_NbUtilisateursProduit = 0
+	End If
+	
+	Set nd_PrixSDSBB = SDSPX_ndPrix(p_CleProduit, xVar(gnd_Prop_SDSPM, "Prop_Devise", ""), _
+	xVar(gnd_Site_SDSPM, "Site_ClientPays", ""), xVar(gnd_Site_SDSPM, "Site_ClientProvince", ""), v_NbUtilisateursProduit)
+	
+	Set nd_PrixSDSBB_AH = SDSPX_ndPrixAH(p_CleProduit, xVar(gnd_Prop_SDSPM, "Prop_Devise", ""), _
+	xVar(gnd_Site_SDSPM, "Site_ClientPays", ""), xVar(gnd_Site_SDSPM, "Site_ClientProvince", ""), v_NbUtilisateursProduit)
+	
+	If nd_PrixSDSBB Is Nothing Then
+		v_PrixUnitaire = "ERR"
+		v_PrixTotal = "ERR"
+	Else
+		d = xVar(nd_PrixSDSBB, "Prix_PrixUnitaire", 0)
+		v_PrixUnitaire = Format(d, "Standard")
+		v_PrixTotal = Format(v_Quantite * d, "Standard")
+		d = xVar(nd_PrixSDSBB_AH,"Prix_PrixUnitaire", 0)
+		v_FraisMensuel = Format(d, "Standard")
+	End If
+	If Not Iselement(plni("CD")) Then
+		Call pnd_DB.ReplaceItemValue("DB_CL", xVar(nd_ProdSDSBB, "Prod_ClasseDesc" &amp; g_Langue_SDSPM, "ERR"))
+		Call pnd_DB.ReplaceItemValue("DB_CD", xVar(nd_ProdSDSBB, "Prod_CodeProduit", ""))
+		Call pnd_DB.ReplaceItemValue("DB_DS", Left(xVar(nd_ProdSDSBB, "Prod_DescProduit" &amp; g_Langue_SDSPM, "ERR"), 50))
+		Call pnd_DB.ReplaceItemValue("DB_QT", Cstr(v_Quantite))
+		Call pnd_DB.ReplaceItemValue("DB_PU", v_PrixUnitaire)
+		Call pnd_DB.ReplaceItemValue("DB_PT", v_PrixTotal)
+		Call pnd_DB.ReplaceItemValue("DB_FM", v_FraisMensuel)
+		Set plni("CL") = pnd_DB.GetFirstItem("DB_CL")
+		Set plni("CD") = pnd_DB.GetFirstItem("DB_CD")
+		Set plni("DS") = pnd_DB.GetFirstItem("DB_DS")
+		Set plni("QT") = pnd_DB.GetFirstItem("DB_QT")
+		Set plni("PU") = pnd_DB.GetFirstItem("DB_PU")
+		Set plni("PT") = pnd_DB.GetFirstItem("DB_PT")
+		Set plni("FM") = pnd_DB.GetFirstItem("DB_FM")
+	Else
+		Call plni("CL").AppendToTextList(xVar(nd_ProdSDSBB, "Prod_ClasseDesc" &amp; g_Langue_SDSPM, "ERR"))
+		Call plni("CD").AppendToTextList(xVar(nd_ProdSDSBB, "Prod_CodeProduit", ""))
+		Call plni("DS").AppendToTextList(Left(xVar(nd_ProdSDSBB, "Prod_DescProduit" &amp; g_Langue_SDSPM, "ERR"), 50))
+		Call plni("QT").AppendToTextList(Cstr(v_Quantite))
+		Call plni("PU").AppendToTextList(v_PrixUnitaire)
+		Call plni("PT").AppendToTextList(v_PrixTotal)
+		Call plni("FM").AppendToTextList(v_FraisMensuel)
+	End If
+	
+	' Ajouter les produits dépendants
+	If xVarContient(nd_ProdSDSBB, "Prod_Options", "D") Then
+		Call SDSPM_DescProduits_D(p_NomItem, v_Quantite, pnd_DB, plni, "P", p_CleProduit, p_QuantiteDefaut, p_NbUtilisateursProduit)
+		Call SDSPM_DescProduits_D(p_NomItem, v_Quantite, pnd_DB, plni, "C", xVar(nd_ProdSDSBB, "Prod_CategorieProduit", ""), p_QuantiteDefaut, p_NbUtilisateursProduit)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_hsSelectionnerProduitsDepartement"><lotusscript>Sub SDSPM_hsSelectionnerProduitsDepartement(p_Departement As String, p_Categorie As String, p_NomItemProduits As String, _
+p_NomItemAucunProduit As String, p_NoErreurDispo As Integer)
+	On Error Goto GererErreur
+	
+	Select Case SDSPM_SelectionnerProduitsDepartement(p_Departement, p_Categorie, p_NomItemProduits)
+	Case True:
+		If p_NomItemAucunProduit &lt;&gt; "" Then
+			Call gnd_SDSPM.ReplaceItemValue(p_NomItemAucunProduit, "")
+		End If
+	Case 2:
+		MessageBox xGDK_xMessage("SDSPP", p_NoErreurDispo, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+	Case 9:
+		Print "Maj annulée."
+	End Select
+	
+	Call gnuid_SDSPM.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SDSPM_hsRetirerProduitsProgramme"><lotusscript>Function SDSPM_hsRetirerProduitsProgramme(p_NomItem As String) As Integer
+	' Permet de sélectionner parmis les produits d'une catégorie. Quantité par défaut.
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	
+	Dim v_Cle As String
+	
+	SDSPM_hsRetirerProduitsProgramme = False
+	Call xSDSBB_Initialisations
+	Call SDSPM_Initialisations
+	
+	' Sélectionner les produits à supprimer avec un picklist
+	v_Cle = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; p_NomItem
+	
+	Set ndc = gnuiws_SDSPM.PickListCollection(PICKLIST_CUSTOM, True, gndb_SDSPM.Server, gndb_SDSPM.FilePath, _
+	"V_Prod14", xGDK_xMessage("SDSPP", 27, "", ""), xGDK_xMessage("SDSPP", 50, "", ""), v_Cle)
+	If ndc.Count = 0 Then
+		Exit Function
+	End If
+
+	' Supprimer les produits sélectionnés
+	Set nd_Suivant = ndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+		
+		Call SDSPX_SupprimerProduit(nd, GetThreadInfo(1))
+	Loop
+	
+	' Afficher les produits sélectionnées
+	Call SDSPM_InitProduitsProgramme(gnd_SDSPM, p_NomItem, "", "")
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	
+	SDSPM_hsRetirerProduitsProgramme = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_ndcSelectionnerProduitsCategorie"><lotusscript>Function SDSPM_ndcSelectionnerProduitsCategorie(ByVal p_Query As String, p_Champs As Variant, ByVal p_Null As Integer, _
+pnv As NotesView, ByVal p_fDescription As String, ByVal p_Titre As String, p_Categorie As String, p_RechApprox As Boolean, pnd_Prop As NotesDocument, _
+pnd_Site As NotesDocument) As NotesDocumentCollection
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument
+	Dim nd2 As NotesDocument
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim nd_PrixSDSBB_CS As NotesDocument
+	
+	Dim v_NbResultats As Long
+	Dim v_Description As Variant
+	Dim x As Long
+	Dim v_Query As Variant
+	Dim a As Variant
+	Dim v_CleProduit As String
+	Dim v_QueryTmp As String
+	
+	' Initialisations
+	' ---------------
+	Set SDSPM_ndcSelectionnerProduitsCategorie = pnv.GetAllDocumentsByKey("**** BiDoN ****", True)
+	
+	' Validation des paramètres
+	' -------------------------
+	If pnv Is Nothing Or p_fDescription = "" Then
+		Exit Function
+	End If
+	Call SISe_Initialisations
+	If p_Titre = "" Then
+		p_Titre = "SI Sélection"
+	End If
+	
+	' Si le query est vide, effectuer l'action selon le paramètre P_Null
+	' ------------------------------------------------------------------
+	If p_Query = "" Then
+		If p_Null = SISe_PICKLIST Then
+			Set SDSPM_ndcSelectionnerProduitsCategorie = SISe_ndcPickList(pnv, p_Titre, p_Categorie)
+			Exit Function
+		End If
+		
+		' Permettre à l'utilisateur de saisir le query à l'aide d'un prompt
+		' -----------------------------------------------------------------
+		v_Query = gnuiws_SISe.Prompt(PROMPT_OKCANCELEDIT, p_Titre, xGDK_xMessage("SI", 69, "", ""))
+		If IsEmpty(v_Query) Then
+			Exit Function
+		ElseIf v_Query = "" Then
+			Set SDSPM_ndcSelectionnerProduitsCategorie = SISe_ndcPickList(pnv, p_Titre,p_Categorie)
+			Exit Function
+		Else
+			If p_RechApprox Then
+				p_Query = "*" &amp; v_Query &amp; "*"
+			Else
+				p_Query = v_Query
+			End If
+		End If
+	End If
+	
+	' Ajouter les p_Champs au "p_Query", si necessaire
+	If IsArray(p_Champs) Then
+		ForAll p In p_Champs
+			v_QueryTmp = v_QueryTmp &amp; "FIELD " &amp; p &amp; " contains (" &amp; p_Query &amp; ") OR "
+		End ForAll
+		p_Query = Left$(v_QueryTmp, Len(v_QueryTmp) - 4)
+	ElseIf Not p_Champs = "" Then
+		p_Query = "FIELD " &amp; p_Champs &amp; " contains (" &amp; p_Query &amp; ")"
+	End If
+	
+	' Si aucun résultat, afficher un message d'erreur et sortir
+	' ---------------------------------------------------------
+	v_NbResultats = pnv.FTSearch(p_Query)
+	If v_NbResultats = 0 Then
+		MsgBox(xGDK_xMessage("SI", 70, "", ""))
+		Exit Function
+	End If
+	
+	' Créer le tableau à partir des résultats obtenu
+	' ----------------------------------------------
+	If v_NbResultats &gt; g_LimiteResultats Then
+		ReDim a_Resultats(g_LimiteResultats - 1)
+	Else
+		ReDim a_Resultats(v_NbResultats - 1)
+	End If	
+	x = 0
+	Set nd_Suivant = pnv.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = pnv.GetNextDocument(nd_Suivant)
+		v_Description = Evaluate(p_fDescription, nd)
+		
+		v_CleProduit = xVar(nd, "Prod_CleProduit", "")
+		Set nd_Prix_SDSBB = SDSPX_ndPrix(v_CleProduit , xVar(pnd_Prop, "Prop_Devise", ""), _
+		xVar(pnd_Site, "Site_ClientPays", ""), xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+		
+		Set nd_PrixSDSBB_CS = SDSPX_ndPrixAH(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+		xVar(pnd_Site, "Site_ClientPays", ""), xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+		
+		If InStr(p_Categorie, "LG") &gt; 0 Then
+			If Not nd_PrixSDSBB_CS Is Nothing Then
+				v_Description(0) = v_Description(0) &amp; " - " &amp; xGDK_xMessage("SDSPP", 102, "", "") &amp; " : " &amp; _
+				Format(xVar(nd_PrixSDSBB_CS , "Prix_PrixUnitaire", 0), "Standard") &amp; " " &amp; xSDSBB_xComplTabl("M", "Prod_TypePrix_" &amp; xLangue, "1", True) 
+			End If
+		Else
+			If Not nd_Prix_SDSBB Is Nothing Then
+				v_Description(0) = v_Description(0) &amp; " - " &amp; xGDK_xMessage("SDSPP", 102, "", "") &amp; " : " &amp; Format(xVar(nd_Prix_SDSBB , "Prix_PrixUnitaire", 0), "Standard") &amp; _
+				" " &amp; xSDSBB_xComplTabl("U", "Prod_TypePrix_" &amp; xLangue, "1", True)
+			End If
+		End If
+		
+		
+		a_Resultats(x) = v_Description(0) + "|" + CStr(nd.UniversalID)
+		x = x + 1
+		If x = g_LimiteResultats Then
+			Exit Do
+		End If
+	Loop
+	
+	' Permettre à l'utilisateur de sélectionner une valeur dans un dialogbox
+	' ----------------------------------------------------------------------
+	Set nd_DB = New NotesDocument(gndb_SISe)
+	nd_DB.SISe_NbResultats = v_NbResultats
+	nd_DB.SISe_NbLimite = g_LimiteResultats
+	nd_DB.SISe_Liste = a_Resultats
+	nd_DB.SISe_Type = "1"
+	If gnuiws_SISe.DialogBox( "DB_SISe", True, True, False, False, False ,False, p_Titre, nd_DB, True, False, False ) Then
+		' Assigner le document choisi par l'utilisateur
+		' ---------------------------------------------
+		Set ndb = pnv.Parent
+		a = xVarArray(nd_DB, "SISe_Choix")
+		ForAll v_UNID In a
+			Set nd = ndb.GetDocumentByUNID(v_UNID)
+			If Not (nd Is Nothing) Then
+				Set nd2 = SDSPM_ndcSelectionnerProduitsCategorie.GetDocument(nd)
+				If nd2 Is Nothing Then
+					Call SDSPM_ndcSelectionnerProduitsCategorie.AddDocument(nd)
+				End If
+			End If
+		End ForAll
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISe, gc_Element_SISe, GetThreadInfo(1), p_Query, False)
+	Exit Function
+	
+	
+End Function
+
+</lotusscript></code><code event="SDSPM_SelectionnerProduitsDepartement"><lotusscript>Function SDSPM_SelectionnerProduitsDepartement(p_Departement As String, p_Categorie As String, _
+	p_NomItem As String) As Integer
+	On Error GoTo GererErreur
+	' Permet de sélectionner parmis les produits d'équipement qui sont disponibles pour le
+	' département spécifié ou sont disponibles pour tous les départements.
+	
+	Dim nd_DB As NotesDocument
+	Dim nd_Prod As NotesDocument
+	
+	Dim v_NbProduits As Integer
+	Dim a_CleProduitsSDSBB As Variant
+	Dim a_CodeProduitsSDSBB As Variant
+	Dim a_DescProduitsSDSBB As Variant
+	Dim a_DescTypePrixProduitsSDSBB As Variant
+	Dim a_PrixProduitsSDSBB As Variant
+	Dim a_Cle(1) As String
+	Dim v_Cle As String
+	Dim a_CleProduits As Variant
+	Dim i As Integer
+	Dim v_Pos As Variant
+	Dim v_NbProduitsNS As Integer
+	Dim v_Quantite As Long
+	Dim s As String
+	
+	Const c_MaxProduits = 20
+	
+	SDSPM_SelectionnerProduitsDepartement = False
+	
+	' Construire le tableau des produits disponibles
+	v_NbProduits = SDSPX_aProduitsDepartement(p_Categorie, p_Departement, a_CleProduitsSDSBB, _
+	a_CodeProduitsSDSBB, a_DescProduitsSDSBB, a_DescTypePrixProduitsSDSBB, a_PrixProduitsSDSBB, True, gnd_Prop_SDSPM, gnd_Site_SDSPM)
+	
+	' Aucun produit disponible ou SDSPX_aProduitsDepartement retourne une errreur
+	If Not IsArray(a_CleProduitsSDSBB) Then
+		Exit Function
+	End if
+	
+	' Extraire les produits déjà sélectionnées
+	a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; p_NomItem
+	a_CleProduits = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2); "")|)
+	
+	' Aucun produit à afficher
+	If v_NbProduits = 0 And a_CleProduits(0) = "" Then
+		SDSPM_SelectionnerProduitsDepartement = 2
+		Exit Function
+	End If
+	
+	If gnv_Prod40b_SDSPM Is Nothing Then
+		Set gnv_Prod40b_SDSPM = gndb_SDSPM.GetView("V_Prod40")
+	End If
+	Call gnv_Prod40b_SDSPM.Refresh
+	
+	' Construire le dialog box
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	
+	' Ajouter les produits disponibles
+	For i = 1 To v_NbProduits
+		Call nd_DB.ReplaceItemValue("DB_Cle" &amp; Cstr(i), a_CleProduitsSDSBB(i - 1))
+		Call nd_DB.ReplaceItemValue("DB_Code" &amp; Cstr(i), a_CodeProduitsSDSBB(i - 1))
+		Call nd_DB.ReplaceItemValue("DB_Desc" &amp; Cstr(i), a_DescProduitsSDSBB(i - 1))
+		Call nd_DB.ReplaceItemValue("DB_DescTypePrix" &amp; Cstr(i), a_DescTypePrixProduitsSDSBB(i - 1))
+		Call nd_DB.ReplaceItemValue("DB_Prix" &amp; Cstr(i), a_PrixProduitsSDSBB(i - 1))
+		
+		v_Pos = Arraygetindex(a_CleProduits, a_CleProduitsSDSBB(i - 1))
+		If Not Isnull(v_Pos) Then
+			a_Cle(1) = a_CleProduitsSDSBB(i - 1)
+			v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+			Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+			If Not (nd_Prod Is Nothing) Then
+				Call nd_DB.ReplaceItemValue("DB_Prix" &amp; Cstr(i), xVar(nd_Prod, "Prod_PrixUnitaire", 0))
+				v_Quantite = xVar(nd_Prod, "Prod_Quantite", 1)
+				Call nd_DB.ReplaceItemValue("DB_QuantiteOriginale" &amp; Cstr(i), v_Quantite)
+				Call nd_DB.ReplaceItemValue("DB_Quantite" &amp; Cstr(i), v_Quantite)
+			End If
+			a_CleProduits(v_Pos) = ""
+		End If
+		
+		If i &gt;= c_MaxProduits Then
+			Exit For
+		End If
+	Next
+	nd_DB.DB_NbProduits = v_NbProduits
+	
+	' Ajouter les produits qui ne sont plus supportés
+	v_NbProduitsNS = 0
+	For i = Lbound(a_CleProduits) To Ubound(a_CleProduits)
+		If a_CleProduits(i) &lt;&gt; "" Then
+			v_NbProduitsNS = v_NbProduitsNS + 1
+			a_Cle(1) = a_CleProduits(i)
+			v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+			Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+			If Not (nd_Prod Is Nothing) Then
+				Call nd_DB.ReplaceItemValue("DB_CleNS" &amp; Cstr(v_NbProduitsNS), xVar(nd_Prod, "Prod_CleProduit", ""))
+				Call nd_DB.ReplaceItemValue("DB_CodeNS" &amp; Cstr(v_NbProduitsNS), xVar(nd_Prod, "Prod_CodeProduit", ""))
+				Call nd_DB.ReplaceItemValue("DB_DescNS" &amp; Cstr(v_NbProduitsNS), xVar(nd_Prod, "Prod_DescProduit" &amp; g_Langue_SDSPM, ""))
+				Call nd_DB.ReplaceItemValue("DB_QuantiteNS" &amp; Cstr(v_NbProduitsNS), xVar(nd_Prod, "Prod_Quantite", 0))
+			End If
+		End If
+	Next
+	Call nd_DB.ReplaceItemValue("DB_NbProduitsNS", v_NbProduitsNS)
+	nd_DB.DB_Devise = xVar(gnd_Prop_SDSPM, "Prop_Devise", "CAD")
+	nd_DB.DB_NomItem = p_NomItem
+	
+	nd_DB.DB_Continue = "1"
+	
+	' Afficher le dialog box
+	If Not gnuiws_SDSPM.DialogBox("DB_PDep", True, True, True, False, False, False, xGDK_xMessage("SDSPP", 27, "", ""), nd_DB, _
+	True, True) Then
+		Exit Function
+	End If
+	If xVar(nd_DB, "DB_Continue", "") &lt;&gt; "1" Then
+		SDSPM_SelectionnerProduitsDepartement = 9
+		Exit Function
+	End If
+	
+	' Mettre à jour les produits
+	For i = 1 To v_NbProduits
+		v_Quantite = xVar(nd_DB, "DB_Quantite" &amp; Cstr(i), 0)
+		If v_Quantite &lt;&gt; xVar(nd_DB, "DB_QuantiteOriginale" &amp; Cstr(i), 0) Then
+			a_Cle(1) = xVar(nd_DB, "DB_Cle" &amp; Cstr(i), 0)
+			v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+			Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+			If v_Quantite = 0 Then
+				If Not (nd_Prod Is Nothing) Then
+					Call SDSPX_SupprimerProduit(nd_Prod, GetThreadInfo(1))
+				End If
+			Else
+				If nd_Prod Is Nothing Then
+					Call SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, a_Cle(1), v_Quantite, "", _
+					"", p_Departement, "", p_NomItem, True, True, gnd_Site_SDSPM)
+				Else
+					Call SDSPX_ModifierProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, nd_Prod, v_Quantite, "", "", "", True, Nothing)
+				End If
+			End If
+		End If
+	Next
+	
+	' Supprimer les produits qui ne sont plus disponibles
+	For i = 1 To v_NbProduitsNS
+		a_Cle(1) = xVar(nd_DB, "DB_CleNS" &amp; Cstr(i), 0)
+		v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+		Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+		If Not (nd_Prod Is Nothing) Then
+			Call SDSPX_SupprimerProduit(nd_Prod, GetThreadInfo(1))
+		End If
+	Next
+	
+	' Afficher les produits sélectionnées
+	Call SDSPM_InitProduitsProgramme(gnd_SDSPM, p_NomItem, "", "")
+	
+	SDSPM_SelectionnerProduitsDepartement = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_InitProp"><lotusscript>Function SDSPM_InitProp(p_NoProposition As String) As Boolean
+	On Error Goto GererErreur
+	
+	SDSPM_InitProp = False
+	Set gnd_Prop_SDSPM = Nothing
+	
+	If p_NoProposition &lt;&gt; "" Then
+		g_NoProposition_SDSPM = p_NoProposition
+	End If
+	Set gnd_Prop_SDSPM = xSDSP3_xndProp(g_NoProposition_SDSPM, True)
+	If gnd_Prop_SDSPM Is Nothing Then
+		Messagebox xGDK_xMessage("SDSPP", 6, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	SDSPM_InitProp = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPM_ndcSelectionnerProduitsProgramme"><lotusscript>Function SDSPM_ndcSelectionnerProduitsProgramme(ByVal p_Query As String, p_Champs As Variant, ByVal p_Null As Integer, _
+pnv As NotesView, ByVal p_fDescription As String, ByVal p_Titre As String, p_RechApprox As Boolean, pnd_Prop As NotesDocument, _
+pnd_Site As NotesDocument) As NotesDocumentCollection
+	On Error GoTo GererErreur
+	
+	Dim v_NbResultats As Long
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument
+	Dim v_Description As Variant
+	Dim ndb As NotesDatabase
+	Dim x As Long
+	Dim v_Query As Variant
+	Dim a As Variant
+	Dim nd2 As NotesDocument
+	Dim v_CleProduit As String
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim nd_PrixSDSBB_CS As NotesDocument
+	
+	' Initialisations
+	' ---------------
+	Set SDSPM_ndcSelectionnerProduitsProgramme = pnv.GetAllDocumentsByKey("**** BiDoN ****", True)
+	
+	' Validation des paramètres
+	' -------------------------
+	If pnv Is Nothing Or p_fDescription = "" Then
+		Exit Function
+	End If
+	Call SISe_Initialisations
+	If p_Titre = "" Then
+		p_Titre = "SI Sélection"
+	End If
+	
+	' Si le query est vide, effectuer l'action selon le paramètre P_Null
+	' ------------------------------------------------------------------
+	If p_Query = "" Then
+		If p_Null = SISe_PICKLIST Then
+			Set SDSPM_ndcSelectionnerProduitsProgramme = SISe_ndcPickList(pnv, p_Titre, "")
+			Exit Function
+		End If
+		
+		' Permettre à l'utilisateur de saisir le query à l'aide d'un prompt
+		' -----------------------------------------------------------------
+		v_Query = gnuiws_SISe.Prompt(PROMPT_OKCANCELEDIT, p_Titre, xGDK_xMessage("SI", 69, "", ""))
+		If IsEmpty(v_Query) Then
+			Exit Function
+		ElseIf v_Query = "" Then
+			Set SDSPM_ndcSelectionnerProduitsProgramme = SISe_ndcPickList(pnv, p_Titre, "")
+			Exit Function
+		Else
+			If p_RechApprox Then
+				p_Query = "*" &amp; v_Query &amp; "*"
+			Else
+				p_Query = v_Query
+			End If
+		End If
+	End If
+	
+	' Ajouter les p_Champs au "p_Query", si necessaire
+	If IsArray(p_Champs) Then
+		Dim v_QueryTmp As String
+		ForAll p In p_Champs
+			v_QueryTmp = v_QueryTmp &amp; "FIELD " &amp; p &amp; " contains (" &amp; p_Query &amp; ") OR "
+		End ForAll
+		p_Query = Left$(v_QueryTmp, Len(v_QueryTmp) - 4)
+	ElseIf Not p_Champs = "" Then
+		p_Query = "FIELD " &amp; p_Champs &amp; " contains (" &amp; p_Query &amp; ")"
+	End If
+	
+	' Si aucun résultat, afficher un message d'erreur et sortir
+	' ---------------------------------------------------------
+	v_NbResultats = pnv.FTSearch(p_Query)
+	If v_NbResultats = 0 Then
+		MsgBox(xGDK_xMessage("SI", 70, "", ""))
+		Exit Function
+	End If
+	
+	' Créer le tableau à partir des résultats obtenu
+	' ----------------------------------------------
+	If v_NbResultats &gt; g_LimiteResultats Then
+		ReDim a_Resultats(g_LimiteResultats - 1)
+	Else
+		ReDim a_Resultats(v_NbResultats - 1)
+	End If	
+	x = 0
+	Set nd_Suivant = pnv.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = pnv.GetNextDocument(nd_Suivant)
+		v_Description = Evaluate(p_fDescription, nd)
+		
+		v_CleProduit = xVar(nd, "Prod_CleProduit", "")
+		Set nd_Prix_SDSBB = SDSPX_ndPrix(v_CleProduit , xVar(pnd_Prop, "Prop_Devise", ""), _
+		xVar(pnd_Site, "Site_ClientPays", ""), xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+		
+		Set nd_PrixSDSBB_CS = SDSPX_ndPrixAH(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+		xVar(pnd_Site, "Site_ClientPays", ""), xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+		
+		If InStr(xVar(nd, "PROD_CATEGORIECODE", ""), "LG") &gt; 0 Then
+			If Not nd_PrixSDSBB_CS Is Nothing Then
+				v_Description(0) = v_Description(0) &amp; " - " &amp; xGDK_xMessage("SDSPP", 102, "", "") &amp; " : " &amp; _
+				Format(xVar(nd_PrixSDSBB_CS , "Prix_PrixUnitaire", 0), "Standard") &amp; " " &amp; xSDSBB_xComplTabl("M", "Prod_TypePrix_" &amp; xLangue, "1", True) 
+			End If
+		Else
+			If Not nd_Prix_SDSBB Is Nothing Then
+				v_Description(0) = v_Description(0) &amp; " - " &amp; xGDK_xMessage("SDSPP", 102, "", "") &amp; " : " &amp; Format(xVar(nd_Prix_SDSBB , "Prix_PrixUnitaire", 0), "Standard") &amp; _
+				" " &amp; xSDSBB_xComplTabl("U", "Prod_TypePrix_" &amp; xLangue, "1", True)
+			End If
+		End If
+		
+		a_Resultats(x) = v_Description(0) + "|" + CStr(nd.UniversalID)
+		x = x + 1
+		If x = g_LimiteResultats Then
+			Exit Do
+		End If
+	Loop
+	
+	' Permettre à l'utilisateur de sélectionner une valeur dans un dialogbox
+	' ----------------------------------------------------------------------
+	Set nd_DB = New NotesDocument(gndb_SISe)
+	nd_DB.SISe_NbResultats = v_NbResultats
+	nd_DB.SISe_NbLimite = g_LimiteResultats
+	nd_DB.SISe_Liste = a_Resultats
+	nd_DB.SISe_Type = "1"
+	If gnuiws_SISe.DialogBox( "DB_SISe", True, True, False, False, False ,False, p_Titre, nd_DB, True, False, False ) Then
+		' Assigner le document choisi par l'utilisateur
+		' ---------------------------------------------
+		Set ndb = pnv.Parent
+		a = xVarArray(nd_DB, "SISe_Choix")
+		ForAll v_UNID In a
+			Set nd = ndb.GetDocumentByUNID(v_UNID)
+			If Not (nd Is Nothing) Then
+				Set nd2 = SDSPM_ndcSelectionnerProduitsProgramme.GetDocument(nd)
+				If nd2 Is Nothing Then
+					Call SDSPM_ndcSelectionnerProduitsProgramme.AddDocument(nd)
+				End If
+			End If
+		End ForAll
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISe, gc_Element_SISe, GetThreadInfo(1), p_Query, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_acAjouterDocument"><lotusscript>Sub SDSPM_acAjouterDocument
+	On Error GoTo GererErreur
+	
+	Dim nd_DB As NotesDocument
+	
+	' Sélectionner le Document à attacher
+	' -----------------------------------
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	If gnuiws_SDSPM.DialogBox("DB_Docu", True, True, False, False, False, False, _
+	xGDK_xMessage("SDSPP", 55, "", ""), nd_DB, True, False, False) Then
+		Call SDSPD_CreerDocument_SIDV(xVar(gnd_Prop_SDSPM, "Prop_NoProposition", ""), xVar(nd_DB, "Docu_TypeDocument", ""), _
+		xVar(nd_DB, "Docu_Lien", ""), xVar(nd_DB, "Docu_Description", ""), "")
+		Call gnuid_SDSPM.Refresh
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+
+
+</lotusscript></code><code event="SDSPM_hsAjouterProduitsCategorie"><lotusscript>Function SDSPM_hsAjouterProduitsCategorie(p_Categorie As String, p_NomItem As String, _
+	p_SelectionMultiple As Boolean, p_VerifierBanniere As Boolean, p_NomItemAuto As Variant, p_Query As String, p_VerfierItemRetires As Boolean) As Integer
+	On Error Goto GererErreur
+	
+	Dim nv_Prod As NotesView
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_Prod As NotesDocument
+	Dim ndc_Sites As NotesDocumentCollection
+	Dim nd_Site As NotesDocument
+	Dim nd_SiteSuivant As NotesDocument
+	Dim ni_ItemRetire As NotesItem
+	
+	Dim v_NomItemRetires As String
+	Dim v_CleProduit As String
+	Dim a_Cle(1) As String
+	Dim v_Cle As String
+	Dim a_CleProduitsProp As Variant
+	Dim v_Quantite As Long
+	Dim v_Query As Variant
+	Dim v_FTSearch As String
+	Dim v_ProduitRetire As Boolean
+	Dim a_ProduitsNonValide As Variant
+	Dim a_ProduitsRetire As Variant
+	Dim i As Integer
+	Dim v_AfficherMessage As Boolean
+	Dim j As Integer
+	Dim k As Integer
+	Dim v_TypeAjout As String
+	
+	'Initialisations
+	SDSPM_hsAjouterProduitsCategorie = False
+	Call xSDSBB_Initialisations
+	
+	Set nv_Prod = gndb_xSDSBB.GetView("v_Prod12" &amp; xLangue)
+	Call nv_Prod.Refresh
+	
+	If Not Isarray(p_NomItemAuto) Then
+		p_NomItemAuto = Split(p_NomItemAuto)
+	End If
+	
+	If p_Query = "" Then
+		
+		' Effectuer une recherche dans la categorie (p_Categorie)
+		v_Query = gnuiws_SDSPM.Prompt(PROMPT_OKCANCELEDIT, xGDK_xMessage("SDSPP", 27, "", ""), xGDK_xMessage("SI", 69, "", ""))
+		
+		If Isempty(v_Query) Then
+			Exit Function
+		End If
+		
+		If v_Query &lt;&gt; "" Then
+			v_Query = "*" &amp; v_Query &amp; "*"
+			v_FTSearch =|(FIELD Prod_DescProduit| &amp; xLangue &amp; | CONTAINS "| &amp; v_Query &amp; |" OR FIELD Prod_DescContrat| &amp; xLangue &amp; | CONTAINS "| &amp; v_Query &amp; |") AND FIELD Prod_CategorieProduit CONTAINS "| &amp; p_Categorie &amp; |"|
+		Else
+			v_FTSearch = |FIELD Prod_CategorieProduit CONTAINS "| &amp; p_Categorie &amp; |"|
+		End If
+		
+	Else
+		v_FTSearch = |FIELD Prod_CategorieProduit CONTAINS "| &amp; p_Categorie &amp; |"| &amp; " AND " &amp; p_Query
+	End If
+	
+	Set ndc = SDSPM_ndcSelectionnerProduitsCategorie(v_FTSearch, "", SISe_PROMPT, nv_Prod, |Prod_DescProduit| &amp; xLangue &amp; _
+	| + " (" + Prod_CodeProduit + ")"|, xGDK_xMessage("SDSPP", 27, "", ""), p_Categorie, False, gnd_Prop_SDSPM, gnd_Site_SDSPM)
+	
+	If ndc.Count = 0 Then
+		Exit Function
+	End If
+	
+	If gnv_Prod40b_SDSPM Is Nothing Then
+		Set gnv_Prod40b_SDSPM = gndb_SDSPM.GetView("V_Prod40")
+	End If
+	Call gnv_Prod40b_SDSPM.Refresh
+
+	Redim a_ProduitsNonValide(ndc.Count)
+	i = -1
+	k = -1
+	
+	' Ajouter les produits sélectionnés
+	a_Cle(0) = g_NoProposition_SDSPM &amp; ";"
+	a_CleProduitsProp = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2;[PartialMatch]); "")|)
+	
+	Set nd_Suivant = ndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+		
+		v_CleProduit = xVar(nd, "Prod_CleProduit", "")
+		
+		' Ne pas ajouter si le produit est déjà défini
+		
+		' Vérifier l'item
+		a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; p_NomItem
+		a_Cle(1) = v_CleProduit
+		
+		v_TypeAjout = xSDSBB_xVarProd(a_Cle(1), "Prod_Limiter", "", True)
+		
+		v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+		Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+		If Not nd_Prod Is Nothing Then
+			v_AfficherMessage = True
+		End If
+		
+		v_ProduitRetire = False
+		
+		If p_VerfierItemRetires Then
+			v_NomItemRetires = xSDSBB_xVarCate(p_Categorie, "Cate_ProgNomItemRetires", "", True)
+		Else
+			v_NomItemRetires = ""
+		End If
+		
+		' Vérifier item de produits retiré
+		If v_NomItemRetires &lt;&gt; "" Then
+			If ni_ItemRetire Is Nothing Then
+				Set ni_ItemRetire = xni(gnd_SDSPM, v_NomItemRetires, "")
+				If Isarray(xVarArray(gnd_SDSPM, v_NomItemRetires)) Then
+					Redim a_ProduitsRetire(Ubound(ni_ItemRetire.Values))
+				Else
+					Redim a_ProduitsRetire(0)
+				End If
+			End If
+			
+			If ni_ItemRetire.Contains(v_CleProduit) Then
+				k = k + 1
+				a_ProduitsRetire(k) = xSDSBB_xVarProd(a_Cle(1), "Prod_DescProduit" &amp; xLangue, "", True)	
+				
+				v_ProduitRetire = True
+			End If
+		Else
+			Redim a_ProduitsRetire(0)
+		End If
+		
+		If Not v_ProduitRetire Then
+			
+			If v_TypeAjout = "0" And nd_Prod Is Nothing Then 'Non - pas automatique
+				v_Quantite = xVar(nd, "Prod_Quantite", 1)
+				Set nd_Prod = SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, a_Cle(1), v_Quantite, "", "", "", _
+				"", p_NomItem, True, p_VerifierBanniere, gnd_Site_SDSPM)
+				
+				If nd_Prod Is Nothing Then
+					i = i + 1
+					a_ProduitsNonValide(i) = xSDSBB_xVarProd(a_Cle(1), "Prod_DescProduit" &amp; xLangue, "", True)
+				End If
+				
+	%REM
+				If xVar(nd_ProdSDSBB, "Prod_Limiter", "") = "3" Then
+					If Isnull(Arraygetindex(a_CleProduitsProp, a_CleProduitsSDSBB(i))) Then
+						Set nd_Prod = SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, a_Cle(1), v_Quantite, "", "", "", _
+						"", p_NomItem, True, p_VerifierBanniere, gnd_Site_SDSPM)
+					End If
+				Else
+					Set nd_Prod = SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, a_Cle(1), v_Quantite, "", "", "", _
+					"", p_NomItem, True, p_VerifierBanniere, gnd_Site_SDSPM)
+				End If
+	%END REM
+				
+			Else
+				
+				' Vérifier l'item Auto
+				If nd_Prod Is Nothing Then
+					
+					If p_NomItemAuto(0)	= "" Then
+						p_NomItemAuto(0) = gc_NomProgrammeAutoSite_SDSPM
+					End If
+					
+					For j = 0 To Ubound(p_NomItemAuto)
+						a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; p_NomItemAuto(j)
+						a_Cle(1) = v_CleProduit
+						v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+						Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+						
+						If Not nd_Prod Is Nothing Then
+							v_AfficherMessage = True
+						Else
+							
+							If v_TypeAjout = "1" And nd_Prod Is Nothing Then ' chaque site
+								
+								v_Quantite = xVar(nd, "Prod_Quantite", 1)
+								Set nd_Prod = SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, a_Cle(1), v_Quantite, "", "", "", _
+								"", p_NomItem, True, p_VerifierBanniere, gnd_Site_SDSPM)
+								
+								If nd_Prod Is Nothing Then
+									i = i + 1
+									a_ProduitsNonValide(i) = xSDSBB_xVarProd(a_Cle(1), "Prod_DescProduit" &amp; xLangue, "", True)
+								End If
+								
+							Elseif (v_TypeAjout = "3" Or v_TypeAjout = "2") And nd_Prod Is Nothing Then	' 3 = 1 x par proposition , 2 = 1 x par serveur
+								
+								If Not Isnull(Arraygetindex(a_CleProduitsProp, a_Cle(1))) Then
+									i = i + 1
+									a_ProduitsNonValide(i) = xSDSBB_xVarProd(a_Cle(1), "Prod_DescProduit" &amp; xLangue, "", True)
+								Else
+									v_Quantite = xVar(nd, "Prod_Quantite", 1)
+									Set nd_Prod = SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, a_Cle(1), v_Quantite, "", "", "", _
+									"", p_NomItem, True, p_VerifierBanniere, gnd_Site_SDSPM)
+									
+									If nd_Prod Is Nothing Then
+										i = i + 1
+										a_ProduitsNonValide(i) = xSDSBB_xVarProd(a_Cle(1), "Prod_DescProduit" &amp; xLangue, "", True)
+									End If
+								End If
+								
+							End If
+							
+						End If
+						
+					Next
+					
+				End If
+				
+				
+			End If
+			
+		End If
+		
+	Loop
+	
+	
+	If Isarray(a_ProduitsRetire) Then
+		If Not Isarray(a_ProduitsNonValide) Then
+			a_ProduitsNonValide = a_ProduitsRetire
+		Else
+			For k = 0 To Ubound(a_ProduitsRetire)
+				If Isnull(Arraygetindex(a_ProduitsNonValide, a_ProduitsRetire(k))) Then
+					a_ProduitsNonValide = Arrayappend(a_ProduitsNonValide, a_ProduitsRetire(k))
+				End If
+			Next
+		End If
+	End If
+	
+	If Isarray(a_ProduitsNonValide) Then
+		a_ProduitsNonValide = Fulltrim(a_ProduitsNonValide)
+		If a_ProduitsNonValide(0) &lt;&gt; "" Then
+			Messagebox xGDK_xMessage("SDSPP", 38, "", Chr(13) &amp; Chr(13) &amp; (Implode(Fulltrim(a_ProduitsNonValide), Chr(13)))), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+	End If
+	
+	If v_AfficherMessage Then
+		Messagebox xGDK_xMessage("SDSPP", 51, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+	End If
+	
+	' Afficher les produits sélectionnées
+	Call SDSPM_InitProduitsProgramme(gnd_SDSPM, p_NomItem, "", "")
+	SDSPM_hsAjouterProduitsCategorie = True
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_acImprimerPropositionSommaireXL"><lotusscript>Sub SDSPM_acImprimerPropositionSommaireXL
+	On Error GoTo GererErreur
+	
+	' Initialisations
+	Call SDSPM_Initialisations
+	
+	' Sauvegarder le document courante
+	g_AfficherErreurs_FPNav = True
+	On Error 4411 GoTo FinSub
+	Call gnuid_SDSPM.Save
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp("") Then
+		Exit Sub
+	End If
+
+	If SDSPEx_ExporterPropositionSommaire(gnd_Prop_SDSPM) Then
+		' Mettre à jour l'historique de la proposition
+		' --------------------------------------------
+		Call SIHi_Ajouter(gnd_Prop_SDSPM, "", "Action : " &amp; "Exportation de la proposition sommaire  /  Export Summary Proposal", "", True)
+	Else
+		Print "Exportation annulée."
+	End If
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SDSPM_MajProduitsProgramme_Qte"><lotusscript>Sub SDSPM_MajProduitsProgramme_Qte(p_Departement As String, p_NomItem As String, p_NoSite As String)
+	On Error Goto GererErreur
+	
+	Dim v_Quantite As Long
+	
+	v_Quantite = xVar(gnd_SDSPM, p_NomItem, 0)
+	If v_Quantite &gt; 0 Then
+		' Mettre à jour les produits associés à l'item
+		Call SDSPM_MajProduitsProgramme(p_Departement, p_NomItem, "", v_Quantite, "", "", p_NoSite)
+	Else
+		' Supprimer les produits associés à l'item
+		Call SDSPM_SupprimerProduitsProgramme(p_NomItem, p_NoSite, Getthreadinfo(1))
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), p_NomItem, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_Initialisations"><lotusscript>Sub SDSPM_Initialisations
+	
+	If gns_SDSPM Is Nothing Then
+		Set gns_SDSPM = New NotesSession
+		Set gndb_SDSPM = gns_SDSPM.CurrentDatabase
+		g_Langue_SDSPM = xLangue
+	End If
+	
+	If gnuiws_SDSPM Is Nothing Then
+		Set gnuiws_SDSPM = New NotesUIWorkspace
+		Set gnuid_SDSPM = gnuiws_SDSPM.CurrentDocument
+		Set gnd_SDSPM = gnuid_SDSPM.Document
+	End If
+	
+End Sub
+
+</lotusscript></code><code event="SDSPM_MajItemValeur"><lotusscript>Function SDSPM_MajItemValeur(pnd As NotesDocument, p_NomItem As String, p_Valeur As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	Dim a_ValeurProp As Variant
+	Dim i As Integer
+	
+	SDSPM_MajItemValeur = False
+	
+	If Isarray(p_Valeur) Then
+		a_ValeurProp = xVarArray(pnd, p_NomItem)
+	Else
+		a_ValeurProp = xVar(pnd, p_NomItem, "")
+	End If
+	
+	If Isarray(p_Valeur) &lt;&gt; Isarray(a_ValeurProp) Then
+		Call pnd.ReplaceItemValue(p_NomItem, p_Valeur)
+		SDSPM_MajItemValeur = True
+	Elseif Isarray(p_Valeur) Then
+		If Ubound(p_Valeur) &lt;&gt; Ubound(a_ValeurProp) Then
+			Call pnd.ReplaceItemValue(p_NomItem, p_Valeur)
+			SDSPM_MajItemValeur = True
+		Else
+			For i = Lbound(p_Valeur) To Ubound(p_Valeur)
+				If Cstr(p_Valeur(i)) &lt;&gt; Cstr(a_ValeurProp(i)) Then
+					Call pnd.ReplaceItemValue(p_NomItem, p_Valeur)
+					SDSPM_MajItemValeur = True
+					Exit Function
+				End If
+			Next
+		End If
+	Elseif Cstr(p_Valeur) &lt;&gt; Cstr(a_ValeurProp) Then
+		Call pnd.ReplaceItemValue(p_NomItem, p_Valeur)
+		SDSPM_MajItemValeur = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_SupprimerProduitsBanniere"><lotusscript>Function SDSPM_SupprimerProduitsBanniere(p_Classe As String, _
+	pa_Bannieres As Variant, p_NomItem As Variant) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim a_Bannieres As Variant
+	Dim a_BannieresSite As Variant
+	Dim a_CategoriesProduit As Variant
+	Dim a_Cle(1) As String
+	Dim v_Cle As String
+	Dim a_CleProduitsSDSBB As Variant
+	Dim a_CleProduits As Variant
+	Dim a_ClesProduitsRetire As Variant
+	Dim a_CodeProduitsSDSBB As Variant
+	Dim a_DescProduitsSDSBB As Variant
+	Dim a_NomItemRetires As Variant
+	Dim a_PrixProduitsSDSBB As Variant
+	Dim a_ValeursRetires As Variant
+	
+	Dim v_BannieresSDSBB As Variant
+	Dim v_NbProduits As Integer
+	Dim v_NomItem As Variant
+	Dim v_NomItemRetires As String	
+	Dim v_MajSite As Boolean	
+	Dim v_Pos As Variant
+	Dim v_ProduitRetire As Boolean
+	Dim v_SupprimerProduit As Boolean
+	
+	Dim i As Integer
+	Dim j As Integer
+	Dim k As Integer		
+	
+	Dim l_NomItemsRetire List As Variant
+	
+	Dim nd_Prod As NotesDocument
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim ni_Retires As NotesItem	
+	Dim ni As NotesItem
+	
+	' Initialisations
+	SDSPM_SupprimerProduitsBanniere = False
+	
+	If pa_Bannieres = "" Then
+		Exit Function
+	End If
+	
+	v_NomItem = p_NomItem
+	
+	If Not Isarray(v_NomItem) Then
+		v_NomItem = Split(p_NomItem,";")
+	End If
+	
+	a_Bannieres = pa_Bannieres
+	
+	If Not IsArray(a_Bannieres) Then
+		a_Bannieres = Split(pa_Bannieres,";")
+	End If
+	
+	
+	a_BannieresSite = xVarArray(gnd_Site_SDSPM, "Site_Banniere")
+	
+	' Construire le tableau des produits disponibles
+	v_NbProduits = SDSPX_aProduitsBannieres(p_Classe, a_Bannieres, a_CleProduitsSDSBB, _
+	a_CodeProduitsSDSBB, a_DescProduitsSDSBB, False, gnd_Prop_SDSPM, gnd_Site_SDSPM, a_PrixProduitsSDSBB)
+	
+	v_MajSite = False
+	
+	' Extraire les produits déjà sélectionnées
+	
+	For j = 0 To Ubound(v_NomItem)
+		
+		If v_NomItem(j) &lt;&gt; "" Then
+			a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; CStr(v_NomItem(j))
+		Else
+			a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";"
+		End If
+		
+		a_CleProduits = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; FullTrim(a_Cle(0)) &amp; |"; 2); "")|)
+		
+		If gnv_Prod40b_SDSPM Is Nothing Then
+			Set gnv_Prod40b_SDSPM = gnd_Prop_SDSPM.ParentDatabase.GetView("V_Prod40")
+		End If
+		Call gnv_Prod40b_SDSPM.Refresh
+		
+		' Aucun produit
+		If v_NbProduits = 0 And a_CleProduits(0) = "" Then
+			Exit Function
+		End If
+		
+		' Supprimer les produits qui ne sont plus disponibles
+		For i = Lbound(a_CleProduits) To Ubound(a_CleProduits)
+			If a_CleProduits(i) &lt;&gt; "" Then
+				v_Pos = Arraygetindex(a_CleProduitsSDSBB, a_CleProduits(i))
+				
+				If Isnull(v_Pos) Then
+					a_Cle(1) = a_CleProduits(i)
+				Else
+					a_Cle(1) = a_CleProduitsSDSBB(v_Pos)
+				End If
+				
+				v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+				Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+				
+				If Not nd_Prod Is Nothing Then
+					
+					Set nd_Prod_SDSBB = xSDSBB_xndProd(a_Cle(1), True)
+					
+					a_CategoriesProduit = xVarArray(nd_Prod_SDSBB, "Prod_CategorieProduit")
+					
+					If Not nd_Prod_SDSBB Is Nothing Then
+						
+						Set ni = xni(nd_Prod_SDSBB, "Prod_DispoBanniere", "")		
+						
+						If IsArray(a_CategoriesProduit) Then
+							
+							For k = 0 To UBound(a_CategoriesProduit)
+								v_NomItemRetires = xSDSBB_xVarCate(xVarElem(nd_Prod_SDSBB, "Prod_CategorieProduit", j, ""), "Cate_ProgNomItemRetires", "", True)
+								
+								If v_NomItemRetires &lt;&gt; "" Then
+									If gnd_Site_SDSPM.HasItem(v_NomItemRetires) Then
+										Set ni_Retires = gnd_Site_SDSPM.GetFirstItem(v_NomItemRetires)
+										
+										If Not IsElement(l_NomItemsRetire(v_NomItemRetires)) Then
+											l_NomItemsRetire(v_NomItemRetires) = ni_Retires.Values																	
+										End If
+										
+									End If
+								End If
+							Next
+							
+						Else
+
+							v_NomItemRetires = xSDSBB_xVarCate(xVar(nd_Prod_SDSBB, "Prod_CategorieProduit", ""), "Cate_ProgNomItemRetires", "", True)
+							If v_NomItemRetires &lt;&gt; "" Then
+								If gnd_Site_SDSPM.HasItem(v_NomItemRetires) Then
+									Set ni_Retires = gnd_Site_SDSPM.GetFirstItem(v_NomItemRetires)
+									
+									If Not IsElement(l_NomItemsRetire(v_NomItemRetires)) Then
+										l_NomItemsRetire(v_NomItemRetires) = ni_Retires.Values
+										
+									End If
+									
+								End If
+							End If
+							
+						End If
+						
+						
+					End If
+					
+					
+					v_SupprimerProduit = False
+					
+					If Isarray(a_Bannieres) Then
+						
+						If ni.Values(0) &lt;&gt; "" Then
+							
+							If Not SDSPM_ProduitsBanniereDispo(a_BannieresSite, CStr(v_NomItem(j))) Then
+								v_SupprimerProduit = True	
+							End If
+							
+	%REM
+							For k = 0 To UBound(ni.Values)							
+								If Not IsNull(ArrayGetIndex(a_Bannieres, ni.Values(k))) Then
+									v_SupprimerProduit = True	
+								Else
+									If Not IsNull(ArrayGetIndex(a_BannieresSite, ni.Values(k))) Then
+										v_SupprimerProduit = False
+										Exit For
+									End If	
+								End if						
+							Next	
+	%END REM
+							
+						End If
+						
+						If v_SupprimerProduit = True Then	
+							
+							If xVar(nd_Prod, "Prod_ClasseProduit","") = p_Classe Then
+								Call SDSPX_SupprimerProduit(nd_Prod, GetThreadInfo(1))	
+							End If											
+							
+						End If
+						
+					End If
+					
+				End If
+				
+			End If
+			
+		Next
+	Next
+	
+	
+	ForAll ItemRetire In l_NomItemsRetire
+		
+		If gnd_Site_SDSPM.HasItem(ListTag(ItemRetire)) Then
+			Set ni_Retires = xni(gnd_Site_SDSPM, ListTag(ItemRetire), "")
+			a_ValeursRetires = ni_Retires.Values
+		End If
+		
+		If Not ni_Retires Is Nothing Then
+			
+			If ni_Retires.Values(0) &lt;&gt; "" Then
+				
+				For i = 0 To Ubound(ni_Retires.Values)
+					
+					v_ProduitRetire = False
+					
+					v_BannieresSDSBB = xSDSBB_xVarProd(ni_Retires.Values(i), "Prod_DispoBanniere", "", True)
+					
+					If Isarray(v_BannieresSDSBB) Then
+						
+						If v_BannieresSDSBB(0) &lt;&gt; "" Then
+							
+							Forall banniere In v_BannieresSDSBB
+								v_ProduitRetire = True
+								If xVarContient(gnd_Site_SDSPM, "Site_Banniere", banniere) Then
+									v_ProduitRetire = False
+									Exit Forall
+								End If
+							End Forall
+							
+							If v_ProduitRetire Then
+								a_ValeursRetires(i) = ""
+								v_MajSite = True
+							End If
+							
+						End If
+						
+					Else
+						
+						If v_BannieresSDSBB &lt;&gt; "" Then
+							v_ProduitRetire = True
+							
+							If xVarContient(gnd_Site_SDSPM, "Site_Banniere", v_BannieresSDSBB) Then
+								v_ProduitRetire = False
+							End If
+							
+							If v_ProduitRetire Then
+								a_ValeursRetires(i) = ""
+								v_MajSite = True
+							End If
+							
+						End If
+						
+					End If
+					
+				Next
+				
+				If v_MajSite Then
+					ni_Retires.Values = Fulltrim(a_ValeursRetires)
+					Call gnd_Site_SDSPM.Save(True, False)
+				End If
+				
+			End If
+		End If
+		
+	End ForAll
+	
+	SDSPM_SupprimerProduitsBanniere = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_acWorkflow"><lotusscript>Function SDSPM_acWorkflow(p_Statut As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim ws_Proposition As Cl_proposition
+	Dim nd_DB As NotesDocument
+	Dim nd_Prop As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim ndb As NotesDatabase
+
+	Dim v_Commentaire As String	
+	Dim v_EditMode As String
+	Dim v_NoProposition As String
+	Dim v_PropStatut As String
+	Dim v_UserName As String
+	
+	' Initialisations
+	v_NoProposition = xVar(gnd_SDSPM, "Prop_NoProposition", "")
+	v_PropStatut = xVar(gnd_Prop_SDSPM, "Prop_Statut", "")
+	v_EditMode = xVar(gnd_SDSPM, "PNav_EditMode", "")
+	
+	SDSPM_acWorkflow = False
+	
+	' L'action Signée ne doit pas passer par FPNav_acWorkflow
+	'	If p_Statut = "60" Then
+	'		MessageBox ("Error ** Relay message to Notes Dev. Dept: FPNav_acWorkflow - The Signed action must call FPNav_acSignerProposition")
+	'		Exit Function
+	'	End If
+	
+	Set nd_Prop = xSDSP3_xndProp(v_NoProposition, True)
+	
+	If p_Statut = "20" Then
+		
+		If v_PropStatut &lt;&gt; "30" And v_PropStatut &lt;&gt; "40" Then
+			If Not SDSPP_ProdAutoModifiee(nd_Prop, p_Statut) Then				
+				Exit Function
+			End If
+		End if
+		
+		' Conversion serveur hébergé
+		Set nd_Site = xSDSP3_xndSite(xVarElem(gnd_Prop_SDSPM, "Prop_NoSites", 0 , ""), True)
+		
+		If xVar(gnd_Prop_SDSPM,"Prop_TypeProposition", "") = "3" And xVarImplode(nd_Site,"Site_NoContratFmt_CS",";") = "" Then
+			'Vous n'avez pas importé de contrat de service, voulez-vous soumettre la proposition quand même ?
+			If gnuiws_SDSPM.Prompt(PROMPT_YESNO, xGDK_xMessage("SI", 10, "", ""), xGDK_xMessage("SDSPP", 145, "", "")) &lt;&gt; 1 Then
+				Exit Function
+			End If
+		End If
+		
+	ElseIf p_Statut = "30" Or p_Statut = "50" Then
+		If Not SDSPP_ProdAutoModifiee(nd_Prop, p_Statut) Then				
+			Exit Function
+		End If
+		
+	End If
+	
+	' Valider si l'usager a les droits		
+	If p_Statut = "96" Or p_Statut = "98" Then
+		If Not SDSPP_DroitDesactiver(gnd_Prop_SDSPM, p_Statut) Then
+			' Vous n'êtes pas autorisé à utiliser cette action.
+			MessageBox xGDK_xMessage("SI", 165, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+	End If
+	
+	' Sauvegarder le document courant si statut proposition est Nouveau à Payée
+	If p_Statut &lt; "96" Then
+		g_AfficherErreurs_FPNav = True
+		On Error 4411 GoTo FinSub
+		Call gnuid_SDSPM.Save
+	End If
+	
+	If v_EditMode = "1" Or P_Statut = "14" Then
+		Set nd_DB = New NotesDocument(gndb_SDSPM)
+	ElseIf P_Statut = "96" Or P_Statut = "98" Or P_Statut = "20" Then
+		If gns_SDSPM.CurrentDatabase.Server = "" Then
+			Set nd_DB = New NotesDocument(gndb_SDSPM)
+		Else
+			Set nd_DB = SITp_ndTemp("SDSP3.acWorkflow")
+		End If
+	End if
+	
+	
+	nd_DB.Form = "DB_SIHi"
+	nd_DB.SIHi_Obligatoire = CInt(True)	' Image "&gt;" pour Commentaire obligatoire
+	
+	' Demander le commentaire
+	If Not gnuiws_SDSPM.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+	xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+		' 49: Nouveau commentaire
+		Exit Function
+	End If
+	
+	' Changer le statut	
+	If v_EditMode = "1" Or P_Statut = "14" Then	' maj du statut par le Workflow
+		Call SDSPWF_ChangerStatut(gnd_Prop_SDSPM, p_Statut, "", nd_DB, False)
+	ElseIf P_Statut = "96" Or P_Statut = "98" Or P_Statut = "20" Then
+		If gns_SDSPM.CurrentDatabase.Server = "" Then
+			Call SDSPWF_ChangerStatut(gnd_Prop_SDSPM, p_Statut, "", nd_DB, False)
+		Else
+			Set ws_Proposition = New Cl_proposition
+			Call nd_DB.save(True, False)
+			v_UserName = gns_SDSPM.UserName
+			Call ws_Proposition.ChangerStatutSDSP3(v_NoProposition, p_Statut, v_UserName, nd_DB.UniversalId)		
+		End if	
+		
+	End if
+	
+	
+	SDSPM_acWorkflow = True		
+	
+	Exit Function
+	
+FinSub:
+	Exit  Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_InitProduitsProgramme"><lotusscript>Sub SDSPM_InitProduitsProgramme(pnd_PNav As NotesDocument, p_NomItem As String, _
+	p_NomItemAuto As Variant, p_Categorie As String)
+	On Error GoTo GererErreur	
+	' Met à jour le champ d'affichage avec les produits de la proposition
+	
+	Dim a_Cle(1) As String
+	Dim v_Cle As String
+	Dim a_CleProduits As Variant
+	Dim i As Integer
+	Dim nd_Prod As NotesDocument
+	Dim v_Produit As String
+	Dim ni As NotesItem
+	Dim v_Continue As Boolean
+	Dim a_Produits As Variant
+	Dim j As Integer
+	Dim v_Bannieres As Variant
+	Dim ni_BannieresParent As NotesItem
+	Dim k As Integer
+	
+	If gnv_Prod40b_SDSPM Is Nothing Then
+		Set gnv_Prod40b_SDSPM = pnd_PNav.ParentDatabase.GetView("V_Prod40b")
+	End If
+	Call gnv_Prod40b_SDSPM.Refresh
+
+	Call pnd_PNav.ReplaceItemValue(p_NomItem, "")
+	
+	If Not Isarray(p_NomItemAuto) Then
+		p_NomItemAuto = Split(p_NomItemAuto)
+	End If
+	
+	For j= 0 To Ubound(p_NomItemAuto)
+		
+		If p_NomItemAuto(j) = "" Then 
+			a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; p_NomItem
+		Else
+			a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; p_NomItemAuto(j)
+		End If
+		
+		a_CleProduits = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2); "")|)
+		
+		
+		If a_CleProduits(0) &lt;&gt; "" Then
+			For i = Lbound(a_CleProduits) To Ubound(a_CleProduits)
+				a_Cle(1) = a_CleProduits(i)
+				v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+				Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+				If Not (nd_Prod Is Nothing) Then
+					v_Continue = False
+					If p_Categorie = "" Then
+						v_Continue = True
+					Elseif xVarContient(nd_Prod, "Prod_CategorieProduit", p_Categorie) Then
+						v_Continue = True
+					Else
+						v_Continue = False
+					End If
+					
+					If v_Continue Then
+						v_Produit = Cstr(xVar(nd_Prod, "Prod_Quantite", 0)) &amp; " x " &amp; xVar(nd_Prod, "Prod_DescProduit" &amp; _
+						xLangue, "") &amp; " (" &amp; xVar(nd_Prod, "Prod_CodeProduit", "") &amp; ")"
+						If ni Is Nothing Then
+							Call pnd_PNav.ReplaceItemValue(p_NomItem, v_Produit)
+							Set ni = pnd_PNav.GetFirstItem(p_NomItem)
+						Else
+							Call ni.AppendToTextList(v_Produit)
+						End If
+					End If
+				End If
+			Next
+		End If
+		
+	Next
+	
+	
+	If Not ni Is Nothing Then
+		If Ubound(ni.Values) &gt; 0 Then
+			a_Produits = xVarArray(pnd_PNav, p_NomItem)	
+			If IsArray(a_Produits) Then
+				Call TrierArray(a_Produits)
+				Call pnd_PNav.ReplaceItemValue(p_NomItem, a_Produits)
+			End If
+		End If
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), xVar(pnd_PNav, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_hsAjouterProduitsProgramme"><lotusscript>
+Function SDSPM_hsAjouterProduitsProgramme(p_NomItem As String, pa_Bannieres As Variant, p_VerifierBanniere As Boolean) As Integer
+	On Error GoTo GererErreur
+	
+	Dim nd As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Prod As NotesDocument
+	Dim ndc As NotesDocumentCollection
+	Dim nv_Prod As NotesView
+	
+	Dim a_CleProduitsSDSBB As Variant
+	Dim a_Cle(1) As String
+	Dim v_Cle As String
+	Dim a_CleProduitsProp As Variant
+	Dim a_ProduitsNonValide As Variant
+	Dim i As Integer
+	Dim v_CleProduit As String
+	Dim v_AfficherMessage As Boolean
+	Dim k As Integer
+	Dim v_Quantite As Long
+	Dim v_NbProduitsSDSBB As Long
+	Dim v_FormuleSDSPro As String
+	Dim v_Inserer As Boolean
+	Dim v_TypeAjout As String
+	
+	'Initialisations
+	
+	SDSPM_hsAjouterProduitsProgramme = False
+	Call xSDSBB_Initialisations
+	
+	Set nv_Prod = gndb_xSDSBB.GetView("V_Prod55")
+	Call nv_Prod.Refresh
+	
+	' Extraire les produits de SDS Base
+	v_NbProduitsSDSBB = SDSPX_aProduitsProgramme(gnd_Prop_SDSPM, p_NomItem, pa_Bannieres, a_CleProduitsSDSBB)
+	
+	' Aucun produit à afficher
+	If v_NbProduitsSDSBB = 0 Then
+		Exit Function
+	End If
+	
+	For i = 0 To UBound(a_CleProduitsSDSBB)
+		If i = 0 Then
+			v_FormuleSDSPro = |FIELD PROD_CLEPRODUIT CONTAINS "| &amp; a_CleProduitsSDSBB(i) &amp; |"|
+		Else
+			v_FormuleSDSPro = v_FormuleSDSPro &amp; | OR FIELD PROD_CLEPRODUIT CONTAINS "| &amp; a_CleProduitsSDSBB(i) &amp; |"|
+		End If
+	Next
+	
+	Set ndc = SDSPM_ndcSelectionnerProduitsProgramme(v_FormuleSDSPro, "", SISe_PROMPT, nv_Prod, |Prod_DescProduit| &amp; xLangue &amp; _
+	| + " (" + Prod_CodeProduit + ")"|, xGDK_xMessage("SDSPP", 27, "", ""), False, gnd_Prop_SDSPM, gnd_Site_SDSPM)
+	If ndc.Count = 0 Then
+		Exit Function
+	End If
+	
+	If gnv_Prod40b_SDSPM Is Nothing Then
+		Set gnv_Prod40b_SDSPM = gndb_SDSPM.GetView("V_Prod40")
+	End If
+	Call gnv_Prod40b_SDSPM.Refresh
+	
+	ReDim a_ProduitsNonValide(ndc.Count)
+	i = -1
+	k = -1
+	
+	a_Cle(0) = g_NoProposition_SDSPM &amp; ";"
+	a_CleProduitsProp = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2;[PartialMatch]); "")|)
+	a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; p_NomItem
+	
+	Set nd_Suivant = ndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+		
+		v_CleProduit = xVar(nd, "Prod_CleProduit", "")
+		a_Cle(1) = v_CleProduit
+		v_TypeAjout = xSDSBB_xVarProd(v_CleProduit, "Prod_Limiter", "", True)
+		
+		v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+		Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+		If Not nd_Prod Is Nothing Then
+			v_AfficherMessage = True
+		Else
+			If (v_TypeAjout = "3" Or v_TypeAjout = "2") Then
+				If IsNull(ArrayGetIndex(a_CleProduitsProp, v_CleProduit)) Then
+					v_Quantite = xVar(nd, "Prod_Quantite", 1)
+					Set nd_Prod = SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, v_CleProduit, v_Quantite, "", "", "", _
+					"", p_NomItem, True, p_VerifierBanniere, gnd_Site_SDSPM)
+					
+					If nd_Prod Is Nothing Then
+						i = i + 1
+						a_ProduitsNonValide(i) = xSDSBB_xVarProd(a_Cle(1), "Prod_DescProduit" &amp; xLangue, "", True)		
+					Else
+						v_Inserer = True
+					End If
+					
+				End If
+				
+			Else
+				v_Quantite = xVar(nd, "Prod_Quantite", 1)
+				Set nd_Prod = SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, v_CleProduit, v_Quantite, "", "", "", _
+				"", p_NomItem, True, p_VerifierBanniere, gnd_Site_SDSPM)
+				
+				If nd_Prod Is Nothing Then
+					i = i + 1
+					a_ProduitsNonValide(i) = xSDSBB_xVarProd(a_Cle(1), "Prod_DescProduit" &amp; xLangue, "", True)		
+				Else
+					v_Inserer = True
+				End If
+				
+			End If
+		End If
+	Loop
+	
+	If IsArray(a_ProduitsNonValide) Then
+		a_ProduitsNonValide = FullTrim(a_ProduitsNonValide)
+		If a_ProduitsNonValide(0) &lt;&gt; "" Then
+			MessageBox xGDK_xMessage("SDSPP", 38, "", Chr(13) &amp; Chr(13) &amp; (Implode(FullTrim(a_ProduitsNonValide), Chr(13)))), 16, xGDK_xMessage("SI", 1, "", "")
+		End If		
+	End If
+	
+	' Afficher les produits sélectionnées
+	If v_Inserer Then
+		If v_AfficherMessage Then
+			' Le(s) produit(s) sélectionné(s) sont déjà sur la proposition.
+			MessageBox xGDK_xMessage("SDSPP", 51, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Call SDSPM_InitProduitsProgramme(gnd_SDSPM, p_NomItem, "", "")
+		Else
+			Call SDSPM_InitProduitsProgramme(gnd_SDSPM, p_NomItem, "", "")
+		End If
+	Else
+		' Le(s) produit(s) sélectionné(s) sont déjà sur la proposition.
+		If v_AfficherMessage Then
+			MessageBox xGDK_xMessage("SDSPP", 51, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+	End If
+	
+	SDSPM_hsAjouterProduitsProgramme = True
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_hsAnnulerProduitsProgAutoRetires"><lotusscript>Sub SDSPM_hsAnnulerProduitsProgAutoRetires(p_Categorie As String , p_NomItem As String, p_NomItemRetire As String)
+	' Permet de sélectionner parmis les produits d'une catégorie.  Quantité par défaut.
+	On Error Goto GererErreur
+	
+	Dim a_NoProduit As Variant
+	
+	a_NoProduit = xVarArray(gnd_SDSPM, p_NomItemRetire)
+	If Not Isarray(a_NoProduit) Then
+		Exit Sub
+	End If
+	
+	' Extraire le site
+	If Not SDSPM_InitSite(Nothing) Then
+		Exit Sub
+	End If
+	
+	' Annuler les produits retirés
+	Call gnd_SDSPM.ReplaceItemValue(p_NomItemRetire, "")
+	
+	' Ajouter les produits automatiques manquants
+	
+	Call SDSPM_AjouterProduitsAutoCate(p_NomItem, p_Categorie)
+	
+	
+	' Sauvegarder le site
+	Call gnd_Site_SDSPM.ReplaceItemValue(p_NomItemRetire, "")
+	gnd_Site_SDSPM.HistoDC = Now
+	gnd_Site_SDSPM.HistoUC = gns_SDSPM.UserName
+	Call gnd_Site_SDSPM.Save(True, False)
+	
+	' Afficher les produits sélectionnées
+	Call SDSPM_InitProduitsProgramme(gnd_SDSPM, p_NomItem, _
+	gc_NomProgrammeAutoSite_SDSPM, p_Categorie)
+	
+	Call SDSPM_InitProduitsRetires(gnd_SDSPM, p_NomItemRetire)
+	
+	'Call gnuid_SDSPM.Refresh
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_acImprimerProposition"><lotusscript>Sub SDSPM_acImprimerProposition
+	On Error Goto GererErreur
+	
+	Call SDSI_ImprimerProposition(gnd_Prop_SDSPM, "")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_acRecalculerCouts"><lotusscript>Sub SDSPM_acRecalculerCouts(pnd_Prop As NotesDocument, p_ChoixObligatoire As Boolean, p_RecalcLogiciels As Boolean)
+	On Error Goto GererErreur
+	
+	Dim nd_DB As NotesDocument
+	Dim v_DBRecalcTous As Boolean
+	Dim v_RecalcListe As Boolean
+	Dim v_Hebergement As String
+	
+	' Initialisation
+	
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	nd_DB.DB_ChoixObligatoire = Cint(p_ChoixObligatoire)
+	
+	If gnuiws_SDSPM.DialogBox( "DB_RCou" , True , True , True ,_
+	False, False, False , xGDK_xMessage("SDSPP", 42, "", ""),_
+	nd_DB , True , True , False ) Then
+		
+		' Recalculer couts/prix de tous les produits
+		v_DBRecalcTous = Cint(xVar(nd_DB, "DB_RecalcTous",0))
+		v_RecalcListe = v_DBRecalcTous
+		
+		If SDSPP_RecalculerCouts(pnd_Prop, v_DBRecalcTous, v_RecalcListe, "") Then
+			Messagebox xGDK_xMessage("SDSPP", 44, "", "")
+			Call gnuid_SDSPM.Refresh
+		Else
+			Messagebox xGDK_xMessage("SDSPP", 45, "", "")
+		End If
+		
+	Else
+		Print xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	If p_RecalcLogiciels Then
+		If Not v_DBRecalcTous Then
+			Call SDSPX_CalculerPrixEscompteLG(pnd_Prop, gns_SDSPM.UserName)
+		End If
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_SelectionnerClient"><lotusscript>Function SDSPM_SelectionnerClient(pnd_Prop As NotesDocument, p_Message As String) As NotesDocument
+	' -------------------------------------------------------------------------------------
+	' Le script permet de sélectioner un client ou un prospect selon le type de proposition
+	' -------------------------------------------------------------------------------------
+	
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	
+	Dim v_ClientValide As Boolean
+	Dim v_Origine As String
+	Dim v_Parametres(1) As String
+	
+	' Initialisations
+	Call SDSPS_Initialisations
+	Set SDSPM_SelectionnerClient = Nothing
+	
+	v_Origine = xVar(pnd_Prop, "Prop_Origine", "")
+	If v_Origine = "SF" Then
+		Exit Function
+	End If
+	
+	' Si nouveau client ou site additionnel recherche prospects, sinon client
+	If xVar(pnd_Prop,"Prop_TypeProposition", "") = "0" Then			' 0: Nouveau client : Nouveau client SDS.
+		Set nd = SIPJ_ndSelectionnerProspect(v_Origine, p_Message, True)	' V_Clie11
+		v_Parametres(1) = "prospect"
+	Elseif xVar(pnd_Prop,"Prop_TypeProposition", "") = "1" Then		' 1: Nouveau site SDS : Ajouter un site à un client existant.
+		Set nd = SIPJ_ndSelectionnerTous(v_Origine, p_Message, True)		' V_Clie
+		If xVar(nd, "Clie_NoClientFmt", "") &lt;&gt; "" Then
+			v_Parametres(1) = "client"
+		Else
+			v_Parametres(1) = "prospect"
+		End If
+	Else															' 2: Client existant : Client SDS existant.
+		
+		If Left(v_Origine, 2) = "PJ" Then
+			Set nd = SIPJ_ndSelectionnerClient(v_Origine, p_Message, True)' V_Clie10
+		Else
+			Set nd = SICl_ndSelectionnerClient("")
+		End If
+		
+		v_Parametres(1) = "client"
+		
+	End If
+	
+	' Vérifier les coordonnées du client
+	If Left(v_Origine, 2) = "PJ" Then
+		v_ClientValide = SDSPM_VerifierClient_PJ(nd, v_Parametres(1))
+	Elseif v_Origine = "SICl" Then
+		v_ClientValide = SDSPM_VerifierClient_SICl(nd, v_Parametres(1))
+	End If
+	
+	If v_ClientValide Then
+		Set SDSPM_SelectionnerClient = nd
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_AjouterProduitsAutoCate"><lotusscript>Function SDSPM_AjouterProduitsAutoCate(p_NomItem As String, p_Categorie As String) As Integer
+	' Permet de gérer les produits qui sont ajoutés automatiquement
+	On Error Goto GererErreur
+	
+	Dim nv As NotesView
+	Dim ndc As NotesDocumentCollection
+	Dim v_TypeAjout As Variant
+	Dim a_Cle(1) As String
+	Dim v_Cle As String
+	Dim a_CleProduitsProp As Variant
+	Dim a_CleProduits As Variant
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_Prod As NotesDocument
+	Dim v_Quantite As Variant
+	Dim v_Pos As Variant
+	Dim i As Integer
+	Dim ni As NotesItem
+	Dim v_Continue As Boolean
+	Dim a_Banniere As Variant
+	Dim v_NomItem As String
+	Dim a_NomItemRetires As Variant
+	Dim v_NomItemRetires As String
+	Dim j As Integer
+	Dim ni_Retires As NotesItem
+	Dim nd_Prod_SDSBB As NotesDocument
+	
+	SDSPM_AjouterProduitsAutoCate = False
+	Call xSDSBB_Initialisations
+	
+	' Construire le tableau des produits disponibles
+	Set nv = gndb_xSDSBB.GetView("V_Prod51")
+	Call nv.Refresh
+	Set ndc = nv.GetAllDocumentsByKey(xVar(gnd_SDSPM, "Prop_TypeProposition", ""), True)
+	
+	' Extraire les produits déjà sélectionnées
+	g_NoProposition_SDSPM = xVar(gnd_SDSPM, "Prop_NoProposition", "")
+	g_NoSite_SDSPM = xVar(gnd_SDSPM, "Site_NoSite", "")
+	
+	a_Cle(0) = g_NoProposition_SDSPM &amp; ";"
+	a_CleProduitsProp = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2;[PartialMatch]); "")|)
+	
+	a_Cle(0) = g_NoProposition_SDSPM &amp; ";" &amp; g_NoSite_SDSPM &amp; ";" &amp; gc_NomProgrammeAutoSite_SDSPM
+	a_CleProduits = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2); "")|)
+	'a_CleProduits = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod28"; "| &amp; a_Cle(0) &amp; |"; 2); "")|)
+	
+	' Aucun produit à afficher
+	If ndc.Count = 0 And (a_CleProduits(0) = "" Or a_CleProduitsProp(0) = "") Then
+		SDSPM_AjouterProduitsAutoCate = 2
+		Exit Function
+	End If
+	
+	If gnv_Prod40b_SDSPM Is Nothing Then
+		Set gnv_Prod40b_SDSPM = gndb_SDSPM.GetView("V_Prod40")
+	End If
+	Call gnv_Prod40b_SDSPM.Refresh
+	
+	a_Banniere = xVarArray(gnd_Site_SDSPM, "Site_Banniere")
+	
+	' Mettre à jour les produits
+	If ndc.Count &gt; 0 Then
+		
+		Set nd_Suivant = ndc.GetFirstDocument
+		Do Until nd_Suivant Is Nothing
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+			
+			'If xVar(nd, "Prod_CodeProduit", "") = "BTMFD" Then
+			'	Print " "
+			'End If
+			
+			' Vérifier s'il faut sélectionner le produit
+			v_Continue = False
+			If IsArray(a_Banniere) Then				' Vérifier les bannières
+				If IsArray(xVarArray(nd, "Prod_DispoBanniere")) Then
+					Set ni = nd.GetFirstItem("Prod_DispoBanniere")
+					ForAll s In a_Banniere
+						If ni.Contains(s) Then
+							v_Continue = True
+							Exit ForAll
+						End If
+					End ForAll
+				End If
+			End If
+			
+			' Vérifier les produits retirés
+			If v_Continue Then
+				a_Cle(1) = xVar(nd, "Prod_CleProduit", "")
+				Set nd_Prod_SDSBB = xSDSBB_xndProd(a_Cle(1), True)
+				
+				a_NomItemRetires = xVarArray(nd, "Prod_CategorieProduit")
+				
+				If IsArray(a_NomItemRetires) Then
+					For j = 0 To Ubound(a_NomItemRetires)
+						v_NomItemRetires = xSDSBB_xVarCate(xVarElem(nd, "Prod_CategorieProduit", j, ""), "Cate_ProgNomItemRetires", "", True)
+						If v_NomItemRetires &lt;&gt; "" Then
+							If gnd_SDSPM.HasItem(v_NomItemRetires) Then
+								Set ni_Retires = gnd_SDSPM.GetFirstItem(v_NomItemRetires)
+								If ni_Retires.Contains(a_Cle(1)) Then									
+									v_Continue = False
+								End If
+							End If
+						End If
+						
+					Next
+				Else
+					v_NomItemRetires = xSDSBB_xVarCate(xVar(nd, "Prod_CategorieProduit", ""), "Cate_ProgNomItemRetires", "", True)
+					If v_NomItemRetires &lt;&gt; "" Then
+						If gnd_SDSPM.HasItem(v_NomItemRetires) Then
+							Set ni_Retires = gnd_SDSPM.GetFirstItem(v_NomItemRetires)
+							If ni_Retires.Contains(a_Cle(1)) Then								
+								v_Continue = False
+							End If
+						End If
+					End If
+				End If
+				
+				
+				
+			End If
+			
+			If v_Continue Then
+				
+				v_NomItem = xSDSBB_xVarCate(xVar(nd, "Prod_CategorieProduit", ""), "Cate_ProgNomItem", "", True)
+				
+				If v_NomItem = p_NomItem Then
+					v_Cle = a_Cle(0) &amp; ";" &amp; a_Cle(1)
+					Set nd_Prod = gnv_Prod40b_SDSPM.GetDocumentByKey(v_Cle, True)
+					
+					If nd_Prod Is Nothing Then
+						
+						v_Quantite = SDSPX_xQuantiteDefaut(nd_Prod_SDSBB, "")
+						
+						'If xVar(gnd_Site_SDSPM, "Site_AjouterSDS", "") = "1" Then
+						
+						If (xVar(nd_Prod_SDSBB, "Prod_Limiter", "") = "3" Or _
+						xVar(nd_Prod_SDSBB, "Prod_Limiter", "") = "2") Then
+							If IsNull(ArrayGetIndex(a_CleProduitsProp, a_Cle(1))) Then								
+								If xVarContient(nd_Prod_SDSBB, "Prod_CategorieProduit", p_Categorie) Then
+									Call SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, nd_Prod_SDSBB, v_Quantite, "", _
+									"", "", p_Categorie, gc_NomProgrammeAutoSite_SDSPM, True, True, gnd_Site_SDSPM)
+								End if								
+							End If
+							
+						Else
+							If IsNull(ArrayGetIndex(a_CleProduits, a_Cle(1))) Then
+								If xVarContient(nd_Prod_SDSBB, "Prod_CategorieProduit", p_Categorie) Then
+									Call SDSPX_AjouterProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, nd_Prod_SDSBB, v_Quantite, "", _
+									"", "", p_Categorie, gc_NomProgrammeAutoSite_SDSPM, True, True, gnd_Site_SDSPM)
+								End if
+							End if
+						End If
+						
+						'End If
+					Else
+						v_Quantite = xVar(nd, "Prod_Quantite", 1)
+						If v_Quantite &lt;&gt; xVar(nd_Prod, "Prod_Quantite", 0) Then
+							Call SDSPX_ModifierProduit(gnd_Prop_SDSPM, gnd_Site_SDSPM, nd_Prod, v_Quantite, "", "", p_Categorie, True, nd_Prod_SDSBB)
+						End If
+					End If
+				End If
+				
+			End If
+		Loop
+	End If
+	
+	SDSPM_AjouterProduitsAutoCate = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPM_SelectionnerValeurKLSF"><lotusscript>Function SDSPM_SelectionnerValeurKLSF(p_Titre As String ) As String
+	' Fonction permettant de sélectionner une valeur après une recherche dans Salesforce
+	'	Valeurs retournées:		String.
+	
+	On Error GoTo GererErreur
+	
+	Dim ns As New NotesSession
+	Dim v_NomProfilAPI As String
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim cl_Account As SLSf_clObject
+	Dim v_Query As String
+	Dim v_Response As Variant
+	Dim v_Resultat As Integer
+	Dim v_ReponseJSON As String
+	
+	Dim njsonn As NotesJSONNavigator
+	Dim njsone As NotesJSONElement
+	Dim njsona As NotesJSONArray
+	Dim njsono As NotesJSONObject
+	Dim l_Liste List As Variant
+	
+	Dim v_ID As String
+	Dim v_AccountId As String
+	Dim v_Choix As Variant
+	
+	Dim a_Cles() As String
+	Dim a_Choix() As String
+
+	Dim v_Count As Long
+	Dim v_PosChoix As Long
+	Dim v_ClientValide As Boolean
+	Dim v_Parametres(1) As String
+	
+	' Initialisations
+	' ---------------
+	SDSPM_SelectionnerValeurKLSF = ""
+	
+	' Validation des paramètres
+	' -------------------------
+
+	' Extraire la liste des clients SERTI de Salesforce
+	v_NomProfilAPI = SDSPSf_NomProfilSalesforceAPI
+	Set cl_ConnexionAPI = New SLSf_clConnexionAPI(v_NomProfilAPI)
+	If cl_ConnexionAPI.Resultat &lt; 0 Then	
+		MessageBox xGDK_xMessage("SDSPP", 197, "", "CON"), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function		
+	End If
+
+	If p_Titre = "" Then
+		p_Titre = "SI Sélection"
+	End If	
+	
+	' Permettre à l'utilisateur de saisir le query à l'aide d'un prompt
+	' -----------------------------------------------------------------
+	v_Response = gnuiws_SDSPM.Prompt(PROMPT_OKCANCELEDIT, p_Titre, xGDK_xMessage("SI", 69, "", ""))
+
+	If IsEmpty (v_Response) Then
+		Exit Function	
+	Else
+		v_Query = Replace(v_Response, "'", "\'")
+	End If
+	
+	If v_Query = "" Then
+		v_Query = cl_ConnexionAPI.URL_API &amp; {query/?q=SELECT+Id,Name+from+Account+ORDER+BY+Name}
+	Else		
+		v_Query = cl_ConnexionAPI.URL_API &amp; {query/?q=SELECT+Id,Name+from+Account+WHERE+Name+like+'%25} &amp; v_Response &amp; {%25'+ORDER+BY+Name}						
+	End If		
+	
+	v_Resultat = SLSf_ExecuteGET(v_Query, cl_ConnexionAPI.CleAcces, v_ReponseJSON)
+	If v_Resultat &lt; 0 Then
+		Exit Function
+	End If			
+
+	v_Count = -1
+	Set njsonn = ns.Createjsonnavigator(v_ReponseJSON)
+	Set njsone = njsonn.GetElementByPointer("/records")
+	Set njsona = njsone.Value
+	Set njsone = njsona.Getfirstelement
+	Do Until njsone Is Nothing
+		
+		Set njsono = njsone.Value
+		If SLJS_ExtraireListe_Objet(njsono, "", l_Liste) = 1 Then
+			
+			v_Count = v_Count + 1				
+			ReDim Preserve a_Cles(v_Count)
+			ReDim Preserve a_Choix(v_Count)
+			
+			a_Cles(v_Count) = l_Liste("Id")
+			a_Choix(v_Count) = l_Liste("Name") &amp; " (" &amp; Right(l_Liste("Id"), 5) &amp; ")"
+			
+		End If
+
+		Set njsone = njsona.Getnextelement
+	Loop
+	
+	'Call Trier2Arrays(a_Choix, a_Cles)	
+
+	If v_Count = -1 Then
+		Exit Function
+	End If
+	
+	v_Choix = gnuiws_SDSPM.Prompt (PROMPT_OKCANCELLIST, xGDK_xMessage("SI", 198, "", ""),xGDK_xMessage("SI", 86, "", ""), "", a_Choix)		
+	
+	If IsEmpty(v_Choix) Then
+		Exit Function
+	End If
+	
+	v_PosChoix = ArrayGetIndex(a_Choix, v_Choix)
+	v_AccountId = a_Cles(v_PosChoix)
+	
+	Set cl_Account = New SLSf_clObject(cl_ConnexionAPI, "Account", v_AccountId)
+	If cl_Account.Resultat = 1 Then				
+		v_ClientValide = SDSPM_VerifierClient_SF( cl_Account, v_Parametres(1))		
+	End If			
+	
+	If v_ClientValide Then
+		SDSPM_SelectionnerValeurKLSF = cl_Account.ExtraireValeur("Id", "")		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISe, gc_Element_SISe, GetThreadInfo(1), v_Query, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPM_MajItem"><lotusscript>Function SDSPM_MajItem(pnd As NotesDocument, p_NomItem As String, p_ValeurNulle As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_Valeur As Variant
+	
+	SDSPM_MajItem = False
+	
+	v_Valeur = xVarArray(gnd_SDSPM, p_NomItem)
+	SDSPM_MajItem = SDSPM_MajItemValeur(pnd, p_NomItem, v_Valeur)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPM_InitProduitsRetires"><lotusscript>Sub SDSPM_InitProduitsRetires(pnd_PNav As NotesDocument, p_NomItem As String)
+	' Met à jour le champ d'affichage avec les produits de la proposition
+	On Error Goto GererErreur
+	
+	Dim a As Variant
+	Dim v_NomItem As String
+	Dim i As Integer
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim v_Produit As String
+	Dim ni As NotesItem
+	Dim a_Produits As Variant
+	
+	v_NomItem = "PNav_" &amp; Strright(p_NomItem, "_")
+	
+	a = xVarArray(gnd_Site_SDSPM, p_NomItem)
+	Call pnd_PNav.ReplaceItemValue(p_NomItem, a)
+	If Not Isarray(a) Then
+		Call pnd_PNav.ReplaceItemValue(v_NomItem, "")
+		Exit Sub
+	End If	
+	
+	For i = Lbound(a) To Ubound(a)
+		Set nd_Prod_SDSBB = xSDSBB_xndProd(a(i), True)
+		If Not (nd_Prod_SDSBB Is Nothing) Then
+			v_Produit = xVar(nd_Prod_SDSBB, "Prod_DescProduit" &amp; xLangue, "") &amp; " (" &amp; xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "") &amp; ")"
+			If ni Is Nothing Then
+				Call pnd_PNav.ReplaceItemValue(v_NomItem, v_Produit)
+				Set ni = pnd_PNav.GetFirstItem(v_NomItem)
+			Else
+				Call ni.AppendToTextList(v_Produit)
+			End If
+		End If
+	Next
+	
+	If Not ni Is Nothing Then
+		If Ubound(ni.Values) &gt; 0 Then
+			a_Produits = xVarArray(pnd_PNav, v_NomItem)	
+			If Isarray(a_Produits) Then
+				Call TrierArray(a_Produits)
+				Call pnd_PNav.ReplaceItemValue(v_NomItem, a_Produits)
+			End If
+		End If
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), p_NomItem, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_acImprimerPropositionSommaire"><lotusscript>Sub SDSPM_acImprimerPropositionSommaire
+	On Error GoTo GererErreur
+	On Error 75 Resume Next
+		
+	Call SDSI_ImprimerPropositionSommaire(gnd_Prop_SDSPM, "")
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_acImage"><lotusscript>Sub SDSPM_acImage(pnd_Prop As NotesDocument)
+	On Error Goto GererErreur
+	
+	If SDSPP_CreerImageProposition(pnd_Prop, True, "", "") Then
+		Print xGDK_xMessage("SDSP", 93, "", "")
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPM_SupprimerProduitsProgramme"><lotusscript>Function SDSPM_SupprimerProduitsProgramme(p_NomItem As String, p_NoSite As String, p_NomProgramme As String) As Boolean
+		
+	On Error Goto GererErreur
+	
+	Dim v_CleParent As String
+	
+	SDSPM_SupprimerProduitsProgramme = False
+	
+	If p_NoSite = "" Then
+		p_NoSite = xVar(gnd_SDSPM, "Site_NoSite", "")
+	End If
+	
+	v_CleParent = g_NoProposition_SDSPM &amp; ";" &amp; p_NoSite &amp; ";" &amp; p_NomItem
+	
+	Call SDSPP_SupprimerProduitsProgramme(gnd_Prop_SDSPM, p_NomItem, p_NoSite, p_NomProgramme, "")
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPM, gc_Element_SDSPM, Getthreadinfo(1), v_CleParent, False)
+	Exit Function
+	
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073654,00-05</datetime></item></scriptlibrary>
+
+</database>

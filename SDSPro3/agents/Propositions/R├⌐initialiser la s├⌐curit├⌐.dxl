@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Propositions\Réinitialiser la sécurité" alias="A_RSec" hide="v3" publicaccess="false" designerversion="8.5.3" comment="4.0" restrictions="unrestricted" enabled="false">
+<noteinfo noteid="5558aa" unid="08AD1491837614FF852588AF006A71A5" sequence="21">
+<created><datetime dst="true">20220831T152239,09-04</datetime></created>
+<modified><datetime>20260105T014838,04-05</datetime></modified>
+<revised><datetime>20250319T073748,22-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,03-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,03-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073747,77-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="selected"/><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SDSP_Proposition"
+
+</lotusscript></code><code event="declarations"><lotusscript>
+' Traitement des erreurs
+' -------------------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_RSec"
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	Print "Début"
+	
+	Dim ns As Notessession
+	Dim ndb As Notesdatabase
+	Dim ndc As Notesdocumentcollection
+	Dim nd_Suivant As Notesdocument
+	Dim nd As Notesdocument
+	Dim s As Variant
+	Dim ni_IdSuperviseur As NotesItem
+	Dim ni_NomSuperviseur As NotesItem
+	Dim ni As NotesItem
+	Dim i As Integer
+	Dim v_IdSuperviseur As String
+	Dim v_NomSuperviseur As String
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	' Doit avoir le rôle Admin pour utiliser cette action
+	Dim v_Roles As Variant
+	v_Roles = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
+	If v_Roles(0) &lt;&gt; 1 Then
+		Messagebox "Vous n'êtes pas autorisé à utiliser cette action.", 16, "Opération annulée"
+		Exit Sub
+	End If
+	
+	Set ns = New Notessession
+	Set ndb = ns.Currentdatabase
+	Set ndc = ndb.UnprocessedDocuments
+	
+	Set nd_Suivant = ndc.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		
+		'***** Insérer les instructions de correction içi *****			
+		If xVar(nd, "Form", "") = "F_Prop" Then
+			s = xVar(nd, "Prop_NoRepresentant", "")
+			nd.Prop_NomRepresentant = xSIRR_xVarRepr(s, "Repr_NomRepresentant", "", True)
+			nd.Prop_IdRepresentant = xSIRR_xVarRepr(s, "Repr_NotesID", "", True)
+			's = xSIRR_xVarRepr(Cint(s), "Rep_SDSPSuperviseur", "", True)
+			s = xSIRR_aSuperviseursRepr(s, True)
+			
+			If Isarray(s) Then			
+				If s(Lbound(s)) &lt;&gt; "" Then
+					
+					For i = Lbound(s) To Ubound(s)
+						v_IdSuperviseur = xSIRR_xVarRepr(s(i), "Repr_NotesId", "", True)
+						v_NomSuperviseur = xSIRR_xVarRepr(s(i), "Repr_NomRepresentant", "", True)
+						If i = Lbound(s) Then
+							
+							Call nd.ReplaceItemValue("Prop_IdSuperviseur", v_IdSuperviseur)
+							Call nd.ReplaceItemValue("Prop_NomSuperviseur", v_NomSuperviseur)
+							
+							Set ni_IdSuperviseur = nd.GetFirstItem("Prop_IdSuperviseur")										
+							Set ni_NomSuperviseur = nd.GetFirstItem("Prop_NomSuperviseur")
+							
+						Else
+							Call ni_IdSuperviseur.AppendToTextList(v_IdSuperviseur)
+							Call ni_NomSuperviseur.AppendToTextList(v_NomSuperviseur)
+						End If
+					Next
+					
+				Else
+					Call nd.ReplaceItemValue("Prop_IdSuperviseur", "")				
+				End If	
+			End If
+			
+			If Not nd.HasItem("LecteurAdmin") Then
+				Set ni = New NotesItem(nd, "LecteurAdmin", "[LecteurToutes]", READERS)
+			Else
+				Set ni = nd.GetFirstItem("LecteurAdmin")
+				If ni.IsReaders = False Then
+					ni.IsReaders = True
+				End If
+			End If
+			If Not nd.HasItem("AuteurAdmin") Then
+				Set ni = New NotesItem(nd, "AuteurAdmin", "[Admin]", AUTHORS)
+			Else
+				Set ni = nd.GetFirstItem("AuteurAdmin")
+				If ni.IsAuthors = False Then
+					ni.IsAuthors = True
+				End If
+			End If
+			If Not nd.HasItem("Lecteur") Then
+				Set ni = New NotesItem(nd, "Lecteur", "", READERS)
+			Else
+				Set ni = nd.GetFirstItem("Lecteur")
+				If ni.IsReaders = False Then
+					ni.IsReaders = True
+				End If
+			End If
+			If Not nd.HasItem("Auteur") Then
+				Set ni = New NotesItem(nd, "Auteur", "", AUTHORS)
+				Set ni = nd.GetFirstItem("Auteur")
+				If ni.IsAuthors = False Then
+					ni.IsAuthors = True
+				End If
+			End If
+			
+			Call SDSPP_AssignerSecurite(nd, True)
+			v_NbMaj = v_NbMaj + 1
+		End If
+		
+		If (v_NbLus Mod 1000) = 0 Then
+			Print Cstr(v_NbMaj) &amp; "/" &amp; Cstr(v_NbLus)
+		End If
+	Loop
+	
+	Print "Fin " &amp; Cstr(v_NbMaj) &amp; "/" &amp; Cstr(v_NbLus)
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime dst="true">20150504T094232,32-04</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20250319T073748,22-05</datetime></item></agent>
+
+</database>

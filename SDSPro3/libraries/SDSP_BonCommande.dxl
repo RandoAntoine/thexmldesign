@@ -1,0 +1,605 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_BonCommande" hide="v3 v4strict" designerversion="8.5.3" comment="1.2">
+<noteinfo noteid="5557b2" unid="F6320E9003853E33852586B400123662" sequence="85">
+<created><datetime dst="true">20210410T231855,70-04</datetime></created>
+<modified><datetime>20260105T014837,63-05</datetime></modified>
+<revised><datetime>20250319T073639,41-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,62-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,62-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>%REM
+	Library SI_BonCommande
+	Created Jun 15, 2016 by Christian De-Nardi/Serti Informatique
+	Description: Comments for Library
+%END REM
+Option Public
+Option Declare
+Use "wsc_BonCommande"
+Use "wsc_BonTravail"
+Use "SI_AgentsTravaux"
+Use "SI_tDate"
+Use "x_SDSP3"
+Use "x_SDSBB"
+Use "x_SIBDC2"
+Use "x_SIBDT"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SDSPBC As NotesSession
+Dim gndb_SDSPBC As NotesDatabase
+
+' SDSPBC
+
+' Traitement des erreurs
+Const gc_TypeElement_SDSPBC = "SL"
+Const gc_Element_SDSPBC = "SDSPBC_BonCommande"
+
+
+</lotusscript></code><code event="SDSPBC_AssignerStatutBonCommandes"><lotusscript>Sub SDSPBC_AssignerStatutBonCommandes(pa_NoSites As Variant, p_Statut As String, _
+p_Commentaire As String, p_UserName As String)
+	On Error GoTo GererErreur
+	
+	Dim a_NoSites As Variant
+	Dim i As Integer
+	Dim a_Parametres(2) As String
+	Dim v_NoBonCommande As String
+	Dim v_NoBonCommandeFmt As String
+	Dim nd_SIBC2 As NotesDocument
+	
+	Dim ws_BonCommande As New Cl_wsBonCommande
+	
+	If Not IsArray(pa_NoSites) Then
+		a_NoSites = Split(pa_NoSites)
+	Else
+		a_NoSites = pa_NoSites
+	End If
+	
+	For i = LBound(a_NoSites) To UBound(a_NoSites)
+		' Extraire le site
+		v_NoBonCommandeFmt = xSDSP3_xVarSite(a_NoSites(i), "Site_NoBonCommandeFmtSIBDC", "", False)
+		If v_NoBonCommandeFmt &lt;&gt; "" Then
+			
+			Set nd_SIBC2 = xSIBDC2_xndBCom(v_NoBonCommandeFmt, True)
+			
+			If xVar(nd_SIBC2, "BCom_Statut", "") &lt;&gt; p_Statut Then
+				
+				If Not nd_SIBC2 Is Nothing Then
+					If nd_SIBC2.LockHolders(0) = "" Then
+						Call ws_BonCommande.Assignerstatut(v_NoBonCommandeFmt, p_Statut, p_Commentaire, p_UserName)				
+						Call ws_BonCommande.Assigneraffectation(v_NoBonCommandeFmt, p_Statut, p_Commentaire, p_UserName)
+					Else					
+						a_Parametres(0) = xVar(nd_SIBC2, "BCom_NoBonCommandeFmt", "")
+						a_Parametres(1) = p_Statut
+						
+						If a_Parametres(2) = "" Then
+							a_Parametres(2) = p_UserName
+						End If
+						
+						Call SIAT_ExecuterAgent(gc_NomBD_xSIBDC2, "A_TravStat", "", a_Parametres)
+					End If
+				End If
+				
+			End If
+					
+		End If
+	Next
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPBC, gc_Element_SDSPBC, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPBC_CalculerStatutBT"><lotusscript>Function SDSPBC_CalculerStatutBT(pnd_Prop As NotesDocument) As String
+	On Error GoTo GererErreur
+	
+	Dim ndt_DateDebut As New NotesDateTime ("")
+		
+	Dim v_ServeurSDSI As String
+	Dim v_ClientNoFmt As String
+	Dim v_Cle As String
+	Dim a_DatesInstallation As Variant
+	Dim v_DateInstallation As Variant	
+	Dim v_NbJours As Long
+	
+		
+	SDSPBC_CalculerStatutBT = "00"
+	
+	' Initialisations
+	v_ServeurSDSI = xGDK_xFormulaNDB("SDSI")	
+	v_ClientNoFmt = xVar(pnd_Prop,"Prop_ClientNoFmt", "")
+	
+	' Validation
+	
+	' Si pas un nouveau client
+	If xVar(pnd_Prop, "Prop_TypeProposition", "") &lt;&gt; "0" Then
+		Exit Function
+	End If
+	
+	ndt_DateDebut.LSLocalTime = Today
+	
+	If Len(v_ClientNoFmt) &gt; 0 Then
+		v_Cle = v_ClientNoFmt &amp; ";" &amp; "I"		
+		a_DatesInstallation = Evaluate(|@Sort(@IfError(@DbLookup("";| &amp; v_ServeurSDSI &amp; |; "V_Inst21";  "| &amp; v_Cle &amp; |"; 2); ""));|)
+	End If
+	
+	If a_DatesInstallation(0) = "" Then
+		Exit Function
+	Else
+		v_DateInstallation = a_DatesInstallation(0)
+	End If
+	
+	v_NbJours = SItD_DifferenceDates(CVar(ndt_DateDebut.LSLocalTime), CVar(a_DatesInstallation(0)), "")	 
+	
+	If v_NbJours &gt; (xVarProf("Prof_NbSemaineInstallationBT", 0) * 7) Then
+		SDSPBC_CalculerStatutBT = "04"		
+	End If
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPBC, gc_Element_SDSPBC, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPBC_CreerBonCommande"><lotusscript>Function SDSPBC_CreerBonCommande(pnd_Prop As NotesDocument, p_NoSite As String, p_UserName As String, p_NoBonCommandeFmt As String, _
+	p_BComRegenere As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_Origine As String
+	Dim v_OrigineCle As String
+	
+	'Dim v_NoBonCommande As Long
+	Dim v_NoBonCommandeFMT As String
+	Dim ws_BonCommande As Cl_wsBonCommande
+	Dim nd_Site As NotesDocument
+	Dim nd_BCom As NotesDocument
+	Dim v_CreerBonCommande As Boolean
+	Dim v_BonCommandeRegenere As Boolean
+	
+	SDSPBC_CreerBonCommande = False
+		
+	' Initialisation
+	Call SDSPBC_Initialisations
+	
+	v_Origine = "SDSP3"
+	v_OrigineCle = xVar(pnd_Prop, "Prop_NoProposition", "") 'xVar(pnd_Prop, "Cle", "")
+	
+	v_CreerBonCommande = False
+
+	If p_NoBonCommandeFmt = "" Then
+		v_CreerBonCommande = True		
+	else	
+		Set nd_BCom = xSIBDC2_xndBCom(p_NoBonCommandeFmt, True)
+				
+		If nd_BCom Is Nothing Then
+			v_CreerBonCommande = True	
+		Else			
+			v_NoBonCommandeFMT = xVar(nd_BCom, "BCom_NoBonCommandeFmt","")
+			'v_BonCommandeRegenere = True
+		End If			
+	End If
+	
+	If v_CreerBonCommande Then
+		Set ws_BonCommande = New Cl_wsboncommande
+		v_NoBonCommandeFMT = ws_BonCommande.Creerboncommande(v_Origine, v_OrigineCle, p_NoSite, p_Username)	
+	End If
+		
+	If v_NoBonCommandeFMT &lt;&gt; "" Then
+		Set nd_Site = xSDSP3_xndSite(p_NoSite, False) ' ON SAIT PAS POURQUOI MAIS CETTE LIGNE EST NÉCESSAIRE POUR FAIRE FONCTIONNER LE NoBonCommande
+		Call SDSPBC_CreerBonDeTravail(pnd_Prop, p_NoSite, CStr(v_NoBonCommandeFMT), p_UserName, v_Origine, v_BonCommandeRegenere)
+						
+		' Mettre à jour l'historique de la proposition
+		If v_BonCommandeRegenere Then
+			Call SIHi_Ajouter(pnd_Prop, "", "Action : " &amp; _
+			"Bon de commande régénéré  /  Purchase order regenerated (" &amp; v_NoBonCommandeFMT &amp; ")", p_Username, False)
+			' Mettre à jour l'historique de la proposition
+			Call SIHi_BatirHistorique(pnd_Prop)
+		Else
+			If v_CreerBonCommande Then
+				Call SIHi_Ajouter(pnd_Prop, "", "Action : " &amp; _
+				"Bon de commande créé  /  Purchase order created (" &amp; v_NoBonCommandeFMT &amp; ")", p_Username, False)
+				' Mettre à jour l'historique de la proposition
+				Call SIHi_BatirHistorique(pnd_Prop)
+			End If			
+		End If
+				
+		' Sauvegarder le document
+		Call pnd_Prop.Save(True, False)
+		
+		p_BComRegenere = v_BonCommandeRegenere
+		'SDSPBC_CreerBonCommande = True
+		SDSPBC_CreerBonCommande = v_CreerBonCommande
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPBC, gc_Element_SDSPBC, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPBC_AjouterProduit"><lotusscript>Sub SDSPBC_AjouterProduit(pws_BonTravail As Variant, pnv_Prod As NotesView, p_NoProposition As String, p_NoSite As String, p_CleProduit As String, p_NoProduitParent As String, _
+	p_Quantite As Variant, pnd_BTra As NotesDocument, p_UserName As String)
+	On Error GoTo GererErreur
+	
+	Dim ndc_ProdComposants As NotesDocumentCollection	
+	Dim ndc_ProdDependants As NotesDocumentCollection	
+	Dim nd_ProdComp As NotesDocument
+	Dim nd_ProdDepe As NotesDocument
+	Dim nd_ProdCompSuivant As NotesDocument	
+	Dim nd_ProdDepeSuivant As NotesDocument
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim nd_Prod_SIBDT As NotesDocument
+	
+	Dim v_Cle As String
+	Dim v_CleProduit As String
+	'Dim v_DescProduitParent As String
+	Dim v_NoteID_BTPr As String
+	Dim a_OptionsBT As Variant		
+	Dim v_Quantite As Integer
+	Dim v_NoteIDBonTravail As string
+	
+	v_NoteIDBonTravail = pnd_BTra.NoteID
+	
+	' Ajouter produit parent
+	v_NoteID_BTPr = pws_BonTravail.Creerproduit(v_NoteIDBonTravail, p_CleProduit, CInt(p_Quantite), 1, p_UserName)
+	
+	'Set nd_Prod_SDSBB = xSDSBB_xndProd(p_CleProduit, True)		
+	'v_DescProduitParent = xVar(nd_Prod_SDSBB, "Prod_DescProduitFR", "")
+	
+	%REM
+	If  xVar(pnd_BTra, "BTra_DescSommaire", "") = "" Then
+		pnd_BTra.BTra_DescSommaire = v_DescProduitParent
+	Else
+		pnd_BTra.BTra_DescSommaire = xVar(pnd_BTra, "BTra_DescSommaire", "") &amp; ";" &amp; v_DescProduitParent
+	End If	
+	Call pnd_BTra.Save(True , False)
+	%END REM
+	
+	' Boucler la vue et ajouter les produits composants et dépendants
+	'----------------------------------------------------------------
+	
+	' Ajouter les composants du produit
+	'----------------------------------
+	
+	v_Cle = p_NoProposition + ";" + p_NoSite + ";" + p_NoProduitParent + ";" + "C"
+	
+	Set ndc_ProdComposants = pnv_Prod.Getalldocumentsbykey(v_Cle, True)
+	
+	If ndc_ProdComposants.Count &gt; 0 Then
+		
+		Set nd_ProdCompSuivant = ndc_ProdComposants.GetFirstDocument
+		
+		Do Until nd_ProdCompSuivant Is Nothing
+			Set nd_ProdComp = nd_ProdCompSuivant
+			Set nd_ProdCompSuivant = ndc_ProdComposants.Getnextdocument(nd_ProdCompSuivant)
+			
+			v_Quantite = CInt(xVar(nd_ProdComp, "Prod_Quantite", 0))
+			If v_Quantite &gt; 0 Then
+				
+				v_CleProduit = xVar(nd_ProdComp, "Prod_CleProduit", "")			
+				Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit, True)
+				
+				If Not nd_Prod_SDSBB Is Nothing Then
+					
+					a_OptionsBT = xVarArray(nd_Prod_SDSBB, "Prod_BTOptions")
+					
+					' Si pas un bon de travail unique, ajouter le produit en dessous du produit parent
+					If Not IsArray(a_OptionsBT) Then
+						Call pws_BonTravail.Creerproduit(v_NoteIDBonTravail, xVar(nd_ProdComp, "Prod_CleProduit", ""), v_Quantite, 2, P_UserName)	
+					Else
+						If IsNull(ArrayGetIndex(a_OptionsBT, "BTU")) Then
+							Call pws_BonTravail.Creerproduit(v_NoteIDBonTravail, xVar(nd_ProdComp, "Prod_CleProduit", ""), v_Quantite, 2, P_UserName)	
+						End If				
+					End If
+					
+				End if
+			End If									
+		Loop
+		
+	End If
+	
+	
+	' Ajouter les dépendants du produit
+	'----------------------------------
+	
+	v_Cle = p_NoProposition + ";" + p_NoSite + ";" + p_NoProduitParent + ";" + "D"
+	
+	Set ndc_ProdDependants = pnv_Prod.Getalldocumentsbykey(v_Cle, True)
+	
+	If ndc_ProdDependants.Count &gt; 0 Then
+		
+		Set nd_ProdDepeSuivant = ndc_ProdDependants.GetFirstDocument
+		
+		Do Until nd_ProdDepeSuivant Is Nothing
+			Set nd_ProdDepe = nd_ProdDepeSuivant
+			Set nd_ProdDepeSuivant = ndc_ProdDependants.Getnextdocument(nd_ProdDepeSuivant)
+			
+			v_Quantite = CInt(xVar(nd_ProdDepe, "Prod_Quantite", 0))
+			If v_Quantite &gt; 0 Then
+				
+				v_CleProduit = xVar(nd_ProdDepe, "Prod_CleProduit", "")			
+				Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit, True)			
+				a_OptionsBT = xVarArray(nd_Prod_SDSBB, "Prod_BTOptions")
+				
+				' Si pas un bon de travail unique, ajouter le produit en dessous du produit parent
+				If Not IsArray(a_OptionsBT) Then
+					Call pws_BonTravail.Creerproduit(v_NoteIDBonTravail, xVar(nd_ProdDepe, "Prod_CleProduit", ""), v_Quantite, 2, P_UserName)					
+				Else
+					If IsNull(ArrayGetIndex(a_OptionsBT, "BTU")) Then	
+						Call pws_BonTravail.Creerproduit(v_NoteIDBonTravail, xVar(nd_ProdDepe, "Prod_CleProduit", ""), v_Quantite, 2, P_UserName)					
+					End If
+				End If
+			End If						
+		Loop
+		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPBC, gc_Element_SDSPBC, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPBC_CreerBonDeTravail"><lotusscript>Sub SDSPBC_CreerBonDeTravail(pnd_Prop As NotesDocument, p_NoSite As String, p_NoBonCommandeFmt As String, _
+	p_UserName As String, p_Origine As String, v_BonCommandeRegenere As Boolean)
+	On Error Goto GererErreur
+	
+	Dim nd_Prod As NotesDocument
+	Dim nd_Suivant As NotesDocument		
+	Dim nd_BTra As NotesDocument
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim ndc_Prod As NotesDocumentCollection		
+	Dim nv_Prod26 As NotesView
+	Dim nv_Prod34 As NotesView
+	Dim nv_BTra As NotesView
+	
+	Dim a_AjouterBT As Variant
+	Dim a_OptionsBT As Variant			
+	Dim v_CategorieProduit As String
+	Dim v_CleBonTravail As String
+	Dim v_CleProduit As String		
+	Dim v_NoProp As String	
+	Dim v_NoteID_BT As String
+	Dim v_NoteID_BTPr As String
+	Dim v_ProduitSIBDT As String
+	Dim v_RegroupementBT As String
+	Dim v_ServeurSIBDT As String
+	Dim v_StatutBT As String
+	Dim v_Quantite As Variant
+	
+	Dim l_CategoriesBonTravail List As String	
+	Dim ws_BonTravail As Cl_wsBonTravail
+		
+	
+	'Initialisations
+	Call xSIBDT_Initialisations
+	
+	v_ServeurSIBDT = xGDK_xFormulaNDB("SIBDT")	
+	
+	Set nv_Prod26 = gndb_SDSPBC.GetView("V_Prod26")	
+	Set nv_Prod34 = gndb_SDSPBC.GetView("v_Prod34")
+	
+	v_NoProp = xVar(pnd_Prop, "Prop_NoProposition", "")
+	
+	Set ndc_Prod = nv_Prod26.GetAllDocumentsByKey(v_NoProp &amp; ";" &amp; p_NoSite, True)
+	
+	If ndc_Prod.Count = 0 Then
+		Exit Sub
+	End If
+	
+	'v_StatutBT = SDSPBC_CalculerStatutBT(pnd_Prop) 
+	v_StatutBT = "00"
+		
+	' Boucler la liste des produits
+	'--------------------------------
+	Set nd_Suivant = ndc_Prod.GetFirstDocument
+	
+	Do Until nd_Suivant Is Nothing
+		
+		Set nd_Prod = nd_Suivant
+		Set nd_Suivant = ndc_Prod.Getnextdocument(nd_Suivant)
+						
+		' Validation
+		'-------------		
+		' Si quantité &gt; 0 et pas un produit importé et pas un composant, ne pas créer de BT	
+		' Les composants &amp; dépendants sont regroupé dans le même BT que le produit parent
+		' Exception : Si composant ou dépendant et généré BT unique coché dans SDS Base, généré un BT uique pour ce produit
+		 		
+		'''If xVar(nd_Prod, "Prod_Quantite", 0) &gt; 0 And xVar(nd_Prod, "Prod_NoContratFmt_CS", "") = "" And _
+		'''xVar(nd_Prod,"Prod_TypeDescendant", "") = "" Then
+		
+		If xVar(nd_Prod, "Prod_Quantite", 0) &gt; 0 And xVar(nd_Prod, "Prod_NoContratFmt_CS", "") = "" Then
+			
+			v_CleProduit = xVar(nd_Prod, "Prod_CleProduit", "")
+															
+			Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit, True)
+			
+			a_OptionsBT = xVarArray(nd_Prod_SDSBB, "Prod_BTOptions")
+			a_AjouterBT = xVarArray(nd_Prod_SDSBB, "Prod_AjouterBT")				
+			v_CategorieProduit = xVar(nd_Prod, "Prod_CategorieProduit", "")			
+			v_RegroupementBT = xSDSBB_xVarCate(v_CategorieProduit, "Cate_RegrouperBT", "", True)
+			
+			If Isarray(a_AjouterBT) Then
+				If Not Isnull(Arraygetindex(a_AjouterBT, xVar(pnd_Prop, "Prop_TypeProposition", ""))) Then
+					
+					' Si pas un composant ou dépendant
+					If xVar(nd_Prod,"Prod_TypeDescendant", "") = ""  Then
+						
+						Set ws_BonTravail = New Cl_wsbontravail
+						
+						' 1 = Un BT par categorie, 2 = Un BT par Produit
+						' ------------------------------------------------
+						If v_RegroupementBT = "1" Then		
+							
+							' BT par categorie			
+							If xListElem(l_CategoriesBonTravail, v_CategorieProduit, "") &lt;&gt; "" Then
+								v_NoteID_BT = l_CategoriesBonTravail(v_CategorieProduit)
+								
+								Set nd_BTra = gndb_xSIBDT.Getdocumentbyid(v_NoteID_BT)	
+								If nd_BTra Is Nothing Then
+									Set nd_BTra = xSIBDT_xndBTra(v_NoteID_BT, True)								 
+								End If
+							Else							
+								v_NoteID_BT = xEvaluate(|@DbLookup(""; | &amp; v_ServeurSIBDT &amp; |; "V_BTPr23"; "| &amp; _ 
+								p_NoBonCommandeFmt + ";" + v_CategorieProduit &amp; |" ;  2;[FailSilent])|, Nothing)
+								
+								If v_NoteID_BT = "" Then									
+									v_NoteID_BT = ws_BonTravail.Creerbontravail(p_Origine, p_NoBonCommandeFmt, p_UserName, v_StatutBT)
+									Set nd_BTra = gndb_xSIBDT.Getdocumentbyid(v_NoteID_BT)	
+									v_BonCommandeRegenere = True				 					
+								Else		
+									Set nd_BTra = xSIBDT_xndBTra(v_NoteID_BT, True)
+									v_NoteID_BT = 	nd_BTra.NoteID													
+								End If		
+								
+							End If	
+							
+						Else
+							' BT par produit
+							v_ProduitSIBDT = xEvaluate(|@DbLookup(""; | &amp; v_ServeurSIBDT &amp; |; "V_BTPr22"; "| &amp; _ 
+							p_NoBonCommandeFmt + ";" + v_CleProduit &amp; |" ;  2;[FailSilent])|, Nothing)
+							
+							If v_ProduitSIBDT = "" Then									
+								v_NoteID_BT = ws_BonTravail.Creerbontravail(p_Origine, p_NoBonCommandeFmt, p_UserName, v_StatutBT)
+								Set nd_BTra = gndb_xSIBDT.Getdocumentbyid(v_NoteID_BT)			
+								v_BonCommandeRegenere = True				
+							End If
+							
+						End If
+						
+						' Si composant ou dépendant, vérifier si bon de travail unique coché
+						Else
+
+						'BTU = Générer BT unique
+						If IsArray(a_OptionsBT) Then
+							If Not IsNull(ArrayGetIndex(a_OptionsBT, "BTU")) Then							
+								'Générer un nouveau BT pour le produit					
+								Set ws_BonTravail = New Cl_wsbontravail										
+								v_NoteID_BT = ws_BonTravail.Creerbontravail(p_Origine, p_NoBonCommandeFmt, p_UserName, v_StatutBT)
+								Set nd_BTra = gndb_xSIBDT.Getdocumentbyid(v_NoteID_BT)																						
+							End If
+						End If						
+
+					End If								
+					
+					' Création du produit
+					'---------------------
+					If v_NoteID_BT &lt;&gt; "" Then		
+						
+						v_CleBonTravail = xVar(nd_BTra, "BTra_CleBonTravail","")						
+						v_ProduitSIBDT = xEvaluate(|@DbLookup(""; | &amp; v_ServeurSIBDT &amp; |; "V_BTPr21"; "| &amp; _ 
+						v_CleBonTravail + ";" + v_CleProduit &amp; |" ;  2;[FailSilent])|, Nothing)
+						
+						If v_ProduitSIBDT = "" Then									
+							If Not nd_BTra Is Nothing Then
+								
+								Call SDSPBC_AjouterProduit(ws_BonTravail, nv_Prod34, v_NoProp, p_NoSite, v_CleProduit, _
+								xVar(nd_Prod, "Prod_NoProduit", ""), CInt(xVar(nd_Prod,"Prod_Quantite",0)), nd_BTra, P_UserName)
+								
+								v_BonCommandeRegenere = True		
+							End If									
+						End If
+						
+						If xListElem(l_CategoriesBonTravail, v_CategorieProduit, "") = "" Then
+							l_CategoriesBonTravail(v_CategorieProduit) = v_NoteID_BT
+						End If
+						
+					End If
+					
+				End If
+			End If
+			
+		End If
+		'Ré-initialise variables
+		Set nd_BTra = Nothing
+		v_NoteID_BT = ""
+		v_NoteID_BTPr = ""
+	Loop
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPBC, gc_Element_SDSPBC, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPBC_CreerBonCommandes"><lotusscript>Function SDSPBC_CreerBonCommandes(pnd_Prop As NotesDocument, p_NoSites As String, p_UserName As String) As String
+	On Error Goto GererErreur
+		
+	Dim a_NoSites As Variant
+	Dim i As Integer
+	Dim v_NoBonCommandeFmt As String
+	Dim v_NbBonCommande As Integer
+	Dim v_NbBonCommandeRegenere As Integer
+	Dim v_BComRegenere As Boolean
+	Dim nv_BCom25 As NotesView
+	
+	Call xSIBDC2_Initialisations
+	
+'	RQ48065: En commentaires	
+'	If xvar(pnd_Prop, "PROP_ORIGINE", "") &lt;&gt; "SICl" Then  ' rq: 38249
+		
+		' Si nouveau client &amp; no. client pas vide permettre création du PO ' rq: 47618
+'		If xvar(pnd_Prop, "Prop_TypeProposition", "")= "0" Then
+			If xVar(pnd_Prop, "Prop_ClientNoFmt", "") = "" Then
+				SDSPBC_CreerBonCommandes = "0"
+				Exit Function	
+			End if
+'		Else
+'			If xvar(pnd_Prop, "Prop_TypeProposition", "") &gt; "2" Then			
+'				SDSPBC_CreerBonCommandes = "0"
+'				Exit Function
+'			End If
+'		End If
+		
+'	End If
+	
+	If Not IsArray(p_NoSites) Then		
+		a_NoSites = Split(p_NoSites,";")
+	Else
+		a_NoSites = p_NoSites
+	End If
+	
+	v_NbBonCommande = 0
+	
+	For i = Lbound(a_NoSites) To Ubound(a_NoSites)
+		' Extraire le site
+		v_NoBonCommandeFmt = xSDSP3_xVarSite(a_NoSites(i), "Site_NoBonCommandeFmtSIBDC", "", False)
+				
+			If SDSPBC_CreerBonCommande(pnd_Prop, CStr(a_NoSites(i)), p_UserName, v_NoBonCommandeFmt, v_BComRegenere) Then
+				v_NbBonCommande = v_NbBonCommande + 1
+			End If
+						
+		If v_NoBonCommandeFmt &lt;&gt; "" Then
+			If v_BComRegenere Then
+				v_NbBonCommandeRegenere	= v_NbBonCommandeRegenere + 1
+			End If				
+		End If	
+		
+	Next
+	
+	Set nv_BCom25 = gndb_xSIBDC2.getView("V_BCom25")
+	Call nv_BCom25.Refresh
+		
+	SDSPBC_CreerBonCommandes = CStr(v_NbBonCommande) &amp; ";" &amp; CStr(v_NbBonCommandeRegenere)
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPBC, gc_Element_SDSPBC, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPBC_Initialisations"><lotusscript>Sub SDSPBC_Initialisations
+	If gns_SDSPBC Is Nothing Then
+		Set gns_SDSPBC = New NotesSession
+		Set gndb_SDSPBC = gns_SDSPBC.CurrentDatabase
+	End If
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073639,41-05</datetime></item></scriptlibrary>
+
+</database>

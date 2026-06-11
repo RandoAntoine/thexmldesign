@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SJ_OneSpanSign" hide="v3 v4strict" designerversion="8.5.3" comment="1.0">
+<noteinfo noteid="55573a" unid="70D68A11EF0BFA94852586B40011FB93" sequence="5">
+<created><datetime dst="true">20210410T231625,15-04</datetime></created>
+<modified><datetime>20260105T014837,33-05</datetime></modified>
+<revised><datetime dst="true">20220509T143427,69-04</datetime></revised>
+<lastaccessed><datetime>20260105T014837,32-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,32-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="library"><javaproject class="JavaAgent.class" codepath="c:\HCL\Notes\Data"><java name="pk_SJOSS/cl_SJOSS.java">package pk_SJOSS;
+
+import lotus.domino.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+//import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.file.Files;
+import javax.net.ssl.HttpsURLConnection;
+
+public class cl_SJOSS {
+
+	public String EnvoyerTransaction(String p_URL, String p_CleIntegration, String p_JsonContent, String p_Fichier1) {
+//	public String EnvoyerTransaction(String p_URL, String p_CleIntegration, String p_JsonContent, String p_Fichier1, String p_Fichier2, String p_Fichier3) {
+		File uploadFile1;
+		File uploadFile2;
+		File uploadFile3;
+		String v_Log;
+
+		v_Log = "";
+
+		try {
+
+			String charset = "UTF-8";
+			/* if (p_Fichier1 != "") {
+			 		uploadFile1 = new File(p_Fichier1);
+			 }
+			 if (p_Fichier2 != "") {
+					uploadFile2 = new File(p_Fichier2);
+			 }
+			 if (p_Fichier3 != "") {
+					uploadFile3 = new File(p_Fichier3);
+			 } */
+
+			String boundary = Long.toHexString(System.currentTimeMillis());
+			String CRLF = "\r\n"; // Line separator used in multipart/form-data.
+
+			HttpsURLConnection connection = null;
+			URL url = new URL(p_URL);
+			connection = (HttpsURLConnection) url.openConnection();
+			connection.setDoOutput(true);
+			connection.setDoInput(true);
+			connection.setRequestMethod("POST");
+			connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+			connection.setRequestProperty("Authorization", "Basic " + p_CleIntegration);
+			connection.setRequestProperty("Accept", "application/json; esl-api-version=11.0");
+			OutputStream output = connection.getOutputStream();
+			PrintWriter writer = new PrintWriter(new OutputStreamWriter(output, charset), true);
+			
+			try {
+
+				// Add pdf file 1.
+				if (p_Fichier1 != "") {
+					uploadFile1 = new File(p_Fichier1);
+					writer.append("--" + boundary).append(CRLF);
+					writer.append("Content-Disposition: form-data; name=\"file\"; filename=\"" + uploadFile1.getName() + "\"")
+					.append(CRLF);
+					writer.append("Content-Type: " + URLConnection.guessContentTypeFromName(uploadFile1.getName()))
+					.append(CRLF);
+					writer.append(CRLF).flush();
+					Files.copy(uploadFile1.toPath(), output);
+					output.flush();
+					writer.append(CRLF).flush();
+//					v_Log = v_Log + "F01";
+				}
+
+/*				// Add pdf file 2.
+				if (p_Fichier2 != "") {
+					uploadFile2 = new File(p_Fichier2);
+					writer.append("--" + boundary).append(CRLF);
+					writer.append("Content-Disposition: form-data; name=\"file\"; filename=\"" + uploadFile2.getName() + "\"")
+					.append(CRLF);
+					writer.append("Content-Type: " + URLConnection.guessContentTypeFromName(uploadFile2.getName()))
+					.append(CRLF);
+					writer.append(CRLF).flush();
+					Files.copy(uploadFile2.toPath(), output);
+					output.flush();
+					writer.append(CRLF).flush();
+					v_Log = v_Log + "F02";
+				}
+
+				// Add pdf file 3.
+				if (p_Fichier3 != "") {
+					uploadFile3 = new File(p_Fichier3);
+					writer.append("--" + boundary).append(CRLF);
+					writer.append("Content-Disposition: form-data; name=\"file\"; filename=\"" + uploadFile3.getName() + "\"")
+					.append(CRLF);
+					writer.append("Content-Type: " + URLConnection.guessContentTypeFromName(uploadFile3.getName()))
+					.append(CRLF);
+					writer.append(CRLF).flush();
+					Files.copy(uploadFile3.toPath(), output);
+					output.flush();
+					writer.append(CRLF).flush();
+					v_Log = v_Log + "F03";
+				}
+*/
+				// add json payload
+				writer.append("--" + boundary).append(CRLF);
+				writer.append("Content-Disposition: form-data; name=\"payload\"").append(CRLF);
+				writer.append("Content-Type: application/json; charset=" + charset).append(CRLF);
+				writer.append(CRLF).append(p_JsonContent).append(CRLF).flush();
+
+				// End of multipart/form-data.
+				writer.append("--" + boundary + "--").append(CRLF).flush();
+			} catch (IOException ex) {
+				System.err.println(ex);
+				return("ERR1: " + ex);
+			}
+
+			// get and write out response code
+			int responseCode = ((HttpURLConnection) connection).getResponseCode();
+			System.out.println(responseCode);
+
+			if (responseCode == 200) {
+
+				// get and write out response
+				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+				String inputLine;
+				StringBuffer response = new StringBuffer();
+
+				while ((inputLine = in.readLine()) != null) {
+					response.append(inputLine);
+				}
+				in.close();
+
+				// print result
+				System.out.println(response.toString());
+				return(String.valueOf(responseCode) + ";" + response.toString());
+
+			} else {
+
+				// get and write out response
+				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+				String inputLine;
+				StringBuffer response = new StringBuffer();
+
+				while ((inputLine = in.readLine()) != null) {
+					response.append(inputLine);
+				}
+				in.close();
+
+				// print result
+				System.out.println(response.toString());
+				return(String.valueOf(responseCode) + ";" + response.toString());
+			}
+
+		} catch(Exception e) {
+			e.printStackTrace();
+			return("ERR0: " + e);
+		}
+	}
+}
+</java><java name="pk_SJOSS/cl_SJOSS2.java">package pk_SJOSS;
+
+import lotus.domino.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+//import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.nio.file.Files;
+import javax.net.ssl.HttpsURLConnection;
+
+public class cl_SJOSS2 {
+
+	public String EnvoyerTransactionPut(String p_CleIntegration, String p_URL, String p_JSON, String p_JsonContent, String p_Fichier1) {
+		
+	 
+		try {
+
+			
+			HttpsURLConnection connection = null;
+			URL url = new URL(p_URL);
+			connection = (HttpsURLConnection) url.openConnection();
+			connection.setDoOutput(true);
+			//connection.setDoInput(true);
+			connection.setRequestMethod("PUT");
+			connection.setRequestProperty("Content-Type", "application/json");
+			connection.setRequestProperty("Authorization", "Basic " + p_CleIntegration);
+			connection.setRequestProperty("Accept", "application/json; esl-api-version=11.0");		
+						
+			OutputStreamWriter output = new OutputStreamWriter(
+					connection.getOutputStream());
+			//output.write(input_data); 
+			output.write(p_JSON);
+			output.close();
+			
+			
+			// get and write out response code
+			int responseCode = ((HttpURLConnection) connection).getResponseCode();
+			System.out.println(responseCode);
+
+			if (responseCode == 200) {
+
+				// get and write out response
+				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+				String inputLine;
+				StringBuffer response = new StringBuffer();
+
+				while ((inputLine = in.readLine()) != null) {
+					response.append(inputLine);
+				}
+				in.close();
+
+				// print result
+				System.out.println(response.toString());
+				return(String.valueOf(responseCode) + ";" + response.toString());
+
+			} else {
+
+				// get and write out response
+				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getErrorStream()));
+				String inputLine;
+				StringBuffer response = new StringBuffer();
+
+				while ((inputLine = in.readLine()) != null) {
+					response.append(inputLine);
+				}
+				in.close();
+
+				// print result
+				System.out.println(response.toString());
+				return(String.valueOf(responseCode) + ";" + response.toString());
+			}
+
+		} catch(Exception e) {
+			e.printStackTrace();
+			return("ERR0: " + e);
+		}
+	}
+}
+</java></javaproject></code>
+<item name="$JavaCompilerSource"><text>1.3</text></item>
+<item name="$JavaCompilerTarget"><text>1.2</text></item>
+<item name="$POID"><datetime dst="true">20220509T143427,69-04</datetime></item></scriptlibrary>
+
+</database>

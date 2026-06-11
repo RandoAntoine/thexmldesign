@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Insertions" hide="v3 v4strict" designerversion="8.5.3" comment="1.5">
+<noteinfo noteid="555702" unid="A778A13B7EF5EF4B852586B40011FB80" sequence="76">
+<created><datetime dst="true">20210410T231624,96-04</datetime></created>
+<modified><datetime>20260105T014837,21-05</datetime></modified>
+<revised><datetime>20250319T073634,89-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,20-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,20-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIIx = "SL"
+Const gc_Element_SIIx = "SI_Insertions"
+
+</lotusscript></code><code event="SIIx_AppendVarString"><lotusscript>Function SIIx_AppendVarString(pnd As NotesDocument, Byval p_NomVar As String, Byval p_Valeur As String, _
+p_RemplacerValeurNulle As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim ni As NotesItem
+	Dim i As Integer
+	
+	Set ni = pnd.GetFirstItem(p_NomVar)
+	' Item non trouvé, le créer
+	If ni Is Nothing Then
+		Call pnd.ReplaceItemValue(p_NomVar, p_Valeur)
+		Exit Function
+	End If
+	
+	' Valeur nulle - remplacer la valeur
+	If Ubound(ni.Values) = 0 And Cstr(ni.Values(0)) = "" And p_RemplacerValeurNulle Then
+		Call pnd.ReplaceItemValue(p_NomVar, p_Valeur)
+		Exit Function
+	End If
+	
+	' Ajouter la valeur
+	Redim a(Ubound(ni.Values) + 1) As String
+	Forall v In ni.Values
+		a(i) = ni.Values(i)
+		i = i + 1
+	End Forall
+	a(i) = p_Valeur
+	ni.Values = a
+	
+	SIIx_AppendVarString = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIIx, gc_Element_SIIx, Getthreadinfo(1), p_NomVar, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIIx_AppendVar"><lotusscript>Function SIIx_AppendVar(pnd As NotesDocument, Byval p_NomVar As String, Byval p_Valeur As Variant, _
+p_RemplacerValeurNulle As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim ni As NotesItem
+	Dim i As Integer
+	
+	Set ni = pnd.GetFirstItem(p_NomVar)
+	' Item non trouvé, le créer
+	If ni Is Nothing Then
+		Call pnd.ReplaceItemValue(p_NomVar, p_Valeur)
+		Exit Function
+	End If
+	
+	' Valeur nulle - remplacer la valeur
+	If Ubound(ni.Values) = 0 And Cstr(ni.Values(0)) = "" And p_RemplacerValeurNulle Then
+		Call pnd.ReplaceItemValue(p_NomVar, p_Valeur)
+		Exit Function
+	End If
+	
+	' Ajouter la valeur
+	Redim a(Ubound(ni.Values) + 1) As Variant
+	Forall v In ni.Values
+		a(i) = ni.Values(i)
+		i = i + 1
+	End Forall
+	a(i) = p_Valeur
+	ni.Values = a
+	
+	SIIx_AppendVar = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIIx, gc_Element_SIIx, Getthreadinfo(1), p_NomVar, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIIx_AppendVarLong"><lotusscript>Function SIIx_AppendVarLong(pnd As NotesDocument, Byval p_NomVar As String, Byval p_Valeur As Long, _
+p_RemplacerValeurNulle As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim ni As NotesItem
+	Dim i As Integer
+	
+	Set ni = pnd.GetFirstItem(p_NomVar)
+	' Item non trouvé, le créer
+	If ni Is Nothing Then
+		Call pnd.ReplaceItemValue(p_NomVar, p_Valeur)
+		Exit Function
+	End If
+	
+	' Valeur nulle - remplacer la valeur
+	If Ubound(ni.Values) = 0 And Cstr(ni.Values(0)) = "" And p_RemplacerValeurNulle Then
+		Call pnd.ReplaceItemValue(p_NomVar, p_Valeur)
+		Exit Function
+	End If
+	
+	' Ajouter la valeur
+	Redim a(Ubound(ni.Values) + 1) As Long
+	Forall v In ni.Values
+		a(i) = ni.Values(i)
+		i = i + 1
+	End Forall
+	a(i) = p_Valeur
+	ni.Values = a
+	
+	SIIx_AppendVarLong = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIIx, gc_Element_SIIx, Getthreadinfo(1), p_NomVar, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIIx_AppendItemValue"><lotusscript>Sub SIIx_AppendItemValue(pnd As NotesDocument, p_NomItem As String, p_Valeur As Variant)
+	On Error Goto GererErreur
+	
+	Dim a_ValeurAjouter As Variant
+	Dim a_ValeurActuelle As Variant
+	
+	' Formatter la valeur à ajouter
+	If Isarray(p_Valeur) Then
+		a_ValeurAjouter = Fulltrim(p_Valeur)
+		If a_ValeurAjouter(0) = "" Then
+			Exit Sub				' Valeur nulle - ne pas ajouter
+		End If
+	Elseif p_Valeur = "" Then		' Valeur nulle - ne pas ajouter
+		Exit Sub
+	Else
+		a_ValeurAjouter = p_Valeur
+	End If
+	
+	' Ajouter la valeur à l'item du document
+	a_ValeurActuelle = xVarArray(pnd, p_NomItem)
+	If Isarray(a_ValeurActuelle) Then
+		Call pnd.ReplaceItemValue(p_NomItem, Arrayappend(a_ValeurActuelle, a_ValeurAjouter))
+	Else
+		Call pnd.ReplaceItemValue(p_NomItem, a_ValeurAjouter)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIIx, gc_Element_SIIx, Getthreadinfo(1), "", False)		
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIIx_AssignerDate"><lotusscript>Function SIIx_AssignerDate(pnd As Notesdocument, Byval p_NomItem As String, Byval p_Date As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	Dim ndt As New Notesdatetime("")
+	Dim ni As Notesitem
+	
+	If pnd Is Nothing Or p_NomItem = "" Then
+		Exit Function
+	End If
+	
+	If Datatype(p_Date) &lt;&gt; 7 Then
+		Call pnd.ReplaceItemValue(p_NomItem, "")
+		Exit Function
+	End If
+	
+	' Initialiser le notesdatetime
+	ndt.LSLocalTime = p_Date
+	Call ndt.Setanytime
+	
+	' Supprimer les items ayant déjà une valeur
+	Call pnd.Removeitem(p_NomItem)
+	
+	' Assigner la nouvelle valeur
+	Set ni = New Notesitem(pnd, p_NomItem, "")
+	ni.IsSummary = True
+	Set ni.DateTimeValue = ndt
+	
+	SIIx_AssignerDate = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIIx, gc_Element_SIIx, Getthreadinfo(1), p_NomItem, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIIx_MajItem"><lotusscript>Function SIIx_MajItem(pnd As NotesDocument, p_NomItem As String, p_Valeur As Variant, Byval p_Date As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim a_ValeurOrig As Variant
+	Dim i As Integer
+	Dim ndt As New NotesDateTime("")
+	
+	SIIx_MajItem = False
+	
+	' Extraire les valeurs actuelles
+	a_ValeurOrig = xVarArray(pnd, p_NomItem)
+	If p_Date Then
+		If Isarray(a_ValeurOrig) Then		' Dates - retirer la portion heure
+			For i = Lbound(a_ValeurOrig) To Ubound(a_ValeurOrig)
+				ndt.LSLocalTime = a_ValeurOrig(i)
+				Call ndt.SetAnyTime
+				a_ValeurOrig(i) = ndt.LSLocalTime
+			Next
+		End If
+		
+	' Si la nouvelle veleur contient des dates, retirer la portion heure
+		If Isarray(p_Valeur) Then
+			For i = Lbound(p_Valeur) To Ubound(p_Valeur)
+				ndt.LSLocalTime = p_Valeur(i)
+				Call ndt.SetAnyTime
+				p_Valeur(i) = ndt.LSLocalTime
+			Next
+		Elseif p_Valeur &lt;&gt; "" Then
+			ndt.LSLocalTime = p_Valeur
+			Call ndt.SetAnyTime
+			p_Valeur = ndt.LSLocalTime
+		End If
+	End If
+	
+	' Vérifier si la nouvelle valeur est différent de la valeur actuelle
+	If Isarray(p_Valeur) Then
+		If Isarray(a_ValeurOrig) Then							' Les deux valeurs sont des tableaux
+			If Ubound(p_Valeur) &lt;&gt; Ubound(a_ValeurOrig) Then
+				SIIx_MajItem = True
+			Else
+				For i = Lbound(p_Valeur) To Ubound(p_Valeur)
+					If Cstr(p_Valeur(i)) &lt;&gt; Cstr(a_ValeurOrig(i)) Then
+						SIIx_MajItem = True
+						Exit For
+					End If
+				Next
+			End If
+		Else																' p_Valeur est un tableau mais pas a_ValeurOrig
+			If Ubound(p_Valeur) &gt; 0 Then
+				SIIx_MajItem = True
+			Elseif Cstr(p_Valeur(0)) &lt;&gt; Cstr(a_ValeurOrig) Then
+				SIIx_MajItem = True
+			End If
+		End If
+	Elseif Isarray(a_ValeurOrig) Then						' a_ValeurOrig est un tableau mais pas p_Valeur
+		If Ubound(a_ValeurOrig) &gt; 0 Then
+			SIIx_MajItem = True
+		Elseif Cstr(a_ValeurOrig(0)) &lt;&gt; Cstr(p_Valeur) Then
+			SIIx_MajItem = True
+		End If
+	Elseif Cstr(p_Valeur) &lt;&gt; Cstr(a_ValeurOrig) Then	' Ni p_Valeur ni a_ValeurOrig n'est un tableau
+		SIIx_MajItem = True
+	End If
+	
+	' Maj le champ
+	If SIIx_MajItem Then
+		If Isarray(p_Valeur) Then
+			Call pnd.ReplaceItemValue(p_NomItem, p_Valeur)
+		Elseif p_Date Then
+			Call SIIx_AssignerDate(pnd, p_NomItem, p_Valeur)
+		Else
+			Call pnd.ReplaceItemValue(p_NomItem, p_Valeur)
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIIx, gc_Element_SIIx, Getthreadinfo(1), p_NomItem, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIIx_AssignerHeure"><lotusscript>Function SIIx_AssignerHeure(pnd As Notesdocument, Byval p_NomItem As String, Byval p_Heure As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	Dim ndt As New Notesdatetime("")
+	Dim ni As Notesitem
+	
+	If pnd Is Nothing Or p_NomItem = "" Then
+		Exit Function
+	End If
+	
+	If Datatype(p_Heure) &lt;&gt; 7 Then 
+		Call pnd.ReplaceItemValue(p_NomItem, "")
+		Exit Function
+	End If
+	
+	' Initialiser le notesdatetime
+	If Isdate(p_Heure) Then
+		ndt.LSLocalTime = p_Heure
+		Call ndt.SetAnyDate
+		
+		' Supprimer les items ayant déjà une valeur
+		Call pnd.Removeitem(p_NomItem)
+		
+		' Assigner la nouvelle valeur
+		Set ni = New Notesitem(pnd, p_NomItem, "")
+		ni.IsSummary = True
+		Set ni.DateTimeValue = ndt
+		
+		SIIx_AssignerHeure = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIIx, gc_Element_SIIx, Getthreadinfo(1), p_NomItem, False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,89-05</datetime></item></scriptlibrary>
+
+</database>

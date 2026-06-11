@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><subform name="Commissions\Calculs FR" alias="SF_Comm" designerversion="8.5.3" language="fr" renderpassthrough="true">
+<noteinfo noteid="4587aa" unid="A09E82E528C25E1585258A2A004C0BAB" sequence="260">
+<created><datetime dst="true">20230914T095037,23-04</datetime></created>
+<modified><datetime>20250319T074051,44-05</datetime></modified>
+<revised><datetime>20250319T073753,07-05</datetime></revised>
+<lastaccessed><datetime>20250319T074051,43-05</datetime></lastaccessed>
+<addedtofile><datetime>20231214T112159,32-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<body><richtext>
+<pardef id="1" hide="notes web mobile"/>
+<par def="1"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<pardef id="2" hide="notes web mobile"/>
+<par def="2"><run><font size="9pt" color="red"/><field type="text" kind="computedfordisplay" name="Comm_CalculCommissionsRep_1"><code event="defaultvalue"><formula>v := @DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsRepresentant; 11; [FailSilent]);
+@If(@IsNull(v); "0"; v)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computedfordisplay" name="Comm_CalculCommissionsDir_1"><code event="defaultvalue"><formula>v := @DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirecteur; 11; [FailSilent]);
+@If(@IsNull(v); "0"; v)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="18" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computedfordisplay" name="Comm_CalculCommissionsDirN_1"><code event="defaultvalue"><formula>v := @DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirNational; 11; [FailSilent]);
+@If(@IsNull(v); "0"; v)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="28" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computedfordisplay" name="Comm_CalculCommissionsDirM_1"><code event="defaultvalue"><formula>v := @DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirMondial; 11; [FailSilent]);
+@If(@IsNull(v); "0"; v)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="38" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field type="text" kind="computedfordisplay" name="Comm_CalculBoniRep_1"><code event="defaultvalue"><formula>v := @DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsRepresentant; 21; [FailSilent]);
+@If(@IsNull(v); "0"; v)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="45" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field type="text" kind="computedfordisplay" name="Prop_ContratDureeMois_1"><code event="defaultvalue"><formula>v_NomTable := "Prop_ContDuree_FR";
+v_Cle := Prop_ContratDuree;
+
+@Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 11); ""))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="52" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<table cellbordercolor="#2f2f2f" widthtype="fixedleft" refwidth="8.6729in"><tablecolumn width="1.7521in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.1500in"/><tablecolumn width="2.4410in"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<pardef id="4" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="4"><run><font size="8pt" style="bold" color="maroon"/>Commissions</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="5" align="right" rightmargin="0.8271in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="5"><run><font size="8pt" style="bold" color="maroon"/>Référence</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="6" align="right" rightmargin="0.8271in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="6"><run><font size="8pt" style="bold" color="maroon"/>Rsp rég.</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="7" align="right" rightmargin="0.8271in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirecteur)</formula></code></pardef>
+<par def="7"><run><font size="8pt" style="bold" color="maroon"/>Rsp rég vtes</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="8" align="right" rightmargin="0.8271in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirNational)</formula></code></pardef>
+<par def="8"><run><font size="8pt" style="bold" color="maroon"/>Dir rég vtes</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="9" align="right" rightmargin="0.8271in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirMondial)</formula></code></pardef>
+<par def="9"><run><font size="8pt" style="bold" color="maroon"/>VP</run></par></tablecell>
+<tablecell borderwidth="0px 1px">
+<pardef id="10" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="10"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="11" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="11"><run><font size="8pt" style="bold" color="maroon"/>Contributions marginales</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="12" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="12"><run><font size="1pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="13" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="13"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="14" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="14"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="15" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirecteur)</formula></code></pardef>
+<par def="15"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="16" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirecteur)</formula></code></pardef>
+<par def="16"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="17" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="17"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="18" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="18"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="19" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="19"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="2"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.3153in" refwidth="11.1042in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.1500in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="20" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="20"><run><font size="9pt"/>Equipement :</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="21" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="21"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="22" align="right" rightmargin="0.7875in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="22"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_PrixTotalSV_7"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; Prop_NoProposition + ";SV."; 5; [PartialMatch]); 0))</formula></code></field></run><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_PrixTotalEQ_7"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; Prop_NoProposition + ";EQ."; 5; [PartialMatch]); 0))</formula></code></field></run><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_CoutTotalEQ_7"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; Prop_NoProposition + ";EQ."; 7; [PartialMatch]); 0))</formula></code></field></run></par>
+<pardef id="23" align="right" rightmargin="0.7875in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="23"><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_ReferenceEQ_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>v_ReferencesSV := Prop_PrixTotalSV_7 - @If(Prop_EscompteMontant = ""; 0; Prop_EscompteMontant);
+v_ReferenceEQ := @If(Comm_CalculCommissionsRep_1 = "2"; Prop_PrixTotalEQ_7; Prop_PrixTotalEQ_7 - Prop_CoutTotalEQ_7);
+
+@If(v_ReferencesSV &lt; 0 ; v_ReferenceEQ - @Abs(v_ReferencesSV); v_ReferenceEQ)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="24" align="right" rightmargin="0.7875in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="24"><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommRepresentantEQ_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_ReferenceEQ_7 * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsRepresentant; 3); 0); 0.01)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="25" align="right" rightmargin="0.7875in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="25"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ReferenceEQDir_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>v_ReferencesSV := Prop_PrixTotalSV_7 - @If(Prop_EscompteMontant = "";0;Prop_EscompteMontant);
+v_ReferenceEQ := @If(Comm_CalculCommissionsDir_1 = "2"; Prop_PrixTotalEQ_7; Prop_PrixTotalEQ_7 - Prop_CoutTotalEQ_7);
+
+@If(v_ReferencesSV &lt; 0 ; v_ReferenceEQ - @Abs(v_ReferencesSV); v_ReferenceEQ)</formula></code></field></run></par>
+<pardef id="26" align="right" rightmargin="0.7875in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirecteur)</formula></code></pardef>
+<par def="26"><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirecteurEQ_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(Prop_ReferenceEQDir_7 = 0; 0; @Round(Prop_ReferenceEQDir_7 * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirecteur; 3); 0) ; 0.01))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="27" align="right" rightmargin="0.7875in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="27"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ReferenceEQDirN_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>v_ReferencesSV := Prop_PrixTotalSV_7 - @If(Prop_EscompteMontant = "";0;Prop_EscompteMontant);
+v_ReferenceEQ := @If(Comm_CalculCommissionsDirN_1 = "2"; Prop_PrixTotalEQ_7; Prop_PrixTotalEQ_7 - Prop_CoutTotalEQ_7);
+
+@If(v_ReferencesSV &lt; 0 ; v_ReferenceEQ - @Abs(v_ReferencesSV); v_ReferenceEQ)</formula></code></field></run></par>
+<pardef id="28" align="right" rightmargin="0.7875in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirNational)</formula></code></pardef>
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirNationalEQ_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(Prop_ReferenceEQDirN_7 = 0; 0; @Round(Prop_ReferenceEQDirN_7 * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirNational; 3); 0) ; 0.01))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="29" align="right" rightmargin="0.7875in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="29"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ReferenceEQDirM_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>v_ReferencesSV := Prop_PrixTotalSV_7 - @If(Prop_EscompteMontant = "";0;Prop_EscompteMontant);
+v_ReferenceEQ := @If(Comm_CalculCommissionsDirM_1 = "2"; Prop_PrixTotalEQ_7; Prop_PrixTotalEQ_7 - Prop_CoutTotalEQ_7);
+
+@If(v_ReferencesSV &lt; 0 ; v_ReferenceEQ - @Abs(v_ReferencesSV); v_ReferenceEQ)</formula></code></field></run></par>
+<pardef id="30" align="right" rightmargin="0.7875in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirMondial)</formula></code></pardef>
+<par def="30"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirMondialEQ_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(Prop_ReferenceEQDirM_7 = 0; 0; @Round(Prop_ReferenceEQDirM_7 * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirMondial; 3); 0) ; 0.01))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="18"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="31" align="right" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="32" align="right" rightmargin="0.7479in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="32"><run><font size="9pt" color="gray"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="33" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="33"><run><font size="9pt" color="gray"/></run></par></tablecell>
+<tablecell rowspan="2" borderwidth="0px">
+<pardef id="37" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="37"><run><font size="8pt" style="bold" color="maroon"/>Tables des commissions</run></par>
+<par def="37"><run><font size="9pt"/>Responsable régional : </run><run><font size="9pt"/><field type="text" kind="computed" name="Prop_CommissionsRepresentant"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<pardef id="38" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirecteur)</formula></code></pardef>
+<par def="38"><run><font size="9pt"/>Responsable régional des ventes : </run><run><font size="9pt"/><field type="text" kind="computed" name="Prop_CommissionsDirecteur"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="gray"/></run></par>
+<pardef id="39" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirNational)</formula></code></pardef>
+<par def="39"><run><font size="9pt"/>Responsable régiona  des ventes : </run><run><font size="9pt"/><field type="text" kind="computed" name="Prop_CommissionsDirNational"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="gray"/></run></par>
+<pardef id="40" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("[CommissionsDir]"; @UserRoles) &amp; @UserName != Prop_IdDirecteur |
+PNav_MenuOptionCourante = "8.01" | @IsNull(Prop_CommissionsDirMondial)</formula></code></pardef>
+<par def="40"><run><font size="9pt"/>Vice-président: </run><run><font size="9pt"/><field type="text" kind="computed" name="Prop_CommissionsDirMondial"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="gray"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell valign="center" borderwidth="0px">
+<par def="20"><run><font size="9pt"/>Logiciels :</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="21"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="22"><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_EntretienAnnuelLG_7"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; Prop_NoProposition + ";LG."; 8; [PartialMatch]); 0))</formula></code></field></run><run><font size="9pt" color="teal"/></run><popup show="onclick" hotspotstyle="none"><popuptext>Paiement mensuel net * 12</popuptext><run><font size="9pt"/></run></popup><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_EntretienMensuelLG_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>v_TauxMaj := @GetProfileField("F_Prof"; "Prof_LGMajoMens");
+(Prop_EntretienAnnuelLG_7 * @If(@IsNull(v_TauxMaj); 1; v_TauxMaj)) / 12</formula></code></field></run><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field defaultfocus="true" type="number" kind="computedfordisplay" name="Prop_PaiementNetMensuel_2"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_EntretienMensuelLG_7 - @If(Prop_EscompteMensualite = ""; 0; Prop_EscompteMensualite)</formula></code></field></run></par>
+<par def="23"><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_ReferenceLG_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>(Prop_EntretienAnnuelLG_7 - @If(Prop_EscompteMensualite = ""; 0; Prop_EscompteMensualite * 12))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="35" align="right" rightmargin="0.7875in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="35"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ColonneSDSRep_7"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(Comm_CalculCommissionsRep_1 = "2" &amp; @IsNotMember(Prop_TypeProposition; "0" : "1"); 20; 5)</formula></code></field></run></par>
+<par def="24"><run><font size="9pt"/></run><popup show="onclick" hotspotstyle="none"><popuptext>Software Reference * % Sales Rep. Software Commission</popuptext></popup><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommRepresentantLG_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_ReferenceLG_7 * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsRepresentant; Prop_ColonneSDSRep_7); 0); 0.01)</formula></code></field></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="25"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ColonneSDSDir_7"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(Comm_CalculCommissionsRep_1 = "2" &amp; @IsNotMember(Prop_TypeProposition; "0" : "1"); 20; 5)</formula></code></field></run></par>
+<par def="26"><run><font size="9pt"/></run><popup show="onclick" hotspotstyle="none"><popuptext>Software Reference * % Director Software Commission</popuptext></popup><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirecteurLG_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_ReferenceLG_7  * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirecteur; Prop_ColonneSDSDir_7); 0); 0.01)</formula></code></field></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="27"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ColonneSDSDirN_7"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(Comm_CalculCommissionsRep_1 = "2" &amp; @IsNotMember(Prop_TypeProposition; "0" : "1"); 20; 5)</formula></code></field></run></par>
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirNationalLG_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_ReferenceLG_7  * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirNational; Prop_ColonneSDSDirN_7); 0)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="29"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ColonneSDSDirM_7"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(Comm_CalculCommissionsRep_1 = "2" &amp; @IsNotMember(Prop_TypeProposition; "0" : "1"); 20; 5)</formula></code></field></run></par>
+<par def="30"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirMondialLG_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_ReferenceLG_7  * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirMondial; Prop_ColonneSDSDirM_7); 0)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="18"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="36" align="right" rightmargin="0.7875in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="36"><run><font size="9pt" color="gray"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="gray"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell valign="center" borderwidth="0px">
+<par def="20"><run><font size="9pt"/>Services :</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="21"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="22"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_CoutTotalSV_7"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; Prop_NoProposition + ";SV."; 7; [PartialMatch]); 0))</formula></code></field></run><run><font size="9pt"/></run></par>
+<par def="23"><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_ReferenceSV_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>v_ReferencesSV := Prop_PrixTotalSV_7 - @If(Prop_EscompteMontant = ""; 0; Prop_EscompteMontant);
+@If(v_ReferencesSV &lt;  0 ; 0 ; v_ReferencesSV)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="24"><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommRepresentantSV_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_ReferenceSV_7 * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsRepresentant; 8); 0); 0.01)</formula></code></field></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="25"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ReferenceSVDir_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_ReferenceSV_7 - @If(Comm_CalculCommissionsDir_1 = "2"; 0; Prop_CommRepresentantSV_7)</formula></code></field></run></par>
+<par def="26"><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirecteurSV_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_ReferenceSVDir_7 * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirecteur; 8); 0); 0.01)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="27"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ReferenceSVDirN_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_ReferenceSV_7 - @If(Comm_CalculCommissionsDirN_1 = "2"; 0; Prop_CommRepresentantSV_7)</formula></code></field></run></par>
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirNationalSV_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_ReferenceSVDirN_7 * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirNational; 8); 0) ; 0.01)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="29"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_ReferenceSVDirM_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_ReferenceSV_7 - @If(Comm_CalculCommissionsDirM_1 = "2"; 0; Prop_CommRepresentantSV_7)</formula></code></field></run></par>
+<par def="30"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirMondialSV_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_ReferenceSVDirM_7 * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirMondial; 8); 0) ; 0.01)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="18"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="41" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="41"><run><font size="9pt"/>Brut :</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px" bgcolor="#e6eff4">
+<par def="36"><run><font size="9pt"/></run><popup show="onclick" hotspotstyle="none"><popuptext>Référence équipement + Total services - Escompte - Escompte corporative</popuptext><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_ContribMarginalesBrutes_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_ReferenceEQ_7 + Prop_PrixTotalSV_1 - @If(Prop_EscompteMontant = ""; 0; Prop_EscompteMontant) - @If(Prop_EscompteCorporatif= ""; 0; Prop_EscompteCorporatif)</formula></code></field></run></popup><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="gray"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt" color="gray"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="42" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prop_TypeProposition &gt; "1" |
+PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="42"><run><font size="9pt"/>Bonis sur ventes :</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="43" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prop_TypeProposition &gt; "1" |
+PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="43"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="22"><run><font size="9pt" color="red"/><field type="number" kind="computedfordisplay" name="Prop_CommRepresentantAvBoni_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_CommRepresentantEQ_7 + Prop_CommRepresentantLG_7 + Prop_CommRepresentantSV_7</formula></code></field></run></par>
+<pardef id="44" align="right" rightmargin="0.7875in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prop_TypeProposition &gt; "1" |
+PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="44"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_PaiementNetMensuel_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(Comm_CalculBoniRep_1 = "3"; @If(@IsNull(Prop_ContratDureeMois_1); 0; @TextToNumber(Prop_ContratDureeMois_1)); Prop_PaiementNetMensuel_2)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="45" align="right" rightmargin="0.7875in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prop_TypeProposition &gt; "1" |
+PNav_MenuOptionCourante = "8.01"</formula></code></pardef>
+<par def="45"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_Boni_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>REM {Prop_ClientPays = "US" | };
+@If(Prop_DealerTrack = "1" | @IsNotMember(Prop_TypeProposition; "0" : "1") | Comm_CalculBoniRep_1 = "0"; @Return(0); "");
+
+v_Contributions := @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsRepresentant; 9); 0);
+@If(@Elements(v_Contributions) = 0; @Return(0); "");
+v_Montants := @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsRepresentant; @If(Comm_CalculBoniRep_1 = "3"; 19; 10)); 0);
+@If(@Elements(v_Montants) = 0; @Return(0); "");
+
+REM {Montant supérieur à la dernière borne, retourner le dernier montant};
+@If(Prop_PaiementNetMensuel_7 &gt; @Subset(v_Contributions; -1); @Return(@Subset(v_Montants; -1)); "");
+
+REM {Boucle sur le tableau des contributions};
+v_Indice := 1;
+@While(v_Indice &lt; @Elements(v_Contributions) &amp; Prop_PaiementNetMensuel_7 &gt; @Subset(@Subset(v_Contributions; v_Indice); -1); v_Indice := v_Indice + 1);
+
+REM {Extrait la valeur appropriée};
+v_Boni := @If(v_Indice &gt; @Elements(v_Montants); @Subset(v_Montants; -1); @Subset(@Subset(v_Montants; v_Indice); -1));
+@If(Comm_CalculBoniRep_1 = "3"; @Round(Prop_CommRepresentantAvBoni_7 * v_Boni; 0.01); v_Boni)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="15"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="16"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="46" rightmargin="0.7875in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="46"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="47" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="47"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="48" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="48"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="49" rightmargin="0.7875in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="49"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="50" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="50"><run><font size="9pt" color="gray"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="51" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="51"><run><font size="9pt" color="gray"/></run></par></tablecell></tablerow></table>
+<par def="2"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.3153in" refwidth="8.6729in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.8660in"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.8660in"/>
+<tablerow>
+<tablecell valign="center" borderwidth="0px">
+<par def="20"><run><font size="9pt"/>Commission :</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="21"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="23"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px" bgcolor="#e6eff4">
+<par def="24"><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommRepresentantNettesPR_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_CommRepresentantEQ_7 + Prop_CommRepresentantLG_7 + Prop_CommRepresentantSV_7 + Prop_Boni_7</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="53" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="53"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.3153in" leftmargin="0" refwidth="0.8660in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell valign="center" borderwidth="0px" bgcolor="#e6eff4">
+<par def="26"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirecteurNettesPR_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prop_CommDirecteurEQ_7 +  Prop_CommDirecteurLG_7 + Prop_CommDirecteurSV_7</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="53"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="55" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="55"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.3153in" leftmargin="0" refwidth="0.8660in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell valign="center" borderwidth="0px" bgcolor="#e6eff4">
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirNationalNettesPR_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_CommDirNationalEQ_7 + Prop_CommDirNationalLG_7 + Prop_CommDirNationalSV_7; 0.01)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="55"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="57" rightmargin="0.8660in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="57"><run><font size="9pt"/></run><popup show="onclick" hotspotstyle="none"><popuptext>Director Hardware Reference + Director Software Reference + Director Services Reference</popuptext><run><font size="9pt"/></run></popup><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table minrowheight="0.3153in" leftmargin="0" rightmargin="0.7479in" widthtype="fixedleft" refwidth="0.8660in"><tablecolumn width="0.8660in"/>
+<tablerow>
+<tablecell valign="center" borderwidth="0px" bgcolor="#e6eff4">
+<par def="30"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_CommDirMondialNettesPR_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_CommDirMondialEQ_7 + Prop_CommDirMondialLG_7 + Prop_CommDirMondialSV_7; 0.01)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="59" rightmargin="0.7479in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="59"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="18"><run><font size="9pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<par def="41"><run><font size="9pt"/>Net :</run></par></tablecell>
+<tablecell valign="center" borderwidth="0px" bgcolor="#e6eff4">
+<par def="36"><run><font size="9pt"/></run><popup show="onclick" hotspotstyle="none"><popuptext>Brutes - Coût total services - Commission net du représentant - Commission net du directeur + Commission logiciel du représentant + Commission logiciel du directeur</popuptext><run><font size="9pt"/><field type="number" kind="computedfordisplay" name="Prop_ContribMarginalesNettes_7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@Round(Prop_ContribMarginalesBrutes_7 -  Prop_CoutTotalSV_1 - Prop_CommRepresentantNettesPR_7 - Prop_CommDirecteurNettesPR_7 - Prop_CommDirNationalNettesPR_7 - Prop_CommDirMondialNettesPR_7 + (Prop_CommRepresentantLG_7 + Prop_CommDirecteurLG_7 + Prop_CommDirNationalLG_7 + Prop_CommDirMondialLG_7); 0.01)</formula></code></field></run></popup><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="2"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par></richtext></body>
+<item name="$$ScriptName" summary="false" sign="true"><text>SF_Comm</text></item></subform>
+
+</database>

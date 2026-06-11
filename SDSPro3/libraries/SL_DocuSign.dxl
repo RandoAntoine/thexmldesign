@@ -1,0 +1,1377 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SL_DocuSign" hide="v3 v4strict" designerversion="8.5.3" comment="1.1c">
+<noteinfo noteid="5557be" unid="C052594AE442849C852586C6004AFBD8" sequence="63">
+<created><datetime dst="true">20210429T093901,36-04</datetime></created>
+<modified><datetime>20260105T014837,66-05</datetime></modified>
+<revised><datetime>20250319T073635,36-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,65-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,65-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_FichierWIN"
+Use "SL_JSON"
+Use "SL_JSONWriter"		' ls.snapps.JSONWriter renamed for internal naming standards 
+
+	%REM
+	=======================================================================================================================
+	Guide d'utilisation
+	=======================================================================================================================
+	
+	La seule classe qu'il faut utiliser est cl_Envelope_SLDS.  Tous les autres éléments sont en soutien de cette classe.
+	
+	Pour créer une envelope, utilise l'instruction NEW:
+		Set v_Envelope = New cl_Envelope_SLDS(p_Environnement, p_Objet As String, p_Message As String)
+		-------------------------------------------------------------------------------------------------------------------
+		Environnement : P = Production, L = Local, T = Tests  (voir xGDK_TypeNDBCourante)
+		L'objet est obligatoire pour pouvoir envoyer l'envelope.
+		L'objet et le message sont remplacés par les valeurs du destinataire, si présentes.
+		
+	Pour ajouter du texte au message de l'envelope, utilise la fonction AjouterMessage:
+		Function AjouterMessage(p_Message* As String, p_NbLignesBlanches As Integer) As Boolean
+		-------------------------------------------------------------------------------------------------------------------
+				
+	Pour ajouter un destinataire, utiliser la fonction AjouterDestinataire:
+		Function AjouterDestinataire(p_TypeDestinataire* As String, p_Nom* As String, p_Courriel* As String, p_IdDestinataire* As Integer, _
+		p_Ordre* As Integer, p_Objet As String, p_Message As String, p_Langue As string) As Boolean
+		-------------------------------------------------------------------------------------------------------------------
+		Types de destinataires : (S) Signataire/Signer, (R) Lecteur obligatoire/Must read, (C) Copie conforme/Carbon copy, (E) Editeurs/Editor
+		L'Id du destinataire est un numéro unique par destinataire.
+
+	Pour ajouter un groupe de destinataires, utiliser la fonction AjouterGroupeDestinataires:
+		Public Function AjouterGroupeDestinataires(p_TypeDestinataire* As String, p_IdGroupe* As Long, p_IdDestinataire* As Long, p_Ordre* As Integer, _
+		p_Objet As String, p_Message As String, p_Langue As String) As Boolean
+		-------------------------------------------------------------------------------------------------------------------
+		Types de destinataires : (S) Signataire/Signer, (R) Lecteur obligatoire/Must read, (C) Copie conforme/Carbon copy, (E) Editeurs/Editor
+		L'Id du groupe est assigné par DocuSign.
+		L'Id du destinataire est un numéro unique par destinataire.
+		
+	Pour ajouter un document, utiliser la fonction AjouterDocument:
+		Function AjouterDocument(p_IdDocument* As Integer, p_CheminAcces* As String) As Boolean
+		-------------------------------------------------------------------------------------------------------------------
+		L'Id du document est un numéro unique par document.
+		Le fichier spécifié dans le chemin d'accès doit exister.
+
+	Pour ajouter une signature à un destinataire, utiliser la fonction AjouterSignature:
+		Function AjouterSignature(p_IdDestinataire* As Integer, p_TypeSignature* As String, p_IdDocument* As Integer, p_Signet* As String, _
+		p_AjustementX As Integer, p_AjustementY As Integer) As Boolean
+		-------------------------------------------------------------------------------------------------------------------
+		Le destinataire et le document doivent avoir été ajoutés à l'enveloppe au préalable.
+		Types de signature : (S) Signature, (I) Initiales, (DS) Date de signature
+		Les ajustements sont indiqués en millimètres.
+				
+	Pour envoyer l'envelope, utiliser la fonction Envoyer:
+		Function Envoyer(p_email* As String, p_Password* As String, p_IntegratorKey* As String, p_Brouillon* As Boolean) As Boolean
+		-------------------------------------------------------------------------------------------------------------------
+		Si p_Brouillon = True,  l'enveloppe est créée chez DocuSign mais pas envoyée aux destinataires.  Utiliser pour les tests.
+		
+	***** Exemple d'agent *****
+	Dim v_Envelope As cl_Envelope_SLDS
+	Set v_Envelope = New cl_Envelope_SLDS("Test " &amp; CStr(Now), "Veuillez signer le contrat çi-joint dans les plus bref délais.")
+	If v_Envelope.AjouterDestinataire("S", "Patrick Beauchamp", "pbeauchamp@serti.com", 1, 1, "", "", "FR") Then
+		If v_Envelope.AjouterDocument(1, "C:\Users\patrickb\Documents\PP9527.pdf") Then
+			If v_Envelope.AjouterSignature(1, "S", 1, "[#S1]", 10, 0) Then
+				If v_Envelope.AjouterSignature(1, "I", 1, "[#I1]", 0, 3) Then
+					If v_Envelope.AjouterSignature(1, "DS", 1, "[#D1]", 85, 0) Then
+						If v_Envelope.Envoyer("email@serti.com", "MotPasse", "5b97d19f-5500-5d58-b5bf-54f3c5d80b82", False) Then
+							Print "Envelope " &amp; v_Envelope.Id &amp; " envoyée à " &amp; CStr(v_Envelope.NbDestinataires) &amp; " destinataires."
+						End If
+					End If
+				End If
+			End If
+		End If
+	End if
+	
+	***** Structure des classes *****
+		Envelope
+			ListeDestinataires
+				ListeDestinatairesType
+					Destinataire
+						ListeSignatures
+							ListeSignaturesType
+								Signature
+			ListeDocuments
+				Document
+	=======================================================================================================================
+	%END REM
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SLDS As NotesSession
+Dim v_UrlDocuSign_SLDS As String
+'Dim v_UrlDocuSignOAuth2_SLDS As String
+
+' Types de destinataires : (S) Signataire/Signer, (R) Lecteur obligatoire/Must read, (C) Copie conforme/Carbon copy, (E) Editeurs/Editor
+Dim ga_TypeDestinataire_SLDS As Variant
+Dim ga_TypeDestinataireKey_SLDS As Variant
+' Types de signature : (S) Signature, (I) Initiales, (DS) Date de signature
+Dim ga_TypeSignature_SLDS As Variant
+Dim ga_TypeSignatureKey_SLDS As Variant
+
+Dim ga_TypeLangueSI_SLDS As Variant
+Dim ga_TypeLangueDS_SLDS As Variant
+
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SLDS = "SL"
+Const gc_Element_SLDS = "SL_DocuSign"
+' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_Document_SLDS
+	Public IdDocument As string
+	Public Nom As String
+	Public Extension As String
+	Public Base64 As String
+	
+	Sub New(p_IdDocument As String, p_CheminAcces As String, p_Base64 As String)
+		
+		Me.IdDocument = p_IdDocument
+		Me.Nom = StrRightBack(p_CheminAcces, "\")
+		If InStr(Me.Nom, ".") &gt; 0 Then
+			Me.Extension = StrRightBack(Me.Nom, ".")
+		End If
+		Me.Base64 = p_Base64
+		
+	End Sub
+	
+	' ==================================================================================================================
+	Public Function GenererJSON(pjsonw As JSONWriter, p_JSON As String) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_JSON As String
+		GenererJSON = False
+		
+		v_JSON = pjsonw.BeginObject	' {
+		
+		v_JSON = v_JSON &amp; pjsonw.Key("documentId")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(me.IdDocument)
+		v_JSON = v_JSON &amp; pjsonw.Key("name")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Nom)
+		v_JSON = v_JSON &amp; pjsonw.Key("fileExtension")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Extension)
+		v_JSON = v_JSON &amp; pjsonw.Key("documentBase64")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue("[Base64_" &amp; me.IdDocument &amp; "]")
+
+		v_JSON = v_JSON &amp; pjsonw.EndObject		' }
+		
+		p_JSON = v_JSON
+		GenererJSON = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+End Class
+' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_ListeDocuments_SLDS
+	Public NbDocuments As Integer
+	Public ListeDocuments List As cl_Document_SLDS
+	
+	Sub New
+		Me.NbDocuments = 0
+	End Sub
+	
+	' ==================================================================================================================
+	Public Function AjouterDocument(p_IdDocument As String, p_CheminAcces As String, p_Base64 As string) As Boolean
+		On Error Goto GererErreur
+		
+		AjouterDocument = False
+		
+		Set Me.ListeDocuments(p_IdDocument) = New cl_Document_SLDS(p_IdDocument, p_CheminAcces, p_Base64)
+		Me.NbDocuments = Me.NbDocuments + 1
+		AjouterDocument = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Public Function xDocument(p_IdDocument As String) As cl_Document_SLDS
+		On Error GoTo GererErreur
+		
+		Dim v_Document As cl_Document_SLDS
+		
+		If Me.NbDocuments &gt; 0 Then
+			If IsElement(Me.ListeDocuments(p_IdDocument)) Then
+				Set xDocument = Me.ListeDocuments(p_IdDocument)
+			End If
+		End If
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, GetThreadInfo(1), p_IdDocument, False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Public Function GenererJSON(pjsonw As JSONWriter, p_JSON As String) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_JSON As String
+		Dim v_JSON2 As String
+		
+		GenererJSON = False
+		
+		If Me.NbDocuments &gt; 0 Then
+			v_JSON = pjsonw.Key("documents")
+			v_JSON = v_JSON &amp; pjsonw.BeginArray			' [
+			
+			ForAll v_Element In Me.ListeDocuments
+				If v_Element.GenererJSON(pjsonw, v_JSON2) Then
+					v_JSON = v_JSON &amp; v_JSON2
+				Else
+					Exit Function
+				End If	
+			End ForAll
+			
+			v_JSON = v_JSON &amp; pjsonw.EndArray			' ]
+		End If
+		
+		p_JSON = v_JSON
+		GenererJSON = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Public Function GenererJSON_Base64(p_JSON As String) As Boolean
+		On Error GoTo GererErreur
+		
+		Dim v_Signet As string
+		Dim v_Debut As Long
+		Dim v_Fin As Long
+		
+		GenererJSON_Base64 = False
+		
+		If Me.NbDocuments &gt; 0 Then
+			ForAll v_Element In Me.ListeDocuments
+				v_Signet = "[Base64_" &amp; v_Element.IdDocument &amp; "]"
+				v_Debut = InStr(p_JSON, v_Signet) - 1
+				v_Fin =  Len(p_JSON) - v_Debut - Len(v_Signet)
+				p_JSON = Left(p_JSON, v_Debut) &amp; v_Element.Base64 &amp; Right(p_JSON, v_Fin)
+			End ForAll
+		End If
+		
+		GenererJSON_Base64 = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, GetThreadInfo(1), "", False)
+		Exit Function		
+	End Function
+End Class
+' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Public Class cl_Envelope_SLDS
+	Public Environnement As string
+	Public Objet As String					' Obligatoire
+	Public Message As String
+	
+	Public NbDestinataires As Integer
+	ListeDestinataires As cl_ListeDestinataires_SLDS
+	Public NbDocuments As Integer
+	ListeDocuments As cl_ListeDocuments_SLDS
+	
+	Public Envoyee As Boolean
+	Public Id As String
+	Public URI As String
+	Public Statut As String
+	
+	' ==================================================================================================================
+	Sub New(p_Environnement As String, p_Objet As String, p_Message As String)
+		On Error Goto GererErreur
+		
+		Me.Environnement = p_Environnement
+		Me.Statut = ""
+		
+		Me.Objet = p_Objet
+		Me.Message = p_Message
+		
+		Me.NbDestinataires = 0
+		Me.NbDocuments = 0
+		
+		If Me.Environnement = "P" Or Me.Environnement = "L" Then		' Production ou Local
+			REM v_UrlDocuSign_SLDS = "https://XXXX.docusign.net/restapi/v2.1"
+			v_UrlDocuSign_SLDS = "https://www.docusign.net/restapi/v2.1"
+'			v_UrlDocuSignOAuth2_SLDS = "https://account.docusign.com/oauth/auth"
+		Else															' Développement/Tests
+			v_UrlDocuSign_SLDS = "https://demo.docusign.net/restapi/v2.1"
+'			v_UrlDocuSignOAuth2_SLDS = "https://account-d.docusign.com/oauth/auth"
+		End If
+		Exit Sub
+		
+GererErreur:
+		Me.Statut = "E99"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Sub	
+	End Sub
+	
+	' ==================================================================================================================
+	Public Function EnvelopeValide As Boolean
+		' Action: 0 = New, 5 = Envoyer
+		On Error Goto GererErreur
+		
+		Dim v_Statut As String
+		
+		EnvelopeValide = False
+		
+		If Me.Objet = "" Then
+			v_Statut = "E02"		' Objet obligatoire
+		End If
+		
+		If NbDestinataires = 0 Then
+			v_Statut = "E51"
+		End If
+		
+		If NbDocuments = 0 Then
+			v_Statut = "E52"
+		End If
+		
+		If v_Statut = "" Then
+			Me.Statut = "OK"
+			EnvelopeValide = True
+		End If
+		Exit Function
+		
+GererErreur:
+		Statut = "E99"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Public Function AjouterDestinataire(p_TypeDestinataire As String, p_Nom As String, p_Courriel As String, p_IdDestinataire As Integer, p_Ordre As Integer, p_Objet As String, p_Message As String, p_Langue As string) As Boolean
+		' Types de destinataires : (S) Signataire/Signer, (R) Lecteur obligatoire/Must read, (C) Copie conforme/Carbon copy, (E) Editeurs/Editor
+		On Error Goto GererErreur
+		
+		Dim v_IdDestinataire As String
+		Dim v_Destinataire As cl_Destinataire_SLDS
+		Dim v_Resultat As Integer
+		
+		AjouterDestinataire = False
+		If Isnull(Arraygetindex(ga_TypeDestinataire_SLDS, p_TypeDestinataire, 0)) Or p_Nom = "" Or p_Courriel = "" Or p_IdDestinataire &lt;= 0 Or p_Ordre &lt;= 0 Then
+			Me.Statut = "E10"
+			Exit Function
+		End If
+		
+		v_IdDestinataire = CStr(p_IdDestinataire)
+		Set v_Destinataire = Me.xDestinataire(v_IdDestinataire)
+		If Not (v_Destinataire Is Nothing) Then
+			Me.Statut = "E11"
+			Exit Function
+		End If
+
+		If Me.ListeDestinataires Is Nothing Then
+			Set Me.ListeDestinataires = New cl_ListeDestinataires_SLDS
+		End If
+		
+		v_Resultat = Me.ListeDestinataires.AjouterDestinataire("D", p_TypeDestinataire, p_Nom, p_Courriel, "", CStr(v_IdDestinataire), CStr(p_Ordre), p_Objet, p_Message, p_Langue)
+		If v_Resultat = 1 Then
+			Me.NbDestinataires = Me.NbDestinataires + 1
+			AjouterDestinataire = True
+		ElseIf v_Resultat = 0 Then
+			Me.Statut = "A19"
+		Else
+			Me.Statut = "E19"
+		End If
+		
+		Exit Function
+		
+GererErreur:
+		Statut = "E99"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Public Function AjouterGroupeDestinataires(p_TypeDestinataire As String, p_IdGroupe As Long, p_IdDestinataire As Long, p_Ordre As Integer, p_Objet As String, p_Message As String, p_Langue As String) As Boolean
+		' Types de destinataires : (S) Signataire/Signer, (R) Lecteur obligatoire/Must read, (C) Copie conforme/Carbon copy, (E) Editeurs/Editor
+		On Error GoTo GererErreur
+		
+		Dim v_IdDestinataire As String
+		Dim v_Destinataire As cl_Destinataire_SLDS
+		
+		AjouterGroupeDestinataires = False
+		If IsNull(ArrayGetIndex(ga_TypeDestinataire_SLDS, p_TypeDestinataire, 0)) Or p_IdGroupe &lt;= 0 Or p_IdDestinataire &lt;= 0 Or p_Ordre &lt;= 0 Then
+			Me.Statut = "E20"
+			Exit Function
+		End If
+		
+		If Me.ListeDestinataires Is Nothing Then
+			Set Me.ListeDestinataires = New cl_ListeDestinataires_SLDS
+		End If
+		
+		v_IdDestinataire = CStr(p_IdDestinataire)
+		Set v_Destinataire = Me.xDestinataire(v_IdDestinataire)
+		If Not (v_Destinataire Is Nothing) Then
+			Me.Statut = "E21"
+			Exit Function
+		End If
+		
+		If Me.ListeDestinataires.AjouterDestinataire("G", p_TypeDestinataire, "", "", CStr(p_IdGroupe), CStr(v_IdDestinataire), CStr(p_Ordre), p_Objet, p_Message, p_Langue) Then
+			Me.NbDestinataires = Me.NbDestinataires + 1
+			AjouterGroupeDestinataires = True
+		Else
+			Me.Statut = "E29"
+		End If
+		
+		Exit Function
+		
+GererErreur:
+		Statut = "E99"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, GetThreadInfo(1), "", False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Public Function AjouterSignature(p_IdDestinataire As Integer, p_TypeSignature As String, p_IdDocument As Integer, p_Signet As String, p_AjustementX As Integer, p_AjustementY As Integer) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_IdDestinataire As String
+		Dim v_Destinataire As cl_Destinataire_SLDS
+		Dim v_IdDocument As String
+		Dim v_Document As cl_Document_SLDS
+		
+		AjouterSignature = False
+		If Isnull(Arraygetindex(ga_TypeSignature_SLDS, p_TypeSignature, 0)) Or p_Signet = "" Then
+			Me.Statut = "E40"
+			Exit Function
+		End If
+		
+		v_IdDestinataire = CStr(p_IdDestinataire)
+		Set v_Destinataire = Me.xDestinataire(v_IdDestinataire)
+		If v_Destinataire Is Nothing Then
+			Me.Statut = "E41"
+			Exit Function
+		End If
+		
+		v_IdDocument = CStr(p_IdDocument)
+		Set v_Document = Me.xDocument(v_IdDocument)
+		If v_Document Is Nothing Then
+			Me.Statut = "E42"
+			Exit Function
+		End If
+		
+		If v_Destinataire.AjouterSignature(p_TypeSignature, v_IdDocument, p_Signet, p_AjustementX, p_AjustementY) Then
+			AjouterSignature = True
+		Else
+			Me.Statut = "E49"
+		End If
+		
+		Exit Function
+		
+GererErreur:
+		Statut = "E99"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), v_IdDestinataire, False)
+		Exit Function
+	End Function
+	
+	' ==================================================================================================================
+	Public Function AjouterDocument(p_IdDocument As Integer, p_CheminAcces As String) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_IdDocument As String
+		Dim v_Document As cl_Document_SLDS
+		Dim v_CheminFichierBase64 As String
+		Dim v_Base64 As String
+		
+		AjouterDocument = False
+		If p_IdDocument &lt;= 0 Or p_CheminAcces = "" Then
+			Me.Statut = "E60"
+			Exit Function
+		End If
+		
+		v_IdDocument = CStr(p_IdDocument)
+		Set v_Document = Me.xDocument(v_IdDocument)
+		If Not (v_Document Is Nothing) Then
+			Me.Statut = "E61"
+			Exit Function
+		End If
+		
+		If Dir$(p_CheminAcces, 0) = "" Then
+			Me.Statut = "E462"
+			Exit Function
+		End If
+		
+		v_CheminFichierBase64 = p_CheminAcces &amp; ".b64"
+		If SLFWIN_EncoderFichierBase64(p_CheminAcces, v_CheminFichierBase64, False) Then
+			v_Base64 = SLFWIN_LireFichierString(v_CheminFichierBase64)
+			Kill v_CheminFichierBase64
+			If v_Base64 &lt;&gt; "" Then
+				If Me.ListeDocuments Is Nothing Then
+					Set Me.ListeDocuments = New cl_ListeDocuments_SLDS
+				End If
+				
+				If Me.ListeDocuments.AjouterDocument(v_IdDocument, p_CheminAcces, v_Base64) Then
+					Me.NbDocuments = Me.NbDocuments + 1
+					AjouterDocument = True
+				Else
+					Me.Statut = "E69"
+				End If
+			else
+				Me.Statut = "E64"
+			End If
+		else
+			Me.Statut = "E63"
+		End If
+		Exit Function
+		
+GererErreur:
+		Statut = "E69"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), p_CheminAcces, False)
+		Exit Function
+	End Function
+	
+	' ==================================================================================================================
+	Public Function AjouterMessage(p_Message As String, p_NbLignesBlanches As Integer) As Boolean
+		On Error Goto GererErreur
+		
+		Dim i As Integer
+		
+		AjouterMessage = False
+		If p_Message = "" Then
+			Me.Statut = "E18"
+			Exit Function
+		End If
+		
+		For i = 1 To p_NbLignesBlanches + 1
+			Me.Message = Me.Message &amp; Chr(13)
+		Next
+		
+		Me.Message = Me.Message &amp; p_Message
+		AjouterMessage = True
+		Exit Function
+		
+GererErreur:
+		Statut = "E99"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function
+	End Function
+	
+	' ==================================================================================================================
+	Public Function Envoyer(p_email As String, p_Password As String, p_IntegratorKey As String, p_Brouillon As Boolean) As Boolean
+		On Error Goto GererErreur
+		
+		Dim l_LoginAccount List As Variant
+		Dim v_JSON As String
+		Dim v_URL As String
+		Dim v_Reponse As Integer
+		Dim v_ReponseJSON As String
+		Dim njsonn As NotesJSONNavigator
+		
+		Envoyer = False
+		
+		If Me.Envoyee Then
+			Me.Statut = "E60"				' Erreur envelope déjà envoyée
+			Exit Function
+		End If
+		If Not me.EnvelopeValide Then
+			Exit Function
+		End If
+		
+		If SLDS_LoginAccount(p_email, p_Password, p_IntegratorKey, l_LoginAccount) Then
+			If Me.GenererJSON(v_JSON, p_Brouillon) Then
+				v_URL = l_LoginAccount("baseUrl") &amp; |/envelopes|
+				
+				If SLDS_EnvoyerTransaction(l_LoginAccount, "POST", v_URL, v_JSON, v_Reponse, v_ReponseJSON) Then
+					v_ReponseJSON = Replace(Replace(v_ReponseJSON, Chr(13), ""), Chr(10), "")
+
+					Set njsonn = gns_SLDS.Createjsonnavigator(v_ReponseJSON)
+					Me.Id = SLJS_ExtraireValeur_Pointeur(njsonn, "/envelopeId")
+					Me.URI = SLJS_ExtraireValeur_Pointeur(njsonn, "/uri")
+					Me.Statut = SLJS_ExtraireValeur_Pointeur(njsonn, "/status")
+
+					Me.Envoyee = True
+					Envoyer = True
+				Else
+					Me.Statut = "E63"		' Erreur envoi de la transaction
+				End If
+			Else
+				Me.Statut = "E62"			' Erreur génération du JSON
+			End If
+		Else
+			Me.Statut = "E61"				' Erreur LoginAccount
+		End If
+		Exit Function
+		
+GererErreur:
+		Me.Statut = "E99"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function
+	End Function
+	
+	' ==================================================================================================================
+	Public Function GenererJSON(p_JSON As String, p_Brouillon As Boolean) As Boolean
+		On Error Goto GererErreur
+		
+		Dim jsonw As JSONWriter
+		Dim v_JSON As string
+		Dim v_JSON2 As String
+		Dim v_Parametres List As Variant
+		
+		GenererJSON = False
+		
+		Set jsonw = New JSONWriter
+		v_JSON = jsonw.BeginObject		' {
+		v_JSON = v_JSON &amp; jsonw.Key("emailSubject")
+		v_JSON = v_JSON &amp; jsonw.AppendValue(Me.Objet)
+		If Me.Message &lt;&gt; "" Then
+			v_JSON = v_JSON &amp; jsonw.Key("emailBlurb")
+			v_JSON = v_JSON &amp; jsonw.AppendValue(Me.Message)
+		End If
+		
+		If NbDestinataires &gt; 0 Then
+			v_Parametres("Objet") = me.Objet	
+			v_Parametres("Message") = me.Message
+			If Me.ListeDestinataires.GenererJSON(jsonw, v_JSON2, v_Parametres) Then
+				v_JSON = v_JSON &amp; v_JSON2
+			Else
+				Exit Function
+			End If
+		End If
+		If NbDocuments &gt; 0 Then
+			If Me.ListeDocuments.GenererJSON(jsonw, v_JSON2) Then
+				v_JSON = v_JSON &amp; v_JSON2
+			Else
+				Exit Function
+			End If
+		End If
+		
+		v_JSON = v_JSON &amp; jsonw.Key("status")
+		If p_Brouillon Then
+			v_JSON = v_JSON &amp; jsonw.AppendValue("created")
+		Else
+			v_JSON = v_JSON &amp; jsonw.AppendValue("sent")
+		End If
+		v_JSON = v_JSON &amp; jsonw.EndObject		' }
+		
+		' --------------------------------------------------------
+		Call SIGE_OuvrirLog(gc_TypeElement_SLDS, gc_Element_SLDS)
+		Call SIGE_AjouterLog(v_JSON, 0, 0, False)
+		Call SIGE_EnregistrerLog
+		' --------------------------------------------------------
+		
+		If NbDocuments &gt; 0 Then
+			If Me.ListeDocuments.GenererJSON_Base64(v_JSON) = False Then
+				Exit Function
+			End If
+		End If
+		
+		p_JSON = v_JSON
+		GenererJSON = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function
+	End Function
+	' ==================================================================================================================
+	Public Function xDestinataire(p_IdDestinataire As String) As cl_Destinataire_SLDS
+		On Error GoTo GererErreur
+		
+		If me.NbDestinataires &gt; 0 then
+			Set xDestinataire = Me.ListeDestinataires.xDestinataire(p_IdDestinataire)
+		End If
+		Exit Function
+		
+GererErreur:
+		Statut = "E99"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, GetThreadInfo(1), p_IdDestinataire, False)
+		Exit Function
+	End Function
+	' ==================================================================================================================
+	Public Function xDocument(p_IdDocument As String) As cl_Document_SLDS
+		On Error GoTo GererErreur
+		
+		If me.NbDocuments &gt; 0 then
+			Set xDocument = Me.ListeDocuments.xDocument(p_IdDocument)
+		End If
+		
+		Exit Function
+		
+GererErreur:
+		Statut = "E99"			' Erreur de programmation
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, GetThreadInfo(1), p_IdDocument, False)
+		Exit Function
+	End Function
+		
+End Class
+' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_Destinataire_SLDS
+	Public ClasseDestinataire As String
+	Public TypeDestinataire As String
+	Public Nom As String
+	Public Courriel As String
+	Public IdGroupe As String
+	Public IdDestinataire As String
+	Public Ordre As String
+	Public Objet As String
+	Public Message As String
+	Public Langue As String
+	
+	Public NbSignatures As Integer
+	ListeSignatures As cl_ListeSignatures_SLDS
+	
+	Sub New(p_ClasseDestinataire As String, p_TypeDestinataire As String, p_Nom As String, p_Courriel As String, p_IdGroupe As String, p_IdDestinataire As String, p_Ordre As String, p_Objet As String, p_Message As String, p_Langue As String)
+		
+		Dim v As Variant
+		Dim v_Langue As String
+		
+		Me.ClasseDestinataire = p_ClasseDestinataire
+		Me.TypeDestinataire = p_TypeDestinataire
+		Me.Nom = p_Nom
+		Me.Courriel = p_Courriel
+		Me.IdGroupe = p_IdGroupe
+		Me.IdDestinataire = p_IdDestinataire
+		Me.Ordre = p_Ordre
+		Me.Objet = p_Objet
+		Me.Message = p_Message
+		
+		If p_Langue &lt;&gt; "" Then
+			v = ArrayGetIndex(ga_TypeLangueDS_SLDS, p_Langue, 0)
+			If Not IsNull(v) Then
+				v_Langue = p_Langue
+			Else
+				v = ArrayGetIndex(ga_TypeLangueSI_SLDS, p_Langue, 0)
+				If Not IsNull(v) Then
+					v_Langue = ga_TypeLangueDS_SLDS(v)
+				End If
+			End If
+		End If
+		Me.Langue = v_Langue
+		
+	End Sub
+	
+	' ==================================================================================================================
+	Function AjouterSignature(p_TypeSignature As String, p_IdDocument As String, p_Signet As String, p_AjustementX As Integer, p_AjustementY As Integer) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_Destinataire As cl_Destinataire_SLDS
+		
+		AjouterSignature = False
+		
+		If Me.ListeSignatures Is Nothing Then
+			Set Me.ListeSignatures = New cl_ListeSignatures_SLDS
+		End If
+		
+		If Me.ListeSignatures.AjouterSignature(p_TypeSignature, p_IdDocument, p_Signet, p_AjustementX, p_AjustementY) Then
+			Me.NbSignatures = Me.NbSignatures + 1
+			AjouterSignature = True
+		End If
+		
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function
+	End Function
+	
+	' ==================================================================================================================
+	Function GenererJSON(pjsonw As JSONWriter, p_JSON As String, p_Parametres List As Variant) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_JSON As String
+		Dim v_JSON2 As String
+		
+		GenererJSON = False
+		
+		v_JSON = pjsonw.BeginObject	' {
+		
+		v_JSON = v_JSON &amp; pjsonw.Key("recipientId")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.IdDestinataire)
+		If me.ClasseDestinataire = "G" Then
+'			v_JSON = v_JSON &amp; pjsonw.Key("signingGroupName")
+'			v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Nom)
+			v_JSON = v_JSON &amp; pjsonw.Key("signingGroupId")
+			v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.IdGroupe)
+		Else
+			v_JSON = v_JSON &amp; pjsonw.Key("name")
+			v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Nom)
+			v_JSON = v_JSON &amp; pjsonw.Key("email")
+			v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Courriel)
+		End If
+		v_JSON = v_JSON &amp; pjsonw.Key("routingOrder")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Ordre)
+		
+		If me.Langue &lt;&gt; "" Or me.Objet &lt;&gt; "" Or me.Message &lt;&gt; "" Then
+			v_JSON = v_JSON &amp; pjsonw.Key("emailNotification")
+			v_JSON = v_JSON &amp; pjsonw.BeginObject	' {
+			
+			v_JSON = v_JSON &amp; pjsonw.Key("emailSubject")
+			If me.Objet &lt;&gt; "" Then
+				v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Objet)
+			Else
+				v_JSON = v_JSON &amp; pjsonw.AppendValue(p_Parametres("Objet"))
+			End If
+			If me.Message &lt;&gt; "" Then
+				v_JSON = v_JSON &amp; pjsonw.Key("emailBody")
+				v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Message)
+			ElseIf p_Parametres("Message") &lt;&gt; "" then
+				v_JSON = v_JSON &amp; pjsonw.Key("emailBody")
+				v_JSON = v_JSON &amp; pjsonw.AppendValue(p_Parametres("Message"))
+			End if
+			If me.Langue &lt;&gt; "" then
+				v_JSON = v_JSON &amp; pjsonw.Key("supportedLanguage")
+				v_JSON = v_JSON &amp; pjsonw.AppendValue(me.Langue)
+			End If
+			
+			v_JSON = v_JSON &amp; pjsonw.EndObject	' }
+		End if
+		
+		If Me.NbSignatures &gt; 0 Then
+			If Me.ListeSignatures.GenererJSON(pjsonw, v_JSON2) Then
+				v_JSON = v_JSON &amp; v_JSON2
+			Else
+				Exit Function
+			End If
+		End If
+		
+		v_JSON = v_JSON &amp; pjsonw.EndObject	' }
+		
+		p_JSON = v_JSON
+		GenererJSON = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+End Class
+' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_ListeDestinataires_SLDS
+	' Types de destinataires : (S) Signataire/Signer, (C) Copie conforme/CarbonCopy, (E) Editeurs/Editor, (T) Témoin/Witness
+	
+	Public NbDestinataires As Integer
+	Public ListeDestinatairesType List As cl_ListeDestinatairesType_SLDS
+	Public IdsDestinataires List As String
+	
+	Sub New
+		Me.NbDestinataires = 0
+	End Sub
+	
+	' ==================================================================================================================
+	Public Function AjouterDestinataire(p_ClasseDestinataire As String, p_TypeDestinataire As String, p_Nom As String, p_Courriel As String, p_IdGroupe As String, p_IdDestinataire As String, p_Ordre As String, p_Objet As String, p_Message As String, p_Langue As string) As Integer
+		On Error Goto GererErreur
+		
+		Dim v_Destinataire As cl_Destinataire_SLDS
+		
+		AjouterDestinataire = -1
+		
+		ForAll l_TypeDestinataire In Me.ListeDestinatairesType
+			ForAll l_Destinataire In l_TypeDestinataire.ListeDestinataires			
+				If l_Destinataire.Courriel = p_Courriel And l_Destinataire.Ordre = p_Ordre Then
+					AjouterDestinataire = 0			
+					Exit Function
+				End If				
+			End Forall
+		End ForAll
+		
+		If Not Iselement(Me.ListeDestinatairesType(p_TypeDestinataire)) Then
+			Set Me.ListeDestinatairesType(p_TypeDestinataire) = New cl_ListeDestinatairesType_SLDS(p_TypeDestinataire)
+		End If
+		
+		If Me.ListeDestinatairesType(p_TypeDestinataire).AjouterDestinataire(p_ClasseDestinataire, p_TypeDestinataire, p_Nom, p_Courriel, p_IdGroupe, p_IdDestinataire, p_Ordre, p_Objet, p_Message, p_Langue) Then
+			Me.NbDestinataires = Me.NbDestinataires + 1
+			AjouterDestinataire = 1
+		End If
+		
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Public Function xDestinataire(p_IdDestinataire As String) As cl_Destinataire_SLDS
+		On Error Goto GererErreur
+		
+		Dim v_TypeDestinataire As String
+		Dim v_Destinataire As cl_Destinataire_SLDS
+		
+		If Me.NbDestinataires &gt; 0 Then
+			Forall v_Element In Me.ListeDestinatairesType
+				v_TypeDestinataire = Listtag(v_Element)
+				Set v_Destinataire = Me.ListeDestinatairesType(v_TypeDestinataire).xDestinataire(p_IdDestinataire)
+				If Not (v_Destinataire Is Nothing) Then
+					Set xDestinataire = v_Destinataire
+					Exit Forall
+				End If
+			End Forall
+		End If
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), p_IdDestinataire, False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Public Function GenererJSON(pjsonw As JSONWriter, p_JSON As String, p_Parametres List As Variant) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_JSON As String
+		Dim v_JSON2 As String
+		
+		GenererJSON = False
+		
+		If Me.NbDestinataires &gt; 0 Then
+			v_JSON = pjsonw.Key("recipients")
+			v_JSON = v_JSON &amp; pjsonw.BeginObject	' {
+			
+			Forall v_Element In Me.ListeDestinatairesType
+				If v_Element.GenererJSON(pjsonw, v_JSON2, p_Parametres) Then
+					v_JSON = v_JSON &amp; v_JSON2
+				Else
+					Exit Function
+				End If
+			End Forall
+			
+			v_JSON = v_JSON &amp; pjsonw.EndObject		' }
+			p_JSON = v_JSON
+		End If
+		
+		GenererJSON = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+End Class
+' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_ListeDestinatairesType_SLDS
+	Public TypeDestinataire As String
+	Public NbDestinataires As Integer
+	Public ListeDestinataires List As cl_Destinataire_SLDS
+	
+	Sub New(p_TypeDestinataire As String)
+		me.TypeDestinataire = p_TypeDestinataire
+		me.NbDestinataires = 0
+	End Sub
+	
+	' ==================================================================================================================
+	Public Function AjouterDestinataire(p_ClasseDestinataire As string, p_TypeDestinataire As String, p_Nom As String, p_Courriel As String, p_IdGroupe As String, p_IdDestinataire As String, p_Ordre As String, p_Objet As String, p_Message As String, p_Langue As string) As Boolean
+		On Error Goto GererErreur
+		
+		AjouterDestinataire = False
+		
+		Set Me.ListeDestinataires(p_IdDestinataire) = New cl_Destinataire_SLDS(p_ClasseDestinataire, p_TypeDestinataire, p_Nom, p_Courriel, p_IdGroupe, p_IdDestinataire, p_Ordre, p_Objet, p_Message, p_Langue)
+		Me.NbDestinataires = Me.NbDestinataires + 1
+		AjouterDestinataire = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Public Function xDestinataire(p_IdDestinataire As String) As cl_Destinataire_SLDS
+		On Error Goto GererErreur
+		
+		Dim v_Destinataire As cl_Destinataire_SLDS
+		
+		If Me.NbDestinataires &gt; 0 Then
+			If IsElement(Me.ListeDestinataires(p_IdDestinataire)) Then
+				Set xDestinataire = Me.ListeDestinataires(p_IdDestinataire)
+			End If
+		End If
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), p_IdDestinataire, False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Function GenererJSON(pjsonw As JSONWriter, p_JSON As String, p_Parametres List As Variant) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v As Variant
+		Dim v_JSON As String
+		Dim v_JSON2 As String
+		
+		GenererJSON = False
+		
+		If Me.NbDestinataires &gt; 0 Then
+			v = Arraygetindex(ga_TypeDestinataire_SLDS, me.TypeDestinataire, 0)
+			v_JSON = pjsonw.Key(ga_TypeDestinataireKey_SLDS(v))
+			v_JSON = v_JSON &amp; pjsonw.BeginArray		' [
+			
+			ForAll v_Element In Me.ListeDestinataires
+				If v_Element.GenererJSON(pjsonw, v_JSON2, p_Parametres) Then
+					v_JSON = v_JSON &amp; v_JSON2
+				Else
+					Exit Function
+				End If			
+			End ForAll
+			
+			v_JSON = v_JSON &amp; pjsonw.EndArray		' ]
+			p_JSON = v_JSON
+		End If
+		
+		GenererJSON = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+End Class
+' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_Signature_SLDS
+	Public TypeSignature As String
+	Public IdDocument As string
+	Public Signet As String
+	Public AjustementX As Integer
+	Public AjustementY As Integer
+	Public Unite As String
+	Public Obligatoire As Boolean
+	
+	Sub New(p_TypeSignature As String, p_IdDocument As String, p_Signet As String, p_AjustementX As Integer, p_AjustementY As Integer)
+		
+		Me.TypeSignature = p_TypeSignature
+		Me.IdDocument = p_IdDocument
+		Me.Signet = p_Signet
+		Me.AjustementX = p_AjustementX
+		Me.AjustementY = p_AjustementY
+		Me.Obligatoire = True
+		Me.Unite = "mms"
+		
+	End Sub
+	
+	' ==================================================================================================================
+	Public Function GenererJSON(pjsonw As JSONWriter, p_JSON As String) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_JSON As String
+		
+		GenererJSON = False
+		
+		v_JSON = pjsonw.BeginObject	' {
+		
+		v_JSON = v_JSON &amp; pjsonw.Key("documentId")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.IdDocument)
+		v_JSON = v_JSON &amp; pjsonw.Key("anchorString")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Signet)
+		v_JSON = v_JSON &amp; pjsonw.Key("anchorXOffset")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(Cstr(Me.AjustementX))
+		v_JSON = v_JSON &amp; pjsonw.Key("anchorYOffset")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(Cstr(Me.AjustementY))
+		v_JSON = v_JSON &amp; pjsonw.Key("anchorIgnoreIfNotPresent")
+		If Me.Obligatoire Then
+			v_JSON = v_JSON &amp; pjsonw.AppendValue("false")
+		Else
+			v_JSON = v_JSON &amp; pjsonw.AppendValue("true")
+		End If
+		v_JSON = v_JSON &amp; pjsonw.Key("anchorUnits")
+		v_JSON = v_JSON &amp; pjsonw.AppendValue(Me.Unite)
+		
+		v_JSON = v_JSON &amp; pjsonw.EndObject		' }
+		
+		p_JSON = v_JSON
+		GenererJSON = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+End Class
+' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_ListeSignatures_SLDS
+	' Types de Signatures : (S) Signataire/Signer, (C) Copie conforme/CarbonCopy, (E) Editeurs/Editor, (T) Témoin/Witness
+	
+	Public NbSignatures As Integer
+	Public ListeSignaturesType List As cl_ListeSignaturesType_SLDS
+	Public IdsSignatures List As String
+	
+	Sub New
+		Me.NbSignatures = 0
+	End Sub
+	
+	' ==================================================================================================================
+	Public Function AjouterSignature(p_TypeSignature As String, p_IdDocument As String, p_Signet As String, p_AjustementX As Integer, p_AjustementY As Integer) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_Signature As cl_Signature_SLDS
+		
+		AjouterSignature = False
+		
+		If Not Iselement(Me.ListeSignaturesType(p_TypeSignature)) Then
+			Set Me.ListeSignaturesType(p_TypeSignature) = New cl_ListeSignaturesType_SLDS
+		End If
+		
+		If Me.ListeSignaturesType(p_TypeSignature).AjouterSignature(p_TypeSignature, p_IdDocument, p_Signet, p_AjustementX, p_AjustementY) Then
+			Me.NbSignatures = Me.NbSignatures + 1
+			AjouterSignature = True
+		End If
+		
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+	
+	
+	' ==================================================================================================================
+	Public Function GenererJSON(pjsonw As JSONWriter, p_JSON As String) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_JSON As String
+		Dim v_TypeSignature As String
+		Dim v_JSON2 As String
+		
+		GenererJSON = False
+		
+		If Me.NbSignatures &gt; 0 Then
+			v_JSON = pjsonw.Key("tabs")
+			v_JSON = v_JSON &amp; pjsonw.BeginObject	' {
+			
+			Forall v_Element In Me.ListeSignaturesType
+				v_TypeSignature = Listtag(v_Element)
+				If Me.ListeSignaturesType(v_TypeSignature).GenererJSON(pjsonw, v_JSON2, v_TypeSignature) Then
+					v_JSON = v_JSON &amp; v_JSON2
+				Else
+					Exit Function
+				End If
+			End Forall
+			
+			v_JSON = v_JSON &amp; pjsonw.EndObject		' }
+			p_JSON = v_JSON
+		End If
+		
+		GenererJSON = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+End Class
+' ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_ListeSignaturesType_SLDS
+	Public NbSignatures As Integer
+	Public ListeSignatures List As cl_Signature_SLDS
+	
+	Sub New
+		NbSignatures = 0
+	End Sub
+	
+	' ==================================================================================================================
+	Public Function AjouterSignature(p_TypeSignature As String, p_IdDocument As String, p_Signet As String, p_AjustementX As Integer, p_AjustementY As Integer) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v_NoSignature As Integer
+		Dim v_NoSignatureS As String
+		
+		AjouterSignature = False
+		
+		v_NoSignature = Me.NbSignatures + 1
+		v_NoSignatureS = Cstr(v_NoSignature)
+		Set Me.ListeSignatures(v_NoSignatureS) = New cl_Signature_SLDS(p_TypeSignature, p_IdDocument, p_Signet, p_AjustementX, p_AjustementY)
+		
+		Me.NbSignatures = v_NoSignature
+		AjouterSignature = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+	
+	' ==================================================================================================================
+	Function GenererJSON(pjsonw As JSONWriter, p_JSON As String, p_TypeSignature As String) As Boolean
+		On Error Goto GererErreur
+		
+		Dim v As Variant
+		Dim v_JSON As String
+		Dim i As Integer
+		Dim v_JSON2 As String
+		
+		GenererJSON = False
+		
+		If Me.NbSignatures &gt; 0 Then
+			v = Arraygetindex(ga_TypeSignature_SLDS, p_TypeSignature, 0)
+			v_JSON = pjsonw.Key(ga_TypeSignatureKey_SLDS(v))
+			v_JSON = v_JSON &amp; pjsonw.BeginArray		' [
+			
+			For i = 1 To Me.NbSignatures
+				If Me.ListeSignatures(CStr(i)).GenererJSON(pjsonw, v_JSON2) Then
+					v_JSON = v_JSON &amp; v_JSON2
+				Else
+					Exit Function
+				End If
+			Next
+			
+			v_JSON = v_JSON &amp; pjsonw.EndArray		' ]
+			p_JSON = v_JSON
+		End If
+		
+		GenererJSON = True
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+		Exit Function		
+	End Function
+End Class
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	ga_TypeDestinataire_SLDS = Evaluate(|"C":"R":"E":"S"|)
+	ga_TypeDestinataireKey_SLDS = Evaluate(|"carbonCopies":"certifiedDeliveries":"editors":"signers"|)
+	
+	ga_TypeSignature_SLDS = Evaluate(|"I":"S":"DS"|)
+	ga_TypeSignatureKey_SLDS = Evaluate(|"initialHereTabs":"signHereTabs":"dateSignedTabs"|)
+
+	ga_TypeLangueSI_SLDS = Evaluate(|"FR":"EN"|)
+	ga_TypeLangueDS_SLDS = Evaluate(|"fr_CA":"en"|)
+End Sub
+
+</lotusscript></code><code event="SLDS_EnvoyerTransaction"><lotusscript>Function SLDS_EnvoyerTransaction(pl_LoginAccount List As Variant, p_TypeTransaction As String, p_URL As String, p_Data As String, p_Reponse As Integer, p_ReponseJSON As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim objHttp As Variant
+	Dim v_Reponse As String
+	
+	SLDS_EnvoyerTransaction = False
+	
+	' --- instantiate an MSXML XMLHTTP object
+	Set objHttp = CreateObject("Microsoft.XMLHTTP")
+	'Set objHttp = CreateObject("MSXML2.ServerXMLHTTP")
+	
+	' --- open a new POST request and set the Content-type header 
+	objHttp.open p_TypeTransaction, p_url, False
+	objHttp.setRequestHeader "X-DocuSign-Authentication", pl_LoginAccount("authenticationJSON")
+	objHttp.setRequestHeader "Content-type", "application/json"
+	objHttp.setRequestHeader "Accept", "application/json"
+	If p_TypeTransaction = "POST" Then
+		objHttp.send(p_Data)
+	Else
+		objHttp.send
+	End If
+	
+	v_Reponse = objHTTP.Status
+	p_ReponseJSON = objHttp.responseText
+	Set objHttp = Nothing
+	
+	p_Reponse = Cint(v_Reponse)
+	If p_Reponse &lt; 300 Then
+		SLDS_EnvoyerTransaction = True
+	Else
+		Call SIGE_TraiterErreurManuelle(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), 0, v_Reponse, p_ReponseJSON, False)
+	End If
+	Exit Function
+	
+GererErreur:
+	Set objHttp = Nothing
+	Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), p_TypeTransaction &amp; " " &amp; p_URL, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLDS_LoginAccount"><lotusscript>Function SLDS_LoginAccount(p_email As String, p_Password As String, p_IntegratorKey As String, pl_LoginAccount List As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	%REM	
+	|{ "loginAccounts": [
+    { "name": "Serti Informatique",
+      "accountId": "8985885",
+      "baseUrl": "https://demo.docusign.net/restapi/v2/accounts/8985885",
+      "isDefault": "true",
+      "userName": "Patrick Beauchamp",
+      "userId": "6928c6a0-abfa-4843-abdb-ad5a657dbf3c",
+      "email": "pbeauchamp@serti.com",
+      "siteDescription": ""
+    }]}|
+	%END REM
+	
+	Dim v_URL As String
+	Dim v_UserName As String
+	Dim v_Password As String
+	Dim v_Reponse As Integer
+	Dim v_ReponseJSON As String
+	Dim njsonn As NotesJSONNavigator
+	
+	SLDS_LoginAccount = 0
+	Erase pl_LoginAccount
+	Call SLDS_Initialisations
+	v_URL = v_UrlDocuSign_SLDS &amp; |/login_information|
+	
+	pl_loginAccount("email") = p_email
+	pl_loginAccount("password") = p_Password
+	pl_loginAccount("integratorKey") = p_IntegratorKey
+	pl_LoginAccount("authenticationJSON") = |{"Username":"| &amp; pl_LoginAccount("email") &amp; |","Password":"| &amp; pl_LoginAccount("password") &amp; |","IntegratorKey":"| &amp; pl_LoginAccount("integratorKey") &amp; |"}|
+	
+	If SLDS_EnvoyerTransaction(pl_LoginAccount, "GET", v_URL, "", v_Reponse, v_ReponseJSON) Then
+		v_ReponseJSON = Replace(Replace(v_ReponseJSON, Chr(13), ""), Chr(10), "")
+		Set njsonn = gns_SLDS.Createjsonnavigator(v_ReponseJSON)
+
+		pl_LoginAccount("name") = SLJS_ExtraireValeur_Pointeur(njsonn, "/loginAccounts/0/name")
+		pl_LoginAccount("accountId") = SLJS_ExtraireValeur_Pointeur(njsonn, "/loginAccounts/0/accountId")
+		pl_LoginAccount("baseUrl") = SLJS_ExtraireValeur_Pointeur(njsonn, "/loginAccounts/0/baseUrl")
+		pl_LoginAccount("isDefault") = SLJS_ExtraireValeur_Pointeur(njsonn, "/loginAccounts/0/isDefault")
+		pl_LoginAccount("userName") = SLJS_ExtraireValeur_Pointeur(njsonn, "/loginAccounts/0/userName")
+		pl_LoginAccount("userId") = SLJS_ExtraireValeur_Pointeur(njsonn, "/loginAccounts/0/userId")
+		pl_LoginAccount("email") = SLJS_ExtraireValeur_Pointeur(njsonn, "/loginAccounts/0/email")
+		' 20210429 MK : Supprimé ligne pour corriger erreur JSON
+		'pl_LoginAccount("siteDescription") = SLJS_ExtraireValeur_Pointeur(njsonn, "/loginAccounts/0/siteDescription")
+		pl_LoginAccount("authenticationJSON") = |{"Username":"| &amp; pl_LoginAccount("userId") &amp; |","Password":"| &amp; pl_LoginAccount("password") &amp; |","IntegratorKey":"| &amp; pl_LoginAccount("integratorKey") &amp; |"}|
+
+		SLDS_LoginAccount = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLDS, gc_Element_SLDS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SLDS_Initialisations"><lotusscript>Sub SLDS_Initialisations
+	If gns_SLDS Is Nothing Then
+		Set gns_SLDS = New NotesSession
+		'		Set gndb_SLDS = gns_SLDS.CurrentDatabase
+	End If
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,36-05</datetime></item></scriptlibrary>
+
+</database>

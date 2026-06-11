@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Commissions\Maj. Statut" alias="A_StatSDSPC" hide="v3" publicaccess="false" designerversion="8.5.3" comment="** SI Agents 5min" activatable="false" enabled="false">
+<noteinfo noteid="256376" unid="B3FB30DE2C1F65CE8525864000694E6F" sequence="136">
+<created><datetime>20201216T141013,59-05</datetime></created>
+<modified><datetime>20260105T014836,85-05</datetime></modified>
+<revised><datetime>20250319T073738,84-05</datetime></revised>
+<lastaccessed><datetime>20260105T014836,84-05</datetime></lastaccessed>
+<addedtofile><datetime>20210106T165132,57-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073738,36-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="daily" runlocation="specific" runserver="CN=Zulu/O=Serti Informatique">
+<starttime><datetime>T010000,00</datetime></starttime></schedule></trigger>
+<documentset type="modified"/><code event="options"><lotusscript>Option Public
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "x_SDSC3"
+Use "SI_Temp"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_StatSDSPC"
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+' ================================================================================
+' L'agent maj. le statut de la proposition dans SDS Commissions
+' Cette agent traite les demande de changement de statut commission fait à partir
+' d'une réplique local
+' ================================================================================
+	On Error GoTo GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Prop As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	
+	Dim v_Formule As String
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	' Initialisation
+	Call A_Initialisations
+	
+	Print "Début"
+	
+	v_Formule = |Form = "F_StatSDSPC"|
+	Set ndc = gndb_A.Search(v_Formule, Nothing, 0)
+	
+	If ndc.Count = 0 Then
+		Exit Sub
+	End If
+	
+	
+	Set nd_Suivant = ndc.GetFirstDocument
+	
+	Do Until nd_Suivant Is Nothing
+		Set nd_Prop = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		
+		Call xSDSC3_Initialisation	
+		
+		Set nd_Temp = SITp_ndTemp("SDSC3.SDSC_ChangerStatut")
+				
+		nd_Temp.Form =  xVar(nd_Prop, "Form","")
+		nd_Temp.Prop_NoProposition = xVar(nd_Prop, "Prop_NoProposition","")
+		nd_Temp.Prop_Statut = xVar(nd_Prop, "Prop_Statut","") 
+		nd_Temp.Prop_Commentaire = xVar(nd_Prop, "Prop_Commentaire","") 
+		nd_Temp.Prop_UserName = xVar(nd_Prop, "Prop_UserName","") 
+
+		Call nd_Temp.Save(True, False)
+		
+		Set na = gndb_xSDSC3.GetAgent("A_PropStat")
+		Call na.run(nd_Temp.Noteid)
+		
+		v_NbMaj = v_NbMaj + 1
+		Call nd_Prop.Remove(True)
+						
+	Loop
+	
+	Print "Fin " &amp; CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus) &amp; " changement de statut commissions effectués"	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="141A8EC37AB08D3985258D7600415D5F">
+<agentmodified><datetime>20260105T014836,85-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260407T181932,12-04</datetime></agentrun>
+<runlog>Started running agent 'Commissions\Maj. Statut|A_StatSDSPC' on 2026-04-07 06:18:49 PM
+Running on new or modified documents: 1059259 total
+Found 1059259 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Commissions\Maj. Statut|A_StatSDSPC' on 2026-04-07 06:19:32 PM
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073738,84-05</datetime></item></agent>
+
+</database>

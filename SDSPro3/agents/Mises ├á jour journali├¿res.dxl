@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Mises à jour journalières" alias="A_MajJ" hide="v3" publicaccess="false" designerversion="8.5.3" comment="** SI Agents" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" restrictions="unrestricted" activatable="false" enabled="false">
+<noteinfo noteid="55580a" unid="7EDD64613705C12A85258814007597B8" sequence="28">
+<created><datetime dst="true">20220329T172425,52-04</datetime></created>
+<modified><datetime>20260105T014837,78-05</datetime></modified>
+<revised><datetime>20250319T073741,72-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,77-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,77-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073741,26-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="daily" runlocation="any">
+<starttime><datetime>T010000,00</datetime></starttime></schedule></trigger><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Historique"
+Use "x_SDSP3"
+Use "x_Tabl"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As Notessession
+Dim gndb_A As Notesdatabase
+
+' Traitement des erreurs
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_MajJ"		' Inscrire l'alias de l'agent
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error Goto GererErreur
+	
+	Dim v_EnregistrerLog As Boolean
+	
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)
+	
+	' Initialisations
+	Call A_Initialisations
+	
+	' Traitement
+	v_EnregistrerLog = A_MajAlertes
+	
+	If v_EnregistrerLog Then
+		Call SIGE_EnregistrerLog
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="A_MajAlertes"><lotusscript>Function A_MajAlertes As Boolean
+	On Error Goto GererErreur
+	
+	Dim nv As NotesView
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Aler As NotesDocument
+	Dim v_StatutAlerte As String
+	Dim v_StatutDesc As String
+	Dim v_NoProposition As String
+	Dim nd_Prop As NotesDocument
+	Dim v_StatutProposition As String
+	Dim v_Message As String
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	Dim v_Maj As Boolean
+	
+	Print GetThreadInfo(1) &amp; "Début"
+	A_MajAlertes = False
+	
+	Set nv = gndb_A.Getview("V_Aler01")		' Inscrire le nom de la vue
+	Set nd_Suivant = nv.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd_Aler = nd_Suivant
+		Set nd_Suivant = nv.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		v_StatutAlerte = ""
+		v_Maj = False
+		
+		'***** Insérer le traitement ici *****
+		v_NoProposition = xVar(nd_Aler, "Aler_NoProposition", "")
+		Set nd_Prop = xSDSP3_xndProp(v_NoProposition, False)
+		If nd_Prop Is Nothing Then
+			v_StatutAlerte = "99"
+			v_Maj = True
+			v_Message = "La proposition " &amp; v_NoProposition &amp; " est introuvable."
+		Else
+			v_StatutProposition = xVar(nd_Prop, "Prop_Statut", "")
+			If v_StatutProposition = "94" Then
+				v_StatutAlerte = "94"
+				v_Maj = True
+			ElseIf v_StatutProposition &lt; "94" then
+				If v_StatutProposition &lt;&gt; xVar(nd_Aler, "Aler_StatutProposition", "") Then
+					nd_Aler.Aler_StatutProposition = v_StatutProposition
+					nd_Aler.Aler_StatutPropositionDate = xVar(nd_Prop, "Prop_StatutDate", "")
+					nd_Aler.Aler_StatutPropositionIcone = xIcnTabl(v_StatutProposition, "Prop_Statut_FR", True)
+					nd_Aler.Aler_StatutPropositionDescFR = xDescTabl(v_StatutProposition, "Prop_Statut_FR", True)
+					nd_Aler.Aler_StatutPropositionDescEN = xDescTabl(v_StatutProposition, "Prop_Statut_EN", True)
+					
+					v_Maj = True					
+				End If
+			Else
+				v_StatutAlerte = "99"
+				v_Maj = True
+				v_Message = "Le statut de la proposition " &amp; v_NoProposition &amp; " est " &amp; v_StatutProposition &amp; "."
+			End If
+		End If
+		
+		If v_Maj Then
+			If v_StatutAlerte &lt;&gt; "" Then
+				nd_Aler.Aler_StatutAlerte = v_StatutAlerte
+				nd_Aler.Aler_StatutAlerteDate = Now
+				nd_Aler.Aler_StatutAlerteIcone = xIcnTabl(v_StatutAlerte, "Aler_Statut_FR", True)
+				v_StatutDesc = xDescTabl(v_StatutAlerte, "Aler_Statut_FR", True)
+				nd_Aler.Aler_StatutAlerteDescFR = v_StatutDesc
+				nd_Aler.Aler_StatutAlerteDescEN = xDescTabl(v_StatutAlerte, "Aler_Statut_EN", True)
+				
+				Call SIHi_Ajouter(nd_Aler, v_StatutAlerte &amp; "-" &amp; v_StatutDesc, v_Message, "", True)
+			Else
+				Call nd_Aler.Save(True, True)
+			End If
+			
+			v_NbMaj = v_NbMaj + 1
+		End If
+		
+		'		Call SIGE_AjouterLog("Document " &amp; X &amp; " mis à jour.", 0, 0, False)
+		If (v_NbLus Mod 1000) = 0 Then
+			Print Cstr(v_NbMaj) &amp; "/" &amp; Cstr(v_NbLus)
+		End If
+	Loop
+	
+	If v_NbMaj &gt; 0 Then
+		A_MajAlertes = True
+	End if
+	Call SIGE_AjouterLog(GetThreadInfo(1) &amp; " - Fin " &amp; Cstr(v_NbMaj) &amp; "/" &amp; Cstr(v_NbLus), 0, 0, True)
+	Exit Function
+	
+GererErreur:
+	A_MajAlertes = True
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Getthreadinfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="04909E6D5B36064285258D84003A3373">
+<agentmodified><datetime>20260105T014837,78-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260407T053559,82-04</datetime></agentrun>
+<runlog>Started running agent 'Mises à jour journalières|A_MajJ' on 2026-04-07 05:35:55 AM
+Found 0 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Mises à jour journalières|A_MajJ' on 2026-04-07 05:35:59 AM
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073741,72-05</datetime></item></agent>
+
+</database>

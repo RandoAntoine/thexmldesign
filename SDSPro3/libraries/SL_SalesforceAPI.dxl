@@ -1,0 +1,899 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SL_SalesforceAPI" hide="v3 v4strict" designerversion="8.5.3" comment="1.5">
+<noteinfo noteid="55599e" unid="C79CC3DF7A6F577585258C7400652A55" sequence="13">
+<created><datetime dst="true">20250422T142459,73-04</datetime></created>
+<modified><datetime>20260319T100425,34-05</datetime></modified>
+<revised><datetime dst="true">20250422T142500,26-04</datetime></revised>
+<lastaccessed><datetime>20260319T100425,33-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,52-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+UseLSX "*javacon"
+Use "SI_FichierWIN"
+Use "SL_JSON"
+Use "SJ_SalesforceAPI"
+Use "x_KLSf"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim g_LogAPI_SLSf As Integer' 0 = Non, 1 = Oui, 2 = Maj seulement
+
+' Traitement des erreurs
+Const gc_TypeElement_SLSf = "SL"
+Const gc_Element_SLSf = "SL_SalesForceAPI"
+
+'===================================================================================================================================================
+Class SLSf_clConnexionAPI
+	Public NomProfil As String
+	Public nd_Profil As NotesDocument
+	Public URL_Connexion As String
+	Public IdClient As String
+	Public SecretClient As String
+	Public Utilisateur As String
+	Public MotDePasse As String
+	Public SecretUtilisateur As String
+	Public URL_AccesAPI As String
+	Public URL_API As String				' URL à utiliser pour accéder à l'API
+	
+	%rem
+{
+  "access_token": "00D230000004keC!AQoAQCHXWEqriwn1riWu6TzqzMJdKXn2b215L_NmJVUDS7YtgZIUOTIyO0UqJy1XhFxV.BycaVEioNYiJ7KHFVw90dAE3dDb",
+  "instance_url": "https://rapidrtc--rapidint.sandbox.my.salesforce.com",
+  "id": "https://test.salesforce.com/id/00D230000004keCEAQ/005230000044wC7AAI",
+  "token_type": "Bearer",
+  "issued_at": "1668708657888",
+  "signature": "LhcR00orrxlO3ID/ub8CZnOi4dD9nV7oJySDj5EOQis="
+}
+	%end rem
+
+	Public CleAcces As String				' access_token
+	Public URL_Instance As String				' instance_url
+	Public URL_Id As String					' id
+	Public TypeCle As String				' token_type
+	Public Signature As String				' signature
+	Public Resultat As Integer
+	
+	Sub New(p_NomProfil As String)
+		On Error GoTo GererErreur
+		
+		Dim ns As New NotesSession
+		Dim v_Resultat As Integer
+		Dim v_ResultatJSON As String
+		Dim njsonn As NotesJSONNavigator
+		
+		If Not ns.IsOnServer then
+			If SLSf_VersionNotesValide = False Then
+				Me.Resultat = -272
+				Exit Sub			
+			End If
+		End If
+		
+		Me.Resultat = 0
+		Me.NomProfil = p_NomProfil
+		Set Me.nd_Profil = xKlSf_xndPSfAPI(Me.NomProfil, True)
+		If Me.nd_Profil Is Nothing Then
+			Me.Resultat = -273
+			Exit Sub
+		End If
+		
+		Me.URL_Connexion = xVar(Me.nd_Profil, "PSfAPI_URL_Connexion", "")
+		If Me.URL_Connexion = "" Then
+			Me.Resultat = -274
+		End If
+		Me.IdClient = xVar(Me.nd_Profil, "PSfAPI_IdClient", "")
+		If Me.IdClient = "" Then
+			Me.Resultat = -274
+		End If
+		Me.SecretClient = xVar(Me.nd_Profil, "PSfAPI_SecretClient", "")
+		If Me.SecretClient = "" Then
+			Me.Resultat = -274
+		End If
+		Me.Utilisateur = xVar(Me.nd_Profil, "PSfAPI_Utilisateur", "")
+		If Me.Utilisateur = "" Then
+			Me.Resultat = -274
+		End If
+		Me.MotDePasse = xVar(Me.nd_Profil, "PSfAPI_MotDePasse", "")
+		If Me.MotDePasse = "" Then
+			Me.Resultat = -274
+		End If
+		Me.SecretUtilisateur = xVar(Me.nd_Profil, "PSfAPI_SecretUtilisateur", "")
+		If Me.MotDePasse = "" Then
+			Me.Resultat = -274
+		End If
+		Me.URL_AccesAPI = xVar(Me.nd_Profil, "PSfAPI_URL_AccesAPI", "")
+		If Me.URL_AccesAPI = "" Then
+			Me.Resultat = -274
+		End If
+		
+		v_Resultat = SLSf_GetBearerToken(Me.URL_Connexion, Me.IdClient, Me.SecretClient, Me.Utilisateur, Me.MotDePasse, Me.SecretUtilisateur, v_ResultatJSON)
+		If v_Resultat = 1 Then
+			Set njsonn = ns.Createjsonnavigator(v_ResultatJSON)
+			Me.CleAcces = SLJS_ExtraireValeur_Pointeur(njsonn, "/access_token")
+			Me.URL_Instance = SLJS_ExtraireValeur_Pointeur(njsonn, "/instance_url")
+			Me.URL_Id = SLJS_ExtraireValeur_Pointeur(njsonn, "/id")
+			Me.TypeCle = SLJS_ExtraireValeur_Pointeur(njsonn, "/token_type")
+			Me.Signature = SLJS_ExtraireValeur_Pointeur(njsonn, "/signature")
+			
+			Me.URL_API = Me.URL_Instance &amp; Me.URL_AccesAPI
+			Me.Resultat = 1
+		Else
+			Me.Resultat = -275
+		End If
+		Exit Sub
+		
+GererErreur:
+		Me.Resultat = -24
+		Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), p_NomProfil, False)
+		Exit Sub
+	End Sub
+End Class
+'===================================================================================================================================================
+Class SLSf_clObject
+	Public NomProfil As String
+	Public TypeObjet As String
+	Public Cle As String
+	Public ConnexionAPI As SLSf_clConnexionAPI
+	Public URL As String
+
+	Public Contenu List As Variant
+	Public Maj_Valeur List As Variant
+	Public Maj_Type List As String
+	
+	Public NbEnfants List As Integer
+	Public Enfants List As Variant
+	
+	Public Resultat As Integer				' 1 = OK, 99 = Supprimé
+	
+	Sub New(pcl_ConnexionAPI As SLSf_clConnexionAPI, p_TypeObjet As String, p_Cle As String)
+		' p_TypeObjet = "*" --&gt; Indéfini - Voir ExtraireEnfants
+		' p_Cle = "*" --&gt; Nouvel objet - Maj lors de la sauvegarde
+		On Error GoTo GererErreur
+		
+		Dim v_Resultat As Integer
+		Dim v_ResultatJSON As String
+		Dim l_Attributs As Variant
+
+		Me.Resultat = 0
+		Me.NomProfil = pcl_ConnexionAPI.NomProfil
+		Me.TypeObjet = p_TypeObjet
+		Me.Cle = p_Cle
+
+		If pcl_ConnexionAPI Is Nothing Then
+			Me.Resultat = -276
+			Exit Sub
+		End If
+		If p_TypeObjet = "" Then
+			Me.Resultat = -277
+			Exit Sub
+		End If
+		If p_Cle = "" Then
+			Me.Resultat = -277
+			Exit Sub
+		End If
+		
+		Set Me.ConnexionAPI = pcl_ConnexionAPI
+		
+		If p_Cle &lt;&gt; "*" Then
+			Me.URL = Me.ConnexionAPI.URL_API &amp; "sobjects/" &amp; p_TypeObjet &amp; "/" &amp; p_Cle
+			v_Resultat = SLSf_ExecuteGET(Me.URL, Me.ConnexionAPI.CleAcces, v_ResultatJSON)
+			If v_Resultat &lt; 0 Then
+				Me.Resultat = v_Resultat
+				Exit Sub
+			End If
+			
+			v_Resultat = SLJS_ExtraireListe(v_ResultatJSON, Me.Contenu)
+			If v_Resultat &lt; 0 Then
+				Me.Resultat = -280
+				Exit Sub
+			End If
+			
+			l_Attributs = Me.Contenu("attributes")
+			Me.TypeObjet = l_Attributs("type")
+			Me.URL = Me.ConnexionAPI.URL_Instance &amp; l_Attributs("url")
+			Me.Cle = Me.Contenu("Id")
+		End If
+		
+		Me.Resultat = 1
+		Exit Sub
+		
+GererErreur:
+		Me.Resultat = -24
+		Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), Me.NomProfil &amp; Me.TypeObjet &amp; Me.Cle, False)
+		Exit Sub
+	End Sub
+	
+	'===================================================================================================================================================
+	Function AssignerValeur(p_NomItem As String, p_Valeur As Variant, p_Type As String) As Integer
+		' p_Type: D = Date, N = Nombre, autre = String, B = Boolean
+		On Error GoTo GererErreur
+		
+		Dim v_Maj As Boolean
+		
+		If Me.Resultat = 99 Then
+			AssignerValeur = -278
+			Exit Function
+		End If
+		AssignerValeur = 0
+
+		If IsElement(Me.Contenu(p_NomItem)) Then
+			If CStr(p_Valeur) &lt;&gt; CStr(Me.Contenu(p_NomItem)) Then
+				v_Maj = True
+			End If
+		Else
+			v_Maj = True
+		End If
+		
+		If v_Maj Then
+			Me.Maj_Valeur(p_NomItem) = p_Valeur
+			Me.Maj_Type(p_NomItem) = p_Type
+			
+			AssignerValeur = 1
+		End If
+		Exit Function
+		
+GererErreur:
+		AssignerValeur = -24
+		Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), "", False)
+		Exit Function
+	End Function
+
+	'===================================================================================================================================================
+	Function ExtraireValeur(p_NomItem As String, p_ValeurNulle As Variant) As Variant
+		On Error GoTo GererErreur
+		
+		Dim v_Maj As Boolean
+		
+		If Me.Resultat = 99 Then
+			ExtraireValeur = p_ValeurNulle
+		ElseIf IsElement(Me.Contenu(p_NomItem)) Then
+			ExtraireValeur = Me.Contenu(p_NomItem)
+		Else
+			ExtraireValeur = p_ValeurNulle
+		End If
+		
+		Exit Function
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), "", False)
+		Exit Function
+	End Function
+	
+	'===================================================================================================================================================
+	Function ExtraireEnfants(p_NomObjet As String, pa_PointeursRetirer As Variant) As Integer
+		On Error GoTo GererErreur
+		
+		Dim v_URL As String
+		Dim v_Resultat As Integer
+		Dim v_ResultatJSON As String
+
+		Dim njsonn As NotesJSONNavigator
+		Dim v_NbElem As Integer
+		
+		Dim njsone As NotesJSONElement
+		Dim njsona As NotesJSONArray
+		Dim njsono As NotesJSONObject
+		Dim v_NbEnfants As Integer
+		Dim vcl_Enfant As SLSf_clObject
+
+		Dim l_Liste List As Variant
+		Dim l_Enfants List As SLSf_clObject
+		Dim l_Attributs As Variant
+		Dim lcl_Enfants List As SLSf_clObject
+		
+		If Me.Resultat = 99 Then
+			ExtraireEnfants = -278
+			Exit Function
+		End If
+		ExtraireEnfants = 0
+
+		' Extraire la liste des enfants de Salesforce
+		v_URL = Me.URL &amp; "/" &amp; p_NomObjet
+		v_Resultat = SLSf_ExecuteGET(v_URL, Me.ConnexionAPI.CleAcces, v_ResultatJSON)
+		If v_Resultat &lt; 0 Then
+			Me.Resultat = v_Resultat
+			Exit Function
+		End If
+		
+		v_ResultatJSON = Replace(Replace(v_ResultatJSON, Chr(13), ""), Chr(10), "")
+		
+		' Retirer les pointeurs inutiles pour demeurer sous la limite des 64K
+		If IsArray(pa_PointeursRetirer) Then
+			Call SLJS_RetirerPointeurs(v_ResultatJSON, pa_PointeursRetirer)
+		End If
+		
+		' Extraire le  nombre d'enfants
+		Set njsonn = gns_SLJS.Createjsonnavigator(v_ResultatJSON)
+		v_NbElem = SLJS_ExtraireValeur_Pointeur(njsonn, "/totalSize")
+		If v_NbElem = 0 Then
+			Me.NbEnfants(p_NomObjet) = 0
+			Exit Function
+		End If
+
+		' Construire la liste des enfants
+		Set njsone = njsonn.Getelementbypointer("/records")
+		Set njsona = njsone.Value
+		Set njsone = njsona.Getfirstelement
+		Do Until njsone Is Nothing
+			Set vcl_Enfant = New SLSf_clObject(Me.ConnexionAPI, "*", "*")
+			Set njsono = njsone.Value
+			Select Case SLJS_ExtraireListe_Objet(njsono, "", vcl_Enfant.Contenu)
+			Case 1 :
+				l_Attributs = vcl_Enfant.Contenu("attributes")
+				vcl_Enfant.TypeObjet = l_Attributs("type")
+				vcl_Enfant.Cle = vcl_Enfant.Contenu("Id")
+				vcl_Enfant.URL = Me.ConnexionAPI.URL_API &amp; "sobjects/" &amp; vcl_Enfant.TypeObjet &amp; "/" &amp; vcl_Enfant.Cle
+				Set lcl_Enfants(vcl_Enfant.Cle) = vcl_Enfant
+				v_NbEnfants = v_NbEnfants + 1
+			Case 0 :
+			Case Else :
+				Me.Resultat = -279
+				Exit Function
+		End Select
+
+			Set njsone = njsona.Getnextelement
+		Loop
+
+		Me.NbEnfants(p_NomObjet) = v_NbEnfants
+		Me.Enfants(p_NomObjet) = lcl_Enfants
+		ExtraireEnfants = v_NbEnfants
+		Exit Function
+		
+GererErreur:
+		ExtraireEnfants = -24
+		Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), "", False)
+		Exit Function
+	End Function
+	
+	'===================================================================================================================================================
+	Function SauvegarderObjet() As Integer
+		' p_Type: D = Date, N = Nombre, autre = String, B = Boolean
+		On Error GoTo GererErreur
+		
+		Dim v_URL As String
+		Dim v_Data As String
+		Dim v_Valeur As String
+		Dim v_ResultatJSON As String
+		Dim v_Resultat As Integer
+		Dim l_Liste List As Variant
+		
+		If Me.Resultat = 99 Then
+			SauvegarderObjet = -278
+			Exit Function
+		End If
+		SauvegarderObjet = 0
+
+		' Construire le JSON de maj
+		v_Data = "{"
+		ForAll v_Element In Me.Maj_Valeur
+			If IsList(v_Element) Then
+				' Développement futur...
+			Else
+				If v_Element = "" Then
+					v_Valeur = "null"
+				Else
+					Select Case Me.Maj_Type(ListTag(v_Element))
+					Case "B":
+						If v_Element Then
+							v_Valeur = |true|
+						Else
+							v_Valeur = |false|
+						End If
+					Case "D":
+						v_Valeur = Replace(Format(v_Element, "yyyy-mm-dd"), "/", "-") &amp; "T" &amp; Format(v_Element, "hh:nn:ss")
+						If Right(v_Valeur, 9) = "T00:00:00" Then
+							v_Valeur = StrLeftBack(v_Valeur, "T")
+						End If
+						v_Valeur = |"| &amp; v_Valeur &amp; |"|
+					Case "N":
+						v_Valeur = Replace(Format(v_Element, "Fixed"), ",", ".")
+					Case Else
+						v_Valeur = |"| &amp; Replace(CStr(v_Element), |"|, |\"|) &amp; |"|
+				End Select
+				End If
+			End If
+			
+			If Len(v_Data) = 1 then
+				v_Data = v_Data &amp; |"| &amp; ListTag(v_Element) &amp; |" : | &amp; v_Valeur
+			Else
+				v_Data = v_Data &amp; |, "| &amp; ListTag(v_Element) &amp; |" : | &amp; v_Valeur
+			End If
+		End ForAll
+		v_Data = v_Data &amp; "}"
+		Call SIGE_AjouterLog("&gt;&gt;&gt; " &amp; v_Data, 0, 0, False)
+
+		' Envoyer le JSON à Salesforce
+		If Me.Cle = "*" Then
+			'			curl https://MyDomainName.my.salesforce.com/services/data/v56.0/sobjects/Account/ -H "Authorization: Bearer token" -H 
+			'			"Content-Type: application/json" -d "@newaccount.json"
+			v_URL = Me.ConnexionAPI.URL_API &amp; "sobjects/" &amp; Me.TypeObjet
+			v_Resultat = SLSf_ExecutePOST(v_URL, Me.ConnexionAPI.CleAcces, v_Data, v_ResultatJSON)
+		Else
+			v_Resultat = SLSf_ExecutePATCH(Me.URL, Me.ConnexionAPI.CleAcces, v_Data, v_ResultatJSON)
+		End If
+		If v_Resultat &lt; 0 Then
+			Me.Resultat = v_Resultat
+			Exit Function
+		End If
+		SauvegarderObjet = 1
+		
+		' Si nouvel objet, maj la clé
+		If Me.Cle = "*" Then
+			v_Resultat = SLJS_ExtraireListe(v_ResultatJSON, l_Liste)
+			If v_Resultat &lt; 0 Then
+				Me.Resultat = -280
+				Exit Function
+			End If
+			
+			If l_Liste("success") &lt;&gt; True Then
+				Me.Resultat = -280
+				Exit Function
+			End If
+			
+			Me.Cle = l_Liste("id")
+			Me.URL = Me.ConnexionAPI.URL_API &amp; "sobjects/" &amp; Me.TypeObjet &amp; "/" &amp; Me.Cle
+		End If
+		
+		' Maj les valeurs courantes
+		ForAll v_Element In Me.Maj_Valeur
+			If IsList(v_Element) Then
+				' Développement futur...
+			Else
+				Me.Contenu(ListTag(v_Element)) = v_Element
+			End If
+		End ForAll
+		
+		Erase Me.Maj_Valeur
+		Erase Me.Maj_Type
+		Exit Function
+		
+GererErreur:
+		SauvegarderObjet = -24
+		Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), "", False)
+		Exit Function
+	End Function
+	
+	'===================================================================================================================================================
+	Function AttacherFichier(p_CheminAcces As String, p_NomFichier As String, p_IdFichier As String) As Integer
+		On Error GoTo GererErreur
+		
+		Dim s As String
+		Dim v_CheminFichierBase64 As String
+		Dim v_Boundary As String
+		Dim v_Base64 As String
+		Dim v_Data As String
+		Dim v_URL As String
+		Dim v_JSON As String
+		Dim js_SJSf As JavaSession
+		Dim jcl_SJSf As JavaClass
+		Dim jo_SJSf As JavaObject
+		Dim v_Resultat As String
+		Dim v_ResultatJSON As String
+		Dim v_CodeErreur As Integer
+		Dim l_Liste List As Variant
+		
+		If Me.Resultat = 99 Then
+			AttacherFichier = -278
+			Exit Function
+		End If
+		AttacherFichier = 0
+
+		If p_CheminAcces = "" then
+			AttacherFichier = -199
+			Exit Function
+		End If
+		s = Dir$(p_CheminAcces, 0)
+		If s = "" Then
+			AttacherFichier = -199
+			Exit Function
+		End If
+		
+		If p_NomFichier = "" Then
+			p_NomFichier = StrRightBack(p_CheminAcces, "/")
+		End If
+		
+		' Envoer le fichier
+		v_URL = Me.ConnexionAPI.URL_API &amp; "sobjects/Attachment"
+		
+		v_JSON = |{"Name":"| &amp; p_NomFichier &amp; |","parentId":"| &amp; Me.Cle &amp; |"}|
+		
+		Set js_SJSf = New JavaSession()
+		Set jcl_SJSf = js_SJSf.GetClass("pk_SJSf.cl_SJSf")		
+		Set jo_SJSf = jcl_SJSf.CreateObject
+
+		v_Resultat = jo_SJSf.EnvoyerTransaction(v_URL, Me.ConnexionAPI.CleAcces, v_JSON, p_CheminAcces)', a_Fichier(2), a_Fichier(3))
+		If v_Resultat = "" Or Left(v_Resultat, 3) = "ERR" Then
+			AttacherFichier = -281
+		Else
+			AttacherFichier = CInt(StrLeft(v_Resultat, ";"))
+			v_ResultatJSON = StrRight(v_Resultat, ";")
+
+			If AttacherFichier &lt; 300 Then
+				v_Resultat = SLJS_ExtraireListe(v_ResultatJSON, l_Liste)
+				If v_Resultat &lt; 0 Then
+					Me.Resultat = -280
+					Exit Function
+				End If
+				
+				If l_Liste("success") &lt;&gt; True Then
+					Me.Resultat = -280
+					Exit Function
+				End If
+				
+				p_IdFichier = l_Liste("id")
+				AttacherFichier = 1
+			Else
+				AttacherFichier = -281
+				v_CodeErreur = 1
+			End If
+			
+			If g_LogAPI_SLSf = 1 Or v_CodeErreur = 1 Then
+				Call SIGe_AjouterLog("--SLSf_clObject.AttacherFichier---------------------------------------------------------------------------------------------------", 0, 0, False)
+				Call SIGe_AjouterLog("URL = " &amp; v_URL, 0, 0, False)
+				'Call SIGe_AjouterLog("Authorization  = Bearer " &amp; p_CleAcces, 0, 0, False)
+				Call SIGe_AjouterLog("Data = " &amp; v_JSON, 0, 0, False)
+				Call SIGe_AjouterLog("--------------------------------------------------------------------------------------------------------------------", 0, 0, False)
+				'Call SIGe_AjouterLog("Authorization  = Bearer " &amp; p_CleAcces, 0, 0, False)
+				Call SIGe_AjouterLog("Réponse " &amp; v_ResultatJSON, 0, 0, False)
+				Call SIGe_AjouterLog(v_ResultatJSON, v_CodeErreur, 0, False)
+				Call SIGe_AjouterLog("--------------------------------------------------------------------------------------------------------------------", 0, 0, False)
+			End If
+		End If
+		Exit Function
+		
+GererErreur:
+		AttacherFichier = -24
+		Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), "", False)
+		Exit Function
+	End Function
+
+	'===================================================================================================================================================
+	Function SupprimerObjet() As Integer
+		On Error GoTo GererErreur
+		
+		Dim v_URL As String
+		Dim v_Data As String
+		Dim v_Valeur As String
+		Dim v_ResultatJSON As String
+		Dim v_Resultat As Integer
+		Dim l_Liste List As Variant
+		
+		If Me.Resultat = 99 Then
+			SupprimerObjet = -278
+			Exit Function
+		End If
+		SupprimerObjet = 0
+
+		' Envoyer la commande à Salesforce
+		v_URL = Me.ConnexionAPI.URL_API &amp; "sobjects/" &amp; Me.TypeObjet &amp; "/" &amp; Me.Cle
+		v_Resultat = SLSf_ExecuteDELETE(v_URL, Me.ConnexionAPI.CleAcces, v_ResultatJSON)
+		If v_Resultat &lt; 0 Then
+			Me.Resultat = v_Resultat
+			Exit Function
+		End If
+		SupprimerObjet = 1
+		
+		Me.Cle = ""
+		Set Me.ConnexionAPI = Nothing
+		Me.URL = ""
+		Erase Me.Contenu
+		Erase Me.Maj_Valeur
+		Erase Me.Maj_Type
+		Erase Me.NbEnfants
+		Erase Me.Enfants
+		Me.Resultat = "99"
+		SupprimerObjet = 1
+		Exit Function
+		
+GererErreur:
+		SupprimerObjet = -24
+		Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), "", False)
+		Exit Function
+	End Function
+End Class
+'===================================================================================================================================================
+Class SLSf_clSession
+	Public ConnexionAPI As SLSf_clConnexionAPI
+	Public Objects List As SLSf_clObject
+End Class
+</lotusscript></code><code event="SLSf_ExecuteGET"><lotusscript>'===================================================================================================================================================
+Function SLSf_ExecuteGET(p_URL As String, p_CleAcces As String, p_ReponseJSON As String) As Integer
+	On Error GoTo GererErreur
+	
+	Dim objHttp As Variant
+	Dim v_ReponseHTTP As String
+	Dim v_CodeErreur As Integer
+
+	SLSf_ExecuteGET = 0
+
+	' --- instantiate an MSXML XMLHTTP object
+	'	Set objHttp = CreateObject("Microsoft.XMLHTTP")
+	Set objHttp = CreateObject("MSXML2.ServerXMLHTTP")
+
+	' --- open a new GET request and set the Content-type header 
+	objHttp.open "GET", p_URL, False
+	objHttp.setRequestHeader "Authorization", "Bearer " &amp; p_CleAcces
+	objHttp.send
+	v_ReponseHTTP = objHTTP.Status
+	p_ReponseJSON = objHttp.responseText
+	Set objHttp = Nothing
+	
+	If CInt(v_ReponseHTTP) &lt; 300 Then
+		SLSf_ExecuteGET = 1
+	Else
+		SLSf_ExecuteGET = -282
+		v_CodeErreur = 1
+		If CInt(v_ReponseHTTP) &lt;&gt; 404 Then
+			Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_SLSf, gc_Element_SLSf,  GetThreadInfo(1), 0, v_ReponseHTTP, "URL = " &amp; p_URL &amp; Chr(13) &amp; "Response = " &amp; p_ReponseJSON)
+		End If 
+	End If
+	
+	Dim l As Long
+	l = Len(p_ReponseJSON)
+	
+	If g_LogAPI_SLSf = 1 Or (g_LogAPI_SLSf = 2 And v_CodeErreur = 1) Then
+		Call SIGe_AjouterLog("--SLSf_ExecuteGET---------------------------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGe_AjouterLog("URL = " &amp; p_URL, 0, 0, False)
+		'Call SIGe_AjouterLog("Authorization  = Bearer " &amp; p_CleAcces, 0, 0, False)
+		Call SIGe_AjouterLog("Réponse " &amp; v_ReponseHTTP, 0, 0, False)
+		Call SIGe_AjouterLog(p_ReponseJSON, v_CodeErreur, 0, False)
+		Call SIGe_AjouterLog("--------------------------------------------------------------------------------------------------------------------", 0, 0, False)
+	End If
+	Exit Function
+	
+GererErreur:
+	SLSf_ExecuteGET = -24
+	Set objHttp = Nothing
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), p_URL, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLSf_VersionNotesValide"><lotusscript>'===================================================================================================================================================
+Function SLSf_VersionNotesValide As Boolean
+	On Error GoTo GererErreur
+
+	Dim ns As New NotesSession
+	Dim l_VersionNotes As Variant
+
+	SLSf_VersionNotesValide = False
+	
+	l_VersionNotes = xVersionNotes
+	If ns.Isonserver Then
+		If l_VersionNotes("V") &gt;= "11.0.1" Then
+			SLSf_VersionNotesValide = True
+		End If
+	Else
+		If l_VersionNotes("V") &gt; "11.0.1" Then
+			SLSf_VersionNotesValide = True
+		ElseIf l_VersionNotes("V") = "11.0.1" And l_VersionNotes("FP") &gt;= "05" Then
+			SLSf_VersionNotesValide = True
+		End If
+	End if
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLSf_ExecutePATCH"><lotusscript>'===================================================================================================================================================
+Function SLSf_ExecutePATCH(p_URL As String, p_CleAcces As String, p_Data As String, p_ReponseJSON As String) As Integer
+	On Error GoTo GererErreur
+	
+	Dim objHttp As Variant
+	Dim v_ReponseHTTP As String
+	Dim v_CodeErreur As Integer
+
+	SLSf_ExecutePATCH = 0
+
+	' --- instantiate an MSXML XMLHTTP object
+	'	Set objHttp = CreateObject("Microsoft.XMLHTTP")
+	Set objHttp = CreateObject("MSXML2.ServerXMLHTTP")
+
+	' --- open a new GET request and set the Content-type header 
+	objHttp.open "PATCH", p_URL, False
+	objHttp.setRequestHeader "Authorization", "Bearer " &amp; p_CleAcces
+	objHttp.setRequestHeader "Content-Type", "application/json"
+	objHttp.send p_Data
+	v_ReponseHTTP = objHTTP.Status
+	p_ReponseJSON = objHttp.responseText
+	Set objHttp = Nothing
+
+	If CInt(v_ReponseHTTP) &lt; 300 Then
+		SLSf_ExecutePATCH = 1
+	Else
+		SLSf_ExecutePATCH = -282
+		v_CodeErreur = 1
+		Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_SLSf, gc_Element_SLSf,  GetThreadInfo(1), 0, v_ReponseHTTP, "URL = " &amp; p_URL &amp; Chr(13) &amp; "Data = " &amp; p_Data &amp; Chr(13) &amp; "Response = " &amp; p_ReponseJSON) 
+	End If
+
+	If g_LogAPI_SLSf = 1 Or (g_LogAPI_SLSf = 2 And v_CodeErreur = 1) Then
+		Call SIGe_AjouterLog("--SLSf_ExecutePATCH-------------------------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGe_AjouterLog("URL = " &amp; p_URL, 0, 0, False)
+		'Call SIGe_AjouterLog("Authorization  = Bearer " &amp; p_CleAcces, 0, 0, False)
+		Call SIGe_AjouterLog("Data  = " &amp; p_Data, 0, 0, False)
+		Call SIGe_AjouterLog("--------------------------------------------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGe_AjouterLog("Réponse " &amp; v_ReponseHTTP, 0, 0, False)
+		Call SIGe_AjouterLog(p_ReponseJSON, v_CodeErreur, 0, False)
+		Call SIGe_AjouterLog("--------------------------------------------------------------------------------------------------------------------", 0, 0, False)
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	SLSf_ExecutePATCH = -24
+	Set objHttp = Nothing
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), p_URL &amp; Chr(10) &amp; p_Data, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLSf_GetBearerToken"><lotusscript>'===================================================================================================================================================
+Function SLSf_GetBearerToken(ByVal p_URL As String, ByVal p_ClientId As String, ByVal p_ClientSecret As String, ByVal p_Username As String, ByVal p_Password As String, _
+	ByVal p_UserSecret As String, p_ReponseJSON As String) As Integer
+	' Permet de récupérer le jeton d'identification
+	On Error GoTo GererErreur
+	
+	Dim objHttp As Variant
+	Dim v_Data As String
+	Dim v_ReponseHTTP As String
+	Dim v_CodeErreur As Integer
+
+	SLSf_GetBearerToken = 0
+	
+	v_Data = |grant_type=password&amp;client_id=| &amp; p_ClientId &amp; |&amp;client_secret=| &amp; p_ClientSecret &amp; |&amp;username=| &amp; p_Username &amp; |&amp;password=| &amp; p_Password &amp; p_UserSecret
+	If g_LogAPI_SLSf = 1 Then
+	End If
+	
+	' --- instantiate an MSXML XMLHTTP object
+	'	Set objHttp = CreateObject("Microsoft.XMLHTTP")
+	Set objHttp = CreateObject("MSXML2.ServerXMLHTTP")
+
+	' --- open a new GET request and set the Content-type header 
+	objHttp.open "POST", p_url, False
+	objHttp.setRequestHeader "Content-type", "application/x-www-form-urlencoded"
+	objHttp.send v_Data
+	v_ReponseHTTP = objHTTP.Status
+	p_ReponseJSON = objHttp.responseText
+	Set objHttp = Nothing
+	
+	If CInt(v_ReponseHTTP) &lt; 300 Then
+		SLSf_GetBearerToken = 1
+	Else
+		SLSf_GetBearerToken = -282
+		v_CodeErreur = 1
+		Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_SLSf, gc_Element_SLSf,  GetThreadInfo(1), 0, v_ReponseHTTP, "URL = " &amp; p_URL &amp; Chr(13) &amp; p_ReponseJSON) 
+	End If
+	
+	If g_LogAPI_SLSf = 1 Or (g_LogAPI_SLSf = 2 And v_CodeErreur = 1) Then
+		Call SIGe_AjouterLog("--SLSf_GetBearerToken-----------------------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGe_AjouterLog("URL = POST " &amp; p_URL, 0, 0, False)
+		'Call SIGe_AjouterLog("Data  = " &amp; v_Data, 0, 0, False)
+		Call SIGe_AjouterLog("Réponse " &amp; v_ReponseHTTP, 0, 0, False)
+		Call SIGe_AjouterLog(p_ReponseJSON, v_CodeErreur, 0, False)
+		Call SIGe_AjouterLog("--------------------------------------------------------------------------------------------------------------------", 0, 0, False)
+	End If
+	Exit Function
+	
+GererErreur:
+	SLSf_GetBearerToken = -24
+	Set objHttp = Nothing
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), p_URL, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLSf_ExecuteDELETE"><lotusscript>'===================================================================================================================================================
+Function SLSf_ExecuteDELETE(p_URL As String, p_CleAcces As String, p_ReponseJSON As String) As Integer
+	On Error GoTo GererErreur
+	
+	Dim objHttp As Variant
+	Dim v_ReponseHTTP As String
+	Dim v_CodeErreur As Integer
+
+	SLSf_ExecuteDELETE = 0
+
+	' --- instantiate an MSXML XMLHTTP object
+	'	Set objHttp = CreateObject("Microsoft.XMLHTTP")
+	Set objHttp = CreateObject("MSXML2.ServerXMLHTTP")
+
+	' --- open a new GET request and set the Content-type header 
+	objHttp.open "DELETE", p_URL, False
+	objHttp.setRequestHeader "Authorization", "Bearer " &amp; p_CleAcces
+	objHttp.send
+	v_ReponseHTTP = objHTTP.Status
+	p_ReponseJSON = objHttp.responseText
+	Set objHttp = Nothing
+	
+	If CInt(v_ReponseHTTP) &lt; 300 Then
+		SLSf_ExecuteDELETE = 1
+	Else
+		SLSf_ExecuteDELETE = -282
+		v_CodeErreur = 1
+		Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_SLSf, gc_Element_SLSf,  GetThreadInfo(1), 0, v_ReponseHTTP, "URL = " &amp; p_URL &amp; Chr(13) &amp; "Response = " &amp; p_ReponseJSON) 
+	End If
+	
+	Dim l As Long
+	l = Len(p_ReponseJSON)
+	
+	If g_LogAPI_SLSf = 1 Or (g_LogAPI_SLSf = 2 and v_CodeErreur = 1) Then
+		Call SIGe_AjouterLog("--SLSf_ExecuteDELETE------------------------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGe_AjouterLog("URL = " &amp; p_URL, 0, 0, False)
+		'Call SIGe_AjouterLog("Authorization  = Bearer " &amp; p_CleAcces, 0, 0, False)
+		Call SIGe_AjouterLog("Réponse " &amp; v_ReponseHTTP, 0, 0, False)
+		Call SIGe_AjouterLog(p_ReponseJSON, v_CodeErreur, 0, False)
+		Call SIGe_AjouterLog("--------------------------------------------------------------------------------------------------------------------", 0, 0, False)
+	End If
+	Exit Function
+	
+GererErreur:
+	SLSf_ExecuteDELETE = -24
+	Set objHttp = Nothing
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), p_URL, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLSf_ExecutePOST"><lotusscript>'===================================================================================================================================================
+Function SLSf_ExecutePOST(p_URL As String, p_CleAcces As String, p_Data As String, p_ReponseJSON As String) As Integer
+	On Error GoTo GererErreur
+	
+	Dim objHttp As Variant
+	Dim v_ReponseHTTP As String
+	Dim v_CodeErreur As Integer
+
+	SLSf_ExecutePOST = 0
+	
+	' --- instantiate an MSXML XMLHTTP object
+	'	Set objHttp = CreateObject("Microsoft.XMLHTTP")
+	Set objHttp = CreateObject("MSXML2.ServerXMLHTTP")
+
+	' --- open a new GET request and set the Content-type header 
+	objHttp.open "POST", p_URL, False
+	objHttp.setRequestHeader "Authorization", "Bearer " &amp; p_CleAcces
+	objHttp.setRequestHeader "Content-Type", "application/json"
+	objHttp.send p_Data
+	v_ReponseHTTP = objHTTP.Status
+	p_ReponseJSON = objHttp.responseText
+	Set objHttp = Nothing
+
+	If CInt(v_ReponseHTTP) &lt; 300 Then
+		SLSf_ExecutePOST = 1
+	Else
+		SLSf_ExecutePOST = -282
+		v_CodeErreur = 1
+		Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_SLSf, gc_Element_SLSf,  GetThreadInfo(1), 0, v_ReponseHTTP, "URL = " &amp; p_URL &amp; Chr(13) &amp; "Data = " &amp; p_Data &amp; Chr(13) &amp; "Response = " &amp; p_ReponseJSON) 
+	End If
+	
+	If g_LogAPI_SLSf = 1 Or (g_LogAPI_SLSf = 2 And v_CodeErreur = 1) Then
+		Call SIGe_AjouterLog("--SLSf_ExecutePOST--------------------------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGe_AjouterLog("URL = " &amp; p_URL, 0, 0, False)
+		'Call SIGe_AjouterLog("Authorization  = Bearer " &amp; p_CleAcces, 0, 0, False)
+		Call SIGe_AjouterLog("Data  = " &amp; p_Data, 0, 0, False)
+		Call SIGe_AjouterLog("--------------------------------------------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGe_AjouterLog("Réponse " &amp; v_ReponseHTTP, 0, 0, False)
+		Call SIGe_AjouterLog(p_ReponseJSON, v_CodeErreur, 0, False)
+		Call SIGe_AjouterLog("--------------------------------------------------------------------------------------------------------------------", 0, 0, False)
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	SLSf_ExecutePOST = -24
+	Set objHttp = Nothing
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), p_URL &amp; Chr(10) &amp; p_Data, False)
+	Exit Function
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+</lotusscript></code>
+<item name="$POID"><datetime dst="true">20250422T142500,26-04</datetime></item></scriptlibrary>
+
+</database>

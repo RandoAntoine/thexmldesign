@@ -1,0 +1,729 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Facturation" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="555836" unid="87C01E22CE1D9DC98525885D004FBD61" sequence="27">
+<created><datetime dst="true">20220610T103058,25-04</datetime></created>
+<modified><datetime>20260105T014837,88-05</datetime></modified>
+<revised><datetime dst="true">20250417T085820,12-04</datetime></revised>
+<lastaccessed><datetime>20260105T014837,87-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,87-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_Site"
+Use "SI_tNombre"
+Use "wsc_SIFcCo"
+Use "x_SICl"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SDSPF As NotesSession
+Dim gndb_SDSPF As NotesDatabase
+
+Dim g_CR_A As String
+
+' Gestion des erreurs de facturation
+Dim ga_ERR_NbErreurs_A As Integer
+Dim ga_ERR_A() As String
+
+Const c_ndbAliasMSG_SDSPF = "SDSPP"
+
+' Traitement des erreurs
+Const gc_TypeElement_SDSPF = "SL"
+Const gc_Element_SDSPF = "SDSPF_Facturation"
+
+
+</lotusscript></code><code event="terminate"><lotusscript>Sub Terminate
+	
+End Sub
+
+
+</lotusscript></code><code event="SDSPF_AjouterEscompte"><lotusscript>
+Function SDSPF_AjouterEscompte(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, pns As NotesStream, _
+	p_NbBlancs As Integer, p_NoLigne As Integer, pl_Totaux List As Double) As Boolean
+	On Error GoTo GererErreur
+	' ---------------------------------------------------------
+	' Le script perment d'ajouter l'escompte à la commande
+	' ---------------------------------------------------------
+	SDSPF_AjouterEscompte = True
+	
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim v_Escompte As Double
+	Dim v_CleProduitEscompte As String
+	
+	v_Escompte = (xVar(pnd_Prop, "Prop_EscompteMontant", 0) + xVar(pnd_Prop, "Prop_EscompteCorporatif", 0))
+		
+	If v_Escompte &gt; 0 Then
+		
+		v_CleProduitEscompte = xVarProf("Prof_CleProduit_Escompte", "")	
+		Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduitEscompte, True)
+		
+		pl_Totaux(xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "")) = v_Escompte
+				
+		Call SDSPF_AjouterLigne(pnd_Site, nd_Prod_SDSBB, pns, p_NbBlancs, p_NoLigne, pl_Totaux, -1)
+	End If
+		
+	Exit Function
+	
+GererErreur:
+	SDSPF_AjouterEscompte = False
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPF_CreerCommande"><lotusscript>Function SDSPF_CreerCommande(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, pns As NotesStream, p_NbBlancs As Integer) As Boolean
+	On Error GoTo GererErreur
+		
+	Dim v_NbProposition As String
+	Dim s As String
+	Dim v_NoCientProp As String
+	Dim v_NoClientSite As String
+	Dim v_SousTypeCde As String 
+		
+	SDSPF_CreerCommande = False
+	
+	v_NbProposition = CStr(CLng(xVar(pnd_Prop, "Prop_NbProposition", 0)))
+	Set pns = gns_SDSPF.CreateStream
+	
+	' Créer l'entête de la commande
+	Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;?xml version="1.0"?&gt;|, p_NbBlancs), EOL_CR)
+	'Cle = NoProp;NoSite
+	Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;Commande origine="SDSP3" NoCommande="| &amp; v_NbProposition &amp; |"&gt;|, _
+	p_NbBlancs), EOL_CR)
+	p_NbBlancs = p_NbBlancs + 1
+		
+	' Ajouter les clients	
+	v_NoClientSite = xVar(pnd_Site, "Site_ClientNoFmt", "")
+	v_NoCientProp = xVar(pnd_Prop, "Prop_ClientNoFmt", "")
+	
+	Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;Adresse TypeAdresse="Livraison" NoClient="| &amp; v_NoClientSite &amp; |"&gt;&lt;/Adresse&gt;|, p_NbBlancs), EOL_CR)
+		
+	If v_NoCientProp &lt;&gt; "" Then
+		Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;Adresse TypeAdresse="Facturation" NoClient="| &amp; v_NoCientProp &amp; |"&gt;&lt;/Adresse&gt;|, p_NbBlancs), EOL_CR)
+	End If
+				
+	' Ajouter les éléments
+	Call pns.Writetext(SDSPF_XML_FormaterBalise("ReferenceClient", v_NbProposition, p_NbBlancs), EOL_CR)
+	Call pns.Writetext(SDSPF_XML_FormaterBalise("DateCommande", Format(Today, "yyyymmdd"), p_NbBlancs), EOL_CR)
+	Call pns.Writetext(SDSPF_XML_FormaterBalise("TypeCommande", "11", p_NbBlancs), EOL_CR)
+	v_SousTypeCde = xSDSBB_xVarTpPp(xVar(pnd_Prop, "Prop_TypeProposition", ""), "TpPp_SousTypeCdeSIFc", "", True)
+	If v_SousTypeCde &lt;&gt; "" Then
+		Call pns.Writetext(SDSPF_XML_FormaterBalise("SousTypeCde", v_SousTypeCde, p_NbBlancs), EOL_CR)
+	End If
+	Call pns.Writetext(SDSPF_XML_FormaterBalise("DateFacturation", Format(Today, "yyyymmdd"), p_NbBlancs), EOL_CR)
+	Call pns.Writetext(SDSPF_XML_FormaterBalise("ModePaiement", "01", p_NbBlancs), EOL_CR)
+	Call pns.Writetext(SDSPF_XML_FormaterBalise("Devise", xVar(pnd_Prop, "Prop_Devise", ""), p_NbBlancs), EOL_CR)
+			
+	' Ouvrir les lignes
+	Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;Lignes&gt;|, p_NbBlancs), EOL_CR)
+	p_NbBlancs = p_NbBlancs + 1
+	
+	SDSPF_CreerCommande = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPF_FacturerSite"><lotusscript>Function SDSPF_FacturerSite(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, p_NoCommande As String) As Boolean	
+	' -----------------------------------------------------------------------------
+	' Le script perment de générer une commande XML et l'envoyer par le web service
+	' Paramètres:
+	' 		pnd_Prop  				NotesDocument.  Le document de la proposition
+	' 		pnd_Site  				NotesDocument.  Le document du site
+	' 		p_NoCommande  			String.  Le no de commande générer par le WS
+	' -----------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim ns As NotesStream
+	Dim l_Totaux List As Double
+	Dim v_CommandeOK As Boolean
+	Dim v_Commentaire As String
+	Dim v_NbBlancs As Integer
+	Dim v_NoLigne As Integer
+	Dim v_NomSite As String
+	Dim v_SiteNoClientFmt As String
+		
+	SDSPF_FacturerSite = False
+	
+	' Initialisations
+	Call SDSPF_Initialisations
+	
+	Call SIGE_OuvrirLog(gc_TypeElement_SDSPF, gc_Element_SDSPF)
+	
+	' - Démarrer une nouvelle commande
+	' ------------------------------------------------------
+	v_NbBlancs = 0
+	v_CommandeOK = SDSPF_CreerCommande(pnd_Prop, pnd_Site, ns, v_NbBlancs)
+	v_SiteNoClientFmt = xVar(pnd_Site, "Site_ClientNoFmt", "")
+	v_NoLigne = 0
+	v_Commentaire = UString(40, "-")
+	
+	l_Totaux("NbLignes") = 0
+	l_Totaux("SommeQuantites") = 0
+	l_Totaux("SommePrixUnitaires") = 0
+		
+	v_NomSite = xVar(pnd_Site, "Site_ClientNomInterne", "Site_ClientNom")
+	
+	If v_CommandeOK Then
+		
+		' Ajouter équipements
+		'--------------------	
+		v_CommandeOK = SDSPF_AjouterEquipements(pnd_Prop, pnd_Site, ns, v_NbBlancs, v_NoLigne, l_Totaux)
+		
+		If v_CommandeOK Then
+			If l_Totaux("NbLignes") &gt; 0 Then
+				v_CommandeOK = SDSPF_AjouterCommentaire(ns, v_NbBlancs, v_NoLigne, v_Commentaire, l_Totaux)
+			End If
+		End If
+		
+		' Ajouter services
+		'----------------	
+		If v_CommandeOK Then
+			v_CommandeOK = SDSPF_AjouterServices(pnd_Prop, pnd_Site, ns, v_NbBlancs, v_NoLigne, l_Totaux)
+		End If
+		
+		' Ajouter escompte
+		'----------------	
+		If v_CommandeOK Then
+			v_CommandeOK = SDSPF_AjouterEscompte(pnd_Prop, pnd_Site, ns, v_NbBlancs, v_NoLigne, l_Totaux)
+		End If
+		
+	End If
+	
+	If v_CommandeOK Then
+		
+		If l_Totaux("NbLignes") &gt; 0	Then	
+			' Envoyer la commande	
+			'--------------------			
+			If SDSPF_EnvoyerCommande(ns, l_Totaux, v_NbBlancs, v_SiteNoClientFmt, p_NoCommande) Then
+				SDSPF_FacturerSite = True
+			Else
+				MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPF, 153, "", v_NomSite), 64, xGDK_xMessage("SI", 10, "", "")
+			End If
+		Else
+			' 156 : Aucun produit à commander.
+			MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPF, 156, "", v_NomSite), 16, xGDK_xMessage("SI", 1, "", "")			
+		End if
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, LSI_Info(2), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPF_EnvoyerCommande"><lotusscript>Function SDSPF_EnvoyerCommande(pns As NotesStream, pl_Totaux List As Double, p_NbBlancs As Integer, _
+p_NoClientFmt As String, p_NoCommande As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_NoCommande As String
+	
+	
+	SDSPF_EnvoyerCommande = False
+	
+	If SDSPF_FermerCommande(pns, pl_Totaux, p_NbBlancs) Then
+		
+		If SDSPF_EnvoyerCommandeWS(pns, v_NoCommande) Then
+			
+			p_NoCommande = v_NoCommande
+					
+			SDSPF_EnvoyerCommande = True
+		Call SIGE_AjouterLog("Commande " &amp; v_NoCommande &amp; " envoyée.", 0, 0, False)
+	
+		End If
+	End If
+	
+	If SDSPF_EnvoyerCommande = False Then				
+		Call SIGE_AjouterLog("Échec lors de l'envoi de la commande.", 0, 0, False)				
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPF_AjouterServices"><lotusscript>Function SDSPF_AjouterServices(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, pns As NotesStream, _
+	p_NbBlancs As Integer, p_NoLigne As Integer, pl_Totaux List As Double) As Boolean
+	On Error GoTo GererErreur
+	' ---------------------------------------------------------
+	' Le script perment d'ajouter les services à la commande
+	' ---------------------------------------------------------
+	
+	Dim nd As NotesDocument	
+	Dim nd_Suivant As NotesDocument	
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim and_Services() As NotesDocument
+	Dim nv As NotesView	
+	
+	Dim i As Integer
+	Dim v_CateCodeDisgenCourante As String
+	Dim v_CateCodeDisgen As String
+	Dim v_NoSite As String		
+	
+	SDSPF_AjouterServices = True
+	
+	' Vues des services
+	Set nv = gndb_SDSPF.GetView("V_Prod17")
+	Call nv.Refresh
+	
+	ReDim Preserve and_Services(1000) As NotesDocument	
+	i = 0
+	
+	Set nd_Suivant = nv.GetdocumentByKey(xVar(pnd_Site, "Site_NoSite", ""), True)
+	
+	v_CateCodeDisgenCourante = xSDSBB_xVarCate(xVar(nd_Suivant, "Prod_CategorieProduit", ""), "Cate_CodeDisgen", "", True)	
+	v_NoSite = xVar(nd_Suivant, "Prod_NoSite", "")
+	
+	pl_Totaux(v_CateCodeDisgenCourante) = 0
+	
+	Set nd_Prod_SDSBB = xSDSBB_xndProd_Code(v_CateCodeDisgenCourante, True)
+	
+	' Boucler les services du site et ajouter à la commande
+	'------------------------------------------------------
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = nv.Getnextdocument(nd_Suivant)
+		
+		v_CateCodeDisgen = xSDSBB_xVarCate(xVar(nd, "Prod_CategorieProduit", ""), "Cate_CodeDisgen", "", True)
+		
+		' Validation
+		If v_CateCodeDisgen = "" Then
+			' 157 - Impossible d'envoyer la commande, car le code DISGEN pour la catégorie...
+			MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPF, 157, "", xSDSBB_xVarCate(xVar(nd, "Prod_CategorieProduit", ""), "Cate_DescCategorie" &amp; xLangue, "", True)), _
+			64, xGDK_xMessage("SI", 8, "", "")
+			SDSPF_AjouterServices = False
+			Exit Do
+		End If
+		
+		If  v_CateCodeDisgen &lt;&gt; v_CateCodeDisgenCourante Then
+			
+			'If IsElement(pl_Totaux(v_CateCodeDisgenCourante)) Then
+				'	If pl_Totaux(v_CateCodeDisgenCourante) &gt; 0 Then
+				'Call SDSPF_AjouterLigne(pnd_Site, nd_Prod_SDSBB, pns, p_NbBlancs, p_NoLigne, pl_Totaux)
+				'	End If
+			'End If			
+						
+			If i &gt; 0 Then
+				
+				If IsElement(pl_Totaux(v_CateCodeDisgenCourante)) Then				
+					Call SDSPF_AjouterLigne(pnd_Site, nd_Prod_SDSBB, pns, p_NbBlancs, p_NoLigne, pl_Totaux,1)					
+				End If
+				
+				'Ajouter liste de produits (and_Services) à la commade
+				ReDim Preserve and_Services(i - 1) As NotesDocument
+				
+				ForAll Service In and_Services	
+					Call SDSPF_AjouterLigne(pnd_Site, Service, pns, p_NbBlancs, p_NoLigne, pl_Totaux, xVar(Service, "Prod_Quantite", 0))	
+				End ForAll
+				
+			End if
+			
+			' Ré-initialise les variables
+			ReDim and_Services(1000) As NotesDocument				
+			v_CateCodeDisgenCourante = v_CateCodeDisgen		
+			pl_Totaux(v_CateCodeDisgenCourante) = 0
+			i = 0			
+			Set nd_Prod_SDSBB = xSDSBB_xndProd_Code(v_CateCodeDisgenCourante, True)		
+			
+		End If
+		
+		If xVar(nd, "Prod_NoSite", "") &lt;&gt; v_NoSite Then
+			Exit Do
+		End If
+		
+		' Ajouter le produit dans le array de documents (and_Services)
+		If xVar(nd, "Prod_Quantite",0) &gt; 0   Then									
+			If xSDSBB_xVarProd(xVar(nd, "Prod_CleProduit", ""), "Prod_PropImpression", "0", True) &lt;&gt; "0" Then
+				If  v_CateCodeDisgen = v_CateCodeDisgenCourante Then					
+					Set	and_Services(i) = nd	
+					i = i + 1	
+				End If	
+			End If	
+			
+			pl_Totaux(v_CateCodeDisgenCourante) = pl_Totaux(v_CateCodeDisgenCourante) +  xVar(nd, "Prod_PrixTotal", 0)		
+		End If
+		
+	Loop
+	
+	Exit Function
+	
+GererErreur:
+	SDSPF_AjouterServices = False
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPF_AjouterLigne"><lotusscript>Function SDSPF_AjouterLigne(pnd_Site As NotesDocument, pnd_Prod As NotesDocument, pns As NotesStream, p_NbBlancs As Integer, _
+	p_NoLigne As Integer, pl_Totaux List As Double, p_Quantite As Long) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_SiteNoClientFmt As String
+	Dim v_CodeProduit As String
+	Dim nd_Clie As NotesDocument
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim v_CleProduit As String
+	Dim v_Pays As String
+	Dim v_Devise As String
+	Dim nd_Prix As NotesDocument
+	Dim nd_Dist As NotesDocument
+	Dim v_DateEffective As Variant
+	Dim v_PrixUnitaire As Double
+	Dim v_LigneXML As String
+	Dim v_NoLigne As Integer
+	Dim v_ReferenceSerti As String
+	Dim v_NoContrat As String
+	Dim v_Quantite As Long
+	
+	Dim nd_Site As NotesDocument
+	
+	%REM
+	&lt;Ligne NoLigne="001" TypeLigne="Produit"&gt;
+	&lt;CodeProduit&gt;SESDSWIN&lt;/CodeProduit&gt;
+	&lt;Quantite&gt;1&lt;/Quantite&gt;
+	&lt;PrixUnitaire&gt;100.00&lt;/PrixUnitaire&gt;
+	&lt;Commentaire&gt;Ceci est un commentaire.&lt;/Commentaire&gt;
+	&lt;/Ligne&gt;
+	%END REM
+	
+	SDSPF_AjouterLigne = False
+	
+	' Extraire les documents de référence
+	' --------------------------------------------------------------------------------------------------
+	
+	' Extraire le dossier du client	
+	v_SiteNoClientFmt = xVar(pnd_Site, "Site_ClientNoFmt", "")	
+
+	'v_ReferenceSerti = xVar(pnd_Prod, "Prod_NoProduit","")
+	v_ReferenceSerti = ""
+	
+	Set nd_Clie = xSICl_xndClie(v_SiteNoClientFmt, True)
+	If nd_Clie Is Nothing Then
+		''Call SDSPF_ERR_AjouterErreur(pnd_Prod, "Client introuvable.")
+		Call SIGE_AjouterLog("Client introuvable.", 0, 0, False)
+		Exit Function
+	End If
+	
+	v_CleProduit = xVar(pnd_Prod, "Prod_CleProduit", "")
+	
+	' Extraire le dossier du produit de SDS Base
+	Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit, True)
+	
+	If nd_Prod_SDSBB Is Nothing Then
+		''Call SDSPF_ERR_AjouterErreur(pnd_Prod, "Produit introuvable.")
+		Call SIGE_AjouterLog("Produit introuvable.", 0, 0, False)
+		Exit Function
+	End If
+	
+	v_CodeProduit =  xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "")
+		
+	' Extraire le prix du produit
+	
+	If IsElement(pl_Totaux(v_CodeProduit)) Then
+		v_PrixUnitaire = pl_Totaux(v_CodeProduit)
+	Else
+		If xVar(pnd_Prod, "Prod_ClasseProduit", "") = "SV" Then
+			v_PrixUnitaire = 0
+		Else
+			v_PrixUnitaire = xVar(pnd_Prod, "Prod_PrixUnitaire", 0)
+		End If
+	End If
+			
+	v_Quantite = p_Quantite
+		
+	' Ajouter les éléments
+	''If p_AjouterEntete Then
+		'v_NoLigne = p_NoLigne + 1
+	''	v_LigneXML = SDSPF_XML_FormaterTexte(|&lt;Ligne NoLigne="| &amp; CStr(v_NoLigne) &amp; _
+	''	|" TypeLigne="1"&gt;|, p_NbBlancs) &amp; g_CR_A
+	''	p_NbBlancs = p_NbBlancs + 1
+		'v_LigneXML = v_LigneXML &amp; SDSPF_XML_FormaterBalise(.......
+	''End If	
+		
+	
+	' Ouvrir la ligne
+	v_NoLigne = p_NoLigne + 1
+	v_LigneXML = SDSPF_XML_FormaterTexte(|&lt;Ligne ReferenceSerti="| &amp; v_ReferenceSerti &amp; |" NoLigne="| &amp; CStr(v_NoLigne) &amp; _
+	|" TypeLigne="1"&gt;|, p_NbBlancs) &amp; g_CR_A
+	p_NbBlancs = p_NbBlancs + 1
+	
+		
+	v_LigneXML = v_LigneXML &amp; SDSPF_XML_FormaterBalise("CodeProduit", xVar(nd_Prod_SDSBB, "Prod_CodeDisgen", v_CodeProduit) , p_NbBlancs) &amp; g_CR_A
+	v_LigneXML = v_LigneXML &amp; SDSPF_XML_FormaterBalise("Quantite", CStr(v_Quantite), p_NbBlancs) &amp; g_CR_A
+	v_LigneXML = v_LigneXML &amp; SDSPF_XML_FormaterBalise("PrixUnitaire", SItN_Format(v_PrixUnitaire, "Fixed", ""), p_NbBlancs) &amp; g_CR_A
+		
+	' Fermer la ligne
+	p_NbBlancs = p_NbBlancs - 1
+	v_LigneXML = v_LigneXML &amp; SDSPF_XML_FormaterTexte(|&lt;/Ligne&gt;|, p_NbBlancs) &amp; g_CR_A
+	
+	Call pns.Writetext(v_LigneXML, EOL_CR)	
+	p_NoLigne = v_NoLigne
+	
+	' Mettre à jour les totaux
+	pl_Totaux("NbLignes") = pl_Totaux("NbLignes") + 1
+	pl_Totaux("SommeQuantites") = pl_Totaux("SommeQuantites") + v_Quantite
+	pl_Totaux("SommePrixUnitaires") = pl_Totaux("SommePrixUnitaires") + v_PrixUnitaire
+		
+	SDSPF_AjouterLigne = True
+	Call SIGE_AjouterLog("Produit ajouté à la commande: " &amp; xVar(nd_Site, "Site_ClientNoFmt", "") &amp; " / " &amp; xVar(pnd_Prod, "Prod_CodeProduit", ""), 0, 0, False)
+	Exit Function
+			
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPF_FermerCommande"><lotusscript>Function SDSPF_FermerCommande(pns As NotesStream, pl_Totaux List As Double, p_NbBlancs As Integer)  As Boolean
+	On Error GoTo GererErreur
+	
+	SDSPF_FermerCommande = False
+		
+		' Fermer les lignes
+		p_NbBlancs = p_NbBlancs - 1
+		Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;/Lignes&gt;|, p_NbBlancs), EOL_CR)
+		
+			' Ajouter les totaux
+		Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;Totaux&gt;|, p_NbBlancs), EOL_CR)
+		p_NbBlancs = p_NbBlancs + 1
+		Call pns.Writetext(SDSPF_XML_FormaterBalise("NbLignes", CStr(pl_Totaux("NbLignes")), p_NbBlancs), EOL_CR)
+		Call pns.Writetext(SDSPF_XML_FormaterBalise("SommeQuantites", CStr(pl_Totaux("SommeQuantites")), p_NbBlancs), EOL_CR)
+		Call pns.Writetext(SDSPF_XML_FormaterBalise("SommePrixUnitaires", CStr(SItN_Format(pl_Totaux("SommePrixUnitaires"), "Fixed", "")), p_NbBlancs), EOL_CR)
+		p_NbBlancs = p_NbBlancs - 1
+		Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;/Totaux&gt;|, p_NbBlancs), EOL_CR)
+		
+			' Fermer la commande
+		p_NbBlancs = p_NbBlancs - 1
+		Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;/Commande&gt;|, p_NbBlancs))
+		
+		SDSPF_FermerCommande = True
+		
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPF_XML_FormaterTexte"><lotusscript>Function SDSPF_XML_FormaterTexte(p_Texte As String, p_NbBlancs As Integer) As String
+	On Error GoTo GererErreur
+	
+	Dim v_Texte As String
+	
+	v_Texte = FullTrim(p_Texte)
+	If v_Texte &lt;&gt; "" Then
+		SDSPF_XML_FormaterTexte = UString$(p_NbBlancs, "  ") &amp; v_Texte
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+
+
+
+
+
+
+
+
+</lotusscript></code><code event="SDSPF_AjouterEquipements"><lotusscript>Function SDSPF_AjouterEquipements(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, pns As NotesStream, _
+	p_NbBlancs As Integer, p_NoLigne As Integer, pl_Totaux List As Double) As Boolean
+	' ---------------------------------------------------------
+	' Le script perment d'ajouter les équipements à la commande
+	' ---------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nv As NotesView	
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	
+	Dim v_NoProposition As String
+	Dim v_NoSite As String
+	Dim v_Cle As String
+	
+	SDSPF_AjouterEquipements = True
+	
+	' Vues des équipements (sans composants)
+	Set nv = gndb_SDSPF.GetView("v_Prod15")
+	Call nv.Refresh
+	
+	v_NoProposition = xVar(pnd_Site, "Site_NoProposition", "")
+	v_NoSite = xVar(pnd_Site, "Site_NoSite", "")
+	
+	Set nd_Suivant = nv.GetdocumentByKey(v_NoSite, True)
+	
+	' Boucler les équipements du site et ajouter à la commande
+	'----------------------------------------------------------
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = nv.Getnextdocument(nd_Suivant)
+		
+		v_Cle = xVar(nd_Suivant, "Prod_NoSite", "")
+		
+		'Changement de site
+		If v_Cle &lt;&gt; v_NoSite Then 
+			Set nd_Suivant = Nothing
+		End If
+		
+		If xVar(nd, "Prod_Quantite", 0) &gt; 0 Then
+			Call SDSPF_AjouterLigne(pnd_Site, nd, pns, p_NbBlancs, p_NoLigne, pl_Totaux, xVar(nd, "Prod_Quantite", 0))
+			'If Not SDSPF_AjouterComposants(pnd_Prop, pnd_Site, nd, pns, p_NbBlancs, p_NoLigne, pl_Totaux) Then
+			'	SDSPF_AjouterEquipements = False
+			'End If
+		End If
+		
+	loop	
+	
+	Exit Function
+	
+GererErreur:
+	SDSPF_AjouterEquipements = False
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPF_XML_FormaterBalise"><lotusscript>Function SDSPF_XML_FormaterBalise(p_Balise As String, p_Valeur As String, p_NbBlancs As Integer) As String
+	On Error GoTo GererErreur
+	
+	Dim v_Valeur As String
+	
+	v_Valeur = Replace(p_Valeur, "&lt;", "{")
+	v_Valeur = Replace(p_Valeur, "&gt;", "}")		
+	v_Valeur =  Replace(p_Valeur, "&amp;", "&amp;amp;")	
+		
+	v_Valeur = FullTrim(p_Valeur) '' ??  
+	'v_Valeur = FullTrim(v_Valeur)
+	If v_Valeur &lt;&gt; "" Then
+		SDSPF_XML_FormaterBalise = UString$(p_NbBlancs, "  ") &amp; |&lt;| &amp; p_Balise &amp; |&gt;| &amp; v_Valeur &amp; |&lt;/| &amp; p_Balise &amp; |&gt;|
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPF_AjouterComposants"><lotusscript>Function SDSPF_AjouterComposants(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, pnd_Prod As NotesDocument, pns As NotesStream, _
+	p_NbBlancs As Integer, p_NoLigne As Integer, pl_Totaux List As Double) As Boolean
+	' -------------------------------------------------------------
+	' Le script perment d'ajouter les composants (EQ) à la commande
+	' --------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nv As NotesView
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	
+	Dim v_Cle As String
+	Dim v_CleSuivant As String
+	
+	SDSPF_AjouterComposants = True
+	
+	' Vue des EQ (Composants)
+	Set nv = gndb_SDSPF.GetView("v_Prod28")
+	Call nv.Refresh
+	
+	v_Cle = xVar(pnd_Prop, "Prop_NoProposition", "") &amp; ";" &amp; xVar(pnd_Site, "Site_NoSite", "")&amp; ";" &amp; xVar(pnd_Prod, "Prod_NoProduit", "")
+	
+	Set nd_Suivant = nv.GetdocumentByKey(v_Cle, True)
+	
+	' Boucler les composants et ajouter à la commande
+	'-----------------------------------------------
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = nv.Getnextdocument(nd_Suivant)
+				
+		Call SDSPF_AjouterLigne(pnd_Site, nd, pns, p_NbBlancs, p_NoLigne, pl_Totaux, xVar(nd, "Prod_Quantite", 0))
+		
+		v_CleSuivant = xVar(nd_Suivant, "Prod_NoProposition", "") &amp; ";" &amp; xVar(nd_Suivant, "Prod_NoSite", "")&amp; ";" &amp; xVar(nd_Suivant, "Prod_CleParent", "")
+		
+		If v_CleSuivant &lt;&gt; v_Cle Then
+			Set nd_Suivant = Nothing
+		End If
+		
+	Loop
+		
+	Exit Function
+	
+GererErreur:
+	SDSPF_AjouterComposants = False
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+End Function
+
+</lotusscript></code><code event="SDSPF_AjouterCommentaire"><lotusscript>Function SDSPF_AjouterCommentaire(pns As NotesStream, p_NbBlancs As Integer, p_NoLigne As Integer, p_Commentaire As String, pl_Totaux List As Double) As Boolean
+	' ------------------------------------------------------------------
+	' Le script perment d'ajouter une ligne de commentaire à la commande
+	' ------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_NoLigne As Integer
+	
+	SDSPF_AjouterCommentaire = True
+	
+	v_NoLigne = p_NoLigne
+	
+	If p_Commentaire &lt;&gt; "" Then
+		Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;Ligne TypeLigne="4"&gt;|, p_NbBlancs), EOL_CR)
+		Call pns.Writetext(SDSPF_XML_FormaterBalise("Commentaire", p_Commentaire, p_NbBlancs), EOL_CR)
+		Call pns.Writetext(SDSPF_XML_FormaterTexte(|&lt;/Ligne&gt;|, p_NbBlancs), EOL_CR)
+		v_NoLigne = p_NoLigne + 1		
+		p_NoLigne = v_NoLigne				
+		pl_Totaux("NbLignes") = pl_Totaux("NbLignes") + 1
+	End If
+		
+	Exit Function
+	
+GererErreur:
+	SDSPF_AjouterCommentaire = False
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPF_Initialisations"><lotusscript>Sub SDSPF_Initialisations
+	If gns_SDSPF Is Nothing Then
+		Set gns_SDSPF = New NotesSession
+		Set gndb_SDSPF = gns_SDSPF.CurrentDatabase
+		
+		g_CR_A = Chr$(10)
+		ga_ERR_NbErreurs_A = -1
+		ReDim ga_ERR_A(999, 5) As String
+	End If
+End Sub
+
+
+
+
+
+</lotusscript></code><code event="SDSPF_EnvoyerCommandeWS"><lotusscript>Function SDSPF_EnvoyerCommandeWS(pns As NotesStream, p_NoCommande As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_XML As String
+	Dim v_Resultat As String
+	
+	pns.Position = 0
+	v_XML = pns.Readtext
+		
+	Dim ws_SIFcCo As New Cl_Commande
+	v_Resultat = ws_SIFcCo.CreerCommandeXML(v_XML)
+	If StrLeft(v_Resultat, ";") = "OK" Then
+		SDSPF_EnvoyerCommandeWS = True
+	End If
+	
+	p_NoCommande = StrRight(v_Resultat, ";")
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPF, gc_Element_SDSPF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime dst="true">20250417T085820,12-04</datetime></item></scriptlibrary>
+
+</database>

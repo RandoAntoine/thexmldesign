@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Exporter\Propositions sélectionnées" alias="A_ExpS" hide="v3" publicaccess="false" designerversion="8.5.3" comment="** SI Agents A_Trav" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" enabled="false">
+<noteinfo noteid="5557ee" unid="814F0A6A32A31ED5852587AC00584E3C" sequence="31">
+<created><datetime>20211215T110431,96-05</datetime></created>
+<modified><datetime>20260105T014837,73-05</datetime></modified>
+<revised><datetime>20250319T073739,86-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,72-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,72-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073739,39-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="selected"/><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_Exportations"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_ExpS"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim v_Resultat As Integer
+	
+	'Initialisations
+	Print "Exportation des propositions - Début"
+	Call A_Initialisations
+	
+	Set ndc = gndb_A.UnprocessedDocuments
+	If ndc.Count = 0 Then
+		Print "Aucun document sélectionné"
+		Exit Sub
+	End If
+
+	Print "Exportation des propositions - " &amp; CStr(ndc.Count) &amp; " documents sélectionnés"
+	v_Resultat = SDSPEx_ExporterPropositions(ndc, "")
+	If v_Resultat = -265 Then
+		Print "Exportation annulée."
+	ElseIf v_Resultat &lt; 0 Then
+		MessageBox "Une erreur s'est produite pendant l'exportation.", 16, "Exportation annulée"
+	ElseIf v_Resultat &gt; 0 Then
+		Print "Exportation terminée."
+	Else
+		Print "Aucune proposition sélectionnée.", 64, "Exportation annulée"
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="64293C2C1A9C705185258DAA005BFEDB">
+<agentmodified><datetime>20260105T014837,73-05</datetime></agentmodified>
+<agentrun><datetime>20260227T000206,95-05</datetime></agentrun>
+<runlog>Started running agent 'Exporter\Propositions sélectionnées|A_ExpS' on 2026-02-26 22:29:43
+Running on selected documents: 3805 total
+Found 3805 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Exporter\Propositions sélectionnées|A_ExpS' on 2026-02-27 00:02:06
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073739,86-05</datetime></item></agent>
+
+</database>

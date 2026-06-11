@@ -1,0 +1,476 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Duplication" hide="v3 v4strict">
+<noteinfo noteid="5556ea" unid="F5148FE02C573CAC852586B40011FB60" sequence="82">
+<created><datetime dst="true">20210410T231624,64-04</datetime></created>
+<modified><datetime>20260105T014837,15-05</datetime></modified>
+<revised><datetime>20250319T073652,14-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,14-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,14-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_Workflow"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSPDup As NotesSession
+Dim gndb_SDSPDup As NotesDatabase
+
+Dim g_NoRep_SDSPDup As String
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPDup = "SL"
+Const gc_Element_SDSPDup = "SDSPDp_Duplication"
+
+
+</lotusscript></code><code event="SDSPDp_DupliquerProduits"><lotusscript>Function SDSPDp_DupliquerProduits(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, _
+pnd_NouvSite As NotesDocument, pnd_NP As NotesDocument, p_Heure As Variant)
+	' -------------------------------------------------------------------------------------------------------------
+	' pnd_Prop = Document de la proposition
+	' pnd_Site = Document du site.
+	' pnd_NP = Document de la nouvelle proposition. Ce document est requis lors du rafraichissement des données.
+	' p_heure = Heure qu'il était au début de la procédure pour mettre la même sur tous les nouveaux éléments créés
+	' -------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nv As NotesView
+	Dim v_ServeurSDSBB As String
+	Dim a_DepeProd As Variant
+	Dim a_DepeCate As Variant
+	Dim ndc_Prod As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Prod As NotesDocument
+	Dim v_NomItem As String
+	Dim v_Cle As String
+	Dim v_MajProd As Boolean
+	
+	SDSPDp_DupliquerProduits = False
+	
+	Set nv = gndb_SDSPDup.GetView("V_Prod30")
+	Call nv.Refresh
+	
+	v_ServeurSDSBB = xGDK_xFormulaNDB("SDSBB")
+	a_DepeProd = Evaluate(|@IfError(@Dblookup(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  "V_Depe20" &amp; |"| &amp;  |;"| &amp;"Prod;" &amp; |"; 2;[PartialMatch]); "")|)
+	a_DepeCate = Evaluate(|@IfError(@Dblookup(""; | &amp; v_ServeurSDSBB &amp; |;"| &amp;  "V_Depe20" &amp; |"| &amp;  |;"| &amp;"Cate;" &amp; |"; 2;[PartialMatch]); "")|)
+	
+	Set ndc_Prod = nv.GetAllDocumentsByKey((xVar(pnd_Site, "Site_NoSite", "") &amp; ";"), False)
+	
+	If ndc_Prod.Count &gt; 0 Then
+		
+		Set nd_Suivant = ndc_Prod.GetFirstDocument
+		
+		Do Until nd_Suivant Is Nothing
+			
+			Set nd = nd_Suivant
+				
+			Set nd_Suivant = ndc_Prod.GetNextDocument(nd_Suivant)
+			
+			'2210707 : P.Bordeleau - Ne plus utiliser SDS Base pour duppliquer les dependants et composants
+			''If xVar(nd,"Prod_TypeDescendant", "") = "" Then
+				''If Isarray(a_DepeProd) And Isarray(a_DepeCate) Then
+					''If Isnull(Arraygetindex(a_DepeProd, xVar(nd, "Prod_CleProduit", "")))And Isnull(Arraygetindex(a_DepeCate, xVar(nd, "Prod_CleProduit", ""))) Then						
+						Set nd_Prod = SDSPX_DupliquerProduit(pnd_Prop, pnd_NouvSite, nd, xVar(nd, "Prod_CleProduit", ""), xVar(nd, "Prod_Quantite", 0), "", _
+						xVar(nd,"Prod_TypeDescendant", ""), xVar(nd,"Prod_Departement", ""), "", xVar(nd, "Prod_CleParent", ""), True, False, pnd_NouvSite)		
+					''End If
+				''End If
+		'''	End If
+			
+		Loop
+		
+	End If
+	
+	SDSPDp_DupliquerProduits= True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPDup, gc_Element_SDSPDup, GetThreadInfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPDp_Initialisations"><lotusscript>Sub SDSPDp_Initialisations
+	If gns_SDSPDup Is Nothing Then
+		Set gns_SDSPDup = New NotesSession
+		Set gndb_SDSPDup = gns_SDSPDup.Currentdatabase
+		
+		g_NoRep_SDSPDup = gns_SDSPDup.GetEnvironmentString("SDSPP_NoRep")
+		
+	End If
+End Sub
+
+</lotusscript></code><code event="SDSPDp_DupliquerSites"><lotusscript>Function SDSPDp_DupliquerSites(pnd_Prop As NotesDocument, pnd_NP As NotesDocument, _
+	p_Heure As Variant) As Boolean
+	'--------------------------------------------------------------------------------------------------------------
+	' pnd_Prop = La proposition original
+	' pnd_NP = NouelleProposition
+	' p_heure = Heure qu'il était au début de la procédure pour mettre la même sur tous les nouveaux éléments créés
+	'--------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nv_Sites As NotesView
+	Dim nvec_Sites  As NotesViewEntryCollection
+	Dim nve_Suivant  As NotesViewEntry
+	Dim nve_Site  As NotesViewEntry
+	Dim nd_Site As NotesDocument
+	Dim ndc_NouvSites As NotesDocumentCollection
+	Dim nd_NouvSite As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim ni As NotesItem
+	
+	Dim v_NoSite As String
+	Dim a_NoSitesOriginal As Variant
+	Dim i As Integer
+	Dim v_MajNP As Boolean
+	
+	'Initialisations
+	SDSPDp_DupliquerSites = False
+	
+	' Chercher toutes les Sites pour la proposition
+	' ---------------------------------------------
+	Set nv_Sites = gndb_SDSPDup.GetView("V_Site21")
+	Set nvec_Sites = nv_Sites.GetAllEntriesByKey(xVar(pnd_Prop, "Prop_NoProposition", ""), True)
+	
+	Set ndc_NouvSites = gndb_SDSPDup.CreateDocumentCollection()
+	i = -1
+	
+	If nvec_Sites.Count &gt; 0 Then
+		
+		Redim a_NoSitesOriginal(nvec_Sites.Count  - 1)
+		
+		Set nve_Suivant = nvec_Sites.GetFirstEntry
+		
+		Do Until nve_Suivant Is Nothing
+			
+			
+			Set nve_Site = nve_Suivant
+			Set nve_Suivant = nvec_Sites.GetNextEntry(nve_Suivant)
+			Set nd = nve_Site.Document
+			
+			i = i + 1
+			a_NoSitesOriginal(i) = xVar(nd, "Site_NoSite", "")
+			
+			' v_NoSite =  g_NoRep_SDSPDup &amp; xUnique
+			v_NoSite =  xUnique("") &amp; g_NoRep_SDSPDup
+			
+			'Boucler pour créer des copies de toutes les Sites
+			If Not nd.HasItem("$Conflict") Then
+				
+				'Créer la copie du site
+				Set nd_NouvSite = New NotesDocument(gndb_SDSPDup)
+				Call nd.CopyAllItems(nd_NouvSite)
+				Call nd_NouvSite.MakeResponse(pnd_NP)
+				
+				nd_NouvSite.Site_NoProposition = xVar(pnd_NP, "Prop_NoProposition", "")
+				nd_NouvSite.Cle = xVar(pnd_NP, "Prop_NoProposition", "") + ";" + v_NoSite
+				nd_NouvSite.Site_NoSite = v_NoSite
+				nd_NouvSite.Site_NoBonCommandeFmtSIBDC = ""
+				
+				' Sécurité
+				If nd_NouvSite.Hasitem("LecteurAdmin") Then
+					Call nd_NouvSite.ReplaceItemValue("LecteurAdmin", pnd_NP.LecteurAdmin)
+				Else
+					Set ni = New NotesItem(nd_NouvSite, "LecteurAdmin", pnd_NP.LecteurAdmin, READERS)
+				End If
+				
+				If nd_NouvSite.Hasitem("AuteurAdmin") Then
+					Call nd_NouvSite.ReplaceItemValue("AuteurAdmin", pnd_NP.AuteurAdmin)
+				Else
+					Set ni = New NotesItem(nd_NouvSite, "AuteurAdmin", pnd_NP.AuteurAdmin, READERS)
+				End If
+				
+				If nd_NouvSite.Hasitem("Lecteur") Then
+					Call nd_NouvSite.ReplaceItemValue("Lecteur", pnd_NP.Lecteur)
+				Else
+					Set ni = New NotesItem(nd_NouvSite, "Lecteur", pnd_NP.Lecteur, READERS)
+				End If
+				
+				If nd_NouvSite.Hasitem("Auteur") Then
+					Call nd_NouvSite.ReplaceItemValue("Auteur", pnd_NP.Auteur)
+				Else
+					Set ni = New NotesItem(nd_NouvSite, "Auteur", pnd_NP.Auteur, READERS)
+				End If
+				
+				Call nd_NouvSite.Save(True,False)
+				
+				If Not xVarContient(pnd_NP, "Prop_NoSites", v_NoSite) Then
+					Call SIIx_AppendVar(pnd_NP, "Prop_NoSites", v_NoSite, True)
+					v_MajNP = True
+				End If
+				
+				Call ndc_NouvSites.AddDocument(nd_NouvSite)
+				
+			End If
+			
+		Loop
+		
+		If v_MajNP Then
+			Call pnd_NP.Save(True, False)
+		End If
+		
+		
+		i = -1
+		
+		If ndc_NouvSites.Count &gt; 0 Then
+			
+			Set nd_Suivant = ndc_NouvSites.GetFirstDocument
+			
+			Do Until nd_Suivant Is Nothing
+				Set nd = nd_Suivant
+				Set nd_Suivant = ndc_NouvSites.Getnextdocument(nd_Suivant)
+				
+				i = i + 1
+				
+				'Pour chaque site on doit copier les produits (équipements, Logiciels et services)
+				'---------------------------------------------------------------------------------------------------------
+				Set nve_Site = nvec_Sites.GetNthEntry(i + 1)						
+				Set nd_Site = nve_Site.Document
+				
+				'Set nd_NouvSite = ndc_NouvSites.GetNthDocument(v_PosSiteParent +1)		
+				Set nd_NouvSite = ndc_NouvSites.GetNthDocument(i +1)		
+				Call SDSPDp_DupliquerProduits(pnd_Prop, nd_Site, nd_NouvSite, pnd_NP, p_Heure)	
+				
+			Loop
+			
+		End If
+		
+		
+	End If
+	
+	SDSPDp_DupliquerSites = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPDup, gc_Element_SDSPDup, Getthreadinfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPDp_DupliquerImages"><lotusscript>Function SDSPDp_DupliquerImages(p_UNIDPO As String, pnd_NP As NotesDocument, _
+p_Heure As Variant) As Boolean
+	'--------------------------------------------------------------------------------------------------------------
+	' p_UNIDPO = Unique document identifier pour PropositionOriginale
+	' pnd_NP = NouvelleProposition
+	' p_heure = Heure qu'il était au début de la procédure pour mettre la même sur tous les nouveaux éléments créés
+	'--------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nv_PrIM As NotesView
+	Dim ndc_PrIM As NotesDocumentCollection
+	Dim nd_PrIM As NotesDocument
+	Dim nd As NotesDocument
+	
+	'Initialisations
+	SDSPDp_DupliquerImages = False
+	
+	'Chercher toutes les images pour la proposition
+	'----------------------------------------------
+	Set nv_PrIM = gndb_SDSPDup.GetView("V_PrIM20")
+	Set ndc_PrIM = nv_PrIM.GetAllDocumentsByKey(p_UNIDPO,True)
+	Set nd_PrIM = ndc_PrIM.GetFirstDocument
+	
+	'Boucler pour créer des copies de toutes les PrIM
+	While Not nd_PrIM Is Nothing
+		
+		'Créer la copie de l'image
+		Set nd = New NotesDocument(gndb_SDSPDup)
+		Call nd_PrIM.CopyAllItems(nd)
+		nd.Prim_NoProposition = xVar(pnd_NP, "Prop_NoProposition", "")
+'		nd.HistoDC = p_Heure
+'		nd.HistoUC = gns_SDSPPP.Username
+'		nd.HistoDM = ""
+'		nd.HistoUM = ""
+		Call nd.MakeResponse(pnd_NP)
+		Call nd.Save(True,False)
+		
+		Set nd_PrIM = ndc_PrIM.GetNextDocument(nd_PrIM)
+	Wend
+	
+	SDSPDp_DupliquerImages = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPDup, gc_Element_SDSPDup, Getthreadinfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPDp_DupliquerProposition"><lotusscript>Function SDSPDp_DupliquerProposition(pnd_Prop As NotesDocument, p_Description As String, _
+pnd_Duplicata As NotesDocument, pnd_DB As NotesDocument, p_UserName As String) As Boolean
+	'Cette Fonction permet de dupliquer une proposition ainsi que ses Équipements, Logiciels,
+	'services et composants.
+	'Parametres:	pnd_Prop:		L'objet document de la proposition
+	'				p_Descripion:	La nouvelle description saisie par l'utilisateur
+	'				pnd_Duplicata:	L'objet document de la nouvelle proposition
+	
+	On Error Goto GererErreur
+	
+	Dim nd_Prop As NotesDocument
+	
+	
+	Dim a_NoSite As Variant
+	Dim v_Heure As Variant
+	Dim v_NoProposition As String
+	Dim v_PosSitePrincipal As Variant
+	Dim v_UserName As String
+	
+	' Initialisations 
+	SDSPDp_DupliquerProposition = False	
+	Call SDSPDp_Initialisations
+		
+	v_Heure = Now()
+	
+	a_NoSite = xVarArray(pnd_Prop, "Prop_NoSites")
+	
+	v_PosSitePrincipal = Arraygetindex(a_NoSite, xVar(pnd_Prop, "Prop_NoSitePrincipal", ""))
+	
+	' Dupliquer la proposition
+	' ------------------------
+	' Calculer le numéro de la proposition
+	v_NoProposition = xUnique("") &amp; g_NoRep_SDSPDup
+	
+	'Creer la nouvelle Proposition
+	Set nd_Prop = New NotesDocument(gndb_SDSPDup)
+	Call pnd_Prop.CopyAllItems(nd_Prop)
+	
+	v_UserName = p_UserName
+	If v_UserName = "" Then
+		v_UserName = gns_SDSPDup.Username
+	End If
+	
+	'Réinitialiser les champs de base
+	nd_Prop.HistoDC = v_Heure
+	nd_Prop.HistoUC = v_UserName
+	nd_Prop.HistoDM = ""
+	nd_Prop.HistoUM = ""
+	nd_Prop.Prop_Contrat = ""
+	nd_Prop.Prop_DescProposition = p_Description
+	nd_Prop.Prop_NoProposition = v_NoProposition
+	nd_Prop.Cle = v_NoProposition
+	nd_Prop.Prop_PropositionAcceptee = ""
+	nd_Prop.Prop_NbPropositionTXT = ""
+	nd_Prop.Prop_NbProposition = ""
+	nd_Prop.Prop_NbPropositionPrefixe = ""
+	nd_Prop.Prop_NbPropositionFmt = ""
+	nd_Prop.Prop_NbFoisReOuvert = 0
+	nd_Prop.Prop_MajProjet = "" 
+	nd_Prop.Prop_PJCreerNote = ""
+	nd_Prop.Prop_NoSites = ""
+	nd_Prop.Prop_NbPropositionOrigineDuplica = CDbl(xVar(pnd_Prop, "Prop_NbProposition", ""))
+	
+	'Effacer l'historique qui avait été copié
+	Call SIHi_EffacerHistorique(nd_Prop)
+	
+
+	'Initialiser le statut à Duplicata
+	Call SDSPWF_ChangerStatut(nd_Prop, "16", v_UserName, pnd_DB, False)
+	
+	'Sauvegarder pour que le UNID soit sauvegardé avant de faire des descendants
+	Call nd_Prop.Save(True, False)
+	
+	' Créer des copies des sites
+	' --------------------------
+	Call SDSPDp_DupliquerSites(pnd_Prop, nd_Prop, v_Heure)
+	
+	' Initialise le site principal
+	' ----------------------------
+	If Not IsNull(v_PosSitePrincipal) Then
+		a_NoSite = xVarArray(nd_Prop, "Prop_NoSites")
+		nd_Prop.Prop_NoSitePrincipal = a_NoSite(v_PosSitePrincipal)
+		Call nd_Prop.Save(True, False)
+	End If
+	
+	' Créer des copies des images
+	' ---------------------------
+	Call SDSPDp_DupliquerImages(pnd_Prop.UniversalID, nd_Prop, v_Heure)
+	
+	' Créer des copies des documents
+	' ------------------------------
+	Call SDSPDp_DupliquerDocuments(pnd_Prop, nd_Prop, v_Heure)
+	
+	Set pnd_Duplicata = nd_Prop
+	
+	' Mettre à jour l'historique de la proposition
+	' --------------------------------------------
+	Call SIHi_Ajouter(pnd_Prop, "", "Action : " &amp; _
+	"Proposition dupliquée  /  Proposal duplicated", v_UserName, False)
+	
+	' Mettre à jour l'historique de la proposition
+	' --------------------------------------------
+	Call SIHi_BatirHistorique(pnd_Prop)
+	
+	SDSPDp_DupliquerProposition = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPDup, gc_Element_SDSPDup, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPDp_DupliquerDocuments"><lotusscript>Function  SDSPDp_DupliquerDocuments(pnd_Prop As NotesDocument, pnd_NP As NotesDocument, p_Heure As Variant) As Boolean
+	'--------------------------------------------------------------------------------------------------------------
+	' pnd_Prop = Document de la proposition
+	' pnd_NP = NouvelleProposition
+	' p_heure = Heure qu'il était au début de la procédure pour mettre la même sur tous les nouveaux éléments créés
+	'--------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nv_Docu As NotesView
+	Dim ndc_Docu As NotesDocumentCollection
+	Dim nd_Docu As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd2 As NotesDocument
+	Dim v_NoDocument As String
+	
+	'Initialisations
+	SDSPDp_DupliquerDocuments = False
+	
+	'Chercher toutes les fichiers attaché de la proposition
+	'------------------------------------------------------
+	Set ndc_Docu = xSIDocV_xndcDocu_CleParent(xVar(pnd_Prop, "Prop_NoProposition", ""))
+	Set nd_Docu = ndc_Docu.GetFirstDocument
+	
+	'Boucler pour créer des copies de toutes les Docu
+	While Not nd_Docu Is Nothing
+		
+		'Créer la copie du document
+		Set nd = New NotesDocument(gndb_xSIDocV)
+		Call nd_Docu.CopyAllItems(nd)
+		nd.Docu_NoProposition = xVar(pnd_NP, "Prop_NoProposition", "")
+		nd.Docu_CleParent = xVar(pnd_NP, "Prop_NoProposition", "")
+		nd.Docu_NoParentFmt =xVar(pnd_NP,"Prop_NbPropositionFmt","")
+		
+		Do
+			v_NoDocument = xUnique("")
+			Set nd2 = xSIDocV_xndDocu(v_NoDocument, False)
+		Loop Until nd2 Is Nothing
+		
+		nd.Docu_NoDocument = v_NoDocument
+		nd.Cle = v_NoDocument
+		
+'		nd.HistoDC = p_Heure
+'		nd.HistoUC = gns_SDSPPP.Username
+'		nd.HistoDM = ""
+'		nd.HistoUM = ""
+		'Call nd.MakeResponse(pnd_NP)
+		Call nd.Save(True,False)
+		
+		Set nd_Docu = ndc_Docu.GetNextDocument(nd_Docu)
+	Wend
+	
+	SDSPDp_DupliquerDocuments = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPDup, gc_Element_SDSPDup, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073652,14-05</datetime></item></scriptlibrary>
+
+</database>

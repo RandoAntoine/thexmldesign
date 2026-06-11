@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="V_SIEx" hide="v3 v4strict" designerversion="8.5.3" comment="1.0">
+<noteinfo noteid="3f0a72" unid="ED51D778C9F26A73852589A2007915AB" sequence="17">
+<created><datetime dst="true">20230501T180234,03-04</datetime></created>
+<modified><datetime>20250319T074102,41-05</datetime></modified>
+<revised><datetime>20250319T073641,62-05</datetime></revised>
+<lastaccessed><datetime>20250319T074102,40-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20230501T183539,40-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "SISt_Exportation"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_VSIEx As NotesSession
+'Dim gndb_VSIEx As NotesDatabase
+
+Dim gnuiws_VSIEx As NotesUIWorkspace
+
+' Traitement des erreurs
+Const gc_TypeElement_VSIEx = "SL"
+Const gc_Element_VSIEx = "V_SIEx"		
+
+
+</lotusscript></code><code event="terminate"><lotusscript>Sub Terminate
+	
+End Sub
+
+
+</lotusscript></code><code event="VSIEx_DemanderParametre"><lotusscript>Function VSIEx_DemanderParametre(pnd As NotesDocument, p_Parametre As String) As Boolean
+	
+	On Error Goto GererErreur
+	
+	Dim v_Description As String
+	Dim v_Parametre As Variant
+	
+	VSIEx_DemanderParametre = False
+	v_Description = xVar(pnd, "SIEx_ParametresDesc", "")
+	If v_Description = "" Then
+		VSIEX_DemanderParametre = True
+		Exit Function
+	End If
+	If Right(v_Description, 1) &lt;&gt; ":" Then
+		v_Description = v_Description &amp; " :"
+	End If
+	
+	v_Parametre = gnuiws_VSIEX.Prompt(PROMPT_OKCANCELEDIT, "SI Statistiques", v_Description)
+	If Isempty(v_Parametre) Then
+		Exit Function
+	End If
+	
+	p_Parametre = Cstr(v_Parametre)
+	VSIEX_DemanderParametre = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VSIEX, gc_Element_VSIEX, Getthreadinfo(1), "", False)		
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="VSIEx_acExecuterExportation"><lotusscript>Sub VSIEx_acExecuterExportation
+	'----------------------------------------------------------------------------------------------
+	' Bouton "Exécuter": exécute l'exportation (vers Excel) paramétrée dans le document sélectionné
+	'----------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim nuid_Importation As NotesUIDocument
+	
+	Dim v_Parametre As String
+	
+	' Initialisations
+	' ---------------
+	Call VSIEx_Initialisations
+	Set ndb = gns_VSIEx.Currentdatabase
+	Set ndc = ndb.UnprocessedDocuments
+	
+	' Validations
+	' -----------
+	If ndc.Count = 0 Then
+		Messagebox xGDK_xMessage("SI", 222, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		' 222 - "Aucune exportation sélectionnée pour l'exécution."
+	Elseif ndc.Count &gt; 1 Then
+		Messagebox xGDK_xMessage("SI", 166, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		' 166 - "Vous ne pouvez sélectionner qu'un seul document pour effectuer cette action."
+		Exit Sub
+	End If
+	
+	Call gnuiws_VSIEx.CurrentView.Deselectall()
+	
+	Set nd = ndc.GetFirstDocument
+	
+	' Demander le paramètre ($PARM) à ajouter à la formule de sélection (SIEx_Source_Select)
+	' --------------------------------------------------------------------------------------
+	If VSIEx_DemanderParametre(nd, v_Parametre) Then
+		' Exécuter l'exportation vers Excel
+		' ---------------------------------	
+		Call SIGE_OuvrirLog(gc_TypeElement_VSIEx, gc_Element_VSIEx)
+		Call SIStEx_ExecuterExportation(nd, v_Parametre, True, 1) ' nd contient les paramètres de l'exportation (F_SIEx)
+		Call SIGE_EnregistrerLog
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VSIEx, gc_Element_VSIEx, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="VSIEx_Initialisations"><lotusscript>Sub VSIEx_Initialisations
+	On Error Goto GererErreur
+	
+	If gns_VSIEx Is Nothing Then
+		Set gns_VSIEx = New NotesSession
+		Set gnuiws_VSIEx = New NotesUIWorkspace
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VSIEx, gc_Element_VSIEx, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073641,62-05</datetime></item></scriptlibrary>
+
+</database>

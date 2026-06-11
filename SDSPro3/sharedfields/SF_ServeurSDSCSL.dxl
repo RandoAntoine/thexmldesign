@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><sharedfield name="SF_ServeurSDSCSL" designerversion="8.5.3">
+<noteinfo noteid="55563e" unid="4C93C74F37DB77BF8525837D005BEDDA" sequence="3">
+<created><datetime>20190109T114406,66-05</datetime></created>
+<modified><datetime>20260105T014836,76-05</datetime></modified>
+<revised><datetime>20190109T120119,58-05</datetime></revised>
+<lastaccessed><datetime>20260105T014836,75-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014836,75-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><field type="text" kind="computedfordisplay" name="SF_ServeurSDSCSL"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_NDB20"; "SDSCSL"; 2); "")</formula></code></field>
+<item name="OriginalModTime" sign="true"><datetime dst="true">20050418T134459,04-04</datetime></item>
+<item name="$HTMLCode" sign="true">
+<rawitemdata type="1">
+</rawitemdata></item></sharedfield>
+
+</database>

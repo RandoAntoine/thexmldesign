@@ -1,0 +1,870 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_tRichText" hide="v3 v4strict" designerversion="8.5.3" comment="2.10">
+<noteinfo noteid="5558b2" unid="2BC20BBBF312F177852588F30070A423" sequence="21">
+<created><datetime>20221107T153020,51-05</datetime></created>
+<modified><datetime>20260105T014838,06-05</datetime></modified>
+<revised><datetime>20250319T073635,91-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,05-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,05-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Arrays"
+Use "SI_NotesDocument"
+'
+'	Les fonctions définies dans cette bibliothèque permettent de manipuler des items de type
+'	Rich Text.
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SItRT As NotesSession
+
+Dim gnco_Fond_SItRT As NotesColorObject
+Dim gnco_FondAlt_SItRT As NotesColorObject
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SItRT = "SL"
+Const gc_Element_SItRT = "SI_tRichText"
+
+</lotusscript></code><code event="terminate"><lotusscript>Sub Terminate
+	
+End Sub
+
+
+</lotusscript></code><code event="SItRT__________________"><lotusscript>Sub SItRT__________________
+	
+End Sub
+
+</lotusscript></code><code event="SItRT_FormatTableau"><lotusscript>Sub SItRT_FormatTableau(p_LargeurColonnes As Variant, p_NbColonnes As Integer, panrtps() As NotesRichTextParagraphStyle)
+%REM
+ -----------------------------------------------------------------------------------------------------
+ Créé le tableau qui contient le format de chaque colonne (NotesRichTextParagraphStyle).
+	Paramètres:
+		p_LargeurColonnes	Varient.  Doit contenir un array de Double. Chaque élément contient 
+								la largeur de la colonne correspondante, en cm.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		panrtps				Array de NotesRichTextParagraphStyles.  Le format des colonnes tu tableau.
+ -----------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim a_LargeurColonnes() As Double
+	Dim v_LargeurTableau As Double
+	Dim v_LargeurCOlonnes As Double
+	Dim i As Integer
+	Dim j As Integer
+	
+	Const c_LargeurColonneMinimum = 2
+	v_LargeurTableau = 24
+	
+	' Construit l'array de toutes les largeurs de colonne
+	Redim a_LargeurColonnes(1 To p_NbColonnes) As Double
+	
+	i = 1
+	If Isarray(p_LargeurColonnes) Then
+		For j = Lbound(p_LargeurColonnes) To Ubound(p_LargeurColonnes)
+			a_LargeurColonnes(i) = p_LargeurColonnes(j)
+			i = i + 1
+			v_LargeurTableau = v_LargeurTableau - p_LargeurColonnes(j)
+		Next
+	Else
+		If p_LargeurColonnes &lt;&gt; "" Then
+			If Isnumeric(p_LargeurColonnes) Then
+				a_LargeurColonnes(i) = Cdbl(p_LargeurColonnes)
+				i = i + 1
+				v_LargeurTableau = v_LargeurTableau - Cdbl(p_LargeurColonnes)
+			End If
+		End If
+	End If
+	
+	If i &lt;= p_NbColonnes Then
+		v_LargeurColonnes = Round(v_LargeurTableau / (p_NbColonnes - i + 1), 1)
+		If v_LargeurColonnes &lt; c_LargeurColonneMinimum Then
+			v_LargeurColonnes = c_LargeurColonneMinimum
+		End If
+		For j = i To p_NbColonnes
+			a_LargeurColonnes(i) = v_LargeurColonnes
+		Next
+	End If
+	
+	' Copnstruit l'array de NotesRichTextParagraphStyles
+	Redim panrtps(1 To p_NbColonnes) As NotesRichTextParagraphStyle
+	For i = 1 To p_NbColonnes
+		Set panrtps(i) = gns_SItRT.CreateRichTextParagraphStyle
+		panrtps(i).LeftMargin = 0.199 * RULER_ONE_CENTIMETER
+		panrtps(i).FirstLineLeftMargin = 0.199 * RULER_ONE_CENTIMETER
+		panrtps(i).RightMargin = a_LargeurColonnes(i) * RULER_ONE_CENTIMETER
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItRT_AjouterTableau"><lotusscript>Function SItRT_AjouterTableau(pnrti As NotesRichTextItem, p_Signet As String, p_Valeurs As Variant, p_Formules As Variant, _
+p_CouleursFond As Variant, p_LargeurColonnes As Variant, p_Entetes As Variant, p_Cellule As Long) As Boolean
+%REM
+------------------------------------------------------------------------------------------------------------------------------	
+ Ajouter un tableau dans un item rich text.  L'information de chaque ligne provient d'un
+ array de documents - une ligne par document.
+	Paramètres:
+		pnrti					NotesRichTextItem.  L'item dans lequel il faut ajouter le tableau.
+		p_Signet			String.  Le nom du signet qui indique l'emplacement ou il faut
+								insérer le tableau.  Si le signet est nul, le tableau est ajouté à la
+								fin de l'item.
+		p_Valeurs			Variant.  Les valeurs qui doivent être ajoutées dans le tableau.  Le 
+								paramètre peut recevoir une collection de documents (NotesDocumentCollection),
+								un array de documents ou un array de string (deux dimensions).
+								Si un array de string est  reçu, le format de cet array détermine
+								le nombre de colonnes du tableau.
+		p_Formules		Variant.  Doit contenir un array de string.  Pour chaque colonne, la 
+								formule permettant de calculer la valeur à mettre dans la case du 
+								tableau.  Ce paramètre est utilisé seulement lorsque p_Valeurs 
+								contient une collection ou un array de documents.  Le nombre de valeurs 
+								de cet array détermine le nombre de colonnes du tableau.
+		p_CouleursFond	Variant.  Les couleurs à utiliser pour le fond des lignes
+								du tableau.  Peut contenir une couleur (0-15) ou un array de couleurs.
+								Si nul, utilise les couleurs par défaut (blanc et bleu).  Chaque couleur 
+								peut être soit un nombre représentant une couleur Notes ou au array de
+								nombre identifiant une couleur par son code RGB.
+		p_LargeurColonnes	Varient.  Doit contenir un array de Double. Chaque élément contient 
+								la largeur de la colonne correspondante, en cm.  Si absent, chaque colonne
+								est de 2 cm.
+		p_Entetes			Variant.  Doit contenir un array de string.  Permet de mettre des entêtes de colonne sur la
+								première ligne du tableau.  Les entêtes sont en gras.  Initialiser
+								à null s'il ne faut pas mettre d'entêtes.
+		p_Cellule			Long.  Compteur du nombre de cellules d'un courriel.  Initialiser à
+								0 lors du premier appel et faire suivre la valeur retournée lors des
+								appels subséquents.  Est important s'il y a plusieurs tableaux dans le
+								même courriel.
+
+Note: Les tableaux doivent toujours être ajoutés dans le message dans l'ordre ou ils apparaissent.
+------------------------------------------------------------------------------------------------------------------------------	
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim v_NbLignes As Integer
+	Dim v_NbColonnes As Integer
+	Dim v_TypeDonnees As String
+	Dim a_LargeurColonnes() As Double
+	Dim anrtps() As NotesRichTextParagraphStyle
+	Dim nrts As NotesRichTextStyle
+	Dim nrtn As NotesRichTextNavigator
+	Dim v_Entetes As Boolean
+	
+	Const c_LargeurColonneDefaut = 2
+	
+	' Initialisations
+	SItRT_AjouterTableau = False
+	Set gns_SItRT = New NotesSession
+'	Call SItRT_Initialisations
+	Call SItRT_DefinirCouleursFond(p_CouleursFond)
+	
+	' Déterminer les dimensions du tableau
+	' ------------------------------------
+	If Isarray(p_Entetes) Then
+		v_Entetes = True
+	Elseif p_Entetes &lt;&gt; "" Then
+		v_Entetes = True
+	Else
+		v_Entetes = False
+	End If
+	Call SItRT_DimensionsTableau(p_Valeurs, p_Formules, v_Entetes, v_NbLignes, v_NbColonnes, v_TypeDonnees)
+	If v_NbLignes = 0 Or v_NbLignes &gt; 250 Then
+		Exit Function
+	End If
+	
+	' Définir le format du tableau dans un array de NotesRichTextParagraphStyle
+	' -------------------------------------------------------------------------
+	Call SItRT_FormatTableau(p_LargeurColonnes, v_NbColonnes, anrtps)
+	
+	' Définir le format du texte dans un NotesRichTextStyle
+	' -----------------------------------------------------
+	Set nrts = gns_SItRT.CreateRichTextStyle
+	nrts.NotesFont = pnrti.GetNotesFont("Default Sans Serif", True)
+	nrts.FontSize = 8
+	
+	' Créer le tableau d'affichage
+	' ----------------------------
+	Call SItRT_CreerTableau(pnrti, nrtn, p_Signet, v_NbLignes, v_NbColonnes, anrtps)
+	
+	' Ajouter les entêtes de colonne
+	' ------------------------------
+	If v_Entetes Then
+		Call SItRT_AjouterEntetes(p_Entetes, nrts, pnrti, nrtn, v_NbColonnes, p_Cellule)
+		v_NbLignes = v_NbLignes - 1
+	End If
+	
+	' Ajouter les données du tableau
+	' -------------------------------------------
+	If Not Isarray(p_Formules) Then
+		p_Formules = Evaluate(|"| &amp; p_Formules &amp; |"|)
+	End If
+	Select Case v_TypeDonnees
+	Case "a" :
+		Call SItRT_AjouterDonnees_a(p_Valeurs, nrts, pnrti, nrtn, v_NbLignes, v_NbColonnes, p_Cellule)
+	Case "and" :
+		Call SItRT_AjouterDonnees_and(p_Valeurs, p_Formules, nrts, pnrti, nrtn, v_NbColonnes, p_Cellule)
+	Case "ndc" :
+		Call SItRT_AjouterDonnees_ndc(p_Valeurs, p_Formules, nrts, pnrti, nrtn, v_NbColonnes, p_Cellule)
+	End Select
+	
+	SItRT_AjouterTableau = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItRT_RemplacerDocLink"><lotusscript>Function SItRT_RemplacerDocLink(pnrti As NotesRichTextItem, Byval p_NomSignet As String, pnd As Variant) As Boolean
+	' ---------------------------------------------------------------------------------
+	' Le script permet de remplacer un signet par un lien vers le document sélectionné.
+	' ---------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	On Error 4505 Resume Next
+	
+	Dim nrtn As NotesRichTextNavigator
+	Dim nrtr As NotesRichTextRange
+	Dim i As Integer
+	
+	SItRT_RemplacerDocLink = False
+	
+	Set nrtn = pnrti.CreateNavigator
+	Set nrtr = pnrti.CreateRange
+	
+	' Recherche la première occurrence de "[DocLink]"
+	If nrtn.FindFirstString(p_NomSignet) Then
+		If Not (pnd Is Nothing) Then
+			Call nrtr.SetBegin(nrtn)
+			Call pnrti.BeginInsert(nrtr)
+			Call pnrti.AppendText(" ")
+			Call pnrti.AppendDocLink(pnd, xGDK_xMessage("SI", 25, "", ""))
+			Call pnrti.EndInsert
+			Set nrtr = pnrti.CreateRange
+			Call nrtn.FindFirstElement(4)
+			Call nrtr.SetBegin(nrtn)
+		End If
+		' Remplace les occurences
+		Call nrtr.FindAndReplace(p_NomSignet, " ", 1) 'Ne peut être null ou "" sinon la recherche échoue
+	End If
+	
+	SItRT_RemplacerDocLink = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItRT_DimensionsTableau"><lotusscript>Sub SItRT_DimensionsTableau(p_Valeurs As Variant, p_Formules As Variant, p_Entetes As Boolean, _
+p_NbLignes As Integer, p_NbColonnes As Integer, p_TypeDonnees As String)
+%REM
+---------------------------------------------------------------------------------------------------------------------------------
+ Calcule le nombre de lignes et de colonnes du tableau.
+ Paramètres:
+	p_Valeurs	Variant.	Les valeurs qui doivent être ajoutées dans le tableau.
+							Le paramètre peut recevoir une collection de documents (NotesDocumentCollection),
+								un array de documents ou un array de string (deux dimensions).
+							Si un array de string est  reçu, le format de cet array détermine
+								le nombre de colonnes du tableau.
+	p_Formules	Variant.	Doit contenir un array de string.
+							Pour chaque colonne, la formule permettant de calculer la valeur à mettre dans la case du tableau.
+							Ce paramètre est utilisé seulement lorsque p_Valeurs contient une collection ou un array de documents.
+							Le nombre de valeurs de cet array détermine le nombre de colonnes du tableau.
+	p_Entetes	Variant.	Doit contenir un array de string.
+							Permet de mettre des entêtes de colonne sur la première ligne du tableau.
+							Les entêtes sont en gras.
+							Initialiser à null s'il ne faut pas mettre d'entêtes.
+	p_NbLignes	Integer.	Le nombre de lignes du tableau.
+	p_NbColonnes Integer.	Le nombre de colonnes du tableau.
+	p_TypeDonnees String.	Le type de données de p_Valeurs.  Contient "a" si p_Valeurs contient un array de données,
+								 "and" si un array de documents ou "ndc" si une collection de documents.
+-----------------------------------------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	p_NbLignes = 0
+	p_NbColonnes = 1
+	If Isarray(p_Valeurs) Then
+		If DimensionsArray(p_Valeurs) &gt; 1 Then
+			p_NbLignes = Ubound(p_Valeurs, 1) - Lbound(p_Valeurs, 1) + 1
+			p_NbColonnes = Ubound(p_Valeurs, 2) - Lbound(p_Valeurs, 2) + 1
+			p_TypeDonnees = "a"
+		Else
+			If p_Valeurs(Lbound(p_Valeurs)) Isa "NotesDocument" Then
+				If Isarray(p_Formules) Then
+					p_NbLignes = Ubound(p_Valeurs) - Lbound(p_Valeurs) + 1
+					p_NbColonnes = Ubound(p_Formules) - Lbound(p_Formules) + 1
+					p_TypeDonnees = "and"
+				End If
+			Else
+				p_TypeDonnees = "a"
+			End If
+		End If
+	Else
+		If p_Valeurs Isa "NotesDocumentCollection" Then
+			p_NbLignes = p_Valeurs.Count
+			p_NbColonnes = Ubound(p_Formules) - Lbound(p_Formules) + 1
+			p_TypeDonnees = "ndc"
+		Else
+			Exit Sub
+		End If
+	End If
+	
+	If p_Entetes Then
+		p_NbLignes = p_NbLignes + 1
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItRT_AjouterEntetes"><lotusscript>Sub SItRT_AjouterEntetes(p_Entetes As Variant, pnrts As NotesRichTextStyle, pnrti As NotesRichTextItem, pnrtn As NotesRichTextNavigator, _
+p_NbColonnes As Integer, p_Cellule As Long)
+%REM
+-----------------------------------------------------------------------------------------------------------------------
+ Ajoute les entêtes des colonnes sur la première ligne du tableau
+	Paramètres:
+		p_Entetes			Variant.  Doit contenir un array de string.  Permet de mettre des entêtes de colonne sur la
+								première ligne du tableau.  Les entêtes sont en gras.  Initialiser
+								à null s'il ne faut pas mettre d'entêtes.
+		panrts				NotesRichTextStyle.  Le format du texts à insérer dans le tableau.
+		panrti				NotesRichTextItem.  L'item qui contient le tableau (body).
+		panrtn				NotesRichTextNavigator.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		p_Cellule			Long.  Compteur du nombre de cellules d'un courriel.
+-----------------------------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim i As Integer
+	Dim j As Integer
+	
+	pnrts.Bold = True ' Les entêtes sont en Bold
+	i = 0
+	If Isarray(p_Entetes) Then
+		For j = Lbound(p_Entetes) To Ubound(p_Entetes)
+			p_Cellule = p_Cellule + 1
+			Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+			Call pnrti.BeginInsert(pnrtn)
+			Call pnrti.AppendStyle(pnrts)
+			Call pnrti.AppendText(Cstr(p_Entetes(i)))
+			Call pnrti.EndInsert
+			i = i + 1
+			If i &gt;= p_NbColonnes Then
+				Exit For
+			End If
+		Next
+	Elseif p_Entetes &lt;&gt; "" Then
+		Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+		Call pnrti.BeginInsert(pnrtn)
+		Call pnrti.AppendStyle(pnrts)
+		Call pnrti.AppendText(Cstr(p_Entetes))
+		Call pnrti.EndInsert
+		i = i + 1
+	End If
+	
+	p_Cellule = p_Cellule + (p_NbColonnes - i)
+	pnrts.Bold = False
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItRT_AjouterDonnees_a"><lotusscript>Sub SItRT_AjouterDonnees_a(p_Valeurs As Variant, pnrts As NotesRichTextStyle, pnrti As NotesRichTextItem, _
+pnrtn As NotesRichTextNavigator, p_NbLignes As Integer, p_NbColonnes As Integer, p_Cellule As Long)
+%REM
+----------------------------------------------------------------------------------------------
+ Ajoute les données dans le tableau - source = array de données.
+	Paramètres:
+		p_Valeurs			Variant.  Les valeurs qui doivent être ajoutées dans le tableau.
+		panrts				NotesRichTextStyle.  Le format du texts à insérer dans le tableau.
+		panrti				NotesRichTextItem.  L'item qui contient le tableau (body).
+		panrtn				NotesRichTextNavigator.
+		p_NbLignes		Integer.  Le nombre de lignes du tableau.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		p_Cellule			Long.  Compteur du nombre de cellules d'un courriel.
+----------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim v_Valeur As String
+	
+	Dim i As Integer
+	Dim k As Integer
+	
+	For k = 0 To p_NbLignes - 1
+		For i = 0 To p_NbColonnes - 1
+			p_Cellule = p_Cellule + 1
+			
+			If p_NbColonnes = 1 Then
+				v_Valeur = Cstr(p_Valeurs(k))
+			Else
+				v_Valeur = Cstr(p_Valeurs(k, i))
+			End If
+			
+			If v_Valeur &lt;&gt; "" Then
+				Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+				Call pnrti.BeginInsert(pnrtn)
+				Call pnrti.AppendStyle(pnrts)
+				Call pnrti.AppendText(v_Valeur)
+				Call pnrti.EndInsert
+			End If
+		Next
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItRT_AjouterDonnees_ndc"><lotusscript>Sub SItRT_AjouterDonnees_ndc(p_Valeurs As Variant, p_Formules As Variant, pnrts As NotesRichTextStyle, pnrti As NotesRichTextItem, _
+	pnrtn As NotesRichTextNavigator, p_NbColonnes As Integer, p_Cellule As Long)
+	%REM
+---------------------------------------------------------------------------------------------------
+ Ajoute les données dans le tableau - source = collection de documents.
+	Paramètres:
+		p_Valeurs			Variant.  Les valeurs qui doivent être ajoutées dans le tableau.
+		p_Formules		Variant.  Pour chaque colonne, la formule permettant de calculer la valeur 
+								à mettre dans la case du tableau.
+		panrts				NotesRichTextStyle.  Le format du texts à insérer dans le tableau.
+		panrti				NotesRichTextItem.  L'item qui contient le tableau (body).
+		panrtn				NotesRichTextNavigator.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		p_Cellule			Long.  Compteur du nombre de cellules d'un courriel.
+---------------------------------------------------------------------------------------------------
+	%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim a_Valeur As Variant
+	Dim v_NotesURL As String
+	
+	Dim i As Integer
+	Dim j As Integer
+	
+	Set nd_Suivant = p_Valeurs.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = p_Valeurs.GetNextDocument(nd_Suivant)
+		j = Lbound(p_Formules)
+		v_NotesURL = SIND_NotesURL(nd)		' lien URL du document
+		
+		For i = 1 To p_NbColonnes
+			p_Cellule = p_Cellule + 1
+			
+			If j &lt;= Ubound(p_Formules) Then
+				'				g_TexteErreur_SItRT = p_Formules(j)
+				a_Valeur = Evaluate(p_Formules(j), nd)
+				If Isarray(a_Valeur) Then
+					Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+					Call pnrti.BeginInsert(pnrtn)
+					Call pnrti.AppendStyle(pnrts)
+					Call pnrti.AppendText(Cstr(a_Valeur(0)))
+					Call pnrti.EndInsert
+				End If
+			End If
+			
+			j = j + 1
+		Next
+		
+		Call SItRT_RemplacerDocLink(pnrti, "[#doclink]", nd)
+		Call SItRT_Remplacer(pnrti, "[#noteslink]", v_NotesURL)								' Ouvrir le lien en mode lecture
+		Call SItRT_Remplacer(pnrti, "[#editlink]", v_NotesURL &amp; "?EditDocument")		' Ouvrir le lien en mode écriture
+		
+	Loop
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItRT_InsererRichTextUI"><lotusscript>Function SItRT_InsererRichTextUI(pnuid As NotesUIDocument, p_NomItemUI As String, p_Signet As String, p_Serveur As String, p_DB_ReplicaID As String, p_UnidSource As String, _
+p_NomItemSource As String) As Boolean
+	' Permet d'insérer le contenu d'un champ rich text dans un autre par le UI
+	' pnuid = NotesUIDocument qui contient le champ dans lequel il faut insérer le RT
+	' p_NomItemUI = Nom du champ dans lequel il faut insérer le RT (ex.: Body)
+	' p_Signet = Nom du signet qui détermine l'emplacement ou il faut insérer le RT.
+	'		Si vide ou non trouvé, ajoute au début.
+	' p_Serveur = Nom du serveur du doc source
+	' p_DB_ReplicaID = ReplicaID de la BD qui contient le doc source
+	' p_UnidSource = Le UNID du document qui contient le RT à insérer
+	' p_NomItemSource = le nom du champ RT à insérer
+	On Error Goto GererErreur
+	
+	Dim v_script As String
+	
+	SItRT_InsererRichTextUI = False
+	'Print "p_Serveur: " &amp; p_Serveur &amp; "   ---   p_DB_ReplicaID: " &amp; p_DB_ReplicaID &amp; "   ---   p_UnidSource: " &amp; p_UnidSource
+	v_script = |
+					Dim ndb As New NotesDatabase( "", "" )
+					' Dim ns As New NotesSession
+					Dim nd As NotesDocument
+					Dim nuiws As New NotesUIWorkspace
+					Dim nuid As NotesUIDocument
+
+					' Set ndb = ns.CurrentDatabase
+					If ndb.OpenByReplicaID( "| &amp; p_Serveur &amp; |", "|&amp; p_DB_ReplicaID &amp;|" ) Then
+						set nd = ndb.GetDocumentByUnid("| &amp; p_UnidSource &amp; |")
+						If nd.HasItem("| &amp; p_NomItemSource &amp; |") Then
+							Set nuid = nuiws.CurrentDocument
+							Call nuid.ImportItem(nd, "| &amp; p_NomItemSource &amp; |")	
+						End If	
+					Else
+  						Print( "Impossible d'ouvrir la base" )
+					End If
+					|
+	
+	Call pnuid.GotoField(p_NomItemUI)
+	If p_Signet &lt;&gt; "" Then
+		If Instr(pnuid.FieldGetText(p_NomItemUI), p_Signet) &gt; 0 Then
+			Call pnuid.FindString(p_Signet)
+		End If
+	End If
+	
+	Execute(v_script)
+	
+	SItRT_InsererRichTextUI = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SItRT_ValiderValeurVide"><lotusscript>Function SItRT_ValiderValeurVide (pnd As NotesDocument , p_NomItem As String) As Integer
+' =============================================================================
+' Cette fonction verifie si un RichTextItem est vide (sans texte et sans objet)
+' =============================================================================
+	On Error Goto GererErreur
+	
+	Dim v_Text As String
+	Dim v_nrti As Variant
+	
+	SItRT_ValiderValeurVide = True
+	
+	Set v_nrti = pnd.GetFirstItem(p_NomItem)
+	If v_nrti Is Nothing Then
+		Exit Function
+	End If
+	
+	If (v_nrti.Type = RICHTEXT) Then
+		v_Text = Trim(v_nrti.GetFormattedText( False, 0 )) ' extraire le texte du RichTextItem (ignore fichiers/OLE)
+		If Len(v_Text) &gt;= 1 Then
+			SItRT_ValiderValeurVide = False
+			Exit Function
+		Else
+			If Isarray(v_nrti.EmbeddedObjects) Then
+				Forall neo In v_nrti.EmbeddedObjects
+					SItRT_ValiderValeurVide = False
+					Exit Function
+				End Forall
+			End If
+		End If
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItRT_AjouterDonnees_and"><lotusscript>Sub SItRT_AjouterDonnees_and(p_Valeurs As Variant, p_Formules As Variant, pnrts As NotesRichTextStyle, pnrti As NotesRichTextItem, _
+	pnrtn As NotesRichTextNavigator, p_NbColonnes As Integer, p_Cellule As Long)
+	%REM
+---------------------------------------------------------------------------------------------------
+ Ajoute les données dans le tableau - source = array de documents.
+	Paramètres:
+		p_Valeurs			Variant.  Les valeurs qui doivent être ajoutées dans le tableau.
+		p_Formules		Variant.  Pour chaque colonne, la formule permettant de calculer la valeur 
+								à mettre dans la case du tableau.
+		panrts				NotesRichTextStyle.  Le format du texts à insérer dans le tableau.
+		panrti				NotesRichTextItem.  L'item qui contient le tableau (body).
+		panrtn				NotesRichTextNavigator.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		p_Cellule			Long.  Compteur du nombre de cellules d'un courriel.
+---------------------------------------------------------------------------------------------------
+	%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim a_Valeur As Variant
+	Dim v_NotesURL As String
+	
+	Dim i As Integer
+	Dim j As Integer
+	Dim k As Integer
+	
+	For k = 0 To Ubound(p_Valeurs)
+		If p_Valeurs(k) Isa "NotesDocument" Then
+			Set nd = p_Valeurs(k)
+			v_NotesURL = SIND_NotesURL(nd)		' lien URL du document
+			j = Lbound(p_Formules)
+			
+			For i = 1 To p_NbColonnes
+				p_Cellule = p_Cellule + 1
+				
+				If j &lt;= Ubound(p_Formules) Then
+					a_Valeur = Evaluate(p_Formules(j), nd)
+					If Isarray(a_Valeur) Then
+						Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+						Call pnrti.BeginInsert(pnrtn)
+						Call pnrti.AppendStyle(pnrts)
+						Call pnrti.AppendText(Cstr(a_Valeur(0)))
+						Call pnrti.EndInsert
+					End If
+				End If
+				
+				j = j + 1
+			Next
+			
+			Call SItRT_RemplacerDocLink(pnrti, "[#doclink]", nd)
+			Call SItRT_Remplacer(pnrti, "[#noteslink]", v_NotesURL)								' Ouvrir le lien en mode lecture
+			Call SItRT_Remplacer(pnrti, "[#editlink]", v_NotesURL &amp; "?EditDocument")		' Ouvrir le lien en mode écriture
+		Else
+			p_Cellule = p_Cellule + p_NbColonnes
+		End If
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItRT_DefinirCouleurFond"><lotusscript>Sub SItRT_DefinirCouleurFond(p_nco As Integer, p_Couleur As Variant)
+%REM
+------------------------------------------------------------------------------------------------
+ Initialise la variable qui gère la couleur du fond du tableau.
+ Paramètres:
+	p_nco		Integer.  Le type de fond auquel il faut affecter la couleur.
+						0 = Ligne primaire
+						1 = Ligne Alt
+	p_Couleur	Variant.	La couleur du fond des lignes du tableau.
+							La couleur peut être soit un nombre représentant une couleur Notes 
+								ou au array de nombres identifiant une couleur par son code RGB.
+
+ Les couleurs habituellement utilisées sont:
+	Fond blanc :		COLOR_WHITE (1)
+	Fond beige :		Evaluate("236:231:213")
+	Fong bleu :			Evaluate("230:239:244")
+------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nco As NotesColorObject
+	
+	Set nco = gns_SItRT.CreateColorObject
+	nco.NotesColor = COLOR_WHITE
+	If Isarray(p_Couleur) Then
+		If Ubound(p_Couleur) = 2 Then
+			Call nco.SetRGB(p_Couleur(0), p_Couleur(1), p_Couleur(2))
+		End If
+	Else
+		If Datatype(p_Couleur) = 2 Then
+			nco.NotesColor = p_Couleur
+		End If
+	End If
+	
+	If p_nco = 1 Then	' Alt
+		Set gnco_FondAlt_SItRT = nco
+	Else
+		Set gnco_Fond_SItRT = nco
+	End If
+	Exit Sub
+	
+GererErreur:
+	If p_nco = 1 Then	' Alt
+		Set gnco_FondAlt_SItRT = nco
+	Else
+		Set gnco_Fond_SItRT = nco
+	End If
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItRT_Remplacer"><lotusscript>Function SItRT_Remplacer(pnrti As NotesRichTextItem, Byval p_ValeurDe As String, _
+Byval p_ValeurA As String) As Integer
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de remplacer toutes les occurences de "p_ValeurDe" par "p_ValeurA" 
+	' dans l'item pnrti.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nrtn As NotesRichTextNavigator
+	Dim nrtr As NotesRichTextRange
+	Dim nrts As NotesRichTextStyle
+	Dim i As Integer
+	Dim v_ValeurA As String
+	
+	SItRT_Remplacer = False
+	
+	Set nrtn = pnrti.CreateNavigator
+	Set nrtr = pnrti.CreateRange
+	
+	If p_ValeurA &lt;&gt; "" Then
+		If nrtn.FindFirstString(p_ValeurDe, 1) Then
+			Do 
+				Call nrtr.SetBegin(nrtn)
+				Set nrts = nrtr.Style
+				v_ValeurA = p_ValeurA
+				
+				Call pnrti.BeginInsert(nrtn, False)
+				Call pnrti.AppendStyle(nrts)
+				Call pnrti.AppendText(v_ValeurA)
+				Call pnrti.EndInsert
+				Loop Until nrtn.FindNextString(p_ValeurDe, 1) = False Or _
+			nrtn.FindNextString(Chr(13), 1) = False
+		End If
+	End If
+	
+	If nrtn.FindFirstElement(RTELEM_TYPE_TEXTPARAGRAPH) Then
+		Call nrtr.SetBegin(nrtn)
+		If nrtr.FindAndReplace(p_ValeurDe, " ", 17) &gt; 0 Then		' RT_FIND_CASEINSENSITIVE + RT_REPL_ALL
+			SItRT_Remplacer = True
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItRT_DefinirCouleursFond"><lotusscript>Sub SItRT_DefinirCouleursFond(p_Couleurs As Variant)
+%REM
+------------------------------------------------------------------------------------------------
+ Initialise les variables globales qui gère les couleurs du fond du tableau.
+	Paramètres:
+		p_Couleurs		Array de variant.  Le premier élément (0) représente la couleur du fond
+								des lignes du tableau.  Le deuxième élément (1) représente la
+								couleur des lignes Alt.  Chaque couleur peut être soit un nombre
+								représentant une couleur Notes ou au array de nombre identifiant
+								une couleur par son code RGB.
+
+ Les couleurs habituellement utilisées sont:
+	Fond blanc :			COLOR_WHITE (1)
+	Fond beige :			Evaluate("236:231:213")
+	Fong bleu :			Evaluate("230:239:244")
+------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	If Isarray(p_Couleurs) Then
+		If Ubound(p_Couleurs) &gt; 0 Then
+			Call SItRT_DefinirCouleurFond(0, p_Couleurs(0))
+			Call SItRT_DefinirCouleurFond(1, p_Couleurs(1))
+		Else
+			Call SItRT_DefinirCouleurFond(0, p_Couleurs(0))
+			Call SItRT_DefinirCouleurFond(1, p_Couleurs(0))
+		End If
+	Elseif Isnumeric(p_Couleurs) Then
+		Call SItRT_DefinirCouleurFond(0, p_Couleurs)
+		Call SItRT_DefinirCouleurFond(1, p_Couleurs)
+	Else
+		Call SItRT_DefinirCouleurFond(0, COLOR_WHITE)
+		Call SItRT_DefinirCouleurFond(1, Evaluate("230:239:244"))
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItRT_RemplacerFichierAttach"><lotusscript>Function SItRT_RemplacerFichierAttach(pnrti As NotesRichTextItem, Byval p_NomSignet As String, p_CheminFichier As String) As Boolean
+	' --------------------------------------------------------------------------------------------
+	' Le script permet de remplacer un signet par un fichier attaché vers le document sélectionné.
+	' --------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	On Error 4505 Resume Next
+	
+	Dim nrtn As NotesRichTextNavigator
+	Dim nrtr As NotesRichTextRange
+	Dim i As Integer
+	
+	SItRT_RemplacerFichierAttach = False
+	
+	Set nrtn = pnrti.CreateNavigator
+	Set nrtr = pnrti.CreateRange
+	
+	' Recherche la première occurrence de "[DocLink]"
+	If nrtn.FindFirstString(p_NomSignet) Then
+		Call nrtr.SetBegin(nrtn)
+		Call pnrti.BeginInsert(nrtr)
+		Call pnrti.AppendText(" ")
+		Call pnrti.EmbedObject(EMBED_ATTACHMENT, "", p_CheminFichier)
+		Call pnrti.EndInsert
+		Set nrtr = pnrti.CreateRange
+		Call nrtn.FindFirstElement(4)
+		Call nrtr.SetBegin(nrtn)
+		' Remplace les occurences
+		Call nrtr.FindAndReplace(p_NomSignet, " ", 1) 'Ne peut être null ou "" sinon la recherche échoue
+	End If
+	
+	SItRT_RemplacerFichierAttach = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItRT_CreerTableau"><lotusscript>Sub SItRT_CreerTableau(pnrti As NotesRichTextItem, pnrtn As NotesRichTextNavigator, p_Signet As String, p_NbLignes As Integer, _
+p_NbColonnes As Integer, panrtps() As NotesRichTextParagraphStyle)
+%REM
+------------------------------------------------------------------------------------------------------
+ Créé le tableau dans le mesage (rich text).
+	Paramètres:
+		panrti				NotesRichTextItem.  L'item dans lequel on ajoute le tableau.
+		p_Signet			String.  Le nom du signet qui indique l'emplacement ou il faut
+								insérer le tableau.  Si le signet est nul, le tableau est ajouté à la
+								fin du message.
+		p_NbLignes		Integer.  Le nombre de lignes du tableau.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		panrtps				Array de NotesRichTextParagraphStyles.  Le format des colonnes tu tableau.
+------------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nrtr As NotesRichTextRange
+	Dim nrtt As NotesRichTextTable
+	
+	Set pnrtn = pnrti.CreateNavigator
+	If p_Signet = "" Then
+		Call pnrti.AppendTable(p_NbLignes, p_NbColonnes, "", 2.54 * RULER_ONE_CENTIMETER, panrtps)
+	Else
+		Set nrtr = pnrti.CreateRange
+		Call pnrtn.FindFirstString(p_Signet)
+		Call nrtr.SetBegin(pnrtn)
+		Call pnrti.BeginInsert(pnrtn, False)
+		Call pnrti.AppendTable(p_NbLignes, p_NbColonnes, "", 2.54 * RULER_ONE_CENTIMETER, panrtps)
+		Call pnrti.EndInsert
+		Call SItRT_Remplacer(pnrti, p_Signet, " ")
+	End If
+	Call pnrtn.FindLastElement(RTELEM_TYPE_TABLE)
+	Set nrtt = pnrtn.GetElement
+	nrtt.Style = TABLESTYLE_ALTERNATINGROWS
+	Call nrtt.SetColor(gnco_Fond_SItRT)
+	Call nrtt.SetAlternateColor(gnco_FondAlt_SItRT)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItRT, gc_Element_SItRT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,91-05</datetime></item></scriptlibrary>
+
+</database>

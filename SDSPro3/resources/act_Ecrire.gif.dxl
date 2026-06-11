@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="act_Ecrire.gif" alias="act_Ecrire" publicaccess="true" designerversion="5" imagename="insert signature.GIF">
+<noteinfo noteid="1606" unid="2410E0604ECFB7D185257E6900548C60" sequence="14">
+<created><datetime dst="true">20150619T112329,60-04</datetime></created>
+<modified><datetime dst="true">20190830T091557,15-04</datetime></modified>
+<revised><datetime dst="true">20180718T105551,73-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091557,13-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205707,03-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=William Zircher/O=Iris</name><name>CN=Lotus Notes Template Development/O=Lotus Notes</name><name>CN=William Zircher/O=Iris</name><name>CN=Lotus Notes Template Development/O=Lotus Notes</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhFAAUALP/AAAAAICAgP///8DAwI+Pj9LS0rKysqKioi8vL+Hh4V9fX09PT8DAwAAAAAAA
+AAAAACH5BAEAAAwALAAAAAAUABQAQASYkMnJgL10AiO6EgrAdMtyCYZYIUXnvkKBqBILd8jXyRLw
+BZUFQjgUnkIaBOHWIcwoiNdhkVjdEJVEJ4AMHDidU0IEIAyYNwItqTAkEgbFM0MB5Nxw+TrZQsfm
+FUsuCQpGUS5qFTogAQIzCAgHMCEAWgIHAwF2jS5iFmASA4IvJykMUUOWMAcnWDV9fn8ZdqMwTnuz
+FxZ0DBEAOw==
+</gif></imageresource>
+
+</database>

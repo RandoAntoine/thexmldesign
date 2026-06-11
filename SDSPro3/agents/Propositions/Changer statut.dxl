@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Propositions\Changer statut" alias="A_OStat" hide="v3" publicaccess="false" designerversion="8.5.3" comment="2.3" restrictions="unrestricted" enabled="false">
+<noteinfo noteid="55596a" unid="71AEB7CC717C811985258C0C006E53D0" sequence="5">
+<created><datetime>20250108T150504,16-05</datetime></created>
+<modified><datetime>20260105T014838,41-05</datetime></modified>
+<revised><datetime>20250319T073746,36-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,40-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,40-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073745,89-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="selected"/><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SDSP_Workflow"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error Goto GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	
+	Dim v_Roles As Variant
+	Dim ns As New Notessession
+	Dim ndb As Notesdatabase
+	Dim ndc As NotesDocumentCollection
+	Dim nd_DB As NotesDocument
+	Dim v_Statut As String
+	Dim v_Commentaire As String
+	Dim nd As Notesdocument
+	Dim nd_Suivant As NotesDocument
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	' Doit avoir le rôle Admin pour utiliser cette action
+	v_Roles = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
+	If v_Roles(0) &lt;&gt; 1 Then
+		Messagebox "Vous n'êtes pas autorisé à utiliser cette action.", 16, "Opération annulée"
+		Exit Sub
+	End If
+	
+	Set ndb = ns.Currentdatabase
+	Set ndc = ndb.UnprocessedDocuments
+	If ndc.Count = 0 Then
+		Print "Aucun document sélectionné"
+		Exit Sub
+	End If
+	
+	' Demander le nouveau statut
+	' ---------------------------------------
+	Set nd_DB = New NotesDocument(ndb)
+	nd_DB.DB_TableStatuts = "Prop_Statut_FR"
+	nd_DB.DB_StatutActuel = ""
+	If Not nuiws.DialogBox("DB_Stat", True, True, False, False, False, False, xGDK_xMessage("SI", 97, xLangue, ""), _
+	nd_DB, True, False, False) Then
+		Print "Opération annulée"
+		Exit Sub
+	End If
+	Call nuiws.CurrentView.DeselectAll
+	
+	v_Statut = xVar(nd_DB, "DB_Statut", "")
+	v_Commentaire = xVar(nd_DB, "DB_Commentaire", "")
+	
+	Set nd_Suivant = ndc.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		
+		'***** Insérer les instructions de correction içi *****
+		' Modifier le statut
+		' ------------------
+		If SDSPWF_AssignerStatut(nd, v_Statut, False, v_Commentaire, ns.Username) Then
+			
+			' Modifier les accès (sécurité)
+			' -----------------------------
+			Call SDSPP_AssignerSecurite(nd, False)
+			v_NbMaj = v_NbMaj + 1
+		End If
+		
+		If (v_NbLus Mod 1000) = 0 Then
+			Print Cstr(v_NbMaj) &amp; "/" &amp; Cstr(v_NbLus)
+		End If
+	Loop
+	
+	Print "Fin " &amp; Cstr(v_NbMaj) &amp; "/" &amp; Cstr(v_NbLus)
+	Exit Sub
+	
+GererErreur:
+	Print "Fin " &amp; Cstr(v_NbMaj) &amp; "/" &amp; Cstr(v_NbLus)
+	Call nuiws.Prompt(PROMPT_OK, GetThreadInfo(1), "Erreur " &amp; Cstr(Err()) &amp; " à la ligne " &amp; Cstr(Erl()) &amp; ": " &amp; Error())
+	Exit Sub
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20250108T150424,67-05</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20250319T073746,36-05</datetime></item></agent>
+
+</database>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Admin\EditDocument" alias="A_Edit" hide="v3" publicaccess="false" designerversion="8.5.3" comment="1.0b" activatable="false" enabled="false">
+<noteinfo noteid="3a74aa" unid="6F5EBD70A674262385258933005975DB" sequence="26">
+<created><datetime>20230110T111708,75-05</datetime></created>
+<modified><datetime>20250319T074050,51-05</datetime></modified>
+<revised><datetime>20250319T073736,90-05</datetime></revised>
+<lastaccessed><datetime>20250319T074050,50-05</datetime></lastaccessed>
+<addedtofile><datetime>20230112T233620,23-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073736,45-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="never" runlocation="specific" runserver="CN=Zulu/O=Serti Informatique"/></trigger><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Traitement des erreurs
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "F_Edit"
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+	
+	Dim ns As New NotesSession
+	Dim ndb As Notesdatabase
+	Dim nd As NotesDocument
+	Dim nuiws As New NotesUIWorkspace
+	Dim v_DocId As string
+	
+	Set ndb = ns.Currentdatabase
+	v_DocId = ns.Currentagent.ParameterDocId
+	Set nd = ndb.Getdocumentbyid(v_DocId)
+	
+	Call nuiws.EditDocument(True, nd)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Getthreadinfo(1), v_DocId, False)
+	Exit Sub
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="CE122E4AE8AE642D85258C5A0062164A">
+<agentmodified><datetime>20250319T074050,51-05</datetime></agentmodified>
+<agentrun><datetime>20260203T095700,51-05</datetime></agentrun>
+<runlog>Started running agent 'Admin\EditDocument|A_Edit' on 2026-02-03 09:56:46
+Found 0 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Admin\EditDocument|A_Edit' on 2026-02-03 09:57:00
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073736,90-05</datetime></item></agent>
+
+</database>

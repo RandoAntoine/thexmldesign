@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><view name="Z\Propositions 23" alias="V_Prop23" hide="web mobile" showinmenu="false" publicaccess="false" designerversion="8.5.3" comment="K:Origine;NoClient|NoProjet" unreadmarks="none" onopengoto="lastopened" onrefresh="displayindicator" headers="simple" opencollapsed="false" showresponsehierarchy="false" showmargin="true" shrinkrows="true" extendlastcolumn="true" showhierarchies="false" unreadcolor="black" rowlinecount="3" headerlinecount="1" rowspacing="1" bgcolor="white" altrowcolor="#e6eff4" totalscolor="gray" headerbgcolor="white" boldunreadrows="false" evaluateactions="false" allownewdocuments="false" allowcustomizations="true" hidemarginborder="false" marginwidth="0px" marginbgcolor="white" uniquekeys="false" formatnoteid="039219DE43DBB9D385256FD20077BA23">
+<noteinfo noteid="555a72" unid="ADB8D82F2DD4D58C8525853E00489227" sequence="282">
+<created><datetime dst="true">20200402T091240,07-04</datetime></created>
+<modified><datetime>20260105T014842,94-05</datetime></modified>
+<revised><datetime>20250319T074012,58-05</datetime></revised>
+<lastaccessed><datetime>20260116T134004,84-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014842,93-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="selection"><formula>SELECT Form = "F_Prop" &amp; !@IsAvailable($Conflict)</formula></code><code event="querypaste"><lotusscript>Sub Querypaste(Source As Notesuiview, Continue As Variant)
+	Continue = False
+End Sub</lotusscript></code>
+<actionbar borderstyle="none" linestyle="double" bgcolor="silver" bordercolor="#2f2f2f">
+<actionbuttonstyle bgcolor="silver"/><font size="8pt" style="bold"/><border width="0px 0px 1px"/></actionbar>
+<column sort="ascending" hidedetailrows="false" itemname="$28" width="27" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false"><font size="9pt"/><columnheader title="Origine"><font size="8pt" style="bold"/></columnheader><code event="value"><formula>Prop_Origine + ";" + @If(Prop_Origine = "SICl"; Prop_ClientNoFmt; Prop_Origine = "SF"; Prop_NoOpportuniteSF; Prop_NoProjet)</formula></code></column>
+<column hidedetailrows="false" itemname="Prop_NoProposition" width="8" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false"><font size="9pt"/><columnheader title="NoProposition"><font size="8pt" style="bold"/></columnheader></column>
+<column hidedetailrows="false" itemname="Prop_NbProposition" width="8" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false"><font size="9pt"/><columnheader title="NbProposition"><font size="8pt" style="bold"/></columnheader><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false" decimalsym="." thousandssep=" " currencysymtype="custom" currencysym="$" usecustomsym="false"/></column>
+<column hidedetailrows="false" itemname="PROP_STATUT" width="4" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false"><font size="9pt"/><columnheader title="Statut"><font size="8pt" style="bold"/></columnheader><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false" decimalsym="." thousandssep=" " currencysymtype="custom" currencysym="$" usecustomsym="false"/></column>
+<item name="TmpViewDesignCollation"><text>fr</text></item></view>
+
+</database>

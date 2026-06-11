@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><outline name="Main Menu" alias="O_Prin" hide="web v3 v4strict" publicaccess="false" designerversion="8.5.3" language="en">
+<noteinfo noteid="5558ea" unid="3838919C151EA25D85258A3D005CD17E" sequence="2">
+<created><datetime dst="true">20231003T125349,42-04</datetime></created>
+<modified><datetime>20260105T014838,18-05</datetime></modified>
+<revised><datetime dst="true">20231003T125350,00-04</datetime></revised>
+<lastaccessed><datetime>20260105T014838,17-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,17-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<outlineentry label="Proposals" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop01"/></outlineentry>
+<outlineentry label="- Open, By Stat/Cust" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop10"/></outlineentry>
+<outlineentry label="- Signed, By Stat/Cust" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop09"/></outlineentry>
+<outlineentry type="none" hide="web" displayimage="false"/>
+<outlineentry label="All" type="none" hide="web" displayimage="false"/>
+<outlineentry label="- By Status/Customer" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop01"/></outlineentry>
+<outlineentry label="- By Status/Rep./Cust." type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop02"/></outlineentry>
+<outlineentry label="- By Status/Rep./Last" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop05"/></outlineentry>
+<outlineentry label="- By Status/Last/Author" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop06"/></outlineentry>
+<outlineentry label="- By Status/Author" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop04"/></outlineentry>
+<outlineentry label="- By Status/Date" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop07"/></outlineentry>
+<outlineentry label="- By Date/Customer" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop03"/></outlineentry>
+<outlineentry label="- By Rep./Status/Date" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop08"/></outlineentry>
+<outlineentry label="- By Type/Date" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Prop11"/></outlineentry>
+<outlineentry type="none" displayimage="false"/>
+<outlineentry label="Status Alerts" type="none" hide="web" displayimage="false"><code event="hidewhen"><formula>@IsNotMember("[Alertes]";@UserRoles)</formula></code></outlineentry>
+<outlineentry type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Aler01"/><code event="label"><formula>"- A traiter"</formula></code><code event="hidewhen"><formula>@IsNotMember("[Alertes]";@UserRoles)</formula></code></outlineentry>
+<outlineentry label="- History" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_Aler09"/><code event="hidewhen"><formula>@IsNotMember("[Alertes]";@UserRoles)</formula></code></outlineentry>
+<outlineentry type="none" displayimage="false"/>
+<outlineentry label="Conflicts" type="namedelementlink" targetframe="Contenu" hide="web" displayimage="false"><namedelementlink type="view" name="V_SIGC"/><code event="hidewhen"><formula>@IsNotMember("[Directeur]";@UserRoles)</formula></code></outlineentry>
+<outlineentry type="none" hide="web" displayimage="false"/>
+<outlineentry type="action" displayimage="false"><code event="value"><formula>@Command([FileCloseWindow])</formula></code><code event="label"><formula>"Close"</formula></code></outlineentry></outline>
+
+</database>

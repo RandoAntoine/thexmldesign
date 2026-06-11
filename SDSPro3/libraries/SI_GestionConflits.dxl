@@ -1,0 +1,549 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_GestionConflits" hide="v3 v4strict" designerversion="8" comment="7.3a">
+<noteinfo noteid="5556fa" unid="85B9CA3EBE1B45B8852586B40011FB7C" sequence="76">
+<created><datetime dst="true">20210410T231624,92-04</datetime></created>
+<modified><datetime>20260105T014837,19-05</datetime></modified>
+<revised><datetime>20250319T073635,19-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,18-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,18-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Historique"
+Use "x_GDK"
+'
+'	Les fonctions définies dans cette bibliothèque de script permettent de résoudre les documents ayant
+'	un conflit de réplication.
+'
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SIGC As Notessession
+Dim gndb_SIGC As Notesdatabase
+
+Dim gnuiws_SIGC As Notesuiworkspace
+Dim gnuid_SIGC As Notesuidocument
+Dim gnd_SIGC As Notesdocument
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIGC = "SL"
+Const gc_Element_SIGC = "SI_GestionConflits"
+
+</lotusscript></code><code event="SIGC_acResoudre"><lotusscript>Sub SIGC_acResoudre
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de résoudre les conflits de réplication sélectionnés.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndc As Notesdocumentcollection
+	Dim nd_Suivant As Notesdocument
+	Dim nd As Notesdocument
+	
+	Call SIGC_Initialisations
+	
+	Set ndc = gndb_SIGC.Unprocesseddocuments
+	If ndc.Count = 0 Then
+		Messagebox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	Call gnuiws_SIGC.CurrentView.Deselectall()
+	
+	' Boucle sur tous les documents sélectionnés
+	' ---------------------------------------------------------------------
+	Set nd_Suivant = ndc.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		
+		If SIGC_ResoudreConflit(nd, 0, Getthreadinfo(1)) = False Then
+			Set nd_Suivant = Nothing
+		End If
+	Loop
+	
+	Call gnuiws_SIGC.ViewRefresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIGC_ConsoliderHistoriques"><lotusscript>Sub SIGC_ConsoliderHistoriques(pnd_Conf As NotesDocument, pnd_Orig As NotesDocument)
+'============================================================================
+'Pour comparer les historiques, on doit trouver les champs SIHI du document et boucler dedans
+'pour les comparer entre eux, ajouter les manquants et trier leur ordre par date. il y a 3 sortes
+'de champs utilisés pour construire l'historique:
+'	
+'SIHI_Date0			SIHI_Statut0				SIHI_User0
+'SIHI_Date1			SIHI_Statut1				SIHI_User1
+'.							.								.
+'.							.								.
+'.							.								.	
+'=============================================================================
+	On Error Goto GererErreur
+	
+	Dim ni_Modif As NotesItem
+	Dim ni_ModifOrig As NotesItem	
+	Dim v_OrigDate As Variant
+	Dim v_ConfDate As Variant
+	Dim j As Long
+	Dim k As Long
+	Dim x As Long
+	Dim y As Long
+	Dim v_ChoixDate() As Variant
+	Dim v_ChoixStatut() As String
+	Dim v_ChoixUser() As String
+	Dim v_ChoixComm() As String
+	Dim v_ChoixModif() As String
+	Dim v_Maj As Boolean
+	
+	v_Maj = False
+	
+	' Si l'historique existe dans les deux documents
+	If pnd_Conf.HasItem(gc_NomItemDate_SIHi) And pnd_Orig.HasItem(gc_NomItemDate_SIHi) Then
+		'Le champ SIHI_Modif contient une liste de "0". Le nombre d'éléments est le nombre de lignes
+		'contenues dans l'historique. Il est donc utilisé pour les bornes des boucles.
+		Set ni_Modif = pnd_Conf.GetFirstItem(gc_NomItemDate_SIHi)
+		Set ni_ModifOrig = pnd_Orig.GetFirstItem(gc_NomItemDate_SIHi)
+		j=0
+		x=0 'Compteur pour conflit
+		y=0 'Compteur pour Original
+		
+		'Boucler pour chaque entrée de l'historique du conflit
+		'-----------------------------------------------------------------------
+		Do Until  x &gt; Ubound(ni_Modif.Values) And y &gt; Ubound(ni_ModifOrig.Values)
+			v_ConfDate = xVar(pnd_Conf, gc_NomItemDate_SIHi &amp; x,"")	
+			v_OrigDate = xVar(pnd_Orig, gc_NomItemDate_SIHi &amp; y,"")			
+			Redim Preserve v_ChoixDate(j)
+			Redim Preserve v_ChoixStatut(j)
+			Redim Preserve v_ChoixUser(j)
+			Redim Preserve v_ChoixComm(j)
+			Redim Preserve v_ChoixModif(j)
+			
+			' Si on a atteint la fin de l'historique du document original ou de celui en conflit, _
+			' on récupère les données de l'autre document
+			If v_ConfDate = "" Then
+				v_ChoixDate(j) = xVar(pnd_Orig, gc_NomItemDate_SIHi &amp; y,"")	
+				v_ChoixStatut(j) = xVar(pnd_Orig, gc_NomItemStatut_SIHi &amp; y,"")	
+				v_ChoixUser(j) = xVar(pnd_Orig, gc_NomItemUser_SIHi &amp; y,"")	
+				v_ChoixComm(j) = xVar(pnd_Orig, gc_NomItemComm_SIHi &amp; y,"")	
+				y=y+1		
+				v_Maj = True
+			Elseif v_OrigDate = "" Then
+				v_ChoixDate(j) = xVar(pnd_Conf, gc_NomItemDate_SIHi &amp; x,"")	
+				v_ChoixStatut(j) = xVar(pnd_Conf, gc_NomItemStatut_SIHi &amp; x,"")	
+				v_ChoixUser(j) = xVar(pnd_Conf, gc_NomItemUser_SIHi &amp; x,"")	
+				v_ChoixComm(j) = xVar(pnd_Orig, gc_NomItemComm_SIHi &amp; x,"")	
+				x=x+1
+				v_Maj = True
+				
+			'Si la date de l'entrée courante du conflit est égale, on met les données de la date, 
+			'le statut et l'utilisateur dans des arrays temporaires
+			Elseif v_ConfDate = v_OrigDate Then
+				v_ChoixDate(j) = xVar(pnd_Orig, gc_NomItemDate_SIHi &amp; y,"")	
+				v_ChoixStatut(j) = xVar(pnd_Orig, gc_NomItemStatut_SIHi &amp; y,"")	
+				v_ChoixUser(j) = xVar(pnd_Orig, gc_NomItemUser_SIHi &amp; y,"")	
+				v_ChoixComm(j) = xVar(pnd_Orig, gc_NomItemComm_SIHi &amp; y,"")	
+				x=x+1
+				y=y+1
+				
+			'Si la date de l'entrée courante du conflit est plus petite que l'originale, on met les données 
+			'de la date, le statut et l'utilisateur provenant du conflit dans la première position disponible 
+			'des arrays temporaires 
+			Elseif v_ConfDate &lt; v_OrigDate Then
+				v_ChoixDate(j) = xVar(pnd_Conf, gc_NomItemDate_SIHi &amp; x,"")	
+				v_ChoixStatut(j) = xVar(pnd_Conf, gc_NomItemStatut_SIHi &amp; x,"")	
+				v_ChoixUser(j) = xVar(pnd_Conf, gc_NomItemUser_SIHi &amp; x,"")	
+				v_ChoixComm(j) = xVar(pnd_Orig, gc_NomItemComm_SIHi &amp; x,"")	
+				x=x+1 'On avance le compteur de conflits
+				v_Maj = True
+			Elseif v_ConfDate &gt; v_OrigDate Then
+				v_ChoixDate(j) = xVar(pnd_Orig, gc_NomItemDate_SIHi &amp; y,"")	
+				v_ChoixStatut(j) = xVar(pnd_Orig, gc_NomItemStatut_SIHi &amp; y,"")	
+				v_ChoixUser(j) = xVar(pnd_Orig, gc_NomItemUser_SIHi &amp; y,"")	
+				v_ChoixComm(j) = xVar(pnd_Orig, gc_NomItemComm_SIHi &amp; y,"")	
+				y=y+1'On avance le compteur de l'original
+				v_Maj = True
+			End If
+			
+			j=j+1 
+		Loop
+	End If
+	
+	If v_Maj Then
+		'On remplace les données de l'original par les données contenues dans les arrays temporaires
+		Set ni_ModifOrig = pnd_Orig.ReplaceItemValue("SIHI_Modif", "")
+		For k = 0 To Ubound(v_ChoixDate)
+			Call pnd_Orig.ReplaceItemValue(gc_NomItemDate_SIHi &amp; k, v_ChoixDate(k))
+			Call pnd_Orig.ReplaceItemValue(gc_NomItemStatut_SIHi &amp; k, v_ChoixStatut(k))
+			Call pnd_Orig.ReplaceItemValue(gc_NomItemUser_SIHi &amp; k, v_ChoixUser(k))
+			Call pnd_Orig.ReplaceItemValue(gc_NomItemComm_SIHi &amp; k, v_ChoixComm(k))
+			Call ni_ModifOrig.AppendToTextList(v_ChoixModif(k))
+		Next
+		
+		'Activer la mise à jour de l'historique (Si ce champ n'existe pas, l'historique n'est pas reconstruit)
+		'Il est enlevé par la fonction SIHI_BatirHistorique
+		Call pnd_Orig.Save(False, True)
+		Call SIHI_BatirHistorique(pnd_Orig)
+	End If
+	
+	'La résolution de conflit continue son parcours par la suite
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIGC_ResoudreConflit"><lotusscript>Function SIGC_ResoudreConflit(pnd_Conf As Notesdocument, p_Mode As Integer, p_NomProgramme As String) As Integer
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de résoudre un conflit de réplication.
+	' Mode 0 : manuel, 1 = Auto (seuls les conflits ne requérant pas de prompt seront traités)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	On Error 4091 Goto NoDoc
+	
+	Dim v_UNID As String
+	Dim nd_Orig As Notesdocument
+	Dim nd_SIGC As Notesdocument
+	Dim i As Long
+	Dim v_NomItem As String
+	Dim v_Maj As Boolean
+	
+	SIGC_ResoudreConflit = False
+	Call SIGC_Initialisations
+	If Not pnd_Conf.HasItem("$Conflict") Then
+		Exit Function
+	End If
+	
+	' Extraire le document original
+	' ---------------------------------------------
+	v_UNID = xVar(pnd_Conf, "$REF", "")
+	If v_UNID = pnd_Conf.UniversalID Then
+		Set nd_Orig = Nothing
+	Else
+		Set nd_Orig = gndb_SIGC.GetdocumentbyUNID(v_UNID)
+	End If
+	
+	
+	' Si le document original n'existe pas, annuler le conflit
+	' -----------------------------------------------------------------------------------
+	If nd_Orig Is Nothing Then
+		Call pnd_Conf.Removeitem("$Conflict")
+		Call pnd_Conf.Removeitem("$REF")
+		If pnd_Conf.Save(False, False) Then
+'			Messagebox xGDK_xMessage("SI", 41, "", ""), 48, xGDK_xMessage("SI", 40, "", "")
+			Print xGDK_xMessage("SI", 41, "", "") &amp; " - Conflit résolu"
+			SIGC_ResoudreConflit = True
+		Else
+			Messagebox xGDK_xMessage("SI", 42, "", ""), 48, "Résolution de conflit"				
+		End If
+	Elseif nd_Orig.IsValid = False Then 
+		Messagebox xGDK_xMessage("SI", 42, "", ""), 48, "Résolution de conflit"				
+		
+	' Si le document original existe, permettre à l'utilisateur de résoudre le conflit
+	' --------------------------------------------------------------------------------------------------------------------
+	Else
+		' Construit un document de résolution de conflit
+		' ------------------------------------------------------------------------
+		If Not SIGC_DocumentDifferences(pnd_Conf, nd_Orig, False, nd_SIGC) Then
+			Exit Function
+		End If
+		
+		' Aucun item en conflit
+		' -----------------------------
+		If xVar(nd_SIGC, "SIGC_NbItems", 0) = 0 Then
+			' Résolution des conflits dans l'historique
+			' -------------------------------------------------------
+			Call SIGC_ConsoliderHistoriques(pnd_Conf, nd_Orig)
+			
+			' Transfert les réponses du conflit 
+			If pnd_Conf.Responses.Count &gt; 0 Then
+				Call SIGC_TransferReponses(pnd_Conf, nd_Orig)
+			End If
+			
+'			Messagebox xGDK_xMessage("SI", 41, "", ""), 48, xGDK_xMessage("SI", 40, "", "")
+			On Error 4000 Goto NoDelete
+			Call pnd_Conf.Remove(True)
+			SIGC_ResoudreConflit = True
+			Print xGDK_xMessage("SI", 41, "", "") &amp; " - Aucun item en conflit"
+		Elseif p_Mode = 0 Then
+			' Afficher le document de résolution de conflit
+			' ---------------------------------------------------------------------
+			Call nd_SIGC.Replaceitemvalue("Edition", 1)
+			If gnuiws_SIGC.Dialogbox("DB_SIGC", True, True, False, False, False, False, _
+			xGDK_xMessage("SI", 40, "", ""), nd_SIGC, True, False) Then
+				' Résolution des conflits dans l'historique
+				' -------------------------------------------------------
+				Call SIGC_ConsoliderHistoriques(pnd_Conf,nd_Orig)
+				
+				' Si l'utilisateur a appuyé sur le bouton OK, résoud le conflit
+				' ------------------------------------------------------------------------------------------
+				v_Maj = False
+				' Correction des items sélectionnés
+				For i = 1 To xVar(nd_SIGC, "SIGC_NbItems", 0)
+					If nd_SIGC.Getitemvalue("SIGC_GarderValeur" &amp; Cstr(i))(0) = "1" Then
+						v_NomItem = nd_SIGC.Getitemvalue("SIGC_NomItem" &amp; Cstr(i))(0)
+						Call nd_Orig.ReplaceItemValue(v_NomItem, _
+						nd_SIGC.Getitemvalue("SIGC_ValeurConflit" &amp; Cstr(i)))
+						v_Maj = True
+					End If
+				Next
+				' Sauvegarde du document original et suppression du document de conflit
+				If v_Maj Then
+					If nd_Orig.Save(False, False) Then
+						
+						' Transfert les réponses du conflit 
+						If pnd_Conf.Responses.Count &gt; 0 Then
+							Call SIGC_TransferReponses(pnd_Conf, nd_Orig)
+						End If
+						
+						On Error 4000 Goto NoDelete
+						Call pnd_Conf.Remove(True)
+						SIGC_ResoudreConflit = True
+					Else
+						Messagebox xGDK_xMessage("SI", 42, "", ""), 48, xGDK_xMessage("SI", 40, "", "")			
+					End If
+				Else
+					
+					' Transfert les réponses du conflit 
+					If pnd_Conf.Responses.Count &gt; 0 Then
+						Call SIGC_TransferReponses(pnd_Conf, nd_Orig)
+					End If
+					
+					On Error 4000 Goto NoDelete
+					Call pnd_Conf.Remove(True)
+					SIGC_ResoudreConflit = True
+				End If
+			Else
+				' Si l'utilisateur a appuyé sur le bouton Cancel, arrêter le traitement
+				' -----------------------------------------------------------------------------------------------------
+				Print xGDK_xMessage("SI", 1, "", "")
+			End If
+		End If
+	End If
+	Exit Function
+	
+	' Le document original n'existe plus
+NoDoc:
+	Resume NoDoc2
+NoDoc2:
+	On Error 4000 Goto NoDelete
+	Call pnd_Conf.Remove(True)
+	SIGC_ResoudreConflit = True
+	Exit Function
+	
+	' Not authorized to delete documents
+NoDelete:
+	Dim E As Variant
+	
+	Call pnd_Conf.Removeitem("$Conflict")
+	Call pnd_Conf.Removeitem("$REF")
+	pnd_Conf.HistoNS = 0
+	pnd_Conf.FormOriginal = xVar(pnd_Conf, "Form", "")
+	E = Evaluate(|@SetField("HistoDS"; @Now)|, pnd_Conf)
+	pnd_Conf.HistoUS = gns_SIGC.UserName
+	pnd_Conf.Form = "F_AdmS"
+	E = Evaluate(|@Text(HistoDS; "*")|, pnd_Conf)
+	pnd_Conf.HistoDS100 = Clng("&amp;H" &amp; Right$(E(0), 8)) Mod 100
+	
+	If p_NomProgramme = "" Then
+		pnd_Conf.HistoPS = SIGE_FormatterNomFonction(Getthreadinfo(1))
+	Else
+		pnd_Conf.HistoPS = SIGE_FormatterNomFonction(p_NomProgramme)
+	End If
+	
+	Call pnd_Conf.Save(True, False)
+	SIGC_ResoudreConflit = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGC_acAnnulerConflits"><lotusscript>Sub SIGC_acAnnulerConflits
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet d'annuler les conflits de réplication sélectionnés.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndc As Notesdocumentcollection
+	Dim nd_Suivant As Notesdocument
+	Dim nd As Notesdocument
+	
+	Call SIGC_Initialisations
+	
+	Set ndc = gndb_SIGC.Unprocesseddocuments
+	If ndc.Count = 0 Then
+		Messagebox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	Call gnuiws_SIGC.CurrentView.Deselectall()
+	
+	' Boucle sur tous les documents sélectionnés
+	' ---------------------------------------------------------------------
+	Set nd_Suivant = ndc.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		
+		Call nd.Removeitem("$Conflict")
+		Call nd.Removeitem("$REF")
+		If Not nd.Save(False, False) Then
+			Messagebox xGDK_xMessage("SI", 42, "", ""), 48, "Résolution de conflit"				
+			Set nd_Suivant = Nothing
+		End If
+	Loop
+	
+	Call gnuiws_SIGC.ViewRefresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIGC_TransferReponses"><lotusscript>Sub SIGC_TransferReponses(pnd_Conf As NotesDocument, pnd_Orig As NotesDocument)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script trasfert les document reponses en desous du document original.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndc_Reponses As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	
+	Set ndc_Reponses = pnd_Conf.Responses		
+	Set nd_Suivant = ndc_Reponses.GetFirstDocument
+	
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc_Reponses.GetNextdocument(nd_Suivant)
+		Call nd.MakeResponse(pnd_Orig)
+		Call nd.Save(True, False)
+	Loop		
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIGC_DocumentDifferences"><lotusscript>Function SIGC_DocumentDifferences(pnd_Conf As Notesdocument, pnd_Orig As Notesdocument, _
+p_Systeme As Integer, pnd_Diff As Notesdocument) As Integer
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script genère la liste des différences entre les items.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_NbItems As Long
+	Dim ni_Orig As Notesitem
+	Dim v_Erreur As Integer
+	Dim i As Long
+	Dim v_DateOriginale As Variant
+	Dim v_DateConflit As Variant
+	Dim v_GarderValeur As String
+	
+	SIGC_DocumentDifferences = False
+	
+	Set pnd_Diff = gndb_SIGC.Createdocument
+	Call pnd_Diff.Replaceitemvalue("SIGC_Form", xVar(pnd_Orig, "Form", ""))
+	Call pnd_Diff.Replaceitemvalue("Cle", xVar(pnd_Orig, "Cle", ""))
+	Call pnd_Diff.Replaceitemvalue("Description", xVar(pnd_Orig, "Description", ""))
+	
+	pnd_Diff.DateModifOriginale = pnd_Orig.LastModified
+	pnd_Diff.DateModifConflit = pnd_Conf.LastModified
+	v_DateOriginale = xvar(pnd_Orig, "HistoDM", "")
+	v_DateConflit = xVar(pnd_Conf, "HistoDM", "")
+	If v_DateOriginale = "" Then
+		v_GarderValeur = "1"
+	Elseif v_DateConflit = "" Then
+		v_GarderValeur = "0"
+	Elseif v_DateConflit &gt; v_DateOriginale Then
+		v_GarderValeur = "1"
+	Else
+		v_GarderValeur = "0"
+	End If
+	pnd_Diff.HistoDMOriginale = v_DateOriginale
+	pnd_Diff.HistoDMConflit = v_DateConflit
+	
+	v_NbItems = 0
+	' Compare chaque item de pnd_Conf avec l'item correspondant de pnd_Orig
+	' ----------------------------------------------------------------------------------------------------------------------
+	Forall ni_Conf In pnd_Conf.Items
+		'Ignorer le changement des champs qui commencent par $ et les champs qui commencent
+		'par SIHI_ puisque ces derniers ont déjà été consolidés
+		If p_Systeme Or (Left(ni_Conf.Name, 1) &lt;&gt; "$" And Ucase(Left(ni_Conf.Name, 5)) &lt;&gt; "SIHI_") Then
+			
+			Set ni_Orig = pnd_Orig.Getfirstitem(ni_Conf.Name)
+			' Item inexistant dans le document original
+			' ----------------------------------------------------------------
+			If ni_Orig Is Nothing Then
+				v_NbItems = v_NbItems + 1
+				Call pnd_Diff.Replaceitemvalue("SIGC_NomItem" &amp; Cstr(v_NbItems), ni_Conf.Name)
+				Call pnd_Diff.Replaceitemvalue("SIGC_ValeurOriginale" &amp; Cstr(v_NbItems), "")
+				Call pnd_Diff.Replaceitemvalue("SIGC_GarderValeur" &amp; Cstr(v_NbItems), v_GarderValeur)
+				Call pnd_Diff.Replaceitemvalue("SIGC_ValeurConflit" &amp; Cstr(v_NbItems), ni_Conf.Values)
+				
+			' Item existant - vérifie si valeurs différentes
+			' -----------------------------------------------------------------
+			Else
+				v_Erreur = False
+				If Isarray(ni_Orig.Values) &lt;&gt; Isarray(ni_Conf.Values) Then
+					v_Erreur = True
+				Elseif Isarray(ni_Orig.Values) = False Then
+					If Datatype(ni_Orig.Values) &lt;&gt; Datatype(ni_Conf.Values) Then
+						v_Erreur = True
+					Elseif ni_Orig.Values &lt;&gt; ni_Conf.Values Then
+						v_Erreur = True
+					End If
+				Elseif Ubound(ni_Orig.Values) &lt;&gt; Ubound(ni_Conf.Values) Then
+					v_Erreur = True
+				Else
+					For i = Lbound(ni_Conf.Values) To Ubound(ni_Conf.Values)
+						If Datatype(ni_Orig.Values(i)) &lt;&gt; Datatype(ni_Conf.Values(i)) Then
+							v_Erreur = True
+							Exit For
+						Elseif ni_Orig.Values(i) &lt;&gt; ni_Conf.Values(i) Then
+							v_Erreur = True
+							Exit For
+						End If
+					Next
+				End If
+				
+				' Valeurs différentes
+				If v_Erreur Then
+					v_NbItems = v_NbItems + 1
+					Call pnd_Diff.Replaceitemvalue("SIGC_NomItem" &amp; Cstr(v_NbItems), ni_Conf.Name)
+					Call pnd_Diff.Replaceitemvalue("SIGC_ValeurOriginale" &amp; Cstr(v_NbItems), ni_Orig.Values)
+					Call pnd_Diff.Replaceitemvalue("SIGC_GarderValeur" &amp; Cstr(v_NbItems), v_GarderValeur)
+					Call pnd_Diff.Replaceitemvalue("SIGC_ValeurConflit" &amp; Cstr(v_NbItems), ni_Conf.Values)
+				End If
+			End If
+		End If
+	End Forall
+	
+	Call pnd_Diff.Replaceitemvalue("SIGC_NbItems", v_NbItems)
+	SIGC_DocumentDifferences = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGC_Initialisations"><lotusscript>Sub SIGC_Initialisations
+	If gns_SIGC Is Nothing Then
+		Set gns_SIGC = New Notessession
+		Set gndb_SIGC = gns_SIGC.Currentdatabase
+		
+		Set gnuiws_SIGC = New Notesuiworkspace
+	End If
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,19-05</datetime></item></scriptlibrary>
+
+</database>

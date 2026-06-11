@@ -1,0 +1,710 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_Prod" hide="v3 v4strict" designerversion="8">
+<noteinfo noteid="55593a" unid="D301867B0B3983CE85258B6D00536008" sequence="7">
+<created><datetime dst="true">20240802T111040,72-04</datetime></created>
+<modified><datetime>20260105T014838,31-05</datetime></modified>
+<revised><datetime>20250319T073655,84-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,30-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,30-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_Produit"
+Use "x_SDSP3L"
+
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gnuiws_FProd As NotesUIWorkspace
+Dim gnuid_FProd As NotesUIDocument
+
+Dim gns_FProd As Notessession
+Dim gndb_FProd As Notesdatabase
+Dim gnd_FProd As NotesDocument
+
+Dim gnd_Prop As NotesDocument
+Dim gnd_Site As NotesDocument
+Dim gnd_Log As NotesDocument
+
+
+' Entering/Exiting
+Dim g_NomItem_FProd As String
+Dim g_ValeurItem_FProd As String
+Dim g_MajNbUtilisateurs_FProp As Boolean
+
+' Liste des champs modifiable
+Dim gl_NomItems_FProd List As Variant
+
+Dim g_Quantite As Integer
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_FProd = "SL"
+Const gc_Element_FProd = "F_Prod"
+
+</lotusscript></code><code event="FProd_QuerySave"><lotusscript>Sub FProd_QuerySave(pnuid_Source As Notesuidocument, p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	Dim v_NbUtilisateursCalcule As Long
+	
+	' Initialisations
+	p_Continue = False
+	
+	Call FProd_Initialisations
+	
+	v_NbUtilisateursCalcule = xVar(gnd_FProd, "Prod_NbUtilisateursCalcule", 0)
+	
+	If g_Quantite &lt;&gt; xVar(gnd_FProd, "Prod_Quantite", 0) Then
+		' Maj quatité dépendants et composants
+		Call SDSPX_ModifierComposantsDependants(gnd_Prop, gnd_Site, gnd_FProd, "C")
+		Call SDSPX_ModifierComposantsDependants(gnd_Prop, gnd_Site, gnd_FProd, "D")
+		
+		'Req#58184
+		If xVar(gnd_FProd, "Prod_Quantite", 0) &lt;&gt; xVar(gnd_FProd, "Prod_QuantiteListe", 0) Then
+			Call gnd_FProd.ReplaceItemValue( "Prod_QuantiteModifiee", "1")
+		Else
+			Call gnd_FProd.ReplaceItemValue( "Prod_QuantiteModifiee", "0")
+		End If	
+		
+	End If
+	
+	
+	g_MajNbUtilisateurs_FProp = False
+	If gl_NomItems_FProd("Prod_NbUtilisateursCalcule") &lt;&gt; v_NbUtilisateursCalcule Then
+		' Recalculer les prix et les coûts sans faire une sauvegarde du doc.
+		If Not SDSPX_RecalculerPrix(gnd_Prop, gnd_FProd, False, False, False, v_NbUtilisateursCalcule, gnd_Log) Then
+			Messagebox xGDK_xMessage("SDSP", 15, "", xVar(gnd_FProd, "Prod_CodeProduit", "")), 16, xGDK_xMessage("SI", 1, "", "")
+			gnd_FProd.Prod_Statut = "E"
+		Else
+			gnd_FProd.Prod_Statut = ""
+			g_MajNbUtilisateurs_FProp = True
+		End If
+	End If
+	
+	' Maj historique
+	gnd_FProd.HistoDM = Now
+	gnd_FProd.HistoUM = gns_FProd.UserName
+	
+	' Maj historique de la proposition
+	gnd_Prop.HistoDP = Now
+	gnd_Prop.HistoUP = gns_FProd.UserName
+	Call gnd_Prop.Save(True, False)
+	
+	On Error 4412 Resume Next
+	Call pnuid_Source.Refresh
+	'Call pnuid_Source.RefreshHideFormulas
+	
+	p_Continue = True
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FProd_hsPrixNonModifiable"><lotusscript>Function FProd_hsPrixNonModifiable
+	' -------------------------------------------------
+	' Le script permet au directeur de modifier le prix
+	' -------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le prix non modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_PrixModifie", "0")
+	
+	' Recalculer les prix et les coûts sans faire une sauvegarde du doc.
+	If Not SDSPX_RecalculerPrix(gnd_Prop, gnd_FProd, False, False, False, 0, gnd_Log) Then
+		Messagebox xGDK_xMessage("SDSP", 15, "", xVar(gnd_FProd, "Prod_CodeProduit", "")), 16, xGDK_xMessage("SI", 1, "", "")
+		gnd_FProd.Prod_Statut = "E"
+	Else
+		gnd_FProd.Prod_Statut = ""
+	End If
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FProd_Exiting"><lotusscript>Sub FProd_Exiting
+	On Error Goto GererErreur
+	
+	Dim v_Quantite As Variant
+	Dim v_FractionQuantite As Variant	
+	
+	Call FProd_Initialisations
+	
+	If g_NomItem_FProd &lt;&gt; "" Then
+		
+		If xVarImplode(gnuid_FProd.Document, g_NomItem_FProd, "") &lt;&gt; g_ValeurItem_FProd Then
+			
+			Select Case g_NomItem_FProd
+				
+			Case  "Prod_FraisEntretienMensuels"					
+				Call gnd_FProd.ReplaceItemValue("Prod_FraisEntretienAnnuels", (SItN_Round(xVar(gnd_FProd, g_NomItem_FProd, 0), 2) * 12))
+				Call gnuid_FProd.Refresh
+				
+			Case  "Prod_FraisEntretienAnnuels"	
+				If xVar(gnd_FProd,"Prod_FraisEntretienMensuelsModifie", "") &lt;&gt; "1" Then					
+					Call gnd_FProd.ReplaceItemValue("Prod_FraisEntretienMensuels", ( xVar(gnd_FProd, g_NomItem_FProd, 0) / 12))
+				ElseIf xVar(gnd_FProd,"Prod_FraisEntretienMensuelsModifie", "") = "1" And xVar(gnd_FProd,"Prod_FraisEntretienModifie", "") = "1" Then		
+					Call gnd_FProd.ReplaceItemValue("Prod_FraisEntretienAnnuels", (xVar(gnd_FProd, "Prod_FraisEntretienMensuels", 0) * 12))				
+				End If
+				Call gnuid_FProd.Refresh
+				
+			Case "Prod_Quantite"
+				v_Quantite = xVar(gnd_FProd, g_NomItem_FProd, "")
+				
+				If v_Quantite &lt;&gt; "" Then					
+					v_FractionQuantite = Fraction(CDbl(v_Quantite))
+					
+					If Len(v_FractionQuantite) = 2 Then
+						If Right(v_FractionQuantite,1) = 5 Then
+							Call gnd_FProd.ReplaceItemValue("Prod_Quantite",v_Quantite)
+						Else
+							Call gnd_FProd.ReplaceItemValue("Prod_Quantite",SItN_Round(v_Quantite, 0))
+						End If
+					Else
+						Call gnd_FProd.ReplaceItemValue("Prod_Quantite",SItN_Round(v_Quantite, 0))
+					End If
+				End If
+				
+				On Error 4412 GoTo formatnum
+				Call gnuid_FProd.Refresh
+				
+		End Select
+			
+			g_NomItem_FProd = gnuid_FProd.CurrentField
+			g_ValeurItem_FProd = xVarImplode(gnuid_FProd.Document, g_NomItem_FProd, "")
+			
+		End If
+		
+		'g_NomItem_FProd = ""
+		'g_NomItem_FProd = gnuid_FProd.CurrentField
+		'g_ValeurItem_FProd = xVarImplode(gnuid_FProd.Document, g_NomItem_FProd, "")
+	End If
+	
+	Exit Sub
+	
+formatnum:
+	Call gnuid_FProd.FieldSetText("Prod_Quantite", Cstr(SItN_cdbl(gnuid_FProd.FieldgetText(g_NomItem_FProd))))
+	Call gnuid_FProd.Refresh
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FProd_hsFraisEntretienModifiable"><lotusscript>Function FProd_hsFraisEntretienModifiable
+	' -------------------------------------------------
+	' Le script permet au directeur de modifier le cout
+	' -------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le prix modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_FraisEntretienModifie", "1")
+	Call gnd_FProd.ReplaceItemValue( "Prod_FraisEntretienListe", xVar(gnd_FProd, "Prod_FraisEntretienAnnuels", 0))
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FProd_hsCoutModifiable"><lotusscript>Function FProd_hsCoutModifiable
+	' -------------------------------------------------
+	' Le script permet au directeur de modifier le cout
+	' -------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le prix modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_CoutModifie", "1")
+	Call gnd_FProd.ReplaceItemValue( "Prod_CoutListe", xVar(gnd_FProd, "Prod_CoutUnitaire", 0))
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FProd_PostOpen"><lotusscript>Sub FProd_PostOpen(puid_Source As NotesUIDocument)
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	g_Quantite = xVar(puid_Source.Document, "Prod_Quantite", 0)	
+	
+	
+	gl_NomItems_FProd("Prod_Quantite") = xVar(puid_Source.Document, "Prod_Quantite", 0)
+	gl_NomItems_FProd("Prod_PrixUnitaire") = xVar(puid_Source.Document, "Prod_PrixUnitaire", 0)
+	gl_NomItems_FProd("Prod_CoutUnitaire") = xVar(puid_Source.Document, "Prod_CoutUnitaire", 0)
+	gl_NomItems_FProd("Prod_NbUtilisateursCalcule") = xVar(puid_Source.Document, "Prod_NbUtilisateursCalcule", 0)
+	gl_NomItems_FProd("Prod_FraisEntretienAnnuels") = xVar(puid_Source.Document, "Prod_FraisEntretienAnnuels", 0)
+	gl_NomItems_FProd("Prod_FraisEntretienMensuels") = xVar(puid_Source.Document, "Prod_FraisEntretienMensuels", 0)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FProd_hsPrixModifiable"><lotusscript>Function FProd_hsPrixModifiable
+	' -------------------------------------------------
+	' Le script permet au directeur de modifier le prix
+	' -------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le prix modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_PrixModifie", "1")
+	Call gnd_FProd.ReplaceItemValue( "Prod_PrixListe", xVar(gnd_FProd, "Prod_PrixUnitaire", 0))
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+
+
+</lotusscript></code><code event="FProd_hsFraisEntretienMensModifiable"><lotusscript>Function FProd_hsFraisEntretienMensModifiable
+	' -------------------------------------------------
+	' Le script permet au directeur de modifier le cout
+	' -------------------------------------------------
+	On Error GoTo GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le prix modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_FraisEntretienMensuelsModifie", "1")
+	Call gnd_FProd.ReplaceItemValue( "Prod_FraisEntretienMensuelsListe", xVar(gnd_FProd, "Prod_FraisEntretienMensuels", 0))
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FProd_hsFraisEntretienMensNonModifiable"><lotusscript>Function FProd_hsFraisEntretienMensNonModifiable
+	' ----------------------------------------------------------------------
+	' Le script permet au directeur de modifier les frais d'entretien Mensuel
+	' ----------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le prix non modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_FraisEntretienMensuelsModifie", "0")
+	
+	' Recalculer les prix et les coûts sans faire une sauvegarde du doc.
+	If Not SDSPX_RecalculerPrix(gnd_Prop, gnd_FProd, False, False, False, 0, gnd_Log) Then
+		MessageBox xGDK_xMessage("SDSP", 15, "", xVar(gnd_FProd, "Prod_CodeProduit", "")), 16, xGDK_xMessage("SI", 1, "", "")
+		gnd_FProd.Prod_Statut = "E"
+	Else
+		gnd_FProd.Prod_Statut = ""
+	End If
+	
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FProd_Entering"><lotusscript>Sub FProd_Entering
+	On Error Goto GererErreur
+	
+	Dim nuiws As NotesUIWorkspace
+	
+	Call FProd_Initialisations
+	
+	If gnuid_FProd Is Nothing Then
+		Set nuiws = New Notesuiworkspace
+		Set gnuid_FProd = nuiws.CurrentDocument
+		Call gnuid_FProd.Refresh
+	End If
+	
+	g_NomItem_FProd = gnuid_FProd.CurrentField
+	g_ValeurItem_FProd = xVarImplode(gnuid_FProd.Document, g_NomItem_FProd, "")
+	
+	Call gnuiws_FProd.CurrentDocument.Selectall
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FProd_hsFraisEntretienNonModifiable"><lotusscript>Function FProd_hsFraisEntretienNonModifiable
+	' ----------------------------------------------------------------------
+	' Le script permet au directeur de modifier les frais d'entretien annuel
+	' ----------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le prix non modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_FraisEntretienModifie", "0")
+	
+	' Recalculer les prix et les coûts sans faire une sauvegarde du doc.
+	If Not SDSPX_RecalculerPrix(gnd_Prop, gnd_FProd, False, False, False, 0, gnd_Log) Then
+		Messagebox xGDK_xMessage("SDSP", 15, "", xVar(gnd_FProd, "Prod_CodeProduit", "")), 16, xGDK_xMessage("SI", 1, "", "")
+		gnd_FProd.Prod_Statut = "E"
+	Else
+		gnd_FProd.Prod_Statut = ""
+	End If
+	
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="FProd_hsQuantiteNonModifiable"><lotusscript>Function FProd_hsQuantiteNonModifiable
+	' -----------------------------------------------------
+	' Le script permet au directeur de modifier la quantité
+	' -----------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre la quantite modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_Quantite", xVar(gnd_FProd, "Prod_QuantiteListe", 0))
+	Call gnd_FProd.ReplaceItemValue( "Prod_QuantiteModifiee", "0")
+	
+	' Recalculer les prix et les coûts sans faire une sauvegarde du doc.
+	If Not SDSPX_RecalculerPrix(gnd_Prop, gnd_FProd, False, False, False, 0, gnd_Log) Then
+		Messagebox xGDK_xMessage("SDSP", 15, "", xVar(gnd_FProd, "Prod_CodeProduit", "")), 16, xGDK_xMessage("SI", 1, "", "")
+		gnd_FProd.Prod_Statut = "E"
+	Else
+		gnd_FProd.Prod_Statut = ""
+	End If
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FProd_hsNbUtilisateursModifiable"><lotusscript>Function FProd_hsNbUtilisateursModifiable
+	' -------------------------------------------------------------
+	' Le script permet au directeur de modifier le nb. utilisateurs
+	' -------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le prix modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_NbUtilisateursModifie", "1")
+	Call gnd_FProd.ReplaceItemValue( "Prod_NbUtilisateursListe", xVar(gnd_FProd, "Prod_NbUtilisateursCalcule", 0))
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="FProd_hsNbUtilisateursNonModifiable"><lotusscript>Function FProd_hsNbUtilisateursNonModifiable
+	' ------------------------------------------------------------------
+	' Le script permet au directeur de modifier le nombre d'utilisateurs
+	' ------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_NbUtilisateurs As Long
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le prix non modifiable
+	Call gnd_FProd.ReplaceItemValue("Prod_NbUtilisateursModifie", "0")
+	v_NbUtilisateurs = xVar(gnd_FProd, "Prod_NbUtilisateursListe", 0)
+	Call gnd_FProd.ReplaceItemValue("Prod_NbUtilisateursCalcule", v_NbUtilisateurs)
+	
+	' Recalculer les prix et les coûts sans faire une sauvegarde du doc.
+	If Not SDSPX_RecalculerPrix(gnd_Prop, gnd_FProd, False, False, False, v_NbUtilisateurs, gnd_Log) Then
+		Messagebox xGDK_xMessage("SDSP", 15, "", xVar(gnd_FProd, "Prod_CodeProduit", "")), 16, xGDK_xMessage("SI", 1, "", "")
+		gnd_FProd.Prod_Statut = "E"
+	Else
+		gnd_FProd.Prod_Statut = ""
+	End If
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FProd_hsAfficherPrix"><lotusscript>Sub FProd_hsAfficherPrix
+	On Error GoTo GererErreur
+	
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim v_CleProduit As String
+	Dim v_CleProduitAH As String
+	Dim ndc_Prix_SDSBB As NotesDocumentCollection
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	v_CleProduit = XVar(gnd_FProd, "Prod_CleProduit","")
+	
+	Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit, True)
+	
+	If nd_Prod_SDSBB Is Nothing Then
+		Exit Sub
+	End If
+	
+	v_CleProduitAH = xVar(nd_Prod_SDSBB, "Prod_CleProduitAH", "")
+	
+	Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduitAH, True)
+	
+	If nd_Prod_SDSBB Is Nothing Then
+		Exit Sub
+	End If
+	
+	Set ndc_Prix_SDSBB = gnuiws_FProd.Picklistcollection(PICKLIST_CUSTOM, False, _
+	xGDK_xVarNDB("SDSBB", "NDB_Serveur", "", True), xGDK_xVarNDB("SDSBB", "NDB_Fichier", "", True), _
+	"V_Prix22", xGDK_xMessage("SDSPP", 165, "", ""), xGDK_xMessage("SDSPP", 166, "", xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "")) , v_CleProduitAH)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FProd_Initialisations"><lotusscript>Sub FProd_Initialisations
+	If gns_FProd Is Nothing Then
+		Set gnuiws_FProd = New NotesUIWorkspace
+		Set gnuid_FProd = gnuiws_FProd.Currentdocument
+		
+		Set gns_FProd= New Notessession
+		Set gndb_FProd= gns_FProd.Currentdatabase
+		
+		Set gnd_FProd = gnuid_FProd.Document
+		
+		Set gnd_Prop = xSDSP3_xndProp(xVar(gnd_FProd, "Prod_NoProposition", "") , True)
+		Set gnd_Site =  xSDSP3_xndSite(xVar(gnd_FProd, "Prod_NoSite", "") , True)
+		
+		Set gnd_Log = New NotesDocument(gndb_FProd)
+		
+	End If
+End Sub
+
+
+
+</lotusscript></code><code event="FProd_PostSave"><lotusscript>Function FProd_PostSave(p_Source As NotesUIDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim nd_Log As NotesDocument
+	Dim v_NbUtilisateursCalcule As Long
+	
+	
+	FProd_PostSave = False
+	
+	' Initialisations
+	Call FProd_Initialisations
+	Call SDSPX_Initialisations
+	
+	' Recalculerle prix des dépendants en fonction du nb d'utilisateurs
+	If g_MajNbUtilisateurs_FProp Then
+		v_NbUtilisateursCalcule = xVar(gnd_FProd, "Prod_NbUtilisateursCalcule", 0)
+		Call SDSPX_RecalculerPrixDependants(gnd_Prop, gnd_FProd, True, False, True, v_NbUtilisateursCalcule, gnd_Log)
+	End If
+	
+	If g_Quantite &lt;&gt; xVar(gnd_FProd, "Prod_Quantite", 0)	 Then
+		g_Quantite = xVar(gnd_FProd, "Prod_Quantite", 0)
+	End If
+	
+	If xVarProf("Prof_LogProduits", "") = "1" Then
+		Forall ValeurItem In gl_NomItems_FProd	
+			If xVar(gnd_FProd, Listtag(ValeurItem), 0) &lt;&gt; ValeurItem Then
+				
+				If nd_Log Is Nothing Then
+					Set nd_Log  = New NotesDocument(gndb_SDSPX)
+				End If
+				
+				Call nd_Log.ReplaceItemValue("Prec_" &amp; Strright(Listtag(ValeurItem), "_"), ValeurItem)
+				Call nd_Log.ReplaceItemValue(Listtag(ValeurItem), xVar(gnd_FProd, Listtag(ValeurItem), 0) )
+				nd_Log.Prod_EnvoyerLog = "1"
+				
+				gl_NomItems_FProd(Listtag(ValeurItem)) = xVar(gnd_FProd, Listtag(ValeurItem), 0)
+				
+			End If
+		End Forall
+		
+		
+	' Envoyer le log
+		If xVar(nd_Log, "Prod_EnvoyerLog", "") = "1" Then
+			Call SDSPX_EnvoyerLog(gnd_Prop, gnd_FProd, nd_Log, SIGE_FormatterNomFonction(Getthreadinfo(1)))
+		End If
+	End If
+	
+	FProd_PostSave = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+End Function
+
+</lotusscript></code><code event="FProd_hsCoutNonModifiable"><lotusscript>Function FProd_hsCoutNonModifiable
+	' -------------------------------------------------
+	' Le script permet au directeur de modifier le cout
+	' -------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	' Rendre le cout non modifiable
+	Call gnd_FProd.ReplaceItemValue( "Prod_CoutModifie", "0")
+	
+	' Recalculer les prix et les coûts sans faire une sauvegarde du doc.
+	If Not SDSPX_RecalculerPrix(gnd_Prop, gnd_FProd, False, False, False, 0, gnd_Log) Then
+		Messagebox xGDK_xMessage("SDSP", 15, "", xVar(gnd_FProd, "Prod_CodeProduit", "")), 16, xGDK_xMessage("SI", 1, "", "")
+		gnd_FProd.Prod_Statut = "E"
+	Else
+		gnd_FProd.Prod_Statut = ""
+	End If
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="FProd_HsRemettreQuantiteZero"><lotusscript>Function FProd_HsRemettreQuantiteZero
+	' ----------------------------------------------------
+	' Le script permet au directeur de modifié la quantité
+	' ----------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+
+	Call gnd_FProd.ReplaceItemValue( "Prod_Quantite", 0)
+	Call gnd_FProd.ReplaceItemValue( "Prod_QuantiteModifiee", "1")
+	
+	Call gnuid_FProd.RefreshHideFormulas
+	On Error 4412 Resume Next
+	Call gnuid_FProd.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FProd_QueryRecalc"><lotusscript>Sub FProd_QueryRecalc(puid_Source As NotesUIDocument)
+
+	On Error GoTo GererErreur
+	
+	' Initialisations
+	Call FProd_Initialisations
+	
+	If xVarImplode(gnuid_FProd.Document, g_NomItem_FProd, "") &lt;&gt; g_ValeurItem_FProd Then
+		
+		If g_NomItem_FProd = "Prod_FraisEntretienMensuels" Then
+			Call gnd_FProd.ReplaceItemValue("Prod_FraisEntretienAnnuels", (SItN_Round(xVar(gnd_FProd, g_NomItem_FProd, 0), 2) * 12))
+			
+		ElseIf g_NomItem_FProd = "Prod_FraisEntretienAnnuels" Then
+			If xVar(gnd_FProd,"Prod_FraisEntretienMensuelsModifie", "") = "0" Then					
+				Call gnd_FProd.ReplaceItemValue("Prod_FraisEntretienMensuels", ( xVar(gnd_FProd, g_NomItem_FProd, 0) / 12))
+				
+			elseif xVar(gnd_FProd,"Prod_FraisEntretienMensuelsModifie", "") = "1" And xVar(gnd_FProd,"Prod_FraisEntretienModifie", "") = "1" Then		
+				Call gnd_FProd.ReplaceItemValue("Prod_FraisEntretienAnnuels", (SItN_Round(xVar(gnd_FProd, "Prod_FraisEntretienMensuels", 0), 2) * 12))				
+			End If
+		End If	
+		
+		g_ValeurItem_FProd = xVarImplode(gnuid_FProd.Document, g_NomItem_FProd, "")					
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FProd, gc_Element_FProd, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073655,84-05</datetime></item></scriptlibrary>
+
+</database>

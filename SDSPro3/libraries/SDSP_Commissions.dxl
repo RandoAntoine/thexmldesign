@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Commissions" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="555986" unid="0100900AB4290AB885258C0C006F172E" sequence="5">
+<created><datetime>20250108T151324,30-05</datetime></created>
+<modified><datetime>20260105T014838,47-05</datetime></modified>
+<revised><datetime>20250319T073647,03-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,46-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,46-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_Site"
+Use "SI_Temp"
+Use "SI_tNombre"
+Use "x_SDSC3"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SDSPC As NotesSession
+Dim gndb_SDSPC As NotesDatabase
+Dim g_NoSitePrincipal As String
+Dim gnv_Prod30 As NotesView
+Dim gnv_Prod20_SDSC3 As NotesView
+ 
+' Traitement des erreurs
+
+Const gc_TypeElement_SDSPC = "SL"
+Const gc_Element_SDSPC = "SDSPC_Commissions"
+
+
+</lotusscript></code><code event="SDSPC_CopierPropositionComm"><lotusscript>Function SDSPC_CopierPropositionComm (pnd_Prop As NotesDocument, pndc As NotesDocumentCollection, p_UserName As String) As Integer
+	'Cette Fonction permet de copier une proposition et sites dans la base de calcul des commissions.
+	'Parametres:	pnd_Prop:  L'objet document de la proposition
+	'pndc : Les succursales (sites) selectionnés, utilisé aussi comme paramétre de sortie (les sites crées dans les commissions)
+	On Error GoTo GererErreur
+	
+	Dim nd_Prop As NotesDocument
+	Dim nd_SitePrincipal As NotesDocument
+	
+	Dim v_NbSitesSelectiones As String
+	Dim v_NoProposition As String
+	Dim v_NoSites As String
+	Dim v_NbSitesCommissionCrees As Integer
+	Dim v_NbSiteDejaCopie As Integer
+	Dim nd_Temp As NotesDocument
+	Dim v_NoteId As String
+	Dim na As NotesAgent
+	Dim nd_Temp2 As NotesDocument
+	
+	' Initialisations
+	SDSPC_CopierPropositionComm =  -1
+	
+	Call SDSPC_Initialisations
+	Call xSDSC3_Initialisation
+	
+	v_NbSitesSelectiones = pndc.Count
+	
+	Set nd_SitePrincipal = SDSPS_ndSitePlusUtilisateurs(pnd_Prop)
+	g_NoSitePrincipal = xVar(nd_SitePrincipal, "Site_NoSite","")
+	
+	If p_UserName = "" Then
+		p_UserName = gns_SDSPC.Username
+	End If
+	
+	'Req 49322.  ndc_NS la nouvelle liste des sites a copier dans SDS Comm
+	
+	Call SDSPC_ValiderSitesaCopier (pnd_Prop, pndc, v_NbSiteDejaCopie)
+	If pndc.Count = 0 Then				
+		'Call SIGE_AjouterLog ("Aucun site de la Proposition n'a été crée dans SDS Commissions", 0, 0, False)	
+		SDSPC_CopierPropositionComm = 0
+		Exit Function 
+	End If
+	
+	v_NoSites = xVarCollectionImplode(pndc, "Site_NoSite", ";")
+	
+	' Appeler l'agent de copie de la proposition SDSCC
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	Set nd_Temp = SITp_ndTemp("SDSP3.SDSPC_CopierPropositionComm." &amp; v_NoProposition)
+	nd_Temp.NoProposition = v_NoProposition
+	nd_Temp.NbSites = pndc.Count
+	nd_Temp.NoSites = v_NoSites
+	nd_Temp.NoSitePrincipal = g_NoSitePrincipal
+	nd_Temp.UserName = p_UserName
+	Call nd_Temp.Save(True, False)
+	v_NoteId = nd_Temp.NoteId
+	Set nd_Temp = Nothing
+	
+	Set na = gndb_xSDSC3.GetAgent("A_CCom")
+	Call na.RunOnServer(v_NoteId)
+	
+	' Récupérer le résultat de l'exécution
+	Set nd_Temp2 = gndb_Temp_SITp.GetDocumentById(v_NoteId)
+	
+	SDSPC_CopierPropositionComm = xVar(nd_Temp2, "Resultat", 0)  ' Nombre de sites copiés dans les Commissions
+
+	'Call SDSPC_VerifierSitecopier (pnd_Prop, v_NbSitesCommissionCrees, CStr(v_NbSitesSelectiones))
+	
+	Exit Function
+	
+GererErreur:
+	SDSPC_CopierPropositionComm =  -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPC, gc_Element_SDSPC, LSI_Info(2), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPC_ValiderSitesaCopier"><lotusscript>Sub SDSPC_ValiderSitesaCopier (pnd_Prop As NotesDocument, pndc_Sites As NotesDocumentCollection, p_NbSiteDejaCopie As Integer)
+
+	'-------------------------------------------------------------------------------------------------------------
+	'Valider les sites de la proposition a copier dans SDS Commisions
+	'pnd_prop: document de la proposition dans Pro III
+	'pndc_Sites = nouvelle liste de documents des sites a copier dans de la nouvelle proposition
+	'-------------------------------------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	
+	Dim nd_PropC3 As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd_SiteSuivant As NotesDocument
+	
+	Dim ndSitePP_Suivant As NotesDocument
+	Dim nd_SitePP As NotesDocument
+
+	Dim ndc_PropC3 As NotesDocumentCollection	
+	Dim ndc_Site As NotesDocumentCollection
+	
+	Dim v_NoProp As String	
+	Dim v_NoSite As String
+	Dim v_NbProp As String
+	
+	p_NbSiteDejaCopie = 0
+	
+	
+	' Extraire les proposition(s) créées dans SDS Commissions III
+	v_NoProp = xVar(pnd_Prop, "Prop_NoProposition", "")
+	v_NbProp = xVar(pnd_Prop, "PROP_NbPropositionTxt", "")
+	
+	Set ndc_PropC3 = xSDSC3_xndcProp (v_NoProp)  'DO a search instead
+	
+	'Set ndc_SitesCommissiones = gndb_SDSPC.Search (|Form="F_Prop" &amp; Prop_NoProposition = "| &amp;  v_NoProp  &amp; |"  &amp; Prop_Statut &lt; "99"|, Nothing, 0)
+	
+	
+	Call SIGE_AjouterLog (ndc_PropC3.Count &amp; " Copie(s) de proposition " &amp; v_NbProp &amp; " existe(nt) dans SDS Commission.", 0, 0, False)
+	
+	If ndc_PropC3.Count &gt;= 0 Then
+		' Boucler sur les propositions dans SDS Commission III
+		
+		Set nd_Suivant = ndc_PropC3.Getfirstdocument
+		Do Until nd_Suivant Is Nothing  'nd_PropC3
+			
+			Set nd_propC3 = nd_Suivant
+			Set nd_Suivant = ndc_PropC3.Getnextdocument(nd_Suivant)
+			
+			'Verifier si la prop n'est pas annulée
+			If xVar(nd_propC3, "Prop_Statut", "") &lt; "99" Then				
+				
+				'Boucler sur les Succ de la prop dans SDS Comm3
+				Set ndc_Site = xSDSC3_xndcSite (nd_propC3.UniversalID)		
+				
+				
+				If ndc_Site.Count &gt; 0 Then	'Commission				
+					
+					p_NbSiteDejaCopie = p_NbSiteDejaCopie + ndc_Site.Count  'nombre de site déja copié dans SDS Commissions
+					
+					Set nd_SiteSuivant = ndc_Site.Getfirstdocument
+					Do Until nd_SiteSuivant Is Nothing  
+						
+						Set nd_Site = nd_SiteSuivant
+						Set nd_SiteSuivant = ndc_Site.Getnextdocument(nd_SiteSuivant)
+						v_NoSite = xVar(nd_Site, "Site_NoSite", "")
+						
+						'-----Verifier si les sites a copier de Prop3 (pndc_Sites), existe deja dans Prop/Sites (v_NoSite) dans Commission 
+						
+						Set ndSitePP_Suivant = pndc_Sites.Getfirstdocument
+						
+						Do Until ndSitePP_Suivant Is Nothing  
+							
+							Set nd_SitePP = ndSitePP_Suivant
+							Set ndSitePP_Suivant = pndc_Sites.Getnextdocument(ndSitePP_Suivant)
+							
+							If v_NoSite = xVar(nd_sitePP, "Site_NoSite","") Then
+								Call pndc_Sites.DeleteDocument(nd_sitePP)
+								
+								'le site existe dans SDS Comm, donc a ne pas copier													
+								Call SIGE_AjouterLog("le site " &amp; xVar(nd_sitePP, "Site_NoSite","") &amp; " - " &amp; xVar(nd_sitePP, "Description","") &amp; " existe déja dans la proposition SDS Commission, donc a ne pas copier", 0, 0, True)	
+								GoTo Fin_Loop
+							End If
+							
+						Loop		
+
+Fin_Loop:	
+						Loop'Succ	
+						
+					End If
+					
+				End If
+				
+			Loop 'PropC3
+			
+		End If
+		
+		
+		Call SIGE_AjouterLog (pndc_Sites.Count &amp; " site(s) à copier dans SDS Commissions.", 0, 0, False)
+		
+		
+		
+		Exit Sub
+		
+GererErreur:
+		Call SIGE_EnregistrerLog
+		Call SIGE_TraiterErreur(gc_TypeElement_SDSPC, gc_Element_SDSPC, GetThreadInfo(1), "", False)
+		
+		Exit Sub	
+
+		
+End sub
+
+
+</lotusscript></code><code event="SDSPC_VerifierSiteCopier"><lotusscript>
+Sub SDSPC_VerifierSiteCopier ( pnd_Prop As NotesDocument, p_NbSiteCopier As Integer, p_NbSitesSelectiones As String)
+	'------------------------------------------------
+	'Sub SDSPC_VerifierSitecopier
+	'Description: PErmet la validation de sites copié dans SDS Comm3
+	'------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim v_NbSiteCopie As String
+	
+	
+	If p_NbSiteCopier &gt;= 1  Then	
+		
+		'# sites copiés dans SDS commissions", 64, xGDK_xMessage("SI", 8, "", "")
+		
+		v_NbSiteCopie = CStr(p_NbSiteCopier) &amp; "/" &amp; p_NbSitesSelectiones
+		
+		MessageBox xGDK_xMessage("SDSPP", 172, "", v_NbSiteCopie), 64, xGDK_xMessage("SI", 10, "", "")	
+		
+				
+	ElseIf  p_NbSiteCopier = 0 Then
+		
+		'Aucun site copié dans SDS commissions		
+		MessageBox xGDK_xMessage("SDSPP", 173, "", ""), 48, xGDK_xMessage("SI", 8, "", "")
+		
+	Else
+		
+		'Une erreur c'est produite pendant la création de sites de la proposition &amp; Prop_NbProposition		
+		MessageBox xGDK_xMessage("SDSPP", 174, "", xVar(pnd_Prop, "Prop_NbProposition","")), 16, xGDK_xMessage("SI", 1, "", "")
+		
+	End If
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_EnregistrerLog
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPC, gc_Element_SDSPC, GetThreadInfo(1), "", False)
+	
+	Exit Sub
+	
+End Sub
+
+</lotusscript></code><code event="SDSPC_AssignerStatutProp"><lotusscript>Sub SDSPC_AssignerStatutProp(pnd_Prop As NotesDocument, p_Statut As String, p_Commentaire , p_Username As String)
+
+	On Error GoTo GererErreur
+		
+	Dim nd_Temp As NotesDocument
+	Dim na As NotesAgent
+	
+	' Initialisations
+	Call SDSPC_Initialisations
+	
+	On Error 4060 Resume Next
+	Call xSDSC3_Initialisation
+		
+	If xGDK_TypeNDBCourante = "L" Or gndb_xSDSC3 Is Nothing Then
+		' Maj de commission par agent
+		Set nd_Temp = New NotesDocument(gns_SDSPC.CurrentDatabase)
+		nd_Temp.Form = "F_StatSDSPC"		
+		nd_Temp.Prop_NoProposition = xVar(pnd_Prop, "Prop_NoProposition","")
+		nd_Temp.Prop_Statut = p_Statut
+		nd_Temp.Prop_Commentaire = p_Commentaire
+		nd_Temp.Prop_UserName = p_UserName
+
+		Call nd_Temp.Save(True, False)		
+		Exit Sub
+	End If
+			
+
+	Print "Création du temp document dans SI Temp: F_StatSDSPC"
+	Set nd_Temp = SITp_ndTemp("SDSC3.SDSC_ChangerStatut")
+	
+	nd_Temp.Form = "F_StatSDSPC"
+	
+	nd_Temp.Prop_NoProposition = xVar(pnd_Prop, "Prop_NoProposition","")
+	nd_Temp.Prop_Statut = p_Statut
+	nd_Temp.Prop_Commentaire = p_Commentaire
+	nd_Temp.Prop_UserName = p_UserName
+
+	Call nd_Temp.Save(True, False)
+	
+	Print "Appel l'agent A_PropStat"
+	Set na = gndb_xSDSC3.GetAgent("A_PropStat")
+	Call na.run(nd_Temp.Noteid)
+
+	
+	Exit Sub
+		
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPC, gc_Element_SDSPC, LSI_Info(2), "", False)
+	End Sub
+
+</lotusscript></code><code event="SDSPC_Initialisations"><lotusscript>Sub SDSPC_Initialisations
+	If gns_SDSPC Is Nothing Then
+		Set gns_SDSPC = New NotesSession
+		Set gndb_SDSPC = gns_SDSPC.CurrentDatabase
+	End If
+End Sub
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073647,03-05</datetime></item></scriptlibrary>
+
+</database>

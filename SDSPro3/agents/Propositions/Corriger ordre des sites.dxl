@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Propositions\Corriger ordre des sites" alias="A_OCOSites" hide="v3" publicaccess="false" designerversion="8.5.3">
+<noteinfo noteid="55589a" unid="DE32D622820AE737852588AF006A71A3" sequence="21">
+<created><datetime dst="true">20220831T152239,07-04</datetime></created>
+<modified><datetime>20260105T014838,02-05</datetime></modified>
+<revised><datetime>20250319T073746,45-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,01-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,01-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073745,97-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="selected"/><code event="options"><lotusscript>%REM
+	Agent os_40080_ChangerOrdreDesSites
+	Created Nov 21, 2017 by Christian De-Nardi/Serti Informatique
+	Description: Comments for Agent
+%END REM
+Option Public
+Option Declare
+Use "SI_Insertions"
+Use "x_SIRR"
+Use "x_SIEm"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_OCOSites"
+
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+	' ===========================================================
+	' Ce Sub traite la proposition sélectionnée par l'utilisateur
+	' Il corrige l'ordre des sites en changeant les clés selon le
+	' Unique &amp; NoReprésentant.
+	' ===========================================================
+	Dim ndc_Prop As NotesDocumentCollection
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Prop As NotesDocument
+	
+	Dim nd2_Suivant As NotesDocument
+	Dim nd2 As NotesDocument
+	
+	Dim v_Roles As Variant
+	Dim v_Cle As String
+	Dim v_Form As String
+	Dim v_Formule As String
+
+	Dim v_NbMajProduit As Long
+	Dim v_NbMajSite As Long
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	Dim v_MajSite As Boolean
+	Dim v_AdmS As Boolean
+	Dim v_NBAdmS As Long
+	
+	
+	Print "Début"
+	
+	' Initialisations
+	Call A_Initialisations
+	
+	' Doit avoir le rôle Admin pour utiliser cette action
+	v_Roles = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
+	If v_Roles(0) &lt;&gt; 1 Then
+		MessageBox "Vous n'êtes pas autorisé à utiliser cette action.", 16, "Opération annulée"
+		Exit Sub
+	End If
+	
+	'Set gndb_VProp = gns_VProp.CurrentDatabase
+	Set ndc_Prop = gndb_A.UnprocessedDocuments
+	
+	If ndc_Prop.Count = 0 Then
+		MessageBox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	ElseIf ndc_Prop.Count &gt; 1 Then
+		MessageBox xGDK_xMessage("SI", 166, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	Set nd_Prop = ndc_Prop.GetFirstDocument
+	
+	Call a_MajProposition(nd_Prop)
+			
+	v_Cle = xVar(nd_Prop, "Prop_NoProposition", "")
+	v_Formule = |(Form = "F_AdmS" &amp; Prod_NoProposition ="|&amp; v_Cle &amp; |")||(Form = "F_Site" &amp; Site_NoProposition ="|&amp; v_Cle &amp; |")||(Form = "F_Prod" &amp; Prod_NoProposition ="|&amp; v_Cle &amp; |")|
+	Set ndc = gndb_A.Search(v_Formule, Nothing, 0)
+			
+	If ndc.Count &gt; 0 Then
+		Set nd2_Suivant = ndc.GetFirstDocument
+		Do Until nd2_Suivant Is Nothing
+			Set nd2 = nd2_Suivant
+			Set nd2_Suivant = ndc.GetNextDocument(nd2_Suivant)
+			v_AdmS = False
+			v_Form = xVar(nd2, "Form", "")
+			If v_Form = "F_AdmS" Then
+				v_Form = xVar(nd2, "FORMORIGINAL", "")
+				v_AdmS = True
+			End If
+			
+			If v_Form = "F_Site" Then
+				If A_TraiterSite(nd2, v_Cle) Then
+					
+					Call nd2.save(True, False)
+					If v_AdmS Then
+						v_NBAdmS = v_NBAdmS + 1
+					Else
+						v_NbMajSite = v_NbMajSite + 1
+					End If
+				End If
+				
+			ElseIf v_Form = "F_Prod" Then
+				If A_TraiterProduit(nd2, v_Cle) Then
+					
+					Call nd2.save(True, False)
+					If v_AdmS Then
+						v_NBAdmS = v_NBAdmS + 1
+					Else
+						v_NbMajProduit = v_NbMajProduit + 1
+					End If
+				End If
+			End If
+			
+		Loop
+		' mettre dans l'ordre les No de sites
+		Call A_MajSites(nd_Prop)
+	End If
+	
+	Print "Fin : Nb maj produits " &amp; CStr(v_NbMajProduit) &amp; " -  Nb maj sites " &amp; CStr(v_NbMajSite)	&amp; " -  /  AdmS modifiés: " &amp; CStr(v_NBAdmS)
+	
+	Exit Sub
+	
+GererErreur:
+	Print "ERREUR : " &amp; GetThreadInfo(1)
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_VerifierSiEmployerExiste"><lotusscript>Function A_VerifierSiEmployerExiste(p_NoEmploye As String) As Boolean
+	On Error GoTo GererErreur
+	' Cette fonction vérifie si le No Employé existe dans la base
+	' Si Représentants II OU SI Employés
+	
+	Dim nd_Rep As NotesDocument
+	Dim nd_Empl As NotesDocument
+	
+	Dim v_NoRepRech As String
+	
+	A_VerifierSiEmployerExiste = False
+	
+	If Left(p_NoEmploye,1) = "R" Then
+		'v_NoRepRech = Right(p_NoEmploye, 1)
+		v_NoRepRech = Mid(p_NoEmploye, 2, Len(p_NoEmploye))
+	Else
+		v_NoRepRech = p_NoEmploye
+	End If
+	
+	Set nd_Rep = xSIRR_xndRepr(v_NoRepRech, False)
+	If nd_Rep Is Nothing Then
+		If IsNumeric(v_NoRepRech) Then
+			Set nd_Empl = xSIEm_xndEmpl(CInt(v_NoRepRech), False)
+		End If
+		
+		If (nd_Empl Is Nothing) Then
+			If v_NoRepRech &lt;&gt; "DSER" Or v_NoRepRech &lt;&gt; "*" Then ' Developement Serti
+				Exit Function
+			End If
+		End If
+	End If
+	
+	A_VerifierSiEmployerExiste = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.Currentdatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="A_MajSites"><lotusscript>Sub A_MajSites(pnd As NotesDocument)
+	On Error GoTo GererErreur
+	
+	Dim v_NoProposition As String
+	Dim a As Variant
+	
+	v_NoProposition = xVar(pnd, "Prop_NoProposition", "")
+	a = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Site21"; "| &amp; v_NoProposition &amp; |"; 2); "")|)
+	If a(0) &lt;&gt; "" Then
+		Call pnd.ReplaceItemValue("Prop_NoSites", a)
+	End If
+	Call pnd.save(True, False)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+
+</lotusscript></code><code event="A_TraiterSite"><lotusscript>Function A_TraiterSite(pnd As NotesDocument, p_Cle As String) As Boolean
+	On Error GoTo GererErreur
+				
+	Dim v_Cle As String
+	Dim v_CleProposition As String
+	Dim v_CleSite As String
+	Dim v_NoSite As String
+	Dim v_Maj As Boolean	
+	Dim v_SiteNoSite As String
+	
+	A_TraiterSite = False
+	
+	v_Cle = xVar(pnd, "Cle", "")
+	v_CleProposition = StrLeft(v_Cle, ";")
+	v_CleSite = StrRight(v_Cle, ";") ' 2ème paramètres
+	If InStr(v_CleSite, ";") &gt; 0 Then
+		v_CleSite = StrLeft(v_CleSite, ";")
+	End If
+	
+	v_NoSite = xVar(pnd, "Site_NoSite", "")
+	If v_NoSite = "" Then
+		Exit Function
+	End If
+	
+	If v_CleProposition &lt;&gt; p_Cle Then
+		Exit Function
+	End If
+	
+	v_CleProposition = A_CorrigerCle(v_CleProposition)
+	v_CleSite = A_CorrigerCle(v_CleSite)
+			
+	v_Cle = v_CleProposition &amp; ";" &amp; v_CleSite
+		
+	v_Maj = SIIx_MajItem(pnd, "Cle", v_Cle, False) Or v_Maj
+	v_Maj = SIIx_MajItem(pnd, "Site_NoSite", v_CleSite, False) Or v_Maj
+	
+	If v_Maj Then
+		Call pnd.Save(True, False)
+	End If
+		
+	A_TraiterSite = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+	
+
+</lotusscript></code><code event="a_MajProposition"><lotusscript>Sub a_MajProposition(pnd_Prop As NotesDocument)
+	On Error GoTo GererErreur
+			
+	Dim v_MajProp As Boolean
+	Dim v_Cle As String
+	Dim a_NoSites As Variant
+	Dim i As integer
+	Dim v_Maj As Boolean
+		
+	
+	v_Cle = A_CorrigerCle(xVar(pnd_Prop, "Prop_NoSitePrincipal", ""))
+	
+	v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NoSitePrincipal", v_Cle, False) Or v_Maj
+		
+	a_NoSites = xVarArray(pnd_Prop, "Prop_NoSites")
+	
+	If IsArray(a_NoSites) Then		
+		For i = LBound(a_NoSites) To UBound(a_NoSites)
+			a_NoSites(i) = A_CorrigerCle(a_NoSites(i))			
+		Next
+		
+		v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NoSites", a_NoSites, False) Or v_Maj
+	End If
+	
+	
+	If v_Maj Then
+		Call pnd_Prop.Save(True, False)
+	End If
+		
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_TraiterProduit"><lotusscript>Function A_TraiterProduit(pnd As NotesDocument, p_Cle As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_NoProduit As String
+	Dim v_NoRep As String
+	Dim v_Unique As String
+	Dim v_CleProposition As String
+	Dim v_Cle As String
+	Dim v_CleSite As String	
+	Dim v_NoRepCle1 As String
+	Dim v_Maj As Boolean
+	
+	A_TraiterProduit = False
+	
+	v_NoProduit = xVar(pnd, "Prod_NoProduit", "")
+	If v_NoProduit = "" Then
+		Exit Function
+	End If
+	
+	v_Cle = xVar(pnd, "Cle", "")
+	v_CleProposition = StrLeft(v_Cle, ";")
+	
+	If v_CleProposition &lt;&gt; p_Cle Then
+		Exit Function
+	End If
+	
+	v_CleSite = StrRight(v_Cle, ";")
+	If InStr(v_CleSite, ";") &gt; 0 Then
+		v_CleSite = StrLeft(v_CleSite, ";")
+	End If
+	
+	v_CleProposition = A_CorrigerCle(v_CleProposition)
+	v_CleSite = A_CorrigerCle(v_CleSite)
+	v_Cle = v_CleProposition &amp; ";" &amp; v_CleSite + ";" &amp; xVar(pnd, "Prod_CleProduit", "")
+	
+	v_Maj = SIIx_MajItem(pnd, "Prod_NoProposition", v_CleProposition, False) Or v_Maj
+	v_Maj = SIIx_MajItem(pnd, "Prod_NoSite", v_CleSite, False) Or v_Maj
+	v_Maj = SIIx_MajItem(pnd, "Cle", v_Cle, False) Or v_Maj
+	
+	If v_Maj Then
+		Call pnd.Save(True, False)
+	End If
+		
+	A_TraiterProduit = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="A_CorrigerCle"><lotusscript>Function A_CorrigerCle(p_Cle As String) As String
+	On Error GoTo GererErreur
+	
+	Dim v_Unique As String
+	Dim v_NoRep As String
+	Dim v_Cle As String
+	
+	v_Unique = left(p_Cle, 6)
+	v_NoRep = Right(p_Cle, Len(p_Cle)- Len(v_Unique))	
+	v_Cle = v_Unique &amp; v_NoRep
+	
+	If A_VerifierSiEmployerExiste(v_NoRep) Then	
+		A_CorrigerCle = v_Cle
+		Exit Function
+	End If
+		
+	v_Unique = Right(p_Cle,6)
+	v_NoRep = Left(p_Cle, Len(p_Cle)- Len(v_Unique))
+	v_Cle = v_Unique &amp; v_NoRep
+	
+	If A_VerifierSiEmployerExiste(v_NoRep) Then	
+		A_CorrigerCle = v_Cle
+		Exit Function					
+	End If
+		
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20181106T135116,75-05</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20250319T073746,45-05</datetime></item></agent>
+
+</database>

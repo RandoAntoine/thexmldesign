@@ -1,0 +1,1645 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_PNav2.00.05" hide="v3 v4strict" designerversion="8">
+<noteinfo noteid="5557d2" unid="608E253C99A4B8248525873A00508BCF" sequence="56">
+<created><datetime dst="true">20210823T103946,71-04</datetime></created>
+<modified><datetime>20260105T014837,69-05</datetime></modified>
+<revised><datetime>20250319T073718,82-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,68-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,68-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>
+' Site \ Formation
+Option Public
+Option Declare
+Use "wsc_SDSP3"
+Use "SDSP_MasquePNav"
+Use "SDSP_Navigation"
+Use "SI_Google"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gni_SectionsValides_FPNav As NotesItem
+Const gc_NbSections_FPNav = 9
+Const gc_SectionPaie = 6
+Dim g_SectionCourante_FPNav As String
+
+' Entering/Exiting
+Dim g_NomItem_FPNav As String
+Dim g_ValeurItem_FPNav As String
+
+' 0 - Paramètres
+Dim g_ParametresFormation_FPNav As Boolean
+Dim g_TauxHoraireDep_FPNav As Double
+Dim g_VoitureDistance_FPNav As Double
+Dim g_VoitureHeures_FPNav As Double
+Dim g_VoitureTauxKm_FPNav As Double
+Dim g_AvionCout_FPNav As Double
+Dim g_AvionHeures_FPNav As Double
+Dim g_VoitureLocation_FPNav As Double
+Dim g_HotelCout_FPNav As Double
+Dim g_RepasCout_FPNav As Double
+Dim g_StationnementCout_FPNav As Double
+
+Dim ga_CAR_FPNav(1 To gc_NbSections_FPNav) As Double
+Dim ga_HOTEL_FPNav(1 To gc_NbSections_FPNav) As Double
+Dim ga_KM_FPNav(1 To gc_NbSections_FPNav) As Double
+Dim ga_MEAL_FPNav(1 To gc_NbSections_FPNav) As Double
+Dim ga_PLANE_FPNav(1 To gc_NbSections_FPNav) As Double
+Dim ga_ROAD_FPNav(1 To gc_NbSections_FPNav) As Double
+Dim ga_TRAIN_FPNav(1 To gc_NbSections_FPNav) As Double
+Dim ga_WEB_FPNav(1 To gc_NbSections_FPNav) As Double
+Dim ga_PARK_FPNav(1 To gc_NbSections_FPNav) As Double
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_FPNav = "SL"
+Const gc_Element_FPNav = "F_PNav2.00.05"
+
+
+</lotusscript></code><code event="FPNav_Entering"><lotusscript>Sub FPNav_Entering
+	On Error Goto GererErreur
+	
+	Dim nuiws As NotesUIWorkspace
+	
+	If gnuid_SDSPN Is Nothing Then
+		Set nuiws = New Notesuiworkspace
+		Set gnuid_SDSPN = nuiws.CurrentDocument
+		Call gnuid_SDSPN.Refresh
+	End If
+	
+	g_NomItem_FPNav = gnuid_SDSPN.CurrentField
+	g_ValeurItem_FPNav = xVarImplode(gnuid_SDSPN.Document, g_NomItem_FPNav, "")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsSurSite"><lotusscript>Sub FPNav_hsSurSite
+	On Error Goto GererErreur
+	
+	If xVar(gnd_SDSPM, "Calc_SurPlace", "") = "1" Then
+		Call gnd_SDSPM.ReplaceItemValue("Calc_SurPlace", "")
+	Else
+		Call gnd_SDSPM.ReplaceItemValue("Calc_SurPlace", "1")
+	End If
+	Call gnd_SDSPM.ReplaceItemValue("Calc_Selection", "")
+	
+	
+	If xVar(gnd_SDSPM, "PNav_EditMode", "") = 1 Then
+		
+	' Sauvegarder les valeurs de la section courante
+		Call FPNav_SauvegarderSectionUI
+		
+		If FPNav_SectionValide(gnd_SDSPM, g_SectionCourante_FPNav, False) Then
+			If gni_SectionsValides_FPNav.Values(0) = "" Then
+				gni_SectionsValides_FPNav.Values = g_SectionCourante_FPNav
+			Elseif Not gni_SectionsValides_FPNav.Contains(g_SectionCourante_FPNav) Then
+				Call gni_SectionsValides_FPNav.AppendToTextList(g_SectionCourante_FPNav)
+			End If
+		Else
+			If gni_SectionsValides_FPNav.Contains(g_SectionCourante_FPNav) Then
+				gni_SectionsValides_FPNav.Values = RetirerArray(gni_SectionsValides_FPNav.Values, g_SectionCourante_FPNav)
+			End If
+		End If
+		
+	End If
+	
+	Call gnuid_SDSPN.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+	
+End Sub
+
+</lotusscript></code><code event="FPNav_DocumentValide"><lotusscript>Function FPNav_DocumentValide(p_AfficherErreur As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_AfficherErreur As Boolean
+	Dim v_SectionCouranteErreur As Boolean
+	Dim v_Erreur As Boolean
+	Dim v_SectionErreur As String
+	Dim i As Integer
+	
+	FPNav_DocumentValide = False
+	v_AfficherErreur = p_AfficherErreur
+	
+	If xVar(gnd_SDSPM, "Prop_DescProposition", "") = "" Then
+		If p_AfficherErreur Then
+			MessageBox xGDK_xMessage("SI", 23, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (1)"
+			Call gnuid_SDSPN.GotoField("Prop_DescProposition")
+		End If
+		Exit Function
+	End If
+	
+	' Valider les paramètres de formation
+	If Not g_ParametresFormation_FPNav Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SDSPP", 30, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (2)"
+		End If
+		Exit Function
+	End If
+	
+	' Valider la section courante
+	FPNav_DocumentValide = True
+	v_SectionCouranteErreur = Not FPNav_SectionValide(gnd_SDSPM, g_SectionCourante_FPNav, v_AfficherErreur)
+	If v_SectionCouranteErreur Then
+		v_SectionErreur = g_SectionCourante_FPNav
+		v_AfficherErreur = False
+	End If
+	
+	' Sections
+	gni_SectionsValides_FPNav.Values = ""
+	For i = 1 To gc_NbSections_FPNav
+		If i = Cint(g_SectionCourante_FPNav) Then
+			v_Erreur = v_SectionCouranteErreur
+		Else
+			v_Erreur = Not FPNav_SectionValide(gnd_SDSPM, Cstr(i), v_AfficherErreur)
+		End If
+		
+		If v_Erreur Then
+			If v_SectionErreur = "" Then
+				v_SectionErreur = Cstr(i)
+				v_AfficherErreur = False
+			End If
+			FPNav_DocumentValide = False
+		Else
+			Call gni_SectionsValides_FPNav.Appendtotextlist(Cstr(i))
+		End If
+	Next
+	
+	Print v_SectionErreur
+	If FPNav_DocumentValide = False And p_AfficherErreur And v_SectionErreur &lt;&gt; g_SectionCourante_FPNav Then
+		g_SectionCourante_FPNav = v_SectionErreur
+		Call gnd_SDSPM.ReplaceItemValue("PNav_OngletCourant2.00.05", v_SectionErreur)
+		Call FPNav_InitialiserSectionUI(gnd_SDSPM)
+		Call gnuid_SDSPN.Refresh
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	FPNav_DocumentValide = False
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_acImage"><lotusscript>Sub FPNav_acImage
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument("") Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImage(gnd_Prop_SDSPM)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsAnnuler"><lotusscript>Sub FPNav_hsAnnuler
+	On Error Goto GererErreur
+	
+	gnd_SDSPM.SaveOptions = "0"
+	Call gnuid_SDSPN.Close
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_QuerySave"><lotusscript>Sub FPNav_QuerySave(pnuid_Source As Notesuidocument, p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	p_Continue = FPNav_SauvegarderDocument("")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acGenererCommande"><lotusscript>Sub FPNav_acGenererCommande
+	On Error GoTo GererErreur
+	
+	Call SDSPUI_acGenererCommande(gnd_Prop_SDSPM)
+	
+	Call gnuid_SDSPM.Refreshhideformulas
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsOuvrirSection"><lotusscript>Sub FPNav_hsOuvrirSection(p_Section As String)
+	On Error Goto GererErreur
+	
+	' Valider les paramètres de formation
+	If Not g_ParametresFormation_FPNav Then
+		Messagebox xGDK_xMessage("SDSPP", 30, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (1)"
+		Exit Sub
+	End If
+	
+	' Calculer les champs automatiques
+	On Error 4412 Goto FinSub
+	Call gnuid_SDSPN.Refresh
+	On Error 4412 Goto GererErreur
+	
+	' Valider la section courante
+	If xVar(gnd_SDSPM, "PNav_EditMode", "") = 1 Then
+		
+	' Sauvegarder les valeurs de la section courante
+		Call FPNav_SauvegarderSectionUI
+		
+		If FPNav_SectionValide(gnd_SDSPM, g_SectionCourante_FPNav, False) Then
+			If gni_SectionsValides_FPNav.Values(0) = "" Then
+				gni_SectionsValides_FPNav.Values = g_SectionCourante_FPNav
+			Elseif Not gni_SectionsValides_FPNav.Contains(g_SectionCourante_FPNav) Then
+				Call gni_SectionsValides_FPNav.AppendToTextList(g_SectionCourante_FPNav)
+			End If
+		Else
+			If gni_SectionsValides_FPNav.Contains(g_SectionCourante_FPNav) Then
+				gni_SectionsValides_FPNav.Values = RetirerArray(gni_SectionsValides_FPNav.Values, g_SectionCourante_FPNav)
+			End If
+		End If
+	End If
+	
+	
+	' Charger les valeurs de la nouvelle section
+	g_SectionCourante_FPNav = p_Section
+	Call gnd_SDSPM.ReplaceItemValue("PNav_OngletCourant2.00.05", p_Section)
+	Call FPNav_InitialiserSectionUI(gnd_SDSPM)
+	Call gnuid_SDSPN.Refresh
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_SectionValide"><lotusscript>Function FPNav_SectionValide(pnd_PNav As NotesDocument, p_Section As String, p_AfficherErreur As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	FPNav_SectionValide = False
+	
+	Call FPNav_RecalculerSection(pnd_PNav, p_Section, True)
+	
+	If xVar(pnd_PNav, "Calc_NbInstallateurs" &amp; p_Section, "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 201, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (0)"
+			Call gnuid_SDSPN.GotoField("Calc_NbInstallateurs" &amp; p_Section)
+		End If
+		Exit Function
+	End If
+	
+	If p_Section = Cstr(gc_SectionPaie) And xVar(gnd_Site_SDSPM,"Site_D6_Section", "") &lt;&gt; "1" Then
+		FPNav_SectionValide = True
+		Exit Function
+	End If
+	
+	If xVar(pnd_PNav, "Calc_NbInstallateurs" &amp; p_Section, "") &gt; "0" Then
+		If xVar(pnd_PNav, "Calc_NbJours" &amp; p_Section, "") = "" Then
+			If p_AfficherErreur Then
+				Messagebox xGDK_xMessage("SI", 201, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (1)"
+				Call gnuid_SDSPN.GotoField("Calc_NbInstallateurs" &amp; p_Section)
+			End If
+			Exit Function
+		End If
+		If xVar(pnd_PNav, "Calc_NbVoitures" &amp; p_Section, "") = "" Then
+			If p_AfficherErreur Then
+				Messagebox xGDK_xMessage("SI", 201, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (2)"
+				Call gnuid_SDSPN.GotoField("Calc_NbVoitures" &amp; p_Section)
+			End If
+			Exit Function
+		End If
+		If xVar(pnd_PNav, "Calc_Selection" &amp; p_Section, "") = "" Then
+			If p_AfficherErreur Then
+				Messagebox xGDK_xMessage("SI", 201, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (3)"
+				Call gnuid_SDSPN.GotoField("Calc_Selection" &amp; p_Section)
+			End If
+			Exit Function
+		End If
+	End If
+	
+	If xVar(pnd_PNav, "Calc_NbSessions" &amp; p_Section, "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 201, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (4)"
+			Call gnuid_SDSPN.GotoField("Calc_NbSessions" &amp; p_Section)
+		End If
+		Exit Function
+	End If
+	
+	If p_Section = "6" And xVar(gnd_Site_SDSPM,"Site_D6_Section", "") = "1" Then
+		If xVar(pnd_PNav, "Calc_NbJoursPaie" &amp; p_Section, "") = "" Then
+			If p_AfficherErreur Then
+				Messagebox xGDK_xMessage("SI", 201, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (5)"
+				Call gnuid_SDSPN.GotoField("Calc_NbJoursPaie" &amp; p_Section)
+			End If
+			Exit Function
+		End If
+	End If
+	
+	FPNav_SectionValide = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(pnd_PNav, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_hsSuivant"><lotusscript>Sub FPNav_hsSuivant
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(True) Then
+		' Ouvrir le masque suivant
+		Call SDSPN_OuvrirMasqueSuivant
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+
+</lotusscript></code><code event="FPNav_SauvegarderSection"><lotusscript>Function FPNav_SauvegarderSection(p_Section As String) As Boolean
+	On Error Goto GererErreur
+	
+	' Mettre à jour le site
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_NbInstallateurs" &amp; p_Section, "")
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_NbJoursPaie" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_NbJours" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_NbVoitures" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_SurPlace" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_Selection" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_NbSessions" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_CARExtra" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_HOTELExtra" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_MEALExtra" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_ROADExtra" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_KMExtra" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_PARKExtra" &amp; p_Section, "") Or FPNav_SauvegarderSection
+	
+	
+	FPNav_SauvegarderSection = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_Notes" &amp; p_Section, "") Or FPNav_SauvegarderSection	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_acImprimerPropositionSommaire"><lotusscript>Sub FPNav_acImprimerPropositionSommaire
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument(True) Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImprimerPropositionSommaire
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_Exiting"><lotusscript>Sub FPNav_Exiting
+	On Error Goto GererErreur
+	
+	Dim v_NbUtilisateurs As Variant
+	Dim v_FractionNbUtilisateurs As Variant
+	
+	If g_NomItem_FPNav &lt;&gt; "" Then
+		
+		If xVarImplode(gnuid_SDSPN.Document, g_NomItem_FPNav, "") &lt;&gt; g_ValeurItem_FPNav Then
+			
+			If xVar(gnd_SDSPM, g_NomItem_FPNav, "") &lt;&gt; "" Then
+				
+				v_NbUtilisateurs = xVar(gnd_SDSPM, g_NomItem_FPNav, "")
+				
+				v_FractionNbUtilisateurs = Fraction(Cdbl(v_NbUtilisateurs))
+				
+				If Len(v_FractionNbUtilisateurs) = 2 Then
+					If Right(v_FractionNbUtilisateurs,1) = 5 Then
+						Call SDSPM_MajItemValeur(gnd_SDSPM, g_NomItem_FPNav, v_NbUtilisateurs)
+					Else
+						Call SDSPM_MajItemValeur(gnd_SDSPM, g_NomItem_FPNav, SItN_Round(v_NbUtilisateurs,0))
+					End If
+				Else
+					Call SDSPM_MajItemValeur(gnd_SDSPM, g_NomItem_FPNav, SItN_Round(v_NbUtilisateurs,0))
+				End If
+			End If
+			
+			Call FPNav_SauvegarderSectionUI
+			Call FPNav_RecalculerSection(gnd_SDSPM, g_SectionCourante_FPNav, True)
+			
+			On Error 4412 Goto formatnum
+			Call gnuid_SDSPN.Refresh
+			
+		End If
+		
+		g_NomItem_FPNav = ""
+	End If
+	Exit Sub
+	
+formatnum:
+	Call gnuid_SDSPN.FieldSetText("Calc_NbInstallateurs", Cstr(SItN_cdbl(gnuid_SDSPN.FieldgetText(g_NomItem_FPNav))))
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsOngletPrecedent"><lotusscript>Sub FPNav_hsOngletPrecedent
+	On Error Goto GererErreur
+	
+	Dim v_OngletPrecedent As Integer
+	' 7 = SDS Merlin
+	If xVar(gnd_SDSPM, "Site_D6_Section" , "") &lt;&gt;"1" And xVar(gnd_SDSPM, "PNav_OngletCourant2.00.05", "0") = "7" Then
+		' Si onglet payroll caché
+		v_OngletPrecedent = Cint(xVar(gnd_SDSPM, "PNav_OngletCourant2.00.05", 0)) - 2
+	Else
+		v_OngletPrecedent = Cint(xVar(gnd_SDSPM, "PNav_OngletCourant2.00.05", 0)) - 1
+	End If
+	
+	If v_OngletPrecedent &gt; 0 Then
+		Call FPNav_hsOuvrirSection(Cstr(v_OngletPrecedent ))
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_InitialiserSectionUI"><lotusscript>Sub FPNav_InitialiserSectionUI(pnd_PNav As NotesDocument)
+	On Error Goto GererErreur
+	
+	Call pnd_PNav.ReplaceItemValue("Calc_NbInstallateurs", xVar(pnd_PNav, "Calc_NbInstallateurs" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_NbJours", xVar(pnd_PNav, "Calc_NbJours" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_NbVoitures", xVar(pnd_PNav, "Calc_NbVoitures" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_SurPlace", xVar(pnd_PNav, "Calc_SurPlace" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_Selection", xVar(pnd_PNav, "Calc_Selection" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_CARExtra", xVar(pnd_PNav, "Calc_CARExtra" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_MEALExtra", xVar(pnd_PNav, "Calc_MEALExtra" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_ROADExtra", xVar(pnd_PNav, "Calc_ROADExtra" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_HOTELExtra", xVar(pnd_PNav, "Calc_HOTELExtra" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_KMExtra", xVar(pnd_PNav, "Calc_KMExtra" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_NbSessions", xVar(pnd_PNav, "Calc_NbSessions" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_PARKExtra", xVar(pnd_PNav, "Calc_PARKExtra" &amp; g_SectionCourante_FPNav, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_Notes", xVar(pnd_PNav, "Calc_Notes" &amp; g_SectionCourante_FPNav, ""))
+		
+	Call FPNav_RecalculerSection(pnd_PNav, g_SectionCourante_FPNav, True)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acDupliquerProposition"><lotusscript>Sub FPNav_acDupliquerProposition
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim nd_Duplicata As NotesDocument
+	Dim nd_DB As NotesDocument
+	
+	Dim v_UserName As String
+	Dim v_Description As Variant
+	Dim v_ID As String
+	Dim v_DB_ID As String
+	Dim v_EditMode As String
+	Dim v_Commentaire As String
+	Dim v_DBRecalcTous As Boolean
+	Dim v_RecalcListe As Boolean
+	
+	On Error 4411 GoTo FinSub
+	Call gnuid_SDSPM.Save
+	
+	' Demander la nouvelle description à l'utilisateur
+	v_Description = gnuiws_SDSPM.Prompt(PROMPT_OKCANCELEDIT, _
+	xGDK_xMessage("SDSPP", 46, "", ""), xGDK_xMessage("SDSPP", 47, "", ""), CStr(Today()))
+	If v_Description = "" Then
+		Exit Sub
+	Else
+		If v_Description = xVar(gnd_SDSPM,"Prop_DescProposition","") Then
+			MessageBox xGDK_xMessage("SDSPP", 48, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+	End If
+	
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	nd_DB.Form = "DB_SIHi"	
+	nd_DB.SIHi_Obligatoire = True	' Image "&gt;" pour Commentaire obligatoire
+	
+	If Not gnuiws_SDSPN.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+	xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+		Exit Sub
+	End If
+	
+	v_Commentaire = xVar(nd_DB, "SIHi_Commentaire", "")
+	v_UserName = gns_SDSPM.UserName
+	v_EditMode = xVar(gnd_SDSPM, "PNav_EditMode", "")
+	
+	Call SDSPDp_DupliquerProposition(gnd_Prop_SDSPM,CStr(v_Description), nd_Duplicata, nd_DB, v_UserName)
+	
+	If Not nd_Duplicata Is Nothing Then
+		Call SDSPM_acRecalculerCouts(nd_Duplicata, False, False)
+		
+		' Fermer la proposition
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPM.Close
+		Call gnuiws_SDSPM.ViewRefresh
+	Else
+		Call gnuid_SDSPM.Refresh
+	End If
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+	
+
+</lotusscript></code><code event="FPNav_acImprimerProposition"><lotusscript>Sub FPNav_acImprimerProposition
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument(True) Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImprimerProposition
+	
+	Exit Sub
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_SauvegarderDocument"><lotusscript>Function FPNav_SauvegarderDocument(p_ValiderDocument As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_NoOptionCourante As String
+	Dim v_NoOptionMax As String
+	Dim v_DocumentValide As Boolean
+	Dim v_Section As String
+	Dim v_MajProp As Boolean
+	Dim i As Integer
+	Dim a_Calc_CAR As Variant
+	Dim a_Calc_HOTEL As Variant
+	Dim a_Calc_KM As Variant
+	Dim a_Calc_MEAL As Variant
+	Dim a_Calc_PLANE As Variant
+	Dim a_Calc_ROAD As Variant
+	Dim a_Calc_TRAIN As Variant
+	Dim a_Calc_WEB As Variant
+	Dim a_Calc_PARK As Variant
+	Dim v_Valeur As Variant
+	Dim v_UserName As String
+	
+	'Dim Chronometre As New cl_SIChronometre
+	'Call Chronometre.Demarrer()
+	
+	If xVar(gnd_SDSPM, "PNav_EditMode", 0) Then
+		FPNav_SauvegarderDocument = False
+	Else
+		FPNav_SauvegarderDocument = True
+		Exit Function
+	End If
+	
+	' Calculer les champs automatiques
+	On Error 4412 Goto FinSub
+	Call gnuid_SDSPN.Refresh
+	On Error 4412 Goto GererErreur
+	
+	'Print "1. " &amp; Cstr(Chronometre.Arreter())
+	
+	' Charger les valeurs de la nouvelle section
+	Call FPNav_SauvegarderSectionUI
+'	Print "2. " &amp; CStr(Chronometre.Arreter())
+	
+	' Valider le document courant
+	v_NoOptionCourante = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "0.00")
+	v_NoOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00")
+	If p_ValiderDocument = "" Then
+		v_DocumentValide = FPNav_DocumentValide(Cint(v_NoOptionCourante &lt; v_NoOptionMax))
+	Else
+		v_DocumentValide = FPNav_DocumentValide(Cint(p_ValiderDocument))
+	End If
+	If v_DocumentValide = False Then
+		If p_ValiderDocument = True Then
+			Call gnuid_SDSPN.RefreshHideFormulas
+			Exit Function
+		End If
+		
+		gnd_SDSPM.PNav_MenuOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "")
+	End If
+'	Print "3. " &amp; CStr(Chronometre.Arreter())
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp("") Then
+		Exit Function
+	End If
+	
+	' Extraire le site
+	If Not SDSPM_InitSite(Nothing) Then
+		Exit Function
+	End If
+	'Print "5. " &amp; Cstr(Chronometre.Arreter())
+	
+	' Mettre à jour le site
+	FPNav_SauvegarderDocument = FPNav_SauvegarderParametres
+	
+	' Sections 1 à 7
+'	Print "5.1 " &amp; CStr(Chronometre.Arreter())
+	v_UserName = gns_SDSPM.UserName
+	gnd_Site_SDSPM.Calc_SectionsValides = xVar(gnd_SDSPM, "Calc_SectionsValides", "")
+	
+	a_Calc_CAR = xVarArray(gnd_SDSPM,"Calc_CAR")
+	a_Calc_HOTEL = xVarArray(gnd_SDSPM,"Calc_HOTEL")
+	a_Calc_KM = xVarArray(gnd_SDSPM,"Calc_KM")
+	a_Calc_MEAL = xVarArray(gnd_SDSPM,"Calc_MEAL")
+	a_Calc_PLANE = xVarArray(gnd_SDSPM,"Calc_PLANE")
+	a_Calc_ROAD = xVarArray(gnd_SDSPM,"Calc_ROAD")
+	a_Calc_TRAIN = xVarArray(gnd_SDSPM,"Calc_TRAIN")
+	a_Calc_WEB = xVarArray(gnd_SDSPM,"Calc_WEB")
+	a_Calc_PARK = xVarArray(gnd_SDSPM,"Calc_PARK")
+	
+	For i = 1 To gc_NbSections_FPNav
+		'Print "5.2 " &amp; Cstr(Chronometre.Arreter())
+		
+		FPNav_SauvegarderDocument = FPNav_SauvegarderSection(Cstr(i)) Or FPNav_SauvegarderDocument
+		' x : 0=CAR, 1=HOTEL, 2=KM, 3=MEAL, 4=PLANE, 5=ROAD / y : 0=AH, 1=VH, 2=VM
+		'		a_Selection(i) = a_Selection(i) + (a_Depenses(0, i) * g_VoitureLocation_FPNav)
+		'		a_Selection(i) = a_Selection(i) + (a_Depenses(1, i) * g_HotelCout_FPNav)
+		'		a_Selection(i) = a_Selection(i) + (a_Depenses(2, i) * g_VoitureTauxKm_FPNav)
+		'		a_Selection(i) = a_Selection(i) + (a_Depenses(3, i) * g_RepasCout_FPNav)
+		'		a_Selection(i) = a_Selection(i) + (a_Depenses(4, i) * g_AvionCout_FPNav)
+		'		a_Selection(i) = a_Selection(i) + (a_Depenses(5, i) * g_TauxHoraireDep_FPNav)
+		
+		' Si extra retourne quantité ajusté au lieu de quantité
+		If xVar(gnd_SDSPM, "Calc_CARExtra" &amp; Cstr(i), -1) &gt;= 0 Then
+			v_Valeur = xVar(gnd_SDSPM, "Calc_CARExtra" &amp; Cstr(i), 0)
+		Else
+			v_Valeur = a_Calc_CAR(i-1)
+		End If
+		Call SDSPM_MajProduitsProgramme("", "Calc_CAR" &amp; Cstr(i), "", v_Valeur, 0, g_VoitureLocation_FPNav, "")
+'		Print "5.3 " &amp; CStr(Chronometre.Arreter())
+		
+		' Maj. hotel à zéro si pas sélectionné (ne pas supprimer)
+		If xVar(gnd_SDSPM, "Calc_Selection" &amp; Cstr(i), "") = 2 Then
+			'Call SDSPM_SupprimerProduitsProgramme("Calc_HOTEL" &amp; Cstr(i))
+			Call SDSPM_MajProduitsProgramme("", "Calc_HOTEL" &amp; Cstr(i), "", 0, 0, g_HotelCout_FPNav, "")
+		Else
+			' Si extra retourne quantité ajusté au lieu de quantité
+			If xVar(gnd_SDSPM, "Calc_HOTELExtra" &amp; Cstr(i), -1) &gt;= 0 Then
+				v_Valeur = xVar(gnd_SDSPM, "Calc_HOTELExtra" &amp; Cstr(i), 0)
+			Else
+				v_Valeur = a_Calc_HOTEL(i-1)
+			End If
+			Call SDSPM_MajProduitsProgramme("", "Calc_HOTEL" &amp; Cstr(i), "", v_Valeur, 0, g_HotelCout_FPNav, "")
+		End If
+		
+		' Si extra retourne quantité ajusté au lieu de quantité
+		If xVar(gnd_SDSPM, "Calc_KMExtra" &amp; Cstr(i), -1) &gt;= 0 Then
+			v_Valeur = xVar(gnd_SDSPM, "Calc_KMExtra" &amp; Cstr(i), 0)
+		Else
+			v_Valeur = a_Calc_KM(i-1)
+		End If
+		Call SDSPM_MajProduitsProgramme("", "Calc_KM" &amp; Cstr(i), "", Clng(v_Valeur), 0, g_VoitureTauxKm_FPNav, "")
+		
+		
+'		Print "5.4 " &amp; CStr(Chronometre.Arreter())
+
+		' Si extra retourne quantité ajusté au lieu de quantité
+		If xVar(gnd_SDSPM, "Calc_PARKExtra" &amp; CStr(i), -1) &gt;= 0 Then
+			v_Valeur = xVar(gnd_SDSPM, "Calc_PARKExtra" &amp; CStr(i), 0)
+		Else
+			v_Valeur = a_Calc_PARK(i-1)
+		End If
+		Call SDSPM_MajProduitsProgramme("", "Calc_PARK" &amp; CStr(i), "", v_Valeur, 0, g_StationnementCout_FPNav, "")
+
+
+		
+		' Si extra retourne quantité ajusté au lieu de quantité
+		If xVar(gnd_SDSPM, "Calc_MEALExtra" &amp; Cstr(i), -1) &gt;= 0 Then
+			v_Valeur = xVar(gnd_SDSPM, "Calc_MEALExtra" &amp; Cstr(i), 0)
+		Else
+			v_Valeur = a_Calc_MEAL(i-1)
+		End If
+		Call SDSPM_MajProduitsProgramme("", "Calc_MEAL" &amp; Cstr(i), "", v_Valeur, 0, g_RepasCout_FPNav, "")
+		
+		' Si extra retourne quantité ajusté au lieu de quantité
+		If xVar(gnd_SDSPM, "Calc_ROADExtra" &amp; Cstr(i), -1) &gt;= 0 Then
+			v_Valeur = xVar(gnd_SDSPM, "Calc_ROADExtra" &amp; Cstr(i), 0)
+		Else
+			v_Valeur = a_Calc_ROAD(i-1)
+		End If
+		Call SDSPM_MajProduitsProgramme("", "Calc_ROAD" &amp; Cstr(i), "", v_Valeur, 0, g_TauxHoraireDep_FPNav, "")
+		
+		If xVar(gnd_SDSPM, "Calc_Selection" &amp; Cstr(i), "") = 0 Then
+			Call SDSPM_MajProduitsProgramme("", "Calc_PLANE" &amp; Cstr(i), "", Clng(a_Calc_PLANE(i-1)), 0, g_AvionCout_FPNav, "")
+		Else
+			' Maj. avion à zéro si pas sélectionné (ne pas supprimer)
+			'Call SDSPM_SupprimerProduitsProgramme("Calc_PLANE" &amp; Cstr(i))
+			Call SDSPM_MajProduitsProgramme("", "Calc_PLANE" &amp; Cstr(i), "", 0, 0, g_AvionCout_FPNav, "")
+		End If
+		
+		Call SDSPM_MajProduitsProgramme("", "Calc_TRAIN" &amp; Cstr(i), "", Clng(a_Calc_TRAIN(i-1)),0, "", "")
+		
+		' Si payroll = no, remettrer la quantité à zéro.
+		If i = gc_SectionPaie And xVar(gnd_SDSPM, "Site_D6_Section", "") &lt;&gt; "1" Then
+			v_Valeur = 0
+		Else
+			v_Valeur = a_Calc_WEB(i-1)
+		End If
+		
+		Call SDSPM_MajProduitsProgramme("", "Calc_WEB" &amp; Cstr(i), "", v_Valeur ,0, "", "")
+		
+		
+	Next
+	'Print "6. " &amp; Cstr(Chronometre.Arreter())
+	
+	' Ajouter le produit payroll
+	If xVar(gnd_SDSPM, "Site_D6_Section", "") = "1" Then
+		Call SDSPM_MajProduitsProgramme("", "Calc_SETUPPAIE", "", Clng(xVar(gnd_SDSPM,"Calc_NbJoursPaie" &amp; Cstr(gc_SectionPaie),"0")), 0, "", "")
+	End If
+	
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_CAR", a_Calc_CAR) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_HOTEL", a_Calc_HOTEL) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_PARK", a_Calc_PARK) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_MEAL", a_Calc_MEAL) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_KM", a_Calc_KM) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_TRAIN", a_Calc_TRAIN) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_ROAD", a_Calc_ROAD) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Site_SDSPM, "Calc_WEB", a_Calc_WEB) Or FPNav_SauvegarderDocument
+	
+	If FPNav_SauvegarderDocument Then
+		gnd_Site_SDSPM.HistoDM = Now
+		gnd_Site_SDSPM.HistoUM = v_UserName
+		Call gnd_Site_SDSPM.Save(True, False)
+	End If
+'	Print "7. " &amp; CStr(Chronometre.Arreter())
+	
+	' Mettre à jour la proposition
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_DescProposition", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "PNav_MenuOptionMax", "") Or FPNav_SauvegarderDocument
+	
+	If FPNav_SauvegarderDocument Then
+		gnd_Prop_SDSPM.HistoDM = Now
+		gnd_Prop_SDSPM.HistoUM = v_UserName
+		Call gnd_Prop_SDSPM.Save(True, False)
+	End If
+	'Print "9. " &amp; Cstr(Chronometre.Arreter())
+	
+	FPNav_SauvegarderDocument= True
+FinSub:
+	Exit Function
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="FPNav_InitialiserSection"><lotusscript>Sub FPNav_InitialiserSection(pnd_PNav As NotesDocument, p_Section As String, p_Maj As Boolean)
+	On Error Goto GererErreur
+	
+	Dim v_NbInstallateurs As Variant
+	Dim v_NbjoursPaie As Variant
+	Dim v_NbJours As Variant
+	Dim v_NbVoitures As Variant
+	Dim v_NbSessions As Variant
+	
+	' Initialise valeurs défaut à zéro si client existant , Conversion serveur hébergé ou Changement propriétaire
+	If xVar(gnd_Prop_SDSPM, "Prop_TypeProposition", "") &gt;= "2" Then
+		v_NbInstallateurs = xVar(gnd_Site_SDSPM, "Calc_NbInstallateurs" &amp; p_Section , 0)
+		v_NbjoursPaie = xVar(gnd_Site_SDSPM, "Calc_NbJoursPaie" &amp; p_Section, 0)
+		v_NbJours = xVar(gnd_Site_SDSPM, "Calc_NbJours" &amp; p_Section, 0)
+		v_NbVoitures = xVar(gnd_Site_SDSPM, "Calc_NbVoitures" &amp; p_Section, 0)
+		v_NbSessions = xVar(gnd_Site_SDSPM, "Calc_NbSessions" &amp; p_Section, 0)
+	Else
+		v_NbInstallateurs = xVar(gnd_Site_SDSPM, "Calc_NbInstallateurs" &amp; p_Section , xComplTabl("NBI" &amp; p_Section, "Form_ValDefaut", "1", True))
+		v_NbjoursPaie = xVar(gnd_Site_SDSPM, "Calc_NbJoursPaie" &amp; p_Section, xComplTabl("NBJPAIE" &amp; p_Section, "Form_ValDefaut", "1", True))
+		v_NbJours = xVar(gnd_Site_SDSPM, "Calc_NbJours" &amp; p_Section, xComplTabl("NBJ" &amp; p_Section, "Form_ValDefaut", "1", True))
+		v_NbVoitures = xVar(gnd_Site_SDSPM, "Calc_NbVoitures" &amp; p_Section, xComplTabl("NBV" &amp; p_Section, "Form_ValDefaut", "1", True))
+		v_NbSessions = xVar(gnd_Site_SDSPM, "Calc_NbSessions" &amp; p_Section, xComplTabl("NBS" &amp; p_Section, "Form_ValDefaut", "1", True))
+	End If
+	
+	Call pnd_PNav.ReplaceItemValue("Calc_NbInstallateurs" &amp; p_Section, v_NbInstallateurs)
+	Call pnd_PNav.ReplaceItemValue("Calc_NbjoursPaie" &amp; p_Section, v_NbjoursPaie)
+	Call pnd_PNav.ReplaceItemValue("Calc_NbJours" &amp; p_Section, v_NbJours)
+	Call pnd_PNav.ReplaceItemValue("Calc_NbVoitures" &amp; p_Section, v_NbVoitures)
+	
+	Call pnd_PNav.ReplaceItemValue("Calc_SurPlace" &amp; p_Section, xVar(gnd_Site_SDSPM, "Calc_SurPlace" &amp; p_Section, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_Selection" &amp; p_Section, xVar(gnd_Site_SDSPM, "Calc_Selection" &amp; p_Section,""))
+	Call pnd_PNav.ReplaceItemValue("Calc_NbSessions" &amp; p_Section, v_NbSessions)
+		
+	Call pnd_PNav.ReplaceItemValue("Calc_CARExtra" &amp; p_Section, xVar(gnd_Site_SDSPM, "Calc_CARExtra" &amp; p_Section, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_MEALExtra" &amp; p_Section, xVar(gnd_Site_SDSPM, "Calc_MEALExtra" &amp; p_Section, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_ROADExtra" &amp; p_Section, xVar(gnd_Site_SDSPM, "Calc_ROADExtra" &amp; p_Section, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_HOTELExtra" &amp; p_Section, xVar(gnd_Site_SDSPM, "Calc_HOTELExtra" &amp; p_Section, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_KMExtra" &amp; p_Section, xVar(gnd_Site_SDSPM, "Calc_KMExtra" &amp; p_Section, ""))
+	Call pnd_PNav.ReplaceItemValue("Calc_PARKExtra" &amp; p_Section, xVar(gnd_Site_SDSPM, "Calc_PARKExtra" &amp; p_Section, ""))
+	
+	
+	Call pnd_PNav.ReplaceItemValue("Calc_Notes" &amp; p_Section, xVar(gnd_Site_SDSPM, "Calc_Notes" &amp; p_Section, ""))
+	
+	Call FPNav_RecalculerSection(pnd_PNav, p_Section, p_Maj)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsFermer"><lotusscript>Sub FPNav_hsFermer
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	If FPNav_SauvegarderDocument("") Then
+		' Fermer le masque courant
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_SauvegarderParametres"><lotusscript>Function FPNav_SauvegarderParametres As Boolean
+	On Error Goto GererErreur
+	
+	' Mettre à jour le site
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_TauxHoraireDep", g_TauxHoraireDep_FPNav)
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_VoitureDistance", g_VoitureDistance_FPNav) Or FPNav_SauvegarderParametres
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_VoitureHeures", g_VoitureHeures_FPNav) Or FPNav_SauvegarderParametres
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_VoitureTauxKm", g_VoitureTauxKm_FPNav) Or FPNav_SauvegarderParametres
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_AvionCout", g_AvionCout_FPNav) Or FPNav_SauvegarderParametres
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_AvionHeures", g_AvionHeures_FPNav) Or FPNav_SauvegarderParametres
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_VoitureLocation", g_VoitureLocation_FPNav) Or FPNav_SauvegarderParametres
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_HotelCout", g_HotelCout_FPNav) Or FPNav_SauvegarderParametres
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_RepasCout", g_RepasCout_FPNav) Or FPNav_SauvegarderParametres
+	FPNav_SauvegarderParametres = SDSPM_MajItemValeur(gnd_Site_SDSPM, "Calc_StationnementCout", g_StationnementCout_FPNav) Or FPNav_SauvegarderParametres
+	
+	
+FinSub:
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_PostOpen"><lotusscript>Sub FPNav_PostOpen(pnuid_Source As Notesuidocument)
+	On Error Goto GererErreur
+	
+	Dim i As Integer
+	Dim v_Section As String
+	
+	' Initialisations
+	Call SDSPN_Initialisations
+	Call SDSPM_Initialisations
+	
+	' Première ouverture - demander les paramètres
+	If Not g_ParametresFormation_FPNav Then
+		Call FPNav_hsParametres(True)
+	End If
+	
+	Call gnuid_SDSPN.GoToTop
+	If xVar(gnd_SDSPM, "PNav_EditMode", 0) = 1 Then
+		Call gnuid_SDSPN.GoToField("Calc_NbInstallateurs")
+	End If
+	
+	If pnuid_Source.Editmode Then
+		On Error 4412 Resume Next
+		Call pnuid_Source.Refresh
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_RecalculerSection"><lotusscript>Sub FPNav_RecalculerSection(pnd_PNav As NotesDocument, p_Section As String, p_Maj As Boolean)
+	On Error Goto GererErreur
+	' -------------------------------------------------
+	' Le script permet de maj les champs du calculateur
+	' -------------------------------------------------
+	Dim i As Integer
+	Dim v_NbInstallateurs As Variant
+	Dim v_NbJours As Integer
+	Dim v_NbJoursInstall As Double
+	Dim v_NbVoitures As Integer
+	Dim a_Depenses(6, 2) As Double
+	Dim a_Selection(2) As Double
+	Dim v_Section As Integer
+	
+	' MK2021-07-30
+	' Note: PARK = v_NbJours * Qty...  a_Depenses(6, ?) = ?
+	' 
+	
+	v_NbInstallateurs = xVar(pnd_PNav, "Calc_NbInstallateurs" &amp; p_Section, 0)
+	v_NbJours = xVar(pnd_PNav, "Calc_NbJours" &amp; p_Section, 0)
+	If v_NbJours &gt; 0 And v_NbInstallateurs &gt; 0 Then
+		v_NbJoursInstall = (v_NbInstallateurs * v_NbJours)
+		v_NbVoitures = xVar(pnd_PNav, "Calc_NbVoitures" &amp; p_Section, 0)
+		
+		' Calculer les champs de la colonne Proposition (quantités)
+		' x : 0=CAR, 1=HOTEL, 2=KM, 3=MEAL, 7=PLANE, 5=ROAD 6 =PARK / y : 0=AH, 1=VH, 2=VM
+		a_Depenses(0, 0) = v_NbVoitures * v_NbJours
+		a_Depenses(1, 0) = v_NbJoursInstall
+		a_Depenses(3, 0) = v_NbJoursInstall
+		'a_Depenses(6, 0) = v_NbVoitures * v_NbJours ' MK pas bon
+		a_Depenses(6, 0) = v_NbJoursInstall ' MK
+		a_Depenses(1, 1) = v_NbJoursInstall
+		a_Depenses(3, 1) = v_NbJoursInstall
+		a_Depenses(3, 2) = v_NbJoursInstall
+		
+		If xVar(pnd_PNav, "Calc_SurPlace" &amp; p_Section, "") = "" Then
+			a_Depenses(4, 0) = v_NbInstallateurs
+			a_Depenses(5, 0) = (g_AvionHeures_FPNav * 2) * v_NbInstallateurs
+			a_Depenses(2, 1) = (g_VoitureDistance_FPNav * 2) * v_NbVoitures
+			a_Depenses(5, 1) = (g_VoitureHeures_FPNav *2) * v_NbInstallateurs
+			a_Depenses(2, 2) = (g_VoitureDistance_FPNav *2) * v_NbVoitures * v_NbJours
+			a_Depenses(5, 2) = (g_VoitureHeures_FPNav *2) * v_NbJoursInstall 
+		End If
+	End If
+	
+	' Mettre à jour les champs de la colonne Proposition
+	'i = Cint(xVar(pnd_PNav, "Calc_Selection", 0))
+	i = Cint(xVar(pnd_PNav, "Calc_Selection" &amp; p_Section, 0))
+	
+	v_Section = Cint(p_Section)
+	ga_CAR_FPNav(v_Section) = a_Depenses(0, i)
+	ga_HOTEL_FPNav(v_Section) = a_Depenses(1, i)
+	ga_KM_FPNav(v_Section) = a_Depenses(2, i)
+	ga_MEAL_FPNav(v_Section) = a_Depenses(3, i)
+	ga_PLANE_FPNav(v_Section) = a_Depenses(4, i)
+	ga_ROAD_FPNav(v_Section) = a_Depenses(5, i)
+	ga_PARK_FPNav(v_Section) = a_Depenses(6, i) ' MK
+	ga_TRAIN_FPNav(v_Section) = v_NbJoursInstall
+	ga_WEB_FPNav(v_Section) = xVar(pnd_PNav, "Calc_NbSessions" &amp; p_Section, 0)
+	If p_Maj Then
+		Call pnd_PNav.ReplaceItemValue("Calc_CAR", ga_CAR_FPNav)
+		Call pnd_PNav.ReplaceItemValue("Calc_HOTEL", ga_HOTEL_FPNav)
+		Call pnd_PNav.ReplaceItemValue("Calc_KM", ga_KM_FPNav)
+		Call pnd_PNav.ReplaceItemValue("Calc_PARK", ga_PARK_FPNav) ' MK		
+		Call pnd_PNav.ReplaceItemValue("Calc_MEAL", ga_MEAL_FPNav)
+		Call pnd_PNav.ReplaceItemValue("Calc_PLANE", ga_PLANE_FPNav)
+		Call pnd_PNav.ReplaceItemValue("Calc_ROAD", ga_ROAD_FPNav)
+		Call pnd_PNav.ReplaceItemValue("Calc_TRAIN", ga_TRAIN_FPNav)
+		Call pnd_PNav.ReplaceItemValue("Calc_WEB", ga_WEB_FPNav)
+	End If
+	
+	' Calculer le montant des dépenses pour chaque sélection
+	Erase a_Selection
+	For i = 0 To 2
+		' x : 0=CAR, 1=HOTEL, 2=KM, 3=MEAL, 4=PLANE, 5=ROAD, 6=PARK / y : 0=AH, 1=VH, 2=VM
+		a_Selection(i) = a_Selection(i) + (a_Depenses(0, i) * g_VoitureLocation_FPNav)
+		a_Selection(i) = a_Selection(i) + (a_Depenses(1, i) * g_HotelCout_FPNav)
+		a_Selection(i) = a_Selection(i) + (a_Depenses(2, i) * g_VoitureTauxKm_FPNav)
+		a_Selection(i) = a_Selection(i) + (a_Depenses(3, i) * g_RepasCout_FPNav)
+		a_Selection(i) = a_Selection(i) + (a_Depenses(4, i) * g_AvionCout_FPNav)
+		a_Selection(i) = a_Selection(i) + (a_Depenses(5, i) * g_TauxHoraireDep_FPNav)
+		a_Selection(i) = a_Selection(i) + (a_Depenses(6, i) * g_StationnementCout_FPNav) ' MK
+		
+	Next
+	
+	Call pnd_PNav.ReplaceItemValue("Calc_CoutAvionHotel" &amp; p_Section, a_Selection(0))
+	Call pnd_PNav.ReplaceItemValue("Calc_CoutVoitureHotel" &amp; p_Section, a_Selection(1))
+	Call pnd_PNav.ReplaceItemValue("Calc_CoutVoitureMaison" &amp; p_Section, a_Selection(2))
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_SauvegarderSectionUI"><lotusscript>Sub FPNav_SauvegarderSectionUI
+	On Error Goto GererErreur
+	
+	Dim v_NbInstallateurs As Variant
+	
+	v_NbInstallateurs = xVar(gnd_SDSPM, "Calc_NbInstallateurs", 0)
+	
+	If v_NbInstallateurs = 0 Then
+		gnd_SDSPM.Calc_Selection = ""
+	End If
+	
+	Call gnd_SDSPM.ReplaceItemValue("Calc_NbInstallateurs" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_NbInstallateurs", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_NbJours" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_NbJours", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_NbVoitures" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_NbVoitures", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_SurPlace" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_SurPlace", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_Selection" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_Selection", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_CARExtra" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_CARExtra", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_MEALExtra" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_MEALExtra", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_ROADExtra" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_ROADExtra", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_HOTELExtra" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_HOTELExtra", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_KMExtra" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_KMExtra", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_PARKExtra" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_PARKExtra", ""))
+	Call gnd_SDSPM.ReplaceItemValue("Calc_NbSessions" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_NbSessions", ""))
+	
+	Call gnd_SDSPM.ReplaceItemValue("Calc_Notes" &amp; g_SectionCourante_FPNav, xVar(gnd_SDSPM, "Calc_Notes", ""))
+	
+	Call FPNav_RecalculerSection(gnd_SDSPM, g_SectionCourante_FPNav, True)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acWorkflow"><lotusscript>Sub FPNav_acWorkflow(p_Statut As String)
+	On Error GoTo GererErreur
+		
+	If SDSPM_acWorkflow(p_Statut) Then
+		
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		' Ouvrir le masque	
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		
+		gnd_SDSPM.PNav_Titre =  Trim("C" &amp; CStr(xVar(gnd_Prop_SDSPM, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(gnd_Prop_SDSPM, "Prop_ClientNomInterne", xVar(gnd_Prop_SDSPM, "Prop_ClientNom", "")))
+		gnd_SDSPM.Titre =  Trim(xVar(gnd_SDSPM, "PNav_Titre", "") &amp; " - " &amp; xVar(gnd_SDSPM, "PNav_MenuDesc000", ""))
+				
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbProposition", xVar(gnd_Prop_SDSPM, "Prop_NbProposition", 0))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionFmt", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionFmt", ""))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionPrefixe", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionPrefixe", ""))		
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+		
+		Call gnuid_SDSPN.Refresh
+	End If
+		
+	Exit Sub
+		
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsOngletSuivant"><lotusscript>Sub FPNav_hsOngletSuivant
+	On Error Goto GererErreur
+	
+	Dim v_OngletSuivant As Integer
+	
+	If xVar(gnd_SDSPM, "Site_D6_Section" , "") &lt;&gt;"1" And xVar(gnd_SDSPM, "PNav_OngletCourant2.00.05", "0") = "5" Then
+		' Si onglet payroll caché
+		v_OngletSuivant = Cint(xVar(gnd_SDSPM, "PNav_OngletCourant2.00.05", 0)) + 2
+	Else
+		v_OngletSuivant = Cint(xVar(gnd_SDSPM, "PNav_OngletCourant2.00.05", 0)) +1
+	End If
+	
+	If v_OngletSuivant &lt; 10 Then
+		Call FPNav_hsOuvrirSection(Cstr(v_OngletSuivant))
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsParametres"><lotusscript>Function FPNav_hsParametres(p_PostOpen As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_Latitude As Double
+	Dim v_Longitude As Double
+	Dim v_VoitureDistance As Double
+	Dim v_VoitureHeures As Long
+	Dim nd_DB As NotesDocument
+	Dim i As Integer
+	Dim v_EditMode As Integer
+	
+	FPNav_hsParametres = False
+		
+	v_Latitude = xVar(gnd_SDSPM, "Site_ClientLatitude", 0)
+	v_Longitude = xVar(gnd_SDSPM, "Site_ClientLongitude", 0)
+	If g_VoitureDistance_FPNav = 0 Then
+		If v_Latitude &lt;&gt; 0 Then
+			Call SIGg_Distance("", Replace(Cstr(v_Latitude), ",", ".") &amp; "," &amp; Replace(Cstr(v_Longitude), ",", "."), v_VoitureDistance, v_VoitureHeures, xGDK_xVarProf("Prof_CleGoogleAPI", ""))
+			g_VoitureDistance_FPNav = Round(v_VoitureDistance, 2)
+			'g_VoitureDistance_FPNav = Round(v_VoitureDistance, 0)
+			g_VoitureHeures_FPNav = v_VoitureHeures \ 3600
+			v_VoitureHeures = v_VoitureHeures - (g_VoitureHeures_FPNav * 3600)
+			If v_VoitureHeures &gt; 1800 Then
+				g_VoitureHeures_FPNav = g_VoitureHeures_FPNav + 1
+			Else
+				g_VoitureHeures_FPNav = g_VoitureHeures_FPNav + .5
+			End If
+		End If
+	End If
+	
+	' Afficher le dialog box des paramètres
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	nd_DB.Calc_TauxHoraireDep = g_TauxHoraireDep_FPNav
+	nd_DB.Calc_VoitureDistance = g_VoitureDistance_FPNav
+	nd_DB.Calc_VoitureHeures = g_VoitureHeures_FPNav
+	nd_DB.Calc_VoitureTauxKm = g_VoitureTauxKm_FPNav
+	nd_DB.Calc_AvionCout = g_AvionCout_FPNav
+	nd_DB.Calc_AvionHeures = g_AvionHeures_FPNav
+	nd_DB.Calc_VoitureLocation = g_VoitureLocation_FPNav
+	nd_DB.Calc_HotelCout = g_HotelCout_FPNav
+	nd_DB.Calc_RepasCout = g_RepasCout_FPNav
+	nd_DB.Calc_StationnementCout = g_StationnementCout_FPNav
+	
+	nd_DB.Calc_Latitude = v_Latitude
+	nd_DB.Calc_Longitude = v_Longitude
+	
+	v_EditMode = xvar(gnd_SDSPM, "PNav_EditMode", 0)
+	nd_DB.DB_EditMode = v_EditMode
+	
+	nd_DB.DB_Continue = "1"
+	If gnuiws_SDSpm.DialogBox("DB_PFor", True, True, True, False, False, v_EditMode &lt;&gt; 1, _
+	"", nd_DB, True, True, True) Then
+		If v_EditMode = 1 And xVar(nd_DB, "DB_Continue", "") = "1" Then
+			Call FPNav_SauvegarderSectionUI
+			g_TauxHoraireDep_FPNav = xVar(nd_DB, "Calc_TauxHoraireDep", 0)
+			g_VoitureDistance_FPNav = xVar(nd_DB, "Calc_VoitureDistance", 0)
+			g_VoitureHeures_FPNav = xVar(nd_DB, "Calc_VoitureHeures", 0)
+			g_VoitureTauxKm_FPNav = xVar(nd_DB, "Calc_VoitureTauxKm", 0)
+			g_AvionCout_FPNav = xVar(nd_DB, "Calc_AvionCout", 0)
+			g_AvionHeures_FPNav = xVar(nd_DB, "Calc_AvionHeures", 0)
+			g_VoitureLocation_FPNav = xVar(nd_DB, "Calc_VoitureLocation", 0)
+			g_HotelCout_FPNav = xVar(nd_DB, "Calc_HotelCout", 0)
+			g_RepasCout_FPNav = xVar(nd_DB, "Calc_RepasCout", 0)
+			g_StationnementCout_FPNav = xVar(nd_DB, "Calc_StationnementCout", 0)
+			' Mettre à jour les sections
+			For i = 1 To gc_NbSections_FPNav
+				Call FPNav_RecalculerSection(gnd_SDSPM, Cstr(i), i = gc_NbSections_FPNav)
+			Next
+			Call FPNav_InitialiserSectionUI(gnd_SDSPM)
+			FPNav_hsParametres= True
+			
+			Call gnuid_SDSPN.Refresh
+		End If
+	End If
+	
+	g_ParametresFormation_FPNav = g_VoitureDistance_FPNav &gt; 0 And g_VoitureHeures_FPNav &gt; 0 And _
+	g_AvionCout_FPNav &gt; 0 And g_AvionHeures_FPNav &gt; 0 And g_VoitureLocation_FPNav &gt; 0 And _
+	g_HotelCout_FPNav &gt; 0 And g_RepasCout_FPNav &gt; 0 And g_StationnementCout_FPNav &gt; 0
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_acSignerProposition"><lotusscript>Sub FPNav_acSignerProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acSignerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acRecalculerCouts"><lotusscript>Sub FPNav_acRecalculerCouts
+	' -------------------------------------------------
+	' Le script permet au directeur de modifier le prix
+	' -------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument("") Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acRecalculerCouts(gnd_Prop_SDSPM, False, False)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsOuvrirMasque"><lotusscript>Sub FPNav_hsOuvrirMasque(p_NoItem As String)
+	On Error Goto GererErreur
+	
+	Dim v_MenuItemCourant As String
+	Dim v_ValiderDocument As Boolean
+	Dim a_MenuItems As Variant
+	Dim v_NoItem As String
+	Dim i As Variant
+	
+	v_MenuItemCourant = xVar(gnd_SDSPM, "PNav_MenuItemCourant", "")
+	a_MenuItems = xVarArray(gnd_SDSPM, "PNav_MenuItems")
+	
+	v_ValiderDocument = False
+	
+	' Si clique sur menu item qui est lui même, ne rien faire
+	If v_MenuItemCourant = p_NoItem Then
+		Exit Sub
+	End If
+	
+	If p_NoItem = "**" Then
+		v_NoItem = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "")
+		If a_MenuItems(Cint(v_MenuItemCourant)) = v_NoItem Then
+			Exit Sub
+		End If	
+		i = Arraygetindex(a_MenuItems, xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00"))
+		If Not Isnull(i) Then
+			v_NoItem = Cstr(i)
+		End If
+		
+	Else
+		v_NoItem = p_NoItem
+	End If
+	
+	If Not Isnull(i) Then
+		v_ValiderDocument = (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1" And Cint(v_NoItem) &gt; Cint(v_MenuItemCourant))
+	End If
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(v_ValiderDocument) Then
+		
+		' Construire le menu
+		If Not Isnull(i) Then
+			If (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1" And Cint(v_NoItem) &lt; Cint(v_MenuItemCourant)) Then
+				Call SDSPN_ConstruireMenu(gnd_SDSPM)
+				Call gnuid_SDSPM.Refresh
+			End If
+		Else
+			Call SDSPN_ConstruireMenu(gnd_SDSPM)
+			Call gnuid_SDSPM.Refresh
+		End If
+		
+		' Ouvrir le masque suivant
+		Call SDSPN_OuvrirMasqueMenu(p_NoItem)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsPrecedent"><lotusscript>Sub FPNav_hsPrecedent
+	On Error Goto GererErreur
+	
+	Dim a_MenuItems As Variant
+	Dim i As Variant
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(False) Then
+		
+		' Si document valide = false
+		a_MenuItems = xVarArray(gnd_SDSPM, "PNav_MenuItems")
+		
+		' Validation
+		If Not Isarray(a_MenuItems) Then
+			Messagebox "Erreur de navigation (P1)", 16, "Opération annulée"
+			Exit Sub
+		End If
+		i = Cint(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000"))
+		If Isnull(i) Then
+			Messagebox "Erreur de navigation (P2)", 16, "Opération annulée"
+			Exit Sub
+		Elseif i = 0 Then
+			Messagebox "Erreur de navigation (P3)", 16, "Opération annulée"
+			Exit Sub
+		End If
+		
+		'gnd_SDSPM.PNav_MenuOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "")
+		Call SDSPN_ConstruireMenu(gnd_SDSPM)
+		
+		' Ouvrir le masque précédent
+		Call SDSPN_OuvrirMasquePrecedent
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsSelection"><lotusscript>Sub FPNav_hsSelection(p_NomItem As String, p_Selection As Integer)
+	On Error Goto GererErreur
+	
+	'Call gnd_SDSPM.ReplaceItemValue(p_NomItem &amp; g_SectionCourante_FPNav, p_Selection)
+	Call gnd_SDSPM.ReplaceItemValue(p_NomItem, p_Selection)
+	
+	' Valider la section courante
+	If xVar(gnd_SDSPM, "PNav_EditMode", "") = 1 Then
+		
+	' Sauvegarder les valeurs de la section courante
+		Call FPNav_SauvegarderSectionUI
+		
+		If FPNav_SectionValide(gnd_SDSPM, g_SectionCourante_FPNav, False) Then
+			If gni_SectionsValides_FPNav.Values(0) = "" Then
+				gni_SectionsValides_FPNav.Values = g_SectionCourante_FPNav
+			Elseif Not gni_SectionsValides_FPNav.Contains(g_SectionCourante_FPNav) Then
+				Call gni_SectionsValides_FPNav.AppendToTextList(g_SectionCourante_FPNav)
+			End If
+		Else
+			If gni_SectionsValides_FPNav.Contains(g_SectionCourante_FPNav) Then
+				gni_SectionsValides_FPNav.Values = RetirerArray(gni_SectionsValides_FPNav.Values, g_SectionCourante_FPNav)
+			End If
+		End If
+		
+	End If
+	
+	Call gnuid_SDSPN.Refresh
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_InitialiserParametre"><lotusscript>Sub FPNav_InitialiserParametre(pnd_PNav As NotesDocument, p_NomItem As String, p_VarGlobale As Double)
+	' ---------------------------------------------
+	' Le script permet d'initialiser le calculateur
+	' ---------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Prix As NotesDocument
+	
+	Dim a_CleProduits As Variant
+	Dim d As Double
+	
+	d = xVar(gnd_Site_SDSPM, p_NomItem, -1)
+	If d &gt;= 0 Then
+		p_VarGlobale = d
+		Call pnd_PNav.ReplaceItemValue(p_NomItem, p_VarGlobale)
+		Exit Sub
+	End If
+	
+	' Extraire le document du produit
+	' -------------------------------
+	If SDSPX_aProduitsProgramme(gnd_Prop_SDSPM, p_NomItem, "", a_CleProduits) &gt; 0 Then
+		' Extraire le document des prix
+		' -----------------------------
+		Set nd_Prix = SDSPX_ndPrix(a_CleProduits(0), xVar(gnd_Prop_SDSPM, "Prop_Devise", ""), _
+		xVar(gnd_Site_SDSPM, "Site_ClientPays", ""), xVar(gnd_Site_SDSPM, "Site_ClientProvince", ""), 1)
+		If nd_Prix Is Nothing Then
+			' 14 - Le calcul du prix du service &amp; a échoué.
+			Messagebox xGDK_xMessage("SDSPP", 14, "", p_NomItem &amp; _
+			" (" &amp; a_CleProduits(0) &amp; ")"), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+		p_VarGlobale = xVar(nd_Prix, "Prix_PrixUnitaire", 0)
+		Call pnd_PNav.ReplaceItemValue(p_NomItem, p_VarGlobale)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), p_NomItem, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="Custom__________________"><lotusscript>Sub Custom__________________
+	
+End Sub
+
+</lotusscript></code><code event="TestParametres"><lotusscript>Sub TestParametres
+	
+	Dim v_Latitude As Double
+	Dim v_Longitude As Double
+	Dim v_VoitureDistance As Double
+	Dim v_VoitureHeures As Long	
+	Dim i As Integer
+		
+	v_Latitude = xVar(gnd_SDSPM, "Site_ClientLatitude", 0)
+	v_Longitude = xVar(gnd_SDSPM, "Site_ClientLongitude", 0)
+		
+	Call SIGg_Distance("", Replace(CStr(v_Latitude), ",", ".") &amp; "," &amp; Replace(CStr(v_Longitude) , ",", "."), v_VoitureDistance, v_VoitureHeures, xGDK_xVarProf("Prof_CleGoogleAPI", ""))
+	Print  Round(v_VoitureDistance, 2)
+End Sub
+
+</lotusscript></code><code event="FPNav_acPayerProposition"><lotusscript>Sub FPNav_acPayerProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acPayerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acReouvrirProposition"><lotusscript>Sub FPNav_acReouvrirProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acReOuvrirProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_QueryOpen"><lotusscript>Sub FPNav_QueryOpen(pnuid_Source As Notesuidocument, p_Mode As Integer, p_Isnewdoc As Variant, _
+p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	Dim nd_PNav As NotesDocument
+	
+	' Initialisations
+	p_Continue = False
+	If p_Mode &lt;&gt; 1 Then
+		Exit Sub
+	End If
+	
+	Set nd_PNav = pnuid_Source.Document
+	
+	' Initialiser les champs du document de navigation
+	If FPNav_DocumentExistant(nd_PNav) Then
+		p_Continue = True
+	End If
+	
+	' Effacer les champs RT des autres écrans
+	If nd_PNav.Hasitem("Prop_DescDetaillee") Then
+		Call nd_PNav.Removeitem("Prop_DescDetaillee")
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_DocumentExistant"><lotusscript>Function FPNav_DocumentExistant(pnd_PNav As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim i As Integer
+	
+	FPNav_DocumentExistant = False
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp(xVar(pnd_PNav, "Prop_NoProposition", "")) Then
+		Exit Function
+	End If
+	
+	' Extraire le site
+	If Not SDSPM_InitSite(pnd_PNav) Then
+		Exit Function
+	End If
+		
+	pnd_PNav.Prop_Statut = xVar(gnd_Prop_SDSPM, "Prop_Statut", "10")
+	Call pnd_PNav.ReplaceItemValue("Prop_StatutDesc" &amp; xLangue, _
+	xVar(gnd_Prop_SDSPM, "Prop_StatutDesc" &amp; xLangue, ""))
+	
+	' Mettre à jour l'entête du site
+	pnd_PNav.Site_ClientNomInterne = xVar(gnd_Site_SDSPM, "Site_ClientNomInterne", "")
+	pnd_PNav.Site_Banniere = xVar(gnd_Site_SDSPM, "Site_Banniere", "")
+	pnd_PNav.Site_BanniereDesc = xVar(gnd_Site_SDSPM, "Site_BanniereDesc", "")
+	pnd_PNav.Site_ClientLatitude = xVar(gnd_Site_SDSPM, "Site_ClientLatitude", 0)
+	pnd_PNav.Site_ClientLongitude = xVar(gnd_Site_SDSPM, "Site_ClientLongitude", 0)
+	
+	' Mettre à jour l'information requise
+	pnd_PNav.Site_D0_NbUtilisateurs = xVar(gnd_Site_SDSPM, "Site_D0_NbUtilisateurs", 0)
+	pnd_PNav.Site_D6_Section = xVar(gnd_Site_SDSPM, "Site_D6_Section", "")
+	pnd_PNav.Site_D0_NbEmployesPaie = xVar(gnd_Site_SDSPM, "Site_D0_NbEmployesPaie", 0)
+	pnd_PNav.Site_D1_NbUtilisateurs = xVar(gnd_Site_SDSPM, "Site_D1_NbUtilisateurs", 0)
+	pnd_PNav.Site_D2_NbUtilisateurs = xVar(gnd_Site_SDSPM, "Site_D2_NbUtilisateurs", 0)
+	pnd_PNav.Site_D3_NbTechniciens = xVar(gnd_Site_SDSPM, "Site_D3_NbTechniciens", 0)
+	pnd_PNav.Site_D4_NbUtilisateurs = xVar(gnd_Site_SDSPM, "Site_D4_NbUtilisateurs", 0)
+	pnd_PNav.Site_D4_NbTechniciens = xVar(gnd_Site_SDSPM, "Site_D4_NbTechniciens", 0)
+	pnd_PNav.Site_D5_NbUtilisateurs = xVar(gnd_Site_SDSPM, "Site_D5_NbUtilisateurs", 0)
+	
+	' Mettre à jour le document de navigation
+	' 0 - Paramètres
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_TauxHoraireDep", g_TauxHoraireDep_FPNav)
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_VoitureDistance", g_VoitureDistance_FPNav)
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_VoitureHeures", g_VoitureHeures_FPNav)
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_VoitureTauxKm", g_VoitureTauxKm_FPNav)
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_AvionCout", g_AvionCout_FPNav)
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_AvionHeures", g_AvionHeures_FPNav)
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_VoitureLocation", g_VoitureLocation_FPNav)
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_HotelCout", g_HotelCout_FPNav)
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_RepasCout", g_RepasCout_FPNav)
+	Call FPNav_InitialiserParametre(pnd_PNav, "Calc_StationnementCout", g_StationnementCout_FPNav)
+	g_ParametresFormation_FPNav = g_VoitureDistance_FPNav &gt; 0 And g_VoitureHeures_FPNav &gt; 0 And _
+	g_AvionCout_FPNav &gt; 0 And g_AvionHeures_FPNav &gt; 0 And g_VoitureLocation_FPNav &gt; 0 And _
+	g_HotelCout_FPNav &gt; 0 And g_RepasCout_FPNav &gt; 0 And g_StationnementCout_FPNav &gt; 0
+	
+	' Sections 1 à 9
+	pnd_PNav.Calc_SectionsValides = ""
+	Set gni_SectionsValides_FPNav = pnd_PNav.GetFirstItem("Calc_SectionsValides")
+	For i = 1 To gc_NbSections_FPNav
+		Call FPNav_InitialiserSection(pnd_PNav, Cstr(i), i = gc_NbSections_FPNav)
+		If FPNav_SectionValide(pnd_PNav, Cstr(i), False) Then
+			Call gni_SectionsValides_FPNav.Appendtotextlist(Cstr(i))
+		End If
+	Next
+	
+	' Toujours ouvir la première section
+	Call pnd_PNav.ReplaceItemValue("PNav_OngletCourant2.00.05", "1")
+	g_SectionCourante_FPNav = xVar(pnd_PNav, "PNav_OngletCourant2.00.05", "1")
+	
+	Call FPNav_InitialiserSectionUI(pnd_PNav)
+	
+	' Valeur défaut
+	
+	' Paie
+	If xVar(pnd_PNav, "Calc_NbSessions" &amp; Cstr(gc_SectionPaie), "") = "" And xVar(pnd_PNav, "Site_D6_Section", "") = "1" Then
+		' Initialise valeurs défaut à zéro si client existant , Conversion serveur hébergé ou Changement propriétaire
+		If xVar(gnd_Prop_SDSPM, "Prop_TypeProposition", "") &gt;= "2" Then	
+			Call pnd_PNav.ReplaceItemValue("Calc_NbSessions" &amp; Cstr(gc_SectionPaie), 0)
+		Else
+			Call pnd_PNav.ReplaceItemValue("Calc_NbSessions" &amp; Cstr(gc_SectionPaie), xComplTabl("NBS" &amp; Cstr(gc_SectionPaie), "Form_ValDefaut", "1", True))
+		End If
+	End If
+	
+	' Proposition
+	pnd_PNav.Prop_PropositionImprimee = xVar(gnd_Prop_SDSPM, "Prop_PropositionImprimee", "")
+	pnd_PNav.Prop_NotesContrat = xVar(gnd_Prop_SDSPM, "Prop_NotesContrat", "")
+	
+	FPNav_DocumentExistant = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(pnd_PNav, "Cle", ""), False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073718,82-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Aide" hide="v3 v4strict" designerversion="8.5.3" comment="3.2">
+<noteinfo noteid="3f0a66" unid="D08B3286B4049E86852589A20079FEFB" sequence="17">
+<created><datetime dst="true">20230501T181231,31-04</datetime></created>
+<modified><datetime>20250319T074102,26-05</datetime></modified>
+<revised><datetime>20250319T073638,67-05</datetime></revised>
+<lastaccessed><datetime>20250319T074102,25-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20230501T183538,23-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_GestionErreurs"
+Use "x_GDK"
+Use "x_SIAi"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SIAi As Notessession
+Dim gndb_SIAi As Notesdatabase
+
+Dim gnuiws_SIAi As Notesuiworkspace
+
+Dim gnv_SIAi1_SIAi As Notesview
+Dim gnv_SIAi2_SIAi As Notesview
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIAi = "SL"
+Const gc_Element_SIAi = "SI_Aide"
+
+</lotusscript></code><code event="SIAi_SelectionnerAide"><lotusscript>Function SIAi_SelectionnerAide(Byval p_Categorie As String) As String
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sélectionner l'Aide à effectuer.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim v_SIAi As Variant
+	
+	SIAi_SelectionnerAide = ""
+	
+	' Si aucune catégorie n'est spécifiée, sélectionner une Aide parmis toutes les catégorie
+	' ---------------------------------------------------------------------------------------------------------------------------------------------
+	If p_Categorie = "" Then
+		If gnv_SIAi1_SIAi Is Nothing Then
+			Set gnv_SIAi1_SIAi = gndb_SIAi.Getview("V_SIAi20")
+		End If
+		
+		Set nd = gnv_SIAi1_SIAi.Getfirstdocument
+		If nd Is Nothing Then
+			Messagebox "Il n'y a aucune aide disponible.", 16, "Aide"
+			Exit Function
+		End If
+		
+		' Sélection de l'Aide
+		v_SIAi = gnuiws_SIAi.Pickliststrings(PICKLIST_CUSTOM, False, gndb_SIAi.Server, gndb_SIAi.Filepath, "V_SIAi21", "Aide", _
+		"Choisissez la page d'aide que vous voulez consulter.", 2)
+		
+	' Si une catégorie est spécifiée, sélectionner une Aide de la catégorie
+	' ------------------------------------------------------------------------------------------------------------------
+	Else
+		If gnv_SIAi2_SIAi Is Nothing Then
+			Set gnv_SIAi2_SIAi = gndb_SIAi.Getview("V_SIAi21")
+		End If
+		
+		Set nd = gnv_SIAi2_SIAi.Getdocumentbykey(p_Categorie)
+		If nd Is Nothing Then
+			Messagebox "Il n'y a aucune aide disponible dans la catégorie " &amp; p_Categorie &amp; ".", 16, "Aide"
+			Exit Function
+		End If
+		
+		' Sélection de l'Aide
+		v_SIAi = gnuiws_SIAi.Pickliststrings(PICKLIST_CUSTOM, False, gndb_SIAi.Server, gndb_SIAi.Filepath, "V_SIAi21", "Aide de documents", _
+		"Choisissez la page d'aide que vous voulez consulter.", 3, p_Categorie)
+	End If
+	
+	If Isarray(v_SIAi) Then
+		SIAi_SelectionnerAide = v_SIAi(Lbound(v_SIAi))
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIAi, gc_Element_SIAi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAi_AfficherAide"><lotusscript>Function SIAi_AfficherAide(p_SIAi As String, p_Categorie As String) As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'afficher une page d'aide.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim v_Langue As string
+	
+	SIAi_AfficherAide = False
+	Call SIAi_Initialisations
+	
+	' Sélectionner l'Aide à imprimer
+	' ----------------------------------------------
+	If p_SIAi = "" Then
+		p_SIAi = SIAi_SelectionnerAide(p_Categorie)
+	End If
+	
+	If p_SIAi &lt;&gt; "" Then
+		Set nd = xndSIAi(p_SIAi, True)
+		If nd Is Nothing Then
+			Set nd = xGDK_xndSIAi(p_SIAi, True)
+		End If
+		
+		If nd Is Nothing Then
+			Messagebox "Il n'y a pas d'aide disponible pour ce code (" &amp; p_SIAi &amp; ").", 16, "Opération annulée"
+		Else
+			v_Langue = xLangue
+			If xVar(nd, "SIAi_Description" &amp; v_Langue, "") = "" Then
+				v_Langue = "FR"
+			End If 
+			' Afficher la page d'aide
+			' -----------------------------------
+			Call gnuiws_SIAi.DialogBox("DB_SIAi_" &amp; v_Langue, True, True, True, True, True, True, xVar(nd, "SIAi_Nom", "Aide"), nd, True, True, False)
+		End If
+	End If
+	
+	SIAi_AfficherAide = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIAi, gc_Element_SIAi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAi_AfficherAideMasque"><lotusscript>Sub SIAi_AfficherAideMasque
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'afficher une page d'aide pour le masque courant.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	
+	Call SIAi_Initialisations
+	
+	' Obtenir le document courant
+	' ---------------------------------------------
+	Set nd = gnuiws_SIAi.Currentdocument.Document
+	
+	If xVar(nd, "Form", "") &lt;&gt; "" Then
+		Call SIAi_AfficherAide(xVar(nd, "Form", ""), "")
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIAi, gc_Element_SIAi, Getthreadinfo(1), "", False)
+	Exit Sub	
+End Sub
+
+</lotusscript></code><code event="SIAi_Initialisations"><lotusscript>Sub SIAi_Initialisations
+	If gns_SIAi Is Nothing Then
+		Set gns_SIAi = New Notessession
+		Set gndb_SIAi = gns_SIAi.Currentdatabase
+		
+		Set gnuiws_SIAi = New Notesuiworkspace
+	End If
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073638,67-05</datetime></item></scriptlibrary>
+
+</database>

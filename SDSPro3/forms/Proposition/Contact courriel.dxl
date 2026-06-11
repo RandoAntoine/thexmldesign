@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Proposition\Contact courriel" alias="DB_CCour" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" language="fr" bgcolor="system" inherit="true">
+<noteinfo noteid="1ee9e6" unid="ABAB292BB6A6E83D852585750046F525" sequence="259">
+<created><datetime dst="true">20200527T085502,77-04</datetime></created>
+<modified><datetime>20260105T014846,10-05</datetime></modified>
+<revised><datetime>20250319T073924,44-05</datetime></revised>
+<lastaccessed><datetime>20260105T014846,09-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20200527T222953,77-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<body><richtext>
+<pardef id="1" hide="notes web mobile"/>
+<par def="1"/>
+<table widthtype="fixedleft" colorstyle="solid" bgcolor="white" refwidth="5.0389in"><tablecolumn width="0.1375in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="3.1493in"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<pardef id="3" keepwithnext="true" keeptogether="true"/>
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<pardef id="4" keepwithnext="true" keeptogether="true"/>
+<par def="4"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<pardef id="5" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<pardef id="6" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="7" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="9pt"/>Nom :</run></par>
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="9pt"/></run><picture width="12px" height="16px"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="9pt"/><field usenotesstyle="false" height="0.2347in" width="80%" borderstyle="single" type="text" kind="editable" name="DB_Nom"><code event="inputtranslation"><formula>@LowerCase(@Trim(@ThisValue))</formula></code><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue); @Failure("Le nom est invalide.");
+@If(@IsNull(@LeftBack(@ThisValue; " ")); @Failure("Le nom est invalide. Le nom doit avoir au minimum deux mots séparés par un espace."); @Success))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="9pt"/>Courriel :</run></par>
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="9pt"/></run><picture width="12px" height="16px"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="9pt"/><field usenotesstyle="false" height="0.2347in" width="80%" borderstyle="single" type="text" kind="editable" name="DB_Courriel"><code event="inputtranslation"><formula>@LowerCase(@Trim(@ThisValue))</formula></code><code event="inputvalidation"><formula>AddrValide := @ValidateInternetAddress([Address821]; @ThisValue);
+@If(@IsNull(@ThisValue);@Failure("Le courriel est obligatoire.");@If(AddrValide != "" &amp; @ThisValue != ""; @Failure("Le courriel est invalide."); @Success))</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<par def="4"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<par def="6"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell columnspan="3" borderwidth="0px" bgcolor="#e6eff4">
+<pardef id="8" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="3pt"/></run></par>
+<par def="8"><run><font size="9pt"/>Note:  Appuyez sur OK pour ajouter l'adresse courriel.</run></par>
+<par def="8"><run><font size="3pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<par def="4"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#efefef">
+<par def="6"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="2" leftmargin="1in"/>
+<par def="2"><run><font size="8pt" color="red"/></run></par></richtext></body>
+<item name="SISe_NbResultats" summary="false" sign="true"><number>0</number></item>
+<item name="SISe_NbLimite" summary="false" sign="true"><number>0</number></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>DB_CCour</text></item></form>
+
+</database>

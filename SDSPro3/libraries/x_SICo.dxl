@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_SICo" hide="v3 v4strict" comment="2.0">
+<noteinfo noteid="555796" unid="E6DC19584350556E852586B40011FBB3" sequence="76">
+<created><datetime dst="true">20210410T231625,47-04</datetime></created>
+<modified><datetime>20260105T014837,56-05</datetime></modified>
+<revised><datetime>20250319T073639,69-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,55-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,55-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "x_GDK"
+'
+' Cette bibliothèque de script permet d'extraire un document ou un item d'un document.  Les documents
+' à extraire ne se trouvent pas dans la base de documents courante.  Il faut rechercher la base de documents
+' à utiliser dans le GDK.
+'
+' Instructions
+'	1.	Renommer le script library.  Le nouveau nom devrait être "x_SICO" ou "SICO" est 
+'		l'identifiant de la base de documents.
+'	2.	Inscrire le nom usuel de la base de documents de recherche, le nom de l'item qui contient
+'		la clé et le nom de la vue de recherche dans la section (Declarations).
+'	3.	Remplacer toutes les occurences de "SICO" par l'identifiant de la base de documents.  
+'		Les subs seront automatiquement renommés.
+'	4.	Remplacer toutes les occurences de "Cont" par l'identifiant du type de document.  
+'		Les subs seront automatiquement renommés.
+
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_xELrod
+Dim gndb_xSICo As Notesdatabase
+
+' Section 2 - Définition des valeurs conservées dans la cache
+Dim gnd_Prof_SICo As NotesDocument
+Dim gnv_Tabl_xSICo As Notesview
+Dim gnd_Tabl_xSICo As Notesdocument
+Dim gnv_Cont_xSICo As Notesview					' La vue d'ou est extrait le document
+Dim gnd_Cont_xSICo As Notesdocument			' Le document qui contient les informations recherchées
+
+' Section 3 - Les constantes à définir
+Const gc_NomBD_xSICo = "SI Contacts"		' Inscrire le nom usuel de la base de documents
+																' de recherche, tel que déclaré dans le GDK.
+Const gc_NomItemCleCont_xSICo = "Cont_NoContact"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueCont_xSICo = "V_Cont20"		' Le nom de la vue de recherche
+</lotusscript></code><code event="xSICo_Initialisation"><lotusscript>Sub xSICo_Initialisation
+	' Initialisation des variables globales
+	If gndb_xSICo Is Nothing Then
+		Set gndb_xSICo = xGDK_xndbNDB(gc_NomBD_xSICo)
+	End If
+End Sub
+</lotusscript></code><code event="xSICo_xVarProf"><lotusscript>Function xSICo_xVarProf(Byval p_NomVar As String, Byval p_ValeurNulle As Variant) As Variant
+	' Cette fonction retourne la valeur d'une variable du profil de la base de documents.
+	
+	' Initialisation des variables globales
+	Call xSICo_Initialisation
+	
+	' Extraire le document de profil
+	If gnd_Prof_SICo Is Nothing Then
+		Set gnd_Prof_SICo = gndb_xSICo.Getprofiledocument("F_Prof")
+	End If
+	
+	If gnd_Prof_SICo Is Nothing Then
+		xSICo_xVarProf = p_ValeurNulle
+	Else
+		xSICo_xVarProf = xVar(gnd_Prof_SICo, p_NomVar, p_ValeurNulle)		
+	End If
+End Function
+</lotusscript></code><code event="xSICo_xndTabl"><lotusscript>Function xSICo_xndTabl(Byval pCle As Variant, Byval pCache As Integer) As Notesdocument
+	' Cette fonction retourne un document de type F_Tabl.
+	
+	' Initialisation des variables globales
+	Call xSICo_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("Tabl_Nom", pCle, pCache, gndb_xSICo, "V_Tabl20", gnv_Tabl_xSICo, gnd_Tabl_xSICo)
+	'	Paramètres:		1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xSICo_xndTabl = gnd_Tabl_xSICo
+End Function
+</lotusscript></code><code event="xSICo_xVarTabl"><lotusscript>Function xSICo_xVarTabl(Byval pCle As Variant, Byval pNomVar As String, Byval pValeurNulle As Variant, _
+Byval pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_Tabl.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xSICo_xVarTabl = xVar(xSICo_xndTabl(pCle, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function
+</lotusscript></code><code event="xSICo_xDescTabl"><lotusscript>Function xSICo_xDescTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_Cache As Integer) As String	
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Descriptions As Variant
+	Dim i As Long
+	
+	xSICo_xDescTabl = ""
+	
+	' Extraire les valeurs et les descriptions
+	v_Valeurs = xSICo_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Descriptions = xSICo_xVarTabl(p_Table, "Tabl_Descriptions", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Descriptions) Then
+					If i &gt;= Lbound(v_Descriptions) And i &lt;= Ubound(v_Descriptions) Then
+						xSICo_xDescTabl = v_Descriptions(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Descriptions) Then
+				xSICo_xDescTabl = v_Descriptions(0)
+			Else
+				xSICo_xDescTabl = v_Descriptions
+			End If
+		End If
+	End If
+End Function
+</lotusscript></code><code event="xSICo_xIcnTabl"><lotusscript>Function xSICo_xIcnTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_Cache As Integer) As Integer	
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Icones As Variant
+	Dim i As Long
+	
+	xSICo_xIcnTabl = 0
+	
+	' Extraire les valeurs et les Icones
+	v_Valeurs = xSICo_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Icones = xSICo_xVarTabl(p_Table, "Tabl_Icones", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Icones) Then
+					If i &gt;= Lbound(v_Icones) And i &lt;= Ubound(v_Icones) Then
+						xSICo_xIcnTabl = v_Icones(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Icones) Then
+				xSICo_xIcnTabl = v_Icones(0)
+			Else
+				xSICo_xIcnTabl = v_Icones
+			End If
+		End If
+	End If
+End Function
+</lotusscript></code><code event="xSICo_xValeurExisteTabl"><lotusscript>Function xSICo_xValeurExisteTabl(Byval p_Cle As Variant, p_Valeur As Variant, _
+Byval p_Cache As Integer) As Integer
+	Dim ni As NotesItem
+	
+	xSICo_xValeurExisteTabl = False
+	
+	If Not (xSICo_xndTabl(p_Cle, True) Is Nothing) Then
+		Set ni = gnd_Tabl_xSICo.GetFirstItem("Tabl_Valeurs")
+		If ni.Contains(p_Valeur) Then
+			xSICo_xValeurExisteTabl = True
+		End If
+	End If	
+End Function
+</lotusscript></code><code event="xSICo_xndCont"><lotusscript>Function xSICo_xndCont(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSICo_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleCont_xSICo, p_Cle, p_Cache, gndb_xSICo, gc_NomVueCont_xSICo, gnv_Cont_xSICo, gnd_Cont_xSICo)
+	
+	' Retourne le document défini en variable globale
+	Set xSICo_xndCont = gnd_Cont_xSICo
+End Function
+</lotusscript></code><code event="xSICo_xVarCont"><lotusscript>Function xSICo_xVarCont(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSICo_xVarCont = xVar(xSICo_xndCont(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073639,69-05</datetime></item></scriptlibrary>
+
+</database>

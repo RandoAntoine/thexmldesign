@@ -1,0 +1,1086 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Site" hide="v3 v4strict">
+<noteinfo noteid="555976" unid="154690628828B85985258C0C006E8396" sequence="6">
+<created><datetime>20250108T150706,46-05</datetime></created>
+<modified><datetime>20260319T100412,38-05</datetime></modified>
+<revised><datetime>20260319T100325,16-05</datetime></revised>
+<lastaccessed><datetime>20260319T100412,37-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,42-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SDS_ContratsService"
+Use "SDSP_Projeto"
+Use "SDSP_Salesforce"
+Use "SI_DatabaseScript"
+Use "x_SDSP3"
+Use "x_SICf"
+Use "x_Tabl"
+Use "x_SDSCSL"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSPS As NotesSession
+Dim gndb_SDSPS As NotesDatabase
+Dim g_NoRep_SDSPS As String
+Dim gnv_Prod30_SDSPS As NotesView
+
+Dim gnd_Site_SDSPS As NotesDocument
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPS = "SL"
+Const gc_Element_SDSPS = "SDSP_Site"
+
+
+</lotusscript></code><code event="SDSPS_AjouterInfosSICl"><lotusscript>Sub SDSPS_AjouterInfosSICl(pnd_Client As NotesDocument, pnd_Prop As NotesDocument)
+	
+	On Error Goto GererErreur
+	
+	Dim nd_SDS As NotesDocument
+	
+	Dim a_Modules As Variant
+	Dim v_ClientNoFmt As String
+	Dim v_CS As Boolean
+	Dim l_ValeursContratCS List As Variant
+	
+	' Initialisations
+	SDSPS_Initialisations
+	
+	v_ClientNoFmt = xVar(pnd_Client, "Clie_ClientNoFmt", "")
+	Set nd_SDS = xSICf_xndSDS(v_ClientNoFmt, True)
+	
+	' Maj site avec champs du client SDS
+	If Not (pnd_Client Is Nothing) Then
+		gnd_Site_SDSPS.Site_OrigineCle = v_ClientNoFmt
+		gnd_Site_SDSPS.Site_ClientNoFmt = v_ClientNoFmt
+		gnd_Site_SDSPS.Site_ClientNom1 = xVar(pnd_Client, "Clie_ClientNom1", "")
+		gnd_Site_SDSPS.Site_ClientNom2 = xVar(pnd_Client, "Clie_ClientNom2", "")
+		gnd_Site_SDSPS.Site_ClientNomLegal = xVar(pnd_Client, "Clie_NomLegal", "")
+		gnd_Site_SDSPS.Site_ClientNom = xVar(pnd_Client, "Clie_ClientNomEntreprise", "")
+		gnd_Site_SDSPS.Site_Banniere = xVarArray(nd_SDS,"SDS_Bannieres")			' SI Configurations
+		gnd_Site_SDSPS.Site_BanniereDesc = xVarArray(nd_SDS,"SDS_BannieresDesc")	' SI Configurations
+		gnd_Site_SDSPS.Site_Plateformes = xVarArray(pnd_Client, "Clie_Plateformes")
+		
+		gnd_Site_SDSPS.Site_ClientAdresse1 = xVar(pnd_Client, "Clie_ClientAdresse1", "")
+		gnd_Site_SDSPS.Site_ClientAdresse2 = xVar(pnd_Client, "Clie_ClientAdresse2", "")
+		gnd_Site_SDSPS.Site_ClientVille = xVar(pnd_Client, "Clie_ClientVille", "")
+		gnd_Site_SDSPS.Site_ClientProvince = xVar(pnd_Client, "Clie_ClientProvince", "")
+		gnd_Site_SDSPS.Site_ClientPays = xVar(pnd_Client, "Clie_ClientPays", "")
+		gnd_Site_SDSPS.Site_ClientCodePostal = xVar(pnd_Client, "Clie_ClientCodePostal", "")
+		gnd_Site_SDSPS.Site_ClientLatitude = xVar(pnd_Client, "Clie_GeoLatitude", 0)
+		gnd_Site_SDSPS.Site_ClientLongitude = xVar(pnd_Client, "Clie_GeoLongitude", 0)
+	End If
+	
+	v_CS = SDSCS_ExtraireContratService(v_ClientNoFmt, l_ValeursContratCS)
+	
+	If v_CS Then
+		a_Modules = l_ValeursContratCS("Modules")
+		
+		If Not Isnull(a_Modules) Then
+			' Si SDSWIN déjà installé
+			If Isnull(Arraygetindex(a_Modules, "C-SDSWIN")) And Isnull(Arraygetindex(a_Modules, "S-SDSWIN")) Then
+				gnd_Site_SDSPS.Site_ClientSDSWIN = ""
+				If xVar(pnd_Prop, "Prop_TypeProposition", "") = "0" Or xVar(pnd_Prop, "Prop_TypeProposition", "") = "1" Then
+					gnd_Site_SDSPS.Site_AjouterSDS = "1"
+				End If
+				' "0": Nouveau client : Nouveau client SDS.
+				' "1": Nouveau site SDS : Ajouter un site à un client existant.
+			Else
+				gnd_Site_SDSPS.Site_ClientSDSWIN = "1"
+			End If
+			
+			' Si Merlin déjà installé
+			If Isnull(Arraygetindex(a_Modules, "C-SDSF&amp;IFULL")) And Isnull(Arraygetindex(a_Modules, "S-SDSF&amp;IFULL")) And _
+			Isnull(Arraygetindex(a_Modules, "C-SDSF&amp;IFULLA")) And Isnull(Arraygetindex(a_Modules, "S-SDSF&amp;IFULLA")) And _
+			Isnull(Arraygetindex(a_Modules, "C-SDSF&amp;ILITE")) And Isnull(Arraygetindex(a_Modules, "S-SDSF&amp;ILITE")) And _
+			Isnull(Arraygetindex(a_Modules, "C-SDSF&amp;ILITEA")) And Isnull(Arraygetindex(a_Modules, "S-SDSF&amp;ILITEA")) Then
+				gnd_Site_SDSPS.Site_ClientMerlin = ""
+			Else
+				gnd_Site_SDSPS.Site_ClientMerlin = "1"
+			End If
+		End If
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPS_ndcProduits"><lotusscript>Function SDSPS_ndcProduits(p_Cles As String) As NotesDocumentCollection
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call SDSPS_Initialisations
+	
+	Dim ndc_Produits As NotesDocumentCollection
+	Dim nv_Prod As NotesView
+	
+	Set ndc_Produits = xndc(p_Cles, gndb_SDSPS , "V_Prod26", nv_Prod)
+	
+	Set SDSPS_ndcProduits = ndc_Produits
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPS_ValiderClient_SICl"><lotusscript>Sub SDSPS_ValiderClient_SICl(p_Mode As Integer, pnd_Prop As NotesDocument, pnd_Client As NotesDocument, _
+	p_Parametres As String, p_ClientValide As Boolean)
+	' --------------------------------------------------------------------------------------------------------------------------
+	' Le script valide les informations du client provenant de SI Clients
+	'	Paramètres:
+	'	p_Mode		: 1: Maj du site avec les infos du client, 2: Vérifier l'adresse du client
+	'	pnd_Prop	: Document de la proposition (utilisé par SDSPS_CreerSite)
+	'	pnd_Client	: Document du client de la proposition 
+	'	p_Parametres: infos pour le message d'erreur (utilisé par SDSPS_SelectionnerClient)
+	'	p_Valide	: True si l'adresse du client est complète (valeur retournée) (utilisé par SDSPS_SelectionnerClient)
+	' --------------------------------------------------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim nd_SDS As NotesDocument
+	
+	Dim v_ClientNoFmt As String
+	Dim a_NomItemsClient_SICl As Variant
+	Dim i As Integer
+	Dim l_ItemsClie List As String
+	Dim v_Langue As String
+	Dim v_NomItemsVide As String	
+	Dim v_ValeurItem As String
+	Dim v(2) As Variant
+	
+	' Initialisations
+	SDSPS_Initialisations
+	
+	If p_Mode = 1 Then	'Maj le site avec les informnations du client
+		v_ClientNoFmt = xVar(pnd_Client, "Clie_ClientNoFmt", "")
+		Set nd_SDS = xSICf_xndSDS(v_ClientNoFmt, True)									' SI Configurations
+		
+		' Maj site avec champs du client SDS
+		If Not (pnd_Client Is Nothing) Then		
+			gnd_Site_SDSPS.Site_OrigineCle = v_ClientNoFmt
+			gnd_Site_SDSPS.Site_ClientNoFmt = v_ClientNoFmt
+			gnd_Site_SDSPS.Site_ClientNom1 = xVar(pnd_Client, "Clie_ClientNom1", "")
+			gnd_Site_SDSPS.Site_ClientNom2 = xVar(pnd_Client, "Clie_ClientNom2", "")	
+			gnd_Site_SDSPS.Site_ClientNomLegal = xVar(pnd_Client, "Clie_NomLegal", "")
+			gnd_Site_SDSPS.Site_ClientNom = xVar(pnd_Client, "Clie_ClientNomEntreprise", "")		
+			gnd_Site_SDSPS.Site_Banniere = xVarArray(nd_SDS,"SDS_Bannieres")			' SI Configurations
+			gnd_Site_SDSPS.Site_BanniereDesc = xVarArray(nd_SDS,"SDS_BannieresDesc")	' SI Configurations
+			gnd_Site_SDSPS.Site_Plateformes = xVarArray(pnd_Client, "Clie_Plateformes")
+			
+			gnd_Site_SDSPS.Site_ClientAdresse1 = xVar(pnd_Client, "Clie_ClientAdresse1", "")
+			gnd_Site_SDSPS.Site_ClientAdresse2 = xVar(pnd_Client, "Clie_ClientAdresse2", "")
+			gnd_Site_SDSPS.Site_ClientVille = xVar(pnd_Client, "Clie_ClientVille", "")
+			gnd_Site_SDSPS.Site_ClientProvince = xVar(pnd_Client, "Clie_ClientProvince", "")
+			gnd_Site_SDSPS.Site_ClientPays = xVar(pnd_Client, "Clie_ClientPays", "")
+			gnd_Site_SDSPS.Site_ClientCodePostal = xVar(pnd_Client, "Clie_ClientCodePostal", "")
+			gnd_Site_SDSPS.Site_ClientLatitude = xVar(pnd_Client, "Clie_GeoLatitude", 0)
+			gnd_Site_SDSPS.Site_ClientLongitude = xVar(pnd_Client, "Clie_GeoLongitude", 0)		
+		End If
+		
+	ElseIf p_Mode = 2 Then	' Vérifier l'adresse du client
+		p_ClientValide = False
+		
+		
+		If Not (pnd_Client Is Nothing) Then	
+			
+			If Not (pnd_Client Is Nothing) Then
+				
+				v_Langue = xLangue
+				
+				a_NomItemsClient_SICl = Evaluate(|"Pays" : "Province": "Adresse1": "Ville": "CodePostal"|)
+				
+				l_ItemsClie("Clie_ClientPays;FR") = "Pays"
+				l_ItemsClie("Clie_ClientPays;EN") = "Country"
+				
+				l_ItemsClie("Clie_ClientProvince;FR") = "Province"
+				l_ItemsClie("Clie_ClientProvince;EN") = "Province"
+				
+				l_ItemsClie("Clie_ClientAdresse1;FR") = "Addresse"
+				l_ItemsClie("Clie_ClientAdresse1;EN") = "Address"
+				
+				l_ItemsClie("Clie_ClientVille;FR") = "Ville"
+				l_ItemsClie("Clie_ClientVille;EN") = "City"
+				
+				l_ItemsClie("Clie_ClientCodePostal;FR") = "Code postal"
+				l_ItemsClie("Clie_ClientCodePostal;EN") = "Postal Code"
+				
+				
+				For i = 0 To UBound(a_NomItemsClient_SICl)
+					v_ValeurItem = xVarElem(pnd_Client, "Clie_" &amp; a_NomItemsClient_SICl(i), 0, "")
+					If v_ValeurItem = "" Then
+						If v_NomItemsVide = "" Then
+							v_NomItemsVide = Chr(13) &amp; "- " &amp; l_ItemsClie("Clie_" &amp; a_NomItemsClient_SICl(i) &amp; ";" &amp; v_Langue)
+						Else
+							v_NomItemsVide = v_NomItemsVide &amp; Chr(13) &amp; "- " &amp; l_ItemsClie("Clien_" &amp; a_NomItemsClient_SICl(i) &amp; ";" &amp; v_Langue)
+						End If
+					End If
+				Next
+				
+				If v_NomItemsVide &lt;&gt; "" Then
+					
+					If xVar(pnd_Client, "Prop_Origine", "") = "SF" Then
+						'******************************************
+					ElseIf xVar(pnd_Client, "Prop_Origine", "") = "SICl" Then
+						v(0) = xVar(pnd_Client, "Clie_ClientNomInterne", "")
+					Else	
+						v(0) = xVar(pnd_Client, "Clie_ClientNomInterne", xVar(pnd_Client, "Clie_Nom", ""))
+					End If
+					
+					v(1) = p_Parametres
+					v(2) = Chr(13) &amp; v_NomItemsVide
+					MessageBox xGDK_xMessage("SDSPP", 33 ,"", v), 16, xGDK_xMessage("SI", 1, "", "")
+					'Impossible d'ajouter le site &amp;0 car l’information suivante à propos du client est manquante. &amp;1
+					Exit Sub
+				End If
+				
+				
+				p_ClientValide = True
+			End If
+			
+			
+			
+		End If
+	End If	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPS_NbUtilisateursParDepartement"><lotusscript>Sub SDSPS_NbUtilisateursParDepartement(pnd_Site As NotesDocument, pa_NbUtilisateurs As Variant)
+	On Error GoTo GererErreur
+	'----------------------------------------------------------------------------------------------
+	' Le script permet de construire le tableaux du nombre d'utilisateurs "User Count" des 
+	' départements du site.
+	' 0 = Comptabilité
+	' 1 = Ventes
+	' 2 = Service
+	' 3 = Atelier
+	' 4 = Bodyshop
+	' 5 = Pièces
+	'----------------------------------------------------------------------------------------------
+	Dim v_NomItem As String
+	Dim i As Integer
+	
+	' Initialisations
+	ReDim a_NbUtilisateurs(5) As Integer
+	
+	For i = 0 To 5
+		v_NomItem = "Site_D" &amp; CStr(i) &amp; "_"
+		
+		If i = 3 Then
+			a_NbUtilisateurs(i) = xVar(pnd_Site, v_NomItem &amp; "NbTechniciens", 0)
+		Else
+			a_NbUtilisateurs(i) = xVar(pnd_Site, v_NomItem &amp; "NbUtilisateurs", 0)
+			If i = 4 And xVar(pnd_Site, "Site_D" &amp; CStr(i) &amp; "_Section", "") = "1" Then
+				a_NbUtilisateurs(i) = a_NbUtilisateurs(i) + xVar(pnd_Site, v_NomItem &amp; "NbTechniciens", 0)
+			End If
+		End If
+	Next 
+	
+	pa_NbUtilisateurs = a_NbUtilisateurs
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPS_Initialisations"><lotusscript>Sub SDSPS_Initialisations
+	If gns_SDSPS Is Nothing Then
+		Set gns_SDSPS = New NotesSession
+		Set gndb_SDSPS = gns_SDSPS.CurrentDatabase
+		
+		g_NoRep_SDSPS = gns_SDSPs.GetEnvironmentString("SDSPP_NoRep")
+	End If
+End Sub
+
+</lotusscript></code><code event="SDSPS_AjouterInfosSF"><lotusscript>Sub SDSPS_AjouterInfosSF(pnd_Prop As NotesDocument, pcl_Account As SLSf_clObject)
+	
+	On Error GoTo GererErreur
+	
+	Dim v_ClientNoFmt As String
+	Dim v_SDSWinCount As Long
+	Dim v_MerlinCount As Long
+	Dim ndc As NotesDocumentCollection
+	Dim v_CS As Boolean
+	Dim l_ValeursContratCS List As Variant
+	
+	v_SDSWinCount = 0
+	v_MerlinCount = 0
+	
+	' Initialisations
+	SDSPS_Initialisations
+
+	v_ClientNoFmt = pcl_Account.ExtraireValeur("SERTI_ID__c", "")
+
+	' Maj site avec Informations de provenance Salesforce
+	gnd_Site_SDSPS.Site_OrigineCle  = pcl_Account.ExtraireValeur("Id", "")
+	gnd_Site_SDSPS.Site_ClientNoFmt = v_ClientNoFmt
+	gnd_Site_SDSPS.Site_ClientNom1 = pcl_Account.ExtraireValeur("Name", "")
+	gnd_Site_SDSPS.Site_ClientNomLegal = pcl_Account.ExtraireValeur("Legal_Name__c", "") 
+	gnd_Site_SDSPS.Site_ClientNom = pcl_Account.ExtraireValeur("Name", "")
+	
+	Call  SDSPS_extraireBannieres( pcl_Account, gnd_Site_SDSPS ) 	
+	
+	gnd_Site_SDSPS.Site_Plateformes = pcl_Account.ExtraireValeur("Platforms__c", "") 
+	gnd_Site_SDSPS.Site_ProvenanceProspect = pcl_Account.ExtraireValeur("Account_Source__c", "") 
+	gnd_Site_SDSPS.Site_ProvenanceProspectPrecision = pcl_Account.ExtraireValeur("Account_Source_Notes__c", "") 
+	gnd_Site_SDSPS.Site_ClientAdresse1 = pcl_Account.ExtraireValeur("BillingStreet", "") 
+	gnd_Site_SDSPS.Site_ClientVille = pcl_Account.ExtraireValeur("BillingCity", "") 
+	
+	gnd_Site_SDSPS.Site_ClientProvince = pcl_Account.ExtraireValeur("BillingStateCode", "")
+	gnd_Site_SDSPS.Site_ClientPays = pcl_Account.ExtraireValeur("BillingCountryCode", "")
+	
+	gnd_Site_SDSPS.Site_ClientCodePostal = pcl_Account.ExtraireValeur("BillingPostalCode", "") 
+	gnd_Site_SDSPS.Site_ClientLatitude = pcl_Account.ExtraireValeur("Billing_Address__Latitude__s", "") 
+	gnd_Site_SDSPS.Site_ClientLongitude = pcl_Account.ExtraireValeur("Billing_Address__Longitude__s", "") 
+
+	If v_ClientNoFmt &lt;&gt; "" Then
+		' Si SDSWIN déjà installé
+		v_CS = SDSCS_ExtraireContratService(v_ClientNoFmt, l_ValeursContratCS)
+		
+		If l_ValeursContratCS("SDSWin") = "1" Then
+			gnd_Site_SDSPS.Site_ClientSDSWIN = "1"
+		Else
+			gnd_Site_SDSPS.Site_ClientSDSWIN = ""
+			If xVar(pnd_Prop, "Prop_TypeProposition", "") = "0" Or xVar(pnd_Prop, "Prop_TypeProposition", "") = "1" Then
+				gnd_Site_SDSPS.Site_AjouterSDS = "1"
+			End If
+		End If
+		
+		If l_ValeursContratCS("SDSMerlin") = "1" Then
+			gnd_Site_SDSPS.Site_ClientMerlin = "1"
+		Else
+			gnd_Site_SDSPS.Site_ClientMerlin = ""
+		End If
+		
+	End If
+
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPS_AjouterInfosPJ"><lotusscript>Sub SDSPS_AjouterInfosPJ(pnd_Client As NotesDocument, pnd_Prop As NotesDocument)
+	
+	On Error Goto GererErreur
+	
+	
+	' Initialisations
+	SDSPS_Initialisations
+	
+	' Maj site avec champs du client / prospect
+	If Not (pnd_Client Is Nothing) Then
+		gnd_Site_SDSPS.Site_OrigineCle  = xVar(pnd_Client, "CleClient", "")
+		gnd_Site_SDSPS.Site_ClientNoFmt = xVar(pnd_Client, "Clie_NoClientFmt", "")
+		gnd_Site_SDSPS.Site_ClientNom1 = xVar(pnd_Client, "Clie_ClientNom1", "")
+		gnd_Site_SDSPS.Site_ClientNom2 = xVar(pnd_Client, "Clie_ClientNom2", "")
+		gnd_Site_SDSPS.Site_ClientNomLegal = xVar(pnd_Client, "Clie_NomLegal", "")
+		gnd_Site_SDSPS.Site_ClientNom = xVar(pnd_Client, "Clie_Nom", "")
+		gnd_Site_SDSPS.Site_Banniere = xVarArray(pnd_Client,"Clie_Banniere")
+		gnd_Site_SDSPS.Site_BanniereDesc = xVarArray(pnd_Client,"Clie_BanniereDesc")
+		gnd_Site_SDSPS.Site_Plateformes = xVarArray(pnd_Client, "Clie_Plateformes")
+		gnd_Site_SDSPS.Site_ProvenanceProspect = xVar(pnd_Client, "Clie_ProvenanceProspect", "")
+		gnd_Site_SDSPS.Site_ProvenanceProspectPrecision = xVar(pnd_Client, "Clie_ProvenanceProspectPrecision", "")
+		gnd_Site_SDSPS.Site_ClientAdresse1 = xVar(pnd_Client, "Clie_Adresse1", "")
+		gnd_Site_SDSPS.Site_ClientAdresse2 = xVar(pnd_Client, "Clie_Adresse2", "")
+		gnd_Site_SDSPS.Site_ClientVille = xVar(pnd_Client, "Clie_Ville", "")
+		gnd_Site_SDSPS.Site_ClientProvince = xVar(pnd_Client, "Clie_Province", "")
+		gnd_Site_SDSPS.Site_ClientPays = xVar(pnd_Client, "Clie_Pays", "")
+		gnd_Site_SDSPS.Site_ClientCodePostal = xVar(pnd_Client, "Clie_CodePostal", "")
+		gnd_Site_SDSPS.Site_ClientLatitude = xVar(pnd_Client, "Clie_GeoLatitude", 0)
+		gnd_Site_SDSPS.Site_ClientLongitude = xVar(pnd_Client, "Clie_GeoLongitude", 0)
+	End If
+	
+	' Si SDSWIN déjà installé
+	If (xVarContient(pnd_Client, "Clie_ModulesSDS", "C-SDSWIN") Or _
+	xVarContient(pnd_Client, "Clie_ModulesSDS", "S-SDSWIN")) And xVar(pnd_Client, "Clie_NoClientFmt", "") &lt;&gt; "" Then
+		gnd_Site_SDSPS.Site_ClientSDSWIN = "1"
+	Else
+		gnd_Site_SDSPS.Site_ClientSDSWIN = ""
+		If xVar(pnd_Prop, "Prop_TypeProposition", "") = "0" Or xVar(pnd_Prop, "Prop_TypeProposition", "") = "1" Then
+			gnd_Site_SDSPS.Site_AjouterSDS = "1"
+		End If
+		' "0": Nouveau client : Nouveau client SDS.
+		' "1": Nouveau site SDS : Ajouter un site à un client existant.	
+	End If
+	
+	' Si Merlin déjà installé
+	If (xVarContient(pnd_Client, "Clie_ModulesSDS", "C-SDSF&amp;IFULL") Or _
+	xVarContient(pnd_Client, "Clie_ModulesSDS", "C-SDSF&amp;IFULLA") Or _ 
+	xVarContient(pnd_Client, "Clie_ModulesSDS", "S-SDSF&amp;IFULL") Or _ 
+	xVarContient(pnd_Client, "Clie_ModulesSDS", "S-SDSF&amp;IFULLA") Or _
+	xVarContient(pnd_Client, "Clie_ModulesSDS", "C-SDSF&amp;ILITE") Or _
+	xVarContient(pnd_Client, "Clie_ModulesSDS", "C-SDSF&amp;ILITEA") Or _
+	xVarContient(pnd_Client, "Clie_ModulesSDS", "S-SDSF&amp;ILITE") Or _
+	xVarContient(pnd_Client, "Clie_ModulesSDS", "S-SDSF&amp;ILITEA"))  And xVar(pnd_Client, "Clie_NoClientFmt", "") &lt;&gt; "" Then
+		gnd_Site_SDSPS.Site_ClientMerlin = "1"
+	Else
+		gnd_Site_SDSPS.Site_ClientMerlin = ""
+	End If
+	
+	Call SIGE_EnregistrerLog
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPS_ndSitePlusUtilisateurs"><lotusscript>Function SDSPS_ndSitePlusUtilisateurs(pnd_Prop As NotesDocument) As NotesDocument
+	' --------------------------------------------------------------------------
+	' Le script permet de calculer le site ayant le plus grand nbr. utilisateurs
+	' --------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nv_Site21 As NotesView
+	Dim ndc_Sites As NotesDocumentCollection
+	Dim nd_SitePrincipal As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim v_NbUtilisateursSite As Integer
+	Dim v_NbUtilisateursSitePrincipal As Integer
+	
+	' Initialisations
+	Call SDSPS_Initialisations
+	v_NbUtilisateursSite = 0
+	v_NbUtilisateursSitePrincipal = 0
+	
+	Set nv_Site21 = gndb_SDSPS.GetView("V_Site21")
+	Call nv_Site21.Refresh
+	
+	Set ndc_Sites = xSDSP3_xndcSite(xVar(pnd_Prop, "Prop_NoProposition", ""))
+	
+	If ndc_Sites.Count &gt; 0 Then
+		
+		' Si un site
+		If ndc_Sites.Count = 1 Then
+			Set SDSPS_ndSitePlusUtilisateurs = ndc_Sites.GetFirstDocument
+			Exit Function
+		End If
+		
+		Set nd_Suivant = ndc_Sites.GetFirstDocument
+		
+		' Initialise le site principal --&gt; Prop_NoSitePrincipal(voir FPNav_hsSitePrincipal)
+		Set SDSPS_ndSitePlusUtilisateurs = xSDSP3_xndSite(xVar(pnd_Prop, "Prop_NoSitePrincipal",""), True)
+		
+		'Si plusieurs sites, le site principal est celui avec le plus grand nombre d'utilisateurs
+		Do Until nd_Suivant Is Nothing
+			
+			Set nd_Site = nd_Suivant
+			Set nd_Suivant = ndc_Sites.Getnextdocument(nd_Suivant)
+			
+			v_NbUtilisateursSite = SDSPS_NbUtilisateursSite(nd_Site)
+			
+			If v_NbUtilisateursSite &gt; v_NbUtilisateursSitePrincipal Then
+				' Ré-initialiser le site principal
+				v_NbUtilisateursSitePrincipal = v_NbUtilisateursSite
+				Set SDSPS_ndSitePlusUtilisateurs = nd_Site
+			End If
+			
+		Loop
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPS_CreerSite"><lotusscript>Function SDSPS_CreerSite(pnd_Prop As NotesDocument, pnd_Client As NotesDocument, p_NoAccountSF  As String ) As NotesDocument
+	On Error Goto GererErreur
+	
+	Dim ndb_Parent As NotesDatabase
+	Dim nd_PJCl As NotesDocument
+	Dim nd_SDS As NotesDocument
+	Dim nd_SICl As NotesDocument	
+	Dim ni As NotesItem
+	Dim ni_PropNoSites As Notesitem
+	
+	Dim v_ClientNoFmt  As String
+	Dim v_NbSites As Integer
+	Dim v_NomClient As String
+	Dim v_NoProposition As String
+	Dim v_NoSite As String
+	
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim cl_Opportunity As SLSf_clObject
+	Dim cl_Account As SLSf_clObject	
+	Dim v_Resultat As Integer
+	Dim v_NoOpportuniteSF As String
+	
+	' Initialisations
+	Set SDSPS_CreerSite = Nothing
+	Call SDSPS_Initialisations
+	Set ndb_Parent = pnd_Prop.ParentDatabase
+	
+	' Créer le site
+	Set gnd_Site_SDSPS = New NotesDocument(ndb_Parent)
+	v_NoSite = xUnique("") &amp; g_NoRep_SDSPS
+		
+	If xVar(pnd_Prop, "Prop_Origine", "") = "SF" Then
+		v_NoOpportuniteSF = xVar(pnd_Prop, "Prop_NoOpportuniteSF" , "")	
+		v_Resultat = SDSPS_ExtraireInfoSalesforce(v_NoOpportuniteSF,p_NoAccountSF, cl_Opportunity, cl_Account)
+		
+		If v_Resultat &lt; 0 Then
+			Exit Function
+		End If	
+		
+		v_NomClient = cl_Account.ExtraireValeur("Name", v_NoSite)
+		
+	ElseIf xVar(pnd_Prop, "Prop_Origine", "") = "SICl" Then
+		v_NomClient = xVar(pnd_Client, "Clie_ClientNomInterne", "")
+	Else	
+		'v_NomClient =  xVar(pnd_Client, "Clie_Nom", "")
+		v_NomClient = xVar(pnd_Client, "Clie_ClientNomInterne", xVar(pnd_Client, "Clie_Nom", ""))
+	End If
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	v_NbSites = xVar(pnd_Prop, "Prop_NbSites", 0)
+	
+	gnd_Site_SDSPS.Form = "F_Site"
+	gnd_Site_SDSPS.Cle = v_NoProposition + ";" + v_NoSite
+	gnd_Site_SDSPS.Description = v_NomClient
+	gnd_Site_SDSPS.Site_NoProposition = v_NoProposition
+	gnd_Site_SDSPS.Site_NoSite = v_NoSite
+	gnd_Site_SDSPS.Site_ClientNomInterne = v_NomClient
+	
+	gnd_Site_SDSPS.Site_NoSiteSF = p_NoAccountSF
+	
+	' 2: Client existant: Client SDS existant.
+	' 3: Conversion serveur hébergé
+	If xVar(pnd_Prop, "Prop_TypeProposition","") &gt;="2" Then	
+		gnd_Site_SDSPS.Site_D6_Section = "1"
+		gnd_Site_SDSPS.Site_AucuneInterfaceManufactAdd = "1"
+		gnd_Site_SDSPS.Site_AucuneInterfaceTier = "1"
+	End If
+	
+	gnd_Site_SDSPS.Site_D0_StatsOnline = xComplTabl("SO", "Comptabilite", "1", True)
+	gnd_Site_SDSPS.Site_D0_MontageElectronique = xComplTabl("EFD", "Comptabilite", "1", True)
+	'nd_Site.Site_D2_FormulairesManufacturier = xComplTabl("IDMF", "Service", "1", True)
+	
+	If xVar(pnd_Prop, "Prop_Origine", "") = "SF" Then
+		Call SDSPS_AjouterInfosSF(pnd_Prop, cl_Account)
+	ElseIf Not (pnd_Client Is Nothing) Then
+		' Maj le site avec champs du client / prospect
+		If xVar(pnd_Prop, "Prop_Origine", "") = "SICl" Then
+			Call SDSPS_AjouterInfosSICl(pnd_Client, pnd_Prop)
+		Else
+			Call SDSPS_AjouterInfosPJ(pnd_Client, pnd_Prop)
+		End If
+	End If
+	
+	' Sécurité
+	Set ni = New NotesItem(gnd_Site_SDSPS, "LecteurAdmin", pnd_Prop.LecteurAdmin, READERS)
+	Set ni = New NotesItem(gnd_Site_SDSPS, "AuteurAdmin", pnd_Prop.AuteurAdmin, AUTHORS)
+	Set ni = New NotesItem(gnd_Site_SDSPS, "Lecteur", pnd_Prop.Lecteur, READERS)
+	Set ni = New NotesItem(gnd_Site_SDSPS, "Auteur", pnd_Prop.Auteur, AUTHORS)
+	
+	gnd_Site_SDSPS.HistoDC = Now
+	gnd_Site_SDSPS.HistoUC = gns_SDSPS.UserName
+	
+	Call gnd_Site_SDSPS.MakeResponse(pnd_Prop)
+	Call gnd_Site_SDSPS.Save(True, False)
+	
+	' Mettre à jour la proposition
+	pnd_Prop.Prop_NbSites = xVar(pnd_Prop, "Prop_NbSites", 0) + 1
+	
+	'Set ni_PropNoSites = xni(pnd_Prop, "Prop_NoSites", "")
+	'If xniElem(ni_PropNoSites, 0, "") = "" Or xniElem(ni_PropNoSites, 0, "") = 0 Then
+	'	pnd_Prop.Prop_NoSites = v_NoSite
+	'End If
+	If xVar(pnd_Prop, "Prop_NbSites", 0) = 1 Then
+		pnd_Prop.Prop_NoSites = v_NoSite
+	End If
+	
+	Call pnd_Prop.Save(True, False)
+	
+	' Temp pour debug
+	If xVarElem(pnd_Prop, "Prop_NoSites",0, "") = "" Then
+		Call SIGE_OuvrirLog(gc_TypeElement_SDSPS, gc_Element_SDSPS)
+		Call SIGE_AjouterLog("SDSPS_CreerSite --&gt; Proposition: " &amp; v_NoProposition &amp; " champ Prop_NoSites vide(" &amp; v_NoSite &amp; ")" , 1, 0, False)
+		Call SIGE_EnregistrerLog	
+	End If
+	
+	Set SDSPS_CreerSite = gnd_Site_SDSPS
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPS_SiteAvecCommission"><lotusscript>Function SDSPS_SiteAvecCommission(pnd_Site As NotesDocument) As Boolean 
+	' ------------------------------------------------------------------------------------------------------------------
+	' 	Cette fonction vérifie si les produits du site sont à commission	
+	'	Paramètre:
+	'		pnd_Site:	document du site à traiter
+	'
+	'	Valeur retournée:	True  - au moins un produit du site est à commission
+	'						False - tous les produits sont exemptés de commission
+	' ------------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim ndc_ProduitsSite As NotesDocumentCollection
+	Dim nd_ProduitSuivant As NotesDocument
+	Dim nd_Produit As NotesDocument
+	
+	Dim v_ExempterCommission As String 
+	Dim v_Commission As String
+	
+	' Initialisation
+	Call SDSPS_Initialisations
+	SDSPS_SiteAvecCommission = False
+	
+	' Extraire les produits du site
+	If gnv_Prod30_SDSPS Is Nothing Then
+		Set gnv_Prod30_SDSPS = gndb_SDSPS.GetView("V_Prod30")		' Vue des produits
+		Call gnv_Prod30_SDSPS.Refresh
+	End If
+	
+	Set ndc_ProduitsSite = gnv_Prod30_SDSPS.GetAllDocumentsByKey((xVar(pnd_Site, "Site_NoSite", "") &amp; ";"), False)
+	
+	' Boucler sur tous les produits
+	If ndc_ProduitsSite.Count &gt; 0 Then		
+		Set nd_ProduitSuivant = ndc_ProduitsSite.Getfirstdocument
+		Do Until nd_ProduitSuivant Is Nothing
+			Set nd_Produit = nd_ProduitSuivant
+			Set nd_ProduitSuivant = ndc_ProduitsSite.GetNextDocument(nd_ProduitSuivant)
+			
+			' Ne pas traiter les composants
+			If xVar(nd_Produit,"Prod_TypeDescendant", "") &lt;&gt; "C" Then		
+				
+				' Si au moins un produit est à commission (dans SDS Base II) avec une quantité non nulle
+				v_Commission = xSDSBB_xVarProd(xVar(nd_Produit, "Prod_CleProduit", ""), "Prod_Commissions", "", True)
+				If v_Commission = "1" Or (xVar(pnd_Site, "Prop_Type", "") &lt; "2" And v_Commission = "2") Then
+					v_ExempterCommission = "0"
+				Else
+					v_ExempterCommission = "1"
+				End If
+				If v_ExempterCommission &lt;&gt; "1" And xVar(nd_Produit, "Prod_Quantite", 0) &gt; 0 Then
+					SDSPS_SiteAvecCommission = True
+					Set nd_ProduitSuivant = Nothing
+				End If	
+			End If
+		Loop
+	End If
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), xVar(nd_Produit, "Cle", ""), False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPS_ExtraireCleBanniere"><lotusscript>Function SDSPS_ExtraireCleBanniere( p_Desc As String ) As String
+	
+	On Error GoTo GererErreur
+	
+	Dim nv As NotesView
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim v_BannDesc As String
+	
+	SDSPS_ExtraireCleBanniere = "" 
+	
+	
+	Set nv = gndbGDK_xGDK.GetView("V_Bann20")
+	If nv Is Nothing Then
+		Exit Function
+	End If
+	
+	' Charger les documents à traiter dans une collection
+	Set nd_Suivant = nv.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = nv.GetNextDocument(nd_Suivant)
+
+		v_BannDesc = xVar(nd, "Bann_Description", "")
+		
+		If v_BannDesc  = p_Desc Then			
+			SDSPS_ExtraireCleBanniere = xVar(nd, "Bann_Code", "")
+			Exit Function			
+		End If		
+
+	Loop
+
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPS_SupprimerSite"><lotusscript>Function SDSPS_SupprimerSite(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, p_NomProgramme As String) As Boolean
+	On Error Goto GererErreur
+	' Initialisations
+	SDSPS_SupprimerSite = False
+	
+	' Extraire la proposition (au besoin)
+	If pnd_Prop Is Nothing Then
+		Set pnd_Prop = xSDSP3_xndProp(xVar(pnd_Site, "Site_NoProposition", ""), True)
+	End If
+	
+	' Supprimer le site
+	Call SIDS_CorbeilleDocument(pnd_Site, "", p_NomProgramme, "")
+	
+	' Mettre à jour la proposition
+	pnd_Prop.Prop_NbSites = xVar(pnd_Prop, "Prop_NbSites", 1) - 1
+	
+	Call pnd_Prop.Save(True, False)
+	
+	SDSPS_SupprimerSite = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+
+</lotusscript></code><code event="SDSPS_NbUtilisateursSite"><lotusscript>Function SDSPS_NbUtilisateursSite(pnd_Site As NotesDocument) As Integer
+	' ------------------------------------------------------------------
+	' Le script permet de calculer le nombre d'utilisateurs pour un site
+	' ------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_NbUtilisateursSite As Long
+	Dim i As Integer
+	Dim v_NomItem As String
+	
+	v_NbUtilisateursSite = 0
+	
+	' ' Note : Comptabilité | 0 , Ventes | 1 , Service | 2 , Atelier | 3, Carosserie | 4, Pièces | 5
+	For i = 0 To 5
+		If  i  = 3 Then
+			' Atelier (Service Shop)
+			v_NomItem = "Site_D" &amp; Cstr(i) &amp; "_NbTechniciens"
+		Else
+			v_NomItem = "Site_D" &amp; Cstr(i) &amp; "_NbUtilisateurs"
+		End If
+		v_NbUtilisateursSite = v_NbUtilisateursSite + Cint(xVar(pnd_Site, v_NomItem, 0))
+	Next
+	
+	SDSPS_NbUtilisateursSite  = v_NbUtilisateursSite
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, Getthreadinfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPS_ValiderClient_PJ"><lotusscript>Sub SDSPS_ValiderClient_PJ(p_Mode As Integer, pnd_Prop As NotesDocument, pnd_Client As NotesDocument, _
+	p_Parametres As String, p_ClientValide As Boolean)
+	' --------------------------------------------------------------------------------------------------------------------------
+	' Le script valide les informations du client provenant de Projeto
+	'	Paramètres:
+	'	p_Mode		: 1: Maj du site avec les infos du client, 2: Vérifier l'adresse du client
+	'	pnd_Prop	: Document de la proposition (utilisé par SDSPS_CreerSite)
+	'	pnd_Client	: Document du client de la proposition 
+	'	p_Parametres: infos pour le message d'erreur (utilisé par SDSPS_SelectionnerClient)
+	'	p_Valide	: True si l'adresse du client est complète (valeur retournée) (utilisé par SDSPS_SelectionnerClient)
+	' --------------------------------------------------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim a_NomItemsClient_SIPJCl As Variant
+	Dim i As Integer
+	Dim l_ItemsClie List As String
+	Dim v_Langue As String
+	Dim v_NomItemsVide As String	
+	Dim v_ValeurItem As String
+	Dim v(2) As Variant
+	
+	' Initialisations
+	SDSPS_Initialisations
+	
+	If p_Mode = 1 Then	'Maj le site avec les informnations du client
+		' Maj site avec champs du client / prospect
+		If Not (pnd_Client Is Nothing) Then		
+			gnd_Site_SDSPS.Site_OrigineCle  = xVar(pnd_Client, "CleClient", "")
+			gnd_Site_SDSPS.Site_ClientNoFmt = xVar(pnd_Client, "Clie_NoClientFmt", "")
+			gnd_Site_SDSPS.Site_ClientNom1 = xVar(pnd_Client, "Clie_ClientNom1", "")
+			gnd_Site_SDSPS.Site_ClientNom2 = xVar(pnd_Client, "Clie_ClientNom2", "")	
+			gnd_Site_SDSPS.Site_ClientNomLegal = xVar(pnd_Client, "Clie_NomLegal", "")	
+			gnd_Site_SDSPS.Site_ClientNom = xVar(pnd_Client, "Clie_Nom", "")
+			gnd_Site_SDSPS.Site_Banniere = xVarArray(pnd_Client,"Clie_Banniere")
+			gnd_Site_SDSPS.Site_BanniereDesc = xVarArray(pnd_Client,"Clie_BanniereDesc")
+			gnd_Site_SDSPS.Site_Plateformes = xVarArray(pnd_Client, "Clie_Plateformes")		
+			gnd_Site_SDSPS.Site_ProvenanceProspect = xVar(pnd_Client, "Clie_ProvenanceProspect", "")
+			gnd_Site_SDSPS.Site_ProvenanceProspectPrecision = xVar(pnd_Client, "Clie_ProvenanceProspectPrecision", "") 	
+			gnd_Site_SDSPS.Site_ClientAdresse1 = xVar(pnd_Client, "Clie_Adresse1", "")
+			gnd_Site_SDSPS.Site_ClientAdresse2 = xVar(pnd_Client, "Clie_Adresse2", "")
+			gnd_Site_SDSPS.Site_ClientVille = xVar(pnd_Client, "Clie_Ville", "")
+			gnd_Site_SDSPS.Site_ClientProvince = xVar(pnd_Client, "Clie_Province", "")
+			gnd_Site_SDSPS.Site_ClientPays = xVar(pnd_Client, "Clie_Pays", "")
+			gnd_Site_SDSPS.Site_ClientCodePostal = xVar(pnd_Client, "Clie_CodePostal", "")
+			gnd_Site_SDSPS.Site_ClientLatitude = xVar(pnd_Client, "Clie_GeoLatitude", 0)
+			gnd_Site_SDSPS.Site_ClientLongitude = xVar(pnd_Client, "Clie_GeoLongitude", 0)		
+		End If
+		
+	ElseIf p_Mode = 2 Then	' Vérifier l'adresse du client
+		p_ClientValide = False
+		
+
+		If Not (pnd_Client Is Nothing) Then
+			
+			v_Langue = xLangue
+			
+			a_NomItemsClient_SIPJCl = Evaluate(|"Pays" : "Province": "Adresse1": "Ville": "CodePostal"|)
+			
+			l_ItemsClie("Clie_Pays;FR") = "Pays"
+			l_ItemsClie("Clie_Pays;EN") = "Country"
+			
+			l_ItemsClie("Clie_Province;FR") = "Province"
+			l_ItemsClie("Clie_Province;EN") = "Province"
+			
+			l_ItemsClie("Clie_Adresse1;FR") = "Addresse"
+			l_ItemsClie("Clie_Adresse1;EN") = "Address"
+			
+			l_ItemsClie("Clie_Ville;FR") = "Ville"
+			l_ItemsClie("Clie_Ville;EN") = "City"
+			
+			l_ItemsClie("Clie_CodePostal;FR") = "Code postal"
+			l_ItemsClie("Clie_CodePostal;EN") = "Postal Code"
+			
+			
+			For i = 0 To UBound(a_NomItemsClient_SIPJCl)
+				v_ValeurItem = xVarElem(pnd_Client, "Clie_" &amp; a_NomItemsClient_SIPJCl(i), 0, "")
+				If v_ValeurItem = "" Then
+					If v_NomItemsVide = "" Then
+						v_NomItemsVide = Chr(13) &amp; "- " &amp; l_ItemsClie("Clie_" &amp; a_NomItemsClient_SIPJCl(i) &amp; ";" &amp; v_Langue)
+					Else
+						v_NomItemsVide = v_NomItemsVide &amp; Chr(13) &amp; "- " &amp; l_ItemsClie("Clie_" &amp; a_NomItemsClient_SIPJCl(i) &amp; ";" &amp; v_Langue)
+					End If
+				End If
+			Next
+			
+			If v_NomItemsVide &lt;&gt; "" Then
+				
+				If xVar(pnd_Client, "Prop_Origine", "") = "SICl" Then
+					v(0) = xVar(pnd_Client, "Clie_ClientNomInterne", "")
+				Else	
+					v(0) = xVar(pnd_Client, "Clie_ClientNomInterne", xVar(pnd_Client, "Clie_Nom", ""))
+				End If
+				
+				v(1) = p_Parametres
+				v(2) = Chr(13) &amp; v_NomItemsVide
+				MessageBox xGDK_xMessage("SDSPP", 33 ,"", v), 16, xGDK_xMessage("SI", 1, "", "")
+				'Impossible d'ajouter le site &amp;0 car l’information suivante à propos du client est manquante. &amp;1
+				Exit Sub
+			End If
+			
+			p_ClientValide = True
+			
+		End If
+		
+		
+	End If	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPS_ndSitePrincipal"><lotusscript>Function SDSPS_ndSitePrincipal(pnd_Prop As NotesDocument) As NotesDocument
+	' -------------------------------------------------------------
+	' Le script permet de trouver le site principal**
+	' ** Le site principal est le site qui contient la maison jaune
+	'		du 2e écran (FPNav_0.01)
+	' -------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialise le site principal
+	Set SDSPS_ndSitePrincipal = xSDSP3_xndSite(xVar(pnd_Prop, "Prop_NoSitePrincipal",""), True)
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPS_SelectionnerClient"><lotusscript>Function SDSPS_SelectionnerClient(pnd_Prop As NotesDocument, p_OrigineSitePrincipal As String) As NotesDocument
+	'-------------------------------------------------------------------------------------
+	' Le script permet de sélectioner un client ou prospect Projeto
+	'-------------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim nd As NotesDocument
+	
+	Dim v_ClientNoFmt  As String
+	Dim v_ClientValide As Boolean
+	Dim v_NomDBPJ As String
+	Dim v_Origine As String
+	Dim v_Parametres(1) As String
+	
+	
+	' Initialisations
+	Set SDSPS_SelectionnerClient = Nothing
+	
+	SDSPS_Initialisations
+	
+	If p_OrigineSitePrincipal = "" Then
+		v_Origine = xVar(pnd_Prop, "Prop_Origine", "")	
+	Else 
+		v_Origine = p_OrigineSitePrincipal
+	End If
+	
+	' Si nouveau client ou site additionnel recherche prospects , sinon client
+	If xVar(pnd_Prop,"Prop_TypeProposition", "") = "0" Then		' 0: Nouveau client : Nouveau client SDS.
+		Set nd = SIPJ_ndSelectionnerProspect(v_Origine, xGDK_xMessage("SDSPP", 36, "", ""), True)	' V_Clie11
+		v_Parametres(0) = xVar(nd, "Clie_Nom" ,"")
+		v_Parametres(1) = "prospect"
+	ElseIf xVar(pnd_Prop,"Prop_TypeProposition", "") = "1" Then	' 1: Nouveau site SDS : Ajouter un site à un client existant.
+		'Set nd = SIPJ_ndSelectionnerClientSitePrincipal(v_Origine, xGDK_xMessage("SDSPP", 69, "", ""))	' V_Clie10
+		Set nd = SDSPPJ_ndSelectionnerClientSitePrincipal(Evaluate( |@Unique("| &amp; v_Origine &amp; |":| &amp; |"PJSDS":"PJUSA")| ), xGDK_xMessage("SDSPP", 69, "", ""))	' V_Clie10
+		v_Parametres(0) = xVar(nd, "Clie_Nom" ,"")
+		v_Parametres(1) = "client"		
+	Else														' 2: Client existant : Client SDS existant.
+		Set nd = SIPJ_ndSelectionnerClient(v_Origine, xGDK_xMessage("SDSPP", 36, "", ""), True)	' V_Clie10
+		v_Parametres(0) = xVar(nd, "Clie_Nom" ,"")
+		v_Parametres(1) = "client"
+	End If
+	
+	' Vérifier les coordonnées du client
+	If Left(v_Origine, 2) = "PJ" Then
+		Call SDSPS_ValiderClient_PJ(2, pnd_Prop, nd, "", v_ClientValide)
+		' 2: Vérifier que l'adresse du client Projeo est complète	
+	ElseIf v_Origine = "SICl" Then
+		Call SDSPS_ValiderClient_SICl(2, pnd_Prop, nd, "", v_ClientValide)
+		' 2: Vérifier que l'adresse du client SI Clients est complète	
+	End If	
+	
+	If v_ClientValide Then
+		Set SDSPS_SelectionnerClient = nd
+		
+		If xVar(nd, "Clie_Pays", "") = "US" Then
+			p_OrigineSitePrincipal = "PJUSA"
+		Else
+			p_OrigineSitePrincipal = "PJSDS"
+		End If
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPS_ExtraireInfoSalesforce"><lotusscript>Function SDSPS_ExtraireInfoSalesforce(p_NoOpportunite As String, p_NoAccountSF As String,  cl_Opportunity As SLSf_clObject, cl_Account As SLSf_clObject) As Integer
+	On Error GoTo GererErreur
+	
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI 
+	Dim v_ConnectID As String
+	Dim v_Resultat As Integer
+	Dim v_AccountId As String
+	Dim l As Variant
+	
+	SDSPS_ExtraireInfoSalesforce = 0
+	v_ConnectID = SDSPSf_NomProfilSalesforceAPI
+	
+	Set cl_ConnexionAPI = New SLSf_clConnexionAPI(v_ConnectID)
+	If cl_ConnexionAPI.Resultat = 1 Then
+		If p_NoAccountSF = "" Then
+			Set cl_Opportunity = New SLSf_clObject(cl_ConnexionAPI, "Opportunity", p_NoOpportunite)
+			If cl_Opportunity.Resultat = 1 Then
+				'Print "Opportunity name = " &amp; cl_Opportunity.Contenu("Name")
+				v_AccountId = cl_Opportunity.Contenu("AccountId")	
+			Else
+				SDSPS_ExtraireInfoSalesforce = cl_Account.Resultat
+				Exit Function			
+			End If			
+		Else
+			v_AccountId = p_NoAccountSF
+		End If
+		
+
+		Set cl_Account = New SLSf_clObject(cl_ConnexionAPI, "Account", v_AccountId)
+		If cl_Account.Resultat = 1 Then						
+			SDSPS_ExtraireInfoSalesforce = 1				
+		Else
+			SDSPS_ExtraireInfoSalesforce = cl_Opportunity.Resultat			
+		End If
+		
+	Else
+		SDSPS_ExtraireInfoSalesforce = cl_ConnexionAPI.Resultat
+	End If	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPS_ExtraireBannieres"><lotusscript>Sub SDSPS_ExtraireBannieres( p_clClient As SLSf_clObject, pnd_PNav As NotesDocument ) 
+	On Error GoTo GererErreur
+	
+	Dim i As Integer 
+	Dim v_listeBannieres As Variant
+	Dim a_descBannieres As Variant 
+	
+	Dim a_Cles() As String
+	Dim a_Desc() As String	
+
+	Call SDSPS_Initialisations
+		
+	
+	v_listeBannieres = p_clClient.ExtraireValeur("BrandListAsString__c", "")
+	
+	If v_listeBannieres &lt;&gt; "" Then
+		a_descBannieres = Evaluate(|@Explode("|&amp; v_listeBannieres &amp;|"; "; ")|)
+				
+		For i = 0 To UBound(a_descBannieres)	
+			ReDim Preserve a_Cles(i)
+			ReDim Preserve a_Desc(i)				
+			
+			a_Cles(i) = SDSPS_ExtraireCleBanniere( a_descBannieres(i) )
+			a_Desc(i) = a_descBannieres(i)
+			
+		Next
+		
+		pnd_PNav.Site_Banniere = a_Cles
+		pnd_PNav.Site_BanniereDesc = a_Desc
+		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPS, gc_Element_SDSPS, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+</lotusscript></code>
+<item name="$POID"><datetime>20260319T100325,16-05</datetime></item></scriptlibrary>
+
+</database>

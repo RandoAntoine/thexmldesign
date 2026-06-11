@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Outils\Lien Notes\Base de documents" alias="A_OLDB" hide="v3" publicaccess="false" designerversion="8.5.3" comment="2.3" restrictions="unrestricted" enabled="false">
+<noteinfo noteid="3a74de" unid="9C5057ACAE8A852985258921006B7A12" sequence="42">
+<created><datetime>20221223T143356,02-05</datetime></created>
+<modified><datetime>20250319T074052,49-05</datetime></modified>
+<revised><datetime>20250319T073741,90-05</datetime></revised>
+<lastaccessed><datetime>20250319T074052,48-05</datetime></lastaccessed>
+<addedtofile><datetime>20230112T233623,03-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073741,44-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="runonce"/><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_NotesDatabase"
+Use "SL_Clipboard"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim ns As New NotesSession
+	Dim ndb As NotesDatabase
+	Dim v_URL As String
+	
+	Set ndb = ns.Currentdatabase
+
+	v_URL = SINDB_NotesURL(ndb)
+	Call SLCl_AssignerTexteClipBoard(v_URL)
+	
+	Print "L'URL de la base de documents a été copié dans le clipboard."
+	Exit Sub
+	
+GererErreur:
+	Call nuiws.Prompt(PROMPT_OK, GetThreadInfo(1), "Erreur " &amp; CStr(Err()) &amp; " à la ligne " &amp; CStr(Erl()) &amp; ": " &amp; Error())
+	Exit Sub
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20221223T155531,99-05</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20250319T073741,90-05</datetime></item></agent>
+
+</database>

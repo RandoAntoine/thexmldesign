@@ -1,0 +1,1672 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_PNav0.01" hide="v3 v4strict" designerversion="8">
+<noteinfo noteid="55598a" unid="9E6339296A3A265A85258C0C006F328C" sequence="5">
+<created><datetime>20250108T151434,36-05</datetime></created>
+<modified><datetime>20260105T014838,48-05</datetime></modified>
+<revised><datetime>20250319T073729,79-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,47-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,47-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>' Sites
+Option Public
+Option Declare
+Use "wsc_SDSP3"
+Use "SDSP_MasquePNav"
+Use "SDSP_Navigation"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>
+Dim g_PosSite As Integer
+
+Const gc_MaxNbSites = 40
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_FPNav = "SL"
+Const gc_Element_FPNav = "F_PNav0.01"
+
+
+</lotusscript></code><code event="FPNav_hsNomSiteNonModifiable"><lotusscript>Function FPNav_hsNomSiteNonModifiable(p_PosSite As String)
+	' -------------------------------------------
+	' Le script permet de modifier le nom du site
+	' -------------------------------------------
+	On Error Goto GererErreur
+	
+	' Rendre le prix non modifiable
+	Call gnd_SDSPM.ReplaceItemValue("PNav_NomSiteModifie" &amp; p_PosSite, "0")
+	Call gnd_SDSPM.ReplaceItemValue("PNav_NomSite" &amp; p_PosSite, xVar(gnd_SDSPM, "PNav_NomSiteListe" &amp; p_PosSite, ""))
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPN.Refresh
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_hsNomSiteModifiable"><lotusscript>Function FPNav_hsNomSiteModifiable(p_PosSite As String)
+	' -------------------------------------------
+	' Le script permet de modifier le nom du site
+	' -------------------------------------------
+	On Error Goto GererErreur
+	
+	' Rendre le prix non modifiable
+	Call gnd_SDSPM.ReplaceItemValue( "PNav_NomSiteModifie" &amp; p_PosSite, "1")
+	Call gnd_SDSPM.ReplaceItemValue( "PNav_NomSiteListe" &amp; p_PosSite, xVar(gnd_SDSPM, "PNav_NomSite" &amp; p_PosSite, ""))
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPN.Refresh
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_DocumentValide"><lotusscript>Function FPNav_DocumentValide(p_AfficherErreur As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_NbSites As Integer
+	Dim i As Integer
+	
+	FPNav_DocumentValide = False
+		
+	If xVar(gnd_SDSPM, "Prop_DescProposition", "") = "" Then
+		If p_AfficherErreur Then
+			MessageBox xGDK_xMessage("SI", 23, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (1)"
+			Call gnuid_SDSPN.GotoField("Prop_DescProposition")
+		End If
+		Exit Function
+	End If
+			
+	v_NbSites = xVar(gnd_SDSPM, "Prop_NbSites", 0)
+	
+	' Valider qu'il y au plus qu'un site sur la proposition
+	If v_NbSites &lt; 1 Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SDSPP", 88, "", ""), 16, xGDK_xMessage("SI", 1, "", "") &amp; " (2)"
+			Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "1")
+		End If
+		Exit Function
+	End If
+	i = 2
+	
+	For i = 1 To v_NbSites
+		
+		Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "")
+		
+		If xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format(i, "000"), "") = "" Then
+			If p_AfficherErreur Then
+				Messagebox xGDK_xMessage("SDSPP", 18, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (3)"
+				Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "1")
+				Call gnuid_SDSPN.GotoField("PNav_NomSite" &amp; Format(i, "000"))
+			End If
+			Exit Function
+		End If
+		
+		' Nouveau client
+		If xVar(gnd_SDSPM, "Prop_TypeProposition", "") = "0" Then
+			
+			If xVar(gnd_SDSPM, "PNav_ClientSDSWIN" &amp; Format(i, "000"), "") = "" And xVar(gnd_SDSPM, "PNav_ClientMerlin" &amp; Format(i, "000"), "") = "" Then
+				If xVar(gnd_SDSPM, "PNav_SDS" &amp; Format(i, "000"), "") = "" And xVar(gnd_SDSPM, "PNav_SDSM" &amp; Format(i, "000"), "") = "" Then
+					If p_AfficherErreur Then
+						Messagebox xGDK_xMessage("SDSPP", 87, "", xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format(i, "000"), "")), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (4)"
+						Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "1")
+					End If
+					Exit Function
+				End If
+			End If
+			
+			If xVar(gnd_SDSPM, "PNav_ClientSDSWIN" &amp; Format(i, "000"), "") = "" And xVar(gnd_SDSPM, "PNav_ClientMerlin" &amp; Format(i, "000"), "") &lt;&gt; "" Then
+				If xVar(gnd_SDSPM, "PNav_SDS" &amp; Format(i, "000"), "") = "" Then
+					If p_AfficherErreur Then
+						Messagebox xGDK_xMessage("SDSPP", 89, "", xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format(i, "000"), "")), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (5)"
+						Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "1")
+					End If
+					Exit Function
+				End If
+			End If
+			
+			If xVar(gnd_SDSPM, "PNav_SDSM" &amp; Format(i, "000"), "") &lt;&gt; "" And xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format(i, "000"), "") = "" Then
+				If p_AfficherErreur Then
+					Messagebox xGDK_xMessage("SDSPP", 93, "", xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format(i, "000"), "")), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (6)"
+					Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "1")
+				End If
+				Exit Function
+			End If
+			
+		End If
+		
+		' Site additionel
+		If xVar(gnd_SDSPM, "Prop_TypeProposition", "") = "1" Then
+			
+			If xVar(gnd_SDSPM, "PNav_ClientSDSWIN" &amp; Format(i, "000"), "") = "" And xVar(gnd_SDSPM, "PNav_ClientMerlin" &amp; Format(i, "000"), "") = "" Then
+				If xVar(gnd_SDSPM, "PNav_SDS" &amp; Format(i, "000"), "") = "" And xVar(gnd_SDSPM, "PNav_SDSM" &amp; Format(i, "000"), "") = "" Then
+					If p_AfficherErreur Then
+						Messagebox xGDK_xMessage("SDSPP", 87, "", xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format(i, "000"), "")), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (7)"
+						Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "1")
+					End If
+					Exit Function
+				End If
+			End If
+			
+			If xVar(gnd_SDSPM, "PNav_SDSM" &amp; Format(i, "000"), "") &lt;&gt; "" And xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format(i, "000"), "") = "" Then
+				If p_AfficherErreur Then
+					Messagebox xGDK_xMessage("SDSPP", 93, "", xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format(i, "000"), "")), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (8)"
+					Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "1")
+				End If
+				Exit Function
+			End If
+			
+		End If
+		
+		If xVar(gnd_SDSPM, "Prop_TypeProposition", "") &lt; "2" And xVarElem(gnd_SDSPM, "PNav_NoSite", (i -1), "") &lt;&gt; xVar(gnd_SDSPM, "Prop_NoSitePrincipal", "") Then
+			
+			If xVar(gnd_SDSPM, "PNav_Distance" &amp; Format(i, "000"), "") = "" Then
+				If p_AfficherErreur Then
+					Messagebox xGDK_xMessage("SDSPP", 18, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (9)"
+					Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "1")
+					Call gnuid_SDSPN.GotoField("PNav_Distance" &amp; Format(i, "000"))
+				End If
+				Exit Function
+			End If
+			
+			If xVar(gnd_SDSPM, "PNav_Comm" &amp; Format(i, "000"), "") = "" Then
+				If p_AfficherErreur Then
+					Messagebox xGDK_xMessage("SDSPP", 18, "", ""), 16, xGDK_xMessage("SI", 0, "", "") &amp; " (10)"
+					Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format(i, "000"), "1")
+					Call gnuid_SDSPN.GotoField("PNav_Comm" &amp; Format(i, "000"))
+				End If
+				Exit Function
+			End If
+			
+		End If
+		
+	Next
+	
+	
+	FPNav_DocumentValide = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="FPNav_acImage"><lotusscript>Sub FPNav_acImage
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument("") Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImage(gnd_Prop_SDSPM)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsAnnuler"><lotusscript>Sub FPNav_hsAnnuler
+	On Error Goto GererErreur
+	
+	gnd_SDSPM.SaveOptions = "0"
+	Call gnuid_SDSPN.Close
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_QuerySave"><lotusscript>Sub FPNav_QuerySave(pnuid_Source As Notesuidocument, p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	p_Continue = FPNav_SauvegarderDocument("")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acGenererCommande"><lotusscript>Sub FPNav_acGenererCommande
+	On Error GoTo GererErreur
+	
+	Call SDSPUI_acGenererCommande(gnd_Prop_SDSPM)
+	
+	Call gnuid_SDSPM.Refreshhideformulas
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsSuivant"><lotusscript>Sub FPNav_hsSuivant
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(True) Then
+		' Ouvrir le masque suivant
+		Call SDSPN_OuvrirMasqueSuivant
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acImprimerPropositionSommaire"><lotusscript>Sub FPNav_acImprimerPropositionSommaire
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument(True) Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImprimerPropositionSommaire
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsSelectionnerClientSiegeSocial"><lotusscript>Sub FPNav_hsSelectionnerClientSiegeSocial
+	On Error GoTo GererErreur
+	
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim cl_Account As SLSf_clObject
+	Dim nd_Clie As NotesDocument
+	Dim v_OrigineSiegeSocial As String
+	Dim v_Origine As String
+	Dim v_NoSiteSF As String
+	Dim v_NomProfilAPI As String
+	Dim v_ClientNoFmtSiegeSocial As String
+
+	v_Origine = xVar(gnd_SDSPM, "Prop_Origine", "")	
+	
+	If v_Origine = "SF" Then
+		v_NoSiteSF = SDSPM_SelectionnerValeurKLSF(	xGDK_xMessage("SDSPP", 70, "", "") ) 
+		v_NomProfilAPI = SDSPSf_NomProfilSalesforceAPI
+		Set cl_ConnexionAPI = New SLSf_clConnexionAPI(v_NomProfilAPI)
+		If cl_ConnexionAPI.Resultat = 1 Then
+			
+			
+			Set cl_Account = New SLSf_clObject(cl_ConnexionAPI, "Account", v_NoSiteSF)
+			If cl_Account.Resultat = 1 Then				
+				
+				v_ClientNoFmtSiegeSocial = cl_Account.ExtraireValeur("SERTI_ID__c", "" )
+				If v_ClientNoFmtSiegeSocial = "" Then
+					v_ClientNoFmtSiegeSocial = v_NoSiteSF
+				End If
+				
+				Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_OrigineSiegeSocial", v_Origine)
+				Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_ClientNoFmtSiegeSocial", v_ClientNoFmtSiegeSocial)
+				Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_ClientNoFmtSiegeSocialSF", v_NoSiteSF)
+				Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_ClientNom1SiegeSocial", cl_Account.ExtraireValeur("Name", ""))
+				Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_ClientNomIntSiegeSocial", cl_Account.ExtraireValeur("Legal_Name__c", "") )	
+				
+				
+				Call gnuid_SDSPM.RefreshHideFormulas		
+			End If			
+		End If	
+	Else
+		
+		Set nd_Clie = SDSPS_SelectionnerClient(gnd_SDSPM, v_OrigineSiegeSocial)
+		
+		If Not nd_Clie Is Nothing Then
+			
+			Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_OrigineSiegeSocial", v_OrigineSiegeSocial)
+			Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_ClientNoFmtSiegeSocial", xVar(nd_Clie, "Clie_NoClientFmt", ""))
+			Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_ClientNom1SiegeSocial", xVar(nd_Clie, "Clie_ClientNom1", ""))
+			Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_ClientNom2SiegeSocial", xVar(nd_Clie, "Clie_ClientNom2", ""))
+			Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_ClientNomIntSiegeSocial", xVar(nd_Clie, "Clie_ClientNomInterne", ""))	
+			
+			Call gnuid_SDSPM.RefreshHideFormulas	
+		End If
+	End If
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsAjouterSite"><lotusscript>Sub FPNav_hsAjouterSite
+	On Error Goto GererErreur
+	
+	Dim nv_Sites As NotesView
+	Dim nd_Site As NotesDocument
+	Dim nd_Clie As NotesDocument
+	
+	Dim v_NbSites As Integer
+	Dim v_PosSite As Integer
+	Dim a_NoSite As Variant
+	Dim v_Origine As String
+	Dim v_NoSiteSF As String
+	Dim v_cleSite As String	
+	
+	If FPNav_SauvegarderDocument(False) Then
+		
+		v_Origine = xVar(gnd_SDSPM, "Prop_Origine", "")		
+		
+		' Demander le client
+		If v_Origine = "SF" Then
+			'v_NoSiteSF = SDSPM_SelectionnerClient_SF(gnd_Prop_SDSPM, xGDK_xMessage("SDSPP", 70, "", ""))
+			v_NoSiteSF = SDSPM_SelectionnerValeurKLSF(xGDK_xMessage("SDSPP", 70, "", "")) 
+			v_cleSite = v_NoSiteSF
+		Else
+			Set nd_Clie = SDSPM_SelectionnerClient(gnd_Prop_SDSPM, xGDK_xMessage("SDSPP", 70, "", ""))
+			' 70: Veuillez choisir le site à ajouter.
+			
+			If v_Origine = "SICl" Then
+				v_cleSite = xVar(nd_Clie, "Cle", "")
+			Else	' Si la proposition est créée à partir de Projeto SDS
+				v_cleSite = xVar(nd_Clie, "CleClient", "")
+			End If
+		End If
+		
+		If v_cleSite &lt;&gt; "" Then
+			
+			' Vérifier si le site est déja sur la proposition
+			v_NbSites = xVar(gnd_SDSPM, "Prop_NbSites", 0)
+			
+			If v_NbSites &gt;= 1 Then				
+				a_NoSite = xVarArray(gnd_SDSPM, "PNav_NoSite")
+				
+				For v_PosSite = Lbound(a_NoSite) To Ubound(a_NoSite)
+					
+					' Extraire le site
+					Set nd_Site = xSDSP3_xndSite(a_NoSite(v_PosSite), True)					
+					If Not nd_Site Is Nothing Then
+						If xVar(nd_Site, "Site_OrigineCle", "") = v_cleSite Then
+							Messagebox xGDK_xMessage("SDSPP", 52, "", xVar(nd_Site, "Site_ClientNomInterne", "")), 16, xGDK_xMessage("SI", 1, "", "")
+							' 52: Le site &amp; est déjà sur la proposition.
+							Exit Sub
+						End If
+					End If
+				Next
+				
+			End If			
+			
+			' Créer le nouveau site
+			v_NbSites = xVar(gnd_SDSPM, "Prop_NbSites", 0) + 1					
+			
+			Set nv_Sites = gndb_SDSPM.GetView("V_Site21")
+			Call nv_Sites.Refresh					
+			
+			Set nd_Site = SDSPS_CreerSite(gnd_Prop_SDSPM, nd_Clie, v_cleSite)
+			
+			' Note :si c'est un client SDS existant ou Conversion à logiciel-service, ne pas forcer l'utilisateur à passer à travers tous les écrans
+			If Left(xVar(gnd_Prop_SDSPM, "PNav_MenuOptionMax", ""),1) &gt;= "6" And xVar(gnd_SDSPM, "Prop_TypeProposition", "") &lt; "2" Then
+				gnd_SDSPM.PNav_MenuOptionMax = "2." &amp; Format(v_NbSites -1,"00") &amp; ".00"
+			End If
+			
+			Call SDSPN_MajSitesNav(gnd_SDSPM)
+			
+			' Mettre à jour le document courant
+			Call FPNav_DocumentExistant(gnd_SDSPM)
+			Call gnuid_SDSPN.Refresh
+			Call SDSPN_ConstruireMenu(gnd_SDSPM)
+			Call gnuid_SDSPN.Refresh
+			
+			If v_NbSites = 1 Then
+				gnd_SDSPM.Prop_NoSitePrincipal = xVar(nd_Site, "Site_NoSite", "")
+				Call gnuid_SDSPM.RefreshHideFormulas
+			End If
+			
+		End If
+		
+	End If 
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acDupliquerProposition"><lotusscript>Sub FPNav_acDupliquerProposition
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim nd_Duplicata As NotesDocument
+	Dim nd_DB As NotesDocument
+	
+	Dim v_UserName As String
+	Dim v_Description As Variant
+	Dim v_ID As String
+	Dim v_DB_ID As String
+	Dim v_EditMode As String
+	Dim v_Commentaire As String
+	Dim v_DBRecalcTous As Boolean
+	Dim v_RecalcListe As Boolean
+	
+	On Error 4411 GoTo FinSub
+	Call gnuid_SDSPM.Save
+	
+	' Demander la nouvelle description à l'utilisateur
+	v_Description = gnuiws_SDSPM.Prompt(PROMPT_OKCANCELEDIT, _
+	xGDK_xMessage("SDSPP", 46, "", ""), xGDK_xMessage("SDSPP", 47, "", ""), CStr(Today()))
+	If v_Description = "" Then
+		Exit Sub
+	Else
+		If v_Description = xVar(gnd_SDSPM,"Prop_DescProposition","") Then
+			MessageBox xGDK_xMessage("SDSPP", 48, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+	End If
+	
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	nd_DB.Form = "DB_SIHi"	
+	nd_DB.SIHi_Obligatoire = True	' Image "&gt;" pour Commentaire obligatoire
+	
+	If Not gnuiws_SDSPN.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+	xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+		Exit Sub
+	End If
+	
+	v_Commentaire = xVar(nd_DB, "SIHi_Commentaire", "")
+	v_UserName = gns_SDSPM.UserName
+	v_EditMode = xVar(gnd_SDSPM, "PNav_EditMode", "")
+	
+	Call SDSPDp_DupliquerProposition(gnd_Prop_SDSPM,CStr(v_Description), nd_Duplicata, nd_DB, v_UserName)
+	
+	If Not nd_Duplicata Is Nothing Then
+		Call SDSPM_acRecalculerCouts(nd_Duplicata, False, False)
+		
+		' Fermer la proposition
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPM.Close
+		Call gnuiws_SDSPM.ViewRefresh
+	Else
+		Call gnuid_SDSPM.Refresh
+	End If
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+	
+
+</lotusscript></code><code event="FPNav_acImprimerProposition"><lotusscript>Sub FPNav_acImprimerProposition
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument(True) Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImprimerProposition
+	
+	Exit Sub
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_SauvegarderDocument"><lotusscript>Function FPNav_SauvegarderDocument(p_ValiderDocument As Variant) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nv_CliePJ As NotesView
+	Dim nd_CliePJ As NotesDocument
+	Dim nd_ContactPJ As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim nd_SiteOptionMax As NotesDocument
+	Dim nd_SitePrinc As NotesDocument
+	Dim nd_SitePrincOrig As NotesDocument
+	
+	Dim v_Origine As String
+	Dim v_OriginePJ As String
+	Dim v_ProduitAutoSupprimer As Boolean
+	Dim v_NoOptionCourante As String
+	Dim v_NoOptionMax As String
+	Dim v_DocumentValide As Boolean
+	Dim v_OptionMax As String
+	Dim v_Pos As Integer
+	Dim a_NoSite As Variant
+	Dim v_SiteClientNoFmt As String
+	Dim i As Integer
+	Dim v_AjouterSDS As String
+	Dim v_AjouterSDSM As String
+	Dim v_NbSites As Integer
+	Dim v_MajSitesNav As Boolean
+	Dim v_PosSite As Integer
+	Dim v_PosDernSiteOuvert As Integer
+	Dim v_MajSite As Boolean
+	Dim v_MajSiteNomInterne As Boolean
+	Dim v_MajSiteNomAbrege As Boolean
+	Dim v_MajMenuVentes As Boolean
+	Dim v_MajVersionMerlin As Boolean
+	Dim v_MajServeurMerlin As Boolean
+	Dim v_MajProp As Boolean
+	Dim v_UserNAme As String
+	Dim v_SitePricipalChange As Boolean
+	Dim v_PosSiteNouvSitePricipal As Variant
+	Dim v_PosSiteSitePricipalOrig As Variant
+	Dim v_PosSitePrincipal As Variant
+	Dim v_MajSitePrincipal As Boolean
+	
+	If xVar(gnd_SDSPM, "PNav_EditMode", False) Then
+		FPNav_SauvegarderDocument = False
+	Else
+		FPNav_SauvegarderDocument = True
+		Exit Function
+	End If
+	
+	v_ProduitAutoSupprimer = False
+	v_SitePricipalChange = False
+	v_MajSitePrincipal = False
+	
+	' Calculer les champs automatiques
+	On Error 4412 GoTo FinSub
+	Call gnuid_SDSPN.Refresh
+	On Error 4412 GoTo GererErreur
+	
+	' Valider le document courant
+	v_NoOptionCourante = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "0.00")
+	v_NoOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00")
+	If p_ValiderDocument = "" Then
+		v_DocumentValide = FPNav_DocumentValide(CInt(v_NoOptionCourante &lt; v_NoOptionMax))
+	Else
+		v_DocumentValide = FPNav_DocumentValide(CInt(p_ValiderDocument))
+	End If
+	
+	If v_DocumentValide = False Then
+		If p_ValiderDocument = True Then
+			'Call gnuid_SDSPN.RefreshHideFormulas
+			Call gnuid_SDSPN.Refresh
+			Exit Function
+		End If
+		
+		If g_PosSite &gt; 0 Then
+			v_OptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00")
+			If Left(v_OptionMax, 1) &lt; "2" Then
+				v_Pos = g_PosSite
+			Else
+				v_Pos = CInt(StrLeft(StrRight(v_OptionMax, "."), "."))
+			End If
+			If g_PosSite = v_Pos Then
+				gnd_SDSPM.PNav_MenuOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "")
+			End If
+		Else
+			gnd_SDSPM.PNav_MenuOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "")
+		End If
+	End If
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp("") Then
+		Exit Function
+	End If
+	
+	a_NoSite = xVarArray(gnd_SDSPM, "PNav_NoSite")
+	
+	'a_AjouterSDS = Evaluate(|@Trim(PNav_SDS1 : PNav_SDS2 : PNav_SDS3 : PNav_SDS4 : PNav_SDS5 : PNav_SDS6 : PNav_SDS7)|, gnd_SDSPM)
+	For i = 1 To gc_MaxNbSites
+		If xVar(gnd_SDSPM, "PNav_SDS" &amp; Format(i, "000") , "") &lt;&gt; "" Then
+			v_AjouterSDS = "1"
+			Exit For
+		End If
+	Next
+	
+	'a_AjouterSDSM = Evaluate(|@Trim(PNav_SDSM1 : PNav_SDSM2 : PNav_SDSM3 : PNav_SDSM4 : PNav_SDSM5 : PNav_SDSM6 : PNav_SDSM7)|, gnd_SDSPM)
+	For i = 1 To gc_MaxNbSites
+		If xVar(gnd_SDSPM, "PNav_SDSM" &amp; Format(i, "000") , "") &lt;&gt; "" Then
+			v_AjouterSDSM = "1"
+			Exit For
+		End If
+	Next
+	
+	' Mettre à jour les sites
+	' =======================
+	v_UserName = gns_SDSPM.UserName
+	v_NbSites = xVar(gnd_SDSPM, "Prop_NbSites", 0)
+	a_NoSite = xVarArray(gnd_SDSPM, "PNav_NoSite")
+	v_MajSitesNav = False
+	v_MajServeurMerlin = False
+	
+	Set nd_SitePrincOrig = SDSPS_ndSitePrincipal(gnd_Prop_SDSPM)
+	Set nd_SitePrinc = SDSPS_ndSitePrincipal(gnd_SDSPM)
+	
+	If xVar(nd_SitePrincOrig, "Site_NoSite", "") &lt;&gt; xVar(nd_SitePrinc, "Site_NoSite", "") Then
+		v_SitePricipalChange = True	
+		v_MajSitePrincipal = True				
+		v_PosSiteNouvSitePricipal = ArrayGetIndex(a_NoSite, xVar(nd_SitePrinc, "Site_NoSite", ""))	
+		v_PosSiteSitePricipalOrig = ArrayGetIndex(a_NoSite, xVar(nd_SitePrincOrig, "Site_NoSite", ""))	
+	End If
+	
+	If xVar(nd_SitePrincOrig, "Site_AjouterSDSM", "") = "1" Then
+		v_PosSiteSitePricipalOrig = ArrayGetIndex(a_NoSite, xVar(nd_SitePrincOrig, "Site_NoSite", ""))	
+		If xVar(gnd_SDSPM, "PNav_SDSM" &amp; Format((v_PosSiteSitePricipalOrig + 1),"000"), "") = "" Then	
+			v_MajServeurMerlin = True
+		End If
+	End If
+	
+	If v_NbSites &gt; 0 Then
+		
+		For v_PosSite = LBound(a_NoSite) To UBound(a_NoSite)
+			v_MajSite = False
+			
+			' Traitement du site no xxx...
+			Print xGDK_xMessage("SDSPP", 100, "", CStr(v_PosSite + 1))
+			
+			' Extraire le site
+			Set nd_Site = xSDSP3_xndSite(a_NoSite(v_PosSite), True)
+			
+			If nd_Site Is Nothing Then
+				MessageBox xGDK_xMessage("SDSPP", 12, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+				Exit Function
+			Else
+				If xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format((v_PosSite + 1),"000"), "") = "" Then
+					Call gnd_SDSPM.ReplaceItemValue("PNav_Erreur" &amp; Format((v_PosSite + 1),"000"), "001")
+					Call gnuid_SDSPN.RefreshHideFormulas
+					Exit Function
+				End If
+			End If
+			
+			' ré-initialise menu option max si on coche SDS ou SDSM pour le dernier site ouvert.
+			If Left(xVar(gnd_SDSPM, "PNav_MenuOptionMax", ""),1) = "2" Then
+				
+				v_PosDernSiteOuvert = xVar(gnd_SDSPM, "PNav_DernierSiteOuvert", "")
+				
+				Set nd_SiteOptionMax = xSDSP3_xndSite(a_NoSite(v_PosDernSiteOuvert - 1), True)
+				
+				If xVar(nd_SiteOptionMax, "Site_AjouterSDS", "") = "" And xVar(gnd_SDSPM, "PNav_SDS" &amp; Format((v_PosDernSiteOuvert),"000"), "") &lt;&gt; "" Then
+					gnd_SDSPM.PNav_MenuOptionMax = "2." &amp; Format(v_PosDernSiteOuvert -1,"00") &amp; ".00"
+				ElseIf xVar(nd_SiteOptionMax, "Site_AjouterSDSM", "") = "" And xVar(gnd_SDSPM, "PNav_SDSM" &amp; Format((v_PosDernSiteOuvert),"000"), "") &lt;&gt; "" Then
+					gnd_SDSPM.PNav_MenuOptionMax = "2." &amp; Format(v_PosDernSiteOuvert -1,"00") &amp; ".00"
+				End If
+				
+			End If
+			
+			v_MajMenuVentes = False
+			
+			REM If Trim(xVar(nd_Site, "Site_ClientNomInterne", "")) &lt;&gt; xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format((v_PosSite + 1),"000"), "") Then
+			REM 	v_MajSiteNomInterne = SDSPM_MajItemValeur(nd_Site, "Site_ClientNomInterne", xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format((v_PosSite + 1),"000"), "")) Or v_MajSiteNomInterne
+			REM End If
+			
+			
+			If Trim(xVar(nd_Site, "Site_NomSiteAbrege", "")) &lt;&gt; xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format((v_PosSite + 1),"000"), "") Then
+				v_MajSiteNomAbrege = SDSPM_MajItemValeur(nd_Site, "Site_NomSiteAbrege", xVar(gnd_SDSPM, "PNav_NomSite" &amp; Format((v_PosSite + 1),"000"), "")) Or v_MajSiteNomAbrege
+			End If
+			
+			
+			v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_ClientVille", xVar(gnd_SDSPM, "PNav_VilleSite" &amp; Format((v_PosSite + 1),"000"), "")) Or v_MajSite
+			
+			v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_NomSiteAbregeModifie", xVar(gnd_SDSPM, "PNav_NomSiteModifie" &amp; Format((v_PosSite + 1),"000"), "")) Or v_MajSite
+			v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_NomSiteAbregeListe", xVar(gnd_SDSPM, "PNav_NomSiteListe" &amp; Format((v_PosSite + 1),"000"), "")) Or v_MajSite
+			
+			' Flag pour 2ème passe dans la boucle des sites
+			If xVar(nd_Site, "Site_AjouterSDS","") &lt;&gt; "" And xVar(gnd_SDSPM, "PNav_SDS" &amp; Format((v_PosSite + 1),"000"), "") = "" Then
+				If Not v_ProduitAutoSupprimer Then
+					v_ProduitAutoSupprimer = True
+				End If
+			End If
+			
+			v_MajVersionMerlin = SDSPM_MajItemValeur(nd_Site, "Site_VersionMerlin", xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format((v_PosSite + 1),"000"), ""))
+			
+			'v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_VersionMerlin", xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format((v_PosSite + 1),"000"), "")) Or v_MajSite
+			
+			v_MajSite = v_MajVersionMerlin Or v_MajSite
+			
+			If xVar(gnd_SDSPM, "Prop_NoSitePrincipal", "") = a_NoSite(v_PosSite) Then
+				Call gnd_SDSPM.ReplaceItemValue("PNav_Distance" &amp; Format((v_PosSite + 1),"000"), "")
+				Call gnd_SDSPM.ReplaceItemValue("PNav_Comm" &amp; Format((v_PosSite + 1),"000"), "")
+			End If
+			
+			v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_Distance", xVar(gnd_SDSPM, "PNav_Distance" &amp; Format((v_PosSite + 1),"000"), "")) Or v_MajSite
+			v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_Comm", xVar(gnd_SDSPM, "PNav_Comm" &amp; Format((v_PosSite + 1),"000"), "")) Or v_MajSite
+			
+			'v_MajSitesNav = v_MajSite Or v_MajSitesNav
+			
+			' Ajouter produits par site et par proposition
+			If xVar(gnd_SDSPM, "PNav_SDS" &amp; Format((v_PosSite + 1),"000"), "") = Format((v_PosSite + 1),"000") Then
+				Call SDSPM_MajProduitsProgramme("", "Site_AjouterSDS", "", 0, "", "", a_NoSite(v_PosSite))
+			Else
+				Call SDSPM_SupprimerProduitsProgramme("Site_AjouterSDS", a_NoSite(v_PosSite), GetThreadInfo(1))
+			End If
+			
+			
+			If xVar(gnd_SDSPM, "PNav_SDSM" &amp; Format((v_PosSite + 1),"000"), "") = Format((v_PosSite + 1),"000") Then
+				
+				If xVar(nd_Site, "Site_AjouterSDSM", "") = "" Then
+					
+					If SDSPM_ProduitsBanniereDispo(xVar(nd_Site, "Site_Banniere", ""), "Site_D1_Chrome") Then
+						v_MajMenuVentes = True
+					Else
+						v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_D1_Chrome", "") Or v_MajSite
+						v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_D1_AucunChrome", "1") Or v_MajSite
+						v_MajMenuVentes = False
+					End If
+					
+					
+					Select Case xVar(nd_Site, "Site_VersionMerlin", "")
+						
+					Case ""
+						' Si pas de logiciel SDS Merlin sélectionné, obliger l'utilisateur à aller à la page "Ventes"
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_R", a_NoSite(v_PosSite), GetThreadInfo(1))
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_A", a_NoSite(v_PosSite), GetThreadInfo(1))
+						'	v_MajMenuVentes = True
+						
+					Case "R"
+						Call SDSPM_MajProduitsProgramme("", "Site_D1_Ventes_R", "", 0, "", "", a_NoSite(v_PosSite))
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_A", a_NoSite(v_PosSite), GetThreadInfo(1))
+						
+					Case "A"
+						Call SDSPM_MajProduitsProgramme("", "Site_D1_Ventes_A", "", 0, "", "", a_NoSite(v_PosSite))
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_R", a_NoSite(v_PosSite), GetThreadInfo(1))
+						
+				End Select
+					
+					'ElseIf v_MajVersionMerlin Then
+				ElseIf xVar(nd_Site, "Site_AjouterSDSM", "") &lt;&gt; "" Then
+					
+					If xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format((v_PosSite + 1),"000"), "") = "R" Then						
+						Call SDSPM_MajProduitsProgramme("", "Site_D1_Ventes_R", "", 0, "", "", a_NoSite(v_PosSite))
+						Call SDSPM_MajProduitsProgramme_CleParent("Site_D1_Ventes_A","Site_D1_Ventes_R", a_NoSite(v_PosSite))
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_A", a_NoSite(v_PosSite), GetThreadInfo(1))
+					ElseIf  xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format((v_PosSite + 1),"000"), "") = "A" Then
+						Call SDSPM_MajProduitsProgramme("", "Site_D1_Ventes_A", "", 0, "", "", a_NoSite(v_PosSite))
+						Call SDSPM_MajProduitsProgramme_CleParent("Site_D1_Ventes_R","Site_D1_Ventes_A", a_NoSite(v_PosSite))
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_R", a_NoSite(v_PosSite), GetThreadInfo(1))
+					Else
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_R", a_NoSite(v_PosSite), GetThreadInfo(1))
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_A", a_NoSite(v_PosSite), GetThreadInfo(1))
+					End If
+					
+					
+				End If
+				
+			Else ' N'utilise plus SDS Merlin
+				
+				v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_D1_Ventes", "") Or v_MajSite
+				v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_D1_Chrome", "") Or v_MajSite
+				v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_D1_AucunChrome", "") Or v_MajSite
+				
+				Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_R", a_NoSite(v_PosSite), GetThreadInfo(1))
+				Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_A", a_NoSite(v_PosSite), GetThreadInfo(1))
+				Call SDSPM_SupprimerProduitsProgramme("Site_D1_Chrome", a_NoSite(v_PosSite), GetThreadInfo(1))
+				
+				
+			End If
+			
+			If v_MajMenuVentes Then
+				
+				If xVar(gnd_SDSPM, "PNav_MenuOptionMax", "") &gt;= "2." &amp; Format(v_PosSite, "00") &amp; ".02" Then
+					If xVar(gnd_SDSPM, "PNav_DernierSiteOuvert", 0) = (CInt(v_PosSite) +1) Then
+						gnd_SDSPM.PNav_MenuOptionMax = "2." &amp; Format(v_PosSite, "00") &amp; ".02"
+						v_MajSitesNav = True
+					End If
+				End If
+			End If
+			
+			If xVar(gnd_SDSPM, "PNav_SDS" &amp; Format((v_PosSite + 1),"000"), "") &lt;&gt; "" Then
+				v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_AjouterSDS", "1") Or v_MajSite
+			Else
+				v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_AjouterSDS", "") Or v_MajSite
+			End If
+			
+			If xVar(gnd_SDSPM, "PNav_SDSM" &amp; Format((v_PosSite + 1),"000"), "") &lt;&gt; "" Then
+				v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_AjouterSDSM", "1") Or v_MajSite
+			Else
+				v_MajSite = SDSPM_MajItemValeur(nd_Site, "Site_AjouterSDSM", "") Or v_MajSite
+			End If
+			
+			' Sauvegarde du site courant
+			If v_MajSite Or v_MajSiteNomInterne Or v_MajSiteNomAbrege Then
+				nd_Site.HistoDM = Now
+				nd_Site.HistoUM = v_UserName
+				Call nd_Site.Save(True, False)
+				v_MajSitesNav = True
+				
+				Call SDSPX_RecalculerNbUtilisateursLicense(gnd_Prop_SDSPM, nd_Site)
+				
+			End If
+			
+			v_MajSitesNav = v_MajSite Or v_MajSitesNav
+			
+		Next
+		
+		
+		If v_ProduitAutoSupprimer Or v_MajServeurMerlin Or v_MajSitePrincipal Then
+			' Print execution 2eme passe
+			For v_PosSite = LBound(a_NoSite) To UBound(a_NoSite)
+				
+				If v_ProduitAutoSupprimer Then
+					If xVar(gnd_SDSPM, "PNav_SDS" &amp; Format((v_PosSite + 1),"000"), "") = Format((v_PosSite + 1),"000") Then
+						Call SDSPM_MajProduitsProgramme("", "Site_AjouterSDS", "", 0, "", "", a_NoSite(v_PosSite))
+					End If
+				End If
+				
+				If v_MajServeurMerlin Or v_MajSitePrincipal Then
+					If xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format((v_PosSite + 1),"000"), "") = "R" Then						
+						Call SDSPM_MajProduitsProgramme("", "Site_D1_Ventes_R", "", 0, "", "", a_NoSite(v_PosSite))
+						Call SDSPM_MajProduitsProgramme_CleParent("Site_D1_Ventes_A","Site_D1_Ventes_R", a_NoSite(v_PosSite))
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_A", a_NoSite(v_PosSite), GetThreadInfo(1))
+					ElseIf  xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format((v_PosSite + 1),"000"), "") = "A" Then
+						Call SDSPM_MajProduitsProgramme("", "Site_D1_Ventes_A", "", 0, "", "", a_NoSite(v_PosSite))
+						Call SDSPM_MajProduitsProgramme_CleParent("Site_D1_Ventes_R","Site_D1_Ventes_A", a_NoSite(v_PosSite))
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_R", a_NoSite(v_PosSite), GetThreadInfo(1))
+					Else
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_R", a_NoSite(v_PosSite), GetThreadInfo(1))
+						Call SDSPM_SupprimerProduitsProgramme("Site_D1_Ventes_A", a_NoSite(v_PosSite), GetThreadInfo(1))
+					End If
+				End If
+				
+			Next
+			v_ProduitAutoSupprimer = False
+		End If
+		
+		%REM
+		If v_MajSitePrincipal Then				
+			If xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format((v_PosSiteNouvSitePricipal+1),"000"), "") = "R" Then		
+				Call SDSPM_MajProduitsProgramme("", "Site_D1_Ventes_R", "", 0, "", "", a_NoSite(v_PosSiteNouvSitePricipal))
+			ElseIf xVar(gnd_SDSPM, "PNav_VersionMerlin" &amp; Format((v_PosSiteNouvSitePricipal+1),"000"), "") = "A" Then	
+				Call SDSPM_MajProduitsProgramme("", "Site_D1_Ventes_A", "", 0, "", "", a_NoSite(v_PosSiteNouvSitePricipal))
+			End If	
+		End If
+		%END REM
+		
+	End If
+	
+	' Maj du Contact et le client si le site principal a changé
+	'If xVar(gnd_Prop_SDSPM, "Prop_NoSitePrincipal", "") &lt;&gt; xVar(gnd_SDSPM, "Prop_NoSitePrincipal", "") Then
+	If v_SitePricipalChange Then
+		' 131- ..."Voulez-vous initialiser le client avec les informations du nouveau site principal?".
+		If nuiws.Prompt(PROMPT_YESNO, xGDK_xMessage("SI", 10, "", ""), xGDK_xMessage("SDSPP", 131, "", "")) Then
+			v_Origine = xVar(gnd_SDSPM, "Prop_Origine", "")
+			If v_Origine = "SICl" Then
+				'********************************* RQ60545
+				Select Case xSICl_xVarClie(xVar(gnd_SDSPM, "Prop_ClientNoFmt", ""), "Clie_ClientCategorie", "", True)
+				Case "60"
+					v_Origine = "PJSDS"
+				Case "62"
+					v_Origine = "PJUSA"
+				Case Else
+					v_Origine = "PJDIV"
+			End Select
+			End If
+			
+			v_SiteClientNoFmt = xvar(nd_SitePrinc, "Site_ClientNoFmt", "")
+			If v_SiteClientNoFmt = "" Then
+				Call xPJ_Initialisations(v_Origine)
+				Set nv_CliePJ = gndb_xPJ.GetView("V_Clie11")
+				Set nd_CliePJ = nv_CliePJ.GetDocumentByKey(xVar(nd_SitePrinc, "Site_ClientNomInterne", ""), True)
+			Else
+				Set nd_CliePJ = xPJ_xndClieSI(v_Origine, v_SiteClientNoFmt, False)
+			End If
+			
+			If nd_CliePJ Is Nothing Then
+				' MSG 132- AUCUN contact trouvé                                77- MAJ Annulée
+				MessageBox xGDK_xMessage("SDSPP", 132, "", ""), 16, xGDK_xMessage("SI", 77, "", "")
+			Else
+				Set nd_ContactPJ = SIPJ_ndSelectionnerContact(v_Origine, xVar(nd_CliePJ, "Clie_NoClient",""))
+				If Not(nd_ContactPJ Is Nothing) Then
+					' Changer le contact de la proposition par le Site Principal
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_NoContact", xVar(nd_ContactPJ, "Cont_NoContact", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ContactNom", xVar(nd_ContactPJ, "Cont_Contact", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ContactTitre", xVar(nd_ContactPJ, "Cont_Titre", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ContactFonction", xVar(nd_ContactPJ, "Cont_Fonction", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ContactFonctionFR", xVar(nd_ContactPJ, "Cont_FonctionFR", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ContactFonctionEN", xVar(nd_ContactPJ, "Cont_FonctionEN", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPm_MajItemValeur(gnd_Prop_SDSPM, "Prop_ContactTelephone", xVar(nd_ContactPJ, "Cont_TelephoneFmt", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ContactCellulaire", xVar(nd_ContactPJ, "Cont_Cellulaire", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ContactCourriel", xVar(nd_ContactPJ, "Cont_Courriel", "")) Or FPNav_SauvegarderDocument
+					
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Cont_NoContact", xVar(nd_ContactPJ, "Cont_NoContact", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Cont_Nom", xVar(nd_ContactPJ, "Cont_Contact", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Cont_Titre", xVar(nd_ContactPJ, "Cont_Titre", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Cont_Fonction", xVar(nd_ContactPJ, "Cont_Fonction", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Cont_FonctionFR", xVar(nd_ContactPJ, "Cont_FonctionFR", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Cont_FonctionEN", xVar(nd_ContactPJ, "Cont_FonctionEN", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Cont_Telephone", xVar(nd_ContactPJ, "Cont_TelephoneFmt", xVar(nd_CliePJ, "Clie_Telephone", ""))) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Cont_Cellulaire", xVar(nd_ContactPJ, "Cont_Cellulaire", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Cont_Courriel", xVar(nd_ContactPJ, "Cont_Courriel", "")) Or FPNav_SauvegarderDocument
+					
+					' Changer le client de la proposition par le Site Principal
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientNoFmt", xVar(nd_CliePJ, "Clie_NoClientFmt", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientNom", xVar(nd_CliePJ, "Clie_Nom", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientNomLegal", xVar(nd_CliePJ, "Clie_NomLegal", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientNomInterne", xVar(nd_CliePJ, "Clie_ClientNomInterne", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_Langue", xVar(nd_CliePJ, "Clie_Langue", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientAdresse1", xVar(nd_CliePJ, "Clie_Adresse1", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientAdresse2", xVar(nd_CliePJ, "Clie_Adresse2", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientVille", xVar(nd_CliePJ, "Clie_Ville", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientProvince", xVar(nd_CliePJ, "Clie_Province", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientPays", xVar(nd_CliePJ, "Clie_Pays", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientCodePostal", xVar(nd_CliePJ, "Clie_CodePostal", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientTelephone", xVar(nd_CliePJ, "Clie_Telephone", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientTelephone2", xVar(nd_CliePJ, "Clie_Telephone2", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientTelecopieur", xVar(nd_CliePJ, "Clie_Telecopieur", "")) Or FPNav_SauvegarderDocument
+					
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_NomGroupeClient", xVar(nd_CliePJ, "Clie_NomGroupeClient", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_VersionSDS", xVar(nd_CliePJ, "Clie_VersionSDS", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_VersionOS", xVar(nd_CliePJ, "Clie_SDSVersionOS", "")) Or FPNav_SauvegarderDocument
+					
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientNom", xVar(nd_CliePJ, "Clie_Nom", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_NomLegal", xVar(nd_CliePJ, "Clie_NomLegal", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientNomInterne", xVar(nd_CliePJ, "Clie_ClientNomInterne", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientAdresse1", xVar(nd_CliePJ, "Clie_Adresse1", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientAdresse2", xVar(nd_CliePJ, "Clie_Adresse2", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientVille", xVar(nd_CliePJ, "Clie_Ville", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientProvince", xVar(nd_CliePJ, "Clie_Province", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientPays", xVar(nd_CliePJ, "Clie_Pays", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientCodePostal", xVar(nd_CliePJ, "Clie_CodePostal", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientTelephone", xVar(nd_CliePJ, "Clie_Telephone", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientTelephone2", xVar(nd_CliePJ, "Clie_Telephone2", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_ClientTelecopieur", xVar(nd_CliePJ, "Clie_Telecopieur", "")) Or FPNav_SauvegarderDocument
+					
+					
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_NomGroupeClient", xVar(nd_CliePJ, "Clie_NomGroupeClient", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_VersionSDS", xVar(nd_CliePJ, "Clie_VersionSDS", "")) Or FPNav_SauvegarderDocument
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Clie_VersionOS", xVar(nd_CliePJ, "Clie_SDSVersionOS", "")) Or FPNav_SauvegarderDocument
+					
+					' Valeur pour lier la proposition au nouveau client vers Projeto
+					FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_ClientCleSitePrinc", xVar(nd_CliePJ, "Clie_NoClient", "")) Or FPNav_SauvegarderDocument
+					
+					'Lier les produits unique au nouveau site principal
+					If SDSPX_ReplacerProduitsUniquesSite(gnd_Prop_SDSPM, xVar(gnd_Prop_SDSPM, "Prop_NoSitePrincipal", ""), xVar(nd_SitePrinc, "Site_NoSite","")) Then
+						Print "Le site principal a été modifié de " &amp; xVar(nd_SitePrincOrig, "Site_ClientNomInterne", xVar(nd_SitePrincOrig, "Site_ClientNom", "")) " à " &amp; _
+						xVar(nd_SitePrinc, "Site_ClientNomInterne", xVar(nd_SitePrinc, "Site_ClientNom", ""))
+					End If
+					
+					gnd_SDSPM.PNav_Titre =  Trim("C" &amp; CStr(xVar(gnd_Prop_SDSPM, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(gnd_Prop_SDSPM, "Prop_ClientNomInterne", xVar(gnd_Prop_SDSPM, "Prop_ClientNom", "")))
+					gnd_SDSPM.Titre =  Trim(xVar(gnd_SDSPM, "PNav_Titre", "") &amp; " - " &amp; xVar(gnd_SDSPM, "PNav_MenuDesc000", ""))
+					
+				End If
+			End If
+		End If
+	End If
+	
+	' Recalculer escompte
+	If xVar(gnd_Prop_SDSPM, "Prop_Statut", "0") &lt; "50" And v_NbSites &gt; 0 Then
+		Call SDSPX_CalculerPrixEscompteLG(gnd_Prop_SDSPM, v_UserName)
+	End If
+	
+	' Mettre à jour la proposition
+	' ============================
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_DescProposition", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_NoSites",a_NoSite) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_AjouterSDS",v_AjouterSDS) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_AjouterSDSM",v_AjouterSDSM) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_PrixTotal", SDSI_PrixTotal(gnd_Prop_SDSPM, 0, 0, 0, False)) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItemValeur(gnd_Prop_SDSPM, "Prop_NoSitePrincipal", xVar(gnd_SDSPM, "Prop_NoSitePrincipal", "")) Or FPNav_SauvegarderDocument
+		
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "Prop_OrigineSiegeSocial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "Prop_ClientNoFmtSiegeSocial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "Prop_ClientNoFmtSiegeSocialSF", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "Prop_ClientNom1SiegeSocial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "Prop_ClientNom2SiegeSocial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "Prop_ClientNomIntSiegeSocial", "") Or FPNav_SauvegarderDocument
+		
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "PNav_MenuOptionMax", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "PNav_MaxSiteOuvert", "") Or FPNav_SauvegarderDocument
+	
+	If FPNav_SauvegarderDocument Then
+		gnd_Prop_SDSPM.HistoDM = Now
+		gnd_Prop_SDSPM.HistoUM = v_UserName
+		Call gnd_Prop_SDSPM.Save(True, False)
+	End If
+	
+	' Mettre jour le menu de gauche
+	' =============================
+	If v_MajSitesNav Then
+		'Mettre à jour le document de navigation
+		Call SDSPN_MajSitesNav(gnd_SDSPM)
+		Call SDSPN_ConstruireMenu(gnd_SDSPM)
+		Call gnuid_SDSPN.Refresh
+	End If
+	
+	FPNav_SauvegarderDocument = True
+FinSub:
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="FPNav_acCocherAjouterSDS"><lotusscript>Sub FPNav_acCocherAjouterSDS
+	On Error GoTo GererErreur
+	
+	Dim v_NoSite As String
+	
+	' Demander la nouvelle description à l'utilisateur
+	v_NoSite = gnuiws_SDSPM.Prompt(PROMPT_OKCANCELEDIT, "", xGDK_xMessage("SDSPP", 205, "", ""), "1")
+	If v_NoSite = "" Then
+		Exit Sub
+	Else
+		v_NoSite = Right("00000" &amp; v_NoSite, 3)
+		If Not (v_NoSite Like "###") Then
+			MessageBox xGDK_xMessage("SDSPP", 0, "", ""), 16, ""
+			Exit Sub
+		End If
+	End If
+	
+	If gnuid_SDSPM.FieldGetText("PNav_SDS" &amp; v_NoSite) = "" then
+		Call gnuid_SDSPM.FieldSetText("PNav_SDS" &amp; v_NoSite, v_NoSite)
+	Else
+		Call gnuid_SDSPM.FieldSetText("PNav_SDS" &amp; v_NoSite, "")
+	End if
+
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsAfficherClient_PJ"><lotusscript>Sub FPNav_hsAfficherClient_PJ
+	On Error GoTo GererErreur
+		
+	Dim ndb_PJ As NotesDatabase
+	Dim nd As NotesDocument
+	Dim nv As NotesView	
+	Dim v_OrigineClie As String
+	Dim v_URLSF As String
+	
+	v_OrigineClie= xVar2(gnd_SDSPM, "Prop_OrigineSiegeSocial", "Prop_Origine", "")
+	
+	If v_OrigineClie = "SF" Then
+
+		v_URLSF = xVarProf("Prof_KLSFUrl", "")
+		Call gnuiws_SDSPM.URLOpen(v_URLSF &amp;  xVar(gnd_SDSPM, "Prop_ClientNoFmtSiegeSocialSF", "") )  
+	
+	else		   
+					
+		Set ndb_PJ = xGDK_xndbNDB(v_OrigineClie)
+		
+		Call xnd("Clie_NoClientFmt", xVar(gnd_SDSPM, "Prop_ClientNoFmtSiegeSocial", ""), True, ndb_PJ, "v_Clie3", nv,nd)
+		
+		If Not nd Is Nothing Then
+			Call gnuiws_SDSPM.EditDocument(False, nd)
+		End If
+		End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsFermer"><lotusscript>Sub FPNav_hsFermer
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	If FPNav_SauvegarderDocument("") Then
+		' Fermer le masque courant
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+
+</lotusscript></code><code event="FPNav_PostOpen"><lotusscript>Sub FPNav_PostOpen(pnuid_Source As Notesuidocument)
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call SDSPN_Initialisations
+	Call SDSPM_Initialisations
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acWorkflow"><lotusscript>Sub FPNav_acWorkflow(p_Statut As String)
+	On Error GoTo GererErreur
+		
+	If SDSPM_acWorkflow(p_Statut) Then
+		
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		' Ouvrir le masque	
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		
+		gnd_SDSPM.PNav_Titre =  Trim("C" &amp; CStr(xVar(gnd_Prop_SDSPM, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(gnd_Prop_SDSPM, "Prop_ClientNomInterne", xVar(gnd_Prop_SDSPM, "Prop_ClientNom", "")))
+		gnd_SDSPM.Titre =  Trim(xVar(gnd_SDSPM, "PNav_Titre", "") &amp; " - " &amp; xVar(gnd_SDSPM, "PNav_MenuDesc000", ""))
+				
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbProposition", xVar(gnd_Prop_SDSPM, "Prop_NbProposition", 0))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionFmt", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionFmt", ""))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionPrefixe", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionPrefixe", ""))		
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+			
+		Call gnuid_SDSPN.Refresh
+	End If
+		
+	Exit Sub
+		
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsSupprimerSite"><lotusscript>Sub FPNav_hsSupprimerSite(p_PosSite As String)
+	On Error Goto GererErreur
+	
+	Dim v_NbSites As Integer
+	Dim nd_Site As NotesDocument
+	Dim i As Integer
+	Dim v_NoSite As String
+	Dim v_DernierSiteOuvert As Integer
+	Dim v_MaxSiteOuvert As Integer
+	Dim a_MenuItems As Variant
+	Dim nv_Site21 As NotesView
+	
+	g_PosSite = Cint(p_PosSite)
+	
+	' Demander une confirmation
+	If gnuiws_SDSPN.Prompt(PROMPT_YESNO, xGDK_xMessage("SDSPP", 16, "", ""), _
+	xGDK_xMessage("SDSPP", 17, "", xVar(gnd_SDSPM, "PNav_NomSite" &amp; p_PosSite, ""))) &lt;&gt; 1 Then
+		Print xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	
+	v_NbSites = xVar(gnd_SDSPM, "Prop_NbSites", 1)
+	v_NoSite = xVarElem(gnd_SDSPM, "PNav_NoSite", Cint(p_PosSite) - 1, "")
+	
+%REM
+	' Valider qu'il y a plus qu'un site sur la proposition
+	If v_NbSites = 1 Then
+		Messagebox xGDK_xMessage("SDSPP", 88, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+%END REM
+	
+	' Sauvegarder
+	If FPNav_SauvegarderDocument(False) Then
+		
+		' Extraire le site
+		Set nd_Site = xSDSP3_xndSite(v_NoSite, True)
+		If nd_Site Is Nothing Then
+			Messagebox xGDK_xMessage("SDSPP", 12, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+		
+		' Supprimer le site
+		
+		' Si supression du dernier site
+		If v_NbSites = 1 Then
+			gnd_SDSPM.PNav_DernierSiteOuvert = 0
+			gnd_SDSPM.PNav_MaxSiteOuvert = 0
+			If Left(xVar(gnd_SDSPM, "PNav_MenuOptionMax", "") ,1) = "2" Then
+				gnd_SDSPM.PNav_MenuOptionMax = "0.01"
+			End If
+		End If
+		
+		Call SDSPS_SupprimerSite(gnd_Prop_SDSPM, nd_Site, Getthreadinfo(1))
+		
+		Set nv_Site21 = gnd_SDSPM.ParentDatabase.GetView("V_Site21")
+		Call nv_Site21.Refresh
+		
+		v_DernierSiteOuvert = xVar(gnd_SDSPM, "PNav_DernierSiteOuvert", 0)
+		v_MaxSiteOuvert = xVar(gnd_SDSPM, "PNav_MaxSiteOuvert", 0)
+		
+		If v_DernierSiteOuvert &gt; 0 Then
+			If Cint(p_PosSite) &lt;= v_DernierSiteOuvert Then
+				gnd_SDSPM.PNav_DernierSiteOuvert = v_DernierSiteOuvert - 1
+			End If
+		End If
+		
+		If v_MaxSiteOuvert &gt; 0 Then
+			If Cint(p_PosSite) &lt;= v_MaxSiteOuvert Then
+				gnd_SDSPM.PNav_MaxSiteOuvert = v_MaxSiteOuvert - 1
+			End If
+		End If
+		
+		gnd_SDSPM.PNav_MenuOptionCourante = "0.01"
+		
+		Call SDSPN_MajSitesNav(gnd_SDSPM)
+		
+		' Mettre à jour le document courant
+		Call FPNav_DocumentExistant(gnd_SDSPM)
+		
+		' Supression du site principal
+		If v_NoSite = xVar(gnd_SDSPM, "Prop_NoSitePrincipal", "") Then
+			gnd_SDSPM.Prop_NoSitePrincipal = xVarElem(gnd_SDSPM, "PNav_NoSite", 0, "")
+		'Call gnd_SDSPM.ReplaceItemValue("PNav_Distance1", "")
+		'Call gnd_SDSPM.ReplaceItemValue("PNav_Comm1" , "")
+		End If
+		
+		Call gnuid_SDSPN.Refresh
+		Call SDSPN_ConstruireMenu(gnd_SDSPM)
+		
+		' Ré-initialise PNav_MenuOptionMax
+		a_MenuItems = xVarArray(gnd_SDSPM, "PNav_MenuItems")
+		
+		If v_NbSites &gt; 1 And Left(xVar(gnd_SDSPM, "PNav_MenuOptionMax",""),1) = "2" Then
+			If Cint(p_PosSite) = v_NbSites Then
+				gnd_SDSPM.PNav_MenuOptionMax = "2." &amp; Format(v_NbSites -2, "00") &amp; ".06"
+			Else
+				gnd_SDSPM.PNav_MenuOptionMax = "2." &amp; Format(v_NbSites -2, "00") &amp; "." &amp; StrRightBack(xVar(gnd_SDSPM, "PNav_MenuOptionMax",""), ".")
+			End If
+		End If
+		
+		' Call gnuid_SDSPN.Refresh
+		Call gnuid_SDSPN.Save
+		
+	End If
+	
+	' Maj la proposition au besoin après supression du site
+	If SDSPM_MajItem(gnd_Prop_SDSPM, "PNav_MaxSiteOuvert", "") Then
+		Call gnd_Prop_SDSPM.Save(True, False)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acSignerProposition"><lotusscript>Sub FPNav_acSignerProposition
+	On Error Goto GererErreur
+	
+	If SDSPUI_acSignerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acRecalculerCouts"><lotusscript>Sub FPNav_acRecalculerCouts
+	' -------------------------------------------------
+	' Le script permet au directeur de modifier le prix
+	' -------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument("") Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acRecalculerCouts(gnd_Prop_SDSPM, False, False)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsOuvrirMasque"><lotusscript>Sub FPNav_hsOuvrirMasque(p_NoItem As String)
+	On Error Goto GererErreur
+	
+	Dim v_MenuItemCourant As String
+	Dim v_ValiderDocument As Boolean
+	Dim a_MenuItems As Variant
+	Dim v_NoItem As String
+	Dim i As Variant
+	
+	v_MenuItemCourant = xVar(gnd_SDSPM, "PNav_MenuItemCourant", "")
+	a_MenuItems = xVarArray(gnd_SDSPM, "PNav_MenuItems")
+	
+	v_ValiderDocument = False
+	
+	' Si clique sur menu item qui est lui même, ne rien faire
+	If v_MenuItemCourant = p_NoItem Then
+		Exit Sub
+	End If
+	
+	If p_NoItem = "**" Then
+		v_NoItem = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "")
+		If a_MenuItems(Cint(v_MenuItemCourant)) = v_NoItem Then
+			Exit Sub
+		End If
+		i = Arraygetindex(a_MenuItems, xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00"))
+		If Not Isnull(i) Then
+			v_NoItem = Cstr(i)
+		End If
+		
+	Else
+		v_NoItem = p_NoItem
+	End If
+	
+	If Not Isnull(i) Then
+		v_ValiderDocument = (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1" And Cint(v_NoItem) &gt; Cint(v_MenuItemCourant))
+	End If
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(v_ValiderDocument) Then
+		
+		' Construire le menu
+		If Not Isnull(i) Then
+			If (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1" And Cint(v_NoItem) &lt; Cint(v_MenuItemCourant)) Then
+				Call SDSPN_ConstruireMenu(gnd_SDSPM)
+				Call gnuid_SDSPM.Refresh
+			End If
+		Else
+			Call SDSPN_ConstruireMenu(gnd_SDSPM)
+			Call gnuid_SDSPM.Refresh
+		End If
+		
+		' Ouvrir le masque suivant
+		
+		' Ne pas ouvir item caché
+		If xVar(gnd_SDSPM, "PNav_MenuHide" &amp; p_NoItem, "") = "1" Then
+			Call SDSPN_ConstruireMenu(gnd_SDSPM)
+			Call gnuid_SDSPM.Refresh
+			Exit Sub
+		Else
+			Call SDSPN_OuvrirMasqueMenu(p_NoItem)
+		End If
+		
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsPrecedent"><lotusscript>Sub FPNav_hsPrecedent
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(False) Then
+		' Ouvrir le masque précédent
+		Call SDSPN_OuvrirMasquePrecedent
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="Custom__________________"><lotusscript>Sub Custom__________________
+	
+End Sub
+
+</lotusscript></code><code event="FPNav_acPayerProposition"><lotusscript>Sub FPNav_acPayerProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acPayerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acReouvrirProposition"><lotusscript>Sub FPNav_acReouvrirProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acReOuvrirProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsSitePrincipal"><lotusscript>Sub FPNav_hsSitePrincipal(p_PosSite As String)
+	' -----------------------------------------------
+	' Le script permet d'identifier le site principal
+	' -----------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_NoSitePrincipal As String
+	Dim a_NoSite As Variant
+	Dim v_PosSite As Variant
+	Dim v_DistanceSite As String
+	Dim v_CommSite As String
+	
+	a_NoSite = xVarArray(gnd_SDSPM, "PNav_NoSite")
+	
+	' Extraire info du site principal courrant
+	v_NoSitePrincipal = xVar(gnd_SDSPM, "Prop_NoSitePrincipal", "")
+	v_PosSite = ArrayGetIndex(a_NoSite, v_NoSitePrincipal)
+	
+	If Not IsNull(v_PosSite) Then
+		
+		v_DistanceSite = xVar(gnd_SDSPM, "PNav_Distance" &amp; Format((v_PosSite + 1),"000"), "")
+		v_CommSite = xVar(gnd_SDSPM, "PNav_Comm" &amp; Format((v_PosSite + 1),"000"), "")
+		
+		If v_DistanceSite = "" Then
+			Call gnd_SDSPM.ReplaceItemValue("PNav_Distance" &amp; Format((v_PosSite + 1),"000"), xVar(gnd_SDSPM, "PNav_Distance" &amp; p_PosSite, ""))
+		End If
+		If v_CommSite = "" Then
+			Call gnd_SDSPM.ReplaceItemValue("PNav_Comm" &amp; Format((v_PosSite + 1),"000"), xVar(gnd_SDSPM, "PNav_Comm" &amp; p_PosSite, ""))
+		End If
+		
+	End If
+	
+	Call gnd_SDSPM.ReplaceItemValue("Prop_NoSitePrincipal", xVarElem(gnd_SDSPM, "PNav_NoSite", (Cint(p_PosSite) -1), ""))
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_QueryOpen"><lotusscript>Sub FPNav_QueryOpen(pnuid_Source As Notesuidocument, p_Mode As Integer, p_Isnewdoc As Variant, _
+p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	Dim nd_PNav As NotesDocument
+	' Initialisations
+	p_Continue = False
+	
+	Set nd_PNav = pnuid_Source.Document
+	
+	' Initialiser les champs du document de navigation
+	If FPNav_DocumentExistant(nd_PNav) Then
+		p_Continue = True
+	End If
+	' Effacer les champs RT des autres écrans
+	If nd_PNav.Hasitem("Prop_DescDetaillee") Then
+		Call nd_PNav.Removeitem("Prop_DescDetaillee")
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_DocumentExistant"><lotusscript>Function FPNav_DocumentExistant(pnd_PNav As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim nd_Site As NotesDocument
+	
+	Dim a_NoSite As Variant
+	Dim v_PosSite As Integer
+	Dim v_Serveur As String
+	Dim v_Max As Integer
+	Dim i As Variant
+	Dim v_NomSite As String
+	
+	FPNav_DocumentExistant = False
+	v_Max = 1
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp(xVar(pnd_PNav, "Prop_NoProposition", "")) Then
+		Exit Function
+	End If
+	
+	pnd_PNav.Prop_Statut = xVar(gnd_Prop_SDSPM, "Prop_Statut", "10")
+	Call pnd_PNav.ReplaceItemValue("Prop_StatutDesc" &amp; xLangue, _
+	xVar(gnd_Prop_SDSPM, "Prop_StatutDesc" &amp; xLangue, ""))
+		
+	
+	' Mettre à jour le document de navigation
+	If xVar(pnd_PNav, "Prop_NbSites", 0) &gt; 0 Then
+		a_NoSite = xVarArray(pnd_PNav, "PNav_NoSite")
+		
+		For v_PosSite = Lbound(a_NoSite) To Ubound(a_NoSite)
+			' Extraire le site
+			Set nd_Site = xSDSP3_xndSite(a_NoSite(v_PosSite), True)
+			If nd_Site Is Nothing Then
+				Messagebox xGDK_xMessage("SDSPP", 12, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+				Exit Function
+			End If
+			
+			v_NomSite = xVar2(nd_Site, "Site_NomSiteAbrege", "Site_ClientNomInterne", "")
+			
+			Call pnd_PNav.ReplaceItemValue("PNav_NomSite" &amp; Format((v_PosSite + 1),"000"), _
+			v_NomSite)
+			Call pnd_PNav.ReplaceItemValue("PNav_VilleSite" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_ClientVille", ""))
+			
+			Call pnd_PNav.ReplaceItemValue("PNav_SiteClientNoFmt" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_ClientNoFmt", ""))
+			
+			Call pnd_PNav.ReplaceItemValue("PNav_SiteNoBonCommandeFmt" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_NoBonCommandeFmtSIBDC", ""))
+			
+			Call pnd_PNav.ReplaceItemValue("PNav_NomSiteModifie" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_NomSiteAbregeModifie", "0"))
+						
+			Call pnd_PNav.ReplaceItemValue("PNav_NomSiteListe" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_NomSiteAbregeListe", ""))
+			
+			If xVar(nd_Site, "Site_AjouterSDS", "") &lt;&gt; "" Then
+				Call pnd_PNav.ReplaceItemValue("PNav_SDS" &amp; Format((v_PosSite + 1),"000"), Format((v_PosSite + 1),"000"))
+			Else
+				Call pnd_PNav.ReplaceItemValue("PNav_SDS" &amp; Format((v_PosSite + 1),"000"), "")
+			End If
+			
+			If xVar(nd_Site, "Site_AjouterSDSM", "") &lt;&gt; "" Then
+				Call pnd_PNav.ReplaceItemValue("PNav_SDSM" &amp; Format((v_PosSite + 1),"000"), Format((v_PosSite + 1),"000"))
+			Else
+				Call pnd_PNav.ReplaceItemValue("PNav_SDSM" &amp; Format((v_PosSite + 1),"000"), "")
+			End If
+			
+			Call pnd_PNav.ReplaceItemValue("PNav_ClientSDSWIN" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_ClientSDSWIN", ""))
+			
+			Call pnd_PNav.ReplaceItemValue("PNav_ClientMerlin" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_ClientMerlin", ""))
+			
+			Call pnd_PNav.ReplaceItemValue("PNav_VersionMerlin" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_VersionMerlin", ""))
+			
+			Call pnd_PNav.ReplaceItemValue("PNav_Distance" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_Distance", ""))
+			Call pnd_PNav.ReplaceItemValue("PNav_Comm" &amp; Format((v_PosSite + 1),"000"), _
+			xVar(nd_Site, "Site_Comm", ""))
+			
+		Next
+		
+		v_Max = Ubound(a_NoSite) + 2
+	End If
+	
+	For v_PosSite = v_Max To gc_MaxNbSites
+		Call pnd_PNav.ReplaceItemValue("PNav_NomSite" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_VilleSite" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_SiteClientNoFmt" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_SiteNoBonCommandeFmt" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_NomSiteModifie" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_NomSiteListe" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_SDS" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_ClientSDSWIN" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_SDSM" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_ClientMerlin" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_VersionMerlin" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_Distance" &amp; Format(v_PosSite,"000"), "")
+		Call pnd_PNav.ReplaceItemValue("PNav_Comm" &amp; Format(v_PosSite,"000"), "")
+	Next
+	
+	pnd_PNav.Prop_PropositionImprimee = xVar(gnd_Prop_SDSPM, "Prop_PropositionImprimee", "")
+	pnd_PNav.Prop_NoSitePrincipal = xVar(gnd_Prop_SDSPM, "Prop_NoSitePrincipal", "")
+		
+	Call pnd_PNav.ReplaceItemValue("Prop_OrigineSiegeSocial", xVar(gnd_Prop_SDSPM, "Prop_OrigineSiegeSocial", ""))
+	Call pnd_PNav.ReplaceItemValue("Prop_ClientNoFmtSiegeSocial", xVar(gnd_Prop_SDSPM, "Prop_ClientNoFmtSiegeSocial", ""))
+	Call pnd_PNav.ReplaceItemValue("Prop_ClientNoFmtSiegeSocialSF", xVar(gnd_Prop_SDSPM, "Prop_ClientNoFmtSiegeSocialSF", ""))
+	Call pnd_PNav.ReplaceItemValue("Prop_ClientNom1SiegeSocial", xVar(gnd_Prop_SDSPM, "Prop_ClientNom1SiegeSocial", ""))
+	Call pnd_PNav.ReplaceItemValue("Prop_ClientNom2SiegeSocial", xVar(gnd_Prop_SDSPM, "Prop_ClientNom2SiegeSocial", ""))
+	Call pnd_PNav.ReplaceItemValue("Prop_ClientNomIntSiegeSocial", xVar(gnd_Prop_SDSPM, "Prop_ClientNomIntSiegeSocial", ""))
+	
+	pnd_PNav.Prop_NotesContrat = xVar(gnd_Prop_SDSPM, "Prop_NotesContrat", "")
+	
+	FPNav_DocumentExistant = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Cle", ""), False)
+	Exit Function
+End Function
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073729,79-05</datetime></item></scriptlibrary>
+
+</database>

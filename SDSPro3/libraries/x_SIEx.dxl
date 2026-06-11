@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_SIEx" hide="v3 v4strict" comment="2.0">
+<noteinfo noteid="5557a2" unid="3157DEACF9FB7FDB852586B40011FBB7" sequence="76">
+<created><datetime dst="true">20210410T231625,51-04</datetime></created>
+<modified><datetime>20260105T014837,59-05</datetime></modified>
+<revised><datetime>20250319T073640,66-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,58-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,58-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Automatisation/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+'
+' Cette bibliothèque de script permet d'extraire un document ou un item d'un document.  Les documents
+' à extraire se trouvent dans la base de documents courante.
+'
+' Instructions
+'	1.	Renommer le script library.  Le nouveau nom devrait être x_SIEx ou SIEx est le type de document.
+'	2.	Inscrire le nom de l'item qui contient la clé et le nom de la vue de recherche dans la section (Declarations).
+'	3.	Remplacer toutes les occurences de SIEx par l'identifiant du type de document.  Les subs seront 
+'		automatiquement renommés.
+
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_xSIEx
+Dim gns_xSIEx As Notessession
+Dim gndb_xSIEx As Notesdatabase
+
+' Section 2 - Définition des valeurs conservées dans la cache
+Dim gnv_xSIEx As Notesview				' La vue d'ou est extrait le document
+Dim gnd_xSIEx As Notesdocument		' Le document qui contient les informations recherchées
+
+' Section 3 - Les constantes à définir
+Const gc_NomItemCle_xSIEx = "SIEx_Nom"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVue_xSIEx = "V_SIEx20"		' Le nom de la vue de recherche
+</lotusscript></code><code event="Initialisation_xSIEx"><lotusscript>Sub Initialisation_xSIEx
+	' Initialisation des variables globales
+	If gns_xSIEx Is Nothing Then
+		Set gns_xSIEx = New Notessession
+		Set gndb_xSIEx = gns_xSIEx.Currentdatabase
+	End If
+End Sub
+</lotusscript></code><code event="xndSIEx"><lotusscript>Function xndSIEx(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call Initialisation_xSIEx
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCle_xSIEx, p_Cle, p_Cache, gndb_xSIEx, gc_NomVue_xSIEx, gnv_xSIEx, gnd_xSIEx)
+	
+	' Retourne le document défini en variable globale
+	Set xndSIEx = gnd_xSIEx
+End Function
+</lotusscript></code><code event="xVarSIEx"><lotusscript>Function xVarSIEx(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xVarSIEx = xVar(xndSIEx(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073640,66-05</datetime></item></scriptlibrary>
+
+</database>

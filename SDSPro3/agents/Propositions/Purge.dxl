@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Propositions\Purge" alias="A_PropPg" hide="web v3" publicaccess="false" designerversion="8.5.3" comment="** SI Agents mensuel" activatable="false" enabled="false">
+<noteinfo noteid="5558a2" unid="35FE974E13F26084852588AF006A71A4" sequence="21">
+<created><datetime dst="true">20220831T152239,08-04</datetime></created>
+<modified><datetime>20260105T014838,03-05</datetime></modified>
+<revised><datetime>20250319T073747,54-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,02-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,02-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073747,08-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="never" runlocation="specific" runserver="CN=Sertidsd/O=Serti Informatique"/></trigger>
+<documentset type="all"/><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "SI_Extractions"
+Use "SDSP_Workflow"
+Use "x_GDK"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_PropPg"
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+'==============================================================================
+' Cet agent purge(abandonne) les propsitions pas modifié depuis x mois
+' x = champ "Prof_PurgerPropositions" du document de profile F_Prof
+'==============================================================================
+	On Error Goto GererErreur
+	
+	Dim nd_Profil As NotesDocument	
+	Dim v_PurgerPropositions As Integer
+	Dim v_Formule As String
+	Dim ndc_Prop As NotesDocumentCollection
+	Dim ndt_DatePurge As NotesDateTime
+	Dim nd_Suivant As NotesDocument	
+	Dim nd As NotesDocument
+	Dim v_Commentaire As String
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	' Initialisations
+	Call A_Initialisations	
+	
+	Set nd_Profil = gndb_A.GetProfileDocument("F_Prof")
+	v_PurgerPropositions = xVar(nd_Profil, "Prof_PurgerPropositions", 12)	
+		
+	' Initialise la date de purge
+	Set ndt_DatePurge = New NotesDateTime(Today)	
+	ndt_DatePurge.LSLocalTime = DateNumber(Year(Today), Month(Today), 1)
+	Call ndt_DatePurge.AdjustMonth(- v_PurgerPropositions)
+	
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)  	
+	Call SIGE_AjouterLog("Debut " &amp; gc_Element_A,0,0, False)
+		
+	If v_PurgerPropositions &gt; 0 And Day(Today) = 1 Then
+					
+		v_Formule = { Form = "F_Prop" &amp; Prop_Statut &lt;= "50" &amp; @IsTime(HistoDM)&amp; HistoDM &lt;= @Date(} &amp; _
+		Year(ndt_DatePurge.Lslocaltime)&amp;{;} &amp; Month(ndt_DatePurge.Lslocaltime)&amp;{;} &amp; Day(ndt_DatePurge.Lslocaltime)&amp;{)}
+				
+		Set ndc_Prop = gndb_A.Search(v_Formule, Nothing, 0)
+				
+		If ndc_Prop.Count = 0 Then
+			Exit Sub
+		End If
+		
+		' Boucler sur tous les candidats
+		Set nd_Suivant = ndc_Prop.Getfirstdocument
+		Do Until nd_Suivant Is Nothing
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc_Prop.Getnextdocument(nd_Suivant)
+			v_NbLus = v_NbLus + 1	
+											
+			If xVar(nd, "Prop_Statut", "")&lt;= "50" Then	
+											
+				If xVar(nd, "Prop_Langue", "FR") = "FR" Then
+					v_Commentaire = "Cette proposition à été abandonné, trop vielle."						
+				Else
+					v_Commentaire = "This proposal was abandoned since it's too old."
+				End If
+						
+				If SDSPWF_AssignerStatut(nd, "98", False, v_Commentaire, gns_A.UserName) Then
+					Call SIGE_AjouterLog("Purge de la proposition " &amp; CStr(Fix(xVar(nd, "Prop_NbProposition", 0))) &amp; _
+					" (" &amp; xVar(nd, "Prop_NoProposition", 0) &amp; ")" &amp; " statut changé pour 98-Abandonnée.",0,0, False)
+					Call nd.save(True, True)
+					v_NbMaj = v_NbMaj + 1
+				End If		
+			End If
+			
+			If (v_NbLus Mod 1000) = 0 Then
+				Print CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus)
+			End If
+						
+			'Print " NoProp : " &amp; xVar(nd, "Prop_NoProposition" , "")&amp; " Statut : " &amp; xVar(nd, "Prop_Statut" , "") 	&amp; " HistoDM : " &amp; xVar(nd, "HistoDM" , "") 
+		'	Call SIGE_AjouterLog("Purge de la propositon " &amp; CStr(Fix(xVar(nd, "Prop_NbProposition", 0))) &amp; _
+		'	" (" &amp; xVar(nd, "Prop_NoProposition", 0) &amp; ")"  &amp; _
+		'	" / Dern. Modif : " &amp; CStr(xVar(nd, "HistoDM", "")) &amp; " / Statut changé de " &amp; xVar(nd, "Prop_Statut", "") &amp; " à " &amp; "98"  ,0,0)
+						
+		loop
+		
+	End If
+		
+	Print "Fin " &amp; CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus)
+	Call SIGE_AjouterLog("Fin " &amp; gc_Element_A &amp; " " &amp; CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus), 0, 0, False)
+	Call SIGE_EnregistrerLog
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Print "Erreur " &amp; CStr(Err()) &amp; " à la ligne " &amp; CStr(Erl()) &amp; ": " &amp; Error()	
+	Call SIGE_AjouterLog("Agent " &amp; gc_Element_A &amp; " - Erreur " &amp; CStr(Err()) &amp; " à la ligne " &amp; CStr(Erl()) &amp; ": " &amp; Error(),1,115, False)
+	Call SIGE_EnregistrerLog
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="A102EA315678DA1285258D91003C7854">
+<agentmodified><datetime>20260105T014838,03-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260401T065541,09-04</datetime></agentrun>
+<runlog>Started running agent 'Propositions\Purge|A_PropPg' on 2026-04-01 06:55:10 AM
+Running on all documents in database: 1058880 total
+Found 1058880 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Propositions\Purge|A_PropPg' on 2026-04-01 06:55:41 AM
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073747,54-05</datetime></item></agent>
+
+</database>

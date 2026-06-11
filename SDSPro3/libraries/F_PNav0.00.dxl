@@ -1,0 +1,5130 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_PNav0.00" hide="v3 v4strict">
+<noteinfo noteid="55599a" unid="7FCA1E1E10C2DE9F85258C510047CFD1" sequence="10">
+<created><datetime>20250318T080422,57-05</datetime></created>
+<modified><datetime>20260105T014838,52-05</datetime></modified>
+<revised><datetime>20251211T135844,43-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,51-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,51-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_MasquePNav"
+Use "SDSP_Navigation"
+Use "SDSP_Proposition"
+Use "SL_Clipboard"
+Use "SI_Contacts"
+Use "SI_Selection"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim g_NoRep_FPNav As String
+Dim g_LongueurRT_FPNav As Long
+Dim g_TexteRT_FPNav As String
+Dim gcl_SessionSLSf_FSFPP As SLSf_clSession
+Dim g_Resultat_FSFPP As Integer
+'Dim g_AfficherErreurs_FPNav As Variant
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_FPNav = "SL"
+Const gc_Element_FPNav = "F_PNav0.00"
+
+
+</lotusscript></code><code event="FPNav_DocumentValide"><lotusscript>Function FPNav_DocumentValide(p_AfficherErreur As Boolean) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim s As String
+	Dim v_TypeProposition As String
+	
+	FPNav_DocumentValide = False
+	
+	If xVar(gnd_SDSPM, "Prop_TypeProposition", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 190, "", Lcase(xGDK_xMessage("SDSPP", 7, "", ""))), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoTop
+		End If
+		Exit Function
+	End If
+	If xVar(gnd_SDSPM, "Prop_DescProposition", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 23, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_DescProposition")
+		End If
+		Exit Function
+	End If
+	
+	v_TypeProposition = xVar(gnd_SDSPM, "Prop_TypeProposition", "")
+	If xVar(gnd_SDSPM, "Prop_NoRepresentant", "") = "" And (v_TypeProposition = "0" Or v_TypeProposition = "1") Then
+'	If xVar(gnd_SDSPM, "Prop_NoRepresentant", "") = "" And xVar(gnd_SDSPM, "Prop_Origine", "") &lt;&gt; "SICl" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 192, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GoToField("Prop_NoRepresentant")
+		End If
+		Exit Function
+	End If
+	
+	If xVar(gnd_SDSPM, "Prop_ClientNoFmt", "") = "" Then
+		If xVar(gnd_SDSPM, "Prop_ClientNom", "") = "" Then
+			If p_AfficherErreur Then
+				Messagebox xGDK_xMessage("SI", 193, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+				Call gnuid_SDSPN.GotoField("Prop_ClientNom")
+			End If
+			Exit Function
+		End If
+	End If
+	If xVar(gnd_SDSPM, "Prop_Langue", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 200, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_Langue")
+		End If
+		Exit Function
+	End If
+	
+	If xVar(gnd_SDSPM, "Prop_ClientAdresse1", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 095, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_ClientAdresse1")
+		End If
+		Exit Function
+	End If
+	If xVar(gnd_SDSPM, "Prop_ClientVille", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 194, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_ClientVille")
+		End If
+		Exit Function
+	End If
+	If xVar(gnd_SDSPM, "Prop_ClientPays", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 19, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_ClientPays")
+		End If
+		Exit Function
+	End If
+	If xVar(gnd_SDSPM, "Prop_ClientProvince", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 21, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_ClientProvince")
+		End If
+		Exit Function
+	End If
+	If xVar(gnd_SDSPM, "Prop_ClientCodePostal", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 196, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_ClientCodePostal")
+		End If
+		Exit Function
+	End If
+	
+%REM Requ 38157 - Ne pas afficher le titre. Garder le code
+	If xVar(gnd_SDSPM, "Prop_ContactTitre", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 190, "", Lcase(xGDK_xMessage("SDSPP", 8, "", ""))), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_ContactTitre")
+		End If
+		Exit Function
+	End If
+	%END REM
+	
+	If xVar(gnd_SDSPM, "Prop_ContactNom", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 84, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_ContactNom")
+		End If
+		Exit Function
+	End If
+
+	If xVar(gnd_SDSPM, "Prop_Origine", "") &lt;&gt; "SF" Then ' Requ 60545
+		If xVarElem(gnd_SDSPM, "Prop_ContactFonction", 0,"") = "" Then
+			If p_AfficherErreur Then
+				MessageBox xGDK_xMessage("SI", 169, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+				Call gnuid_SDSPN.GotoField("Prop_ContactFonction")
+			End If
+			Exit Function
+		End If
+	End If
+	
+	If xVar(gnd_SDSPM, "Prop_ContactCourriel", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 197, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_ContactCourriel")
+		End If
+		Exit Function
+	End If
+	
+	If xVar(gnd_SDSPM, "Prop_Devise", "") = "" Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SI", 17, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_Devise")
+		End If
+		Exit Function
+	End If
+	
+	%REM
+	' Nouvelle proposition
+	If xVar(gnd_SDSPM, "Prop_NoProposition", "") = "" Then
+		
+		If xVar(gnd_SDSPM, "Prop_TypeProposition", "") &lt;&gt; "2" Then
+			
+			If Not(xVar(gnd_SDSPM, "Prop_TypeProposition", "") = "1" And xVar(gnd_SDSPM, "Prop_ClientSDSWIN", "") &lt;&gt; "" And _
+			xVar(gnd_SDSPM, "Prop_ClientMerlin", "") &lt;&gt; "") Then
+				
+				If xVar(gnd_SDSPM, "Prop_SitePrincipal", "") = "" Then
+					If p_AfficherErreur Then
+						
+						If xVar(gnd_SDSPM, "Prop_ClientSDSWIN", "") &lt;&gt; "" Or _
+						xVar(gnd_SDSPM, "Prop_ClientMerlin", "") &lt;&gt; "" Then
+							Messagebox xGDK_xMessage("SDSPP", 90, "", _
+							xVar(gnd_SDSPM, "Prop_ClientNomInterne", xVar(gnd_SDSPM, "Prop_ClientNom",""))), 16, xGDK_xMessage("SI", 0, "", "")
+						Else
+							Messagebox xGDK_xMessage("SDSPP", 80, "", _
+							xVar(gnd_SDSPM, "Prop_ClientNomInterne", xVar(gnd_SDSPM, "Prop_ClientNom",""))), 16, xGDK_xMessage("SI", 0, "", "")
+						End If
+						
+						Call gnuid_SDSPN.GotoField("Prop_SitePrincipal")
+					End If
+					Exit Function
+				End If
+				
+				
+			End If
+			
+			
+		End If
+		
+	End If
+	%END REM
+	
+	If xVar(gnd_SDSPM, "PNav_PlanRequis", 0) = 1 Then
+		s = xVar(gnd_SDSPM, "PNav_PlanPowerPoint", "")
+		If s = "" Then
+			If p_AfficherErreur Then
+				' 10 = Le plan PowerPoint est obligatoire
+				Messagebox xGDK_xMessage("SI", 190, "", xGDK_xMessage("SDSPP", 10, "", "")), 16, xGDK_xMessage("SI", 0, "", "")
+			End If
+			Exit Function
+		End If
+		
+		If s &lt;&gt; "" Then
+			If Lcase(Right(s, 4)) &lt;&gt; ".ppt" And Lcase(Right(s, 5)) &lt;&gt; ".pptx"Then
+				If p_AfficherErreur Then
+					' 11 - Le fichier n'est pas un document PowerPoint
+					Messagebox xGDK_xMessage("SDSPP", 11, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+					Call gnuid_SDSPN.GotoField("PNav_PlanPowerPoint")
+				End If
+				Exit Function
+			End If
+		End If
+		
+		If Dir$(s) = "" Then
+			If p_AfficherErreur Then
+				' 199 - Fichier inexistant
+				Messagebox xGDK_xMessage("SI", 199, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+				Call gnuid_SDSPN.GotoField("PNav_PlanPowerPoint")
+			End If
+			Exit Function
+		End If
+	End If
+	
+	FPNav_DocumentValide = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_majContactKLSF"><lotusscript>Sub FPNav_majContactKLSF( p_contactID As String, p_contacts As Variant, pnd_PNav As NotesDocument ) 
+	
+	Dim a_Fonctions As Variant
+	Dim v_Maj As Boolean
+	Dim v_Pos As Variant
+	Dim i As Integer
+	
+	Dim nd_Tabl_FR_SICoSf As NotesDocument
+	Dim nd_Tabl_EN_SICoSf As NotesDocument
+	Dim a_Tabl_Valeurs_SICoSf As Variant
+	Dim a_Tabl_DescFR_SICoSf As Variant
+	Dim a_Tabl_DescEN_SICoSf As Variant
+	Dim a_Tabl_Tri_SICoSf As Variant
+	
+	On Error GoTo GererErreur	
+	
+	Set nd_Tabl_FR_SICoSf = xGDK_xndTabl("Cont_FonctionsSDSFR", True)
+	Set nd_Tabl_EN_SICoSf = xGDK_xndTabl("Cont_FonctionsSDSEN", True)
+	a_Tabl_Valeurs_SICoSf = xVarArray(nd_Tabl_FR_SICoSf, "Tabl_Valeurs")
+	a_Tabl_DescFR_SICoSf = xVarArray(nd_Tabl_FR_SICoSf, "Tabl_Descriptions")
+	a_Tabl_DescEN_SICoSf = xVarArray(nd_Tabl_EN_SICoSf, "Tabl_Descriptions")
+	a_Tabl_Tri_SICoSf = xVarArray(nd_Tabl_FR_SICoSf, "Tabl_Complement3")	
+	
+	If p_contactID &lt;&gt; "" Then
+		pnd_PNav.Prop_NoContactSF = p_contacts(p_contactID).Contenu("Id")
+		pnd_PNav.Prop_ContactNom = p_contacts(p_contactID).Contenu("Name")
+		
+		a_Fonctions = Split(p_contacts(p_contactID).Contenu("SERTI_Role__c"), ";")		
+		v_Maj = SIIx_MajItem(pnd_PNav, "Prop_ContactFonction", a_Fonctions, False) Or v_Maj
+		If a_Fonctions(0) &lt;&gt; "" Then
+			ReDim a_Fonctions_DescFR(UBound(a_Fonctions)) As String
+			ReDim a_Fonctions_DescEN(UBound(a_Fonctions)) As String
+			For i = LBound(a_Fonctions) To UBound(a_Fonctions)
+				v_Pos = ArrayGetIndex(a_Tabl_Valeurs_SICoSf, a_Fonctions(i))
+				If IsNull(v_Pos) Then
+					a_Fonctions_DescFR(i) = "?"
+					a_Fonctions_DescEN(i) = "?"
+				Else
+					a_Fonctions_DescFR(i) = a_Tabl_DescFR_SICoSf(v_Pos)
+					a_Fonctions_DescEN(i) = a_Tabl_DescEN_SICoSf(v_Pos)
+				End If
+			Next
+			v_Maj = SIIx_MajItem(pnd_PNav, "Prop_ContactFonctionFR", a_Fonctions_DescFR, False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_PNav, "Prop_ContactFonctionEN", a_Fonctions_DescEN, False) Or v_Maj
+		Else
+			v_Maj = SIIx_MajItem(pnd_PNav, "Prop_ContactFonctionFR", "", False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_PNav, "Prop_ContactFonctionEN", "", False) Or v_Maj
+		End If
+		
+		pnd_PNav.Prop_ContactTitre = p_contacts(p_contactID).Contenu("Salutation")
+		pnd_PNav.Prop_ContactTelephone = p_contacts(p_contactID).Contenu("Phone")
+		pnd_PNav.Prop_ContactCellulaire = p_contacts(p_contactID).Contenu("MobilePhone")			
+		pnd_PNav.Prop_ContactCourriel = p_contacts(p_contactID).Contenu("Email")		
+		
+		pnd_PNav.PNav_MajContact = 0 			'?? ****
+		pnd_PNav.PNav_MajNomContact = 0	'?? ****
+	End If	
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsAnnuler"><lotusscript>Sub FPNav_hsAnnuler
+	On Error GoTo GererErreur
+	
+	gnd_SDSPM.SaveOptions = "0"
+	Call gnuid_SDSPN.Close
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_QuerySave"><lotusscript>Sub FPNav_QuerySave(pnuid_Source As Notesuidocument, p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	p_Continue = FPNav_SauvegarderDocument(g_AfficherErreurs_FPNav)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_MajInfoSiteClient"><lotusscript>Sub FPNav_MajInfoSiteClient(p_Origine As String, pnd_PNav As NotesDocument)
+	On Error Goto GererErreur
+	
+	Dim nd_Proj As NotesDocument
+	Dim nd_Clie As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim nv_Site21 As NotesView
+	
+	Dim v_CleClient As String
+	Dim v_MajSite As Boolean
+	Dim v_MajSite_ClientNomInterne As Boolean
+	
+	' Initialisations
+	
+	v_MajSite = False
+	
+	If p_Origine = "SF" Then
+		' Aller chercher l'info dans Salesforce
+'		nd_Site.Site_ClientNoFmt= "XX"		'***************************************************
+'		nd_Site.Site_ClientNomInterne = "XX"		'***************************************************
+		Exit Sub
+	End If
+	
+	Set nd_Proj = xPJ_xndProj(p_Origine, xVar(pnd_PNav, "Prop_NoProjet", ""), True)
+	If Not nd_Proj Is Nothing Then
+		Set nd_Clie = xPJ_xndClie(p_Origine, xVar(nd_Proj, "Clie_NoClient", ""), True)
+		v_CleClient = xVar(nd_Clie, "CleClient", "")
+	End If
+	
+	' Trouver le site qui est le même que le client
+	Call xnd("", xVar(gnd_Prop_SDSPM, "Prop_NoProposition", ""), False, gndb_SDSPM, "V_Site21", nv_Site21, nd_Site)
+	If xVar(nd_Site, "Site_OrigineCle", "") = v_CleClient Then
+		v_MajSite = True
+	End If
+	
+	' Maj adresse site client
+	If Not nd_Site Is Nothing And v_MajSite Then
+		
+		If p_Origine = "SICl" Then
+			
+			If xVar(pnd_PNav, "PNav_MajNomClient ", "") = 1 Then
+				nd_Site.Site_ClientNoFmt= xVar(nd_Clie, "Clie_ClientNoFmt", "")
+				v_MajSite_ClientNomInterne = SDSPM_MajItem(nd_Site, "Site_ClientNomInterne", xVar(nd_Clie, "Clie_ClientNomInterne", ""))
+				nd_Site.Site_ClientNom = xVar(nd_Clie, "Clie_ClientNomEntreprise", "")
+			End If
+		Else
+			If xVar(pnd_PNav, "PNav_MajNomClient ", "") = 1 Then
+				
+				nd_Site.Site_ClientNoFmt= xVar(nd_Clie, "Clie_NoClientFmt", "")				
+				
+				If xVar(nd_Clie, "Clie_NoClientFmt", "") &lt;&gt; "" Then
+					nd_Site.Site_ClientNomInterne = xVar(nd_Clie, "Clie_ClientNomInterne", "")
+				Else
+					nd_Site.Site_ClientNomInterne = xVar(nd_Clie, "Clie_Nom", "")
+				End If
+				
+				
+				
+				
+			End If
+			
+		End If
+		
+		If xVar(pnd_PNav, "PNav_MajAdresse", "") = 1 Then
+			Call FPNav_MajAdresseSiteClient(nd_Clie, nd_Site, p_Origine)
+		End If
+		
+		Call nd_Site.Save(True, False)
+		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Prop_NoProposition", ""), False)
+	Exit Sub
+	
+End Sub
+
+</lotusscript></code><code event="FPNav_acGenererCommande"><lotusscript>Sub FPNav_acGenererCommande
+	On Error GoTo GererErreur
+	
+	Call SDSPUI_acGenererCommande(gnd_Prop_SDSPM)
+	
+	Call gnuid_SDSPM.Refreshhideformulas
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsMajContactClient"><lotusscript>Sub FPNav_hsMajContactClient
+	On Error GoTo GererErreur
+	
+	If Not FPNav_MajContactClient Then
+		Exit Sub
+	End If
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPM.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+	
+End Sub
+
+
+
+</lotusscript></code><code event="FPNav_InitialiserContactClient"><lotusscript>Sub FPNav_InitialiserContactClient(pnd_PNav As NotesDocument, p_Cache As Boolean)
+	On Error GoTo GererErreur
+	
+	Dim nd_ContactPJ As NotesDocument	
+	Dim v_MajContact As Integer
+	Dim v_MajNomContact As Integer
+	Dim v_Origine As String
+	Dim v_NoContact As String
+	Dim v_NoOpportunite As String
+	Dim v_NoClientFmt As String
+	
+	v_Origine = xVar(pnd_PNav, "Prop_Origine", "")
+	If v_Origine = "SF" And xVarProf("Prof_DesactiverSalesforceAPI", "") = "1" Then
+		Exit Sub
+	End If
+	
+	v_MajContact = 0
+	v_MajNomContact = 0
+	
+	v_NoContact = xVar(pnd_PNav, "Prop_NoContact", xVar(pnd_PNav, "Prop_NoContactSF", ""))
+	If v_NoContact = "" Then
+		Exit Sub
+	End If
+	
+	If v_Origine = "SF" Then
+		v_NoOpportunite = xVar(pnd_PNav, "Prop_NoOpportuniteSF" , "")
+		v_NoClientFmt = xVar(pnd_PNav, "Prop_ClientNoFmt" , "")
+		
+		' Extraire l'opportunité de Salesforce
+		g_Resultat_FSFPP = FPNav_ExtraireOpportunite(v_NoOpportunite, v_NoClientFmt)
+		If g_Resultat_FSFPP &lt; 0 Then
+			Exit Sub
+		Else
+			
+			' Extraire les contacts
+			Call gcl_SessionSLSf_FSFPP.Objects("Account").ExtraireEnfants("Contacts", "")
+			
+			If gcl_SessionSLSf_FSFPP.Objects("Account").NbEnfants("Contacts") &gt; 0 Then
+				Call FPNav_ExtraireSignataire( gcl_SessionSLSf_FSFPP.Objects("Account").Enfants("Contacts") , pnd_PNav  ) 			
+			End If		
+			
+		End If		
+	Else
+		
+		If v_Origine &lt;&gt; "SICl" Then
+			Set nd_ContactPJ = xPJ_xndCont(v_Origine, v_NoContact, False)
+
+		Else
+			If pnd_PNav.Parentdatabase.Server &lt;&gt; "" Then
+				Select Case xSICl_xVarClie(xVar(pnd_PNav, "Prop_ClientNoFmt", ""), "Clie_ClientCategorie", "", True)
+				Case "60"
+					v_Origine = "PJSDS"
+				Case "62"
+					v_Origine = "PJUSA"
+				Case Else
+					v_Origine = "PJDIV"
+			End Select
+				
+				Set nd_ContactPJ = xPJ_xndCont(v_Origine, v_NoContact, False)
+				
+			Else
+				Exit Sub
+			End If
+			
+		End If
+		
+		If nd_ContactPJ Is Nothing Then
+			Exit Sub
+		End If
+		
+		pnd_PNav.Cont_Nom = xVar(nd_ContactPJ, "Cont_Contact", "")
+		pnd_PNav.Cont_Titre = xVar(nd_ContactPJ, "Cont_Titre", "")
+		pnd_PNav.Cont_Fonction = xVar(nd_ContactPJ, "Cont_Fonction", "")
+		pnd_PNav.Cont_FonctionFR = xVar(nd_ContactPJ, "Cont_FonctionFR", "")
+		pnd_PNav.Cont_FonctionEN = xVar(nd_ContactPJ, "Cont_FonctionEN", "")
+		pnd_PNav.Cont_Telephone = xVar(nd_ContactPJ, "Cont_TelephoneFmt", "")
+		pnd_PNav.Cont_Cellulaire = xVar(nd_ContactPJ, "Cont_Cellulaire", "")
+		pnd_PNav.Cont_Courriel = xVar(nd_ContactPJ, "Cont_Courriel", "")
+	End If
+	
+	If (xVar(pnd_PNav, "Cont_Nom", "") = "" And xVar(pnd_PNav, "Prop_ContactNom", "") &lt;&gt; xVar(pnd_PNav, "Cont_Nom", "")) Then
+		v_MajNomContact = 1
+	End If
+	
+	' Validations
+	If xVar(pnd_PNav, "Prop_ContactNom", "") &lt;&gt; xVar(pnd_PNav, "Cont_Nom", "") _
+	Or xVarImplode(pnd_PNav, "Prop_ContactFonction", ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_Fonction", ";") _
+	Or xVarImplode(pnd_PNav, "Prop_ContactFonction" &amp; xLangue, ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_Fonction"  &amp; xLangue, ";") _
+	Or xVar(pnd_PNav, "Prop_ContactTelephone", "") &lt;&gt; xVar(pnd_PNav, "Cont_Telephone", "") _
+	Or xVar(pnd_PNav, "Prop_ContactCellulaire", "") &lt;&gt; xVar(pnd_PNav, "Cont_Cellulaire", "") _
+	Or xVar(pnd_PNav, "Prop_ContactCourriel", "") &lt;&gt; xVar(pnd_PNav, "Cont_Courriel", "") Then
+		v_MajContact = 1
+	End If
+	
+	pnd_PNav.PNav_MajContact = v_MajContact
+	pnd_PNav.PNav_MajNomContact = v_MajNomContact
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_SelectionnerContact_PJ_GCli"><lotusscript>Sub FPNav_SelectionnerContact_PJ_GCli (p_Origine As String)
+	' ---------------------------------------------------------------------------------
+	' Le script sélectionne le contact dans Projeto, même si la proposition a été créée
+	' dans SI Clients
+	' ---------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim nd_Cont As NotesDocument
+	Dim nd_Clie As NotesDocument
+	
+	Dim v_Origine As String	
+	Dim v_CleClient As String
+	Dim v_ClientNoFmt As String	
+	Dim v_NomGroupeClient As String
+
+	If p_Origine = "SF" Then
+		Exit Sub
+	End If
+	
+	' Initialisations
+	If p_Origine &lt;&gt; "SICl" Then
+		v_Origine = p_Origine
+	Else
+		Select Case xSICl_xVarClie(xVar(gnd_SDSPM, "Prop_ClientNoFmt", ""), "Clie_ClientCategorie", "", True)
+		Case "60"
+			v_Origine = "PJSDS"
+		Case "62"
+			v_Origine = "PJUSA"
+		Case Else
+			v_Origine = "PJDIV"
+	End Select
+	End If
+
+	Call xPJ_Initialisations(v_Origine)
+	
+	v_ClientNoFmt = xVar(gnd_SDSPM, "Prop_ClientNoFmt", "")	
+	
+	If p_Origine &lt;&gt; "SICl" Then
+		
+		
+		Set nd_Clie = FPNav_ndClient_PJ(p_Origine)	
+		
+		If nd_Clie Is Nothing Then
+			' 4 - Le document de référence (client ou projet) est introuvable.
+			'MessageBox xGDK_xMessage("SDSPP", 4, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+		
+		v_CleClient = xvar (nd_Clie, "CleClient", "") 
+		v_NomGroupeClient = xVar(nd_Clie, "Clie_NomGroupeClient", "")			
+		Set nd_Cont = SIPJ_ndSelectionnerContact_Onglets (v_Origine, v_CleClient, v_NomGroupeClient) 'Req# 55273
+		
+		
+	Else ' Si la proposition a été créée dans SI Clients, sélectionner le contact dans Projeto
+		
+		Set nd_Clie = xPJ_xndClieSI (v_Origine, v_ClientNoFmt, True) ' Cherche le client dans V_Clie3 de Projeto
+		
+		If nd_Clie Is Nothing Then
+			' 4 - Le document de référence (client ou projet) est introuvable.
+			MessageBox xGDK_xMessage("SDSPP", 4, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If 
+		
+		v_CleClient = xvar (nd_Clie, "CleClient", "") 				
+		v_NomGroupeClient = xVar(nd_Clie, "Clie_NomGroupeClient", "")
+		Set nd_Cont = SIPJ_ndSelectionnerContact_Onglets (v_Origine, v_CleClient, v_NomGroupeClient) 'Req# 55273			
+		
+	End If
+	
+	
+	If Not (nd_Cont Is Nothing) Then
+		
+		' Valider le contact sélectionné
+		'Permettre de sélectionner un contact non signataire lorsque l'utilisateur a le rôle [TousSignataires] ou [Admin] ?
+		If Not FPNav_DocumentValide_Contact(nd_Cont, v_Origine) Then
+			Exit Sub
+		End If
+		
+		gnd_SDSPM.Prop_NoContact = xVar(nd_Cont, "Cont_NoContact", "")
+		gnd_SDSPM.Prop_ContactNom = xVar(nd_Cont, "Cont_Contact", "")
+		gnd_SDSPM.Prop_ContactTitre = xVar(nd_Cont, "Cont_Titre", "")
+		gnd_SDSPM.Prop_ContactFonction = xVar(nd_Cont, "Cont_Fonction", "")
+		gnd_SDSPM.Prop_ContactFonctionFR = xVar(nd_Cont, "Cont_FonctionFR", "")
+		gnd_SDSPM.Prop_ContactFonctionEN = xVar(nd_Cont, "Cont_FonctionEN", "")
+		gnd_SDSPM.Prop_ContactTelephone = xVar(nd_Cont, "Cont_TelephoneFmt", "")
+		gnd_SDSPM.Prop_ContactCellulaire = xVar(nd_Cont, "Cont_Cellulaire", "")
+		gnd_SDSPM.Prop_ContactCourriel = xVar(nd_Cont, "Cont_Courriel", "")
+		
+		gnd_SDSPM.Cont_Nom = xVar(nd_Cont, "Cont_Contact", "")
+		gnd_SDSPM.Cont_Titre = xVar(nd_Cont, "Cont_Titre", "")
+		gnd_SDSPM.Cont_Fonction = xVar(nd_Cont, "Cont_Fonction", "")
+		gnd_SDSPM.Cont_FonctionFR = xVar(nd_Cont, "Cont_FonctionFR", "")
+		gnd_SDSPM.Cont_FonctionEN = xVar(nd_Cont, "Cont_FonctionEN", "")
+		gnd_SDSPM.Cont_Telephone = xVar(nd_Cont, "Cont_TelephoneFmt", "") 'xVar(nd_Clie, "Clie_Telephone", xVar(nd_Clie, "Clie_Telephone2", "")))
+		gnd_SDSPM.Cont_Cellulaire = xVar(nd_Cont, "Cont_Cellulaire", "")
+		gnd_SDSPM.Cont_Courriel = xVar(nd_Cont, "Cont_Courriel", "")
+		
+		gnd_SDSPM.PNav_MajContact = 0
+		gnd_SDSPM.PNav_MajNomContact = 0
+		
+		Call gnuid_SDSPM.Refresh
+		
+	End If
+	
+	Call gns_SIPJ.SetEnvironmentVar ("PJ_ContactUNID", "")  'Req# 55273
+	
+	Exit Sub
+	
+GererErreur:
+	'Reset gns_SIPJ.SetEnvironmentVar ("PJ_ContactUNID", "0")
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_InitialiserContactCCClient_SF"><lotusscript>Sub FPNav_InitialiserContactCCClient_SF(pnd_PNav As NotesDocument)
+	On Error GoTo GererErreur
+	
+	
+	Dim a_NomClientContacts As Variant
+	Dim a_NoClientContacts As Variant
+	Dim a_NoContacts As Variant
+	Dim a_NomContacts As Variant
+	Dim a_CourrielContacts As Variant	
+	Dim i As Integer
+	Dim v_NoContact As String
+
+	Dim v_MajContactCC As Integer
+	Dim v_AccountSF As SLSf_clObject
+	Dim v_ListContacts As Variant
+	Dim v_Resultat As Integer
+	Dim v_NoClientFmt As String
+	Dim v_NoOpportuniteSF As String
+	
+	If xVarProf("Prof_DesactiverSalesforceAPI", "") = "1" Then
+		Exit Sub
+	End If
+	
+	v_NoClientFmt = xVar(gnd_SDSPM, "Prop_ClientNoFmt" , "")
+	v_NoOpportuniteSF = xVar(gnd_SDSPM, "Prop_NoOpportuniteSF" , "")
+	
+	' Extraire l'opportunité de Salesforce
+	g_Resultat_FSFPP = FPNav_ExtraireOpportunite(v_NoOpportuniteSF, v_NoClientFmt)
+
+	If g_Resultat_FSFPP &lt; 0 Then
+		Exit Sub
+	Else
+		If Not gcl_SessionSLSf_FSFPP.Objects("Account") Is Nothing Then				
+			Set v_AccountSF = gcl_SessionSLSf_FSFPP.Objects("Account")
+		Else
+			Exit Sub
+		End if
+		
+	End If
+	
+	Call v_AccountSF.ExtraireEnfants("Contacts", "")
+	v_Resultat = v_AccountSF.NbEnfants("Contacts")
+	If v_Resultat &gt; 0 Then			
+		v_ListContacts = v_AccountSF.Enfants("Contacts")
+		
+		' Initialisations
+		v_MajContactCC = 0
+		
+		a_NoContacts = xVarArray(pnd_PNav, "Prop_NoContactsCCDsg")	
+		
+		If Not IsArray(a_NoContacts) Then
+			Exit Sub
+		End If
+		
+		ReDim a_NomClientContacts(UBound(a_NoContacts))
+		ReDim a_NoClientContacts(UBound(a_NoContacts))
+		ReDim a_NomContacts(UBound(a_NoContacts))
+		ReDim a_CourrielContacts(UBound(a_NoContacts))
+		
+		For i = 0 To UBound(a_NoContacts)
+			
+			v_NoContact = a_NoContacts(i)
+			If IsElement(v_ListContacts(v_NoContact)) Then
+				a_NomClientContacts(i) = v_AccountSF.ExtraireValeur("Name", "- - -")
+				a_NoClientContacts(i) = v_AccountSF.ExtraireValeur("Id", "- - -")
+				a_NomContacts(i) = v_ListContacts(v_NoContact).ExtraireValeur("Name", "- - -")
+				a_CourrielContacts(i) = v_ListContacts(v_NoContact).ExtraireValeur("Email","- - -")										
+			End If
+		Next
+		
+		pnd_PNav.Cont_NomClientContactsCCDsg = a_NomClientContacts
+		pnd_PNav.Cont_NoClientContactsCCDsg = a_NoClientContacts
+		pnd_PNav.Cont_ContactNomsCCDsg = a_NomContacts
+		pnd_PNav.Cont_ContactCourrielsCCDsg = a_CourrielContacts
+		
+		If xVarImplode(pnd_PNav, "Prop_NoClientContactsCCDsg", ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_NoClientContactsCCDsg", ";") _
+		Or xVarImplode(pnd_PNav, "Prop_NomClientContactsCCDsg", ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_NomClientContactsCCDsg", ";") _
+		Or xVarImplode(pnd_PNav, "Prop_ContactNomsCCDsg", ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_ContactNomsCCDsg", ";") _
+		Or xVarImplode(pnd_PNav, "Prop_ContactCourrielsCCDsg", ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_ContactCourrielsCCDsg", ";") Then
+			v_MajContactCC = 1
+		End If
+	End if
+	
+	pnd_PNav.PNav_MajContactCC = v_MajContactCC
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsSelectionnerContactCCManuel"><lotusscript>Sub FPNav_hsSelectionnerContactCCManuel(p_TypeSelection As String)
+	On Error GoTo GererErreur
+	
+	Dim a_PropContactNomsManCC As Variant
+	Dim a_PropContactCourrielsManCC As Variant
+	Dim a_ClesContact As Variant
+	Dim a As Variant	
+	Dim nd_DB As NotesDocument
+	Dim v_NomContact As String
+	Dim v_CourrielContact As String
+	Dim i As Integer	
+	
+	' Initialisations
+	Call SDSPM_Initialisations
+	
+	
+	If p_TypeSelection = "DB" Then
+		Set nd_DB = New NotesDocument(gndb_SDSPM)
+		
+		If Not gnuiws_SDSPM.DialogBox("DB_CCour", True, True, False, False, False, False, _
+		xGDK_xMessage("SDSPP", 175, "", ""), nd_DB, True, False, False) Then
+			Exit sub
+		End If
+		
+		v_NomContact = xVar(nd_DB, "DB_Nom", "")	
+		v_CourrielContact = xVar(nd_DB, "DB_Courriel", "")
+		
+	%REM
+					
+		'Validation du Nom Contact	#57932		
+		a = Evaluate(|@Explode("| &amp; v_NomContact &amp; |"; " ")|)
+		
+		If UBound(a) = 0 Then
+			'Invalid Contact name / Nom du contact est invalide
+			MessageBox xGDK_xMessage("SDSPP", 195 ,xLangue, v_NomContact), 16, xGDK_xMessage("SI", 1, xLangue, "")
+			
+			Exit Sub
+		End if 	
+	%END REM
+	End if
+	
+	
+	a_PropContactNomsManCC = xVarArray(gnd_SDSPM,"Prop_ContactNomsManCCDsg")
+	a_PropContactCourrielsManCC = xVarArray(gnd_SDSPM,"Prop_ContactCourrielsManCCDsg")
+	
+	If IsArray(a_PropContactNomsManCC) Then
+		
+		If IsNull(ArrayGetIndex(a_PropContactNomsManCC, v_NomContact)) Then				
+			a_PropContactNomsManCC = ArrayAppend(a_PropContactNomsManCC, v_NomContact)
+			a_PropContactCourrielsManCC = ArrayAppend(a_PropContactCourrielsManCC, v_CourrielContact)			
+		End If
+		
+		ReDim a_ClesContact(UBound(a_PropContactNomsManCC))
+		
+		'a_PropContactManCC = FullTrim(ArrayUnique(ArrayAppend(a_PropContactManCC, v_Courriel)))
+	Else
+		ReDim a_PropContactNomsManCC(0)
+		ReDim a_PropContactCourrielsManCC(0)
+		
+		ReDim a_ClesContact(0)
+		
+		a_PropContactNomsManCC(0) = v_NomContact
+		a_PropContactCourrielsManCC(0)= v_CourrielContact
+	End If
+	
+	For i = 0 To UBound(a_PropContactNomsManCC)
+		a_ClesContact(i) = a_PropContactNomsManCC(i) &amp; "~" &amp; a_PropContactCourrielsManCC(i)
+	Next
+	
+	Call TrierArray(a_ClesContact)
+	
+	For i = 0 To UBound(a_ClesContact)
+		a_PropContactNomsManCC(i) = StrToken(a_ClesContact(i), "~",1)
+		a_PropContactCourrielsManCC(i) = StrToken(a_ClesContact(i), "~",2)			
+	Next
+	
+	Call gnd_SDSPM.ReplaceItemValue("Prop_ContactNomsManCCDsg", a_PropContactNomsManCC)
+	Call gnd_SDSPM.ReplaceItemValue("Prop_ContactCourrielsManCCDsg", a_PropContactCourrielsManCC)
+	
+	'Call gnd_SDSPM.ReplaceItemValue("Prop_ContactCourrielsManCCDsg", a_PropContactManCC)		
+	Call gnuid_SDSPM.Refresh
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acImprimerPropositionSommaire"><lotusscript>Sub FPNav_acImprimerPropositionSommaire
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	g_AfficherErreurs_FPNav = True
+	On Error 4411 Goto FinSub
+	Call gnuid_SDSPM.Save
+	
+	Call SDSPM_acImprimerPropositionSommaire
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsMajNoClient"><lotusscript>Sub FPNav_hsMajNoClient
+	On Error GoTo GererErreur
+	
+	Dim nd_CliePJ As NotesDocument
+	Dim nd_SICl As NotesDocument
+	
+	Dim v_NoProposition As String
+	Dim v_UserName As String
+	Dim v_NoClientFmt As String
+	
+	Dim ws_Proposition As Cl_proposition
+	
+	' Initialisations
+	v_NoProposition = xVar(gnd_SDSPM, "Prop_NoProposition", "")
+	v_UserName = gns_SDSPM.UserName
+	
+	' Sélectionner un client
+	' ----------------------
+	Set nd_CliePJ = SIPJ_ndSelectionnerClient(xVar(gnd_Prop_SDSPM, "Prop_Origine", ""), xGDK_xMessage("SI", 79, "",""), True)
+	
+	If Not (nd_CliePJ Is Nothing) Then
+		
+		v_NoClientFmt = xVar(nd_CliePJ,"Clie_NoClientFmt","")
+		Set nd_SICl = xSICl_xndClie(v_NoClientFmt, False)
+		
+		If Not nd_SICl Is Nothing Then
+			
+			Set ws_Proposition = New Cl_proposition
+			If ws_Proposition.Majnoclientpropositionsdsp3(v_NoProposition, v_NoClientFmt, v_UserName) Then
+				gnd_SDSPM.SaveOptions = "0"
+				Call gnuid_SDSPN.Close
+				Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+			End If
+			
+		End If
+		
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_IniTypePropositionDisp"><lotusscript>Sub FPNav_IniTypePropositionDisp(pnd_PNav As NotesDocument)
+	On Error GoTo GererErreur
+	
+	Dim v_NoProjet As String
+	Dim nv As NotesView
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_CliePJ As NotesDocument
+	Dim v_Ajouter As Boolean
+	Dim ni_Disponibilite As NotesItem
+	Dim v_TypeProposition As String
+	Dim v_Origine As String
+	Dim v_DescDefautProposition As String
+	Dim v_ClientNoFmt As String
+	Dim v_NomGroupeClient As String
+	Dim ni_CleTypeProposition As NotesItem
+	Dim ni_DescTypeProposition As NotesItem
+	Dim ni_DescDefautProposition As NotesItem
+	Dim v_TypePropositionSF As String	
+	
+	v_NoProjet = xVar(pnd_PNav, "Prop_NoProjet", "")			
+	v_Origine = xVar(pnd_PNav, "Prop_Origine", "")
+	v_TypePropositionSF = xVar(pnd_PNav, "Prop_TypeProposition", "")
+	
+	Call xSDSBB_Initialisations
+	
+	Set nv = gndb_xSDSBB.GetView("V_TpPp20")
+	Set nd_Suivant = nv.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = nv.GetNextDocument(nd_Suivant)
+		v_Ajouter = True
+		
+		Set ni_Disponibilite = nd.GetFirstItem("TpPp_Disponibilite")
+		
+		If v_Origine &lt;&gt; "SF" Then
+			If ni_Disponibilite.Contains("PJ") And v_NoProjet = "" And xVar(pnd_PNav, "Prop_Origine", "") &lt;&gt; "SICl" Then
+				v_Ajouter = False
+			End If
+		Else
+			pnd_PNav.Prop_TypePropositionDescFR = xSDSBB_xVarTpPp(v_TypePropositionSF, "TpPp_DescTypePropositionFR", "", True)
+			pnd_PNav.Prop_TypePropositionDescEN = xSDSBB_xVarTpPp(v_TypePropositionSF, "TpPp_DescTypePropositionEN", "", True)
+		End If
+		
+		If v_Ajouter Then
+			
+			v_TypeProposition = xVar(nd, "TpPp_CleTypeProposition", "")
+			v_DescDefautProposition = xSDSBB_xVarTpPp(v_TypeProposition,"TpPp_DescDefautProposition" &amp; xLangue, _
+			xVar(pnd_PNav, "Prop_DescProposition", ""), True)
+			
+			'Remplacer signet "[NomGroupe]"					
+			If InStr(v_DescDefautProposition, "[NomGroupe]") &gt; 0 Then	
+				
+				' Selectionnez le doc de client           
+				If v_ClientNoFmt &lt;&gt; "" Then
+					Set nd_CliePJ = xPJ_xndClieSI(v_Origine, v_ClientNoFmt, True)	
+				End If
+				
+				If nd_CliePJ Is Nothing Then
+					Set nd_CliePJ = xPJ_xndClie(v_Origine, xVar(pnd_PNav, "Prop_ClientCleSitePrinc", ""), True)					
+				End If
+				
+				v_NomGroupeClient = xVar(nd_CliePJ, "Clie_NomGroupeClient", "")
+				
+				If v_NomGroupeClient &lt;&gt; "" Then
+					v_DescDefautProposition = Replace(v_DescDefautProposition, "[NomGroupe]", v_NomGroupeClient)
+				Else
+					v_DescDefautProposition = xSDSBB_xVarTpPp(v_TypeProposition,"TpPp_DescTypeProposition" &amp; xLangue, _
+					"", True)
+				End If
+				
+			End If			
+			
+			If ni_CleTypeProposition Is Nothing Then
+				
+				Call pnd_PNav.ReplaceItemValue("TpPp_CleTypeProposition_1", v_TypeProposition)
+				Set ni_CleTypeProposition = pnd_PNav.GetFirstItem("TpPp_CleTypeProposition_1")
+				Call pnd_PNav.ReplaceItemValue("TpPp_DescTypeProposition_1", _
+				xSDSBB_xVarTpPp(v_TypeProposition, "TpPp_DescTypeProposition" &amp; xLangue, "", True))
+				Set ni_DescTypeProposition = pnd_PNav.GetFirstItem("TpPp_DescTypeProposition_1")
+				
+				Call pnd_PNav.ReplaceItemValue("TpPp_DescDefautProposition_1",v_DescDefautProposition)
+				Set ni_DescDefautProposition = pnd_PNav.GetFirstItem("TpPp_DescDefautProposition_1")
+				
+			Else
+				Call ni_CleTypeProposition.AppendToTextList(v_TypeProposition)
+				Call ni_DescTypeProposition.AppendToTextList(xSDSBB_xVarTpPp(v_TypeProposition, _
+				"TpPp_DescTypeProposition" &amp; xLangue, "", True))
+				
+				Call ni_DescDefautProposition.AppendToTextList(v_DescDefautProposition)
+			End If
+			
+			
+		End If
+		
+	Loop
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acImprimerProposition"><lotusscript>Sub FPNav_acImprimerProposition
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	g_AfficherErreurs_FPNav = True
+	On Error 4411 Goto FinSub
+	Call gnuid_SDSPM.Save
+	
+	Call SDSPM_acImprimerProposition
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsRetirerContactCCManuel"><lotusscript>Sub FPNav_hsRetirerContactCCManuel
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	
+	Dim a_PropContactNomsManCC As Variant
+	Dim a_PropContactCourrielsManCC As Variant
+	Dim a_ChoixContacts As Variant
+	Dim v_Choix As Variant
+	Dim v_PosChoix As Variant
+	Dim i As Integer
+	
+	a_PropContactNomsManCC = xVarArray(gnd_SDSPM,"Prop_ContactNomsManCCDsg")
+	a_PropContactCourrielsManCC = xVarArray(gnd_SDSPM,"Prop_ContactCourrielsManCCDsg")
+	
+	ReDim a_ChoixContacts(UBound(a_PropContactNomsManCC))
+	
+	For i = 0 To UBound(a_PropContactNomsManCC)
+		a_ChoixContacts(i) = a_PropContactNomsManCC(i) &amp; "    " &amp; "    &lt;" &amp; a_PropContactCourrielsManCC(i) &amp; "&gt;"
+	Next
+	
+	' Demander l'utilisateur de choisir le candidat à retirer
+	v_Choix = nuiws.Prompt (PROMPT_OKCANCELLIST, xGDK_xMessage("SI", 198, "", ""),xGDK_xMessage("SI", 71, "", ""), "", a_ChoixContacts)
+	
+	If IsEmpty(v_Choix) Then
+		Exit Sub
+	End If
+	
+	v_PosChoix = ArrayGetIndex(a_ChoixContacts, v_Choix)
+	
+	If Not IsNull(v_PosChoix) Then
+		a_PropContactNomsManCC(v_PosChoix) = ""		
+		a_PropContactNomsManCC = RetirerArray(a_PropContactNomsManCC, "")
+		a_PropContactCourrielsManCC(v_PosChoix)= ""
+		a_PropContactCourrielsManCC = RetirerArray(a_PropContactCourrielsManCC, "")				
+	End If
+	
+	Call gnd_SDSPM.ReplaceItemValue("Prop_ContactNomsManCCDsg", a_PropContactNomsManCC)
+	Call gnd_SDSPM.ReplaceItemValue("Prop_ContactCourrielsManCCDsg",  a_PropContactCourrielsManCC)	
+	
+	Call gnuid_SDSPM.Refresh	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsMajContactCCClient"><lotusscript>Sub FPNav_hsMajContactCCClient
+	On Error GoTo GererErreur
+	
+	If Not FPNav_MajContactCCClient Then
+		Exit Sub
+	End If
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPM.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_SauvegarderDocument"><lotusscript>Function FPNav_SauvegarderDocument(p_ValiderDocument As Variant) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_NoOptionCourante As String
+	Dim v_NoOptionMax As String
+	Dim v_AfficherErreur As Boolean
+	Dim v_DocumentValide As Boolean
+	Dim v_ClientNoFmt As String
+	Dim nd_Clie As NotesDocument
+	Dim ndc_Sites As NotesDocumentCollection
+	Dim ndc_Prod As NotesDocumentCollection
+	Dim nv_Prod20 As NotesView
+	Dim v_RepresentantPrec As String
+	Dim v_Statut As String
+	Dim v_StatutDesc As String
+	Dim v_MajSecurite As Boolean
+	Dim v_Origine As String
+	
+	FPNav_SauvegarderDocument = False
+	If xVar(gnd_SDSPM, "PNav_EditMode", False) = False Then
+		FPNav_SauvegarderDocument = True	' Permet de passer à l'écran suivant
+		Exit Function
+	End If
+	
+	' Calculer les champs automatiques
+	On Error 4412 GoTo FinSub
+	Call gnuid_SDSPN.Refresh
+	On Error 4412 GoTo GererErreur
+	
+	' Valider le document courant
+	v_NoOptionCourante = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "0.00")
+	v_NoOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00")
+	If p_ValiderDocument = "" Then
+		v_DocumentValide = FPNav_DocumentValide(CInt(v_NoOptionCourante &lt; v_NoOptionMax))
+	Else
+		v_DocumentValide = FPNav_DocumentValide(CInt(p_ValiderDocument))
+	End If
+	If v_DocumentValide = False Then
+		If p_ValiderDocument = True Then
+			Call gnuid_SDSPN.Refresh
+			Exit Function
+		End If
+	End If
+	
+	v_Origine = xVar(gnd_SDSPM, "Prop_Origine", "")
+	' Nouvelle proposition
+	If xVar(gnd_SDSPM, "Prop_NoProposition", "") = "" Then
+		' Sélectionner le client de facturation
+		If v_Origine &lt;&gt; "SF" Then 
+			If Not FPNav_ndClientOrigine(gnd_SDSPM, nd_Clie, v_Origine, True) Then
+				Exit Function
+			End If
+		End If
+		
+		' Créer la proposition
+		If Not FPNav_CreerProposition(nd_Clie) Then
+			Exit Function
+		End If
+		
+		gnd_SDSPM.PNav_Titre = Trim("C" &amp; CStr(xVar(gnd_Prop_SDSPM, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(gnd_Prop_SDSPM, "Prop_ClientNomInterne", xVar(gnd_Prop_SDSPM, "Prop_ClientNom", "")))
+		gnd_SDSPM.Titre = Trim(xVar(gnd_SDSPM, "PNav_Titre", "") &amp; " - " &amp; xVar(gnd_SDSPM, "PNav_MenuDesc000", ""))
+		
+		'Call gnd_Prop_SDSPM.Save (True, False)
+		FPNav_SauvegarderDocument = True
+		Exit Function
+	End If
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp("") Then
+		Exit Function
+	End If
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientCleSitePrinc", "") Or FPNav_SauvegarderDocument
+	'FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientCleInitial", "") Or FPNav_SauvegarderDocument ' ne change jamais
+	
+	' Mettre à jour la proposition
+	
+	gnd_Prop_SDSPM.Description = xVar(gnd_SDSPM, "Prop_ClientNomInterne", "")
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_DescProposition", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoEquipe", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomEquipe", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoRepresentant", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomRepresentant", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_IdRepresentant", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoDirecteur", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomDirecteur", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_IdDirecteur", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoDirNational", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomDirNational", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_IdDirNational", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoDirMondial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomDirMondial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_IdDirMondial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_CommissionsRepresentant", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_CommissionsDirecteur", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_CommissionsDirNational", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_CommissionsDirMondial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_DeviseRepresentant", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_DeviseDirecteur", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_DeviseDirNational", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_DeviseDirMondial", "") Or FPNav_SauvegarderDocument
+	
+	v_MajSecurite = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NePasPartager", "")
+	FPNav_SauvegarderDocument = v_MajSecurite Or FPNav_SauvegarderDocument
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoOpportuniteSF", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNoSF", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoContactSF", "") Or FPNav_SauvegarderDocument	
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNoFmt", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNom", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomClientModifie", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomClientListe", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNomInterne", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomInterneListe", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomInterneModifie", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNomLegal", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomLegalListe", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomLegalModifie", "") Or FPNav_SauvegarderDocument
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientAdresse1", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientAdresse2", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientVille", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientProvince", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientPays", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientCodePostal", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientTelephone", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientTelephone2", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientTelecopieur", "") Or FPNav_SauvegarderDocument
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_Langue", "") Or FPNav_SauvegarderDocument
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientSDSWIN", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientMelin", "") Or FPNav_SauvegarderDocument
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoContact", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactNom", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactFonction", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactFonctionFR", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactFonctionEN", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactTitre", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactTelephone", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactCellulaire", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactCourriel", "") Or FPNav_SauvegarderDocument
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoContactsCCDsg", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactNomsCCDsg", "") Or FPNav_SauvegarderDocument	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoClientContactsCCDsg", "") Or FPNav_SauvegarderDocument	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactCourrielsCCDsg", "") Or FPNav_SauvegarderDocument	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomClientContactsCCDsg", "") Or FPNav_SauvegarderDocument	
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactNomsManCCDsg", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ContactCourrielsManCCDsg", "") Or FPNav_SauvegarderDocument
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoRepresentantCCOSSg", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NomRepresentantCCOSSg", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_CourrielRepresentantCCOSSg", "") Or FPNav_SauvegarderDocument
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_OrigineSiegeSocial", "") Or FPNav_SauvegarderDocument	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNoFmtSiegeSocialSF", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNoFmtSiegeSocial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNom1SiegeSocial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNom2SiegeSocial", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_ClientNomIntSiegeSocial", "") Or FPNav_SauvegarderDocument
+	
+	'FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_TauxContrat", "") Or FPNav_SauvegarderDocument
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NbSites", 0) Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_NoSites", "") Or FPNav_SauvegarderDocument
+	
+	If g_NoRep_FPNav &lt;&gt; xVar(gnd_Prop_SDSPM, "Prop_NoRepresentant", "") Then
+		
+		' Représentant précédent
+		v_RepresentantPrec = xSIRR_xVarRepr(CStr(g_NoRep_FPNav), "Repr_NomRepresentant", "", True)
+		
+		' Modifier les accès (sécurité)
+		' -----------------------------
+		Call SDSPP_AssignerSecurite(gnd_Prop_SDSPM, False)
+		v_MajSecurite = False
+		
+		' Mettre à jour l'historique de la proposition
+		' --------------------------------------------
+		v_Statut = xVar(gnd_SDSPM, "Prop_Statut" , "")
+		v_StatutDesc = xDescTabl(v_Statut, "Prop_Statut_" &amp; xSIRR_xVarRepr(xVar(gnd_SDSPM, "Prop_NoRepresentant", ""), "Repr_Langue", "FR", True), True)
+		v_RepresentantPrec = xSIRR_xVarRepr(g_NoRep_FPNav, "Repr_NomRepresentant", "", True)
+		
+		If SIHi_Ajouter(gnd_Prop_SDSPM, v_Statut &amp; "-" &amp; v_StatutDesc, "*Action : " &amp; _
+		"Représentant remplaçé  /  Sales rep. replaced (" &amp; v_RepresentantPrec &amp; ")", "", False) Then
+			
+			' Mettre à jour l'historique de la proposition
+			' --------------------------------------------
+			Call SIHi_BatirHistorique(gnd_Prop_SDSPM)
+			
+			g_NoRep_FPNav = xVar(gnd_Prop_SDSPM, "Prop_NoRepresentant", "")
+		End If
+		
+	End If
+	
+	If xVar(gnd_SDSPM, "Prop_ClientNomLegal", "") &lt;&gt; xVar(gnd_SDSPM, "Clie_NomLegal", "") Then
+		gnd_SDSPM.PNav_MajNomClient = 1
+	Else
+		If xVar(gnd_SDSPM, "Prop_ClientNomLegal", "") = xVar(gnd_SDSPM, "Prop_NomLegalListe", "") Then
+			gnd_SDSPM.PNav_MajNomClient = 0
+			gnd_SDSPM.Prop_NomLegalModifie = "0"
+		End If
+	End If
+	
+	%REM
+	If xVar(gnd_SDSPM, "Prop_ClientNoFmt", "") &lt;&gt; "" Then
+		gnd_SDSPM.Prop_ClientNomInterne = xVar(gnd_SDSPM, "Clie_ClientNomInterne", "")
+	Else
+		gnd_SDSPM.Prop_ClientNom = xVar(gnd_SDSPM, "Clie_ClientNom", "")
+	End If
+	%END REM
+	
+	If xVar(gnd_SDSPM, "Prop_ClientNoFmt", "") &lt;&gt; "" Then
+		REM If xSDSP3_xVarSite(xVarElem(gnd_Prop_SDSPM, "Prop_NoSites", 0 , ""), "Site_ClientNomInterne","", True) &lt;&gt; xVar(gnd_SDSPM, "Clie_ClientNomInterne", "") Then
+		If xVar(gnd_SDSPM, "Prop_ClientNomInterne", "") &lt;&gt; xVar(gnd_SDSPM, "Clie_ClientNomInterne", "") Then
+			gnd_SDSPM.PNav_MajNomClient = 1
+		Else
+			If xVar(gnd_SDSPM, "Prop_ClientNomInterne", "") = xVar(gnd_SDSPM, "Prop_NomInterneListe", "") Then
+				gnd_SDSPM.PNav_MajNomClient = 0
+			End If
+		End If
+		If xVar(gnd_SDSPM, "Prop_ClientNomInterne", "") = xVar(gnd_SDSPM, "Prop_NomInterneListe", "") Then
+			gnd_SDSPM.Prop_NomInterneModifie = "0"
+		End If
+		
+		If xVar(gnd_SDSPM, "Prop_ClientNoFmt", "") &lt;&gt; xVar(gnd_SDSPM, "Clie_NoClientFmt", "") Then
+			gnd_SDSPM.PNav_MajNomClient = 1
+		Else
+			gnd_SDSPM.PNav_MajNomClient = 0
+			
+		End If
+		
+	Else
+		If xVar(gnd_SDSPM, "Prop_ClientNom", "") &lt;&gt; xVar(gnd_SDSPM, "Clie_ClientNom", "") Then
+			gnd_SDSPM.PNav_MajNomClient = 1
+		Else
+			If xVar(gnd_SDSPM, "Prop_ClientNom", "") = xVar(gnd_SDSPM, "Prop_NomClientListe", "") Then
+				gnd_SDSPM.PNav_MajNomClient = 0
+				gnd_SDSPM.Prop_NomClientModifie = "0"
+			End If
+		End If
+	End If
+	
+	If v_MajSecurite Then
+		Call SDSPP_AssignerSecurite(gnd_Prop_SDSPM, False)
+	End If
+	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "PNav_MenuOptionMax", "") Or FPNav_SauvegarderDocument
+	
+	If FPNav_SauvegarderDocument Then
+		gnd_Prop_SDSPM.HistoDM = Now
+		gnd_Prop_SDSPM.HistoUM = gns_SDSPM.UserName
+		Call gnd_Prop_SDSPM.Save(True, False)
+	End If
+	
+	Call gnuid_SDSPM.Refresh
+	
+	FPNav_SauvegarderDocument = True
+	
+FinSub:
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="FPNav_hsSelectionnerContact"><lotusscript>Sub FPNav_hsSelectionnerContact
+	On Error GoTo GererErreur
+	
+	Dim v_Origine As String
+	Dim v_ClientNoSF As String
+	
+	v_Origine = xVar(gnd_SDSPM, "Prop_Origine", "")
+	v_ClientNoSF = xVar(gnd_SDSPM, "Prop_ClientNoSF", "")
+	'If v_Origine = "SF" And xVarProf("Prof_DesactiverSalesforceAPI", "") &lt;&gt; "1" Then	
+	If v_ClientNoSF &lt;&gt; "" And xVarProf("Prof_DesactiverSalesforceAPI", "") &lt;&gt; "1" Then
+		Call FPNav_hsSelectionnerContactKLSF
+	Else
+		Call FPNav_SelectionnerContact_SICo
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsNomLegalModifiable"><lotusscript>Function FPNav_hsNomLegalModifiable
+	On Error GoTo GererErreur
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_NomLegalModifie", "1")
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_NomLegalListe", xVar(gnd_SDSPM, "Prop_ClientNomLegal", ""))
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPM.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_hsSelectionnerContactGroupeClient"><lotusscript>Sub FPNav_hsSelectionnerContactGroupeClient
+	On Error GoTo GererErreur
+	
+
+	Call FPNav_SelectionnerContactGroupeClient_SF()
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+
+</lotusscript></code><code event="FPNav_PostOpen"><lotusscript>Sub FPNav_PostOpen(pnuid_Source As Notesuidocument)
+	On Error Goto GererErreur
+	
+	Dim nrti As NotesRichTextItem
+	
+	' Initialisations
+	Call SDSPN_Initialisations	' Navigation dans les menus
+	Call SDSPM_Initialisations	' Masque
+	
+	' Calculer la longueur du champ Prop_DescDetaillee (RichText) à l'affichage, et le contenu du texte 
+	If gnd_SDSPM.HasItem("Prop_DescDetaillee") Then
+		Set nrti = gnd_SDSPM.GetFirstItem("Prop_DescDetaillee")
+		g_LongueurRT_FPNav = nrti.Valuelength
+		g_TexteRT_FPNav = nrti.text
+	Else
+		g_LongueurRT_FPNav = 0
+		g_TexteRT_FPNav = ""
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsOuvrirBonCommande_x"><lotusscript>Sub FPNav_hsOuvrirBonCommande_x
+	On Error GoTo GererErreur
+	
+	Dim nd_BCom As NotesDocument
+	Dim ndc_BCom As NotesDocumentCollection
+	Dim nuid As NotesUIDocument
+	Dim nv_BCom As NotesView	
+	Dim v_Query As String		
+	Dim v_Cle As String
+	
+	'Initialisations
+	Call xSIBDC2_Initialisations
+	
+	v_Cle = xVar(gnd_SDSPM, "Prop_NoProposition", 0)
+	
+	' Sélectionner le bon de commande
+	' -------------------------------	
+	Set ndc_BCom = xSIBDC2_xndcBCom(v_Cle)
+	
+	If ndc_BCom.count = 0 Then			
+		Exit Sub
+	ElseIf  ndc_BCom.count = 1 Then
+		
+		Set nd_BCom = ndc_BCom.getfirstDocument
+		
+	ElseIf ndc_BCom.count &gt; 1 Then
+		
+		'si count plus que 1 afficher prompt
+		Set nv_BCom = gndb_xSIBDC2.GetView("V_BCom20")	
+		
+		v_Query = |FIELD BCom_OrigineCle CONTAINS "| &amp; v_Cle &amp; |"|
+		Set nd_BCom = SISe_ndSelectionnerDocument(v_Query, "", SISe_NOPROMPT, nv_BCom,|BCom_NoBonCommandeFmt + 
+	"  /  " + BCom_ClientNoFmt + " - " + @if(BCom_SaisirAdresse = "L";BCom_LivrNom1;BCom_ClientNomInterne)|, xGDK_xMessage("SDSPP", 181, "", ""), "", False)
+		' 181: Sélectionnez un bon de commande dans la liste ci-dessous.	End If
+	End if
+	
+	If nd_BCom Is Nothing Then
+		Exit Sub
+	End If
+	
+	' Ouvrir le document
+	' ------------------
+	Set nuid = gnuiws_SDSPN.EditDocument( False , nd_BCom)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsNomInterneNonModifiable"><lotusscript>Function FPNav_hsNomInterneNonModifiable
+	On Error GoTo GererErreur
+	
+	Dim nd_Proj As NotesDocument
+	Dim nd_Clie As NotesDocument
+	
+	Dim v_Origine As String
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_NomInterneModifie", "0")
+	
+	v_Origine = xVar(gnd_SDSPM, "Prop_Origine", "")
+	If v_Origine = "SF" Then
+		Exit Function
+	End If
+	
+	If v_Origine &lt;&gt; "SICl" Then
+		Set nd_Proj = xPJ_xndProj(v_Origine, xVar(gnd_SDSPM, "Prop_NoProjet", ""), True)
+		
+		If Not nd_Proj Is Nothing Then
+			Set nd_Clie = xPJ_xndClie(v_Origine, xVar(nd_Proj, "Clie_NoClient", ""), True)
+		End If
+	Else
+		Set nd_Clie = xSICl_xndClie(xVar(gnd_SDSPM, "Prop_ClientNoFmt", ""), False)
+	End If
+	
+	If Not nd_Clie Is Nothing Then
+		
+		Call gnd_SDSPM.ReplaceItemValue( "Prop_ClientNomInterne", xVar(nd_Clie, "Clie_ClientNomInterne", ""))
+		
+		If xVar(gnd_SDSPM, "Prop_ClientNomLegal", "") = xVar(gnd_SDSPM, "Clie_NomLegal", "") Then
+			Call gnd_SDSPM.ReplaceItemValue( "PNav_MajNomClient", 0)
+		Else
+			Call gnd_SDSPM.ReplaceItemValue( "PNav_MajNomClient", 1)
+		End If
+		
+		Call gnuid_SDSPM.RefreshHideFormulas
+		Call gnuid_SDSPM.Refresh
+		
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_acWorkflow"><lotusscript>Sub FPNav_acWorkflow(p_Statut As String)
+	On Error GoTo GererErreur
+	
+	If SDSPM_acWorkflow(p_Statut) Then
+		
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		' Ouvrir le masque	
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		
+		gnd_SDSPM.PNav_Titre =  Trim("C" &amp; CStr(xVar(gnd_Prop_SDSPM, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(gnd_Prop_SDSPM, "Prop_ClientNomInterne", xVar(gnd_Prop_SDSPM, "Prop_ClientNom", "")))
+		gnd_SDSPM.Titre =  Trim(xVar(gnd_SDSPM, "PNav_Titre", "") &amp; " - " &amp; xVar(gnd_SDSPM, "PNav_MenuDesc000", ""))
+		
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbProposition", xVar(gnd_Prop_SDSPM, "Prop_NbProposition", 0))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionFmt", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionFmt", ""))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionPrefixe", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionPrefixe", ""))		
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+		
+		Call gnuid_SDSPN.Refresh
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsNomInterneModifiable"><lotusscript>Function FPNav_hsNomInterneModifiable
+	On Error GoTo GererErreur
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_NomInterneModifie", "1")
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_NomInterneListe", xVar(gnd_SDSPM, "Prop_ClientNomInterne", ""))
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPM.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_SelectionnerContactGroupeClient_SF"><lotusscript>Sub FPNav_SelectionnerContactGroupeClient_SF()
+	' ---------------------------------------------------------------------------------
+	' Le script perment de sélectionner les contacts du groupe client dans Projeto
+	' ---------------------------------------------------------------------------------
+	On Error GoTo GererErreur	
+	
+	Dim v_NoOpportunite As String
+	Dim v_Resultat As Integer
+	Dim v_AccountId As String
+	Dim v_ContenuesContacts As Variant
+	
+	Dim v_contactID As String
+	Dim v_ListContacts As Variant
+	Dim v_AccountSF As SLSf_clObject
+	Dim v_Choix As Variant
+	
+	Dim a_ClesContacts As Variant
+	Dim a_ChoixContacts As Variant
+	Dim a_TriCles As Variant
+	Dim a_TriChoix As Variant
+
+	Dim v_contactsCount As Long
+	Dim v_PosChoix As Long
+	
+	Dim v_idChoix As String
+	Dim v_ConnectID As String
+	Dim v_NoOpportuniteSF As String
+	Dim v_LigneChoixContact As String
+	Dim v_ContactTitle As String
+	
+	Dim v_ContactItems As String
+	Dim v_ContactOwn As String
+	Dim v_ContactSign As String
+	Dim v_ContactEmail As String
+	
+	Dim v_ID As String
+	Dim a_Cles() As String
+	Dim a_Choix() As String
+	Dim v_Count As Long	
+
+	Dim a_PropNoContacts As Variant
+	Dim a_PropNoClientsContacts As Variant
+	Dim a_PropContactNoms As Variant
+	Dim a_PropContactCourriels As Variant
+	Dim a_PropContactSansCourriel As Variant
+	Dim a_PropNomClientContacts As Variant
+	
+	Dim v_ClientNoFmt As String
+	Dim v_NoContact As String
+	Dim v_NoClientContact As String
+	Dim v_NomContact As String
+	Dim v_CourrielContact As String
+	Dim v_NomClientContact As String
+	Dim i As Integer 
+	Dim v_NoClientFmt As String	
+	
+	
+	' Initialisations
+	Call SISe_Initialisations
+	
+	v_NoOpportunite = xVar(gnd_SDSPM, "Prop_NoOpportuniteSF" , "")
+	v_NoClientFmt = xVar(gnd_SDSPM, "Prop_ClientNoFmt" , "")
+	
+	' Extraire l'opportunité de Salesforce
+	g_Resultat_FSFPP = FPNav_ExtraireOpportunite(v_NoOpportunite, v_NoClientFmt)
+	
+
+	If g_Resultat_FSFPP &lt; 0 Then
+		Exit Sub
+	Else
+		Set v_AccountSF = gcl_SessionSLSf_FSFPP.Objects("Account")
+		' Extraire les contacts
+		Call gcl_SessionSLSf_FSFPP.Objects("Account").ExtraireEnfants("Contacts", "")
+		
+		v_Resultat = gcl_SessionSLSf_FSFPP.Objects("Account").NbEnfants("Contacts")
+		If v_Resultat &gt; 0 Then
+			v_contactsCount = 0
+			ReDim a_ChoixContacts(v_Resultat-1)
+			ReDim a_ClesContacts(v_Resultat-1)
+			ReDim a_TriChoix(v_Resultat-1)
+			ReDim a_TriCles(v_Resultat-1)	
+			
+			ReDim a_PropContactSansCourriel(v_Resultat -1)
+			i = 0
+			
+			v_ListContacts = gcl_SessionSLSf_FSFPP.Objects("Account").Enfants("Contacts")
+
+			ForAll contact In v_ListContacts
+				v_ContactItems = ""
+				v_contactID = contact.Contenu("Id")							
+				a_ClesContacts(v_contactsCount)  = contact.Contenu("Id")					
+				
+				v_LigneChoixContact =  contact.ExtraireValeur("Name", "") 
+				a_TriChoix(v_contactsCount)  = v_LigneChoixContact
+				a_TriCles(v_contactsCount)  = v_LigneChoixContact
+				
+				v_ContactTitle = contact.ExtraireValeur("Title", "")
+				If v_ContactTitle &lt;&gt; "" Then
+					v_LigneChoixContact = v_LigneChoixContact &amp;  ", " &amp; v_ContactTitle
+				End If	
+				
+				v_ContactOwn = contact.ExtraireValeur("Owner__c", "0")
+				If v_ContactOwn = "True" Then
+					If v_ContactItems = "" Then
+						v_ContactItems = v_ContactItems &amp; "OWN" 
+					End If							
+				End If							
+				
+				v_ContactSign = contact.ExtraireValeur("Authorised_Signatory__c", "0")
+				If v_ContactSign = "True" Then
+					If v_ContactItems = "" Then
+						v_ContactItems = v_ContactItems &amp; "SIGN" 
+					Else
+						v_ContactItems = v_ContactItems &amp; "+SIGN" 
+					End If						
+				End If	
+				
+				v_ContactEmail = contact.ExtraireValeur("Email", "")
+				If v_ContactEmail &lt;&gt; "" Then							
+					If v_ContactItems = "" Then
+						v_ContactItems = v_ContactItems &amp; "EMAIL" 
+					Else
+						v_ContactItems = v_ContactItems &amp; "+EMAIL" 
+					End If		
+				End If
+				
+				If v_ContactItems &lt;&gt; "" Then
+					v_ContactItems = " (" &amp; v_ContactItems &amp; ")"
+				End If
+				
+				v_LigneChoixContact = v_LigneChoixContact &amp; v_ContactItems
+				a_ChoixContacts(v_contactsCount)  = v_LigneChoixContact
+				
+				v_contactsCount = v_contactsCount +1							
+			End ForAll					
+			
+			Call Trier2Arrays(a_TriCles, a_ClesContacts)
+			Call Trier2Arrays(a_TriChoix, a_ChoixContacts)	
+
+			v_Choix = gnuiws_SDSPM.Prompt (PROMPT_OKCANCELLISTMULT, xGDK_xMessage("SI", 198, "", ""),xGDK_xMessage("SI", 86, "", ""), "", a_ChoixContacts)					
+			
+			If IsEmpty(v_Choix) Then
+				Exit Sub
+			End If
+			
+			a_PropNoClientsContacts = xVarArray(gnd_SDSPM,"Prop_NoClientContactsCCDsg")
+			a_PropNoContacts = xVarArray(gnd_SDSPM,"Prop_NoContactsCCDsg")
+			a_PropContactNoms = xVarArray(gnd_SDSPM,"Prop_ContactNomsCCDsg")
+			a_PropContactCourriels = xVarArray(gnd_SDSPM,"Prop_ContactCourrielsCCDsg")
+			a_PropNomClientContacts = xVarArray(gnd_SDSPM,"Prop_NomClientContactsCCDsg")
+			
+			ForAll idChoix In v_Choix
+				
+				v_PosChoix = ArrayGetIndex(a_ChoixContacts, idChoix)
+				v_idChoix = a_ClesContacts(v_PosChoix)
+
+				v_NomContact = v_ListContacts(v_idChoix).ExtraireValeur("Name", "")
+				v_CourrielContact = v_ListContacts(v_idChoix).ExtraireValeur("Email","")				
+				
+				If v_CourrielContact &lt;&gt; "" Then
+					
+					v_NoContact = v_ListContacts(v_idChoix).ExtraireValeur("Id", "")	
+					v_NomClientContact = v_AccountSF.ExtraireValeur("Name", "")
+					v_NoClientContact = v_AccountSF.ExtraireValeur("Id", "- - -")				
+					
+					If IsArray(a_PropNoContacts) Then
+						If IsNull(ArrayGetIndex(a_PropNoContacts, v_NoContact)) Then
+							a_PropNoContacts = ArrayAppend(a_PropNoContacts,v_NoContact)
+							a_PropContactNoms = ArrayAppend(a_PropContactNoms,v_NomContact)
+							a_PropContactCourriels = ArrayAppend(a_PropContactCourriels,v_CourrielContact)
+							a_PropNoClientsContacts = ArrayAppend(a_PropNoClientsContacts, v_NoClientContact)	
+							a_PropNomClientContacts = ArrayAppend(a_PropNomClientContacts, v_NomClientContact) 				
+						End If
+					Else
+						ReDim a_PropNoContacts(0)
+						ReDim a_PropContactNoms(0)
+						ReDim a_PropContactCourriels(0)
+						ReDim a_PropNoClientsContacts(0)
+						ReDim a_PropNomClientContacts(0)
+						
+						a_PropNoContacts(0) = v_NoContact
+						a_PropContactNoms(0)= v_NomContact
+						a_PropContactCourriels(0) = v_CourrielContact
+						a_PropNoClientsContacts(0) = v_NoClientContact 
+						a_PropNomClientContacts(0) = v_NomClientContact
+					End If
+					
+				Else
+					a_PropContactSansCourriel(i) = v_NomContact
+					i = i + 1
+				End If
+				
+			End ForAll
+			
+		End If		
+		
+	End If	
+	
+	a_PropContactSansCourriel = FullTrim(a_PropContactSansCourriel)
+	
+	If IsArray(a_PropNoContacts) Then
+		
+		ReDim a_ClesContact(UBound(a_PropNoContacts))
+		
+		For i = 0 To UBound(a_PropNoContacts)
+			a_ClesContact(i) = a_PropNomClientContacts(i) &amp; "~" &amp; a_PropContactNoms(i)&amp; "~" &amp; a_PropContactCourriels(i)&amp; "~" &amp; a_PropNoContacts(i)&amp; "~" &amp; a_PropNoClientsContacts(i)
+		Next
+		
+		Call TrierArray(a_ClesContact)					
+		
+		For i = 0 To UBound(a_ClesContact)							
+			a_PropNomClientContacts(i) = StrToken(a_ClesContact(i), "~",1)
+			a_PropContactNoms(i) = StrToken(a_ClesContact(i), "~",2)
+			a_PropContactCourriels(i) = StrToken(a_ClesContact(i), "~",3)				
+			a_PropNoContacts(i) = StrToken(a_ClesContact(i), "~",4)
+			a_PropNoClientsContacts(i) = StrToken(a_ClesContact(i), "~",5)
+		Next
+		
+		Call gnd_SDSPM.ReplaceItemValue("Prop_NoContactsCCDsg", a_PropNoContacts)
+		Call gnd_SDSPM.ReplaceItemValue("Prop_NoClientContactsCCDsg", a_PropNoClientsContacts)
+		Call gnd_SDSPM.ReplaceItemValue("Prop_ContactNomsCCDsg", a_PropContactNoms)
+		Call gnd_SDSPM.ReplaceItemValue("Prop_ContactCourrielsCCDsg", a_PropContactCourriels)
+		Call gnd_SDSPM.ReplaceItemValue("Prop_NomClientContactsCCDsg", a_PropNomClientContacts)
+		
+	End If		
+	
+	Call FPNav_InitialiserContactCCClient_SF(gnd_SDSPM)		
+	Call gnuid_SDSPM.Refresh			
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_acPartagerProposition"><lotusscript>Sub FPNav_acPartagerProposition(p_Partager As String)
+	On Error Goto GererErreur
+	
+	gnd_SDSPM.Prop_NePasPartager = p_Partager
+	
+	Call gnuid_SDSPM.Refresh
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsRetirerContactGroupeClient"><lotusscript>Sub FPNav_hsRetirerContactGroupeClient
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim v_Choix As Variant
+	Dim v_PosChoix As Variant
+	Dim a_ChoixContacts As Variant
+	
+	Dim a_PropNoClientsContactsCCDsg As Variant
+	Dim a_PropNoContactsCCDsg As Variant	
+	Dim a_PropContactNomsCCDsg As Variant
+	Dim a_PropContactCourrielsCCDsg As Variant
+	Dim a_PropNomClientContactsCCDsg As Variant
+	
+	Dim a_ContNoClientsContactsCCDsg As Variant	
+	Dim a_ContContactNomsCCDsg As Variant
+	Dim a_ContContactCourrielsCCDsg As Variant
+	Dim a_ContNomClientContactsCCDsg As Variant
+	
+	Dim i As Integer
+	
+	a_PropNoClientsContactsCCDsg = xVarArray(gnd_SDSPM,"Prop_NoClientContactsCCDsg")
+	a_PropNoContactsCCDsg = xVarArray(gnd_SDSPM,"Prop_NoContactsCCDsg")
+	a_PropContactNomsCCDsg = xVarArray(gnd_SDSPM,"Prop_ContactNomsCCDsg")
+	a_PropContactCourrielsCCDsg = xVarArray(gnd_SDSPM,"Prop_ContactCourrielsCCDsg")
+	a_PropNomClientContactsCCDsg = xVarArray(gnd_SDSPM,"Prop_NomClientContactsCCDsg")
+	
+	a_ContNoClientsContactsCCDsg = xVarArray(gnd_SDSPM,"Cont_NoClientContactsCCDsg")	
+	a_ContContactNomsCCDsg = xVarArray(gnd_SDSPM,"Cont_ContactNomsCCDsg")
+	a_ContContactCourrielsCCDsg = xVarArray(gnd_SDSPM,"Cont_ContactCourrielsCCDsg")
+	a_ContNomClientContactsCCDsg = xVarArray(gnd_SDSPM,"Cont_NomClientContactsCCDsg")
+	
+	ReDim a_ChoixContacts(UBound(a_PropNoClientsContactsCCDsg))
+	
+	For i = 0 To UBound(a_PropNoClientsContactsCCDsg)
+		a_ChoixContacts(i) = a_PropNomClientContactsCCDsg(i) &amp; "    " &amp; a_PropContactNomsCCDsg(i) &amp; "    &lt;" &amp; a_PropContactCourrielsCCDsg(i) &amp; "&gt;"
+	Next
+	
+	' Demander l'utilisateur de choisir le candidat à retirer
+	v_Choix = nuiws.Prompt (PROMPT_OKCANCELLIST, xGDK_xMessage("SI", 198, "", ""),xGDK_xMessage("SI", 71, "", ""), "", a_ChoixContacts)
+	
+	If IsEmpty(v_Choix) Then
+		Exit Sub
+	End If
+	
+	v_PosChoix = ArrayGetIndex(a_ChoixContacts, v_Choix)
+	
+	If Not IsNull(v_PosChoix) Then
+		a_PropNoClientsContactsCCDsg(v_PosChoix) = ""		
+		a_PropNoClientsContactsCCDsg = RetirerArray(a_PropNoClientsContactsCCDsg, "")
+		a_PropNoContactsCCDsg(v_PosChoix)= ""
+		a_PropNoContactsCCDsg = RetirerArray(a_PropNoContactsCCDsg, "")
+		a_PropContactNomsCCDsg(v_PosChoix)= ""
+		a_PropContactNomsCCDsg = RetirerArray(a_PropContactNomsCCDsg, "")
+		a_PropContactCourrielsCCDsg(v_PosChoix) = ""
+		a_PropContactCourrielsCCDsg = RetirerArray(a_PropContactCourrielsCCDsg, "")
+		a_PropNomClientContactsCCDsg(v_PosChoix) = ""
+		a_PropNomClientContactsCCDsg = RetirerArray(a_PropNomClientContactsCCDsg, "")	
+		
+		a_ContNoClientsContactsCCDsg(v_PosChoix) = ""		
+		a_ContNoClientsContactsCCDsg = RetirerArray(a_ContNoClientsContactsCCDsg, "")
+		'a_ContNoContactsCCDsg(v_PosChoix)= ""
+		'a_ContNoContactsCCDsg = RetirerArray(a_ContNoContactsCCDsg, "")
+		a_ContContactNomsCCDsg(v_PosChoix)= ""
+		a_ContContactNomsCCDsg = RetirerArray(a_ContContactNomsCCDsg, "")
+		a_ContContactCourrielsCCDsg(v_PosChoix) = ""
+		a_ContContactCourrielsCCDsg = RetirerArray(a_ContContactCourrielsCCDsg, "")
+		a_ContNomClientContactsCCDsg(v_PosChoix) = ""
+		a_ContNomClientContactsCCDsg = RetirerArray(a_ContNomClientContactsCCDsg, "")
+		
+	End If
+	
+	Call gnd_SDSPM.ReplaceItemValue("Prop_NoContactsCCDsg", a_PropNoContactsCCDsg)
+	Call gnd_SDSPM.ReplaceItemValue("Prop_ContactNomsCCDsg",  a_PropContactNomsCCDsg)
+	Call gnd_SDSPM.ReplaceItemValue("Prop_ContactCourrielsCCDsg",  a_PropContactCourrielsCCDsg)
+	Call gnd_SDSPM.ReplaceItemValue("Prop_NoClientContactsCCDsg",  a_PropNoClientsContactsCCDsg)
+	Call gnd_SDSPM.ReplaceItemValue("Prop_NomClientContactsCCDsg", a_PropNomClientContactsCCDsg)
+	
+	'Call gnd_SDSPM.ReplaceItemValue("Cont_NoContactsCCDsg", a_ContNoContactsCCDsg)
+	Call gnd_SDSPM.ReplaceItemValue("Cont_ContactNomsCCDsg",  a_ContContactNomsCCDsg)
+	Call gnd_SDSPM.ReplaceItemValue("Cont_ContactCourrielsCCDsg",  a_ContContactCourrielsCCDsg)
+	Call gnd_SDSPM.ReplaceItemValue("Cont_NoClientContactsCCDsg",  a_ContNoClientsContactsCCDsg)
+	Call gnd_SDSPM.ReplaceItemValue("Cont_NomClientContactsCCDsg", a_ContNomClientContactsCCDsg)
+	
+	
+	If xVarImplode(gnd_SDSPM, "Prop_NoClientContactsCCDsg", ";") = xVarImplode(gnd_SDSPM, "Cont_NoClientContactsCCDsg", ";") _
+	And xVarImplode(gnd_SDSPM, "Prop_NomClientContactsCCDsg", ";") = xVarImplode(gnd_SDSPM, "Cont_NomClientContactsCCDsg", ";") _
+	And xVarImplode(gnd_SDSPM, "Prop_ContactNomsCCDsg", ";") = xVarImplode(gnd_SDSPM, "Cont_ContactNomsCCDsg", ";") _
+	And xVarImplode(gnd_SDSPM, "Prop_ContactCourrielsCCDsg", ";") = xVarImplode(gnd_SDSPM, "Cont_ContactCourrielsCCDsg", ";") Then
+		gnd_SDSPM.PNav_MajContactCC = 0
+	End If
+	
+	
+	Call gnuid_SDSPM.Refresh	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsAfficherClient"><lotusscript>Sub FPNav_hsAfficherClient
+	On Error GoTo GererErreur
+	
+	Dim v_Origine As String
+	Dim nd As NotesDocument
+
+	v_Origine= xVar(gnd_SDSPM, "Prop_Origine", "")
+	If v_Origine &lt;&gt; "SF" Then
+		If FPNav_ndClientOrigine(gnd_SDSPM, nd, v_Origine, True) Then
+			Call gnuiws_SDSPM.EditDocument(False, nd)
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_MajAdresseSiteClient"><lotusscript>Sub FPNav_MajAdresseSiteClient(pnd_Clie As NotesDocument, pnd_Site As NotesDocument, p_Origine As String)
+	On Error Goto GererErreur
+	
+	If p_Origine = "SICl" Then
+		pnd_Site.Site_ClientAdresse1 = xVar(pnd_Clie, "Clie_ClientAdresse1", "")
+		pnd_Site.Site_ClientAdresse2 = xVar(pnd_Clie, "Clie_ClientAdresse2", "")
+		pnd_Site.Site_ClientVille = xVar(pnd_Clie, "Clie_ClientVille", "")
+		pnd_Site.Site_ClientProvince = xVar(pnd_Clie, "Clie_ClientProvince", "")
+		pnd_Site.Site_ClientPays = xVar(pnd_Clie, "Clie_ClientPays", "")
+		pnd_Site.Site_ClientCodePostal = xVar(pnd_Clie, "Clie_ClientCodePostal", "")
+	ElseIf p_Origine &lt;&gt; "SF" Then
+		pnd_Site.Site_ClientAdresse1 = xVar(pnd_Clie, "Clie_Adresse1", "")
+		pnd_Site.Site_ClientAdresse2 = xVar(pnd_Clie, "Clie_Adresse2", "")
+		pnd_Site.Site_ClientVille = xVar(pnd_Clie, "Clie_Ville", "")
+		pnd_Site.Site_ClientProvince = xVar(pnd_Clie, "Clie_Province", "")
+		pnd_Site.Site_ClientPays = xVar(pnd_Clie, "Clie_Pays", "")
+		pnd_Site.Site_ClientCodePostal = xVar(pnd_Clie, "Clie_CodePostal", "")
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsRetirerContactClient"><lotusscript>Sub FPNav_hsRetirerContactClient
+	'#58183 MZE
+	
+	On Error GoTo GererErreur
+	
+	gnd_SDSPM.Prop_NoContact = ""
+	gnd_SDSPM.Prop_NoContactSF = ""
+	gnd_SDSPM.Prop_ContactNom = ""	
+	
+	gnd_SDSPM.Prop_ContactTitre = "" 	
+	
+	gnd_SDSPM.Prop_ContactFonction = ""
+	gnd_SDSPM.Prop_ContactFonctionFR = ""
+	gnd_SDSPM.Prop_ContactFonctionEN = ""
+	
+	gnd_SDSPM.Prop_ContactTelephone = ""
+	gnd_SDSPM.Prop_ContactCellulaire = ""
+	gnd_SDSPM.Prop_ContactCourriel = ""	
+	
+	gnd_SDSPM.Cont_Nom = ""	
+	gnd_SDSPM.Cont_Titre = ""
+	
+	gnd_SDSPM.Cont_Fonction = ""
+	gnd_SDSPM.Cont_FonctionFR = ""
+	gnd_SDSPM.Cont_FonctionEN = ""
+	
+	gnd_SDSPM.Cont_Telephone = ""
+	gnd_SDSPM.Cont_Cellulaire = ""
+	gnd_SDSPM.Cont_Courriel = ""
+	
+	gnd_SDSPM.PNav_MajContact = 1
+	gnd_SDSPM.PNav_MajNomContact = 1
+	
+	Call gnuid_SDSPM.Refresh
+	
+
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+
+
+</lotusscript></code><code event="FPNav_acSignerProposition"><lotusscript>Sub FPNav_acSignerProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acSignerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acRecalculerCouts"><lotusscript>Sub FPNav_acRecalculerCouts
+	' -------------------------------------------------
+	' Le script permet au directeur de modifier le prix
+	' -------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	g_AfficherErreurs_FPNav = ""
+	On Error 4411 Goto FinSub
+	Call gnuid_SDSPM.Save
+	
+	Call SDSPM_acRecalculerCouts(gnd_Prop_SDSPM, False, False)
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsOuvrirMasque"><lotusscript>Sub FPNav_hsOuvrirMasque(p_NoItem As String)
+	On Error Goto GererErreur
+	
+	Dim v_MenuItemCourant As String
+	Dim v_ValiderDocument As Boolean
+	Dim a_MenuItems As Variant
+	Dim v_NoItem As String
+	Dim i As Variant
+	
+	v_MenuItemCourant = xVar(gnd_SDSPM, "PNav_MenuItemCourant", "")
+	a_MenuItems = xVarArray(gnd_SDSPM, "PNav_MenuItems")
+	
+	v_ValiderDocument = False
+	
+	' Si clique sur menu item qui est lui même, ne rien faire
+	If v_MenuItemCourant = p_NoItem Then
+		Exit Sub
+	End If
+	
+	If p_NoItem = "**" Then
+		v_NoItem = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "")
+		If a_MenuItems(Cint(v_MenuItemCourant)) = v_NoItem Then
+			Exit Sub
+		End If
+		i = Arraygetindex(a_MenuItems, xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00"))
+		If Not Isnull(i) Then
+			v_NoItem = Cstr(i)
+		End If
+		
+	Else
+		v_NoItem = p_NoItem
+	End If
+	
+	If Not Isnull(i) Then
+		v_ValiderDocument = (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1" And Cint(v_NoItem) &gt; Cint(v_MenuItemCourant))
+	End If
+	
+	' Sauvegarder le document courante
+	g_AfficherErreurs_FPNav = v_ValiderDocument
+	On Error 4411 GoTo FinSub	
+	Call gnuid_SDSPM.Save
+	On Error 4411 GoTo GererErreur	
+	
+	' Construire le menu
+	If Not Isnull(i) Then
+		If (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1" And Cint(v_NoItem) &lt; Cint(v_MenuItemCourant)) Then
+			Call SDSPN_ConstruireMenu(gnd_SDSPM)
+			Call gnuid_SDSPM.Refresh
+		End If
+	Else
+		Call SDSPN_ConstruireMenu(gnd_SDSPM)
+		Call gnuid_SDSPM.Refresh
+	End If
+	
+	' Ouvrir le masque suivant
+	Call SDSPN_OuvrirMasqueMenu(p_NoItem)
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_ndClient_PJ"><lotusscript>Function FPNav_ndClient_PJ(p_Origine As String) As NotesDocument
+	On Error GoTo GererErreur
+	
+	Dim nd_Clie As NotesDocument
+	Dim nd_Proj As NotesDocument	
+	Dim v_ClientNoFmt As String
+	
+	Set FPNav_ndClient_PJ = Nothing
+	If p_Origine = "SF" Then
+		Exit Function
+	End If
+	
+	Set nd_Proj = xPJ_xndProj(p_Origine, xVar(gnd_SDSPM, "Prop_NoProjet", ""), True)
+	If nd_Proj Is Nothing Then
+		' 4 - Le document de référence (client ou projet) est introuvable.
+		MessageBox xGDK_xMessage("SDSPP", 4, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	v_ClientNoFmt = xVar(gnd_SDSPM, "Prop_ClientNoFmt", "")
+	
+	If v_ClientNoFmt &lt;&gt; "" Then
+		Set nd_Clie = xPJ_xndClieSI(p_Origine, v_ClientNoFmt, True)
+		
+		If nd_Clie Is Nothing Then
+			MessageBox xGDK_xMessage("SI", 78, "", v_ClientNoFmt), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+	Else
+		Set nd_Clie = xPJ_xndClie(p_Origine, xVar(gnd_SDSPM, "Prop_ClientCleSitePrinc", ""), True)
+		
+		If nd_Clie Is Nothing Then 
+			Set nd_Proj = xPJ_xndProj(p_Origine, xVar(gnd_SDSPM, "Prop_NoProjet", ""), True)
+			If nd_Proj Is Nothing Then
+				' Le document de référence (client ou projet) est introuvable.
+				MessageBox xGDK_xMessage("SDSPP", 4, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+				Exit Function
+			End If
+			Set nd_Clie = xPJ_xndClie(p_Origine, xVar(nd_Proj, "Clie_NoClient", ""), True)
+		End If
+		
+	End If
+	
+	
+	Set FPNav_ndClient_PJ = nd_Clie
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_ndClientOrigine"><lotusscript>Function FPNav_ndClientOrigine(pnd_PNav As NotesDocument, pnd As NotesDocument, p_Origine As String, p_Cache As Boolean) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim nd_Proj As NotesDocument
+	Dim v_ClientNoFmt As String
+	
+	FPNav_ndClientOrigine = False
+	Set pnd = Nothing
+	
+	v_ClientNoFmt = xVar(pnd_PNav, "Prop_ClientNoFmt", "")
+	If p_Origine = "SICl" Or v_ClientNoFmt &lt;&gt; "" Then
+		
+		' Extraire le document SI Clients
+		Set pnd = xSICl_xndClie(v_ClientNoFmt, False)
+		
+		If pnd Is Nothing Then
+			MessageBox xGDK_xMessage("SI", 78, "", v_ClientNoFmt), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+		
+		p_Origine = "SICl"
+	ElseIf p_Origine = "SF" Then
+
+	Else	' Projeto
+		
+		v_ClientNoFmt = xVar(pnd_PNav, "Prop_ClientNoFmt","")
+		If v_ClientNoFmt &lt;&gt; "" Then
+			Set pnd = xPJ_xndClieSI(p_Origine, v_ClientNoFmt, p_Cache)
+			If pnd Is Nothing Then
+				MessageBox xGDK_xMessage("SI", 78, "", v_ClientNoFmt), 16, xGDK_xMessage("SI", 1, "", "")
+				Exit Function
+			End If
+		Else
+			' Selectionnez le doc de client
+			Set pnd = xPJ_xndClie(p_Origine, xVar(pnd_PNav, "Prop_ClientCleSitePrinc", ""), p_Cache)
+			
+			If pnd Is Nothing Then ' utiliser par InitialiserAdresseClient
+				Set nd_Proj = xPJ_xndProj(p_Origine, xVar(pnd_PNav, "Prop_NoProjet", ""), True)
+				If nd_Proj Is Nothing Then
+					' Le document de référence (client ou projet) est introuvable.
+					MessageBox xGDK_xMessage("SDSPP", 4, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+					Exit Function
+				End If
+				Set pnd = xPJ_xndClie(p_Origine, xVar(nd_Proj, "Clie_NoClient", ""), p_Cache)
+			End If
+			
+		End If
+		
+	End If
+	
+	FPNav_ndClientOrigine = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="FPNav_TypeInstallationSDS"><lotusscript>Function FPNav_TypeInstallationSDS(pnd_PNav As NotesDocument) As String
+	' ---------------------------------------------------------------------------------------------------------------
+	'	Ce script détermine si le client est Hébergé (Cloud) ou non.
+	'
+	'	Paramètre:
+	'		pnd_PNav:	document de navigation
+	'
+	'	Valeur retournée:	1 - le client est hébergé (Cloud)
+	'						"" ou "0" - le client n'est pas hébergé 
+	'						9 - le client n'existe pas dans Projeto 
+	' ---------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd_Client As NotesDocument
+	Dim nd_ClientSICl As NotesDocument	
+	Dim nd_Projet As NotesDocument
+	
+	Dim v_Origine As String
+	
+	' Initialisation
+	FPNav_TypeInstallationSDS = ""	
+	v_Origine = xVar(pnd_PNav, "Prop_Origine", "")	'SICl, PJSDS ou PJUSA
+	If v_Origine = "SF" Then
+		FPNav_TypeInstallationSDS = "1"
+		Exit Function
+	End If
+	
+	' Si on est en Local, extraire le type d'installation SDS de Projeto
+	If Len(pnd_PNav.ParentDatabase.Server) = 0 Then
+		If v_Origine = "SICl" Then		
+			If xVar(pnd_PNav, "Prop_ClientPays", "") &lt;&gt; "CA" Then
+				Set nd_Client = xPJ_xndClieSI("PJUSA", xVar(pnd_PNav, "Prop_ClientNoFmt", ""), True)
+			Else
+				Set nd_Client = xPJ_xndClieSI("PJSDS", xVar(pnd_PNav, "Prop_ClientNoFmt", ""), True)
+			End If	
+			
+			If Not nd_Client Is Nothing Then
+				FPNav_TypeInstallationSDS = xVar(nd_Client, "Clie_TypeInstallationSDS", "")
+			Else
+				' Impossible de déterminer si le client est hébergé ou non
+				FPNav_TypeInstallationSDS = "9"
+			End If	
+		Else
+			Set nd_Projet = xPJ_xndProj(v_Origine, xVar(pnd_PNav, "Prop_NoProjet", ""), True)
+			Set nd_Client = xPJ_xndClie(v_Origine, xVar(nd_Projet, "Clie_NoClient", ""), True)	
+			If Not nd_Client Is Nothing Then			
+				FPNav_TypeInstallationSDS = xVar(nd_Client, "Clie_TypeInstallationSDS", "")	
+			End If
+		End If	
+	Else	
+		' Sinon extraire le type d'installation SDS de SI Clients
+		If FPnav_ndClientOrigine(pnd_PNav, nd_Client, v_Origine, True) Then		
+			If v_Origine = "SICl" Then										' Client SI Clients
+				FPNav_TypeInstallationSDS = xVar(nd_Client, "Clie_TypeInstallationSDS", "")
+			Else	
+				If xVar(nd_Client, "Clie_NoClientFmt", "") &lt;&gt; "" Then		' Client Projeto
+					' Extraire le document de SI Clients
+					Set nd_ClientSICl = xSICl_xndClie(xVar(nd_Client, "Clie_NoClientFmt", ""), False)
+					FPNav_TypeInstallationSDS = xVar(nd_ClientSICl, "Clie_TypeInstallationSDS", "")	
+				Else
+					' Prospect Projeto   
+				End If
+			End If
+		End If
+	End If
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="FPNav_acOuvrirBonCommande"><lotusscript>Sub FPNav_acOuvrirBonCommande
+	On Error GoTo GererErreur
+	
+	Dim nd_BCom As NotesDocument
+	Dim ndc_BCom As NotesDocumentCollection
+	Dim nuid As NotesUIDocument
+	Dim nv_BCom As NotesView	
+	Dim v_Query As String		
+	Dim v_Cle As String
+	
+	'Initialisations
+	Call xSIBDC2_Initialisations
+	
+	v_Cle = xVar(gnd_SDSPM, "Prop_NoProposition", 0)
+	
+	' Sélectionner le bon de commande
+	' -------------------------------	
+	Set ndc_BCom = xSIBDC2_xndcBCom(v_Cle)
+	
+	If ndc_BCom.Count = 0 Then
+		
+		MessageBox xGDK_xMessage("SI", 70, "", ""), 16, xGDK_xMessage("SI", 1, "", "")		
+		Exit Sub
+	ElseIf ndc_BCom.count = 1 Then
+		
+		Set nd_BCom = ndc_BCom.getfirstDocument
+		
+	Else		
+		'Count plus que 1 afficher prompt
+		Set nv_BCom = gndb_xSIBDC2.GetView("V_BCom20")	
+		
+		' 181: Sélectionnez un bon de commande dans la liste ci-dessous.
+		v_Query = |FIELD BCom_OrigineCle CONTAINS "| &amp; v_Cle &amp; |"|
+		Set nd_BCom = SISe_ndSelectionnerDocument(v_Query, "", SISe_NOPROMPT, nv_BCom,|BCom_NoBonCommandeFmt + 
+	"  /  " + BCom_ClientNoFmt + " - " + @if(BCom_SaisirAdresse = "L";BCom_LivrNom1;BCom_ClientNomInterne)|, xGDK_xMessage("SDSPP", 181, "", ""), "", False)
+		
+	End If
+	
+	
+	' Ouvrir le bon de commande
+	If Not nd_BCom Is Nothing Then		
+		Set nuid = gnuiws_SDSPN.EditDocument( False , nd_BCom)		
+	End if
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acPayerProposition"><lotusscript>Sub FPNav_acPayerProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acPayerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsNomClientNonModifiable"><lotusscript>Function FPNav_hsNomClientNonModifiable
+	On Error GoTo GererErreur
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_NomClientModifie", "0")
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_ClientNom", xVar(gnd_SDSPM, "Prop_NomClientListe", ""))
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPM.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_hsSuppimerContactGroupeClient"><lotusscript>Sub FPNav_hsSuppimerContactGroupeClient
+	On Error GoTo GererErreur
+	
+	gnd_SDSPM.Prop_NoContactsCCDsg = ""
+	gnd_SDSPM.Prop_ContactNomsCCDsg = ""
+	gnd_SDSPM.Prop_ContactCourrielsCCDsg = ""
+	gnd_SDSPM.Prop_NoClientContactsCCDsg = ""
+	gnd_SDSPM.Prop_NomClientContactsCCDsg = ""
+	
+	gnd_SDSPM.Cont_NoContactsCCDsg = ""
+	gnd_SDSPM.Cont_ContactNomsCCDsg = ""
+	gnd_SDSPM.Cont_ContactCourrielsCCDsg = ""
+	gnd_SDSPM.Cont_NoClientContactsCCDsg = ""
+	gnd_SDSPM.Cont_NomClientContactsCCDsg = ""
+	
+	gnd_SDSPM.PNav_MajContactCC = 0
+	
+	Call gnuid_SDSPM.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+
+
+</lotusscript></code><code event="FPNav_QueryOpen"><lotusscript>Sub FPNav_QueryOpen(pnuid_Source As Notesuidocument, p_Mode As Integer, p_Isnewdoc As Variant, _
+	p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	Dim nd_PNav As NotesDocument
+	Dim nd_Client As NotesDocument
+	Dim nd_ClientSICl As NotesDocument
+	
+	Dim v_Origine As String
+	
+	' Initialisations
+	p_Continue = False
+	Set nd_PNav = pnuid_Source.Document
+	
+	' Nouvelle proposition
+	' --------------------
+	If xVar(nd_PNav, "Prop_NoProposition", "") = "" Then
+		If p_Mode &lt;&gt; 1 Then
+			Exit Sub
+		End If
+		
+		If Not SLSf_VersionNotesValide Then
+			MessageBox xGDK_xMessage("SI", 272, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+		
+		nd_PNav.PNav_Titre = xGDK_xMessage("SDSPP", 5, "", "")
+		
+		Call FPNav_IniTypePropositionDisp(nd_PNav)
+		nd_PNav.Prop_Statut = "10"
+		p_Continue = True
+		
+		' Proposition existante
+		' ---------------------
+	Else
+
+		If Not SLSf_VersionNotesValide Then
+			nd_PNav.PNav_EditMode = 0
+			nd_PNav.SaveOptions = "0"
+		End If
+		
+		' Initialiser les champs du document de navigation
+		If FPNav_DocumentExistant(nd_PNav) Then
+			p_Continue = True
+		End If
+	End If
+	
+	' Déterminer si le client est Cloud (Hébergé) ou non
+	nd_PNav.Prop_TypeInstallationSDS = FPNav_TypeInstallationSDS(nd_PNav)
+	
+	' Construire le menu
+	nd_PNav.PNav_MenuItemCourant = "000"
+	nd_PNav.PNav_MenuOptionCourante = "0.00"
+	Call SDSPN_ConstruireMenu(nd_PNav)
+	
+	nd_PNav.Titre = Trim(xVar(nd_PNav, "PNav_Titre", "") &amp; " - " &amp; xVar(nd_PNav, "PNav_MenuDesc000", ""))
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_DocumentExistant"><lotusscript>Function FPNav_DocumentExistant(pnd_PNav As NotesDocument) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim nrti_PropDescDetaillee As NotesRichTextItem
+	Dim nrti_PNavDescDetaillee As NotesRichTextItem
+	Dim ni As NotesItem
+	Dim a_NoBC As Variant
+	
+	Dim s As String
+	Dim v_MenuOptionMax As String
+	
+	FPNav_DocumentExistant = False
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp(xVar(pnd_PNav, "Prop_NoProposition", "")) Then
+		Exit Function
+	End If
+	
+	g_NoRep_FPNav = xVar(gnd_Prop_SDSPM, "Prop_NoRepresentant", "")
+	
+	' Mettre à jour le document de navigation
+	s = xVar(gnd_Prop_SDSPM, "Prop_TypeProposition", "")
+	pnd_PNav.Prop_TypeProposition = s
+	Call pnd_PNav.ReplaceItemValue("Prop_TypePropositionDesc" &amp; xLangue, xSDSBB_xVarTpPp(s, _
+	"TpPp_DescTypeProposition" &amp; xLangue, "", True))
+	
+	'Req #42249
+	'pnd_PNav.Prop_Directeur = xVar(gnd_Prop_SDSPM, "Prop_Directeur", "")
+	pnd_PNav.Prop_IdDirecteur = xVar(gnd_Prop_SDSPM, "Prop_IdDirecteur", "")
+	pnd_PNav.Prop_NomDirecteur = xVar(gnd_Prop_SDSPM, "Prop_NomDirecteur", "")
+	pnd_PNav.Prop_NoDirecteur = xVar(gnd_Prop_SDSPM, "Prop_NoDirecteur", "")
+	
+	pnd_PNav.Prop_NbProposition = xVar(gnd_Prop_SDSPM, "Prop_NbProposition", 0)
+	pnd_PNav.Prop_NbPropositionTXT = xVar(gnd_Prop_SDSPM, "Prop_NbPropositionTXT", "")
+	pnd_PNav.Prop_NbFoisReOuvert = xVar(gnd_Prop_SDSPM, "Prop_NbFoisReOuvert", "")
+	pnd_PNav.Prop_NbPropositionPrefixe = xVar(gnd_Prop_SDSPM, "Prop_NbPropositionPrefixe", "")
+	pnd_PNav.Prop_NbPropositionFmt = xVar(gnd_Prop_SDSPM, "Prop_NbPropositionFmt", "")
+	pnd_PNav.Prop_TypeContratServiceSDS = xVar(gnd_Prop_SDSPM, "Prop_TypeContratServiceSDS", "")
+	
+	pnd_PNav.Prop_ClientCleSitePrinc = xVar(gnd_Prop_SDSPM, "Prop_ClientCleSitePrinc", "")
+	pnd_PNav.Prop_ClientCleInitial = xVar(gnd_Prop_SDSPM, "Prop_ClientCleInitial", "")
+	
+	pnd_PNav.Prop_Statut = xVar(gnd_Prop_SDSPM, "Prop_Statut", "10")
+	Call pnd_PNav.ReplaceItemValue("Prop_StatutDesc" &amp; xLangue, _
+	xVar(gnd_Prop_SDSPM, "Prop_StatutDesc" &amp; xLangue, ""))
+	'pnd_PNav.Prop_StatutDescEN = xVar(gnd_Prop_SDSPM, "Prop_StatutDescEN", "")
+	pnd_PNav.Prop_DescProposition = xVar(gnd_Prop_SDSPM, "Prop_DescProposition", "")
+	
+	pnd_PNav.Prop_NoRepresentant = xVar(gnd_Prop_SDSPM, "Prop_NoRepresentant", "")
+	pnd_PNav.Prop_NomRepresentant = xVar(gnd_Prop_SDSPM, "Prop_NomRepresentant", "")
+	pnd_PNav.Prop_IdRepresentant = xVar(gnd_Prop_SDSPM, "Prop_IdRepresentant", "")
+	pnd_PNav.Prop_NomDirecteur = xVar(gnd_Prop_SDSPM, "Prop_NoDirecteur", "")
+	pnd_PNav.Prop_NomDirecteur = xVar(gnd_Prop_SDSPM, "Prop_NomDirecteur", "")
+	pnd_PNav.Prop_IdDirecteur = xVar(gnd_Prop_SDSPM, "Prop_IdDirecteur", "")
+	pnd_PNav.Prop_NoDirNational = xVar(gnd_Prop_SDSPM, "Prop_NoDirNational", "")
+	pnd_PNav.Prop_NomDirNational = xVar(gnd_Prop_SDSPM, "Prop_NomDirNational", "")
+	pnd_PNav.Prop_IdDirNational = xVar(gnd_Prop_SDSPM, "Prop_IdDirNational", "")
+	pnd_PNav.Prop_NoDirMondial = xVar(gnd_Prop_SDSPM, "Prop_NoDirMondial", "")
+	pnd_PNav.Prop_NomDirMondial = xVar(gnd_Prop_SDSPM, "Prop_NomDirMondial", "")
+	pnd_PNav.Prop_IdDirMondial = xVar(gnd_Prop_SDSPM, "Prop_IdDirMondial", "")
+	pnd_PNav.Prop_CommissionsRepresentant = xVar(gnd_Prop_SDSPM, "Prop_CommissionsRepresentant", "")
+	pnd_PNav.Prop_CommissionsDirecteur = xVar(gnd_Prop_SDSPM, "Prop_CommissionsDirecteur", "") 
+	pnd_PNav.Prop_CommissionsDirNational = xVar(gnd_Prop_SDSPM, "Prop_CommissionsDirNational", "") 
+	pnd_PNav.Prop_CommissionsDirMondial = xVar(gnd_Prop_SDSPM, "Prop_CommissionsDirMondial", "") 
+	pnd_PNav.Prop_DeviseRepresentant = xVar(gnd_Prop_SDSPM, "Prop_DeviseRepresentant", "") 
+	pnd_PNav.Prop_DeviseDirecteur = xVar(gnd_Prop_SDSPM, "Prop_DeviseDirecteur", "") 
+	pnd_PNav.Prop_DeviseDirNational = xVar(gnd_Prop_SDSPM, "Prop_DeviseDirNational", "") 
+	pnd_PNav.Prop_DeviseDirMondial = xVar(gnd_Prop_SDSPM, "Prop_DeviseDirMondial", "") 
+	pnd_PNav.Prop_NoEquipe = xVar(gnd_Prop_SDSPM, "Prop_NoEquipe", "")
+	pnd_PNav.Prop_NomEquipe = xVar(gnd_Prop_SDSPM, "Prop_NomEquipe", "")
+	pnd_PNav.Prop_NePasPartager = xVar(gnd_Prop_SDSPM, "Prop_NePasPartager", "")
+	
+	pnd_PNav.Prop_NoOpportuniteSF = xVar(gnd_Prop_SDSPM, "Prop_NoOpportuniteSF", "")
+	pnd_PNav.Prop_ClientNoSF = xVar(gnd_Prop_SDSPM, "Prop_ClientNoSF", "")
+	pnd_PNav.Prop_NoContactSF = xVar(gnd_Prop_SDSPM, "Prop_NoContactSF", "")
+	
+	pnd_PNav.Prop_ClientNoFmt = xVar(gnd_Prop_SDSPM, "Prop_ClientNoFmt", "")
+	pnd_PNav.Prop_ClientNomInterne = xVar(gnd_Prop_SDSPM, "Prop_ClientNomInterne", "")
+	pnd_PNav.Prop_NomInterneListe = xVar(gnd_Prop_SDSPM, "Prop_NomInterneListe", "")
+	pnd_PNav.Prop_NomInterneModifie = xVar(gnd_Prop_SDSPM, "Prop_NomInterneModifie", "0")
+	pnd_PNav.Prop_ClientNom = xVar(gnd_Prop_SDSPM, "Prop_ClientNom", "")
+	pnd_PNav.Prop_NomClientListe = xVar(gnd_Prop_SDSPM, "Prop_NomClientListe", "")
+	pnd_PNav.Prop_NomClientModifie = xVar(gnd_Prop_SDSPM, "Prop_NomClientModifie", "0")
+	pnd_PNav.Prop_ClientNomLegal = xVar(gnd_Prop_SDSPM, "Prop_ClientNomLegal", "")
+	pnd_PNav.Prop_NomLegalListe = xVar(gnd_Prop_SDSPM, "Prop_NomLegalListe", "")
+	pnd_PNav.Prop_NomLegalModifie = xVar(gnd_Prop_SDSPM, "Prop_NomLegalModifie", "0")
+	pnd_PNav.Prop_Langue = xVar(gnd_Prop_SDSPM, "Prop_Langue", "")
+	pnd_PNav.Prop_ClientSDSWIN = xVar(gnd_Prop_SDSPM, "Prop_ClientSDSWIN", "")
+	pnd_PNav.Prop_ClientMerlin = xVar(gnd_Prop_SDSPM, "Prop_ClientMerlin", "")
+	
+	pnd_PNav.Site_Banniere = xVarArray(gnd_Prop_SDSPM,"Site_Banniere")
+	pnd_PNav.Site_BanniereDesc = xVarArray(gnd_Prop_SDSPM,"Site_BanniereDesc")
+	pnd_PNav.Site_Plateforme = xVarArray(gnd_Prop_SDSPM, "Site_Plateforme")
+	pnd_PNav.Prop_ProvenanceProspect = xVar(gnd_Prop_SDSPM, "Prop_ProvenanceProspect", "")
+	pnd_PNav.Prop_ProvenanceProspectPrecision = xVar(gnd_Prop_SDSPM, "Prop_ProvenanceProspectPrecision", "")
+	
+	pnd_PNav.Prop_ClientAdresse1 = xVar(gnd_Prop_SDSPM, "Prop_ClientAdresse1", "")
+	pnd_PNav.Prop_ClientAdresse2 = xVar(gnd_Prop_SDSPM, "Prop_ClientAdresse2", "")
+	pnd_PNav.Prop_ClientVille = xVar(gnd_Prop_SDSPM, "Prop_ClientVille", "")
+	pnd_PNav.Prop_ClientProvince = xVar(gnd_Prop_SDSPM, "Prop_ClientProvince", "")
+	pnd_PNav.Prop_ClientPays = xVar(gnd_Prop_SDSPM, "Prop_ClientPays", "")
+	pnd_PNav.Prop_ClientCodePostal = xVar(gnd_Prop_SDSPM, "Prop_ClientCodePostal", "")
+	pnd_PNav.Prop_ClientTelephone = xVar(gnd_Prop_SDSPM, "Prop_ClientTelephone", "")
+	pnd_PNav.Prop_ClientTelephone2 = xVar(gnd_Prop_SDSPM, "Prop_ClientTelephone2", "")
+	pnd_PNav.Prop_ClientTelecopieur = xVar(gnd_Prop_SDSPM, "Prop_ClientTelecopieur", "")
+	
+	pnd_PNav.Prop_NoContact = xVar(gnd_Prop_SDSPM, "Prop_NoContact", "")
+	pnd_PNav.Prop_ContactNom = xVar(gnd_Prop_SDSPM, "Prop_ContactNom", "")
+	pnd_PNav.Prop_ContactFonction = xVar(gnd_Prop_SDSPM, "Prop_ContactFonction", "")
+	pnd_PNav.Prop_ContactFonctionFR = xVar(gnd_Prop_SDSPM, "Prop_ContactFonctionFR", "")
+	pnd_PNav.Prop_ContactFonctionEN = xVar(gnd_Prop_SDSPM, "Prop_ContactFonctionEN", "")
+	pnd_PNav.Prop_ContactTitre = xVar(gnd_Prop_SDSPM, "Prop_ContactTitre", "")
+	pnd_PNav.Prop_ContactTelephone = xVar(gnd_Prop_SDSPM, "Prop_ContactTelephone", "")
+	pnd_PNav.Prop_ContactCellulaire = xVar(gnd_Prop_SDSPM, "Prop_ContactCellulaire", "")
+	pnd_PNav.Prop_ContactCourriel = xVar(gnd_Prop_SDSPM, "Prop_ContactCourriel", "")
+	
+	pnd_PNav.Prop_NoContactsCCDsg = xVar(gnd_Prop_SDSPM, "Prop_NoContactsCCDsg", "")
+	pnd_PNav.Prop_ContactNomsCCDsg = xVar(gnd_Prop_SDSPM, "Prop_ContactNomsCCDsg", "")
+	pnd_PNav.Prop_NoClientContactsCCDsg = xVar(gnd_Prop_SDSPM, "Prop_NoClientContactsCCDsg", "")	
+	pnd_PNav.Prop_ContactCourrielsCCDsg  = xVar(gnd_Prop_SDSPM, "Prop_ContactCourrielsCCDsg", "")
+	pnd_PNav.Prop_NomClientContactsCCDsg  = xVar(gnd_Prop_SDSPM, "Prop_NomClientContactsCCDsg", "")	
+	
+	pnd_PNav.Prop_ContactNomsManCCDsg  = xVar(gnd_Prop_SDSPM, "Prop_ContactNomsManCCDsg", "")
+	pnd_PNav.Prop_ContactCourrielsManCCDsg  = xVar(gnd_Prop_SDSPM, "Prop_ContactCourrielsManCCDsg", "")
+	
+	pnd_PNav.Prop_NoRepresentantCCOSSg  = xVar(gnd_Prop_SDSPM, "Prop_NoRepresentantCCOSSg", "")	
+	pnd_PNav.Prop_NomRepresentantCCOSSg  = xVar(gnd_Prop_SDSPM, "Prop_NomRepresentantCCOSSg", "")
+	pnd_PNav.Prop_CourrielRepresentantCCOSSg  = xVar(gnd_Prop_SDSPM, "Prop_CourrielRepresentantCCOSSg", "")
+	
+	pnd_PNav.Prop_Devise = xVar(gnd_Prop_SDSPM, "Prop_Devise", "")
+	pnd_PNav.Prop_PourcentEscompteLG = xVar(gnd_Prop_SDSPM, "Prop_PourcentEscompteLG", "")
+	pnd_PNav.Prop_NbSites = xVar(gnd_Prop_SDSPM, "Prop_NbSites", 0)
+	pnd_PNav.Prop_NoSites = xVar(gnd_Prop_SDSPM, "Prop_NoSites", "")
+	pnd_PNav.Prop_PropositionImprimee = xVar(gnd_Prop_SDSPM, "Prop_PropositionImprimee", "")
+	pnd_PNav.Prop_NoSitePrincipal = xVar(gnd_Prop_SDSPM, "Prop_NoSitePrincipal", "")
+	
+	Pnd_PNav.Prop_NoBonCommandes = xVar(gnd_Prop_SDSPM, "Prop_NoBonCommandes", "")
+	
+	pnd_PNav.Prop_NotesContrat = xVar(gnd_Prop_SDSPM, "Prop_NotesContrat", "")
+	
+	pnd_PNav.Prop_OrigineSiegeSocial = xVar(gnd_Prop_SDSPM, "Prop_OrigineSiegeSocial", "")
+	pnd_PNav.Prop_ClientNoFmtSiegeSocialSF = xVar(gnd_Prop_SDSPM, "Prop_ClientNoFmtSiegeSocialSF", "")
+	pnd_PNav.Prop_ClientNoFmtSiegeSocial = xVar(gnd_Prop_SDSPM, "Prop_ClientNoFmtSiegeSocial", "")
+	pnd_PNav.Prop_ClientNom1SiegeSocial = xVar(gnd_Prop_SDSPM, "Prop_ClientNom1SiegeSocial", "")
+	pnd_PNav.Prop_ClientNomIntSiegeSocial = xVar(gnd_Prop_SDSPM, "Prop_ClientNomIntSiegeSocial", "")
+	
+	
+	' Description détaillée (champ RichText)
+	If pnd_PNav.Hasitem("Prop_DescDetaillee") Then
+		Call pnd_PNav.Removeitem("Prop_DescDetaillee")
+	End If
+	If gnd_Prop_SDSPM.Hasitem("Prop_DescDetaillee") Then
+		Set nrti_PropDescDetaillee = gnd_Prop_SDSPM.Getfirstitem("Prop_DescDetaillee")
+		Call nrti_PropDescDetaillee.CopyItemToDocument(pnd_PNav, "Prop_DescDetaillee")
+	Else
+		Set nrti_PNavDescDetaillee = New NotesRichTextItem(pnd_PNav, "Prop_DescDetaillee")
+	End If
+	
+	pnd_PNav.HistoUC = xVar(gnd_Prop_SDSPM, "HistoUC", "")
+	
+	Set ni = New NotesItem(pnd_PNav, "Auteur", xVar(gnd_Prop_SDSPM, "Auteur", ""), AUTHORS)
+	Set ni = New NotesItem(pnd_PNav, "AuteurAdmin", xVar(gnd_Prop_SDSPM, "AuteurAdmin", ""), AUTHORS)
+	
+	If xVar(pnd_PNav, "PNav_DocumentOuvert", "") &lt;&gt; "1" Then
+		' Extraire les sites
+		Call SDSPN_MajSitesNav(pnd_PNav)
+		Call SDSPN_ConstruireMenu(pnd_PNav)
+		
+		v_MenuOptionMax = xVar(gnd_Prop_SDSPM, "PNav_MenuOptionMax", "0.00")
+		pnd_PNav.PNav_MenuOptionMax = v_MenuOptionMax 
+		
+		pnd_PNav.Prop_Cle = xVar(gnd_Prop_SDSPM, "Cle", "")
+		pnd_PNav.Prop_Origine = xVar(gnd_Prop_SDSPM, "Prop_Origine", "")
+		pnd_PNav.Prop_NoProjet = xVar(gnd_Prop_SDSPM, "Prop_NoProjet", "")
+		
+		pnd_PNav.PNav_DocumentOuvert = "1"
+		If Left(v_MenuOptionMax, 1) &lt; "2" Then
+			pnd_PNav.PNav_DernierSiteOuvert = 0
+			pnd_PNav.PNav_MaxSiteOuvert = 0
+		Else
+			pnd_PNav.PNav_DernierSiteOuvert = 1
+			
+			If xVar(gnd_Prop_SDSPM, "PNav_MaxSiteOuvert", "") = "" Then
+				If Left(v_MenuOptionMax, 1) = "2" Then
+					pnd_PNav.PNav_MaxSiteOuvert = CInt(StrLeft(StrRight(v_MenuOptionMax, "."), ".")) + 1
+				End If
+			Else
+				pnd_PNav.PNav_MaxSiteOuvert = xVar(gnd_Prop_SDSPM, "PNav_MaxSiteOuvert", 0)
+			End If
+			
+		End If
+	End If
+	
+	Call FPNav_InitialiserAdresseClient(pnd_PNav, True)
+	Call FPNav_InitialiserContactClient(pnd_PNav, True)
+	
+	If xVar(gnd_Prop_SDSPM, "Prop_Origine", "") = "SF" Then
+		Call FPNav_InitialiserContactCCClient_SF(pnd_PNav)
+	Else
+		Call FPNav_InitialiserContactCCClient(pnd_PNav, True)
+	End If
+	
+	
+	pnd_PNav.Prop_NotesContrat = xVar(gnd_Prop_SDSPM, "Prop_NotesContrat", "")
+	
+	a_NoBC = Evaluate(|@DbLookup("" : "NoCache"; ""; "V_Site21"; "| &amp; xVar(pnd_PNav, "Prop_NoProposition", "") &amp; |"; 10;[FailSilent])|)
+	Call pnd_PNav.ReplaceItemValue("Prop_NoBonsCommandeFmtSIBDC_1", a_NoBC)
+	
+	' xVar(gnd_Prop_SDSPM, "Prop_ClientProvince", "") &lt;&gt; "QC"
+	If xVar(gnd_Prop_SDSPM, "Prop_TypeProposition", "") = "3" And xVar(gnd_Prop_SDSPM, "Prop_ClientProvince", "") &lt;&gt; "QC" And xVar(gnd_Prop_SDSPM, "Prop_Langue", "") = "FR" Then
+		
+		'Afficher le message de changement de langue de visualisation
+		MessageBox xGDK_xMessage("SDSPP", 177, "", ""), 8, xGDK_xMessage("SI", 8, "", "")		
+	End If
+	
+	
+	FPNav_DocumentExistant = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Prop_NoProposition", ""), False)
+	Exit Function
+	
+End Function
+
+
+</lotusscript></code><code event="FPNav_hsPlanPowerPoint"><lotusscript>Sub FPNav_hsPlanPowerPoint
+	On Error Goto GererErreur
+	
+	Dim a_Fichiers As Variant
+	Dim v_Fichier As String
+	Dim v As Variant
+	Dim v_NomFichier As String
+	
+	' Sélectionner le Document à attacher
+	' -----------------------------------
+	v = Evaluate({@RegQueryValue("HKEY_CURRENT_USER"; "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders"; "Desktop")})
+	v_NomFichier = v(0)
+	
+	a_Fichiers = gnuiws_SDSPN.OpenFileDialog(False, xGDK_xMessage("SDSPP", 81, "", ""), "", v_NomFichier)
+	If Not Isempty(a_Fichiers) Then
+		Call gnuiws_SDSPN.CurrentDocument.FieldSetText("PNav_PlanPowerPoint", a_Fichiers(0))
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acRafraichirInfoClient"><lotusscript>Sub FPNav_acRafraichirInfoClient
+	On Error Goto GererErreur
+	
+	Call FPNav_InitialiserAdresseClient(gnd_SDSPM, False)
+	Call FPNav_InitialiserContactClient(gnd_SDSPM, False)
+	
+	Call gnuid_SDSPM.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_SelectionnerContactGroupeClient_PJ"><lotusscript>Sub FPNav_SelectionnerContactGroupeClient_PJ(p_Origine As String)
+	' ---------------------------------------------------------------------------------
+	' Le script perment de sélectionner les contacts du groupe client dans Projeto
+	' ---------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd_Clie As NotesDocument
+	Dim ndc_Contacts As NotesDocumentCollection		
+	Dim nd_Cont As NotesDocument
+	Dim nd_ContSuivant As NotesDocument
+	Dim nd_DB As NotesDocument
+	
+	Dim a_PropNoContacts As Variant
+	Dim a_PropNoClientsContacts As Variant
+	Dim a_PropContactNoms As Variant
+	Dim a_PropContactCourriels As Variant
+	Dim a_PropContactSansCourriel As Variant
+	Dim a_PropNomClientContacts As Variant
+	Dim a_ClesContact As Variant	
+	Dim v_Origine As String	
+	Dim v_ClientNoFmt As String
+	Dim v_NoContact As String
+	Dim v_NoClientContact As String
+	Dim v_NomContact As String
+	Dim v_CourrielContact As String
+	Dim v_NomClientContact As String
+	Dim v_NomGroupeClient As String
+	
+	Dim i As Integer
+	Dim v_Valeurs As Variant
+	
+	' Initialisations
+	Call SISe_Initialisations
+	If p_Origine = "SF" Then
+		Exit Sub
+	End If
+	
+	If p_Origine &lt;&gt; "SICl" Then
+		v_Origine = p_Origine
+	Else
+		Select Case xSICl_xVarClie(xVar(gnd_SDSPM, "Prop_ClientNoFmt", ""), "Clie_ClientCategorie", "", True)
+		Case "60"
+			v_Origine = "PJSDS"
+		Case "62"
+			v_Origine = "PJUSA"
+		Case Else
+			v_Origine = "PJDIV"
+	End Select
+	End If
+	
+	v_ClientNoFmt = xVar(gnd_SDSPM, "Prop_ClientNoFmt", "")
+	
+	a_PropNoClientsContacts = xVarArray(gnd_SDSPM,"Prop_NoClientContactsCCDsg")
+	a_PropNoContacts = xVarArray(gnd_SDSPM,"Prop_NoContactsCCDsg")
+	a_PropContactNoms = xVarArray(gnd_SDSPM,"Prop_ContactNomsCCDsg")
+	a_PropContactCourriels = xVarArray(gnd_SDSPM,"Prop_ContactCourrielsCCDsg")
+	a_PropNomClientContacts = xVarArray(gnd_SDSPM,"Prop_NomClientContactsCCDsg")
+	
+	If p_Origine &lt;&gt; "SICl" Then
+		Set nd_Clie = FPNav_ndClient_PJ(p_Origine)		
+	Else
+		Set nd_Clie = xPJ_xndClieSI (v_Origine, v_ClientNoFmt, True) ' Cherche le client dans V_Clie3 de Projeto
+		If nd_Clie Is Nothing Then
+			' Le document de référence (client ou projet) est introuvable.
+			MessageBox xGDK_xMessage("SDSPP", 4, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If				
+	End If
+	
+	If Not nd_Clie Is Nothing Then
+		
+		v_NomGroupeClient = xVar(nd_Clie, "Clie_NomGroupeClient", "")
+		
+		If v_NomGroupeClient &lt;&gt; "" Then
+			'Sélectionnez le(s) contact du groupe client
+			Set ndc_Contacts = SIPJ_ndcSelectionnerContactGroupe(v_Origine, nd_Clie)
+			
+		Else
+			'Sélectionnez le(s) contact du client
+			Set ndc_Contacts = SIPJ_ndcSelectionnerContact(v_Origine, xVar(nd_Clie, "Clie_NoClient", ""))
+		End If
+		
+		If ndc_Contacts.Count = 0 Then
+			Exit Sub
+		End If
+		
+		Set nd_ContSuivant = ndc_Contacts.Getfirstdocument
+		
+		ReDim a_PropContactSansCourriel(ndc_Contacts.Count -1)
+		i = 0
+		
+		Do Until nd_ContSuivant Is Nothing
+			Set nd_Cont = nd_ContSuivant
+			Set nd_ContSuivant = ndc_Contacts.GetNextDocument(nd_ContSuivant)	
+			
+			v_NomContact = xVar(nd_Cont, "Cont_Contact", "")	
+			v_CourrielContact = xVar(nd_Cont, "Cont_Courriel", "")				
+			
+			If v_CourrielContact &lt;&gt; "" Then
+				
+				v_NoContact = xVar(nd_Cont, "Cont_NoContact", "")				
+				v_NoClientContact = xVar(nd_Cont, "Clie_NoClientFmt", "- - -")
+				v_NomClientContact = xVar(nd_Cont, "Clie_Nom", "")	
+				
+				If IsArray(a_PropNoContacts) Then
+					If IsNull(ArrayGetIndex(a_PropNoContacts, v_NoContact)) Then
+						a_PropNoContacts = ArrayAppend(a_PropNoContacts,v_NoContact)
+						a_PropContactNoms = ArrayAppend(a_PropContactNoms,v_NomContact)
+						a_PropContactCourriels = ArrayAppend(a_PropContactCourriels,v_CourrielContact)
+						a_PropNoClientsContacts = ArrayAppend(a_PropNoClientsContacts, v_NoClientContact)	
+						a_PropNomClientContacts = ArrayAppend(a_PropNomClientContacts, v_NomClientContact) 				
+					End If
+				Else
+					ReDim a_PropNoContacts(0)
+					ReDim a_PropContactNoms(0)
+					ReDim a_PropContactCourriels(0)
+					ReDim a_PropNoClientsContacts(0)
+					ReDim a_PropNomClientContacts(0)
+
+					a_PropNoContacts(0) = v_NoContact
+					a_PropContactNoms(0)= v_NomContact
+					a_PropContactCourriels(0) = v_CourrielContact
+					a_PropNoClientsContacts(0) = v_NoClientContact 
+					a_PropNomClientContacts(0) = v_NomClientContact
+				End If
+				
+			Else
+				a_PropContactSansCourriel(i) = v_NomContact
+				i = i + 1
+			End If
+			
+		Loop	
+		
+		a_PropContactSansCourriel = FullTrim(a_PropContactSansCourriel)
+		
+		If IsArray(a_PropNoContacts) Then
+			
+			ReDim a_ClesContact(UBound(a_PropNoContacts))
+			
+			For i = 0 To UBound(a_PropNoContacts)
+				a_ClesContact(i) = a_PropNomClientContacts(i) &amp; "~" &amp; a_PropContactNoms(i)&amp; "~" &amp; a_PropContactCourriels(i)&amp; "~" &amp; a_PropNoContacts(i)&amp; "~" &amp; a_PropNoClientsContacts(i)
+			Next
+			
+			Call TrierArray(a_ClesContact)					
+			
+			For i = 0 To UBound(a_ClesContact)							
+				a_PropNomClientContacts(i) = StrToken(a_ClesContact(i), "~",1)
+				a_PropContactNoms(i) = StrToken(a_ClesContact(i), "~",2)
+				a_PropContactCourriels(i) = StrToken(a_ClesContact(i), "~",3)				
+				a_PropNoContacts(i) = StrToken(a_ClesContact(i), "~",4)
+				a_PropNoClientsContacts(i) = StrToken(a_ClesContact(i), "~",5)
+			Next
+			
+			Call gnd_SDSPM.ReplaceItemValue("Prop_NoContactsCCDsg", a_PropNoContacts)
+			Call gnd_SDSPM.ReplaceItemValue("Prop_NoClientContactsCCDsg", a_PropNoClientsContacts)
+			Call gnd_SDSPM.ReplaceItemValue("Prop_ContactNomsCCDsg", a_PropContactNoms)
+			Call gnd_SDSPM.ReplaceItemValue("Prop_ContactCourrielsCCDsg", a_PropContactCourriels)
+			Call gnd_SDSPM.ReplaceItemValue("Prop_NomClientContactsCCDsg", a_PropNomClientContacts)
+			
+		End If	
+		
+		
+		If a_PropContactSansCourriel(LBound(a_PropContactSansCourriel)) &lt;&gt; "" Then
+			Set nd_DB = New NotesDocument(gndb_SDSPM)
+			nd_DB.DB_Contact = a_PropContactSansCourriel
+			
+			Call gnuiws_SDSPM.Dialogbox("DB_CSCour", True, True, True, False, False, False, _
+			xGDK_xMessage("SDSPP", 176, "", ""), nd_DB, True, False, False)	
+		End If
+		
+		
+		Call FPNav_InitialiserContactCCClient(gnd_SDSPM, True)
+		
+		Call gnuid_SDSPM.Refresh		
+		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_MajAdresseClient"><lotusscript>Function FPNav_MajAdresseClient As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_Adresse1 As String
+	Dim v_Ville As String
+	Dim v_Province As String
+	Dim v_Pays As String
+	Dim v_CP As String
+	Dim v_Telephone As String
+	
+	FPNav_MajAdresseClient = False
+	
+	v_Adresse1 = xVar(gnd_SDSPM, "Clie_ClientAdresse1", "")
+	v_Ville = xVar(gnd_SDSPM, "Clie_ClientVille", "")
+	v_Province = xVar(gnd_SDSPM, "Clie_ClientProvince", "")
+	v_Pays = xVar(gnd_SDSPM, "Clie_ClientPays", "")
+	v_CP = xVar(gnd_SDSPM, "Clie_ClientCodePostal", "")
+	v_Telephone = xVar(gnd_SDSPM, "Clie_ClientTelephone", "")
+	
+	' Validations
+	If v_Adresse1 = "" Or v_Ville = "" _
+	Or v_Province = "" Or v_Pays = "" _
+	Or v_CP = "" Or v_Telephone = "" Then
+		Messagebox xGDK_xMessage("SDSPP", 39, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	If v_Province &lt;&gt; xVar(gnd_SDSPM, "Prop_ClientProvince", "") _
+	Or v_Pays &lt;&gt; xVar(gnd_SDSPM, "Prop_ClientPays", "") Then
+		
+		' Afficher fenêtre de recalc. des coûts
+		Call SDSPM_acRecalculerCouts(gnd_Prop_SDSPM, True, False)
+		
+	End If
+	
+	' Maj
+	gnd_SDSPM.Prop_ClientAdresse1 = v_Adresse1
+	gnd_SDSPM.Prop_ClientAdresse2 = xVar(gnd_SDSPM, "Clie_ClientAdresse2", "")
+	gnd_SDSPM.Prop_ClientVille = v_Ville
+	gnd_SDSPM.Prop_ClientProvince = v_Province
+	gnd_SDSPM.Prop_ClientPays = v_Pays
+	gnd_SDSPM.Prop_ClientCodePostal = v_CP
+	gnd_SDSPM.Prop_ClientTelephone = v_Telephone
+	gnd_SDSPM.Prop_ClientTelephone2 = xVar(gnd_SDSPM, "Clie_ClientTelephone2", "")
+	gnd_SDSPM.Prop_ClientTelecopieur = xVar(gnd_SDSPM, "Clie_ClientTelecopieur", "")
+	
+	gnd_SDSPM.PNav_MajAdresse = 0
+	
+	FPNav_MajAdresseClient = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_hsSupprimerContactCCManuel"><lotusscript>Sub FPNav_hsSupprimerContactCCManuel
+	On Error GoTo GererErreur
+	
+	gnd_SDSPM.Prop_ContactNomsManCCDsg = ""
+	gnd_SDSPM.Prop_ContactCourrielsManCCDsg = ""
+	
+	Call gnuid_SDSPM.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+
+
+
+</lotusscript></code><code event="FPNav_acImage"><lotusscript>Sub FPNav_acImage
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	g_AfficherErreurs_FPNav = ""
+	On Error 4411 Goto FinSub
+	Call gnuid_SDSPM.Save
+	
+	Call SDSPM_acImage(gnd_Prop_SDSPM)
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsMajNoOpportuniteSF"><lotusscript>Sub FPNav_hsMajNoOpportuniteSF
+	On Error GoTo GererErreur
+	
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim cl_Opportunity As SLSf_clObject
+	
+	Dim v_Resultat As Integer	
+	Dim v_NoOpportuniteSF As String
+	Dim v_ConnectID As String
+	
+	
+	' Initialisations
+	v_NoOpportuniteSF = xVar(gnd_SDSPM, "Prop_NoOpportuniteSF", "")
+	v_ConnectID = SDSPSf_NomProfilSalesforceAPI
+	v_NoOpportuniteSF = xVar(gnd_SDSPM, "Prop_NoOpportuniteSF" , "")
+	
+	Set cl_ConnexionAPI = New SLSf_clConnexionAPI(v_ConnectID)
+	If cl_ConnexionAPI.Resultat = 1 Then
+		Set cl_Opportunity = New SLSf_clObject(cl_ConnexionAPI, "Opportunity", v_NoOpportuniteSF)
+		If cl_Opportunity.Resultat = 1 Then			
+			
+			gnd_Prop_SDSPM.Prop_NoOpportuniteSF = v_NoOpportuniteSF
+			gnd_Prop_SDSPM.Prop_Origine = "SF"
+			Call gnd_Prop_SDSPM.Save(True, False)
+			Call gnuid_SDSPM.Refresh
+			
+			v_Resultat = SDSPSf_MajOpportunite(gnd_Prop_SDSPM, cl_ConnexionAPI)	
+			If v_Resultat &lt; 0 Then	
+				Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_FPNav, gc_Element_FPNav, "SDSPSf_MajOpportunite", 0, "Erreur lors de la maj de l'opportunité.", g_NoProposition_SDSPM &amp; ";" &amp; xVar(gnd_Prop_SDSPM, "Prop_NoOpportuniteSF", "ERR") &amp; ";" &amp; CStr(v_Resultat))
+			End If
+			
+		Else
+			'Message NoOpportunite erronee
+			MessageBox xGDK_xMessage("SDSPP", 196, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+			v_Resultat = cl_Opportunity.Resultat
+		End If
+		
+	Else
+		v_Resultat = cl_ConnexionAPI.Resultat
+	End If
+	
+
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_ExtraireSignataire"><lotusscript>Sub FPNav_ExtraireSignataire( p_contacts As Variant, pnd_PNav As NotesDocument ) 
+	On Error GoTo GererErreur
+	
+	Dim v_contactID As String
+	Dim v_contactOpportunity As String
+	
+	v_contactOpportunity = xVar(pnd_PNav, "Prop_NoContactSF", "")
+
+	ForAll contact In p_contacts
+		If v_contactID = "" Then			
+			v_contactID = 	contact.Contenu("Id")	
+		Else
+			If v_contactID =  v_contactOpportunity Then					
+				v_contactID =  contact.Contenu("Id")	
+				Exit ForAll	
+			End If
+		End If
+		
+		
+	End ForAll
+	
+	If v_contactID &lt;&gt; "" Then
+		
+		pnd_PNav.Cont_Nom = p_contacts(v_contactID).Contenu("Name")
+		pnd_PNav.Cont_Titre = p_contacts(v_contactID).Contenu("Salutation")
+		pnd_PNav.Cont_Fonction = p_contacts(v_contactID).Contenu("Title")
+		pnd_PNav.Cont_FonctionFR = p_contacts(v_contactID).Contenu("Title")
+		pnd_PNav.Cont_FonctionEN = p_contacts(v_contactID).Contenu("Title")
+		pnd_PNav.Cont_Telephone = p_contacts(v_contactID).Contenu("Phone")
+		pnd_PNav.Cont_Cellulaire = p_contacts(v_contactID).Contenu("MobilePhone")	
+		pnd_PNav.Cont_Courriel = p_contacts(v_contactID).Contenu("Email")	
+		
+	End If	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsSuivant"><lotusscript>Sub FPNav_hsSuivant
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	g_AfficherErreurs_FPNav = True
+	On Error 4411 Goto FinSub
+	Call gnuid_SDSPM.Save
+	
+	' Ouvrir le masque suivant
+	Call SDSPN_OuvrirMasqueSuivant
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsSelectionnerRepresentant"><lotusscript>Sub FPNav_hsSelectionnerRepresentant
+	On Error GoTo GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Rep As NotesDocument
+	Dim ni As NotesItem
+	Dim nd_Equi As NotesDocument
+	Dim v_NoEquipe As String
+	Dim v_NoRepresentant As String
+	Dim v_NoRepresentantCCOSSg As String	
+	Dim v_CommissionsRepresentant As String
+	Dim v_Maj As Boolean
+	Dim v_Langue As String
+	Dim v_StatutDesc As String
+	Dim v_Statut As String
+	Dim v_NomRepresentantPrec As String
+	Dim v_NoDirecteur As String
+	Dim nd_Dir As NotesDocument
+	Dim v_Prof_DirCommissionsDir As String
+	
+	' Initialisations
+	Call xSIRR_Initialisations
+	
+	If xVar(gnd_SDSPM, "Prop_NoProposition", "") = "" Then
+		On Error 4411 GoTo FinSub
+		Call gnuid_SDSPM.Save
+	End If
+	
+	' Représentant précédent
+	v_NomRepresentantPrec = xVar(gnd_SDSPM, "Prop_NomRepresentant" , "")
+	
+	' Si pas dans équipe, permet de choisir tous les reps.
+	v_NoEquipe = "0"
+	Set nd_Rep = xSIRR_xndRepr_Id(gns_SDSPM.UserName, "")
+	If nd_Rep Is Nothing Then
+	ElseIf xVarContient(nd_Rep, "Repr_SDSPropositions", "DIR") Then
+	Else
+		v_NoEquipe = xVar(nd_Rep, "Repr_NoEquipe", "0")
+		If v_NoEquipe &lt;&gt; "0" Then
+			Set nd_Equi = xSIRR_xndEqui(v_NoEquipe, True)
+			If nd_Equi Is Nothing Then
+				v_NoEquipe = "0"
+			End If
+		End If
+	End If
+	
+	If v_NoEquipe = "0" Then
+		Set ndc = gnuiws_SDSPN.PickListCollection(PICKLIST_CUSTOM, False, gndb_xSIRR.Server, gndb_xSIRR.Filepath, "V_Repr16", _
+		xGDK_xMessage("SDSPP", 82, "", ""), xGDK_xMessage("SDSPP", 83, "", ""), "1")
+		If ndc.Count &gt; 0 Then
+			Set nd_Rep = ndc.GetFirstDocument
+			v_NoEquipe = xVar(nd_Rep, "Repr_NoEquipe", "0")
+			v_Maj = True
+			
+			Set nd_Equi = xSIRR_xndEqui(v_NoEquipe, True)
+			If nd_Equi Is Nothing Then
+				v_NoEquipe = 0
+			End If
+		Else
+			Print xGDK_xMessage("SI", 1, "", "") &amp; " - " &amp; xGDK_xMessage("SI", 283, "", "")
+			Exit Sub
+		End If
+	Else
+		' Si dans équipe, permet de choisir seulements reps dans même équipe.
+		Set ndc = gnuiws_SDSPM.PickListCollection(PICKLIST_CUSTOM, False, gndb_xSIRR.Server, gndb_xSIRR.FilePath, "V_Repr12", xGDK_xMessage("SDSPP", 84, "", ""), _
+		xGDK_xMessage("SDSPP", 85, "", ""), v_NoEquipe)
+		If ndc.Count &gt; 0 Then
+			Set nd_Rep = ndc.GetFirstDocument
+			v_Maj = True
+		Else
+			Print xGDK_xMessage("SI", 1, "", "") &amp; " - " &amp; xGDK_xMessage("SI", 283, "", "")
+			Exit Sub
+		End If
+	End If
+	
+	If v_Maj Then
+		v_Maj = False
+		v_NoRepresentant = xVar(nd_Rep, "Repr_NoRepresentant", "")
+		
+		If 	v_NoRepresentant &lt;&gt; "" Then			
+			If v_NoRepresentant &lt;&gt; xVar(gnd_SDSPM, "Prop_NoRepresentant", "") Then
+				gnd_SDSPM.Prop_NoRepresentant = v_NoRepresentant
+				gnd_SDSPM.Prop_NomRepresentant = xVar(nd_Rep, "Repr_NomRepresentant", "")
+				gnd_SDSPM.Prop_IdRepresentant = xVar(nd_Rep, "Repr_NotesID", "")
+				v_Maj = True
+				If xVar(gnd_SDSPM, "Prop_NoOpportuniteSF" , "") = "" Then
+					
+					v_Statut = xVar(gnd_SDSPM, "Prop_Statut" , "")
+					v_Langue = xSIRR_xVarRepr(xVar(gnd_SDSPM, "Prop_NoRepresentant", ""), "Repr_Langue", "FR", True)
+					v_StatutDesc = xDescTabl(v_Statut, "Prop_Statut_" &amp; v_Langue, True)
+
+					Call SIHi_Ajouter(gnd_Prop_SDSPM, v_Statut &amp; "-" &amp; v_StatutDesc, "Action : " &amp; _
+					"Représentant remplaçé  /  Sales rep. replaced (" &amp; v_NomRepresentantPrec &amp; ")", "", False)
+				End If
+			End If
+			
+			If v_NoEquipe &lt;&gt; xVar(gnd_SDSPM, "Prop_NoEquipe", "") Then
+				gnd_SDSPM.Prop_NoEquipe = v_NoEquipe
+				gnd_SDSPM.Prop_NomEquipe = xVar(nd_Rep, "Repr_NomEquipe", "")
+				v_Maj = True
+			End If
+		End If	
+		
+		' Assigner les directeurs et les tables des commissions	
+		If SDSPP_AssignerCommissions(gnd_SDSPM) = 1 Then
+			v_Maj = True
+		End If
+	%rem
+		Set ni = xni(nd_Rep, "Repr_SDSPropositions", "")
+		If ni.Contains("XC") Then
+			v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_CommissionsRepresentant", "", False) Or v_Maj
+			v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_CommissionsDirecteur", "", False) Or v_Maj 
+		ElseIf ni.Contains("DIR") Then
+			v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_CommissionsRepresentant", xSIRR_xVarComm_Repr(v_NoRepresentant, "1", "", xVar(gnd_SDSPM, "Prop_ClientPays", ""), xVar(gnd_SDSPM, _
+			"Prop_ClientProvince", ""), "Comm_CodeCommissionsAH", ""), False) Or v_Maj
+			v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_CommissionsDirecteur", "", False) Or v_Maj 
+		Else
+			' Le représentant doit avoir une table de commissions
+			If v_NoEquipe = "0" Then
+				v_CommissionsRepresentant = xSIRR_xVarComm_Repr(v_NoRepresentant, "1", "", xVar(gnd_SDSPM, "Prop_ClientPays", ""), xVar(gnd_SDSPM, _
+				"Prop_ClientProvince", ""), "Comm_CodeCommissionsAH", "")
+			Else
+				v_CommissionsRepresentant = xSIRR_xVarComm_Equi(v_NoEquipe, "1", "", xVar(gnd_SDSPM, "Prop_ClientPays", ""), xVar(gnd_SDSPM, _
+				"Prop_ClientProvince", ""), "Comm_CodeCommissionsAH", "")
+			End If
+			If v_CommissionsRepresentant &lt;&gt; "" Then
+				v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_CommissionsRepresentant", v_CommissionsRepresentant, False) Or v_Maj
+				v_NoDirecteur = xVar(gnd_SDSPM, "Prop_NoDirecteur", "")
+				Set nd_Dir = xSIRR_xndRepr(v_NoDirecteur, True)
+				v_Prof_DirCommissionsDir = xVarProf("Prof_DirCommissionsDir", "")
+				v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_CommissionsDirecteur", xVar(nd_Dir, "Repr_DirCommissionsDir_AH", v_Prof_DirCommissionsDir), False) Or v_Maj 
+			Else
+				v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_CommissionsRepresentant", "", False) Or v_Maj
+				v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_CommissionsDirecteur", "", False) Or v_Maj 
+			End if
+		End If
+	%end rem
+		
+		v_NoRepresentantCCOSSg = xVar(gnd_SDSPM, "Prop_NoRepresentantCCOSSg", "")
+		If v_NoRepresentantCCOSSg &lt;&gt; "" Then
+			If v_NoRepresentantCCOSSg &lt;&gt; v_NoRepresentant Then
+				v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_NomRepresentantCCOSSg", xVar(nd_Rep, "Repr_NomRepresentant", ""), False) Or v_Maj 
+				v_Maj =SIIx_MajItem(gnd_SDSPM, "Prop_CourrielRepresentantCCOSSg", xVar(nd_Rep, "Repr_Courriel", ""), False) Or v_Maj 
+			End If	
+		End If
+		
+		If v_Maj Then
+			' Modifier les accès (sécurité)
+			' -----------------------------
+			Call SDSPP_AssignerSecurite(gnd_Prop_SDSPM, False)
+			
+			' Mettre à jour l'historique de la proposition
+			' --------------------------------------------
+			If xVar(gnd_SDSPM, "Prop_NoOpportuniteSF" , "") = "" Then
+				Call SIHi_BatirHistorique(gnd_Prop_SDSPM)
+			End If
+			
+			
+			g_NoRep_FPNav = xVar(gnd_SDSPM, "Prop_NoRepresentant", "")
+		Else
+			Print xGDK_xMessage("SDSPP", 204, "", "")
+		End If
+		
+		Call gnuid_SDSPM.Refresh
+	End If	
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_ExtraireOpportunite"><lotusscript>'===================================================================================================================================================
+Function FPNav_ExtraireOpportunite(p_NoOpportunite As String, p_NoClientFmt As String) As Integer
+	'---------------------------------------------------------------------	
+	' Extraire l'opportunité et le compte de Salesforce
+	'---------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_NomProfilSalesforceAPI As String
+	Dim v_AccountId As String
+	
+	FPNav_ExtraireOpportunite = 0
+	
+	Set gcl_SessionSLSf_FSFPP = New SLSf_clSession
+	Set gcl_SessionSLSf_FSFPP.Objects("Opportunity") = Nothing
+	Set gcl_SessionSLSf_FSFPP.Objects("Account") = Nothing
+	
+	v_NomProfilSalesforceAPI = SDSPSf_NomProfilSalesforceAPI
+	Set gcl_SessionSLSf_FSFPP.ConnexionAPI = New SLSf_clConnexionAPI(v_NomProfilSalesforceAPI)
+	If gcl_SessionSLSf_FSFPP.ConnexionAPI.Resultat &lt; 0 Then
+		FPNav_ExtraireOpportunite = gcl_SessionSLSf_FSFPP.ConnexionAPI.Resultat
+		Exit Function
+	End If
+	
+	If p_NoOpportunite = "" Then 
+		Set gcl_SessionSLSf_FSFPP.Objects("Account") = New SLSf_clObject(gcl_SessionSLSf_FSFPP.ConnexionAPI, "Account", "SERTI_ID__c/" + p_NoClientFmt )
+		FPNav_ExtraireOpportunite = gcl_SessionSLSf_FSFPP.Objects("Account").Resultat
+		If gcl_SessionSLSf_FSFPP.Objects("Account").Resultat &lt; 0 Then
+			Exit Function
+		End If
+	Else
+		Set gcl_SessionSLSf_FSFPP.Objects("Opportunity") = New SLSf_clObject(gcl_SessionSLSf_FSFPP.ConnexionAPI, "Opportunity", p_NoOpportunite)
+		FPNav_ExtraireOpportunite = gcl_SessionSLSf_FSFPP.Objects("Opportunity").Resultat
+		If gcl_SessionSLSf_FSFPP.Objects("Opportunity").Resultat &lt; 0 Then
+			MessageBox xGDK_xMessage("SDSPP", 196, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+		
+		v_AccountId = gcl_SessionSLSf_FSFPP.Objects("Opportunity").ExtraireValeur("AccountId", "")
+		Set gcl_SessionSLSf_FSFPP.Objects("Account") = New SLSf_clObject(gcl_SessionSLSf_FSFPP.ConnexionAPI, "Account", v_AccountId)
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	FPNav_ExtraireOpportunite = -9
+	Call SIGE_TraiterErreur(gc_Element_FPNav, gc_Element_FPNav, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="FPNav_InitialiserContactCCClient"><lotusscript>Sub FPNav_InitialiserContactCCClient(pnd_PNav As NotesDocument, p_Cache As Boolean)
+	On Error GoTo GererErreur
+	
+	Dim nd_ContactPJ As NotesDocument
+	
+	Dim a_NomClientContacts As Variant
+	Dim a_NoClientContacts As Variant
+	Dim a_NoContacts As Variant
+	Dim a_NomContacts As Variant
+	Dim a_CourrielContacts As Variant	
+	Dim i As Integer
+	Dim v_NoContact As String
+	Dim v_Origine As String
+	Dim v_MajContactCC As Integer
+	
+	' Initialisations
+	v_MajContactCC = 0
+	
+	a_NoContacts = xVarArray(pnd_PNav, "Prop_NoContactsCCDsg")	
+	
+	If Not IsArray(a_NoContacts) Then
+		Exit sub
+	End if
+	
+	v_Origine = xVar(pnd_PNav, "Prop_Origine", "")
+	If v_Origine = "SF" Then
+		Exit Sub
+	End If	
+	
+	ReDim a_NomClientContacts(UBound(a_NoContacts))
+	ReDim a_NoClientContacts(UBound(a_NoContacts))
+	ReDim a_NomContacts(UBound(a_NoContacts))
+	ReDim a_CourrielContacts(UBound(a_NoContacts))
+	
+	For i = 0 To UBound(a_NoContacts)
+		
+		v_NoContact = a_NoContacts(i)
+		
+		If v_Origine &lt;&gt; "SICl" Then
+			Set nd_ContactPJ = xPJ_xndCont(v_Origine, v_NoContact, False)
+			'Set nd_Proj = xPJ_xndProj(v_Origine, xVar(pnd_PNav, "Prop_NoProjet", ""), True)
+			'Set nd_Clie = xPJ_xndClie(v_Origine, xVar(nd_Proj, "Clie_NoClient", ""), p_Cache)
+		Else
+			If pnd_PNav.Parentdatabase.Server &lt;&gt; "" Then
+				Select Case xSICl_xVarClie(xVar(pnd_PNav, "Prop_ClientNoFmt", ""), "Clie_ClientCategorie", "", True)
+				Case "60"
+					v_Origine = "PJSDS"
+				Case "62"
+					v_Origine = "PJUSA"
+				Case Else
+					v_Origine = "PJDIV"
+			End Select
+				
+				Set nd_ContactPJ = xPJ_xndCont(v_Origine, v_NoContact, False)			
+			Else
+				Exit Sub
+			End If			
+		End If
+		
+		If Not nd_ContactPJ Is Nothing Then	
+			a_NomClientContacts(i) = xVar(nd_ContactPJ, "Clie_Nom", "- - -")	
+			a_NoClientContacts(i) = xVar(nd_ContactPJ, "Clie_NoClientFmt", "- - -")	
+			a_NomContacts(i) = xVar(nd_ContactPJ, "Cont_Contact", "- - -")		
+			a_CourrielContacts(i) = xVar(nd_ContactPJ, "Cont_Courriel", "- - -")										
+		End If
+		
+	Next
+	
+	pnd_PNav.Cont_NomClientContactsCCDsg = a_NomClientContacts
+	pnd_PNav.Cont_NoClientContactsCCDsg = a_NoClientContacts
+	pnd_PNav.Cont_ContactNomsCCDsg = a_NomContacts
+	pnd_PNav.Cont_ContactCourrielsCCDsg = a_CourrielContacts
+	
+	If xVarImplode(pnd_PNav, "Prop_NoClientContactsCCDsg", ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_NoClientContactsCCDsg", ";") _
+	Or xVarImplode(pnd_PNav, "Prop_NomClientContactsCCDsg", ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_NomClientContactsCCDsg", ";") _
+	Or xVarImplode(pnd_PNav, "Prop_ContactNomsCCDsg", ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_ContactNomsCCDsg", ";") _
+	Or xVarImplode(pnd_PNav, "Prop_ContactCourrielsCCDsg", ";") &lt;&gt; xVarImplode(pnd_PNav, "Cont_ContactCourrielsCCDsg", ";") Then
+		v_MajContactCC = 1
+	End If
+	
+	pnd_PNav.PNav_MajContactCC = v_MajContactCC
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acDupliquerProposition"><lotusscript>Sub FPNav_acDupliquerProposition
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim nd_Duplicata As NotesDocument
+	Dim nd_DB As NotesDocument
+	
+	Dim v_UserName As String
+	Dim v_Description As Variant
+	Dim v_ID As String
+	Dim v_DB_ID As String
+	Dim v_EditMode As String
+	Dim v_Commentaire As String
+	Dim v_DBRecalcTous As Boolean
+	Dim v_RecalcListe As Boolean
+	
+	On Error 4411 GoTo FinSub
+	Call gnuid_SDSPM.Save
+	
+	' Demander la nouvelle description à l'utilisateur
+	v_Description = gnuiws_SDSPM.Prompt(PROMPT_OKCANCELEDIT, _
+	xGDK_xMessage("SDSPP", 46, "", ""), xGDK_xMessage("SDSPP", 47, "", ""), CStr(Today()))
+	If v_Description = "" Then
+		Exit Sub
+	Else
+		If v_Description = xVar(gnd_SDSPM,"Prop_DescProposition","") Then
+			MessageBox xGDK_xMessage("SDSPP", 48, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+	End If
+	
+	'Set ndb_Temp = xGDK_xndbNDB("SITp")
+	'Set nd_DB = New NotesDocument(ndb_Temp)
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	nd_DB.Form = "DB_SIHi"	
+	nd_DB.SIHi_Obligatoire = True	' Image "&gt;" pour Commentaire obligatoire
+	
+	If Not gnuiws_SDSPN.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+	xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+		Exit Sub
+	End If
+	
+	v_Commentaire = xVar(nd_DB, "SIHi_Commentaire", "")
+	v_UserName = gns_SDSPM.UserName
+	v_EditMode = xVar(gnd_SDSPM, "PNav_EditMode", "")
+	
+	Call SDSPDp_DupliquerProposition(gnd_Prop_SDSPM,CStr(v_Description), nd_Duplicata, nd_DB, v_UserName)
+	%REM
+	If v_EditMode = "1" Then
+		Call SDSPDp_DupliquerProposition(gnd_Prop_SDSPM,CStr(v_Description), nd_Duplicata, nd_DB, v_UserName)
+	Else
+		Set ndb = gns_SDSPM.CurrentDatabase
+		If ndb.server = "" Then
+			MessageBox xGDK_xMessage("SI", 44, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+		Set ws_Proposition = New Cl_proposition
+		Call nd_DB.save(True, False)
+		v_DB_ID = nd_DB.Universalid
+		v_ID = ws_Proposition.DupliquerPropositionSDSP3(xVar(gnd_SDSPM, "Prop_NoProposition", ""), CStr(v_Description), v_DB_ID, v_UserName)
+		Set ndb = gns_SDSPM.CurrentDatabase
+		Set nd_Duplicata = ndb.GetDocumentByUnid(v_ID)
+	End If
+	%END REM
+	
+	If Not nd_Duplicata Is Nothing Then
+		Call SDSPM_acRecalculerCouts(nd_Duplicata, False, False)
+		
+	%REM
+		If v_EditMode = "1" Then
+			Call SDSPM_acRecalculerCouts(nd_Duplicata, False, False)
+		Else 
+			' Mode lecture
+			Set nd_DB = New NotesDocument(gndb_SDSPM)
+			nd_DB.DB_ChoixObligatoire = False
+			
+			If gnuiws_SDSPM.DialogBox( "DB_RCou" , True , True , True ,_
+			False, False, False , xGDK_xMessage("SDSPP", 42, "", ""),_
+			nd_DB , True , True , False ) Then
+				
+				' Recalculer couts/prix de tous les produits
+				v_DBRecalcTous = CInt(xVar(nd_DB, "DB_RecalcTous",0))
+				v_RecalcListe = v_DBRecalcTous
+				
+				If ws_Proposition.RecalculerCoutsSDSP3(xVar(gnd_SDSPM, "Prop_NoProposition", ""), False, False, v_UserName) Then
+					MessageBox xGDK_xMessage("SDSPP", 44, "", "")
+					Call gnuid_SDSPM.Refresh
+				Else
+					MessageBox xGDK_xMessage("SDSPP", 45, "", "")
+				End If
+			
+			Else
+				Print xGDK_xMessage("SI", 1, "", "")
+				Exit Sub
+			End If
+			
+		End If
+	%END REM
+		
+		' Fermer la proposition
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPM.Close
+		Call gnuiws_SDSPM.ViewRefresh
+	Else
+		Call gnuid_SDSPM.Refresh
+	End If
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+	
+
+</lotusscript></code><code event="FPNav_hsMajAdresseClient"><lotusscript>Sub FPNav_hsMajAdresseClient
+	On Error GoTo GererErreur
+	
+	Dim nd_Proj As NotesDocument
+	Dim nd_Clie As NotesDocument
+	Dim ndc_Sites As NotesDocumentCollection
+	Dim nd_Site As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	
+	Dim v_Origine As String
+	Dim v_CleClient As String
+	Dim v_MajSite As Boolean
+	
+	If Not FPNav_MajAdresseClient Then
+		Exit Sub
+	End If
+	
+	v_Origine = xVar(gnd_SDSPM, "Prop_Origine", "")
+	If v_Origine = "SF" Then
+		Exit Sub
+	End If
+	
+	' Trouver le site qui est le même que le client
+	If v_Origine &lt;&gt; "SICl" Then
+		Set nd_Proj = xPJ_xndProj(v_Origine, xVar(gnd_SDSPM, "Prop_NoProjet", ""), True)
+		
+		If Not nd_Proj Is Nothing Then
+			Set nd_Clie = xPJ_xndClie(v_Origine, xVar(nd_Proj, "Clie_NoClient", ""), True)
+			v_CleClient = xVar(nd_Clie, "CleClient", "")
+		End If
+	Else
+		Set nd_Clie = xSICl_xndClie(xVar(gnd_SDSPM, "Prop_ClientNoFmt", ""), False)
+		v_CleClient = xVar(nd_Clie, "Clie_ClientNoFmt", "")
+	End If
+	
+	Set ndc_Sites = xSDSP3_xndcSite(xVar(gnd_Prop_SDSPM, "Prop_NoProposition", ""))
+	
+	If ndc_Sites.Count &gt; 0 Then
+		Set nd_Suivant = ndc_Sites.GetFirstDocument
+		Do Until nd_Suivant Is Nothing
+			Set nd_Site = nd_Suivant
+			Set nd_Suivant = ndc_Sites.GetNextDocument(nd_Suivant)
+			If xVar(nd_Site, "Site_OrigineCle", "") = v_CleClient Then
+				v_MajSite = True
+				Exit Do
+			End If
+		Loop
+	End If
+	
+	If Not nd_Site Is Nothing And v_MajSite Then
+		If xVar(gnd_SDSPM, "PNav_MajAdresse", "") = 1 Then
+			Call FPNav_MajAdresseSiteClient(nd_Clie, nd_Site, v_Origine)
+		End If
+	End If
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPM.Refresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+	
+End Sub
+
+</lotusscript></code><code event="FPNav_acOuvrirBonTravail"><lotusscript>Sub FPNav_acOuvrirBonTravail
+	On Error GoTo GererErreur
+	
+	Dim nd_BTra As NotesDocument
+	Dim ndc_BTra As NotesDocumentCollection
+	Dim nuid As NotesUIDocument
+	Dim nv_BTra As NotesView	
+	Dim v_NoProp As String
+	Dim a_NoBCSites As Variant	
+	Dim v_NbPropositionFmt As String
+	
+	'Initialisations
+	Call xSIBDT_Initialisations
+	
+	Set nv_BTra = gndb_xSIBDT.GetView("v_BTra73")
+	Call nv_BTra.Refresh
+	
+	
+	'Verifier si Bon de commande existe	
+	v_NoProp = xVar(gnd_SDSPM, "Prop_NoProposition", "")	
+	a_NoBCSites = Evaluate(|@DbLookup("" : "NoCache"; ""; "V_Site21"; "| &amp; v_NoProp &amp; |"; 10;[FailSilent])|)
+	
+	If IsArray(a_NoBCSites) Then		
+		
+		v_NbPropositionFmt = xVar(gnd_SDSPM, "Prop_NbPropositionFmt", "")
+		Set ndc_BTra = nv_BTra.GetAllDocumentsByKey(v_NbPropositionFmt, True)
+		
+		If ndc_Btra.Count = 0 Then
+			MessageBox xGDK_xMessage("SI", 70, "", ""), 16, xGDK_xMessage("SI", 1, "", "")				
+			Exit Sub
+			
+		ElseIf ndc_BTra.count = 1 Then
+			
+			Set nd_BTra = ndc_BTra.getfirstDocument
+			
+		Else 
+			' Sélectionner un bon de travail
+			Set nd_Btra = SISe_ndPickList(nv_BTra, xGDK_xMessage("SIBDT", 40, "", ""), v_NbPropositionFmt)				
+			
+		End If
+		
+		' Ouvrir le bon de travail		
+		If Not nd_Btra Is Nothing Then
+			Set nuid = gnuiws_SDSPN.EditDocument( False , nd_Btra)	
+		End If		
+		
+		
+	Else
+
+		MessageBox xGDK_xMessage("SI", 70, "", ""), 16, xGDK_xMessage("SI", 1, "", "")				
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsNomLegalNonModifiable"><lotusscript>Function FPNav_hsNomLegalNonModifiable
+	On Error Goto GererErreur
+	
+	Dim v_MajNomClient As Integer
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_NomLegalModifie", "0")
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_ClientNomLegal", xVar(gnd_SDSPM, "Prop_NomLegalListe", ""))
+	
+	v_MajNomClient = 0
+	
+	If xVar(gnd_SDSPM, "Prop_ClientNoFmt", "") &lt;&gt; "" Then
+		If xVar(gnd_SDSPM, "Prop_ClientNomInterne", "") = xVar(gnd_SDSPM, "Clie_ClientNomInterne", "") Then
+			v_MajNomClient = 0
+		Else
+			v_MajNomClient = 1
+		End If
+	Else
+		If xVar(gnd_SDSPM, "Prop_ClientNom", "") = xVar(gnd_SDSPM, "Clie_ClientNom", "") Then
+			v_MajNomClient = 0
+		Else
+			v_MajNomClient = 1
+		End If
+	End If
+	
+	If v_MajNomClient = 0 Then
+		If xVar(gnd_SDSPM, "Prop_ClientNomLegal", "") = xVar(gnd_SDSPM, "Clie_NomLegal", "") Then
+			v_MajNomClient = 0
+		Else
+			v_MajNomClient = 1
+		End If
+	End If
+	
+	Call gnd_SDSPM.ReplaceItemValue( "PNav_MajNomClient", v_MajNomClient)
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPM.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="FPNav_hsOuvrirProjeto"><lotusscript>Sub FPNav_hsOuvrirProjeto
+	
+	On Error GoTo GererErreur
+	
+	Dim nd_CliePJ As NotesDocument
+	Dim nd As NotesDocument
+	
+	Dim v_ClientNoFmt As String
+	Dim v_NomBD As String
+	Dim v_Origine As String
+	
+	
+	v_ClientNoFmt = xVar(gnd_SDSPM, "Prop_ClientNoFmt","")
+	v_Origine = xVar(gnd_SDSPM, "Prop_Origine","")
+	If v_Origine = "SF" Then
+	Else
+		'___________________
+		
+		' Initialisations
+		If v_Origine = "SICl" Then
+			
+			Select Case xSICl_xVarClie(v_ClientNoFmt, "Clie_ClientCategorie", "", True)
+			Case "60"
+				v_Origine = "PJSDS"
+			Case "62"
+				v_Origine = "PJUSA"
+			Case Else
+				v_Origine = "PJDIV"
+		End Select
+			
+		End If
+		
+
+		
+		' Selectionnez le doc du client           
+		
+		Set nd_CliePJ = xPJ_xndClieSI(v_Origine, v_ClientNoFmt, True)
+		
+		If Not nd_CliePJ Is Nothing Then
+			Call gnuiws_SDSPM.EditDocument(False, nd_CliePJ)
+			
+		Else
+			
+			'client n'existe pas dans Projecto
+			MessageBox xGDK_xMessage("SDSPP", 136 ,"", v_ClientNoFmt), 16, xGDK_xMessage("SI", 1, "", "")
+			
+			
+			
+		End If
+	End If
+	
+
+	
+	Exit Sub
+	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+	
+	
+	
+End Sub
+
+
+
+</lotusscript></code><code event="FPNav_acCreerBonDeCommande"><lotusscript>Sub FPNav_acCreerBonDeCommande
+	On Error Goto GererErreur
+	
+	Dim a_NoSites As String
+	
+	a_NoSites = xVarImplode(gnd_Prop_SDSPM, "Prop_NoSites", ";")
+	
+	If Not SDSPUI_acCreerBonDeCommande(gnd_Prop_SDSPM, a_NoSites, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		Exit Sub
+	End If
+	
+	Call gnuid_SDSPM.Refresh
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+
+</lotusscript></code><code event="FPNav_hsSelectionnerContactKLSF"><lotusscript>Sub FPNav_hsSelectionnerContactKLSF
+	On Error GoTo GererErreur
+	
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim cl_Opportunity As SLSf_clObject
+	Dim cl_Account As SLSf_clObject
+	
+	Dim v_Resultat As Integer
+	Dim v_AccountId As String
+	Dim v_ContenuesContacts As Variant	
+	Dim v_contactID As String
+	Dim v_ListContacts As Variant
+	Dim v_Choix As Variant	
+	Dim a_ClesContacts As Variant
+	Dim a_ChoixContacts As Variant
+	Dim a_TriCles As Variant
+	Dim a_TriChoix As Variant
+
+	Dim v_contactsCount As Long
+	Dim v_PosChoix As Long
+	
+	Dim v_idChoix As String
+	Dim v_ConnectID As String
+	Dim v_NoOpportuniteSF As String
+	Dim v_LigneChoixContact As String
+	Dim v_ContactTitle As String
+	
+	Dim v_ContactItems As String
+	Dim v_ContactOwn As String
+	Dim v_ContactSign As String
+	Dim v_ContactEmail As String
+	
+	Dim v_ID As String
+	Dim a_Cles() As String
+	Dim a_Choix() As String
+	Dim v_Count As Long	
+	Dim v_NoClientFmt As String	
+	Dim v_FiltreSignataires As Boolean
+	Dim v_SertiRole As String
+	Dim v_AjoutListe As Boolean
+	Dim v_Roles As Variant	
+	Dim v_ListeContactsNbSignatory As Integer
+	
+	v_ListeContactsNbSignatory = 0
+	v_Roles = Evaluate(|!@IsNotMember("[TousSignataires]" : "[Admin]"; @UserRoles)|)
+	
+	If v_Roles(0) = 1 Then
+		v_FiltreSignataires = False
+	Else
+		v_FiltreSignataires = True
+	End If		
+	v_AjoutListe = False
+
+	v_ConnectID = SDSPSf_NomProfilSalesforceAPI
+	v_NoOpportuniteSF = xVar(gnd_SDSPM, "Prop_NoOpportuniteSF" , "")
+	v_NoClientFmt = xVar(gnd_SDSPM, "Prop_ClientNoFmt" , "")
+	
+	' Extraire l'opportunité de Salesforce
+	g_Resultat_FSFPP = FPNav_ExtraireOpportunite(v_NoOpportuniteSF, v_NoClientFmt)
+	
+	If g_Resultat_FSFPP &lt; 0 Then
+		Print "69"
+		Exit Sub
+	Else
+		
+		
+		Set cl_Account = gcl_SessionSLSf_FSFPP.Objects("Account")
+		If cl_Account.Resultat = 1 Then				
+
+			' Extraire les contacts
+			v_Resultat = cl_Account.ExtraireEnfants("Contacts", "")
+			
+			If cl_Account.NbEnfants("Contacts") &gt; 0 Then
+				
+				v_contactsCount = -1
+				ReDim a_ChoixContacts(v_Resultat-1) As String
+				ReDim a_ClesContacts(v_Resultat-1) As String
+				ReDim a_TriChoix(v_Resultat-1) As String
+				ReDim a_TriCles(v_Resultat-1) As String
+				
+				v_ListContacts = cl_Account.Enfants("Contacts")
+				
+				ForAll contact In v_ListContacts
+					v_SertiRole = contact.ExtraireValeur("SERTI_Role__c", "")
+					v_ContactSign = contact.ExtraireValeur("Authorised_Signatory__c", "0")
+					
+					If v_SertiRole &lt;&gt; "" Then													
+						If v_ContactSign = "True"  Then	
+							v_ListeContactsNbSignatory = v_ListeContactsNbSignatory + 1
+						End If
+					End If							
+					
+				End ForAll		
+
+				ForAll contact In v_ListContacts
+					v_SertiRole = contact.ExtraireValeur("SERTI_Role__c", "")
+					v_ContactSign = contact.ExtraireValeur("Authorised_Signatory__c", "0")
+					
+					If v_SertiRole &lt;&gt; "" Then	
+						If Not v_FiltreSignataires Then	
+							v_AjoutListe = True
+						Else	
+							If v_ListeContactsNbSignatory &gt; 0 Then
+								If v_ContactSign = "True"  Then	
+									v_AjoutListe = True
+								End If
+							Else
+								v_AjoutListe = True
+							End If
+							
+						End If	
+					End If
+					
+					If 	v_AjoutListe Then					
+
+						v_contactsCount = v_contactsCount + 1								
+						v_ContactItems = ""
+						v_contactID = contact.ExtraireValeur("Id", "") 				
+						a_ClesContacts(v_contactsCount)  = contact.ExtraireValeur("Id", "") 						
+						
+						v_LigneChoixContact =  contact.ExtraireValeur("Name", "") 
+						a_TriChoix(v_contactsCount)  = v_LigneChoixContact
+						a_TriCles(v_contactsCount)  = v_LigneChoixContact
+						
+						v_ContactTitle = contact.ExtraireValeur("Title", "")
+						If v_ContactTitle &lt;&gt; "" Then
+							v_LigneChoixContact = v_LigneChoixContact &amp;  ", " &amp; v_ContactTitle
+						End If	
+						
+						v_ContactOwn = contact.ExtraireValeur("Owner__c", "0")
+						If v_ContactOwn = "True" Then
+							If v_ContactItems = "" Then
+								v_ContactItems = v_ContactItems &amp; "OWN" 
+							End If							
+						End If							
+						
+						v_ContactSign = contact.ExtraireValeur("Authorised_Signatory__c", "0")
+						If v_ContactSign = "True" Then
+							If v_ContactItems = "" Then
+								v_ContactItems = v_ContactItems &amp; "SIGN" 
+							Else
+								v_ContactItems = v_ContactItems &amp; "+SIGN" 
+							End If						
+						End If	
+						
+						v_ContactEmail = contact.ExtraireValeur("Email", "")
+						If v_ContactEmail &lt;&gt; "" Then							
+							If v_ContactItems = "" Then
+								v_ContactItems = v_ContactItems &amp; "EMAIL" 
+							Else
+								v_ContactItems = v_ContactItems &amp; "+EMAIL" 
+							End If		
+						End If
+						
+						If v_ContactItems &lt;&gt; "" Then
+							v_ContactItems = " (" &amp; v_ContactItems &amp; ")"
+						End If
+						
+						v_LigneChoixContact = v_LigneChoixContact &amp; v_ContactItems
+						a_ChoixContacts(v_contactsCount)  = v_LigneChoixContact
+					End If	
+					v_AjoutListe = False
+					
+				End ForAll					
+				
+				If v_contactsCount &lt; 0 Then
+					MessageBox xGDK_xMessage("SI", 271, "", "") &amp; Chr(10) &amp; Chr(10) &amp; xGDK_xMessage("SI", 270, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+					Exit Sub
+				End If
+				
+				ReDim Preserve a_ChoixContacts(v_contactsCount) As String
+				ReDim Preserve a_ClesContacts(v_contactsCount) As String
+				ReDim Preserve a_TriChoix(v_contactsCount) As String
+				ReDim Preserve a_TriCles(v_contactsCount) As String
+				
+				Call Trier2Arrays(a_TriCles, a_ClesContacts)
+				Call Trier2Arrays(a_TriChoix, a_ChoixContacts)	
+
+				v_Choix = gnuiws_SDSPM.Prompt (PROMPT_OKCANCELLIST, xGDK_xMessage("SI", 198, "", ""),xGDK_xMessage("SI", 86, "", "") &amp; Chr(10) &amp; _
+				Chr(10) &amp; xGDK_xMessage("SI", 270, "", ""), "", a_ChoixContacts)
+				
+				If IsEmpty(v_Choix) Then
+					Exit Sub
+				End If
+				
+				v_PosChoix = ArrayGetIndex(a_ChoixContacts, v_Choix)
+				v_idChoix = a_ClesContacts(v_PosChoix)
+				
+				Call FPNav_majContactKLSF( v_idChoix, cl_Account.Enfants("Contacts"), gnd_SDSPM ) 
+				Call gnuid_SDSPM.Refresh
+				
+			Else
+				
+				MessageBox xGDK_xMessage("SI", 271, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+				Exit Sub
+			End If
+			
+		Else
+			v_Resultat = cl_ConnexionAPI.Resultat
+			MessageBox xGDK_xMessage("SDSPP", 197, "", "CON"), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If			
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsFermer"><lotusscript>Sub FPNav_hsFermer
+	On Error GoTo GererErreur
+	
+	' Sauvegarder le document courante
+	g_AfficherErreurs_FPNav = ""
+	On Error 4411 Goto FinSub
+	Call gnuid_SDSPM.Save
+	
+	' Fermer le masque courant
+	gnd_SDSPM.SaveOptions = "0"
+	Call gnuid_SDSPN.Close
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_CreerProposition"><lotusscript>Function FPNav_CreerProposition(pnd_Clie As NotesDocument) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim nd_CliePrincipal As NotesDocument
+	Dim nd_ClieSiegeSocial As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim ni As NotesItem
+	
+	Dim v_Langue As String
+	Dim v_xLangue As String
+	Dim v_Pays As String
+	Dim v_Province As String
+	Dim v_NbSites As Integer
+	Dim v_Origine As String
+	Dim v_OrigineSiegeSocial As String
+	Dim v_DureeContrat As String
+	Dim v_NomProfilSalesforceAPI As String
+	Dim nd_ProfilSalesforceAPI As NotesDocument
+	Dim s As String
+	Dim i As Integer
+	Dim v_ClientNoFmtSiegeSocial As String
+	
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim cl_Account As SLSf_clObject
+	Dim v_NoSiteSF As String
+	Dim v_NomProfilAPI As String
+	
+	FPNav_CreerProposition = False
+
+	' Vérifie que j'ai accès document profil
+	If v_Origine ="SF" Then
+		v_NomProfilSalesforceAPI = SDSPSf_NomProfilSalesforceAPI
+		Set nd_ProfilSalesforceAPI = xKlSf_xndPSfAPI(v_NomProfilSalesforceAPI, True)
+		If nd_ProfilSalesforceAPI Is Nothing Then
+			MessageBox xGDK_xMessage("SDSPP", 197, "", "CON"), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+	End If
+
+	v_Pays = xVar(gnd_SDSPM, "Prop_ClientPays", "")
+	v_Province = xVar(gnd_SDSPM, "Prop_ClientProvince", "")
+	v_Origine = xVar(gnd_SDSPM, "Prop_Origine","")
+	v_Langue = xVar(gnd_SDSPM, "Prop_Langue", "")
+	v_xLangue = xLangue
+	
+	' Créer la proposition
+	g_NoProposition_SDSPM = xUnique("") &amp; gns_SDSPM.GetEnvironmentString("SDSPP_NoRep")
+	Set gnd_Prop_SDSPM = New NotesDocument(gndb_SDSPm)
+	gnd_Prop_SDSPM.Form = "F_Prop"
+	gnd_Prop_SDSPM.Cle = g_NoProposition_SDSPM
+	gnd_Prop_SDSPM.Description = xVar(gnd_SDSPM, "Prop_ClientNomInterne", "")
+	
+	REM gnd_Prop_SDSPM.Prop_NbProposition = 0
+	
+	gnd_Prop_SDSPM.Prop_NoProposition = g_NoProposition_SDSPM
+	gnd_Prop_SDSPM.Prop_Origine = v_Origine
+	gnd_Prop_SDSPM.Prop_NoProjet = xVar(gnd_SDSPM, "Prop_NoProjet", "")
+	gnd_Prop_SDSPM.Prop_ProvenanceProspect = xVar(gnd_SDSPM, "Prop_ProvenanceProspect", "")
+	gnd_Prop_SDSPM.Prop_ProvenanceProspectPrecision = xVar(gnd_SDSPM, "Prop_ProvenanceProspectPrecision", "")
+	
+	' Assigner les champs lié au numéro de proposition si origine = SICl 
+	If v_Origine = "SICl" Then
+		Call SDSPP_AssignerNbProposition(gnd_Prop_SDSPM)
+	End If
+	
+	s = xVar(gnd_SDSPM, "Prop_TypeProposition", "")
+	gnd_Prop_SDSPM.Prop_TypeProposition = s
+	gnd_Prop_SDSPM.Prop_TypePropositionDescFR = xSDSBB_xVarTpPp(s, "TpPp_DescTypePropositionFR", "", True)
+	gnd_Prop_SDSPM.Prop_TypePropositionDescEN = xSDSBB_xVarTpPp(s, "TpPp_DescTypePropositionEN", "", True)
+	gnd_Prop_SDSPM.Prop_TypeContratServiceSDS = xVar(gnd_SDSPM, "Prop_TypeContratServiceSDS", "")
+	
+	s = xVar(gnd_SDSPM, "Prop_Statut", "")
+	gnd_Prop_SDSPM.Prop_Statut = s
+	gnd_Prop_SDSPM.Prop_StatutIcone = xIcnTabl(s, "Prop_Statut_FR", True)
+	gnd_Prop_SDSPM.Prop_StatutDescFR = xDescTabl(s, "Prop_Statut_FR", True)
+	gnd_Prop_SDSPM.Prop_StatutDescEN = xDescTabl(s, "Prop_Statut_EN", True)
+	gnd_Prop_SDSPM.Prop_DescProposition = xVar(gnd_SDSPM, "Prop_DescProposition", "")
+	
+	s = xVar(gnd_SDSPM, "Prop_NoRepresentant", "")
+	If s &lt;&gt; "" Then
+		gnd_Prop_SDSPM.Prop_NoRepresentant = s
+		gnd_Prop_SDSPM.Prop_NomRepresentant = xSIRR_xVarRepr(s, "Repr_NomRepresentant", "", True)
+		gnd_Prop_SDSPM.Prop_IdRepresentant = xSIRR_xVarRepr(s, "Repr_NotesID", "", True)
+		
+		s = xSIRR_xVarRepr(CInt(s), "Repr_NoEquipe", "", True)
+		gnd_Prop_SDSPM.Prop_NoEquipe = s
+		gnd_Prop_SDSPM.Prop_NomEquipe = xSIRR_xVarEqui(s, "Equi_NomEquipe", "", True)
+	End If
+	
+	gnd_Prop_SDSPM.Prop_NePasPartager = xVar(gnd_SDSPM, "Prop_NePasPartager", "")
+	
+	gnd_Prop_SDSPM.Prop_NoOpportuniteSF = xVar(gnd_SDSPM, "Prop_NoOpportuniteSF", "")	
+	gnd_Prop_SDSPM.Prop_ClientNoSF = xVar(gnd_SDSPM, "Prop_ClientNoSF", "")	
+	gnd_Prop_SDSPM.Prop_NoContactSF = xVar(gnd_SDSPM, "Prop_NoContactSF", "")	
+	
+	gnd_Prop_SDSPM.Prop_ClientNoFmt = xVar(gnd_SDSPM, "Prop_ClientNoFmt", "")
+	gnd_Prop_SDSPM.Prop_ClientNomInterne = xVar(gnd_SDSPM, "Prop_ClientNomInterne", "")
+	gnd_Prop_SDSPM.Prop_ClientNom = xVar(gnd_SDSPM, "Prop_ClientNom", "")
+	gnd_Prop_SDSPM.Prop_ClientNomLegal = xVar(gnd_SDSPM, "Prop_ClientNomLegal", "")
+	gnd_Prop_SDSPM.Prop_Langue = v_Langue
+	
+	gnd_Prop_SDSPM.Prop_ClientCleSitePrinc = xVar(gnd_SDSPM, "Prop_ClientCleSitePrinc", "")
+	gnd_Prop_SDSPM.Prop_ClientCleInitial = xVar(gnd_SDSPM, "Prop_ClientCleInitial", "")
+	
+	gnd_Prop_SDSPM.Prop_NomGroupeClient = xVar(gnd_SDSPM, "Prop_NomGroupeClient", "")
+	gnd_Prop_SDSPM.Prop_VersionSDS = xVar(gnd_SDSPM, "Prop_VersionSDS", "")
+	gnd_Prop_SDSPM.Prop_VersionOS = xVar(gnd_SDSPM, "Prop_VersionOS", "")
+	
+	gnd_Prop_SDSPM.Prop_ClientAdresse1 = xVar(gnd_SDSPM, "Prop_ClientAdresse1", "")
+	gnd_Prop_SDSPM.Prop_ClientAdresse2 = xVar(gnd_SDSPM, "Prop_ClientAdresse2", "")
+	gnd_Prop_SDSPM.Prop_ClientVille = xVar(gnd_SDSPM, "Prop_ClientVille", "")
+	gnd_Prop_SDSPM.Prop_ClientProvince = v_Province
+	gnd_Prop_SDSPM.Prop_ClientPays = v_Pays
+	gnd_Prop_SDSPM.Prop_ClientCodePostal = xVar(gnd_SDSPM, "Prop_ClientCodePostal", "")
+	gnd_Prop_SDSPM.Prop_ClientTelephone = xVar(gnd_SDSPM, "Prop_ClientTelephone", "")
+	gnd_Prop_SDSPM.Prop_ClientTelephone2 = xVar(gnd_SDSPM, "Prop_ClientTelephone2", "")
+	gnd_Prop_SDSPM.Prop_ClientTelecopieur = xVar(gnd_SDSPM, "Prop_ClientTelecopieur", "")
+	
+	gnd_Prop_SDSPM.Prop_NoContact = xVar(gnd_SDSPM, "Prop_NoContact", "")
+	gnd_Prop_SDSPM.Prop_ContactNom = xVar(gnd_SDSPM, "Prop_ContactNom", "")
+	gnd_Prop_SDSPM.Prop_ContactFonction = xVar(gnd_SDSPM, "Prop_ContactFonction", "")
+	gnd_Prop_SDSPM.Prop_ContactFonctionFR = xVar(gnd_SDSPM, "Prop_ContactFonctionFR", "")
+	gnd_Prop_SDSPM.Prop_ContactFonctionEN = xVar(gnd_SDSPM, "Prop_ContactFonctionEN", "")
+	gnd_Prop_SDSPM.Prop_ContactTitre = xVar(gnd_SDSPM, "Prop_ContactTitre", "")
+	gnd_Prop_SDSPM.Prop_ContactTelephone = xVar(gnd_SDSPM, "Prop_ContactTelephone", "")
+	gnd_Prop_SDSPM.Prop_ContactCellulaire = xVar(gnd_SDSPM, "Prop_ContactCellulaire", "")
+	gnd_Prop_SDSPM.Prop_ContactCourriel = xVar(gnd_SDSPM, "Prop_ContactCourriel", "")
+	
+	gnd_Prop_SDSPM.Prop_NoContactsCCDsg  = xVar(gnd_SDSPM, "Prop_NoContactsCCDsg", "")
+	gnd_Prop_SDSPM.Prop_ContactNomsCCDsg  = xVar(gnd_SDSPM, "Prop_ContactNomsCCDsg", "")
+	gnd_Prop_SDSPM.Prop_NoClientContactsCCDsg  = xVar(gnd_SDSPM, "Prop_NoClientContactsCCDsg", "")
+	gnd_Prop_SDSPM.Prop_ContactCourrielsCCDsg  = xVar(gnd_SDSPM, "Prop_ContactCourrielsCCDsg", "")
+	gnd_Prop_SDSPM.Prop_NomClientContactsCCDsg  = xVar(gnd_SDSPM, "Prop_NomClientContactsCCDsg", "")
+	
+	gnd_Prop_SDSPM.Prop_ContactNomsManCCDsg  = xVar(gnd_SDSPM, "Prop_ContactNomsManCCDsg", "")
+	gnd_Prop_SDSPM.Prop_ContactCourrielsManCCDsg  = xVar(gnd_SDSPM, "Prop_ContactCourrielsManCCDsg", "")
+	
+	gnd_Prop_SDSPM.Prop_NoRepresentantCCOSSg  = xVar(gnd_SDSPM, "Prop_NoRepresentantCCOSSg", "")
+	gnd_Prop_SDSPM.Prop_NomRepresentantCCOSSg  = xVar(gnd_SDSPM, "Prop_NomRepresentantCCOSSg", "")
+	gnd_Prop_SDSPM.Prop_CourrielRepresentantCCOSSg  = xVar(gnd_SDSPM, "Prop_CourrielRepresentantCCOSSg", "")
+	
+	Call SDSPP_AssignerCommissions(gnd_Prop_SDSPM)
+	
+	' % escompte LG
+	gnd_Prop_SDSPM.Prop_PourcentEscompteLG = xVarProf("Prof_PourcentEscompteLG", 20)
+	
+	gnd_Prop_SDSPM.Prop_Devise = xVar(gnd_SDSPM, "Prop_Devise", "")
+	
+	' taux contrat
+	gnd_Prop_SDSPM.Prop_TauxContrat = xVarProf("Prof_TauxContrat", 5)
+	
+	' duréé contrat
+	v_DureeContrat = xVarProf("Prop_ContratDuree", 1)	
+	gnd_Prop_SDSPM.Prop_ContratDuree = v_DureeContrat	
+	gnd_Prop_SDSPM.Prop_ContratDureeDescEN = xSDSBB_xDescTabl(v_DureeContrat, "Prop_ContDuree_EN", True)
+	gnd_Prop_SDSPM.Prop_ContratDureeDescFR = xSDSBB_xDescTabl(v_DureeContrat, "Prop_ContDuree_FR", True)	
+	
+	If xVar(gnd_SDSPM, "Prop_TypeProposition", "") = "1" Then	
+		If v_Origine = "SF" Then			
+			v_NoSiteSF = SDSPM_SelectionnerValeurKLSF(	xGDK_xMessage("SDSPP", 70, "", "") ) 
+			
+			If v_NoSiteSF = "" Then
+				Exit Function
+			End If	
+			
+			v_NomProfilAPI = SDSPSf_NomProfilSalesforceAPI
+			
+			Set cl_ConnexionAPI = New SLSf_clConnexionAPI(v_NomProfilAPI)
+			If cl_ConnexionAPI.Resultat = 1 Then				
+				
+				Set cl_Account = New SLSf_clObject(cl_ConnexionAPI, "Account", v_NoSiteSF)
+				If cl_Account.Resultat = 1 Then						
+					v_ClientNoFmtSiegeSocial = cl_Account.ExtraireValeur("SERTI_ID__c", "" )
+					If v_ClientNoFmtSiegeSocial = "" Then
+						v_ClientNoFmtSiegeSocial = v_NoSiteSF
+					End If
+					
+					gnd_Prop_SDSPM.Prop_OrigineSiegeSocial =  v_Origine
+					gnd_Prop_SDSPM.Prop_ClientNoFmtSiegeSocialSF = v_NoSiteSF
+					gnd_Prop_SDSPM.Prop_ClientNoFmtSiegeSocial = v_ClientNoFmtSiegeSocial
+					
+					gnd_Prop_SDSPM.Prop_ClientNom1SiegeSocial = cl_Account.ExtraireValeur("Name", "")
+					gnd_Prop_SDSPM.Prop_ClientNomIntSiegeSocial = cl_Account.ExtraireValeur("Legal_Name__c", "") 
+					
+				End If			
+			End If			
+		Else		
+
+			Set nd_CliePrincipal = SDSPS_SelectionnerClient(gnd_SDSPM, v_OrigineSiegeSocial)		
+			If nd_CliePrincipal Is Nothing Then				
+				Exit Function
+			Else
+				gnd_Prop_SDSPM.Prop_OrigineSiegeSocial = v_OrigineSiegeSocial
+				gnd_Prop_SDSPM.Prop_ClientNoFmtSiegeSocial = xVar(nd_ClieSiegeSocial, "Clie_NoClientFmt","")
+				gnd_Prop_SDSPM.Prop_ClientNom1SiegeSocial = xVar(nd_ClieSiegeSocial, "Clie_ClientNom1", "")
+				gnd_Prop_SDSPM.Prop_ClientNom2SiegeSocial = xVar(nd_ClieSiegeSocial, "Clie_ClientNom2", "")
+				gnd_Prop_SDSPM.Prop_ClientNomIntSiegeSocial = xVar(nd_ClieSiegeSocial, "Clie_ClientNomInterne","")
+				
+			End If			
+			
+		End If ' FIN If v_Origine = "SF"
+	End If
+	
+	
+	' Si c'est un client SDS existant , conversion serveur hébergé ou changement propriétaire ne pas forcer l'utilisateur à passer à travers tous les écrans
+	If xVar(gnd_SDSPM, "PNav_MenuOptionMax", "") = "" And xVar(gnd_SDSPM, "Prop_TypeProposition", "") &gt;= "2" Or _
+	xVar(gnd_SDSPM, "Prop_TypeProposition", "") = "3" Then
+		gnd_SDSPM.PNav_MenuOptionMax = "9"	' Ouvrir le menu
+	Else
+		gnd_Prop_SDSPM.PNav_MenuOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00")
+	End If
+	
+	' Il faut assigner la sécurité avant de sauvegarder
+	' -------------------------------------------------
+	Set ni = New NotesItem(gnd_Prop_SDSPM, "LecteurAdmin", "[LecteurToutes]", READERS)
+	Set ni = New NotesItem(gnd_Prop_SDSPM, "AuteurAdmin", "[Admin]", AUTHORS)
+	
+	gnd_SDSPM.Prop_NoProposition = g_NoProposition_SDSPM
+	FPNav_CreerProposition = True
+	
+	' Historique
+	gnd_Prop_SDSPM.HistoDC = Now
+	gnd_Prop_SDSPM.HistoUC = gns_SDSPm.UserName
+	
+	Call SDSPP_AssignerSecurite(gnd_Prop_SDSPM, False)
+	
+	' Crée le site
+	' ------------
+	If Not pnd_Clie Is Nothing Or v_Origine ="SF" Then
+		Set nd_Site = SDSPS_CreerSite(gnd_Prop_SDSPM, pnd_Clie, "")	
+		If nd_Site Is Nothing  Then
+			MessageBox xGDK_xMessage("SDSPP", 198, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Else
+			If xVar(gnd_SDSPM, "Prop_TypeProposition", "") &lt; "2" Then
+				gnd_Prop_SDSPM.Prop_NoSitePrincipal = xVar(nd_Site, "Site_NoSite", "")				
+			End If	
+			gnd_Prop_SDSPM.Prop_NoSites = xVar(nd_Site, "Site_NoSite", "")		
+		End If
+	End If
+	
+	' Attacher le plan PowerPoint
+	' ---------------------------
+	If xVar(gnd_SDSPM, "PNav_PlanPowerPoint", "") &lt;&gt; "" Then
+		Call SDSPD_CreerDocument_SIDV(g_NoProposition_SDSPM, "0", xVar(gnd_SDSPM, "PNav_PlanPowerPoint", ""), "", "")
+	End If
+	
+	' Maj Salesforce
+	If v_Origine = "SF" And xVarProf("Prof_DesactiverSalesforceAPI", "") &lt;&gt; "1" Then
+		i = SDSPSf_MajOpportunite(gnd_Prop_SDSPM, Nothing)
+		If i &lt; 0 Then
+			Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_FPNav, gc_Element_FPNav, "SDSPSf_MajOpportunite", 0, "Erreur lors de la maj de l'opportunité.", _
+			g_NoProposition_SDSPM &amp; ";" &amp; xVar(gnd_Prop_SDSPM, "Prop_NoOpportuniteSF", "ERR") &amp; ";" &amp; CStr(i))
+			MessageBox xGDK_xMessage("SDSPP", 199, "", "CON"), 64, xGDK_xMessage("SI", 1, "", "")
+		End If
+	End If
+	
+	Call SDSPN_MajSitesNav(gnd_SDSPM)
+	
+	' Mettre à jour le document de navigation
+	Call gnd_SDSPM.ReplaceItemValue("Prop_TypePropositionDesc" &amp; v_xLangue, _
+	xVar(gnd_Prop_SDSPM, "Prop_TypePropositionDesc" &amp; v_xLangue, ""))
+	Call gnd_SDSPM.ReplaceItemValue("Prop_StatutDesc" &amp; v_xLangue, xVar(gnd_Prop_SDSPM, "Prop_StatutDesc" &amp; v_xLangue, ""))
+	
+	gnd_SDSPM.PNav_DernierSiteOuvert = 0
+	gnd_SDSPM.PNav_MaxSiteOuvert = 0
+	
+	Call SDSPN_ConstruireMenu(gnd_SDSPM)
+	gnd_SDSPM.Prop_Cle = xVar(gnd_Prop_SDSPM, "Cle", "")
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_Prop_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="FPNav_MajContactCCClient"><lotusscript>Function FPNav_MajContactCCClient As Boolean
+	On Error GoTo GererErreur
+	
+	gnd_SDSPM.Prop_NoClientContactsCCDsg = xVar(gnd_SDSPM, "Cont_NoClientContactsCCDsg", "- - -")
+	gnd_SDSPM.Prop_NomClientContactsCCDsg = xVar(gnd_SDSPM, "Cont_NomClientContactsCCDsg", "- - -")
+	gnd_SDSPM.Prop_ContactNomsCCDsg = xVar(gnd_SDSPM, "Cont_ContactNomsCCDsg", "- - -")
+	gnd_SDSPM.Prop_ContactCourrielsCCDsg= xVar(gnd_SDSPM, "Cont_ContactCourrielsCCDsg", "- - -")
+	
+	gnd_SDSPM.PNav_MajContactCC = 0
+	
+	FPNav_MajContactCCClient = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_InitialiserAdresseClient"><lotusscript>Sub FPNav_InitialiserAdresseClient(pnd_PNav As NotesDocument, p_Cache As Boolean)
+	On Error GoTo GererErreur
+	
+	Dim nd As NotesDocument
+	
+	Dim v_ClientNoFmt As String
+	Dim v_MajAdresse As Integer
+	Dim v_MajNomClient As Integer
+	Dim v_Origine As String
+	Dim v_Serveur As String
+	
+	Dim cl_Account As SLSf_clObject
+	Dim v_Resultat As Integer	
+	Dim v_NoOpportunite As String	
+	
+	v_Origine = xVar(pnd_PNav, "Prop_Origine", "")
+	If v_Origine = "SF" And xVarProf("Prof_DesactiverSalesforceAPI", "") = "1" Then
+		Exit Sub
+	End If
+	
+	' Initialisations	
+	v_MajAdresse = 0
+	v_MajNomClient = 0
+	
+	v_ClientNoFmt = xVar(pnd_PNav, "Prop_ClientNoFmt", "")
+	v_Serveur = pnd_PNav.Parentdatabase.Server
+	If v_ClientNoFmt &lt;&gt; "" Or v_Origine &lt;&gt; "SF" Then	' SI CLients ou Projeto
+		If FPNav_ndClientOrigine(pnd_PNav, nd, v_Origine, p_Cache) Then
+			If v_Origine = "SICl" Then				' SI CLients
+				pnd_PNav.Clie_NoClientFmt = xVar(nd, "Clie_ClientNoFmt", "")
+				pnd_PNav.Clie_NomLegal = xVar(nd, "Clie_ClientNomLegal", "")
+				pnd_PNav.Clie_ClientNom = xVar(nd, "Clie_ClientNomEntreprise", "")
+				pnd_PNav.Clie_ClientNomInterne = xVar(nd, "Clie_ClientNomInterne", "")				
+				pnd_PNav.Clie_ClientAdresse1 = xVar(nd, "Clie_ClientAdresse1", "")
+				pnd_PNav.Clie_ClientAdresse2 = xVar(nd, "Clie_ClientAdresse2", "")
+				pnd_PNav.Clie_ClientVille = xVar(nd, "Clie_ClientVille", "")
+				pnd_PNav.Clie_ClientProvince = xVar(nd, "Clie_ClientProvince", "")
+				pnd_PNav.Clie_ClientPays = xVar(nd, "Clie_ClientPays", "")
+				pnd_PNav.Clie_ClientCodePostal = xVar(nd, "Clie_ClientCodePostal", "")
+				pnd_PNav.Clie_ClientTelephone = xVar(nd, "Clie_ClientTelephone1", "")
+				pnd_PNav.Clie_ClientTelephone2 = xVar(nd, "Clie_ClientTelephone2", "")
+				pnd_PNav.Clie_ClientTelecopieur = xVar(nd, "Clie_ClientTelecopieur", "")
+				
+			Else	' Projeto
+				pnd_PNav.Clie_NoClientFmt = xVar(nd, "Clie_NoClientFmt", "")
+				pnd_PNav.Clie_NomLegal = xVar(nd, "Clie_NomLegal", "")
+				pnd_PNav.Clie_ClientNom = xVar(nd, "Clie_Nom", "")
+				pnd_PNav.Clie_ClientNomInterne = xVar(nd, "Clie_ClientNomInterne", "")				
+				pnd_PNav.Clie_ClientAdresse1 = xVar(nd, "Clie_Adresse1", "")
+				pnd_PNav.Clie_ClientAdresse2 = xVar(nd, "Clie_Adresse2", "")
+				pnd_PNav.Clie_ClientVille = xVar(nd, "Clie_Ville", "")
+				pnd_PNav.Clie_ClientProvince = xVar(nd, "Clie_Province", "")
+				pnd_PNav.Clie_ClientPays = xVar(nd, "Clie_Pays", "")
+				pnd_PNav.Clie_ClientCodePostal = xVar(nd, "Clie_CodePostal", "")
+				pnd_PNav.Clie_ClientTelephone = xVar(nd, "Clie_Telephone", "")
+				pnd_PNav.Clie_ClientTelephone2 = xVar(nd, "Clie_Telephone2", "")
+				pnd_PNav.Clie_ClientTelecopieur = xVar(nd, "Clie_Telecopieur", "")
+				
+			End If
+		End If
+	Else		' Salesforce
+		' Extraire l'opportunité de Salesforce
+		v_NoOpportunite = xVar(pnd_PNav, "Prop_NoOpportuniteSF", "")
+		g_Resultat_FSFPP = FPNav_ExtraireOpportunite(v_NoOpportunite, "")
+		If g_Resultat_FSFPP &lt;= 0 Then
+			Exit Sub
+		Else
+			Set cl_Account = gcl_SessionSLSf_FSFPP.Objects("Account")
+			If cl_Account Is Nothing Then
+				Exit Sub
+			End If
+		End If
+		
+		If gcl_SessionSLSf_FSFPP.Objects("Account").Resultat &gt; 0 Then
+			v_ClientNoFmt = cl_Account.ExtraireValeur("SERTI_ID__c", "")
+			pnd_PNav.Clie_NoClientFmt = v_ClientNoFmt
+			pnd_PNav.Clie_NomLegal = cl_Account.ExtraireValeur("SERTI_Legal_Name__c", "")
+			pnd_PNav.Clie_ClientNom = cl_Account.ExtraireValeur("Name", "")
+			pnd_PNav.Clie_ClientNomInterne = xSICl_xVarClie(v_ClientNoFmt, "Clie_ClientNomInterne", "", True)
+			
+			pnd_PNav.Clie_ClientAdresse1 = cl_Account.ExtraireValeur("BillingStreet", "")
+			pnd_PNav.Clie_ClientAdresse2 =  xVar(pnd_PNav, "Prop_ClientAdresse2" , "")
+			pnd_PNav.Clie_ClientVille = cl_Account.ExtraireValeur("BillingCity", "")
+			pnd_PNav.Clie_ClientProvince = cl_Account.ExtraireValeur("BillingStateCode", "")
+			pnd_PNav.Clie_ClientPays = cl_Account.ExtraireValeur("BillingCountryCode", "")
+			pnd_PNav.Clie_ClientCodePostal = cl_Account.ExtraireValeur("BillingPostalCode", "")
+			pnd_PNav.Clie_ClientTelephone = cl_Account.ExtraireValeur("Phone", "")
+			pnd_PNav.Clie_ClientTelephone2 = cl_Account.ExtraireValeur("Telephone_2__c", "")
+			pnd_PNav.Clie_ClientTelecopieur = cl_Account.ExtraireValeur("Fax", "")
+		End If
+
+	End If
+	
+	%rem
+		If v_Serveur = "" Then		
+			If v_Origine &lt;&gt; "SICl" Then
+				If FPNav_ndClientOrigine(pnd_PNav, nd, v_Origine, p_Cache) Then				
+					pnd_PNav.Clie_NoClientFmt = xVar(nd, "Clie_NoClientFmt", "")				
+					pnd_PNav.Clie_NomLegal = xVar(nd, "Clie_NomLegal", "")
+					pnd_PNav.Clie_ClientNom = xVar(nd, "Clie_Nom", "")
+					pnd_PNav.Clie_ClientNomInterne = xVar(nd, "Clie_ClientNomInterne", "")				
+					pnd_PNav.Clie_ClientAdresse1 = xVar(nd, "Clie_Adresse1", "")
+					pnd_PNav.Clie_ClientAdresse2 = xVar(nd, "Clie_Adresse2", "")
+					pnd_PNav.Clie_ClientVille = xVar(nd, "Clie_Ville", "")
+					pnd_PNav.Clie_ClientProvince = xVar(nd, "Clie_Province", "")
+					pnd_PNav.Clie_ClientPays = xVar(nd, "Clie_Pays", "")
+					pnd_PNav.Clie_ClientCodePostal = xVar(nd, "Clie_CodePostal", "")
+					pnd_PNav.Clie_ClientTelephone = xVar(nd, "Clie_Telephone", "")
+					pnd_PNav.Clie_ClientTelephone2 = xVar(nd, "Clie_Telephone2", "")
+					pnd_PNav.Clie_ClientTelecopieur = xVar(nd, "Clie_Telecopieur", "")
+				End If
+			End If
+		Else
+			If v_Origine = "SF" Then
+				' Extraire l'opportunité de Salesforce
+				v_NoOpportunite = xVar(pnd_PNav, "Prop_NoOpportuniteSF" , "")
+				g_Resultat_FSFPP = FPNav_ExtraireOpportunite(v_NoOpportunite,"")
+				If g_Resultat_FSFPP &lt; 0 Then
+					Exit Sub
+				Else
+					Set cl_Account = gcl_SessionSLSf_FSFPP.Objects("Account")
+				End If
+				
+				pnd_PNav.Clie_NoClientFmt = cl_Account.ExtraireValeur("SERTI_ID__c", "")
+				pnd_PNav.Clie_NomLegal = cl_Account.ExtraireValeur("SERTI_Legal_Name__c", "")
+				pnd_PNav.Clie_ClientNom = cl_Account.ExtraireValeur("Name", "")
+				pnd_PNav.Clie_ClientNomInterne = "NLA"
+				
+				pnd_PNav.Clie_ClientAdresse1 = cl_Account.ExtraireValeur("BillingStreet", "")
+				pnd_PNav.Clie_ClientAdresse2 =  xVar(pnd_PNav, "Prop_ClientAdresse2" , "")
+				pnd_PNav.Clie_ClientVille = cl_Account.ExtraireValeur("BillingCity", "")
+				pnd_PNav.Clie_ClientProvince = cl_Account.ExtraireValeur("BillingStateCode", "")
+				pnd_PNav.Clie_ClientPays = cl_Account.ExtraireValeur("BillingCountryCode", "")
+				pnd_PNav.Clie_ClientCodePostal = cl_Account.ExtraireValeur("BillingPostalCode", "")
+				pnd_PNav.Clie_ClientTelephone = cl_Account.ExtraireValeur("Phone", "")
+				pnd_PNav.Clie_ClientTelephone2 = cl_Account.ExtraireValeur("Telephone_2__c", "")
+				pnd_PNav.Clie_ClientTelecopieur = cl_Account.ExtraireValeur("Fax", "")			
+				
+			Else
+
+				If FPNav_ndClientOrigine(pnd_PNav, nd, v_Origine, p_Cache) Then
+					If v_Origine = "SICl" Then				
+						pnd_PNav.Clie_NoClientFmt = xVar(nd, "Clie_ClientNoFmt", "")
+						pnd_PNav.Clie_NomLegal = xVar(nd, "Clie_ClientNomLegal", "")
+						pnd_PNav.Clie_ClientNom = xVar(nd, "Clie_ClientNomEntreprise", "")
+						pnd_PNav.Clie_ClientNomInterne = xVar(nd, "Clie_ClientNomInterne", "")				
+						pnd_PNav.Clie_ClientAdresse1 = xVar(nd, "Clie_ClientAdresse1", "")
+						pnd_PNav.Clie_ClientAdresse2 = xVar(nd, "Clie_ClientAdresse2", "")
+						pnd_PNav.Clie_ClientVille = xVar(nd, "Clie_ClientVille", "")
+						pnd_PNav.Clie_ClientProvince = xVar(nd, "Clie_ClientProvince", "")
+						pnd_PNav.Clie_ClientPays = xVar(nd, "Clie_ClientPays", "")
+						pnd_PNav.Clie_ClientCodePostal = xVar(nd, "Clie_ClientCodePostal", "")
+						pnd_PNav.Clie_ClientTelephone = xVar(nd, "Clie_ClientTelephone1", "")
+						pnd_PNav.Clie_ClientTelephone2 = xVar(nd, "Clie_ClientTelephone2", "")
+						pnd_PNav.Clie_ClientTelecopieur = xVar(nd, "Clie_ClientTelecopieur", "")
+						
+					Else
+						pnd_PNav.Clie_NoClientFmt = xVar(nd, "Clie_NoClientFmt", "")
+						pnd_PNav.Clie_NomLegal = xVar(nd, "Clie_NomLegal", "")
+						pnd_PNav.Clie_ClientNom = xVar(nd, "Clie_Nom", "")
+						pnd_PNav.Clie_ClientNomInterne = xVar(nd, "Clie_ClientNomInterne", "")				
+						pnd_PNav.Clie_ClientAdresse1 = xVar(nd, "Clie_Adresse1", "")
+						pnd_PNav.Clie_ClientAdresse2 = xVar(nd, "Clie_Adresse2", "")
+						pnd_PNav.Clie_ClientVille = xVar(nd, "Clie_Ville", "")
+						pnd_PNav.Clie_ClientProvince = xVar(nd, "Clie_Province", "")
+						pnd_PNav.Clie_ClientPays = xVar(nd, "Clie_Pays", "")
+						pnd_PNav.Clie_ClientCodePostal = xVar(nd, "Clie_CodePostal", "")
+						pnd_PNav.Clie_ClientTelephone = xVar(nd, "Clie_Telephone", "")
+						pnd_PNav.Clie_ClientTelephone2 = xVar(nd, "Clie_Telephone2", "")
+						pnd_PNav.Clie_ClientTelecopieur = xVar(nd, "Clie_Telecopieur", "")
+						
+					End If
+				End If
+			End If
+		End If
+	%end rem
+	
+	If xVar(pnd_PNav, "Prop_ClientNom", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientNom", "") Or _
+	xVar(pnd_PNav, "Prop_ClientNoFmt", "") &lt;&gt; xVar(pnd_PNav, "Clie_NoClientFmt", "") Or _
+	(xVar(pnd_PNav, "Prop_ClientNoFmt", "") &lt;&gt; "" And xVar(pnd_PNav, "Prop_ClientNomInterne", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientNomInterne", "")) Or _
+	xVar(pnd_PNav, "Prop_ClientNomLegal", "") &lt;&gt; xVar(pnd_PNav, "Clie_NomLegal", "") Then
+		v_MajNomClient = 1
+	End If
+	
+	' Validations
+	If xVar(pnd_PNav, "Prop_ClientAdresse1", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientAdresse1", "") _
+	Or xVar(pnd_PNav, "Prop_ClientAdresse2", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientAdresse2", "") _
+	Or xVar(pnd_PNav, "Prop_ClientVille", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientVille", "") _
+	Or xVar(pnd_PNav, "Prop_ClientProvince", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientProvince", "") _
+	Or xVar(pnd_PNav, "Prop_ClientPays", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientPays", "") _
+	Or xVar(pnd_PNav, "Prop_ClientCodePostal", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientCodePostal", "") _
+	Or xVar(pnd_PNav, "Prop_ClientTelephone", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientTelephone", "") _
+	Or xVar(pnd_PNav, "Prop_ClientTelephone2", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientTelephone2", "") _
+	Or xVar(pnd_PNav, "Prop_ClientTelecopieur", "") &lt;&gt; xVar(pnd_PNav, "Clie_ClientTelecopieur", "") Then
+		v_MajAdresse = 1
+	End If
+	
+	pnd_PNav.PNav_MajAdresse = v_MajAdresse
+	pnd_PNav.PNav_MajNomClient = v_MajNomClient
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsMajInfoClient"><lotusscript>Sub FPNav_hsMajInfoClient
+	On Error GoTo GererErreur
+	
+	If xVar(gnd_SDSPM, "Prop_ClientNoFmt", "") &lt;&gt; "" Then
+		If xVar(gnd_SDSPM, "Clie_ClientNomInterne", "") = "" Then
+			Messagebox xGDK_xMessage("SDSPP", 66, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+	Else
+		If xVar(gnd_SDSPM, "Clie_ClientNom", "") = "" Then
+			Messagebox xGDK_xMessage("SDSPP", 66, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+	End If
+	
+	' Validations
+	If Not FPNav_MajAdresseClient Then
+		Exit Sub
+	End If
+	
+	If xVar(gnd_SDSPM, "Prop_ClientNoFmt", "") &lt;&gt; "" Then
+		gnd_SDSPM.Prop_ClientNomInterne = xVar(gnd_SDSPM, "Clie_ClientNomInterne", "")
+	Else
+		gnd_SDSPM.Prop_ClientNom = xVar(gnd_SDSPM, "Clie_ClientNom", "")
+	End If
+	
+	gnd_SDSPM.Prop_ClientNomLegal = xVar(gnd_SDSPM, "Clie_NomLegal", "")
+	gnd_SDSPM.Prop_ClientNoFmt = xVar(gnd_SDSPM, "Clie_NoClientFmt", "")
+	
+	gnd_SDSPM.PNav_Titre = Trim("C" &amp; _
+	Cstr(xVar(gnd_SDSPM, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(gnd_SDSPM, "Prop_ClientNomInterne", xVar(gnd_SDSPM, "Prop_ClientNom", "")))
+	gnd_SDSPM.Titre = Trim(xVar(gnd_SDSPM, "PNav_Titre", "") &amp; " - " &amp; xVar(gnd_SDSPM, "PNav_MenuDesc000", ""))
+	
+	If xVar(gnd_SDSPM, "Prop_ClientNomLegal", "") = xVar(gnd_SDSPM, "Clie_NomLegal", "") Then
+		gnd_SDSPM.Prop_NomLegalModifie = "0"
+	End If
+	
+	If xVar(gnd_SDSPM, "Prop_ClientNoFmt", "") &lt;&gt; "" Then
+		If xVar(gnd_SDSPM, "Prop_ClientNomInterne", "") = xVar(gnd_SDSPM, "Clie_ClientNomInterne", "") Then
+			gnd_SDSPM.Prop_NomClientModifie = "0"
+			gnd_SDSPM.Prop_NomInterneModifie = "0"
+		End If
+	Else
+		If xVar(gnd_SDSPM, "Prop_ClientNom", "") = xVar(gnd_SDSPM, "Clie_ClientNom", "") Then
+			gnd_SDSPM.Prop_NomClientModifie = "0"
+		End If
+	End If
+	
+	gnd_SDSPM.PNav_MajNomClient = 0
+	
+	' Maj info du site du client
+	Call FPNav_MajInfoSiteClient(xVar(gnd_SDSPM, "Prop_Origine", ""), gnd_SDSPM)
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPM.Refresh
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+
+</lotusscript></code><code event="FPNav_hsSelectionnerContact_GCli"><lotusscript>Sub FPNav_hsSelectionnerContact_GCli
+	On Error GoTo GererErreur
+	
+	Dim v_Origine As String
+	
+	v_Origine = xVar(gnd_SDSPM, "Prop_Origine", "")
+	If v_Origine &lt;&gt; "SF" then	
+		Call FPNav_SelectionnerContact_PJ_GCli(v_Origine)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_DocumentValide_Contact_SICo"><lotusscript>Function FPNav_DocumentValide_Contact_SICo(pnd_Cont As NotesDocument) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim a_NomItemsCont As Variant
+	Dim i As Integer
+	Dim l_ItemsCont List As String
+	Dim v_Langue As String
+	Dim v_NomItemsVide As String
+	Dim v_ValeurItem As String
+	Dim v(1) As Variant
+	
+	FPNav_DocumentValide_Contact_SICo = False
+	
+	v_Langue = xLangue
+	a_NomItemsCont = Evaluate(|"ContactFonction" : "ContactCourriel"|)
+	
+	l_ItemsCont("Cont_ContactFonction;FR") = "Fonction"
+	'l_ItemsCont("Cont_Titre;FR") = "Titre" Requ 38157 - Ne pas afficher le titre. Garder le code
+	l_ItemsCont("Cont_ContactCourriel;FR") = "Courriel"
+	l_ItemsCont("Cont_ContactFonction;EN") = "Position"
+	'l_ItemsCont("Cont_Titre;EN") = "Title" Requ 38157 - Ne pas afficher le titre. Garder le code
+	l_ItemsCont("Cont_ContactCourriel;EN") = "E-Mail"
+	
+	For i = 0 To UBound(a_NomItemsCont)
+		v_ValeurItem = xVarElem(pnd_Cont, "Cont_" &amp; a_NomItemsCont(i), 0, "")
+		If v_ValeurItem = "" Then
+			If v_NomItemsVide = "" Then
+				v_NomItemsVide = Chr(13) &amp; "- " &amp; l_ItemsCont("Cont_" &amp; a_NomItemsCont(i) &amp; ";" &amp; v_Langue)
+			Else
+				v_NomItemsVide = v_NomItemsVide &amp; Chr(13) &amp; "- " &amp; l_ItemsCont("Cont_" &amp; a_NomItemsCont(i) &amp; ";" &amp; v_Langue)
+			End If
+		End If
+	Next
+	
+	If v_NomItemsVide &lt;&gt; "" Then
+		v(0) = xVar(pnd_Cont, "Cont_Contact", "")
+		v(1) = Chr(13) &amp; v_NomItemsVide
+		MessageBox xGDK_xMessage("SDSPP", 32 ,"", v), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	FPNav_DocumentValide_Contact_SICo = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_SelectionnerContact_SICo"><lotusscript>Sub FPNav_SelectionnerContact_SICo
+	' ---------------------------------------------------------------------------------
+	' Le script sélectionne le contact dans SI Contacts
+	' ---------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim nd_Cont As NotesDocument
+	Dim nd_Clie As NotesDocument
+	
+	Dim v_Origine As String	
+	Dim v_CleClient As String
+	Dim v_ClientNoFmt As String	
+	Dim v_NomGroupeClient As String
+
+	' Initialisations
+	
+	v_ClientNoFmt = xVar(gnd_SDSPM, "Prop_ClientNoFmt", "")	
+	If v_ClientNoFmt = "" Then
+		Exit Sub
+	End If
+	
+	Set nd_Cont = SICo_ndSelectionnerContact(v_ClientNoFmt)
+	If Not (nd_Cont Is Nothing) Then
+		
+		' Valider le contact sélectionné
+		'Permettre de sélectionner un contact non signataire lorsque l'utilisateur a le rôle [TousSignataires] ou [Admin] ?
+		If Not FPNav_DocumentValide_Contact_SICo(nd_Cont) Then
+			Exit Sub
+		End If
+		
+		gnd_SDSPM.Prop_NoContactSF = xVar(nd_Cont, "Cont_ContactReference", "")
+		gnd_SDSPM.Prop_NoContact = xVar(nd_Cont, "Cont_NoContact", "")
+		gnd_SDSPM.Prop_ContactNom = xVar(nd_Cont, "Cont_Contact", "")
+		gnd_SDSPM.Prop_ContactTitre = xVar(nd_Cont, "Cont_ContactTitreProf", "")
+		gnd_SDSPM.Prop_ContactFonction = xVar(nd_Cont, "Cont_ContactFonction", "")
+		gnd_SDSPM.Prop_ContactFonctionFR = xVar(nd_Cont, "Cont_ContactFonctionFR", "")
+		gnd_SDSPM.Prop_ContactFonctionEN = xVar(nd_Cont, "Cont_ContactFonctionEN", "")
+		gnd_SDSPM.Prop_ContactTelephone = xVar(nd_Cont, "Cont_ContactTelephone1", "")
+		gnd_SDSPM.Prop_ContactCellulaire = xVar(nd_Cont, "Cont_ContactCellulaire", "")
+		gnd_SDSPM.Prop_ContactCourriel = xVar(nd_Cont, "Cont_ContactCourriel", "")
+		
+		gnd_SDSPM.Cont_Nom = xVar(nd_Cont, "Cont_Contact", "")
+		gnd_SDSPM.Cont_Titre = xVar(nd_Cont, "Cont_ContactTitreProf", "")
+		gnd_SDSPM.Cont_Fonction = xVar(nd_Cont, "Cont_ContactFonction", "")
+		gnd_SDSPM.Cont_FonctionFR = xVar(nd_Cont, "Cont_ContactFonctionFR", "")
+		gnd_SDSPM.Cont_FonctionEN = xVar(nd_Cont, "Cont_ContactFonctionEN", "")
+		gnd_SDSPM.Cont_Telephone = xVar(nd_Cont, "Cont_ContactTelephone1", "") 'xVar(nd_Clie, "Clie_Telephone", xVar(nd_Clie, "Clie_Telephone2", "")))
+		gnd_SDSPM.Cont_Cellulaire = xVar(nd_Cont, "Cont_ContactCellulaire", "")
+		gnd_SDSPM.Cont_Courriel = xVar(nd_Cont, "Cont_ContactCourriel", "")
+		
+		gnd_SDSPM.PNav_MajContact = 0
+		gnd_SDSPM.PNav_MajNomContact = 0
+
+		Call gnuid_SDSPM.Refresh
+		
+	End If
+	
+	'	Call ns.SetEnvironmentVar ("PJ_ContactUNID", "")  'Req# 55273
+	
+	Exit Sub
+	
+GererErreur:
+	'Reset gns_SIPJ.SetEnvironmentVar ("PJ_ContactUNID", "0")
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_acCopierAdresse"><lotusscript>Sub FPNav_acCopierAdresse
+	' Le script permet de copier l'adresse du client dans le clipboard de windows
+	On Error Goto GererErreur
+	
+	Dim v_Adresse As String
+	Dim v_NomClient As String
+	
+	v_NomClient = Ucase(xEvaluate(|@If(!@IsNull(Prop_ClientNomInterne);Prop_ClientNomInterne;Prop_ClientNom)|, gnd_SDSPM))
+	v_Adresse = xEvaluate(|@Implode("| &amp; v_NomClient &amp; |" : @Trim(Prop_ClientAdresse1: Prop_ClientAdresse2): Prop_ClientVille : Prop_ClientNomProvince_1 : Prop_ClientNomPays_1 : Prop_ClientCodePostal;@NewLine)|, gnd_SDSPM)
+	
+	If Not SLCl_AssignerTexteClipBoard(v_Adresse) Then
+		Messagebox xGDK_xMessage("SDSPP", 60, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+	Else
+		Messagebox xGDK_xMessage("SDSPP", 61, "", v_NomClient), 64, xGDK_xMessage("SI", 10, "", "")
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsPrecedent"><lotusscript>Sub FPNav_hsPrecedent
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	g_AfficherErreurs_FPNav = False 
+	On Error 4411 Goto FinSub
+	Call gnuid_SDSPM.Save
+	
+	' Ouvrir le masque précédent
+	Call SDSPN_OuvrirMasquePrecedent
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_PostSave"><lotusscript>Sub FPNav_PostSave(pnuid_Source As NotesUIDocument)
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	Call FPNav_SauvegarderDescDetaillee
+	
+	g_AfficherErreurs_FPNav = ""
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_DocumentValide_Contact"><lotusscript>Function FPNav_DocumentValide_Contact(pnd_Cont As NotesDocument, p_Origine As String) As Boolean
+	On Error GoTo GererErreur
+	
+	FPNav_DocumentValide_Contact = False
+	
+	Dim nd As NotesDocument
+	Dim nd_PropContact As NotesDocument
+	
+	Dim a_NomItemsCont As Variant
+	Dim i As Integer
+	Dim l_ItemsCont List As String
+	Dim s As String
+	Dim v_Langue As String
+	Dim v_NomItemsVide As String
+	Dim v_NoContact As String
+	Dim v_Origine As String
+	Dim v_ValeurItem As String
+	Dim v(1) As Variant
+	Dim v_Roles As Variant		
+	
+	
+	v_Langue = xLangue
+	v_NoContact = xVar(gnd_SDSPM, "Prop_NoContact", "")
+	
+	a_NomItemsCont = Evaluate(|"Fonction" : "Courriel"|)
+	
+	l_ItemsCont("Cont_Fonction;FR") = "Fonction"
+	'l_ItemsCont("Cont_Titre;FR") = "Titre" Requ 38157 - Ne pas afficher le titre. Garder le code
+	l_ItemsCont("Cont_Courriel;FR") = "Courriel"
+	l_ItemsCont("Cont_Fonction;EN") = "Position"
+	'l_ItemsCont("Cont_Titre;EN") = "Title" Requ 38157 - Ne pas afficher le titre. Garder le code
+	l_ItemsCont("Cont_Courriel;EN") = "E-Mail"
+	
+	For i = 0 To UBound(a_NomItemsCont)
+		v_ValeurItem = xVarElem(pnd_Cont, "Cont_" &amp; a_NomItemsCont(i), 0, "")
+		If v_ValeurItem = "" Then
+			If v_NomItemsVide = "" Then
+				v_NomItemsVide = Chr(13) &amp; "- " &amp; l_ItemsCont("Cont_" &amp; a_NomItemsCont(i) &amp; ";" &amp; v_Langue)
+			Else
+				v_NomItemsVide = v_NomItemsVide &amp; Chr(13) &amp; "- " &amp; l_ItemsCont("Cont_" &amp; a_NomItemsCont(i) &amp; ";" &amp; v_Langue)
+			End If
+		End If
+	Next
+	
+	If v_NomItemsVide &lt;&gt; "" Then
+		v(0) = xVar(pnd_Cont, "Cont_Contact", "")
+		v(1) = Chr(13) &amp; v_NomItemsVide
+		MessageBox xGDK_xMessage("SDSPP", 32 ,"", v), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	' Si client projeto	
+	If v_Origine &lt;&gt; "SF" Then	
+		If p_Origine &lt;&gt; "SICl" And xVar(gnd_SDSPM, "Prop_ClientNoFmt", "") &lt;&gt; "" Then
+			
+			If v_NoContact &lt;&gt; "" Then
+				Set nd_PropContact = gndb_xPJ.Getdocumentbyunid(xVar(gnd_SDSPM, "Prop_NoContact", ""))
+				
+				v_Roles = Evaluate(|!@IsNotMember("[TousSignataires]" : "[Admin]"; @UserRoles)|)
+				
+				If xVar(nd_PropContact, "Cont_Signataire", "") = "1" Then
+					If xVar(pnd_Cont, "Cont_Signataire", "") &lt;&gt; "1" And v_Roles (0) &lt;&gt; 1 Then
+						' Si l'utilisateur n'a pas le rôle [TousSignataires] ou [Admin]
+						' Le contact sélectionné n'est pas authorisé à signer des propositions.
+						MessageBox xGDK_xMessage("SDSPP", 180 ,"", ""), 16, xGDK_xMessage("SI", 1, "", "")
+						Exit Function
+					End If
+				End If		
+			End If
+		End If
+	End If
+	
+	FPNav_DocumentValide_Contact = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_hsSelectionnerRepresentantCCOSSg"><lotusscript>Sub FPNav_hsSelectionnerRepresentantCCOSSg
+	On Error GoTo GererErreur
+	
+	Dim v_NomRepresentant As String
+	Dim v_NoRepresentant As String
+	Dim v_CourrielRepresentant As String
+	
+	v_NoRepresentant = xVar(gnd_SDSPM, "Prop_NoRepresentant", "")
+	
+	If v_NoRepresentant &lt;&gt; "" Then
+		v_NomRepresentant = xVar(gnd_SDSPM, "Prop_NomRepresentant", "")
+		v_CourrielRepresentant = xSIRR_xVarRepr(v_NoRepresentant, "Repr_Courriel", "", True)			
+	End If
+	
+	gnd_SDSPM.Prop_NoRepresentantCCOSSg = v_NoRepresentant
+	gnd_SDSPM.Prop_NomRepresentantCCOSSg = v_NomRepresentant
+	gnd_SDSPM.Prop_CourrielRepresentantCCOSSg = v_CourrielRepresentant
+	
+	Call gnuid_SDSPM.Refresh
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsNomClientModifiable"><lotusscript>Function FPNav_hsNomClientModifiable
+	On Error GoTo GererErreur
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_NomClientModifie", "1")
+	
+	Call gnd_SDSPM.ReplaceItemValue( "Prop_NomClientListe", xVar(gnd_SDSPM, "Prop_ClientNom", ""))
+	
+	Call gnuid_SDSPM.RefreshHideFormulas
+	Call gnuid_SDSPM.Refresh
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_acReouvrirProposition"><lotusscript>Sub FPNav_acReouvrirProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acReOuvrirProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_SauvegarderDescDetaillee"><lotusscript>Sub FPNav_SauvegarderDescDetaillee
+	' ----------------------------------------------------------------------------------------
+	' 	Ce script met à jour le champ Prop_DescDetaillee (RichText) dans la proposition.
+	'
+	' 	note: g_LongueurRT_FPNav prend sa valeur dans FPNav_PostOpen à l'affichage du document
+	' ----------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_PNav As NotesDocument
+	Dim nrti_PNavDescDetaillee As NotesRichTextItem
+	Dim v_LongueurRT As Long
+	Dim v_TexteRT As String
+	Dim v_UnidPNav As String
+	
+	' Extraire le document affiché à l'écran
+	v_UnidPNav = gnd_SDSPM.UniversalID
+	Set nd_PNav = gndb_SDSPm.GetdocumentByUNID(v_UnidPNav)
+	
+	' Calculer la longueur du champ Description détaillée (RichText), et le contenu du texte 
+	If nd_PNav.HasItem("Prop_DescDetaillee") Then
+		Set nrti_PNavDescDetaillee = nd_PNav.GetFirstItem("Prop_DescDetaillee")
+		v_LongueurRT = nrti_PNavDescDetaillee.ValueLength
+		v_TexteRT = nrti_PNavDescDetaillee.Text
+	Else
+		v_LongueurRT = 0
+		v_TexteRT = ""
+	End If
+	
+	' Comparer le champ avec sa valeur à l'affichage du document 
+	If v_LongueurRT &lt;&gt; g_LongueurRT_FPNav Or v_TexteRT &lt;&gt; g_TexteRT_FPNav Then	' Si la description détaillée a changé 
+		Call gnd_Prop_SDSPM.RemoveItem("Prop_DescDetaillee")
+		If v_LongueurRT &gt; 0 Then
+			Call nrti_PNavDescDetaillee.CopyItemToDocument(gnd_Prop_SDSPM, "Prop_DescDetaillee")	' Mettre nvelle valeur dans la proposition
+		End If
+		
+		gnd_Prop_SDSPM.HistoDM = Now
+		gnd_Prop_SDSPM.HistoUM = gns_SDSPM.UserName
+		Call gnd_Prop_SDSPM.Save(True, False)
+		
+		g_LongueurRT_FPNav = v_LongueurRT
+		g_TexteRT_FPNav = v_TexteRT
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_MajContactClient"><lotusscript>Function FPNav_MajContactClient As Boolean
+	On Error GoTo GererErreur
+	
+	Dim nd_Clie As NotesDocument
+	
+	Dim v_NoContact As String
+	Dim v_Nom As String
+	Dim v_Fonction As Variant
+	Dim v_Cell As String
+	Dim v_Courriel As String
+	Dim v_Titre As String
+	Dim v_Langue As String
+	Dim a_NomItemsCont As Variant
+	Dim l_ItemsCont List As String
+	Dim v_NomItemsVide As String
+	Dim i As Integer
+	Dim v_ValeurItem As String
+	Dim v(1) As Variant
+	
+	FPNav_MajContactClient = False
+	v_Langue = xLangue
+	
+	a_NomItemsCont = Evaluate(|"Nom" : "Courriel" : "Fonction"|)
+	
+	l_ItemsCont("Cont_Nom;FR") = "Nom"
+	l_ItemsCont("Cont_Nom;EN") = "Name"
+	l_ItemsCont("Cont_Courriel;FR") = "Courriel"
+	l_ItemsCont("Cont_Courriel;EN") = "EMail"
+	l_ItemsCont("Cont_Fonction;FR") = "Fonction"
+	l_ItemsCont("Cont_Fonction;EN") = "Position"
+	
+	v_NoContact = xVar(gnd_SDSPM, "Prop_NoContact", "")
+	v_Nom = xVar(gnd_SDSPM, "Cont_Nom", "")
+	v_Cell = xVar(gnd_SDSPM, "Cont_Cellulaire", "")
+	v_Courriel = xVar(gnd_SDSPM, "Cont_Courriel", "")
+	v_Fonction = xVar(gnd_SDSPM, "Cont_Fonction","")
+	v_Titre = xVar(gnd_SDSPM, "Cont_Titre", "")
+	
+	For i = 0 To UBound(a_NomItemsCont)
+		v_ValeurItem = xVarElem(gnd_SDSPM, "Cont_" &amp; a_NomItemsCont(i), 0, "")
+		If v_ValeurItem = "" Then
+			If v_NomItemsVide = "" Then
+				v_NomItemsVide = Chr(13) &amp; "- " &amp; l_ItemsCont("Cont_" &amp; a_NomItemsCont(i) &amp; ";" &amp; v_Langue)
+			Else
+				v_NomItemsVide = v_NomItemsVide &amp; Chr(13) &amp; "- " &amp; l_ItemsCont("Cont_" &amp; a_NomItemsCont(i) &amp; ";" &amp; v_Langue)
+			End If
+		End If
+	Next
+	
+	If v_NomItemsVide &lt;&gt; "" Then
+		v(0) = v_Nom
+		v(1) = Chr(13) &amp; v_NomItemsVide
+		MessageBox xGDK_xMessage("SDSPP", 138 ,"", v), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit function
+	End If
+	
+	gnd_SDSPM.Prop_NoContact = v_NoContact
+	gnd_SDSPM.Prop_ContactNom = v_Nom
+	gnd_SDSPM.Prop_ContactTitre = v_Titre
+	
+	gnd_SDSPM.Prop_ContactFonction = v_Fonction
+	gnd_SDSPM.Prop_ContactFonctionFR = xVar(gnd_SDSPM, "Cont_FonctionFR", "")
+	gnd_SDSPM.Prop_ContactFonctionEN = xVar(gnd_SDSPM, "Cont_FonctionEN", "")
+	
+	gnd_SDSPM.Prop_ContactTelephone = xVar(gnd_SDSPM, "Cont_Telephone", "")
+	gnd_SDSPM.Prop_ContactCellulaire = v_Cell
+	gnd_SDSPM.Prop_ContactCourriel = v_Courriel
+	
+	gnd_SDSPM.PNav_MajContact = 0
+	gnd_SDSPM.PNav_MajNomContact = 0
+	
+	FPNav_MajContactClient = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code>
+<item name="$POID"><datetime>20251211T135844,43-05</datetime></item></scriptlibrary>
+
+</database>

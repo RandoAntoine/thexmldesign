@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="Couleur_Rose" alias="cl_RS" publicaccess="false" designerversion="8.5.3" imagename="Couleur 2020 Rose.jpg">
+<noteinfo noteid="34b2e2" unid="E04A39CA15003E8E8525885B0069A992" sequence="4">
+<created><datetime dst="true">20220608T151406,90-04</datetime></created>
+<modified><datetime dst="true">20220901T081159,00-04</datetime></modified>
+<revised><datetime dst="true">20220811T161613,09-04</datetime></revised>
+<lastaccessed><datetime dst="true">20220901T081158,99-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20220611T161556,63-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><jpeg>
+/9j/4AAQSkZJRgABAQEAXgBeAAD/4QBoRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUA
+AAABAAAARgEoAAMAAAABAAIAAAExAAIAAAARAAAATgAAAAAAAW8cAAAD6AABbxwAAAPocGFpbnQu
+bmV0IDQuMi4xMAAA/9sAQwACAQEBAQECAQEBAgICAgIEAwICAgIFBAQDBAYFBgYGBQYGBgcJCAYH
+CQcGBggLCAkKCgoKCgYICwwLCgwJCgoK/9sAQwECAgICAgIFAwMFCgcGBwoKCgoKCgoKCgoKCgoK
+CgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoK/8AAEQgACgAKAwEhAAIRAQMRAf/E
+AB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAE
+EQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZH
+SElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1
+tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEB
+AQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXET
+IjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFla
+Y2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+x8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/aAAwDAQACEQMRAD8A/Ryiv0g/qAKKAP/Z
+</jpeg>
+<item name="$FileSize" sign="true"><number>741</number></item>
+<item name="$MimeType" sign="true"><text>image/jpeg</text></item>
+<item name="$FileModDT" sign="true"><datetime>20200312T140954,22-05</datetime></item></imageresource>
+
+</database>

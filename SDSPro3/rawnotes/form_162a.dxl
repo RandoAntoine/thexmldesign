@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><note class="form">
+<noteinfo noteid="162a" unid="30D40FC51CAD57FB852579890070F755" sequence="177">
+<created><datetime>20120118T153353,49-05</datetime></created>
+<modified><datetime>20260105T014845,04-05</datetime></modified>
+<revised><datetime dst="true">20190410T103430,41-04</datetime></revised>
+<lastaccessed><datetime>20260105T014845,03-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205707,17-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<item name="$Flags"><text>~C4g</text></item>
+<item name="$FlagsExt"><text>w</text></item>
+<item name="$TITLE"><text>WEB-INF/xsp.properties</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$FileSize" sign="true"><number>89</number></item>
+<item name="$FileData" sign="true">
+<rawitemdata type="1">
+YQAYAAAAAABZAAAAAQAAAAAAAAAAAAAAYABrAAAAWQBaAAAAAAAAAAAAeHNwLmFqYXgucmVuZGVy
+d2hvbGV0cmVlPWZhbHNlDQp4c3AucGVyc2lzdGVuY2UubW9kZT1maWxlDQp4c3AucmVzb3VyY2Vz
+LmFnZ3JlZ2F0ZT10cnVlDQoA
+</rawitemdata></item>
+<item name="$FileNames" sign="true"><text>WEB-INF/xsp.properties</text></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>WEB-INF/xsp.properties</text></item></note>
+
+</database>

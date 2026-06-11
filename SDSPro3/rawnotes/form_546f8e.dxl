@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><note class="form">
+<noteinfo noteid="546f8e" unid="BF1B3557CFF1352785258D3900555D51" sequence="3">
+<created><datetime>20251105T103224,49-05</datetime></created>
+<modified><datetime>20251124T105828,07-05</datetime></modified>
+<revised><datetime>20251124T105819,40-05</datetime></revised>
+<lastaccessed><datetime>20251124T105828,04-05</datetime></lastaccessed>
+<addedtofile><datetime>20251105T103224,49-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Guy Salerno/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Guy Salerno/O=Serti Informatique</name></wassignedby>
+<item name="$Flags"><text>~C4gP</text></item>
+<item name="$TITLE"><text>build.properties</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$FileSize" sign="true"><number>84</number></item>
+<item name="$FileData" sign="true">
+<rawitemdata type="1">
+YQAYAAAAAABUAAAAAQAAAAAAAAAAAAAAYABmAAAAVABUAAAAAAAAAAAAb3V0cHV0Li4gPSBXZWJD
+b250ZW50L1dFQi1JTkYvY2xhc3Nlcy8NCnNvdXJjZS4uID0gTG9jYWwvLFwNCiAgICAgICAgICAg
+Q29kZS9KYXZhLw0K
+</rawitemdata></item>
+<item name="$FileNames" sign="true"><text>build.properties</text></item></note>
+
+</database>

@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SL_Clipboard" hide="v3 v4strict" designerversion="8.5.3" comment="1.0a">
+<noteinfo noteid="55573e" unid="7458A7F0DAC5429C852586B40011FB94" sequence="76">
+<created><datetime dst="true">20210410T231625,16-04</datetime></created>
+<modified><datetime>20260105T014837,34-05</datetime></modified>
+<revised><datetime>20250319T073633,95-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,33-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,33-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SlCl = "SL"
+Const gc_Element_SlCl  = "SI_Clipboard"
+
+Const gc_CF_TEXT = 1
+Const gc_GMEM_FIXED = &amp;H0
+Const gc_GMEM_MOVEABLE = &amp;H2
+Const gc_GMEM_NOCOMPACT = &amp;H10
+Const gc_GMEM_NODISCARD = &amp;H20
+Const gc_GMEM_ZEROINIT = &amp;H40
+Const gc_GMEM_MODIFY = &amp;H80
+Const gc_GMEM_DISCARDABLE = &amp;H100
+Const gc_GMEM_NOT_BANKED = &amp;H1000
+Const gc_GMEM_SHARE = &amp;H2000
+Const gc_GMEM_DDESHARE = &amp;H2000
+Const gc_GMEM_NOTIFY = &amp;H4000
+Const gc_GMEM_LOWER = gc_GMEM_NOT_BANKED
+Const gc_GMEM_VALID_FLAGS = &amp;H7F72
+Const gc_GMEM_INVALID_HANDLE = &amp;H8000
+Const gc_GHND = (gc_GMEM_MOVEABLE Or gc_GMEM_ZEROINIT)
+Const gc_GPTR = (gc_GMEM_FIXED Or gc_GMEM_ZEROINIT)
+Const gc_MAXSIZE = 4096
+
+'Declarations W32 API
+Declare Private Function W32GetActiveWindow Lib "user32" Alias "GetActiveWindow" ( _
+) As Long
+Declare Private Function W32OpenClipboard Lib "user32" Alias "OpenClipboard" ( _
+Byval hWnd As Long _
+) As Long
+Declare Private Function W32CloseClipboard Lib "user32" Alias "CloseClipboard" ( _
+) As Long
+Declare Private Function W32EmptyClipboard Lib "user32" Alias "EmptyClipboard" ( _
+) As Long
+Declare Private Function W32GetClipboardData Lib "user32" Alias "GetClipboardData" ( _
+Byval wFormat As Long _
+) As Long
+Declare Private Function W32SetClipboardData Lib "user32" Alias "SetClipboardData" ( _
+Byval wFormat As Long, _
+Byval hMem As Long _
+) As Long
+Declare Private Function W32IsClipboardFormatAvailable Lib "user32" Alias "IsClipboardFormatAvailable" ( _
+Byval wFormat As Long _
+) As Long
+Declare Private Function W32GlobalLock Lib "kernel32" Alias "GlobalLock" ( _
+Byval hMem As Long _
+) As Long
+Declare Private Function W32GlobalUnlock Lib "kernel32" Alias "GlobalUnlock" ( _
+Byval hMem As Long _
+) As Long
+Declare Private Function W32GlobalAllocate Lib "kernel32" Alias "GlobalAlloc" ( _
+Byval wFlags As Long, _
+Byval dwBytes As Long _
+) As Long
+Declare Private Function W32WriteMemoryToString Lib "kernel32" Alias "lstrcpyA" ( _
+Byval lpString1 As String, _
+Byval lpString2 As Any _
+) As Long
+Declare Private Function W32WriteStringToMemory Lib "kernel32" Alias "lstrcpyA" ( _
+Byval lpString1 As Long, _
+Byval lpString2 As String _
+) As Long
+
+</lotusscript></code><code event="SLCl_RetourneTexteClipBoard"><lotusscript>Function SLCl_RetourneTexteClipBoard(pblnClearClipboard As Boolean, pstrTextOut As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim lngRC As Long
+	Dim lngCBStatus As Long
+	Dim lngHCBMemory As Long
+	Dim lngGMemPointer As Long
+	Dim strBuff As String * gc_MAXSIZE
+	
+	SLCl_RetourneTexteClipBoard = False
+	
+	' Tentez d’ouvrir le presse-papiers.
+	lngCBStatus = W32OpenClipboard(0)
+	If lngCBStatus = 0 Then
+		Msgbox {Impossible d'accéder au texte en mémoire, un autre application peut l'avoir vérouillé.}, , "Erreur . . ."
+		Goto functionExit
+	End If
+	
+	' Tentez d’obtenir un handle au texte que contient présentement le presse-papiers.
+	lngHCBMemory = W32GetClipboardData(gc_CF_TEXT)
+	If lngHCBMemory = 0 Then
+		Msgbox "Aucune texte en mémoire, imposible de continuer.", , "Erreur . . ."
+		Goto functionExit
+	End If
+	
+	' Tentez de verrouiller la mémoire et d’y emmagasiner un pointeur. 
+	lngGMemPointer = W32GlobalLock(lngHCBMemory)
+	If lngGMemPointer = 0 Then '// no text in memory - close clipboard  exit
+		Msgbox "Impossible de verrouller la mémoire à laquelle le texte doit être copié.  - Imposible de continuer.", , "Erreur . . ."
+		Goto functionExit
+	End If
+	
+	' Copiez la string en mémoire (par l’emplacement du pointeur) dans la mémoire tampon.
+	strBuff$ = Space$(gc_MAXSIZE)
+	lngRC = W32WriteMemoryToString(strBuff$, lngGMemPointer)
+	If lngRC = 0 Then ' une erreur s'est produit l'ors du copie
+		Msgbox "Une erreur s'est produite l'ors de la copie du texte en mémoire - impossible de continuer.", , "Erreur . . ."
+	Else
+		strBuff$ = Mid(strBuff$, 1, Instr(1, strBuff$, Chr$(0), 0) - 1) ' Retirez le caractère nul.
+		pstrTextOut$ = Trim(strBuff$) ' Nettoyer le string
+		If pblnClearClipboard Then
+			Call W32EmptyClipboard() ' Videz le contenu du presse-papiers.
+		End If
+		SLCl_RetourneTexteClipBoard = True
+	End If
+	lngRC = W32GlobalUnlock(lngHCBMemory) ' Déverrouillez la mémoire.
+	
+functionExit:
+	' Souvenez-vous de toujours fermer le presse-papiers (même lorsqu’une erreur se produit).
+	If Not(lngCBStatus = 0) Then
+		Call W32CloseClipboard()
+		lngCBStatus = 0
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SlCl, gc_Element_SlCl, Getthreadinfo(1), "", False)
+	Resume functionExit
+End Function
+</lotusscript></code><code event="SLCl_AssignerTexteClipBoard"><lotusscript>Function SLCl_AssignerTexteClipBoard(pstrText As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim lngHWnd As Long
+	Dim lngCBStatus As Long
+	Dim lngHGMem As Long
+	Dim lngGMemPointer As Long
+	Dim lngSize As Long
+	Dim lngRC As Long
+	
+	SLCl_AssignerTexteClipBoard = False
+	
+	' Obtenez un handle pour la fenêtre en cours.
+	lngHWnd = W32GetActiveWindow()
+	
+	' Déterminez la taille requise
+	lngSize = Clng(Len(pstrText$) + 1)
+	
+	' Tentez d'obtenir un handle de la mémoire.
+	lngHGMem = W32GlobalAllocate(gc_GPTR, lngSize)
+	If lngHGMem = 0 Then
+		Msgbox "Une erreur s'est produit l'ors du vérouillage de la mémoire.", , "Erreur . . ."
+		Goto functionExit
+	End If
+	
+	' Tentez de verrouiller le handle de la mémoire et d'y emmagasiner un pointeur.
+	lngGMemPointer = W32GlobalLock(lngHGMem)
+	If lngGMemPointer = 0 Then
+		Msgbox "Impossible de verrouller la mémoire à laquelle le texte doit être copié.  - Imposible de continuer.", , "Erreur . . ."
+		Goto functionExit
+	End If
+	
+	' Copiez la string passée dans la mémoire allouée.
+	lngRC = W32WriteStringToMemory(lngGMemPointer, pstrText)
+	
+	' Relâchez la mémoire.
+	Call W32GlobalUnlock(lngHGMem)
+	
+	' Tentez d'ouvrir le presse-papier
+	lngCBStatus = W32OpenClipboard(lngHWnd)
+	If lngCBStatus = 0 Then
+		Msgbox {Impossible d'accéder au texte en mémoire, un autre application peut l'avoir vérouillé.}, , "Erreur . . ."
+		Goto functionExit
+	End If
+	
+	' Toujours vider le contenu du presse-papiers en premier.
+	lngRC = W32EmptyClipboard()
+	
+	' Tentez de copier le texte dans le presse-papier.
+	lngRC = W32SetClipboardData(gc_CF_TEXT, lngHGMem)
+	
+	' Véréfier la présence du texte.
+	lngRC = W32IsClipboardFormatAvailable(gc_CF_TEXT)
+	If lngRC = 0 Then
+		Msgbox "Une erreur s'est produite l'ors de la copie du texte en mémoire - impossible de continuer.", , "Erreur . . ."
+	Else
+		SLCl_AssignerTexteClipBoard = True
+	End If
+	
+functionExit:
+	' Souvenez-vous de toujours fermer le presse-papiers (même lorsqu’une erreur se produit).
+	If Not(lngCBStatus = 0) Then
+		Call W32CloseClipboard()
+		lngCBStatus = 0
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SlCl, gc_Element_SlCl, Getthreadinfo(1), "", False)
+	Resume functionExit
+	
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073633,95-05</datetime></item></scriptlibrary>
+
+</database>

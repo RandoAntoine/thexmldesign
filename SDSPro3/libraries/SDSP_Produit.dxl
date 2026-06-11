@@ -1,0 +1,3743 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Produit" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="55594e" unid="DD3A455B70AE8C9885258B8F004CF530" sequence="6">
+<created><datetime dst="true">20240905T100035,04-04</datetime></created>
+<modified><datetime>20260105T014838,36-05</datetime></modified>
+<revised><datetime>20250319T073642,42-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,35-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,35-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SDSP_Site"
+Use "SI_tNombre"
+Use "x_SDSCSL"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSPX As NotesSession
+Dim gndb_SDSPX As NotesDatabase
+
+Dim gnv_Prod33_SDSPX As NotesView 
+Dim gnv_Prod40_SDSPX As NotesView
+Dim gnv_Prix21_SDSPX As NotesView
+
+Dim g_NoRep_SDSPX As String
+Dim g_NomBaseLog_SDSPX As String
+
+Const gc_NomProgrammeAutoSite_SDSPX = "Site_AjouterSDS"
+
+' Traitement des erreurs
+' ----------------------
+Dim g_TexteErreur_SDSPX As String
+Dim g_CleProduit_SDSPX As String
+
+Const gc_TypeElement_SDSPX = "SL"
+Const gc_Element_SDSPX = "SDSP_Produit"
+
+
+</lotusscript></code><code event="SDSPX_ndPrix"><lotusscript>Function SDSPX_ndPrix(Byval p_CleProduit As String, Byval p_Devise As String, Byval p_Pays As String, _
+Byval p_Province As String, Byval p_NbUsagers As Long) As NotesDocument
+	On Error Goto GererErreur
+	
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	Dim v_Cle(3) As String
+	Dim nd_Prix As NotesDocument
+	Dim ni As NotesItem
+	
+	Const c_NomVuePrix = "V_Prix21"
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	Call xSDSBB_Initialisations
+	
+	' Rechercher le document de prix correspondant aux paramètres
+	v_Cle(0) = p_CleProduit
+	v_Cle(1) = p_Devise
+	v_Cle(2) = p_Pays
+	v_Cle(3) = p_Province
+	Call xnd("", v_Cle, False, gndb_xSDSBB, c_NomVuePrix, gnv_Prix21_SDSPX, nd_Prix)
+	If nd_Prix Is Nothing Then
+		If v_Cle(3) &lt;&gt; "" Then
+			v_Cle(3) = ""
+			Call xnd("", v_Cle, False, gndb_xSDSBB, c_NomVuePrix, gnv_Prix21_SDSPX, nd_Prix)
+		End If
+	End If
+	If nd_Prix Is Nothing Then
+		If v_Cle(2) &lt;&gt; "" Then
+			v_Cle(2) = ""
+			Call xnd("", v_Cle, False, gndb_xSDSBB, c_NomVuePrix, gnv_Prix21_SDSPX, nd_Prix)
+		End If
+	End If
+	
+	' Rechercher le prix en fonction du nombre d'usagers
+	If Not (nd_Prix Is Nothing) Then
+		Set SDSPX_ndPrix = nd_Prix
+		Set nd_Prix = gnv_Prix21_SDSPX.Getnextdocument(nd_Prix)
+		
+		' Si le prix trouvé est le dernier document dans la vue c_NomVuePrix
+		If nd_Prix Is Nothing Then
+			Exit Function
+		End If
+		
+		Set ni = nd_Prix.GetFirstItem("Prix_Province")
+		Do While xVar(nd_Prix, "Prix_CleProduit", "") = v_Cle(0) And _
+		xVar(nd_Prix, "Prix_Devise", "") = v_Cle(1) And _
+		xVar(nd_Prix, "Prix_Pays", "") = v_Cle(2) And _
+		ni.contains(v_Cle(3)) And _
+		xVar(SDSPX_ndPrix , "Prix_Usagers", 99999) &lt; p_NbUsagers
+			
+			Set SDSPX_ndPrix = nd_Prix
+			
+			Set nd_Prix = gnv_Prix21_SDSPX.Getnextdocument(nd_Prix)
+			Set ni = nd_Prix.GetFirstItem("Prix_Province")
+		Loop
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), p_CleProduit, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_AjouterComposants"><lotusscript>Sub SDSPX_AjouterComposants(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, _
+pnd_Prod As NotesDocument, p_Departement As String, p_AfficherErreur As Boolean, p_Duplicata As Boolean)
+	On Error Goto GererErreur
+	
+	Dim v_CleProduit As String
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim v_Quantite As Variant
+	Dim nd_Prod As NotesDocument
+	
+	Set ndc = xSDSBB_xndcProd_Comp(xVar(pnd_Prod, "Prod_CleProduit", ""))
+	If ndc.Count = 0 Then
+		Exit Sub
+	End If
+	
+	Set nd_Suivant = ndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+		
+		v_Quantite = xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(nd, "Comp_Quantite", 1)
+		If v_Quantite &gt; 0 Then
+			
+			If p_Duplicata Then
+				Set nd_Prod = SDSPX_DupliquerProduit(pnd_Prop, pnd_Site, nd, xVar(nd, "Comp_CleComposant", ""), _
+				v_Quantite, "", "C", p_Departement, "", xVar(pnd_Prod, "Prod_NoProduit", ""), p_AfficherErreur, True, pnd_Prod)
+			Else
+				Set nd_Prod = SDSPX_AjouterProduit(pnd_Prop, pnd_Site, xVar(nd, "Comp_CleComposant", ""), _
+				v_Quantite, "", "C", p_Departement, "", xVar(pnd_Prod, "Prod_NoProduit", ""), p_AfficherErreur, True, pnd_Prod)
+			End If
+		End If
+		
+	Loop
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPX_CalculerPrixEscompteLG"><lotusscript>Sub SDSPX_CalculerPrixEscompteLG(pnd_Prop As NotesDocument, p_Username As String)
+	On Error Goto GererErreur
+	
+	Dim v_NoProposition As String
+	Dim v_PourcentEscompteLG As Double
+	Dim ndc_Produits As NotesDocumentCollection
+	Dim nv_Prod As NotesView
+	Dim a_CleSites() As String
+	Dim a_CleProduits As Variant
+	Dim a_Cle(2) As String
+	Dim nd_Prod As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim v_CleProduit As String
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim v_PrixUnitaire_SDSBB As Double
+	Dim v_FraisEntretienAH_SDSBB As Double
+	Dim v_NbUtilisateursProduit As Long
+	Dim v_NbUtilisateursProduitSitePrincipal As Long
+	Dim nd_SitePrincipal As NotesDocument
+	Dim v_NoSitePrincipal As String
+	Dim ndc_Sites As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim ndc_ProduitsSite As NotesDocumentCollection
+	Dim nd_ProduitSiteSuivant As NotesDocument
+	Dim v_NoSite As String
+	Dim l_Sites List As Variant
+	Dim a_ProduitsSitePrincipal As Variant
+	Dim i As Integer
+	Dim v_NbUtilisateursProduitSite As Long
+	Dim nd_Prix_SDSBB_AH As NotesDocument
+	Dim v_PrixEscompte As String
+	Dim v_EscompteAnnuel As Double
+	Dim v_MajProd As Boolean
+	Dim v_NomBaseLogSDSP3 As String
+	Dim nd_Log As NotesDocument
+	Dim v_UserName As String
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	
+	v_PourcentEscompteLG = ((100 - xVar(pnd_Prop, "Prop_PourcentEscompteLG", 20)) / 100)
+	
+	' Liste des produits logiciels
+	Set ndc_Produits = xndc(v_NoProposition + ";LG", gndb_SDSPX , "V_Prod41", nv_Prod)
+	If ndc_Produits.Count = 0 Then
+		Exit Sub
+	End If
+	
+	Redim a_CleSites(ndc_Produits.Count -1)
+	Redim a_CleProduits(0)
+	a_Cle(0) = v_NoProposition + ";LG"
+	
+	v_Username = p_Username
+	If v_Username = "" Then
+		v_Username = gns_SDSPX.UserName
+	End If
+	
+	If ndc_Produits.Count &gt; 0 Then
+		
+		If xVarProf("Prof_LogProduits", "") = "1" Then
+			Set nd_Log = New NotesDocument(gndb_SDSPX)
+		End If
+		
+		' Si seulement 1 produit LG sur la proposition
+		' --------------------------------------------
+		If ndc_Produits.Count = 1 Then
+			
+			Set nd_Prod = ndc_Produits.GetFirstDocument
+			Set nd_Site = xSDSP3_xndSite(xVar(nd_Prod, "Prod_NoSite", ""), True)
+			
+			v_CleProduit = xVar(nd_Prod, "Prod_CleProduit", "")
+			
+			v_NbUtilisateursProduit = SDSPX_NbUtilisateursProduit(nd_Prod, pnd_Prop, nd_Site, 0 , False , False)
+			
+			Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+			xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduit)
+			
+			
+			v_FraisEntretienAH_SDSBB = xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0) + _
+			xEvaluate(|@Max(| &amp; (v_NbUtilisateursProduit - xVar(nd_Prix_SDSBB_AH, "Prix_NbUtilisateursInclus", 0)) &amp; |;0)|, Nothing) * xVar(nd_Prix_SDSBB_AH, "Prix_PrixParUtilisateur", 0)
+			
+			' Si le produit n'as pas été modifié manuellement
+			If xVar(nd_Prod, "Prod_PrixModifie", "0") &lt;&gt; "1" Then
+				
+				v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_PrixUnitaire", 0, False, nd_Log) Or v_MajProd
+				
+				v_MajProd = SIIx_MajItem(nd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(nd_Prod, "Prod_Profit", (xVar(nd_Prod, "Prod_PrixTotal", 0) - xVar(nd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+			End If
+			
+			If xVar(nd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(nd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then
+				v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienAnnuels", (v_FraisEntretienAH_SDSBB *12), False, nd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB,2), False, nd_Log) Or v_MajProd
+				v_MajProd = SIIx_MajItem(nd_Prod, "Prod_FraisEntretienTotal", (xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_FraisEntretienAnnuels", 0)), False) Or v_MajProd
+			End If
+			
+			v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_NbUtilisateursCalcule", v_NbUtilisateursProduit, False, nd_Log) Or v_MajProd
+			v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_DepartementsSDS", xVarArray(xSDSBB_xndProd(v_CleProduit, True), "Prod_DepartementsSDS"), False, nd_Log) Or v_MajProd
+			v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_NbUtilisateursLicense", xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", 99999) ,False, nd_Log) Or v_MajProd
+			
+			If v_MajProd Then
+				
+				nd_Prod.HistoDM = Now
+				nd_Prod.HistoUM = v_Username
+				Call nd_Prod.Save(True, False)
+				
+				' Envoyer le log
+				If xVar(nd_Log, "Prod_EnvoyerLog", "") = "1" Then
+					Call SDSPX_EnvoyerLog(pnd_Prop, nd_Prod, nd_Log, SIGE_FormatterNomFonction(Getthreadinfo(1)))
+				End If
+				
+			End If
+			
+			Exit Sub
+			
+		End If
+		
+		' Si produits sur plusieurs sites
+		
+		v_NbUtilisateursProduit = 0
+		v_NbUtilisateursProduitSitePrincipal = 0
+		
+		' Calculer le site principal (site avec le plus grand nombre d'utilisateurs)
+		' --------------------------------------------------------------------------
+		Set nd_SitePrincipal = SDSPS_ndSitePlusUtilisateurs(pnd_Prop)
+		
+		If Not nd_SitePrincipal Is Nothing Then
+			v_NoSitePrincipal = xVar(nd_SitePrincipal , "Site_NoSite", "")
+		End If
+		
+		Set ndc_Sites = xSDSP3_xndcSite(v_NoProposition)
+		
+		' Validation
+		If ndc_Sites.Count = 0 Or _
+		nd_SitePrincipal Is Nothing Or _
+		v_NoSitePrincipal = "" Then
+			Exit Sub
+		End If
+		
+		' Bartir la liste des produits par site
+		' -------------------------------------
+		Set nd_Suivant = ndc_Sites.GetFirstDocument
+		
+		Do Until nd_Suivant Is Nothing
+			Set nd_Site = nd_Suivant
+			
+			v_NoSite = xVar(nd_Site, "Site_NoSite", "")
+			a_CleProduits = Evaluate(|@Unique(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod26"; "| &amp; (v_NoProposition &amp;";" &amp; v_NoSite) &amp; |"; 2); ""))|)
+			
+			If Not Iselement(l_Sites(v_NoSite)) Then
+				l_Sites(v_NoSite) = a_CleProduits
+			End If
+			
+			Set nd_Suivant = ndc_Sites.GetNextDocument(nd_Suivant)
+			
+		Loop
+		
+		' Validation
+		If Not Iselement(l_Sites(v_NoSitePrincipal)) Then
+			Exit Sub
+		End If
+		
+		a_ProduitsSitePrincipal = l_Sites(v_NoSitePrincipal)
+		
+		' Boucles les produits de chaque site
+		' -----------------------------------
+		Forall Produits In l_Sites
+			
+			Set nd_Site = xSDSP3_xndSite(Listtag(Produits), True)
+			
+			For i = 0 To Ubound(Produits)
+				
+				a_Cle(1) = Produits(i)
+				a_Cle(2) = Listtag(Produits)
+				
+				
+				Set ndc_ProduitsSite = xndc(a_Cle, gndb_SDSPX , "V_Prod41", nv_Prod)
+				
+				If ndc_ProduitsSite.Count &gt; 0 Then
+					
+					Set nd_ProduitSiteSuivant = ndc_ProduitsSite.GetFirstDocument
+					
+					Do Until nd_ProduitSiteSuivant Is Nothing
+						Set nd_Prod = nd_ProduitSiteSuivant
+						Set nd_ProduitSiteSuivant = ndc_ProduitsSite.GetNextDocument(nd_ProduitSiteSuivant)
+						
+						v_NbUtilisateursProduitSite = SDSPX_NbUtilisateursProduit(nd_Prod, pnd_Prop, nd_Site, 0 , False , False)
+						
+						Set nd_Prix_SDSBB = SDSPX_ndPrix(Produits(i), xVar(pnd_Prop, "Prop_Devise", ""), _
+						xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduitSite)
+						
+						v_PrixUnitaire_SDSBB = xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0)
+						
+						Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(Produits(i), xVar(pnd_Prop, "Prop_Devise", ""), _
+						xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduitSite)
+						
+						'v_FraisEntretienAH_SDSBB = xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0)
+						v_FraisEntretienAH_SDSBB = xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0) + _
+						xEvaluate(|@Max(| &amp; (v_NbUtilisateursProduitSite - xVar(nd_Prix_SDSBB_AH, "Prix_NbUtilisateursInclus", 0)) &amp; |;0)|, Nothing) * xVar(nd_Prix_SDSBB_AH, "Prix_PrixParUtilisateur", 0)
+						
+						v_MajProd = False
+						
+						' Maj valeurs calculé 
+						If Not nd_Prod Is Nothing Then
+							v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_NbUtilisateursCalcule", v_NbUtilisateursProduitSite, False, nd_Log) Or v_MajProd
+							v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_DepartementsSDS", xVarArray(xSDSBB_xndProd(Produits(i), True), "Prod_DepartementsSDS"), False, nd_Log) Or v_MajProd
+							v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_NbUtilisateursLicense", xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", 99999) ,False, nd_Log) Or v_MajProd
+						End If
+						
+						' Si site principal
+						' -----------------
+						If Listtag(Produits) = v_NoSitePrincipal Then
+							If Not nd_Prod Is Nothing Then
+								
+								If xVar(nd_Prod, "Prod_PrixModifie", "0") &lt;&gt; "1" Then
+									v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_PrixUnitaire", 0, False, nd_Log) Or v_MajProd
+									v_MajProd = SIIx_MajItem(nd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+									v_MajProd = SIIx_MajItem(nd_Prod, "Prod_Profit", (xVar(nd_Prod, "Prod_PrixTotal", 0) - xVar(nd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+								End If
+								
+								If xVar(nd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(nd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then
+									v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB,2), False, nd_Log) Or v_MajProd
+									v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienAnnuels", (v_FraisEntretienAH_SDSBB *12), False, nd_Log) Or v_MajProd
+									v_MajProd = SIIx_MajItem(nd_Prod, "Prod_FraisEntretienTotal", (xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_FraisEntretienAnnuels", 0)), False) Or v_MajProd
+								End If
+								
+								REM REM REM REM REM v_MajProd = SIIx_MajItem(nd_Prod, "Prod_EscompteAnnuel", 0, False)
+								
+							End If
+							
+						Else
+							
+							' Si &lt;&gt; site principal
+							' --------------------
+							If Listtag(Produits) &lt;&gt; v_NoSitePrincipal Then
+								
+								' Si produit pas sur site pricipal, ne pas appliquer d'escompte
+								If Isnull(Arraygetindex(a_ProduitsSitePrincipal, Produits(i))) Then
+									
+									If Not nd_Prod Is Nothing Then
+										
+										If xVar(nd_Prod, "Prod_PrixModifie", "0") &lt;&gt; "1" Then
+											v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_PrixUnitaire", 0, False, nd_Log) Or v_MajProd
+											v_MajProd = SIIx_MajItem(nd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+											v_MajProd = SIIx_MajItem(nd_Prod, "Prod_Profit", (xVar(nd_Prod, "Prod_PrixTotal", 0) - xVar(nd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+										End If
+										
+										If xVar(nd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(nd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then
+											v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB, 2), False, nd_Log) Or v_MajProd
+											v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienAnnuels", (v_FraisEntretienAH_SDSBB *12), False, nd_Log) Or v_MajProd
+											v_MajProd = SIIx_MajItem(nd_Prod, "Prod_FraisEntretienTotal", (xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_FraisEntretienAnnuels", 0)), False) Or v_MajProd
+										End If
+										
+									End If
+									
+								Else
+									
+									' Si produit sur site principal appliquer escompte
+									If Not Isnull(Arraygetindex(a_ProduitsSitePrincipal, Produits(i))) Then
+										
+										v_PrixEscompte = xSDSBB_xVarProd(Produits(i), "Prod_PrixEscompte", "", True)
+										
+										'Set nd_Prix_SDSBB = SDSPX_ndPrix(Produits(i), xVar(pnd_Prop, "Prop_Devise", ""), _
+										'xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduitSite)
+										'v_PrixUnitaire_SDSBB = xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0)
+										
+										' 		If xVar(nd_Prod, "Prod_CleParent", "") &lt;&gt; gc_NomProgrammeAutoSite_SDSPM &amp; ";SDS" Then
+										If (xSDSBB_xVarProd(Produits(i), "Prod_Limiter", "", True) &lt;&gt; "3" Or _
+										xSDSBB_xVarProd(Produits(i), "Prod_Limiter", "", True) &lt;&gt; "2" ) Then
+											
+											If v_PrixEscompte = "1" Then
+												'v_EscompteAnnuel = SItN_RoundUp((v_PourcentEscompteLG * xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0))) * 12
+												v_EscompteAnnuel = SItN_RoundUp((v_PourcentEscompteLG * v_FraisEntretienAH_SDSBB)) * 12
+											Else
+												'v_Escompte = v_PrixUnitaire_SDSBB
+												v_EscompteAnnuel = (v_FraisEntretienAH_SDSBB * 12)
+											End If
+											
+										Else
+											'v_Escompte = v_PrixUnitaire_SDSBB
+											v_EscompteAnnuel = (v_FraisEntretienAH_SDSBB * 12)
+											
+										End If
+										
+										If Not nd_Prod Is Nothing Then
+											
+											' Si le produit n'as pas été modifié manuellement
+											If xVar(nd_Prod, "Prod_PrixModifie", "0") &lt;&gt; "1" Then
+												
+												If Listtag(Produits) &lt;&gt; v_NoSitePrincipal Then
+													
+													v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_PrixUnitaire", 0, False, nd_Log) Or v_MajProd
+													v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_PrixEscompte", "", False, nd_Log) Or v_MajProd
+													'v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_NbUtilisateursCalcule", v_NbUtilisateursProduitSite, False) Or v_MajProd
+													
+													If xVar(nd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(nd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then
+														v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_EscompteAnnuel / 12, 2), False, nd_Log) Or v_MajProd
+														v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienAnnuels", v_EscompteAnnuel, False, nd_Log) Or v_MajProd
+														
+														If v_PrixEscompte = "1" Then
+															v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_EscompteAnnuel", v_EscompteAnnuel, False, nd_Log) Or v_MajProd
+														Else
+															v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_EscompteAnnuel", "", False, nd_Log) Or v_MajProd
+														End If
+														
+														v_MajProd = SIIx_MajItem(nd_Prod, "Prod_FraisEntretienTotal", (xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_FraisEntretienAnnuels", 0)), False) Or v_MajProd
+														
+													End If
+													
+												Else
+													
+													If xVar(nd_Prod, "Prod_PrixModifie", "0") &lt;&gt; "1" Then
+														v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_PrixUnitaire", 0, False, nd_Log) Or v_MajProd
+													End If
+													
+													If xVar(nd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(nd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then	
+														v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienAnnuels", (v_FraisEntretienAH_SDSBB * 12), False, nd_Log) Or v_MajProd
+														v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB, 2), False, nd_Log) Or v_MajProd	
+														v_MajProd = SIIx_MajItem(nd_Prod, "Prod_FraisEntretienTotal", (xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_FraisEntretienAnnuels", 0)), False) Or v_MajProd
+													End If
+													
+												End If
+												
+												v_MajProd = SIIx_MajItem(nd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+												v_MajProd = SIIx_MajItem(nd_Prod, "Prod_Profit", (xVar(nd_Prod, "Prod_PrixTotal", 0) - xVar(nd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+												
+											End If
+											
+										End If
+										
+									Else 
+										
+										If Not nd_Prod Is Nothing Then
+											If xVar(nd_Prod, "Prod_PrixModifie", "0") &lt;&gt; "1" Then
+												v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_PrixUnitaire", 0, False, nd_Log) Or v_MajProd
+											End If
+											v_MajProd = SIIx_MajItem(nd_Prod, "Prod_PrixTotal", (xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_PrixUnitaire", 0)), False) Or v_MajProd
+											v_MajProd = SIIx_MajItem(nd_Prod, "Prod_Profit", (xVar(nd_Prod, "Prod_PrixTotal", 0) - xVar(nd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+											If xVar(nd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(nd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then
+												v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0), 2), False, nd_Log) Or v_MajProd
+												v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_FraisEntretienAnnuels", (xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0) *12), False, nd_Log) Or v_MajProd
+												v_MajProd = SIIx_MajItem(nd_Prod, "Prod_FraisEntretienTotal", (xVar(nd_Prod, "Prod_Quantite", 0) * xVar(nd_Prod, "Prod_FraisEntretienAnnuels", 0)), False) Or v_MajProd	
+											End If
+											
+										End If
+										
+									End If
+									
+								End If
+							End If
+							
+						End If
+						
+						'v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_NbUtilisateursLicense", xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", 99999) ,False) Or v_MajProd
+						
+						If v_MajProd Then
+							nd_Prod.HistoDM = Now
+							nd_Prod.HistoUM = v_Username
+							Call nd_Prod.Save(True, False)
+							
+							' Envoyer le log
+							If xVar(nd_Log, "Prod_EnvoyerLog", "") = "1" Then
+								Call SDSPX_EnvoyerLog(pnd_Prop, nd_Prod, nd_Log, SIGE_FormatterNomFonction(Getthreadinfo(1)))
+							End If
+							
+						End If
+						
+					Loop
+					
+				End If
+			Next
+			
+		End Forall
+		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+End Sub
+
+</lotusscript></code><code event="SDSPX_aProduitsDepartement"><lotusscript>Function SDSPX_aProduitsDepartement(p_Categorie As String, p_Departement As String, _
+pa_CleProduits As Variant, pa_CodeProduits As Variant, pa_DescProduits As Variant, _
+pa_DescTypePrixProduits As Variant, pa_PrixProduits As Variant, p_InclurePrix As Boolean, pnd_Prop As NotesDocument, pnd_Site As NotesDocument) As Integer
+	On Error Goto GererErreur
+	
+	Dim v_Formule As String
+	Dim a_Prod As Variant
+	Dim i As Integer
+	Dim nd_Prod As NotesDocument
+	Dim a As Variant
+	Dim v_Disponible As String
+	Dim v_Ajouter As Boolean
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim v As Variant
+	
+	Call xSDSBB_Initialisations
+	SDSPX_aProduitsDepartement = 0
+	pa_CleProduits = ""
+	pa_CodeProduits = ""
+	pa_DescProduits = ""
+	pa_DescTypePrixProduits = ""
+	pa_PrixProduits = ""
+	
+	v_Formule = |@IfError(@DBLookup(""; "| &amp; gndb_xSDSBB.Server &amp; |" : "| &amp; _
+	Replace(gndb_xSDSBB.FilePath,"\","\\") &amp; |"; "V_Prod22"; "| &amp; p_Categorie &amp; |"; 2); "ERR")|
+	a_Prod = Evaluate(v_Formule)
+	If a_Prod(0) &lt;&gt; "ERR" Then
+		Redim a_CleProduits(Ubound(a_Prod)) As String
+		Redim a_CodeProduits(Ubound(a_Prod)) As String
+		Redim a_DescProduits(Ubound(a_Prod)) As String
+		Redim a_DescTypePrixProduits(Ubound(a_Prod)) As String
+		Redim a_PrixProduits(Ubound(a_Prod)) As Double
+		
+		For i = Lbound(a_Prod) To Ubound(a_Prod)
+			Set nd_Prod = xSDSBB_xndProd(a_Prod(i), True)
+			a = xVarArray(nd_Prod, "Prod_DispoDepartement")
+			v_Disponible = xVar(nd_Prod, "Prod_PropDisponible", "")
+			v_Ajouter = False
+			If Not Isarray(a) Then
+				If v_Disponible = "1" Then
+					v_Ajouter = True
+				End If
+			Else
+				v = Arraygetindex(a, p_Departement)
+				If Not Isnull(v) Then
+					If v_Disponible = "1" Then
+						v_Ajouter = True
+					End If
+				End If
+			End If
+			
+			If v_Ajouter Then
+				a_CleProduits(SDSPX_aProduitsDepartement) = a_Prod(i)
+				a_CodeProduits(SDSPX_aProduitsDepartement) = xVar(nd_Prod , "Prod_CodeProduit", "")
+				a_DescProduits(SDSPX_aProduitsDepartement) = xVar(nd_Prod , "Prod_DescProduit" &amp; xLangue, "")
+				
+				' Extraire le prix du produit
+				If p_InclurePrix Then
+					
+					a_DescTypePrixProduits(SDSPX_aProduitsDepartement) = xSDSBB_xDescTabl(xSDSBB_xComplTabl(xVar(nd_Prod, "Prod_ClasseProduit",""), _
+					"Prod_Classe_" &amp; xLangue, "1",True), "Prod_TypePrix_" &amp; xLangue, True)
+					
+					Set nd_Prix_SDSBB = SDSPX_ndPrix(a_Prod(i), xVar(pnd_Prop, "Prop_Devise", ""), _
+					xVar(pnd_Site, "Site_ClientPays", ""), xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+					If nd_Prix_SDSBB Is Nothing Then
+						Messagebox xGDK_xMessage("SDSPP", 14, "", Ustring(2,Chr(13)) &amp; xVar(nd_Prod, "Prod_DescProduit" &amp; xLangue, "") &amp; " (" &amp; xVar(nd_Prod, "Prod_CodeProduit", "") &amp; ")"), 16, xGDK_xMessage("SI", 1, "", "")
+						Exit Function
+					End If
+					a_PrixProduits(SDSPX_aProduitsDepartement) = xVar(nd_Prix_SDSBB , "Prix_PrixUnitaire", 0)
+					
+				End If
+				
+				SDSPX_aProduitsDepartement = SDSPX_aProduitsDepartement + 1
+			End If
+		Next
+		
+		If SDSPX_aProduitsDepartement &gt; 0 Then
+			Redim Preserve a_CleProduits(SDSPX_aProduitsDepartement - 1) As String
+			Redim Preserve a_CodeProduits(SDSPX_aProduitsDepartement - 1) As String
+			Redim Preserve a_DescProduits(SDSPX_aProduitsDepartement - 1) As String
+			Redim Preserve a_DescTypePrixProduits(SDSPX_aProduitsDepartement - 1) As String
+			Redim Preserve a_PrixProduits(SDSPX_aProduitsDepartement - 1) As Double
+			pa_CleProduits = a_CleProduits
+			pa_CodeProduits = a_CodeProduits
+			pa_DescProduits = a_DescProduits
+			pa_DescTypePrixProduits = a_DescTypePrixProduits
+			pa_PrixProduits = a_PrixProduits
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_MajItem"><lotusscript>Function SDSPX_MajItem(pnd As NotesDocument, p_NomItem As String, p_Valeur As Variant, Byval p_Date As Boolean, _
+pnd_Log As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_ValeurPrec As Variant
+	
+	v_ValeurPrec = xVar(pnd, p_NomItem, "")
+	
+	If SIIx_MajItem(pnd, p_NomItem, p_Valeur, p_Date) Then
+		If Not (pnd_Log Is Nothing) Then
+			Call pnd_Log.ReplaceItemValue("Prec_" &amp; Strright(p_NomItem, "_"), v_ValeurPrec)
+			Call pnd_Log.ReplaceItemValue(p_NomItem, p_Valeur)
+			pnd_Log.Prod_EnvoyerLog = "1"
+		End If
+		SDSPX_MajItem = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_NbUtilisateursProduit"><lotusscript>Function SDSPX_NbUtilisateursProduit(pnd_Prod As NotesDocument, pnd_Prop As NotesDocument, pnd_Site As NotesDocument, p_NbUtilisateurs, p_RecalcDept As Boolean, p_VerifieNbUtilisateursModifie As Boolean) As Long
+	On Error Goto GererErreur
+	
+	Dim v_CleProduit As String
+	
+	v_CleProduit = xVar(pnd_Prod, "Prod_CleProduit", "")
+	
+	If p_NbUtilisateurs &gt; 0 Then
+		
+		SDSPX_NbUtilisateursProduit = p_NbUtilisateurs
+		
+	Else
+		' Produit manuel
+		If (xVar(pnd_Prod, "Prod_CleParent", "") = "" And xVar(pnd_Prod, "Prod_NbUtilisateursObligatoire", "") = "1" And xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0) &gt; 0) Then
+			
+			If p_VerifieNbUtilisateursModifie Then
+				
+				If xVar(pnd_Prod, "Prod_NbUtilisateursModifie", "") = "0" Then
+					SDSPX_NbUtilisateursProduit = xVar(pnd_Prod, "Prod_NbUtilisateursListe", xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0))
+				Else
+					SDSPX_NbUtilisateursProduit = xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0) 
+				End If
+			Else
+				SDSPX_NbUtilisateursProduit = xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0)
+			End If
+			
+		Else
+			' Produit automatique
+			If xVar(pnd_Prod, "Prod_NbUtilisateursModifie", "") = "1" Then
+				If p_RecalcDept Then					
+					SDSPX_NbUtilisateursProduit = SDSPX_NbUtilisateursDepartements(v_CleProduit, pnd_Prop, pnd_Site, "", "")
+				Else
+					SDSPX_NbUtilisateursProduit = xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0)
+				End If
+			Else
+				
+				If p_VerifieNbUtilisateursModifie Then					
+					If xVar(pnd_Prod, "Prod_NbUtilisateursModifie", "") = "0" Then						
+						SDSPX_NbUtilisateursProduit = SDSPX_NbUtilisateursDepartements(v_CleProduit, pnd_Prop, pnd_Site, "", "")						
+					End If
+				Else
+					SDSPX_NbUtilisateursProduit = SDSPX_NbUtilisateursDepartements(v_CleProduit, pnd_Prop, pnd_Site, "", "")
+				End If
+				
+				If SDSPX_NbUtilisateursProduit = 0 Then
+					SDSPX_NbUtilisateursProduit = xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0)
+				End If
+			End If
+		End If
+	End If
+	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_RecalculerPrixDependants"><lotusscript>Function SDSPX_RecalculerPrixDependants(pnd_Prop As NotesDocument, pnd_Prod As NotesDocument, _
+	p_RecalcTousPrix As Boolean, p_RecalcListe As Boolean, p_Maj As Boolean, p_NbUtilisateurs As Long, pnd_Log As NotesDocument) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_NoProduit As String
+	Dim v_Cle As String
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument	
+	Dim v_Maj As Boolean
+	
+	' Validation
+	If xVar(pnd_Prod, "Prod_NoContratFmt_CS", "") &lt;&gt; "" Then
+		SDSPX_RecalculerPrixDependants = True
+		Exit Function
+	End If
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	If gnv_Prod40_SDSPX Is Nothing Then
+		Set gnv_Prod40_SDSPX = gndb_SDSPX.GetView("V_Prod40")
+		Call gnv_Prod40_SDSPX.Refresh
+	End If
+	
+	v_NoProduit = xVar(pnd_Prod, "Prod_NoProduit", "")
+	v_Cle = xVar(pnd_Prod, "Prod_NoProposition", "") &amp; ";" &amp; xVar(pnd_Prod, "Prod_NoSite", "") &amp; _
+	";" &amp; v_NoProduit
+	
+	' Extraire les documents enfants
+	Set ndc = gnv_Prod40_SDSPX.GetAllDocumentsByKey(v_Cle, True)
+	If ndc.Count &gt; 0 Then
+		Set nd_Suivant = ndc.GetFirstDocument
+		Do Until nd_Suivant Is Nothing
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+			v_Maj = False
+			
+			If xVar(nd, "Prod_TypeDescendant", "") = "D" Then				' Dépendant
+				If xVar(nd, "Prod_ClasseProduit", "") = "LG" Then
+					If xVar(nd, "Prod_NbUtilisateursObligatoire", "") = "1" Then
+						If xVar(nd, "Prod_NbUtilisateursModifie", "") = "1" Then
+							nd.Prod_NbUtilisateursListe = p_NbUtilisateurs
+							Call nd.Save(True, False)
+						Else
+							' Recalculer les logiciels
+							If SDSPX_RecalculerPrixLG(pnd_Prop, nd, p_RecalcTousPrix, p_RecalcListe, p_Maj, p_NbUtilisateurs, pnd_Log) Then
+								Call nd.Save(True, False)
+							End If
+						End If
+
+						' Boucler sur les dépendants du dépendant
+						Call SDSPX_RecalculerPrixDependants(pnd_Prop, nd, p_RecalcTousPrix, p_RecalcListe, p_Maj, p_NbUtilisateurs, pnd_Log)
+					End If
+				End If
+			End If
+		Loop
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, GetThreadInfo(1), xVar(pnd_Prod, "Prod_CleProduit", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_DupliquerProduit"><lotusscript>Function SDSPX_DupliquerProduit(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, _
+	pnd_Produit As NotesDocument, p_Produit As Variant, p_Quantite As Variant, p_PrixUnitaire As Variant, p_TypeDescendant As String, p_Departement As String, _
+	p_Categorie As String, p_CleParent As String, p_AfficherErreur As Boolean, p_VerifierBanniere As Boolean, _
+	pnd_Parent As NotesDocument) As NotesDocument
+	' ------------------------------------------------------------------------------------------------
+	' Le script permet de d'ajouter un produit en utilisant les prix et couts du produit (pnd_Produit)
+	' ------------------------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	' pass categorie en parametre
+	' si blanc xvarelem(0)
+	Dim v_CleProduit As String
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim v_Pays As String
+	Dim v_Bannieres As Variant
+	Dim ni As NotesItem
+	Dim i As Integer
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim ni_PropOptions As NotesItem
+	Dim nd_Prod As NotesDocument
+	Dim a_CategorieProduit As Variant
+	Dim v_Pos As Variant
+	Dim s As String
+	Dim v_ClasseProduit As String
+	Dim s_FR As String
+	Dim dp As Double
+	Dim dc As Double
+	Dim nd_Parent As NotesDocument
+	Dim v_ServeurSDSBB As String
+	Dim v_CleProduitAH As String
+	Dim v_ExempterCommission As String
+	
+	' Initialisations
+	Set SDSPX_DupliquerProduit = Nothing
+	Call SDSPX_Initialisations
+	
+	If DataType(p_Produit) = 8 Then
+		v_CleProduit = p_Produit
+		Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit, True)
+	ElseIf p_Produit IsA "NotesDocument" Then
+		Set nd_Prod_SDSBB = p_Produit
+		v_CleProduit = xVar(nd_Prod_SDSBB, "Prod_CleProduit", "")
+	End If
+	
+	' Vérifier que le produit est disponible dans le pays du client
+	v_Pays = xVar(pnd_Site, "Site_ClientPays", "")
+	If IsArray(xVarArray(nd_Prod_SDSBB, "Prod_DispoPays")) Then
+		Set ni = nd_Prod_SDSBB.GetFirstItem("Prod_DispoPays")
+		If Not ni.Contains(v_Pays) Then
+			Exit Function
+		End If
+	End If
+	
+	If p_VerifierBanniere Then
+		' Vérifier que le produit est disponible pour le(s) bannière(s) du client
+		v_Bannieres = xVarArray(pnd_Site, "Site_Banniere")
+		
+		If IsArray(xVarArray(nd_Prod_SDSBB, "Prod_DispoBanniere")) Then
+			Set ni = xni(nd_Prod_SDSBB, "Prod_DispoBanniere", "")
+			
+			If IsArray(v_Bannieres) Then
+				For i = 0 To UBound(v_Bannieres)
+					If ni.Contains(v_Bannieres(i)) Then
+						Exit For
+					End If
+				Next
+				If (i -1) = UBound(v_Bannieres) Then
+					If Not ni.Contains(v_Bannieres(UBound(v_Bannieres))) Then
+						Exit Function
+					End If
+				End If
+			Else
+				If Not ni.Contains(v_Bannieres) Then
+					Exit Function
+				End If
+			End If
+			
+		End If
+	End If
+	
+	' Extraire le prix du produit
+	Set nd_Prix_SDSBB = SDSPX_ndPrix(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+	v_Pays, xVar(pnd_Site, "Site_ClientProvince", ""), xVar(pnd_Produit, "Prod_NbUtilisateursLicense",0))
+	
+	If nd_Prix_SDSBB Is Nothing Then
+		If p_AfficherErreur Then
+			MessageBox xGDK_xMessage("SDSPP", 14, "", UString(2,Chr(13)) &amp; xVar(nd_Prod_SDSBB, "Prod_DescProduit" &amp; xLangue, "") &amp; _
+			" (" &amp; xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "") &amp; ")"), 16, xGDK_xMessage("SI", 1, "", "")
+		Else
+			Print xGDK_xMessage("SDSPP", 14, "", xVar(nd_Prod_SDSBB, "Prod_DescProduit" &amp; xLangue, "") &amp; _
+			" (" &amp; xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "") &amp; ")")
+		End If
+		Exit Function
+	End If
+	
+	' Créer le produit
+	Set nd_Prod = New NotesDocument(gndb_SDSPX)
+	nd_Prod.Form = "F_Prod"
+	nd_Prod.Prod_NoProposition = xVar(pnd_Site, "Site_NoProposition", "")
+	nd_Prod.Prod_NoSite = xVar(pnd_Site, "Site_NoSite", "")
+	nd_Prod.Prod_NomSite = xVar(pnd_Site, "Site_ClientNomInterne","")
+	nd_Prod.Prod_NoProduit = xUnique("") &amp; g_NoRep_SDSPX 
+	nd_Prod.Prod_CleParent = p_CleParent
+	nd_Prod.Prod_Statut = ""
+	
+	nd_Prod.Prod_CleProduit = v_CleProduit
+	v_ClasseProduit = xVar(nd_Prod_SDSBB, "Prod_ClasseProduit", "")
+	nd_Prod.Prod_ClasseProduit = v_ClasseProduit
+	nd_Prod.Prod_ClasseDescFR = xSDSBB_xDescTabl(v_ClasseProduit, "Prod_Classe_FR", True)
+	nd_Prod.Prod_ClasseDescEN = xSDSBB_xDescTabl(v_ClasseProduit, "Prod_Classe_EN", True)
+	nd_Prod.Prod_ClasseIcone = xSDSBB_xIcnTabl(v_ClasseProduit, "Prod_Classe_EN", True)
+	nd_Prod.Prod_CodeProduit = xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "")
+	nd_Prod.Prod_DescProduitFR = xVar(nd_Prod_SDSBB, "Prod_DescProduitFR", "")
+	nd_Prod.Prod_DescProduitEN = xVar(nd_Prod_SDSBB, "Prod_DescProduitEN", "")
+	nd_Prod.Prod_DescContratFR = xVar(nd_Prod_SDSBB, "Prod_DescContratFR", "")
+	nd_Prod.Prod_DescContratEN = xVar(nd_Prod_SDSBB, "Prod_DescContratEN", "")
+	nd_Prod.Prod_DoublonCS = SDSPX_DoublonCS(xVar(pnd_Site, "Site_ClientNoFmt", ""), v_CleProduit, v_ClasseProduit) 'Req# 57785
+	
+	If xVar(pnd_Produit, "Prod_CoutModifiable","") &lt;&gt; "" Then
+		nd_Prod.Prod_CoutModifiable = xVar(pnd_Produit, "Prod_CoutModifiable","")
+	End If
+	If xVar(pnd_Produit, "Prod_PrixModifiable","") &lt;&gt; "" Then
+		nd_Prod.Prod_PrixModifiable = xVar(pnd_Produit, "Prod_PrixModifiable","")
+	End If
+	If xVar(pnd_Produit, "Prod_FraisEntretienModifiable","") &lt;&gt; "" Then
+		nd_Prod.Prod_FraisEntretienModifiable = xVar(pnd_Produit, "Prod_FraisEntretienModifiable","")
+	End If
+	
+	nd_Prod.Prod_TypeProduit = xVar(nd_Prod_SDSBB, "Prod_TypeProduit", "")
+	
+	If p_Categorie = "" Then
+		s = xVarElem(nd_Prod_SDSBB, "Prod_CategorieProduit", 0,"")
+	Else
+		a_CategorieProduit = xVarArray(nd_Prod_SDSBB, "Prod_CategorieProduit")
+		If IsArray(a_CategorieProduit) Then
+			v_Pos = ArrayGetIndex(a_CategorieProduit, p_Categorie)
+			If Not IsNull(v_Pos) Then
+				s = xVarElem(nd_Prod_SDSBB, "Prod_CategorieProduit", v_Pos,"")
+			End If
+		End If
+	End If
+	
+	nd_Prod.Prod_CategorieProduit = s
+	s_FR = xSDSBB_xVarCate(s, "Cate_DescCategorieFR", "", True)
+	nd_Prod.Prod_CategorieCode = xSDSBB_xVarCate(s, "Cate_CodeCategorie", "", True)
+	nd_Prod.Prod_CategorieDescFR = s_FR
+	nd_Prod.Prod_CategorieDescEN = xSDSBB_xVarCate(s, "Cate_DescCategorieEN", s_FR, True)
+	nd_Prod.Prod_Section = xSDSBB_xVarCate(s, "Cate_PropSection", "", True)
+	nd_Prod.Prod_CategorieIcone = xSDSBB_xVarCate(s, "Cate_Icone", "", True)
+	nd_Prod.Prod_Departement = p_Departement
+	nd_Prod.Prod_DepartementDescFR = xGDK_xDescTabl(p_Departement, "SDS_DepartementsFR", True)
+	nd_Prod.Prod_DepartementDescEN = xGDK_xDescTabl(p_Departement, "SDS_DepartementsEN", True)
+	
+	nd_Prod.Prod_TypeDescendant = p_TypeDescendant
+	
+	If p_TypeDescendant = "" Then
+		
+		nd_Prod.Prod_PrixUnitaire = xVar(pnd_Produit, "Prod_PrixUnitaire",0)
+		nd_Prod.Prod_PrixModifie = xVar(pnd_Produit, "Prod_PrixModifie","0")
+		nd_Prod.Prod_PrixListe = xVar(pnd_Produit, "Prod_PrixListe",0)
+		nd_Prod.Prod_PrixTotal = xVar(pnd_Produit, "Prod_PrixTotal",0)
+		
+		nd_Prod.Prod_CoutUnitaire = xVar(pnd_Produit, "Prod_CoutUnitaire",0)
+		nd_Prod.Prod_CoutModifie = xVar(pnd_Produit, "Prod_CoutModifie","0")
+		nd_Prod.Prod_CoutListe = xVar(pnd_Produit, "Prod_CoutListe",0)
+		nd_Prod.Prod_CoutTotal = xVar(pnd_Produit, "Prod_CoutTotal",0)
+		
+		nd_Prod.Prod_FraisEntretienAnnuels = xVar(pnd_Produit, "Prod_FraisEntretienAnnuels",0)
+		nd_Prod.Prod_FraisEntretienMensuels = SItN_Round(xVar(pnd_Produit, "Prod_FraisEntretienAnnuels",0) / 12, 2)
+		nd_Prod.Prod_CleProduitAH = xVar(pnd_Produit, "Prod_CleProduitAH","")
+		nd_Prod.Prod_CodeProduitAH = xVar(pnd_Produit, "Prod_CodeProduitAH","")
+		nd_Prod.Prod_FraisEntretienModifie = xVar(pnd_Produit, "Prod_FraisEntretienModifie","0")
+		nd_Prod.Prod_FraisEntretienListe = xVar(pnd_Produit, "Prod_FraisEntretienListe",0)
+		nd_Prod.Prod_FraisEntretienMensuelsModifie = xVar(pnd_Produit, "Prod_FraisEntretienMensuelsModifie","0")
+		nd_Prod.Prod_FraisEntretienMensuelsListe = xVar(pnd_Produit, "Prod_FraisEntretienMensuelsListe",0)
+		
+		nd_Prod.Prod_FraisEntretienTotal = p_Quantite * xVar(pnd_Produit, "Prod_FraisEntretienAnnuels", 0)
+		
+	Else
+		
+		'	 Si composant ou logiciel cloud initialise prix et cout unitaire à zéro.
+		If p_TypeDescendant = "C" Or _
+		xVar(nd_Prod, "Prod_ClasseProduit", "") = "LG" Then
+			dp = 0
+			dc = 0
+		ElseIf p_PrixUnitaire &lt;&gt; "" Then
+			dp = p_PrixUnitaire
+			If xVar(nd_Prod_SDSBB, "Prod_TypePrix", "") = "1" Then
+				dc = p_PrixUnitaire
+			Else
+				dc = xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire", 0)
+			End If
+		Else
+			dp = xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0)
+			dc = xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire", 0)
+		End If
+		
+		nd_Prod.Prod_PrixUnitaire = dp
+		nd_Prod.Prod_PrixTotal = SItN_RoundUp(p_Quantite * dp)
+		nd_Prod.Prod_CoutUnitaire = dc
+		nd_Prod.Prod_CoutTotal = p_Quantite * dc
+		
+		Set nd_Prix_SDSBB = SDSPX_ndPrixAH(xVar(nd_Prod_SDSBB, "Prod_CleProduit", ""), xVar(pnd_Prop, "Prop_Devise", ""), _
+		v_Pays, xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+		
+		' Note : prix unitaire des produit cloud sont mensuel
+		nd_Prod.Prod_FraisEntretienMensuels = SItN_Round(xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0), 2)
+		nd_Prod.Prod_FraisEntretienAnnuels = xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0) * 12
+		nd_Prod.Prod_CleProduitAH = xVar(nd_Prod_SDSBB, "Prod_CleProduitAH", "")
+		nd_Prod.Prod_CodeProduitAH = xVar(nd_Prod_SDSBB, "Prod_CodeProduitAH", "")
+		
+		nd_Prod.Prod_TypePrixAH = xSDSBB_xComplTabl(xSDSBB_xVarProd(xVar(nd_Prod, "Prod_CleProduitAH", ""), "Prod_ClasseProduit", "", True), "Prod_Classe_FR", "1",True)
+		nd_Prod.Prod_TypePrixAHDescEN = xSDSBB_xDescTabl(xVar(nd_Prod, "Prod_TypePrixAH", ""), "Prod_TypePrix_EN", True)
+		nd_Prod.Prod_TypePrixAHDescFR = xSDSBB_xDescTabl(xVar(nd_Prod, "Prod_TypePrixAH", ""), "Prod_TypePrix_FR", True)
+		
+		nd_Prod.Prod_FraisEntretienTotal = p_Quantite * xVar(nd_Prod, "Prod_FraisEntretienAnnuels", 0)
+		
+	End If
+	
+	nd_Prod.Prod_Quantite = p_Quantite
+	nd_Prod.Prod_Profit = xVar(nd_Prod,"Prod_PrixTotal",0) - xVar(nd_Prod,"Prod_CoutTotal",0)
+	nd_Prod.Prod_Garantie = xVar(nd_Prod_SDSBB, "Prod_Garantie", "")
+	nd_Prod.Prod_EcoFrais = xVar(nd_Prod_SDSBB, "Prod_EcoFrais", "")
+	
+	nd_Prod.Prod_TypePrix = xSDSBB_xComplTabl(xVar(nd_Prod, "Prod_ClasseProduit",""), "Prod_Classe_FR", "1",True)
+	nd_Prod.Prod_TypePrixDescEN = xSDSBB_xDescTabl(xVar(nd_Prod, "Prod_TypePrix", ""), "Prod_TypePrix_EN", True)
+	nd_Prod.Prod_TypePrixDescFR = xSDSBB_xDescTabl(xVar(nd_Prod, "Prod_TypePrix", ""), "Prod_TypePrix_FR", True)
+	
+	'xVar(nd_Prod, "Prod_PrixUnitaire", 0)
+	nd_Prod.Prod_NbUtilisateursCalcule = xVar(pnd_Produit, "Prod_NbUtilisateursCalcule",0)
+	nd_Prod.Prod_NbUtilisateursLicense = xVar(pnd_Produit, "Prod_NbUtilisateursLicense",0)
+	
+	nd_Prod.Prod_NbUtilisateursListe = xVar(pnd_Produit, "Prod_NbUtilisateursListe",0)
+	nd_Prod.Prod_NbUtilisateursModifie = xVar(pnd_Produit, "Prod_NbUtilisateursModifie","0")
+	nd_Prod.Prod_NbUtilisateursObligatoire = xVar(pnd_Produit, "Prod_NbUtilisateursObligatoire","")
+	nd_Prod.Prod_LibelleNbUtilisateursFR = xVar(nd_Prod_SDSBB, "Prod_LibelleNbUtilisateursFR", "utilisateur(s)")
+	nd_Prod.Prod_LibelleNbUtilisateursEN = xVar(nd_Prod_SDSBB, "Prod_LibelleNbUtilisateursEN", "user(s)")
+	
+	nd_Prod.Prod_QuantiteListe = xVar(pnd_Produit, "Prod_QuantiteListe",xVar(nd_Prod, "Prod_Quantite", 0))
+	nd_Prod.Prod_QuantiteModifiee = xVar(pnd_Produit, "Prod_QuantiteModifiee","0")
+	
+	If xVar(pnd_Produit, "Prod_RemettreQuantiteZero","") &lt;&gt; "" Then
+		nd_Prod.Prod_RemettreQuantiteZero = xVar(pnd_Produit, "Prod_RemettreQuantiteZero","")
+	End If
+	
+	If xVar(nd_Prod, "Prod_ClasseProduit", "") = "LG" Then
+		
+		nd_Prod.Prod_PrixEscompte = xVar(pnd_Produit, "Prod_PrixEscompte", "")
+		nd_Prod.Prod_EscompteAnnuel = xVar(pnd_Produit, "Prod_EscompteAnnuel", "")
+		nd_Prod.Prod_DepartementsSDS = xVarArray(nd_Prod_SDSBB, "Prod_DepartementsSDS")
+		
+		v_ServeurSDSBB = xGDK_xFormulaNDB("SDSBB")
+		
+		nd_Prod.Prod_DepartementsSDSDescFR = Split(xEvaluate(|@If(@IsNull(Prod_DepartementsSDS); ""; @Implode(@Replace(Prod_DepartementsSDS; 
+  @IfError(@DbLookup(""; |&amp; v_ServeurSDSBB &amp; |; "V_Tabl20";  "Prod_DepartementsFR"; 4); ""); 
+  		@IfError(@DbLookup(""; |&amp; v_ServeurSDSBB &amp; |; "V_Tabl20";  "Prod_DepartementsFR"; 5); ""));", "))
+  		|, nd_Prod), ", ")
+		nd_Prod.Prod_DepartementsSDSDescEN = Split(xEvaluate(|@If(@IsNull(Prod_DepartementsSDS); ""; @Implode(@Replace(Prod_DepartementsSDS; 
+  @IfError(@DbLookup(""; |&amp; v_ServeurSDSBB &amp; |; "V_Tabl20";  "Prod_DepartementsEN"; 4); ""); 
+  		@IfError(@DbLookup(""; |&amp; v_ServeurSDSBB &amp; |; "V_Tabl20";  "Prod_DepartementsEN"; 5); ""));", "))
+  		|, nd_Prod), ", ")
+		
+	Else
+		nd_Prod.Prod_PrixEscompte = ""
+		nd_Prod.Prod_DepartementsSDS = ""
+		nd_Prod.Prod_DepartementsSDSDescFR = ""
+		nd_Prod.Prod_DepartementsSDSDescEN= ""
+		
+	End If
+	
+	nd_Prod.Prod_PropOptionsMontants = xVarArray(nd_Prod_SDSBB, "Prod_PropOptionsMontants")
+	
+	Set ni_PropOptions = nd_Prod_SDSBB.GetFirstItem("Prod_PropOptions")
+	
+	
+	v_ExempterCommission = xVar(nd_Prod_SDSBB, "Prod_Commissions", "")
+	
+	If v_ExempterCommission = "1" Or (xVar(pnd_Prop, "Prop_TypeProposition", "") &lt; "2" And v_ExempterCommission = "2") Then
+		nd_Prod.Prop_ExempterCommissions = "0"
+	Else
+		nd_Prod.Prop_ExempterCommissions = "1"
+	End If
+	
+	If ni_PropOptions.Contains("CR") Then
+		nd_Prod.Prod_ContratRequis = "1"
+	Else
+		nd_Prod.Prod_ContratRequis = ""
+	End If
+	If ni_PropOptions.Contains("VT") Then
+		nd_Prod.Prod_VerificationTechnique = "1"
+	Else
+		nd_Prod.Prod_VerificationTechnique = ""
+	End If
+	If ni_PropOptions.Contains("VC") Then
+		nd_Prod.Prod_VerificationCoordinateur = "1"
+	Else
+		nd_Prod.Prod_VerificationCoordinateur = ""
+	End If
+	If ni_PropOptions.Contains("VD") Then
+		nd_Prod.Prod_VerificationDirecteur = "1"
+	Else
+		nd_Prod.Prod_VerificationDirecteur = ""
+	End If
+	
+	nd_Prod.Cle = xVar(nd_Prod, "Prod_NoProposition", "") + ";" + xVar(nd_Prod, "Prod_NoSite", "") + ";" + _
+	xVar(nd_Prod, "Prod_CleProduit", "")
+	nd_Prod.Description = xVar(nd_Prod, "Prod_CodeProduit", "") + ";" + xVar(nd_Prod, "Prod_DescProduitFR", "")
+	
+	' Ajouter la note à la création
+	nd_Prod.Prod_NotesCreation = xVar(nd_Prod_SDSBB , "Prod_NotesCreation", "")
+	
+	
+	' Sécurité
+	Set ni = New NotesItem(nd_Prod, "LecteurAdmin", pnd_Parent.LecteurAdmin, READERS)
+	Set ni = New NotesItem(nd_Prod, "AuteurAdmin", pnd_Parent.AuteurAdmin, AUTHORS)
+	Set ni = New NotesItem(nd_Prod, "Lecteur", pnd_Parent.Lecteur, READERS)
+	Set ni = New NotesItem(nd_Prod, "Auteur", pnd_Parent.Auteur, AUTHORS)
+	
+	'Req# 56560
+	nd_Prod.Prod_StatutProposition = xVar(pnd_Prop, "Prop_Statut", "")
+	nd_Prod.Prod_DateSignature = xVar(pnd_Prop, "Prop_DateSignature", "")
+	nd_Prod.Prod_NoRepresantant = xVar(pnd_Prop, "Prop_NoRepresentant", "")
+	nd_Prod.Prod_NomRepresantant = xVar(pnd_Prop, "Prop_NomRepresentant", "")
+	
+	nd_Prod.HistoDC = xVar(pnd_Produit, "HistoDC","")
+	nd_Prod.HistoUC = xVar(pnd_Produit, "HistoUC","")
+	
+	If pnd_Produit.HasItem("HistoDM") Then
+		nd_Prod.HistoDM = xVar(pnd_Produit, "HistoDM","")
+	End If
+	If pnd_Produit.HasItem("HistoUM") Then
+		nd_Prod.HistoUM = xVar(pnd_Produit, "HistoUM","")
+	End If
+	If pnd_Produit.HasItem("HistoDP") Then
+		nd_Prod.HistoDP = xVar(pnd_Produit, "HistoDP","")
+	End If
+	If pnd_Produit.HasItem("HistoUP") Then
+		nd_Prod.HistoUP = xVar(pnd_Produit, "HistoUP","")
+	End If
+	
+	Set nd_Parent = gndb_SDSPX.GetDocumentByUNID(CStr(pnd_Parent.UniversalID))
+	Call nd_Prod.MakeResponse(nd_Parent)
+	
+	Call nd_Prod.Save(True, False)
+	
+	' Ajouter écofrais
+%REM ' call ecofrais enlevé temporairement
+	|
+	|
+	|
+	|
+	|
+	|
+	|
+		Call SDSPX_AjouterEcofrais(pnd_Prop, pnd_Site, nd_Prod, "E", p_Departement, p_AfficherErreur, True)
+	%END REM
+	
+	
+	
+	%REM
+	' Ajouter les composants
+	If xVarContient(nd_Prod_SDSBB, "Prod_Options", "C") Then
+		Call SDSPX_AjouterComposants(pnd_Prop, pnd_Site, nd_Prod, p_Departement, p_AfficherErreur, True)
+	End If
+	
+	' Ajouter les dépendants
+	If xVarContient(nd_Prod_SDSBB, "Prod_Options", "D") Then		
+		Call SDSPX_AjouterDependants(pnd_Prop, pnd_Site, nd_Prod, "P", p_Departement, p_AfficherErreur, False, p_VerifierBanniere)
+	End If
+	If p_TypeDescendant &lt;&gt; "C" And p_TypeDescendant &lt;&gt; "E" Then
+		Call SDSPX_AjouterDependants(pnd_Prop, pnd_Site, nd_Prod, "C", p_Departement, p_AfficherErreur, False, p_VerifierBanniere)
+	End If
+	%END REM
+	
+	
+	Set SDSPX_DupliquerProduit = nd_Prod
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, GetThreadInfo(1), v_CleProduit, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_RecalculerPrixSV"><lotusscript>Function SDSPX_RecalculerPrixSV(pnd_Prop As NotesDocument, pnd_Prod As NotesDocument, _
+	p_RecalcTousPrix As Boolean, p_RecalcListe As Boolean, p_Maj As Boolean, pnd_Log As NotesDocument) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_MajProd As Boolean
+	Dim v_CodeProduit As String
+	Dim nd_Site As NotesDocument
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim nd_Prix_SDSBB_AH As NotesDocument
+	Dim a_PrixModifiable As Variant
+	Dim v_PrixUnitaire_SDSBB As Double
+	Dim v_CoutUnitaire_SDSBB As Double
+	Dim v_FraisEntretienAH_SDSBB As Double
+	
+	' Initialisations
+	
+	g_CleProduit_SDSPX = xVar(pnd_Prod, "Prod_CleProduit", "")
+	v_CodeProduit = xVar(pnd_Prod, "Prod_CodeProduit", "")
+	
+	' La variable détermine si le prix,cout,quantié sont modifiable
+	a_PrixModifiable = xSDSBB_xVarProd(xVar(pnd_Prod, "Prod_CleProduit", ""), "Prod_PropOptionsMontants", "", True)
+	
+	If Not IsArray(a_PrixModifiable) Then
+		a_PrixModifiable = Split(a_PrixModifiable)
+	End If
+	
+	' Identifier le site
+	Set nd_Site = xSDSP3_xndSite(xVar(pnd_Prod, "Prod_NoSite", ""), True)
+	
+	' Extraire le document des prix
+	Set nd_Prix_SDSBB = SDSPX_ndPrix(g_CleProduit_SDSPX, xVar(pnd_Prop, "Prop_Devise", ""), _
+	xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), 0)
+	
+	Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(g_CleProduit_SDSPX, xVar(pnd_Prop, "Prop_Devise", ""), _
+	xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), 0)
+	
+	' La variable détermine si le prix,cout,quantié sont modifiable
+	a_PrixModifiable = xSDSBB_xVarProd(xVar(pnd_Prod, "Prod_CleProduit", ""), "Prod_PropOptionsMontants", "", True)
+	
+	If Not IsArray(a_PrixModifiable) Then
+		a_PrixModifiable = Split(a_PrixModifiable)
+	End If
+	
+	If nd_Prix_SDSBB Is Nothing Then
+		Exit Function
+	End If
+	
+	v_PrixUnitaire_SDSBB = xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0)
+	v_CoutUnitaire_SDSBB = xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire", 0)
+	
+	v_FraisEntretienAH_SDSBB = xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0)
+	
+	SDSPX_RecalculerPrixSV = False
+	v_MajProd = False
+	
+	' Recalculer prix services
+	' ------------------------
+	
+	If p_RecalcTousPrix Then
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", v_PrixUnitaire_SDSBB, False, pnd_Log) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixListe", xVar(pnd_Prod, "Prod_PrixUnitaire", 0), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixModifie", "0", False, pnd_Log) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutUnitaire", v_CoutUnitaire_SDSBB, False, pnd_Log) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutListe", xVar(pnd_Prod, "Prod_CoutUnitaire", 0), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutModifie", "0", False, pnd_Log) Or v_MajProd
+		
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB / 12, 2), False) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsListe", xVar(pnd_Prod, "Prod_FraisEntretienMensuels", 0), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0", False, pnd_Log) Or v_MajProd
+		
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", v_FraisEntretienAH_SDSBB, False, pnd_Log) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienListe", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienModifie", "0", False, pnd_Log) Or v_MajProd
+		
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+		
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+		
+	Else
+		
+		' Si pas recalc tous, recalculer selon la logique suivant :
+		
+		' Modification du prix unitaire
+		If xVar(pnd_Prod, "Prod_PrixModifie", 0) &lt;&gt; "1" Then
+			If xVar(pnd_Prod, "Prod_PrixUnitaire",0) &lt;&gt; v_PrixUnitaire_SDSBB _
+			Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", v_PrixUnitaire_SDSBB, False, pnd_Log) Or v_MajProd	
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * v_PrixUnitaire_SDSBB)), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+			End If
+			
+			' Si le produit a été modifié
+			If p_RecalcListe Then
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixListe", xVar(pnd_Prod, "Prod_PrixUnitaire", 0), False) Or v_MajProd
+			End If
+			
+		End If
+		
+		' Modification du coût unitaire
+		If xVar(pnd_Prod, "Prod_CoutModifie", "0") &lt;&gt; "1" Then
+			If xVar(pnd_Prod, "Prod_CoutUnitaire", 0) &lt;&gt; v_CoutUnitaire_SDSBB _
+			Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutUnitaire", v_CoutUnitaire_SDSBB, False, pnd_Log) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * v_CoutUnitaire_SDSBB), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+			End If
+			
+			' Si le produit a été modifié
+			If p_RecalcListe Then
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutListe", xVar(pnd_Prod, "Prod_CoutUnitaire", 0), False) Or v_MajProd
+			End If
+		End If
+		
+		' Frais entretien annuels
+		If xVar(pnd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then
+			If xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) &lt;&gt; v_FraisEntretienAH_SDSBB _
+			Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB / 12, 2), False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", v_FraisEntretienAH_SDSBB, False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+			End If
+			
+			' Si le produit a été modifié
+			If p_RecalcListe Then
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsListe", xVar(pnd_Prod, "Prod_FraisEntretienMensuels", 0), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienListe", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0), False) Or v_MajProd
+			End If
+		End If
+		
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+		
+	End If
+	
+	' Recalculer la quantité
+	If xVar(pnd_Prod, "Prod_QuantiteModifiee", "0") = "0" Then
+		If xVar(pnd_Prod, "Prod_QuantiteListe", 0) &lt;&gt; xVar(pnd_Prod, "Prod_Quantite", 0) Then
+			v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_Quantite", xVar(pnd_Prod, "Prod_QuantiteListe", 0), False, pnd_Log) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+		End If
+		
+		If p_RecalcListe Then
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_QuantiteListe", xVar(pnd_Prod, "Prod_Quantite", 0), False) Or v_MajProd
+		End If	
+		
+	'Elseif xVar(pnd_Prod, "Prod_QuantiteModifiee", "0") = "1" Then
+	'	v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_QuantiteListe", xVar(pnd_Prod, "Prod_Quantite", 0), False) Or v_MajProd
+	End If
+	
+	v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursLicense", xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", 99999) ,False, pnd_Log) Or v_MajProd
+	
+	If v_MajProd Then
+		If p_Maj Then
+			p_Maj = v_MajProd
+		End If
+	End If
+	
+	SDSPX_RecalculerPrixSV = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, GetThreadInfo(1), xVar(pnd_Prod, "Prod_CleProduit", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_SupprimerProduit"><lotusscript>Function SDSPX_SupprimerProduit(pnd_Prod As NotesDocument, p_NomProgramme As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_NoAdmS As Variant
+	Dim E As Variant
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	If gnv_Prod40_SDSPX Is Nothing Then
+		Set gnv_Prod40_SDSPX = gndb_SDSPX.GetView("V_Prod40")
+		Call gnv_Prod40_SDSPX.Refresh
+	End If
+	
+	v_NoAdmS = xUnique("")
+	
+	' Supprimer les composants
+	Call SDSPX_SupprimerComposants(pnd_Prod)
+	
+	' Supprimer le document
+	pnd_Prod.HistoNS = v_NoAdmS
+	pnd_Prod.FormOriginal = xVar(pnd_Prod, "Form", "")
+	E = Evaluate(|@SetField("HistoDS"; @Now)|, pnd_Prod)
+	pnd_Prod.HistoUS = gns_SDSPX.UserName
+	pnd_Prod.Form = "F_AdmS"
+	E = Evaluate(|@Text(HistoDS; "*")|, pnd_Prod)
+	pnd_Prod.HistoDS100 = Clng("&amp;H" &amp; Right$(E(0), 8)) Mod 100
+	
+	If p_NomProgramme = "" Then
+		pnd_Prod.HistoPS = SIGE_FormatterNomFonction(Getthreadinfo(1))
+	Else
+		pnd_Prod.HistoPS = SIGE_FormatterNomFonction(p_NomProgramme)
+	End If
+	
+	Call pnd_Prod.Save(True, False)
+	
+	SDSPX_SupprimerProduit = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_aProduitsBannieres"><lotusscript>Function SDSPX_aProduitsBannieres(p_Classe As String, pa_Bannieres As Variant, _
+pa_CleProduits As Variant, pa_CodeProduits As Variant, pa_DescProduits As Variant, _
+p_InclurePrix As Boolean, pnd_Prop As NotesDocument, pnd_Site As NotesDocument, _
+pa_PrixProduits As Variant) As Integer
+	
+	On Error Goto GererErreur
+	
+	Dim v_Formule As String
+	Dim a_Prod As Variant
+	Dim i As Integer
+	Dim nd_Prod As NotesDocument
+	Dim a As Variant
+	Dim v_Disponible As String
+	Dim v_Ajouter As Boolean
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim v As Variant
+	Dim j As Integer
+	
+	Call xSDSBB_Initialisations
+	SDSPX_aProduitsBannieres = 0
+	pa_CleProduits = ""
+	pa_CodeProduits = ""
+	pa_DescProduits = ""
+	pa_PrixProduits = ""
+	
+	''v_Formule = |@IfError(@DBLookup(""; "| &amp; gndb_xSDSBB.Server &amp; |" : "| &amp; _
+	''Replace(gndb_xSDSBB.FilePath,"\","\\") &amp; |"; "V_Prod22"; "| &amp; p_Categorie &amp; |"; 2); "ERR")|
+	
+	v_Formule = |@IfError(@DBLookup(""; "| &amp; gndb_xSDSBB.Server &amp; |" : "| &amp; _
+	Replace(gndb_xSDSBB.FilePath,"\","\\") &amp; |"; "V_Prod22"; "| &amp; p_Classe &amp; "." &amp; |"; 2;[PartialMatch]); "ERR")|
+	
+%REM
+			v_Prop_EntretienAnnuelLG = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod20"; "| &amp; _
+	Cstr(xVar(pnd_Prop, "Prop_NoProposition", "")) &amp; |"+ ";LG."; 8 ;[PartialMatch]); 0))|, Nothing)
+%END REM
+	
+	a_Prod = Evaluate(v_Formule)
+	If a_Prod(0) &lt;&gt; "ERR" Then
+		Redim a_CleProduits(Ubound(a_Prod)) As String
+		Redim a_CodeProduits(Ubound(a_Prod)) As String
+		Redim a_DescProduits(Ubound(a_Prod)) As String
+		Redim a_PrixProduits(Ubound(a_Prod)) As Double
+		
+		For i = Lbound(a_Prod) To Ubound(a_Prod)
+			Set nd_Prod = xSDSBB_xndProd(a_Prod(i), True)
+			a = xVarArray(nd_Prod, "Prod_DispoBanniere")
+			v_Disponible = xVar(nd_Prod, "Prod_PropDisponible", "")
+			v_Ajouter = False
+			If Not Isarray(a) Then
+				If v_Disponible = "1" Then
+					v_Ajouter = True
+				End If
+			Else
+				If Isarray(pa_Bannieres) Then
+					For j = 0 To Ubound(pa_Bannieres)
+						v = Arraygetindex(a, pa_Bannieres(j))
+						If Not Isnull(v) Then
+							If v_Disponible = "1" Then
+								v_Ajouter = True
+								Exit For
+							End If
+						End If
+					Next
+				Else
+					v = Arraygetindex(a, pa_Bannieres)
+					If Not Isnull(v) Then
+						If v_Disponible = "1" Then
+							v_Ajouter = True
+						End If
+					End If
+				End If
+				
+			End If
+			
+			If v_Ajouter Then
+				a_CleProduits(SDSPX_aProduitsBannieres) = a_Prod(i)
+				a_CodeProduits(SDSPX_aProduitsBannieres) = xVar(nd_Prod , "Prod_CodeProduit", "")
+				a_DescProduits(SDSPX_aProduitsBannieres) = xVar(nd_Prod , "Prod_DescProduit" &amp; xLangue, "")
+				
+				' Extraire le prix du produit
+				If p_InclurePrix Then
+					Set nd_Prix_SDSBB = SDSPX_ndPrix(a_Prod(i), xVar(pnd_Prop, "Prop_Devise", ""), _
+					xVar(pnd_Site, "Site_ClientPays", ""), xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+					If nd_Prix_SDSBB Is Nothing Then
+						Messagebox xGDK_xMessage("SDSPP", 14, "", Ustring(2,Chr(13)) &amp; xVar(nd_Prod, "Prod_DescProduit" &amp; xLangue, "") &amp; " (" &amp; xVar(nd_Prod, "Prod_CodeProduit", "") &amp; ")"), 16, xGDK_xMessage("SI", 1, "", "")
+						Exit Function
+					End If
+					a_PrixProduits(SDSPX_aProduitsBannieres) = xVar(nd_Prix_SDSBB , "Prix_PrixUnitaire", 0)
+				End If
+				
+				SDSPX_aProduitsBannieres = SDSPX_aProduitsBannieres + 1
+			End If
+		Next
+		
+		If SDSPX_aProduitsBannieres &gt; 0 Then
+			Redim Preserve a_CleProduits(SDSPX_aProduitsBannieres - 1) As String
+			Redim Preserve a_CodeProduits(SDSPX_aProduitsBannieres - 1) As String
+			Redim Preserve a_DescProduits(SDSPX_aProduitsBannieres - 1) As String
+			Redim Preserve a_PrixProduits(SDSPX_aProduitsBannieres - 1) As Double
+			pa_CleProduits = a_CleProduits
+			pa_CodeProduits = a_CodeProduits
+			pa_DescProduits = a_DescProduits
+			pa_PrixProduits = a_PrixProduits
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_EnvoyerLog"><lotusscript>Sub SDSPX_EnvoyerLog(pnd_Prop As NotesDocument, pnd_Prod As NotesDocument, pnd_Log As NotesDocument, p_NomProgramme As String)
+	
+	On Error Goto GererErreur
+	
+	Dim v_PrixUnitaire As Double
+	Dim v_PrixTotal As Double
+	Dim v_CoutUnitaire As Double
+	Dim v_CoutTotal As Double
+	Dim v_Quantite As Variant
+	
+	Call SDSPX_Initialisations
+	
+	pnd_Log.Form = xVar(pnd_Prod, "Form", "")
+	pnd_Log.Cle = xVar(pnd_Prod, "Cle", "")
+	pnd_Log.CleProduit = xVar(pnd_Prod, "Prod_NoProposition", "") &amp; ";" &amp; xVar(pnd_Prod, "Prod_NoSite", "") &amp; ";" &amp; xVar(pnd_Prod, "Prod_CleProduit", "")
+	pnd_Log.Description = xVar(pnd_Prod, "Description", "")
+	pnd_Log.Prod_NoProposition = xVar(pnd_Prod, "Prod_NoProposition", "")
+	pnd_Log.Prod_NoSite = xVar(pnd_Prod, "Prod_NoSite", "")
+	pnd_Log.Prod_NoProduit = xVar(pnd_Prod, "Prod_NoProduit", "")
+	pnd_Log.Prod_CleProduit = xVar(pnd_Prod, "Prod_CleProduit", "")
+	pnd_Log.Prod_CleParent = xVar(pnd_Prod, "Prod_CleParent", "")
+	
+	pnd_Log.Prod_ClasseProduit = xVar(pnd_Prod, "Prod_ClasseProduit", "")
+	pnd_Log.Prod_ClasseDescFR= xVar(pnd_Prod, "Prod_ClasseDescFR", "")
+	pnd_Log.Prod_ClasseDescEN= xVar(pnd_Prod, "Prod_ClasseDescEN", "")
+	pnd_Log.Prod_ClasseIcone = xVar(pnd_Prod, "Prod_ClasseIcone", "")
+	pnd_Log.Prod_CodeProduit = xVar(pnd_Prod, "Prod_CodeProduit", "")
+	
+	pnd_Log.Prod_DescProduitFR = xVar(pnd_Prod, "Prod_DescProduitFR", "")
+	pnd_Log.Prod_DescProduitEN = xVar(pnd_Prod, "Prod_DescProduitEN", "")
+	pnd_Log.Prod_DescContratFR = xVar(pnd_Prod, "Prod_DescContratFR", "")
+	pnd_Log.Prod_DescContratEN = xVar(pnd_Prod, "Prod_DescContratEN", "")
+	
+	pnd_Log.Prod_CategorieProduit = xVar(pnd_Prod, "Prod_CategorieProduit", "")
+	pnd_Log.Prod_CategorieDescFR = xVar(pnd_Prod, "Prod_CategorieDescFR", "")
+	pnd_Log.Prod_CategorieDescEN = xVar(pnd_Prod, "Prod_CategorieDescEN", "")
+	pnd_Log.Prod_CategorieIcone = xVar(pnd_Prod, "Prod_CategorieIcone", "")
+	pnd_Log.Prod_CategorieCode = xVar(pnd_Prod, "Prod_CategorieCode", "")
+	
+	pnd_Log.Prod_Departement = xVar(pnd_Prod, "Prod_Departement", "")
+	pnd_Log.Prod_DepartementDescFR= xVar(pnd_Prod, "Prod_DepartementDescFR", "")
+	pnd_Log.Prod_DepartementDescEN= xVar(pnd_Prod, "Prod_DepartementDescEN", "")
+	
+	pnd_Log.Prop_NbProposition = xVar(pnd_Prop, "Prop_NbProposition", "")
+	pnd_Log.Prop_NbPropositionTXT = xVar(pnd_Prop, "Prop_NbPropositionTXT", "")
+	pnd_Log.Prop_TypePropositionDescFR = xVar(pnd_Prop, "Prop_TypePropositionDescFR", "")
+	pnd_Log.Prop_TypePropositionDescEN = xVar(pnd_Prop, "Prop_TypePropositionDescEN", "")
+	pnd_Log.Prop_DescProposition = xVar(pnd_Prop, "Prop_DescProposition", "")
+	pnd_Log.Prop_StatutDescFR = xVar(pnd_Prop, "Prop_StatutDescFR", "")
+	pnd_Log.Prop_StatutDescEN = xVar(pnd_Prop, "Prop_StatutDescEN", "")
+	
+	pnd_Log.Prod_ClientNom = xSDSP3_xVarSite(xVar(pnd_Prod, "Prod_NoSite", ""), "Site_ClientNomInterne","", True)
+	pnd_Log.Prod_DescProduitFR = xVar(pnd_Prod, "Prod_DescProduitFR", "")
+	pnd_Log.Prod_DescProduitEN = xVar(pnd_Prod, "Prod_DescProduitEN", "")
+	
+	'If Not pnd_Log.HasItem("Prod_FraisEntretienAnnuels") Then
+	'	pnd_Log.Prod_FraisEntretienAnnuels = xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0)
+	'End If
+	'If Not pnd_Log.HasItem("Prod_NbUtilisateursCalcule") Then
+	'	pnd_Log.Prod_NbUtilisateursCalcule = xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0)
+	'End If
+	
+	
+	If p_NomProgramme = "" Then
+		pnd_Log.HistoPM = SIGE_FormatterNomFonction(Getthreadinfo(1))
+	Else
+		pnd_Log.HistoPM = SIGE_FormatterNomFonction(p_NomProgramme)
+	End If
+	
+	pnd_Log.SendTo = g_NomBaseLog_SDSPX
+	
+	pnd_Log.HistoDC = Now
+	pnd_Log.HistoUC = gns_SDSPX.UserName
+	pnd_Log.RemoveItem("Prod_EnvoyerLog")
+	Call pnd_Log.Send(False)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), g_CleProduit_SDSPX, False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SDSPX_SupprimerComposants"><lotusscript>Sub SDSPX_SupprimerComposants(pnd_Prod As NotesDocument)
+	On Error Goto GererErreur
+	
+	Dim v_Cle As String
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	
+	' Identifier les composants et dépendants
+	v_Cle = xVar(pnd_Prod, "Prod_NoProposition", "") &amp; ";" &amp; xVar(pnd_Prod, "Prod_NoSite", "") &amp; _
+	";" &amp; xVar(pnd_Prod, "Prod_NoProduit", "")
+	Set ndc = gnv_Prod40_SDSPX.GetAllDocumentsByKey(v_Cle, True)
+	If ndc.Count = 0 Then
+		Exit Sub
+	End If
+	
+	' Supprimer les composants et dépendants
+	Set nd_Suivant = ndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+		
+		Call SDSPX_SupprimerProduit(nd, Getthreadinfo(1))
+	Loop
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPX_RecalculerPrixEQ"><lotusscript>Function SDSPX_RecalculerPrixEQ(pnd_Prop As NotesDocument, pnd_Prod As NotesDocument, _
+	p_RecalcTousPrix As Boolean, p_RecalcListe As Boolean, p_Maj As Boolean, pnd_Log As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_MajProd As Boolean
+	Dim v_CleProduit As String
+	Dim v_CodeProduit As String
+	Dim nd_Site As NotesDocument
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim nd_Prix_SDSBB_AH As NotesDocument
+	Dim v_PrixUnitaire_SDSBB As Double
+	Dim v_CoutUnitaire_SDSBB As Double
+	Dim v_FraisEntretienAH_SDSBB As Double
+	Dim a_PrixModifiable As Variant
+	
+	' Initialisations
+	
+	v_CleProduit = xVar(pnd_Prod, "Prod_CleProduit", "")
+	v_CodeProduit = xVar(pnd_Prod, "Prod_CodeProduit", "")
+	
+	' La variable détermine si le prix,cout,quantié sont modifiable
+	a_PrixModifiable = xSDSBB_xVarProd(xVar(pnd_Prod, "Prod_CleProduit", ""), "Prod_PropOptionsMontants", "", True)
+	
+	If Not Isarray(a_PrixModifiable) Then
+		a_PrixModifiable = Split(a_PrixModifiable)
+	End If
+	
+	' Identifier le site
+	Set nd_Site = xSDSP3_xndSite(xVar(pnd_Prod, "Prod_NoSite", ""), True)
+	
+	' Extraire le document des prix
+	Set nd_Prix_SDSBB = SDSPX_ndPrix(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+	xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), 0)
+	
+	Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+	xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), 0)	
+	
+	
+	If nd_Prix_SDSBB Is Nothing Then
+		Exit Function
+	End If
+	
+	If xVar(pnd_Prod, "Prod_TypeDescendant", "") = "C" Then
+		v_PrixUnitaire_SDSBB = 0
+		v_CoutUnitaire_SDSBB = 0
+	Else
+		v_PrixUnitaire_SDSBB = xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0)
+		v_CoutUnitaire_SDSBB = xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire", 0)
+	End If
+	
+	v_FraisEntretienAH_SDSBB = xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0)
+	
+	SDSPX_RecalculerPrixEQ = False
+	v_MajProd = False
+	
+	
+	' Si recalc tous, recalculer tous les prix incluant ceux modifié manuellement
+	If p_RecalcTousPrix Then
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", v_PrixUnitaire_SDSBB, False, pnd_Log) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixListe", xVar(pnd_Prod, "Prod_PrixUnitaire", 0), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixModifie", "0", False, pnd_Log) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutUnitaire", v_CoutUnitaire_SDSBB, False, pnd_Log) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutListe", xVar(pnd_Prod, "Prod_CoutUnitaire", 0), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutModifie", "0", False, pnd_Log) Or v_MajProd
+		
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB / 12, 2), False, pnd_Log) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsListe", xVar(pnd_Prod, "Prod_FraisEntretienMensuels", 0), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0", False, pnd_Log) Or v_MajProd
+		
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", v_FraisEntretienAH_SDSBB, False, pnd_Log) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienListe", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienModifie", "0", False, pnd_Log) Or v_MajProd
+		
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+		
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+		
+	Else
+		
+		' Si pas recalc tous, recalculer selon la logique suivant :
+		
+		' Si le produit n'as pas été modifié manuellement
+		If xVar(pnd_Prod, "Prod_PrixModifie", "0") &lt;&gt; "1" Then
+			If xVar(pnd_Prod, "Prod_PrixUnitaire", 0) &lt;&gt; v_PrixUnitaire_SDSBB _
+			Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", v_PrixUnitaire_SDSBB, False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+			End If
+			
+			' Si le produit a été modifié
+			If p_RecalcListe Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixListe", xVar(pnd_Prod, "Prod_PrixUnitaire", 0), False, pnd_Log) Or v_MajProd
+			End If
+		Else
+			
+			' Le prix unitaire (PP) ne doit pas être inférieur au coût unitaire
+			If xVar(pnd_Prod, "Prod_PrixUnitaire", 0) &lt; v_CoutUnitaire_SDSBB Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", v_CoutUnitaire_SDSBB, False, pnd_Log) Or v_MajProd
+			End If
+			
+			' Le prix unitaire (PP) ne doit pas être supérieur au prix unitaire (EQ)
+			If xVar(pnd_Prod, "Prod_PrixUnitaire", 0) &gt; v_PrixUnitaire_SDSBB Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixModifie", "0", False, pnd_Log) Or v_MajProd
+			End If
+			
+		End If
+		
+		If xVar(pnd_Prod, "Prod_CoutModifie", "0") &lt;&gt; "1" Then
+			' Le coût unitaire (PP) doit provenir du coût unitaire (EQ)
+			If xVar(pnd_Prod, "Prod_CoutUnitaire", 0) &lt;&gt; v_CoutUnitaire_SDSBB _
+			Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutUnitaire", v_CoutUnitaire_SDSBB, False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+			End If
+			
+			' Si le produit a été modifié
+			If p_RecalcListe Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutListe", xVar(pnd_Prod, "Prod_CoutUnitaire", 0), False, pnd_Log) Or v_MajProd
+			End If
+		End If
+		
+		' Frais entretien annuels
+		If xVar(pnd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And  xVar(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then
+			If xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) &lt;&gt; xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0) _
+			Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB / 12, 2), False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", v_FraisEntretienAH_SDSBB, False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+			End If
+			
+			' Si le produit a été modifié
+			If p_RecalcListe Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienListe", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0), False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsListe", SItN_Round((xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) / 12),2), False, pnd_Log) Or v_MajProd
+			End If
+		End If
+		
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+		
+	End If
+	
+	' Recalculer la quantité
+	If xVar(pnd_Prod, "Prod_QuantiteModifiee", "0") = "0" Then
+		If xVar(pnd_Prod, "Prod_QuantiteListe", 0) &lt;&gt; xVar(pnd_Prod, "Prod_Quantite", 0) Then
+			v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_Quantite", xVar(pnd_Prod, "Prod_QuantiteListe", 0), False, pnd_Log) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+		End If
+	Elseif xVar(pnd_Prod, "Prod_QuantiteModifiee", "0") = "1" Then
+		v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_QuantiteListe", xVar(pnd_Prod, "Prod_Quantite", 0), False) Or v_MajProd
+	End If
+	
+	v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursLicense", xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", 99999) ,False, pnd_Log) Or v_MajProd
+	
+	
+	If v_MajProd Then
+		If p_Maj Then
+			p_Maj = v_MajProd
+		End If
+	End If
+	
+	SDSPX_RecalculerPrixEQ = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), xVar(pnd_Prod, "Prod_CleProduit", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_xQuantiteDefaut"><lotusscript>Function SDSPX_xQuantiteDefaut(p_Produit As Variant, p_QuantiteDefaut As Variant) As Integer
+	On Error Goto GererErreur
+	
+	Dim nd_Prod_SDSBB As NotesDocument
+	
+	If p_QuantiteDefaut &lt;&gt; "" Then
+		SDSPX_xQuantiteDefaut = Cint(p_QuantiteDefaut)
+	Else
+		
+		If Datatype(p_Produit) = 8 Then
+			Set nd_Prod_SDSBB = xSDSBB_xndProd(p_Produit, True)
+		Elseif p_Produit Isa "NotesDocument" Then
+			Set nd_Prod_SDSBB = p_Produit
+		End If
+		
+		SDSPX_xQuantiteDefaut = xVar(nd_Prod_SDSBB, "Prod_Quantite", 1)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_ReplacerProduitsUniquesSite"><lotusscript>Function SDSPX_ReplacerProduitsUniquesSite(pnd_Prop As NotesDocument, p_SiteAvant As String, p_SiteApres As String) As Boolean
+	' =====================================================================================================
+	' Ce sub replace les produits uniques (selon SDSBase2) dans le nouveau site principal de la proposition
+	' =====================================================================================================
+	On Error Goto GererErreur
+	
+	Dim nd_Prod As NotesDocument
+	Dim nd_SitePrincAvant As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd_SitePrincApres As NotesDocument
+	Dim ndc_Prod As NotesDocumentCollection
+	
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim nd_ProdAjouter As NotesDocument
+	
+	Dim v_CodeProduit As String
+	Dim v_NoPropositionAvant As String
+	Dim v_TransfererProduit As Boolean
+	
+	SDSPX_ReplacerProduitsUniquesSite = False
+	
+	' Initialisations
+	Call xSDSBB_Initialisations
+	Call SDSPX_Initialisations
+	
+	Set nd_SitePrincAvant = xSDSP3_xndSite(p_SiteAvant, False)
+	Set nd_SitePrincApres = xSDSP3_xndSite(p_SiteApres, False)
+	
+	If nd_SitePrincAvant Is Nothing Then
+		Print "Le site principal actuel non trouvé (" &amp; p_SiteAvant &amp; ")"
+		Exit Function
+	End If
+	
+	If nd_SitePrincApres Is Nothing Then
+		Print "Nouveau site principal non trouvé (" &amp; p_SiteApres &amp; ")"
+		Exit Function
+	End If
+	
+	v_NoPropositionAvant = xVar(nd_SitePrincAvant, "Site_NoProposition", "")
+	
+	Set ndc_Prod = SDSPS_ndcProduits(v_NoPropositionAvant &amp; ";" &amp; p_SiteAvant)
+	
+	If ndc_Prod.Count = 0 Then
+		Print "Aucun produit pour ce site (" &amp; p_SiteAvant &amp; ")"
+		Exit Function
+	End If
+	
+	' Boucler sur les produits de la proposition
+	Set nd_Suivant = ndc_Prod.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd_Prod = nd_Suivant
+		Set nd_Suivant = ndc_Prod.GetNextDocument(nd_Suivant)
+		
+		v_CodeProduit = xVar(nd_Prod, "Prod_CodeProduit", "")
+		
+		'If v_CodeProduit = "SESLSMSERV" Then
+		'	Print v_CodeProduit
+		'End If
+		
+		Set nd_Prod_SDSBB = xSDSBB_xndProd_Code(v_CodeProduit, False)
+		
+		If xVarContient(nd_Prod_SDSBB, "Prod_Limiter", "3") Then ' Limiter: Une fois par proposition
+			
+			' Valider s'il faut ajouter le produit au nouveau site principal
+			v_TransfererProduit = True
+			
+			If xVarContient(nd_Prod_SDSBB, "Prod_ProgNomItem3", "Site_AjouterSDS") Then
+				If xVar(nd_SitePrincApres, "Site_AjouterSDS", "") = "" Then
+					v_TransfererProduit = False
+				End If
+				
+			Elseif xVarContient(nd_Prod_SDSBB, "Prod_ProgNomItem3", "Site_D1_Ventes_R") Or xVarContient(nd_Prod_SDSBB, "Prod_ProgNomItem3", "Site_D1_Ventes_A") Then
+				If xVar(nd_SitePrincApres, "Site_AjouterSDSM", "") = "" Then
+					v_TransfererProduit = False
+				End If
+			End If
+			
+			If v_TransfererProduit Then
+				' Ajouter le produit au nouveau site principal
+				Set nd_ProdAjouter = SDSPX_AjouterProduit(pnd_Prop, nd_SitePrincApres, nd_Prod_SDSBB, xVar(nd_Prod, "Prod_Quantite", 0), _
+				xVar(nd_Prod, "Prod_PrixUnitaire", 0), "", xVar(nd_Prod, "Prod_Departement", ""), xVar(nd_Prod, "Prod_CategorieProduit", ""), _
+				xVar(nd_Prod, "Prod_CleParent", ""), True, True, nd_SitePrincApres)
+				
+				If Not (nd_ProdAjouter Is Nothing) Then
+					' 2- Supprimer le produit de l'ancien site principal
+					If SDSPX_SupprimerProduit(nd_Prod, xVar(nd_Prod, "Prod_CodeProduit", "")) Then
+						Print "Produit supprimé: " &amp; xVar(nd_Prod, "Prod_CodeProduit", "")
+						SDSPX_ReplacerProduitsUniquesSite = True
+					End If
+					
+				End If
+				
+			End If
+		End If
+		
+	Loop
+	
+	SDSPX_ReplacerProduitsUniquesSite = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_RecalculerCoutsProduits"><lotusscript>Function SDSPX_RecalculerCoutsProduits(pnd_Prop As NotesDocument, p_RecalcTousPrix As Boolean, p_RecalcListe As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim nv_Prod20 As NotesView
+	Dim v_NoProposition As String
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Produit As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Log As NotesDocument
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	
+	SDSPX_RecalculerCoutsProduits = False
+	
+	Set nv_Prod20 = gndb_SDSPX.GetView("V_Prod20")
+	Call nv_Prod20.Refresh
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	Set ndc = nv_Prod20.GetAllDocumentsByKey(Cstr(v_NoProposition) &amp; ";", False)
+	If ndc.Count = 0 Then
+		Exit Function
+	End If
+	
+	If xVarProf("Prof_LogProduits", "") = "1" Then
+		Set nd_Log = New NotesDocument(gndb_SDSPX)
+	End If
+	
+	Set nd_Suivant= ndc.GetFirstDocument
+	
+	' Boucler les produits
+	' --------------------
+	Do Until nd_Suivant Is Nothing
+		Set nd_Produit = nd_Suivant
+		Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+		
+		' Recalculer le prix
+		If Not SDSPX_RecalculerPrix(pnd_Prop, nd_Produit, p_RecalcTousPrix, p_RecalcListe, True, 0, nd_Log) Then
+			nd_Produit.Prod_Statut = "E"
+		Else
+			nd_Produit.Prod_Statut = ""
+		End If
+		Call nd_Produit.Save(True, False)
+		
+		' Envoyer le log
+		If xVar(nd_Log, "Prod_EnvoyerLog", "") = "1" Then
+			Call SDSPX_EnvoyerLog(pnd_Prop, nd_Produit, nd_Log, SIGE_FormatterNomFonction(Getthreadinfo(1)))
+		End If
+		
+	Loop
+	
+	SDSPX_RecalculerCoutsProduits = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), xVar(nd_Produit, "cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_RecalculerPrixLG"><lotusscript>Function SDSPX_RecalculerPrixLG(pnd_Prop As NotesDocument, pnd_Prod As NotesDocument, _
+	p_RecalcTousPrix As Boolean, p_RecalcListe As Boolean, p_Maj As Boolean, p_NbUtilisateurs As Long, pnd_Log As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_CleProduit As String
+	Dim v_CodeProduit As String
+	Dim v_Cles(1) As String
+	Dim v_MajProd As Boolean
+	Dim v_NbUtilisateursProduit As Long
+	Dim nd_Site As NotesDocument
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim nd_Prix_SDSBB_AH As NotesDocument
+	Dim nv_Prod As NotesView
+	Dim ndc_Produits As NotesDocumentCollection
+	Dim a_ClesProduitsSitePrincipal As Variant
+	Dim a_PrixModifiable As Variant
+	Dim nd_SitePrincipal As NotesDocument
+	Dim v_NoSitePrincipal As String
+	Dim v_EscompteAnnuel As Double
+	Dim v_PrixEscompte As String
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim v_NoProposition As String
+	Dim v_PrixUnitaire_SDSBB As Double
+	Dim v_CoutUnitaire_SDSBB As Double
+	Dim v_FraisEntretienAH_SDSBB As Double
+	Dim v_PourcentEscompteLG As Double
+	Dim v_ProdQteModifiee As String
+	
+	' Initialisations
+	
+	SDSPX_RecalculerPrixLG = False
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	v_CleProduit = xVar(pnd_Prod, "Prod_CleProduit", "")
+	v_CodeProduit = xVar(pnd_Prod, "Prod_CodeProduit", "")
+	
+	v_Cles(0) = v_NoProposition + ";LG"
+	v_Cles(1) = v_CleProduit
+	
+	v_PourcentEscompteLG = ((100 - xVar(pnd_Prop, "Prop_PourcentEscompteLG", 20)) / 100)
+	
+	Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit , True)
+	
+	' La variable détermine si le prix,cout,quantié sont modifiable
+	a_PrixModifiable = xSDSBB_xVarProd(xVar(pnd_Prod, "Prod_CleProduit", ""), "Prod_PropOptionsMontants", "", True)
+	
+	If Not Isarray(a_PrixModifiable) Then
+		a_PrixModifiable = Split(a_PrixModifiable)
+	End If
+	
+	' Identifier le site
+	Set nd_Site = xSDSP3_xndSite(xVar(pnd_Prod, "Prod_NoSite", ""), True)
+	
+	v_MajProd = False
+	
+	' Liste des produits logiciels
+	Set ndc_Produits = xndc(v_Cles, gndb_SDSPX , "V_Prod41", nv_Prod)
+	
+	If ndc_Produits.Count &gt; 0 Then
+		
+		v_NbUtilisateursProduit = SDSPX_NbUtilisateursProduit(pnd_Prod, pnd_Prop, nd_Site, p_NbUtilisateurs , p_RecalcTousPrix , True)
+		
+		Set nd_Prix_SDSBB = SDSPX_ndPrix(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+		xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduit)
+		
+		Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+		xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduit)
+		
+		v_PrixUnitaire_SDSBB = xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0)
+		v_CoutUnitaire_SDSBB = xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire", 0)
+		
+		v_FraisEntretienAH_SDSBB = xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0) + _
+		xEvaluate(|@Max(| &amp; (v_NbUtilisateursProduit - xVar(nd_Prix_SDSBB_AH, "Prix_NbUtilisateursInclus", 0)) &amp; |;0)|, Nothing) * xVar(nd_Prix_SDSBB_AH, "Prix_PrixParUtilisateur", 0)
+		
+		v_ProdQteModifiee = xVar(pnd_Prod, "Prod_QuantiteModifiee", "0")
+		' Si seulement 1 produit LG sur la proposition
+		' --------------------------------------------
+		If ndc_Produits.Count = 1 Then
+			
+			If p_RecalcTousPrix Then
+				
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", 0, False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutUnitaire", 0, False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB, 2), False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", (v_FraisEntretienAH_SDSBB * 12), False, pnd_Log) Or v_MajProd
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsListe", xVar(pnd_Prod, "Prod_FraisEntretienMensuels", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0", False, pnd_Log) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuelsListe", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuelsModifie", "0", False, pnd_Log) Or v_MajProd
+				
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixListe", xVar(pnd_Prod, "Prod_PrixUnitaire", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixModifie", "0", False, pnd_Log) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutListe", xVar(pnd_Prod, "Prod_CoutUnitaire", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutModifie", "0", False, pnd_Log) Or v_MajProd
+				
+				If p_NbUtilisateurs &gt; 0 Then
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", p_NbUtilisateurs, False, pnd_Log) Or v_MajProd
+				Else
+					
+					'	If Not (xVar(pnd_Prod, "Prod_CleParent", "") = "" And xVar(pnd_Prod, "Prod_NbUtilisateursObligatoire", "") = "1" And xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0) &gt; 0) Then
+					'	If p_RecalcListe Or p_RecalcTousPrix Then
+					'		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", v_NbUtilisateursProduit, False) Or v_MajProd
+					'	End If
+					'End If
+					If xVar(pnd_Prod, "Prod_CleParent", "") &lt;&gt; "" Or _
+					(xVar(pnd_Prod, "Prod_CleParent", "") = "" And xVar(pnd_Prod, "Prod_NbUtilisateursObligatoire", "") &lt;&gt; "1") Then
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", v_NbUtilisateursProduit, False) Or v_MajProd
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursModifie", "0", False, pnd_Log) Or v_MajProd
+					End If
+				End If
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienListe", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienModifie", "0", False, pnd_Log) Or v_MajProd
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsListe", xVar(pnd_Prod, "Prod_FraisEntretienMensuels", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0", False, pnd_Log) Or v_MajProd
+				
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+				
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixEscompte", "", False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_EscompteAnnuel", "", False, pnd_Log) Or v_MajProd
+				
+			Else
+				
+				' Si pas recalc tous, recalculer selon la logique suivant :
+				
+				' Modification du prix unitaire
+				If xVar(pnd_Prod, "Prod_PrixModifie", 0) &lt;&gt; "1" Then
+					If xVar(pnd_Prod, "Prod_PrixUnitaire",0) &lt;&gt; v_CoutUnitaire_SDSBB _
+					Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+						
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", xVar(pnd_Prod, "Prod_PrixListe", 0), False, pnd_Log) Or v_MajProd
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixEscompte", "", False, pnd_Log) Or v_MajProd
+						
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log)	Or v_MajProd
+					End If
+					
+					' Si le produit a été modifié
+					If p_RecalcListe Then					
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixListe", xVar(pnd_Prod, "Prod_PrixUnitaire", 0), False) Or v_MajProd
+					End If
+					
+				End If
+				
+				' Modification du coût unitaire
+				If xVar(pnd_Prod, "Prod_CoutModifie", "0") &lt;&gt; "1" Then
+					If xVar(pnd_Prod, "Prod_CoutUnitaire", 0) &lt;&gt; xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire",0) _
+					Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+						
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutUnitaire", xVar(pnd_Prod, "Prod_CoutListe", 0), False, pnd_Log) Or v_MajProd
+						
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire",0)), False) Or v_MajProd
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+					End If
+					
+					' Si le produit a été modifié
+					If p_RecalcListe Then
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutListe", xVar(pnd_Prod, "Prod_CoutUnitaire", 0), False) Or v_MajProd
+					End If
+				End If
+				
+	%REM
+				' Modification du volume calculé
+				If xVar(pnd_Prod, "Prod_NbUtilisateursModifie", "0") &lt;&gt; "1" Then
+					If xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0) &lt;&gt; v_NbUtilisateursProduit Then
+						'v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursCalcule", xVar(pnd_Prod, "Prod_NbUtilisateursListe", 0), False, pnd_Log) Or v_MajProd
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursCalcule", v_NbUtilisateursProduit, False) Or v_MajProd
+					End If
+				Else
+					' Si le produit a été modifié
+					If p_RecalcListe Then 
+						'v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursCalcule", xVar(pnd_Prod, "Prod_NbUtilisateursListe", 0), False, pnd_Log) Or v_MajProd
+						''v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursCalcule", v_NbUtilisateursProduit, False) Or v_MajProd
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", v_NbUtilisateursProduit, False, pnd_Log) Or v_MajProd
+					End If
+				End If
+	%END REM
+				
+				' Si produit auto
+				If xVar(pnd_Prod, "Prod_CleParent", "") &lt;&gt; "" And xVar(pnd_Prod, "Prod_NbUtilisateursObligatoire", "") = "1" And xVar(pnd_Prod, "Prod_NbUtilisateursModifie", "") = "0" Then
+					v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", v_NbUtilisateursProduit, False) Or v_MajProd
+				End If
+				
+				' Frais entretien annuels
+				If xVar(pnd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then
+					
+					If xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) &lt;&gt; (v_FraisEntretienAH_SDSBB *12) _
+					Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB, 2), False, pnd_Log) Or v_MajProd
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", (v_FraisEntretienAH_SDSBB *12), False, pnd_Log) Or v_MajProd
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_EscompteAnnuel", "", False, pnd_Log) Or v_MajProd
+					End If
+					
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+					
+					' Si le produit a été modifié
+					If p_RecalcListe Then
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienListe", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0), False) Or v_MajProd
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsListe", SItN_Round(xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) / 12,2), False) Or v_MajProd
+					End If
+					
+				End If
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+				
+			End If
+			
+			' Recalculer la quantité
+			If v_ProdQteModifiee = "0" Then
+				If xVar(pnd_Prod, "Prod_QuantiteListe", 0) &lt;&gt; xVar(pnd_Prod, "Prod_Quantite", 0) Then
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_Quantite", xVar(pnd_Prod, "Prod_QuantiteListe", 0), False, pnd_Log) Or v_MajProd
+					v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+					v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or v_MajProd
+					v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+				End If
+			Else 'If v_ProdQteModifiee = "1" Then
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_QuantiteListe", xVar(pnd_Prod, "Prod_Quantite", 0), False) Or v_MajProd
+				REM	
+			End If
+			
+			v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_DepartementsSDS", xVarArray(xSDSBB_xndProd(v_CleProduit, True), "Prod_DepartementsSDS"), False, pnd_Log) Or v_MajProd
+			v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursCalcule", v_NbUtilisateursProduit, False, pnd_Log) Or v_MajProd
+			v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursLicense", xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", 99999) ,False, pnd_Log) Or v_MajProd
+			
+			If v_MajProd Then
+				If p_Maj Then
+					p_Maj = v_MajProd
+				End If
+			End If
+			
+			SDSPX_RecalculerPrixLG = True
+			Exit Function
+			
+		Else
+			
+			' Si produit sur plusieurs sites
+			' ------------------------------
+			' Retourne le site principal
+			Set nd_SitePrincipal = SDSPS_ndSitePlusUtilisateurs(pnd_Prop)
+			'v_NbUtilisateursProduit = 0
+			
+			If Not nd_SitePrincipal Is Nothing Then
+				v_NoSitePrincipal = xVar(nd_SitePrincipal, "Site_NoSite", "")
+				a_ClesProduitsSitePrincipal = Evaluate(|@Unique(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod26"; "| &amp; (v_NoProposition &amp;";" &amp; v_NoSitePrincipal) &amp; |"; 2); ""))|)
+			End If
+			
+			v_MajProd = False
+			
+			Set nd_Prix_SDSBB = SDSPX_ndPrix(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+			xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduit)
+			
+			Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+			xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduit)
+			
+			v_PrixEscompte = xVar(nd_Prod_SDSBB, "Prod_PrixEscompte", "")
+			If v_PrixEscompte = "1" Then
+				
+				'If xVar(pnd_Prod, "Prod_CleParent", "") &lt;&gt; gc_NomProgrammeAutoSite_SDSPM Then
+				If (xSDSBB_xVarProd(v_CleProduit, "Prod_Limiter", "", True) &lt;&gt; "3" Or _
+				xSDSBB_xVarProd(v_CleProduit, "Prod_Limiter", "", True) &lt;&gt; "2") Then
+					
+					'v_EscompteAnnuel = Round((0.750 * ((xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0) * 12))),0) '75% du prix
+					v_EscompteAnnuel = SItN_RoundUp((v_PourcentEscompteLG * v_FraisEntretienAH_SDSBB)) * 12
+				Else
+					v_EscompteAnnuel = (v_FraisEntretienAH_SDSBB * 12)
+				End If
+			Else
+				v_EscompteAnnuel = (v_FraisEntretienAH_SDSBB * 12)
+			End If
+			
+			' Recalculer Prix
+			' ---------------
+			If p_RecalcTousPrix Then
+				
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", 0, False, pnd_Log) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutUnitaire", 0, False, pnd_Log) Or v_MajProd
+				
+				If xVar(pnd_Prod, "Prod_NoSite", "") &lt;&gt; v_NoSitePrincipal And v_PrixEscompte = "1" Then
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_RoundUp((v_PourcentEscompteLG * v_FraisEntretienAH_SDSBB)), False, pnd_Log) Or v_MajProd
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", SItN_RoundUp((v_PourcentEscompteLG * v_FraisEntretienAH_SDSBB)) * 12, False, pnd_Log) Or v_MajProd
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_EscompteAnnuel", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", ""), False, pnd_Log) Or v_MajProd
+				Else
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB, 2), False, pnd_Log) Or v_MajProd
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", (v_FraisEntretienAH_SDSBB *12), False, pnd_Log) Or v_MajProd
+				End If
+				
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixEscompte", "", False, pnd_Log) Or v_MajProd
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutListe", xVar(pnd_Prod, "Prod_CoutUnitaire", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutModifie", "0", False, pnd_Log) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixListe", xVar(pnd_Prod, "Prod_PrixUnitaire", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixModifie", "0", False, pnd_Log) Or v_MajProd
+				
+				If p_NbUtilisateurs &gt; 0 Then
+					v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", p_NbUtilisateurs, False) Or v_MajProd
+				Else
+					
+					'	If Not (xVar(pnd_Prod, "Prod_CleParent", "") = "" And xVar(pnd_Prod, "Prod_NbUtilisateursObligatoire", "") = "1" And xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0) &gt; 0) Then
+					'	If p_RecalcListe Or p_RecalcTousPrix Then
+					'		v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", v_NbUtilisateursProduit, False) Or v_MajProd
+					'	End If
+					'End If
+					If xVar(pnd_Prod, "Prod_CleParent", "") &lt;&gt; "" Or _
+					(xVar(pnd_Prod, "Prod_CleParent", "") = "" And xVar(pnd_Prod, "Prod_NbUtilisateursObligatoire", "") &lt;&gt; "1") Then
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", v_NbUtilisateursProduit, False) Or v_MajProd
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursModifie", "0", False, pnd_Log) Or v_MajProd
+					End If
+				End If
+				
+				'v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", v_NbUtilisateursProduit, False, pnd_Log) Or v_MajProd
+				'v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursModifie", "0", False) Or v_MajProd
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienListe", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienModifie", "0", False, pnd_Log) Or v_MajProd
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsListe", xVar(pnd_Prod, "Prod_FraisEntretienMensuels", 0), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0", False, pnd_Log) Or v_MajProd
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+				
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+				
+			Else
+				
+				' Modification du prix unitaire
+				If xVar(pnd_Prod, "Prod_PrixModifie", 0) &lt;&gt; "1" Then
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", 0, False, pnd_Log) Or v_MajProd
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PrixEscompte", "", False, pnd_Log) Or v_MajProd
+					v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * v_PrixUnitaire_SDSBB)), False) Or v_MajProd
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+					
+					' Si le produit a été modifié
+					If p_RecalcListe Then
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixListe", xVar(pnd_Prod, "Prod_PrixUnitaire", 0), False) Or v_MajProd
+					End If
+				End If
+				
+	%REM
+					' Modification du volume calculé
+				If xVar(pnd_Prod, "Prod_NbUtilisateursModifie", "0") &lt;&gt; "1" Then
+					If xVar(pnd_Prod, "Prod_NbUtilisateursCalcule", 0) &lt;&gt; v_NbUtilisateursProduit Then
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursCalcule", v_NbUtilisateursProduit, False, pnd_Log) Or v_MajProd
+					End If
+				Else
+					' Si le produit a été modifié
+					If p_RecalcListe Then
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursListe", v_NbUtilisateursProduit, False, pnd_Log) Or v_MajProd
+					End If
+				End If
+	%END REM
+				
+				' Modification du coût unitaire
+				If xVar(pnd_Prod, "Prod_CoutModifie", "0") &lt;&gt; "1" Then
+					If xVar(pnd_Prod, "Prod_CoutUnitaire", 0) &lt;&gt; v_CoutUnitaire_SDSBB _
+					Or xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_CoutUnitaire", v_CoutUnitaire_SDSBB, False, pnd_Log) Or v_MajProd
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * v_CoutUnitaire_SDSBB), False) Or v_MajProd
+						v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+					End If
+					
+					' Si le produit a été modifié
+					If p_RecalcListe Then
+						v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutListe", xVar(pnd_Prod, "Prod_CoutUnitaire", 0), False) Or v_MajProd
+					End If
+				End If
+				
+				' Modification du frais entretien annuel
+				'If xVar(pnd_Prod, "Prod_NbUtilisateursModifie", "0") &lt;&gt; "1" Or xVar(pnd_Prod, "Prod_NbUtilisateursModifie", "0") = "1" And p_NbUtilisateurs &gt; 0 Then
+				If xVar(pnd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Or _
+				xVarImplode(pnd_Prod, "Prod_PropOptionsMontants", ";") &lt;&gt; Implode(a_PrixModifiable, ";") Then
+					
+					If v_PrixEscompte &lt;&gt; "1" Then
+						If xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) &lt;&gt; (v_FraisEntretienAH_SDSBB * 12) Then
+							v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", (v_FraisEntretienAH_SDSBB *12), False, pnd_Log) Or v_MajProd
+						End If
+						If SItN_Round(xVar(pnd_Prod, "Prod_FraisEntretienMensuels", 0), 2) &lt;&gt; SItN_Round(v_FraisEntretienAH_SDSBB, 2) Then
+							v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB, 2), False, pnd_Log) Or v_MajProd
+						End If
+						
+					Else
+						If xVar(pnd_Prod, "Prod_NoSite", "") &lt;&gt; v_NoSitePrincipal And v_PrixEscompte = "1" Then
+							v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_EscompteAnnuel / 12, 2), False, pnd_Log) Or v_MajProd
+							v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", v_EscompteAnnuel, False, pnd_Log) Or v_MajProd
+							
+							' Si produit sur site principal appliquer escompte
+							If Not Isnull(Arraygetindex(a_ClesProduitsSitePrincipal, v_CleProduit)) Then
+								v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_EscompteAnnuel", v_EscompteAnnuel, False, pnd_Log) Or v_MajProd
+							End If
+							
+						Else
+							v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienMensuels", SItN_Round(v_FraisEntretienAH_SDSBB, 2), False, pnd_Log) Or v_MajProd
+							v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_FraisEntretienAnnuels", (v_FraisEntretienAH_SDSBB * 12), False, pnd_Log) Or v_MajProd
+							v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_EscompteAnnuel", "", False, pnd_Log) Or v_MajProd
+						End If
+					End If
+					
+					v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_PropOptionsMontants", a_PrixModifiable, False, pnd_Log) Or v_MajProd
+					
+				Else
+					' Si le produit a été modifié
+					If p_RecalcListe Then					
+						If xVar(pnd_Prod, "Prod_FraisEntretienModifie", "0") &lt;&gt; "1" And xVar(pnd_Prod, "Prod_FraisEntretienMensuelsModifie", "0") &lt;&gt; "1" Then
+							v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienListe", xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0), False) Or v_MajProd
+							v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienMensuelsListe", xVar(pnd_Prod, "Prod_FraisEntretienMensuels", 0), False) Or v_MajProd
+						End If	
+						
+					End If
+				End If
+				
+			End If
+			
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+			
+		End If
+		
+		' Recalculer la quantité
+		If v_ProdQteModifiee = "0" Then
+			If xVar(pnd_Prod, "Prod_QuantiteListe", 0) &lt;&gt; xVar(pnd_Prod, "Prod_Quantite", 0) Then
+				v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_Quantite", xVar(pnd_Prod, "Prod_QuantiteListe", 0), False, pnd_Log) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp((xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0))), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or v_MajProd
+				v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_FraisEntretienTotal", (xVar(pnd_Prod, "Prod_FraisEntretienAnnuels", 0) * xVar(pnd_Prod, "Prod_Quantite", 0)), False) Or v_MajProd
+			End If
+		Else ' If v_ProdQteModifiee = "1" Then
+			v_MajProd = SIIx_MajItem(pnd_Prod, "Prod_QuantiteListe", xVar(pnd_Prod, "Prod_Quantite", 0), False) Or v_MajProd
+			REM
+		End If
+		
+	End If
+	
+	v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursCalcule", v_NbUtilisateursProduit, False, pnd_Log) Or v_MajProd
+	v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_DepartementsSDS", xVarArray(xSDSBB_xndProd(v_CleProduit, True), "Prod_DepartementsSDS"), False, pnd_Log) Or v_MajProd
+	v_MajProd = SDSPX_MajItem(pnd_Prod, "Prod_NbUtilisateursLicense", xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", 99999) ,False, pnd_Log) Or v_MajProd
+	
+	If v_MajProd Then
+		If p_Maj Then
+			p_Maj = v_MajProd
+		End If
+	End If
+	
+	SDSPX_RecalculerPrixLG = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), xVar(pnd_Prod, "Prod_CleProduit", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_AjouterProduit"><lotusscript>Function SDSPX_AjouterProduit(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, _
+	p_Produit As Variant, p_Quantite As Variant, p_PrixUnitaire As Variant, p_TypeDescendant As String, p_Departement As String, _
+	p_Categorie As String, p_CleParent As String, p_AfficherErreur As Boolean, p_VerifierBanniere As Boolean, _
+	pnd_Parent As NotesDocument) As NotesDocument
+	
+	On Error Goto GererErreur
+	' pass categorie en parametre
+	' si blanc xvarelem(0)
+	Dim v_CleProduit As String
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim v_Pays As String
+	Dim v_Bannieres As Variant
+	Dim ni As NotesItem
+	Dim i As Integer
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim nd_Prix_SDSBB_AH As NotesDocument
+	Dim ni_PropOptions As NotesItem
+	Dim nd_Prod As NotesDocument
+	Dim a_CategorieProduit As Variant
+	Dim v_Pos As Variant
+	Dim s As String
+	Dim v_ClasseProduit As String
+	Dim s_FR As String
+	Dim dp As Double
+	Dim dc As Double
+	Dim v_NbUtilisateursLicense As Long
+	Dim nd_Parent As NotesDocument
+	Dim v_ServeurSDSBB As String
+	Dim v_ExempterCommission As String
+	Dim a_Modules As Variant
+	Dim l_ValeursContratCS List As Variant
+	Dim v_CodeProduitAH As String
+	Dim v_ClientNoFmt As String			
+	Dim v_CS As Boolean
+	
+	' Initialisations
+	Set SDSPX_AjouterProduit = Nothing
+	Call SDSPX_Initialisations
+	
+	If Datatype(p_Produit) = 8 Then
+		v_CleProduit = p_Produit
+		Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit, True)
+	Elseif p_Produit Isa "NotesDocument" Then
+		Set nd_Prod_SDSBB = p_Produit
+		v_CleProduit = xVar(nd_Prod_SDSBB, "Prod_CleProduit", "")
+	End If
+	
+	' Vérifier que le produit est disponible dans le pays du client
+	v_Pays = xVar(pnd_Site, "Site_ClientPays", "")
+	If Isarray(xVarArray(nd_Prod_SDSBB, "Prod_DispoPays")) Then
+		Set ni = nd_Prod_SDSBB.GetFirstItem("Prod_DispoPays")
+		If Not ni.Contains(v_Pays) Then
+			Exit Function
+		End If
+	End If
+	
+	If p_VerifierBanniere Then
+		' Vérifier que le produit est disponible pour le(s) bannière(s) du client
+		v_Bannieres = xVarArray(pnd_Site, "Site_Banniere")
+		
+		If Isarray(xVarArray(nd_Prod_SDSBB, "Prod_DispoBanniere")) Then
+			Set ni = xni(nd_Prod_SDSBB, "Prod_DispoBanniere", "")
+			
+			If Isarray(v_Bannieres) Then
+				For i = 0 To Ubound(v_Bannieres)
+					If ni.Contains(v_Bannieres(i)) Then
+						Exit For
+					End If
+				Next
+				If (i -1) = Ubound(v_Bannieres) Then
+					If Not ni.Contains(v_Bannieres(Ubound(v_Bannieres))) Then
+						Exit Function
+					End If
+				End If
+			Else
+				If Not ni.Contains(v_Bannieres) Then
+					Exit Function
+				End If
+			End If
+		End If
+	End If
+	
+	' Extraire le prix du produit
+	Set nd_Prix_SDSBB = SDSPX_ndPrix(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+	v_Pays, xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+	If nd_Prix_SDSBB Is Nothing Then
+		If p_AfficherErreur Then
+			Messagebox xGDK_xMessage("SDSPP", 14, "", Ustring(2,Chr(13)) &amp; xVar(nd_Prod_SDSBB, "Prod_DescProduit" &amp; xLangue, "") &amp; _
+			" (" &amp; xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "") &amp; ")"), 16, xGDK_xMessage("SI", 1, "", "")
+			p_AfficherErreur = False
+		Else
+			Print xGDK_xMessage("SDSPP", 14, "", xVar(nd_Prod_SDSBB, "Prod_DescProduit" &amp; xLangue, "") &amp; _
+			" (" &amp; xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "") &amp; ")")
+		End If
+		Exit Function
+	End If
+	
+	Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+	v_Pays, xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+	
+	' Créer le produit
+	Set nd_Prod = New NotesDocument(gndb_SDSPX)
+	nd_Prod.Form = "F_Prod"
+	nd_Prod.Prod_NoProposition = xVar(pnd_Site, "Site_NoProposition", "")
+	nd_Prod.Prod_NoSite = xVar(pnd_Site, "Site_NoSite", "")
+	nd_Prod.Prod_NomSite = xVar(pnd_Site, "Site_ClientNomInterne","")
+	nd_Prod.Prod_NoProduit = xUnique("") &amp; g_NoRep_SDSPX 
+	nd_Prod.Prod_CleParent = p_CleParent
+	nd_Prod.Prod_Statut = ""
+	
+	nd_Prod.Prod_CleProduit = v_CleProduit
+	v_ClasseProduit = xVar(nd_Prod_SDSBB, "Prod_ClasseProduit", "")
+	nd_Prod.Prod_ClasseProduit = v_ClasseProduit
+	nd_Prod.Prod_ClasseDescFR = xSDSBB_xDescTabl(v_ClasseProduit, "Prod_Classe_FR", True)
+	nd_Prod.Prod_ClasseDescEN = xSDSBB_xDescTabl(v_ClasseProduit, "Prod_Classe_EN", True)
+	nd_Prod.Prod_ClasseIcone = xSDSBB_xIcnTabl(v_ClasseProduit, "Prod_Classe_EN", True)
+	nd_Prod.Prod_CodeProduit = xVar(nd_Prod_SDSBB, "Prod_CodeProduit", "")
+	nd_Prod.Prod_DescProduitFR = xVar(nd_Prod_SDSBB, "Prod_DescProduitFR", "")
+	nd_Prod.Prod_DescProduitEN = xVar(nd_Prod_SDSBB, "Prod_DescProduitEN", "")
+	nd_Prod.Prod_DescContratFR = xVar(nd_Prod_SDSBB, "Prod_DescContratFR", "")
+	nd_Prod.Prod_DescContratEN = xVar(nd_Prod_SDSBB, "Prod_DescContratEN", "")
+	nd_Prod.Prod_DoublonCS = SDSPX_DoublonCS(xVar(pnd_Site, "Site_ClientNoFmt", ""), v_CleProduit, v_ClasseProduit) 'Req# 57785
+	
+	nd_Prod.Prod_TypeProduit = xVar(nd_Prod_SDSBB, "Prod_TypeProduit", "")
+	
+	If p_Categorie = "" Then
+		s = xVarElem(nd_Prod_SDSBB, "Prod_CategorieProduit", 0,"")
+	Else
+		a_CategorieProduit = xVarArray(nd_Prod_SDSBB, "Prod_CategorieProduit")
+		If IsArray(a_CategorieProduit) Then
+			v_Pos = ArrayGetIndex(a_CategorieProduit, p_Categorie)
+			If Not IsNull(v_Pos) Then
+				s = xVarElem(nd_Prod_SDSBB, "Prod_CategorieProduit", v_Pos,"")
+			End If
+		End If
+	End If
+	
+	nd_Prod.Prod_CategorieProduit = s
+	s_FR = xSDSBB_xVarCate(s, "Cate_DescCategorieFR", "", True)
+	nd_Prod.Prod_CategorieCode = xSDSBB_xVarCate(s, "Cate_CodeCategorie", "", True)
+	nd_Prod.Prod_CategorieDescFR = s_FR
+	nd_Prod.Prod_CategorieDescEN = xSDSBB_xVarCate(s, "Cate_DescCategorieEN", s_FR, True)
+	nd_Prod.Prod_Section = xSDSBB_xVarCate(s, "Cate_PropSection", "", True)
+	nd_Prod.Prod_CategorieIcone = xSDSBB_xVarCate(s, "Cate_Icone", "", True)
+	nd_Prod.Prod_Departement = p_Departement
+	nd_Prod.Prod_DepartementDescFR = xGDK_xDescTabl(p_Departement, "SDS_DepartementsFR", True)
+	nd_Prod.Prod_DepartementDescEN = xGDK_xDescTabl(p_Departement, "SDS_DepartementsEN", True)
+	
+	nd_Prod.Prod_TypeDescendant = p_TypeDescendant
+	
+	' Si composant ou logiciel cloud initialise prix et cout unitaire à zéro.
+	If p_TypeDescendant = "C" Or _
+	(xVar(nd_Prod, "Prod_ClasseProduit", "") = "LG") Then
+		dp = 0
+		dc = 0
+		v_NbUtilisateursLicense = xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", 99999)
+	Elseif p_PrixUnitaire &lt;&gt; "" Then
+		dp = p_PrixUnitaire
+		If xVar(nd_Prod_SDSBB, "Prod_TypePrix", "") = "1" Then
+			dc = p_PrixUnitaire
+		Else
+			dc = xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire", 0)
+		End If
+		v_NbUtilisateursLicense = xVar(nd_Prix_SDSBB, "Prix_Usagers", 99999)
+	Else
+		dp = xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0)
+		dc = xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire", 0)
+		v_NbUtilisateursLicense = xVar(nd_Prix_SDSBB, "Prix_Usagers", 99999)
+	End If
+	
+	nd_Prod.Prod_Quantite = p_Quantite
+	nd_Prod.Prod_PrixUnitaire = dp
+	nd_Prod.Prod_PrixTotal = SItN_RoundUp(p_Quantite * dp)
+	nd_Prod.Prod_CoutUnitaire = dc
+	nd_Prod.Prod_CoutTotal = p_Quantite * dc
+	nd_Prod.Prod_Profit = xVar(nd_Prod, "Prod_PrixTotal", 0) - xVar(nd_Prod, "Prod_CoutTotal", 0)
+	
+	nd_Prod.Prod_CoutListe = 0
+	nd_Prod.Prod_CoutModifie = "0"
+	nd_Prod.Prod_PrixListe = 0
+	nd_Prod.Prod_PrixModifie = "0"
+	nd_Prod.Prod_FraisEntretienListe = 0
+	nd_Prod.Prod_FraisEntretienModifie = "0"
+	nd_Prod.Prod_FraisEntretienMensuelsListe = 0
+	nd_Prod.Prod_FraisEntretienMensuelsModifie = "0"
+	nd_Prod.Prod_QuantiteListe = p_Quantite
+	nd_Prod.Prod_QuantiteModifiee = "0"
+	
+	nd_Prod.Prod_NbUtilisateursListe = 0
+	nd_Prod.Prod_NbUtilisateursModifie = "0"
+	
+	nd_Prod.Prod_NbUtilisateursObligatoire = xVar(nd_Prod_SDSBB,"Prod_NbUtilisateursObligatoire", "")
+	nd_Prod.Prod_LibelleNbUtilisateursFR = xVar(nd_Prod_SDSBB, "Prod_LibelleNbUtilisateursFR", "utilisateur(s)")
+	nd_Prod.Prod_LibelleNbUtilisateursEN = xVar(nd_Prod_SDSBB, "Prod_LibelleNbUtilisateursEN", "user(s)")
+	
+	nd_Prod.Prod_Garantie = xVar(nd_Prod_SDSBB, "Prod_Garantie", "")
+	nd_Prod.Prod_EcoFrais = xVar(nd_Prod_SDSBB, "Prod_EcoFrais", "")
+	
+	nd_Prod.Prod_TypePrix = xSDSBB_xComplTabl(xVar(nd_Prod, "Prod_ClasseProduit",""), "Prod_Classe_FR", "1",True)
+	nd_Prod.Prod_TypePrixDescEN = xSDSBB_xDescTabl(xVar(nd_Prod, "Prod_TypePrix", ""), "Prod_TypePrix_EN", True)
+	nd_Prod.Prod_TypePrixDescFR = xSDSBB_xDescTabl(xVar(nd_Prod, "Prod_TypePrix", ""), "Prod_TypePrix_FR", True)
+	
+	nd_Prod.Prod_NbUtilisateursLicense = v_NbUtilisateursLicense
+	
+	' Note : prix unitaire des produit cloud sont mensuel
+	nd_Prod.Prod_FraisEntretienMensuels = SItN_Round(xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0), 2)
+	nd_Prod.Prod_FraisEntretienAnnuels = xVar(nd_Prix_SDSBB_AH, "Prix_PrixUnitaire", 0) * 12
+	
+	nd_Prod.Prod_CleProduitAH = xVar(nd_Prod_SDSBB, "Prod_CleProduitAH", "")
+	nd_Prod.Prod_CodeProduitAH = xVar(nd_Prod_SDSBB, "Prod_CodeProduitAH", "")
+	
+	nd_Prod.Prod_TypePrixAH = xSDSBB_xComplTabl(xSDSBB_xVarProd(xVar(nd_Prod, "Prod_CleProduitAH", ""), "Prod_ClasseProduit", "", True), "Prod_Classe_FR", "1",True)
+	nd_Prod.Prod_TypePrixAHDescEN = xSDSBB_xDescTabl(xVar(nd_Prod, "Prod_TypePrixAH", ""), "Prod_TypePrix_EN", True)
+	nd_Prod.Prod_TypePrixAHDescFR = xSDSBB_xDescTabl(xVar(nd_Prod, "Prod_TypePrixAH", ""), "Prod_TypePrix_FR", True)
+	
+	nd_Prod.Prod_FraisEntretienTotal = p_Quantite * xVar(nd_Prod, "Prod_FraisEntretienAnnuels", 0)
+	
+	nd_Prod.Prod_NbUtilisateursCalcule = SDSPX_NbUtilisateursDepartements(nd_Prod_SDSBB, pnd_Prop, pnd_Site, "", "")
+	
+	If xVar(nd_Prod, "Prod_ClasseProduit", "") = "LG" Then
+		
+		nd_Prod.Prod_PrixEscompte = xVar(nd_Prod_SDSBB, "Prod_PrixEscompte", "")
+		nd_Prod.Prod_DepartementsSDS = xVarArray(nd_Prod_SDSBB, "Prod_DepartementsSDS")
+		
+		v_ServeurSDSBB = xGDK_xFormulaNDB("SDSBB")
+		
+		nd_Prod.Prod_DepartementsSDSDescFR = Split(xEvaluate(|@If(@IsNull(Prod_DepartementsSDS); ""; @Implode(@Replace(Prod_DepartementsSDS; 
+@IfError(@DbLookup(""; |&amp; v_ServeurSDSBB &amp; |; "V_Tabl20"; "Prod_DepartementsFR"; 4); ""); 
+		@IfError(@DbLookup(""; |&amp; v_ServeurSDSBB &amp; |; "V_Tabl20"; "Prod_DepartementsFR"; 5); ""));", "))
+		|, nd_Prod), ", ")
+		nd_Prod.Prod_DepartementsSDSDescEN = Split(xEvaluate(|@If(@IsNull(Prod_DepartementsSDS); ""; @Implode(@Replace(Prod_DepartementsSDS; 
+@IfError(@DbLookup(""; |&amp; v_ServeurSDSBB &amp; |; "V_Tabl20"; "Prod_DepartementsEN"; 4); ""); 
+		@IfError(@DbLookup(""; |&amp; v_ServeurSDSBB &amp; |; "V_Tabl20"; "Prod_DepartementsEN"; 5); ""));", "))
+		|, nd_Prod), ", ")
+		
+	Else
+		nd_Prod.Prod_PrixEscompte = ""
+		nd_Prod.Prod_DepartementsSDS = ""
+		nd_Prod.Prod_DepartementsSDSDescFR = ""
+		nd_Prod.Prod_DepartementsSDSDescEN= ""
+		
+	End If
+	
+	nd_Prod.Prod_PropOptionsMontants = xVarArray(nd_Prod_SDSBB, "Prod_PropOptionsMontants")
+	
+	Set ni_PropOptions = nd_Prod_SDSBB.GetFirstItem("Prod_PropOptions")
+	
+	v_ExempterCommission = xVar(nd_Prod_SDSBB, "Prod_Commissions", "")
+	
+	If v_ExempterCommission = "1" Or (xVar(pnd_Prop, "Prop_TypeProposition", "") &lt; "2" And v_ExempterCommission = "2") Then
+		nd_Prod.Prop_ExempterCommissions = "0"
+	Else
+		nd_Prod.Prop_ExempterCommissions = "1"
+	End If
+	
+	If ni_PropOptions.Contains("CR") Then
+		nd_Prod.Prod_ContratRequis = "1"
+	Else
+		nd_Prod.Prod_ContratRequis = ""
+	End If
+	If ni_PropOptions.Contains("VT") Then
+		nd_Prod.Prod_VerificationTechnique = "1"
+	Else
+		nd_Prod.Prod_VerificationTechnique = ""
+	End If
+	
+	If ni_PropOptions.Contains("VC") Then
+		nd_Prod.Prod_VerificationCoordinateur = "1"
+	Else
+		nd_Prod.Prod_VerificationCoordinateur = ""
+	End If
+	
+	If ni_PropOptions.Contains("VD") Then
+		nd_Prod.Prod_VerificationDirecteur = "1"
+	Else
+		nd_Prod.Prod_VerificationDirecteur = ""
+	End If
+	
+	nd_Prod.Cle = xVar(nd_Prod, "Prod_NoProposition", "") + ";" + xVar(nd_Prod, "Prod_NoSite", "") + ";" + _
+	xVar(nd_Prod, "Prod_CleProduit", "")
+	nd_Prod.Description = xVar(nd_Prod, "Prod_CodeProduit", "") + ";" + xVar(nd_Prod, "Prod_DescProduitFR", "")
+	
+	' Ajouter la note à la création
+	nd_Prod.Prod_NotesCreation = xVar(nd_Prod_SDSBB , "Prod_NotesCreation", "")
+	
+	' Sécurité
+	Set ni = New NotesItem(nd_Prod, "LecteurAdmin", pnd_Parent.LecteurAdmin, READERS)
+	Set ni = New NotesItem(nd_Prod, "AuteurAdmin", pnd_Parent.AuteurAdmin, AUTHORS)
+	Set ni = New NotesItem(nd_Prod, "Lecteur", pnd_Parent.Lecteur, READERS)
+	Set ni = New NotesItem(nd_Prod, "Auteur", pnd_Parent.Auteur, AUTHORS)
+	
+	' Req# 56560
+	nd_Prod.Prod_StatutProposition = xVar(pnd_Prop, "Prop_Statut", "")
+	nd_Prod.Prod_DateSignature = xVar(pnd_Prop, "Prop_DateSignature", "")
+	nd_Prod.Prod_NoRepresantant = xVar(pnd_Prop, "Prop_NoRepresentant", "")
+	nd_Prod.Prod_NomRepresantant = xVar(pnd_Prop, "Prop_NomRepresentant", "")
+	
+	nd_Prod.HistoDC = Now
+	nd_Prod.HistoUC = gns_SDSPX.UserName
+	
+	Set nd_Parent = gndb_SDSPX.GetDocumentByUNID(Cstr(pnd_Parent.UniversalID))
+	Call nd_Prod.MakeResponse(nd_Parent)
+	
+	Call nd_Prod.Save(True, False)
+	
+	' Ajouter écofrais
+	'	call ecofrais enlevé temporairement
+	'	Call SDSPX_AjouterEcofrais(pnd_Prop, pnd_Site, nd_Prod, "E", p_Departement, p_AfficherErreur, False)
+	
+	'CS Req#63165
+	%Rem
+	S'applique slm pour les logiciels (nd_Prod_SDSBB.Prod_Classe = LG) pour les PP de type 2 (client existant)
+	Vérifier dans SDSCS si le client a déjà le produit (clé = nd_Prod_SDSBB.Prod_CleProduitAH)	Si oui, afficher un avertissement	
+	%End Rem 
+	
+	
+	'Produit Logiciel seulement
+	If xVar(nd_Prod, "Prod_ClasseProduit", "") = "LG" Then
+		
+		'Client existant seulement
+		If 	xVar(pnd_Prop, "Prop_TypeProposition", "") = "2" Then
+			'Vérifier dans SDSCS si le client a déjà le produit (clé = nd_Prod.Prod_CleProduitAH)
+			
+			v_ClientNoFmt = xVar(pnd_Prop, "Prop_ClientNoFmt", "")			
+			v_CS = SDSCS_ExtraireContratService(v_ClientNoFmt, l_ValeursContratCS)
+			
+			If v_CS Then
+				a_Modules = l_ValeursContratCS("Modules")
+				
+				If Not IsNull(a_Modules) Then					
+					' Si Produit LG déjà installé ?
+					v_CodeProduitAH = xVar(nd_Prod_SDSBB, "Prod_CodeProduitAH", "")  'ex. C-SDSWIN
+					
+					If Not IsNull(ArrayGetIndex(a_Modules, v_CodeProduitAH)) Then
+						
+						'Le produit &amp; existe déjà sur le contrats de service du client.  Vous pouvez le retirer au besoin.
+						MessageBox xGDK_xMessage("SDSPP", 200,  xLangue , v_CodeProduitAH), 64, xGDK_xMessage("SI", 8, xLangue, "")
+					End If
+					
+				End If
+				
+			End if
+			
+		End if
+	End If
+	
+	' Ajouter les composants
+	If xVarContient(nd_Prod_SDSBB, "Prod_Options", "C") Then
+		Call SDSPX_AjouterComposants(pnd_Prop, pnd_Site, nd_Prod, p_Departement, p_AfficherErreur, False)
+	End If
+	
+	' Ajouter les dépendants
+	If xVarContient(nd_Prod_SDSBB, "Prod_Options", "D") Then
+		Call SDSPX_AjouterDependants(pnd_Prop, pnd_Site, nd_Prod, "P", p_Departement, p_AfficherErreur, False, p_VerifierBanniere)
+	End If
+	If p_TypeDescendant &lt;&gt; "C" And p_TypeDescendant &lt;&gt; "E" Then
+		Call SDSPX_AjouterDependants(pnd_Prop, pnd_Site, nd_Prod, "C", p_Departement, p_AfficherErreur, False, p_VerifierBanniere)
+	End If
+	
+	Set SDSPX_AjouterProduit = nd_Prod
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), v_CleProduit, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPX_VerifierProduits"><lotusscript>Function SDSPX_VerifierProduits(pnd_Prop As NotesDocument, p_Maj As Boolean) As Boolean 
+	'--------------------------------------------------------------------------------------------------------------------
+	'	Ce script traite les produits de la proposition. Pour chaque produit, il compare la commission avec celle 
+	'	dans SDS Base II. Le produit est mis à jour si différent, selon le paramètre p_Maj.
+	'
+	'	Paramètre:
+	'		pnd_Prop	: document de la proposition
+	'		p_Maj		: si True, met à jour la commission du produit dans la proposition
+'					: si False, ne met pas à jour la commission du produit dans la proposition
+	'
+	'	Valeur retournée: True si un ou plusieurs produits ont été mis à jour
+	'					  False si aucune mise à jour
+	'--------------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim nd_Produit As NotesDocument 
+	Dim nd_ProduitSuivant As NotesDocument 
+	Dim ndc_ProduitsSite As NotesDocumentCollection 
+	
+	Dim v_CommissionSDSBB As String 
+	Dim v_ExempterCommissionSDSBB As String 
+	Dim v_ExempterCommissionProp As String 
+	Dim v_NoProposition As String 
+
+	' Initialisations
+	Call SDSPX_Initialisations
+	SDSPX_VerifierProduits = False
+	
+	If gnv_Prod33_SDSPX Is Nothing Then
+		Set gnv_Prod33_SDSPX = gndb_SDSPX.GetView("V_Prod33")		' Vue des produits triés par proposition
+		Call gnv_Prod33_SDSPX.Refresh
+	End If
+	
+	' Extraire les produits du site
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	Set ndc_ProduitsSite = gnv_Prod33_SDSPX.GetAllDocumentsByKey((v_NoProposition &amp; ";"), False)
+	
+	' Boucler sur tous les produits
+	If ndc_ProduitsSite.Count &gt; 0 Then		
+		Set nd_ProduitSuivant = ndc_ProduitsSite.Getfirstdocument
+		Do Until nd_ProduitSuivant Is Nothing
+			Set nd_Produit = nd_ProduitSuivant
+			Set nd_ProduitSuivant = ndc_ProduitsSite.GetNextDocument(nd_ProduitSuivant)
+
+			' Lire la commission du produit dans SDS Base II
+			Set nd_Prod_SDSBB = xSDSBB_xndProd(xVar(nd_Produit, "Prod_CleProduit", ""), True)
+			If Not (nd_Prod_SDSBB Is Nothing) Then
+				v_CommissionSDSBB = xVar(nd_Prod_SDSBB, "Prod_Commissions", "")
+				If v_CommissionSDSBB = "1" Or (xVar(pnd_Prop, "Prop_Type", "") &lt; "2" And v_CommissionSDSBB = "2") Then
+					v_ExempterCommissionSDSBB = "0"
+				Else
+					v_ExempterCommissionSDSBB = "1"
+				End If
+				
+				' Lire la commission dans la proposition
+				v_ExempterCommissionProp = xVar(nd_Produit, "Prop_ExempterCommissions", "")
+				
+				' Si la commission (SDS Base II) est différente dans la proposition 
+				If v_ExempterCommissionSDSBB &lt;&gt; v_ExempterCommissionProp Then			
+					If v_ExempterCommissionSDSBB = "1" Or v_ExempterCommissionProp = "1" Then
+						If p_Maj Then
+							' Faire la maj du produit dans la proposition
+							nd_Produit.Prop_ExempterCommissions = v_ExempterCommissionSDSBB
+							Call nd_Produit.save(True, False)
+						End If
+						Call SIGe_AjouterLog("No proposition: " &amp; v_NoProposition &amp; ", Nom client: " &amp; xVar(pnd_Prop, "Prop_ClientNom", "") &amp;_
+						", Code produit: " &amp; xVar(nd_Produit, "Prod_CodeProduit", ""), 0, 0, False)	' Utilisé dans l'agent os_46462
+						SDSPX_VerifierProduits = True
+					End If
+				End If	
+			End if
+		Loop
+	End If
+	
+FinSub:
+	Exit Function 
+
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, GetThreadInfo(1), xVar(pnd_Prop, "Cle", ""), False)
+	Exit Function
+End Function 
+
+</lotusscript></code><code event="SDSPX_ModifierProduit"><lotusscript>Function SDSPX_ModifierProduit(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, pnd_Prod As NotesDocument, p_Quantite As Variant, _
+p_PrixUnitaire As Variant, p_TypeDescendant As String, p_Categorie As String, p_RecalcListe As Boolean, pnd_Prod_SDSBB As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	' pass categorie en parametre
+	' si blanc xvarelem(0)
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim nd_Log As NotesDocument
+	
+	Dim v_CleProduit As String
+	Dim v_Maj As Boolean
+	Dim v_Pos As Variant
+	Dim s As String
+	Dim a_CategorieProduit As Variant
+	Dim s_FR As String
+	Dim a_Desc As Variant
+	Dim dp As Double
+	Dim dc As Double
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	
+	' Vérifier si la quantité a changé
+	If xVar(pnd_Prod, "Prod_RemettreQuantiteZero", "") = "1" Then
+		If xVar(pnd_Prod, "Prod_Quantite", "") = 0 Then
+			Exit Function
+		End If
+	End If
+	
+	' Pas de log de produits pour les proposition de type 3 (couversion serveur hébergé)
+	If xVarProf("Prof_LogProduits", "") = "1" And xVar(pnd_Prop, "Prop_TypeProposition", "") &lt;&gt; "3" Then
+		Set nd_Log = New NotesDocument(gndb_SDSPX)
+	End If
+	
+	If SDSPX_MajItem(pnd_Prod, "Prod_Quantite", p_Quantite, False, nd_Log) Then
+		If xVar(pnd_Prod, "Prod_QuantiteModifiee","0") = "0" Then
+			If xVar(pnd_Prod, "Prod_ClasseProduit", "") = "LG" Then
+				Call pnd_Prod.ReplaceItemValue( "Prod_QuantiteModifiee", "1")
+			End If
+		End If
+	Else
+		If p_PrixUnitaire = "" Then
+			Exit Function
+		Elseif xVar(pnd_Prod, "Prix_PrixUnitaire", 0) = p_PrixUnitaire Then
+			Exit Function
+		End If
+	End If
+	
+	If gnv_Prod40_SDSPX Is Nothing Then
+		Set gnv_Prod40_SDSPX = gndb_SDSPX.GetView("V_Prod40")
+		Call gnv_Prod40_SDSPX.Refresh
+	End If
+	
+	v_CleProduit = xVar(pnd_Prod, "Prod_CleProduit", "")
+	
+	' Extraire le produit (SDS Base)
+	If pnd_Prod_SDSBB Is Nothing Then
+		Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit, True)
+	Else
+		Set nd_Prod_SDSBB = pnd_Prod_SDSBB
+	End If
+	If nd_Prod_SDSBB Is Nothing Then
+		Messagebox xGDK_xMessage("SDSPP", 15, xVar(pnd_Prod, "Prod_CodeProduit", ""), ""), 16, xGDK_xMessage("SI", 1, "", "")
+	End If
+	
+	' Extraire le prix du produit (SDS Base
+	Set nd_Prix_SDSBB = SDSPX_ndPrix(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+	xVar(pnd_Site, "Site_ClientPays", ""), xVar(pnd_Site, "Site_ClientProvince", ""), 0)
+	If nd_Prix_SDSBB Is Nothing Then
+		Messagebox xGDK_xMessage("SDSPP", 14, "", Ustring(2,Chr(13)) &amp; xVar(pnd_Prod, "Prod_DescProduit" &amp; xLangue, "") &amp; " (" &amp; xVar(pnd_Prod, "Prod_CodeProduit", "") &amp; ")"), 16, xGDK_xMessage("SI", 1, "", "")
+	End If
+	
+	' Modifier le produit
+	s = xVar(nd_Prod_SDSBB, "Prod_ClasseProduit", "")
+	v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_ClasseProduit", s, False, nd_Log) Or v_Maj
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_ClasseDescFR", xSDSBB_xDescTabl(s, "Prod_Classe_FR", True), False) Or V_Maj
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_ClasseDescEN", xSDSBB_xDescTabl(s, "Prod_Classe_EN", True), False) Or V_Maj
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_ClasseIcone", xSDSBB_xIcnTabl(s, "Prod_Classe_EN", True), False) Or V_Maj
+	
+	v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_CodeProduit", xVar(nd_Prod_SDSBB, "Prod_CodeProduit", ""), False, nd_Log) Or V_Maj
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DescProduitFR", xVar(nd_Prod_SDSBB, "Prod_DescProduitFR", ""), False) Or V_Maj
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DescProduitEN", xVar(nd_Prod_SDSBB, "Prod_DescProduitEN", ""), False) Or V_Maj
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DescContratFR", xVar(nd_Prod_SDSBB, "Prod_DescContratFR", ""), False) Or V_Maj
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DescContratEN", xVar(nd_Prod_SDSBB, "Prod_DescContratEN", ""), False) Or V_Maj
+	
+	If p_Categorie = "" Then
+		s = xVarElem(nd_Prod_SDSBB, "Prod_CategorieProduit", 0,"")
+	Else
+		a_CategorieProduit = xVarArray(nd_Prod_SDSBB, "Prod_CategorieProduit")
+		If Isarray(a_CategorieProduit) Then
+			v_Pos = Arraygetindex(a_CategorieProduit, p_Categorie)
+			If Not Isnull(v_Pos) Then
+				s = xVarElem(nd_Prod_SDSBB, "Prod_CategorieProduit", v_Pos,"")
+			End If
+		End If
+	End If
+	
+	v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_CategorieProduit", s, False, nd_Log) Or V_Maj
+	s_FR = xSDSBB_xVarCate(s, "Cate_DescCategorieFR", "", True)
+	
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CategorieCode", _
+	xSDSBB_xVarCate(s, "Cate_CodeCategorie", "" , True), False) Or V_Maj
+	
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CategorieDescFR", s_FR, False) Or V_Maj
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CategorieDescEN", _
+	xSDSBB_xVarCate(s, "Cate_DescCategorieEN", s_FR, True), False) Or V_Maj
+	
+	's_FR = xSDSBB_xVarProd(v_CleProduit, "Site_Departement_FR", "", True)
+	'v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DepartementDescFR", s_FR, False) Or V_Maj
+	'v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DepartementDescEN", _
+	'xSDSBB_xVarProd(v_CleProduit, "Site_Departement_EN", s_FR, True), False) Or V_Maj
+	
+	'v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DepartementDescFR", _
+	'xSDSBB_xDescTabl(s, "Site_Departement_FR", True), False) Or V_Maj
+	'v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DepartementDescEN", _
+	'xSDSBB_xDescTabl(s, "Site_Departement_EN", True), False) Or V_Maj
+	
+	s = xVar(pnd_Prod, "Prod_Departement", "")	
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DepartementDescFR", _
+	xGDK_xDescTabl(s, "SDS_DepartementsFR", True), False) Or V_Maj	
+	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DepartementDescEN", _
+	xGDK_xDescTabl(s, "SDS_DepartementsEN", True), False) Or V_Maj
+	
+	
+	If p_TypeDescendant = "C" Or _
+	(xVar(pnd_Prod, "Prod_ClasseProduit", "") = "LG") Then
+		dp = 0
+		dc = 0
+	Elseif p_PrixUnitaire &lt;&gt; "" Then
+		dp = p_PrixUnitaire
+		If xVar(nd_Prod_SDSBB, "Prod_TypePrix", "") = "1" Then
+			dc = p_PrixUnitaire
+		Else
+			dc = xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire", 0)
+		End If
+	Else
+		dp = xVar(nd_Prix_SDSBB, "Prix_PrixUnitaire", 0)
+		dc = xVar(nd_Prix_SDSBB, "Prix_CoutUnitaire", 0)
+	End If
+	
+	
+	If xVar(pnd_Prod, "Prod_PrixModifie", "0") &lt;&gt; "1" Then
+		v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_PrixUnitaire", dp, False, nd_Log) Or V_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp(p_Quantite * dp), False) Or V_Maj
+	Else
+		v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_PrixTotal", SItN_RoundUp(p_Quantite * xVar(pnd_Prod, "Prod_PrixUnitaire", 0)), False, nd_Log) Or V_Maj
+	End If
+	
+	If xVar(pnd_Prod, "Prod_CoutModifie", "0") &lt;&gt; "1" Then
+		v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_CoutUnitaire", dc, False, nd_Log) Or V_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", p_Quantite * dc, False) Or V_Maj
+	Else
+		v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_CoutTotal", xVar(pnd_Prod, "Prod_CoutTotal", 0), False, nd_Log) Or V_Maj
+	End If
+	
+	If xVar(pnd_Prod, "Prod_Quantite", 0) = 0 Then
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_PrixTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_PrixUnitaire", 0)), False) Or V_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CoutTotal", (xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(pnd_Prod, "Prod_CoutUnitaire", 0)), False) Or V_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_Profit", (xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0)), False) Or V_Maj
+	Else
+		'v_Maj = SIIx_MajItem(pnd_Prod, "Prod_Profit", dp - dc, False) Or V_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_Profit", xVar(pnd_Prod, "Prod_PrixTotal", 0) - xVar(pnd_Prod, "Prod_CoutTotal", 0), False) Or V_Maj
+	End If
+	
+	If xVar(pnd_Prod, "Prod_ClasseProduit", "") = "LG" Then
+		v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_PrixEscompte", xVar(nd_Prod_SDSBB, "Prod_PrixEscompte", ""), False, nd_Log) Or V_Maj
+		v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_DepartementsSDS", xVarArray(nd_Prod_SDSBB, "Prod_DepartementsSDS"), False, nd_Log) Or V_Maj
+		
+		a_Desc = Split(xEvaluate(|@Implode(@Replace(Prod_DepartementsSDS; @DbLookup(""; @Subset(@DbName; 1) : 
+	"SI_GDK.nsf"; "V_Tabl20"; "SDS_DepartementsFR";4); @DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20";"SDS_DepartementsFR"; 5));",")|, pnd_Prod),",")
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DepartementsSDSDescFR", a_Desc, False) Or V_Maj
+		
+		a_Desc = Split(xEvaluate(|@Implode(@Replace(Prod_DepartementsSDS; @DbLookup(""; @Subset(@DbName; 1) : 
+	"SI_GDK.nsf"; "V_Tabl20"; "SDS_DepartementsEN";4); @DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20";"SDS_DepartementsEN"; 5));",")|, pnd_Prod),",")
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_DepartementsSDSDescEN", a_Desc, False) Or V_Maj
+		
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_Quantite", p_Quantite, False) Or V_Maj
+		
+		If Not SDSPX_RecalculerPrix(pnd_Prop, pnd_Prod, False, p_RecalcListe, v_Maj, 0, nd_Log) Then
+			v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_Statut", "E", False, nd_Log) Or V_Maj
+		Else
+			v_Maj = SDSPX_MajItem(pnd_Prod, "Prod_Statut", "", False, nd_Log) Or V_Maj
+		End If
+		
+	End If
+	
+	If v_Maj Then
+		pnd_Prod.Description = xVar(pnd_Prod, "Prod_CodeProduit", "") &amp; ";" &amp; xVar(pnd_Prod, "Prod_DescProduitFR", "")
+		pnd_Prod.HistoDM = Now
+		pnd_Prod.HistoUM = gns_SDSPX.UserName
+		Call pnd_Prod.Save(True, False)
+		
+		Call SDSPX_ModifierComposantsDependants(pnd_Prop, pnd_Site, pnd_Prod, p_TypeDescendant)
+		
+		' Envoyer le log
+		
+		If xVar(nd_Log, "Prod_EnvoyerLog", "") = "1" Then
+			Call SDSPX_EnvoyerLog(pnd_Prop, pnd_Prod, nd_Log, SIGE_FormatterNomFonction(Getthreadinfo(1)))
+		End If
+		
+		SDSPX_ModifierProduit = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), v_CleProduit, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPX_RecalculerPrix"><lotusscript>Function SDSPX_RecalculerPrix(pnd_Prop As NotesDocument, pnd_Prod As NotesDocument, _
+p_RecalcTousPrix As Boolean, p_RecalcListe As Boolean, _
+p_Maj As Boolean, p_NbUtilisateurs As Long, pnd_Log As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	
+	' Validation
+	If xVar(pnd_Prod, "Prod_NoContratFmt_CS", "") &lt;&gt; "" Then
+		SDSPX_RecalculerPrix = True
+		Exit Function
+	End If
+	
+	Select Case xVar(pnd_Prod, "Prod_ClasseProduit", "")
+		
+	Case "EQ"
+		
+			' Recalculer les équipements
+		SDSPX_RecalculerPrix = SDSPX_RecalculerPrixEQ(pnd_Prop, pnd_Prod, p_RecalcTousPrix, p_RecalcListe, p_Maj, pnd_Log)
+		
+	Case "LG"
+		
+			' Recalculer les logiciels
+		SDSPX_RecalculerPrix = SDSPX_RecalculerPrixLG(pnd_Prop, pnd_Prod, p_RecalcTousPrix, p_RecalcListe, p_Maj, p_NbUtilisateurs, pnd_Log)
+		
+	Case "SV"
+		
+			' Recalculer les services
+		SDSPX_RecalculerPrix = SDSPX_RecalculerPrixSV(pnd_Prop, pnd_Prod, p_RecalcTousPrix, p_RecalcListe, p_Maj, pnd_Log)
+		
+	End Select
+	
+	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), xVar(pnd_Prod, "Prod_CleProduit", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPX_ndPrixAH"><lotusscript>Function SDSPX_ndPrixAH(Byval p_CleProduit As String, Byval p_Devise As String, Byval p_Pays As String, _
+Byval p_Province As String, Byval p_NbUsagers As Long) As NotesDocument
+	
+	On Error Goto GererErreur
+	
+	Dim v_CodeProduitAH As String
+	Dim nd_Prod As NotesDocument
+	Dim nd_ProdAH As NotesDocument
+	Dim v_CleProduitAH As String
+	Dim nd_ProduitAH As NotesDocument
+	
+	If p_CleProduit = "" Then
+		Exit Function
+	End If
+	
+	Set nd_Prod = xSDSBB_xndProd(p_CleProduit, True)
+	
+	If nd_Prod Is Nothing Then
+		Exit Function
+	End If
+	
+	v_CleProduitAH = xVar(nd_Prod, "Prod_CleProduitAH", "")
+	
+	If v_CleProduitAH = "" Then
+		Exit Function
+	End If
+	
+	Set SDSPX_ndPrixAH = SDSPX_ndPrix(v_CleProduitAH, p_Devise, _
+	p_Pays, p_Province, p_NbUsagers)
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), p_CleProduit, False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPX_NbUtilisateursDepartements"><lotusscript>Function SDSPX_NbUtilisateursDepartements(p_Produit As Variant, pnd_Prop As NotesDocument, pnd_Site As NotesDocument, pa_Departements As Variant, p_ValeurItemPaie As Variant) As Integer
+	' -----------------------------------------------------------------------------------------
+	' Le script permet de calculer le nombre d'utilisateurs selon les départements sélectionnés
+	' dans SDS Base ou pa_Departements.
+	' -----------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim nd_SiteSuivant As NotesDocument
+	Dim ndc_Sites As NotesDocumentCollection
+	Dim a_Departements As Variant
+	Dim i As Integer
+	Dim j As Integer
+	Dim v_CompterDepartement As Boolean
+	Dim v_NbDepartements As Integer
+	Dim v_NbUtilisateursDepartements As Long
+	Dim v_NbUtilisateursSite As Long
+	Dim v_NomItem As String
+	Dim v_NomItem2 As String
+	Dim v_Pos As Variant
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	
+	
+	If Datatype(p_Produit) = 8 Then
+		Set nd_Prod_SDSBB = xSDSBB_xndProd(p_Produit, True)
+	Elseif p_Produit Isa "NotesDocument" Then
+		Set nd_Prod_SDSBB = p_Produit
+	End If
+	
+	v_NbUtilisateursDepartements = 0
+	v_NbDepartements = Ubound(xSDSBB_xVarTabl("Prod_Departements" &amp; xLangue, "Tabl_Valeurs", 6, True))
+	a_Departements = xVarArray(nd_Prod_SDSBB, "Prod_DepartementsSDS")
+	
+	If xVar(nd_Prod_SDSBB, "Prod_CalcNbUtilisateurs", "") = "1" Then
+		Set ndc_Sites = xSDSP3_xndcSite(xVar(pnd_Prop, "Prop_NoProposition", ""))
+	Else		
+		Set ndc_Sites = pnd_Site.parentdatabase.CreateDocumentCollection()
+		Call ndc_Sites.AddDocument(pnd_Site)
+	End If
+	
+	If ndc_Sites.Count = 0 Then
+		Exit Function
+	End If
+	
+	If Not Isarray(a_Departements) Then
+		Exit Function
+	End If
+	
+	If Not Isarray(pa_Departements) Then
+		pa_Departements = Split(pa_Departements,";")
+	End If
+	
+	j = 0
+	
+	' Les départements suivant sont vérifié : Comptabilité | 0 , Ventes | 1 , Service | 2 , Atelier | 3, Carosserie | 4, Pièces | 5, Paie | 6
+	
+	Set nd_SiteSuivant = ndc_Sites.GetFirstDocument
+	
+	' Boucler tous les sites
+	Do Until nd_SiteSuivant Is Nothing
+		
+		Set nd_Site = nd_SiteSuivant
+		Set nd_SiteSuivant = ndc_Sites.getNextDocument(nd_SiteSuivant)
+		v_NbUtilisateursSite = 0
+		
+		' Boucler les départements de chaque site
+		For i = 0 To v_NbDepartements
+			
+			v_CompterDepartement = False
+			
+			If xVar(nd_Site, "Site_D" &amp; Cstr(i) &amp; "_Section", "") = "1" Then
+				v_NbUtilisateursSite = v_NbUtilisateursSite + xVar(nd_Prod_SDSBB, "Prod_D" &amp; Cstr(i) &amp; "_LicenseAdd", 0)
+			End If
+			
+			' Total de tous les départements
+			If pa_Departements(Lbound(pa_Departements)) = "" Then
+				
+				' si pa_Departements = "" on compte tous les départements
+				If Not Isnull(Arraygetindex(a_Departements, Cstr(i))) Then
+					v_CompterDepartement = True
+				End If
+				
+			Else
+				' si pa_Departements &lt;&gt; "" on compte les départements dans pa_Departements
+				If j =&lt; Ubound(pa_Departements) Then
+					If Not Isnull(Arraygetindex(a_Departements, pa_Departements(j))) Then
+						v_CompterDepartement = True
+					End If
+					j = j + 1
+				End If
+				
+			End If
+			
+			If v_CompterDepartement Then
+				
+				v_Pos = Arraygetindex(a_Departements, Cstr(i))
+				
+				If i = 3 Then
+					
+					' Compter le nombre de techs.
+					If Not Isnull(v_Pos) Then
+						' Atelier
+						v_NomItem = "Site_D" &amp; a_Departements(v_Pos) &amp; "_NbTechniciens"
+						'Carosserie
+						If xVar(nd_Site, "Site_D4_Section", "") = "1" Then
+							v_NomItem2 = "Site_D" &amp; Cstr(Cint(a_Departements(v_Pos)) + 1) &amp; "_NbTechniciens"
+						End If
+					End If
+					
+					' Compter le nombre d'utilisateurs paie
+				Elseif i = 6 Then
+					If Not Isnull(v_Pos) Then
+						v_NomItem = "Site_D0_NbEmployesPaie"
+					End If
+					
+				Else
+					v_NomItem = "Site_D" &amp; a_Departements(v_Pos) &amp; "_NbUtilisateurs"
+				End If
+				
+				' Retourne la valeur du champ UI si disponible, sinon retourne valeur du champ backend (écran comptabilité)
+				If v_NomItem = "Site_D0_NbEmployesPaie" Then
+					If p_ValeurItemPaie &lt;&gt; "" Then
+						v_NbUtilisateursSite = v_NbUtilisateursSite + Cint(p_ValeurItemPaie)
+					Else
+						v_NbUtilisateursSite = v_NbUtilisateursSite + Cint(xVar(nd_Site, v_NomItem, 0))
+					End If
+				Else
+					v_NbUtilisateursSite = v_NbUtilisateursSite + Cint(xVar(nd_Site, v_NomItem, 0))
+				End If
+				
+				If v_NomItem2 &lt;&gt; "" Then
+					v_NbUtilisateursSite = v_NbUtilisateursSite + Cint(xVar(nd_Site, v_NomItem2, 0))
+					v_NomItem2 = ""
+				End If
+			End If
+		Next
+		
+		' Arrondir en calculant le prix
+		'	Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+		'	xVar(nd_Site, "Site_ClientPays", ""), xVar(nd_Site, "Site_ClientProvince", ""), v_NbUtilisateursSite)
+		'	v_NbUtilisateursSite = xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", v_NbUtilisateursSite)
+		
+		v_NbUtilisateursDepartements = v_NbUtilisateursDepartements + v_NbUtilisateursSite
+		
+	Loop
+	
+	SDSPX_NbUtilisateursDepartements = v_NbUtilisateursDepartements
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPX_RecalculerNbUtilisateursLicense"><lotusscript>Sub SDSPX_RecalculerNbUtilisateursLicense(pnd_Prop As NotesDocument , pnd_Site As NotesDocument)
+	On Error Goto GererErreur
+	
+	Dim ndc_Produits As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Prod As notesdocument
+	Dim v_CleProduit As String
+	Dim nd_Prix_SDSBB As NotesDocument
+	Dim nd_Prix_SDSBB_AH As NotesDocument
+	Dim v_NbUtilisateursLicense As Long
+	Dim v_NbUtilisateursProduit As Long
+	Dim v_MajProd As Boolean
+	Dim nd_Log As NotesDocument
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	
+	' Retourne la liste des produits du site
+	Set ndc_Produits = SDSPS_ndcProduits(Cstr(xVar(pnd_Prop, "Prop_NoProposition", "") + ";" + xVar(pnd_Site, "Site_NoSite", "")))
+	
+	If ndc_Produits.Count &gt; 0 Then
+		
+		If xVarProf("Prof_LogProduits", "") = "1" Then
+			Set nd_Log = New NotesDocument(gndb_SDSPX)
+		End If
+		
+		Set nd_Suivant = ndc_Produits.GetFirstDocument
+		
+		Do Until nd_Suivant Is Nothing
+			
+			Set nd_Prod = nd_Suivant
+			Set nd_Suivant = ndc_Produits.GetNextDocument(nd_Suivant)
+			
+			v_MajProd = False
+			
+			v_CleProduit = xVar(nd_Prod, "Prod_CleProduit", "")	
+			
+			v_NbUtilisateursProduit = SDSPX_NbUtilisateursProduit(nd_Prod, pnd_Prop, pnd_Site, 0 , False , False)
+			
+			v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_NbUtilisateursCalcule", v_NbUtilisateursProduit , False, nd_Log) Or v_MajProd
+			
+			' Extraire le document de prix
+			Set nd_Prix_SDSBB = SDSPX_ndPrix(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+			xVar(pnd_Site, "Site_ClientPays", ""), xVar(pnd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduit)
+			
+			Set nd_Prix_SDSBB_AH = SDSPX_ndPrixAH(v_CleProduit, xVar(pnd_Prop, "Prop_Devise", ""), _
+			xVar(pnd_Site, "Site_ClientPays", ""), xVar(pnd_Site, "Site_ClientProvince", ""), v_NbUtilisateursProduit)
+			
+			If xVar(nd_Prod, "Prod_TypeDescendant", "") = "C" Or _
+			xVar(nd_Prod, "Prod_ClasseProduit", "") = "LG" Then
+				v_NbUtilisateursLicense = xVar(nd_Prix_SDSBB_AH, "Prix_Usagers", 99999)
+			Else
+				v_NbUtilisateursLicense = xVar(nd_Prix_SDSBB, "Prix_Usagers", 99999)
+			End If
+			
+			v_MajProd = SDSPX_MajItem(nd_Prod, "Prod_NbUtilisateursLicense", v_NbUtilisateursLicense , False, nd_Log) Or v_MajProd
+			
+			If v_MajProd Then
+				nd_Prod.HistoDM = Now
+				nd_Prod.HistoUM = gns_SDSPX.UserName
+				Call nd_Prod.Save(True, False)
+			End If
+			
+			If xVar(nd_Log, "Prod_EnvoyerLog", "") = "1" Then
+				Call SDSPX_EnvoyerLog(pnd_Prop, nd_Prod, nd_Log, SIGE_FormatterNomFonction(Getthreadinfo(1)))
+			End If
+			
+		Loop
+		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), v_CleProduit, False)
+End Sub
+
+</lotusscript></code><code event="SDSPX_AjouterDependants"><lotusscript>Sub SDSPX_AjouterDependants(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, _
+pnd_Prod As NotesDocument, p_PrefixeParent As String, p_Departement As String, _
+	p_AfficherErreur As Boolean, p_Duplicata As Boolean, p_VerifierBanniere As Boolean)
+	On Error Goto GererErreur
+	
+	Dim v_CleProduit As String
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim v_Quantite As Variant
+	Dim nd_Prod As NotesDocument
+	Dim v_AjouterDependant As Boolean
+	
+	If p_PrefixeParent = "C" Then
+		Set ndc = xSDSBB_xndcProd_Depe("Cate;" &amp; xVarElem(pnd_Prod, "Prod_CategorieProduit", 0, ""))
+	Else
+		Set ndc = xSDSBB_xndcProd_Depe("Prod;" &amp; xVar(pnd_Prod, "Prod_CleProduit", ""))
+	End If
+	
+	If ndc.Count = 0 Then
+		Exit Sub
+	End If
+	
+	Set nd_Suivant = ndc.GetFirstDocument
+	
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+		
+		v_AjouterDependant = False
+		
+		v_Quantite = xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(nd, "Depe_Quantite", 1)
+		
+		'If v_Quantite &gt; 0 Then			RQ58159 PBE
+			If xVar(nd, "Depe_PrefixeParent", "") &lt;&gt; "Prod" Then
+				v_AjouterDependant = True
+			Elseif xVar(nd, "Depe_PrefixeParent", "") = "Prod" And xVarContient(nd, "Depe_TypePropDependant", xVar(pnd_Prop, "Prop_TypeProposition", "")) Then
+				v_AjouterDependant = True
+			End If
+		'End If
+		
+		If v_AjouterDependant Then
+			If p_Duplicata Then
+				Set nd_Prod = SDSPX_DupliquerProduit(pnd_Prop, pnd_Site, nd, xVar(nd, "Depe_CleDependant", ""), _
+				v_Quantite, "", "D", p_Departement, "", xVar(pnd_Prod, "Prod_NoProduit", ""), p_AfficherErreur, p_VerifierBanniere, pnd_Prod)
+			Else
+				Set nd_Prod = SDSPX_AjouterProduit(pnd_Prop, pnd_Site, xVar(nd, "Depe_CleDependant", ""), _
+				v_Quantite, "", "D", p_Departement, "", xVar(pnd_Prod, "Prod_NoProduit", ""), p_AfficherErreur, p_VerifierBanniere, pnd_Prod)
+			End If
+		End If
+		
+	Loop
+	
+	Exit Sub
+	
+GererErreur:
+	g_TexteErreur_SDSPX = xVar(nd, "Depe_CleDependant", "") &amp; " : " &amp; _
+	Cstr(xVar(pnd_Prod, "Prod_Quantite", "")) &amp; " * " &amp; Cstr(xVar(nd, "Depe_Quantite", "")) &amp; " = " &amp; Cstr(v_Quantite) 
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), g_TexteErreur_SDSPX, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPX_ModifierComposantsDependants"><lotusscript>Sub SDSPX_ModifierComposantsDependants(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, _
+pnd_Prod As NotesDocument, p_TypeDescendant As String)
+	On Error Goto GererErreur
+	
+	Dim a_Cle(1) As String
+	Dim a_CleProduits As Variant
+	Dim i As Integer
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument	
+	Dim nd_Prod As NotesDocument
+	Dim ndc2 As NotesDocumentCollection
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim ni_ProdOptions As NotesItem
+	Dim v_AjouterDependant As Boolean
+	Dim v_Quantite As Variant
+	Dim v_CleProduit As String
+	Dim v_Pos As Variant
+	
+	' Initialisations
+	Call SDSPX_Initialisations
+	
+	v_CleProduit = xVar(pnd_Prod, "Prod_CleProduit", "")
+	
+	Set nd_Prod_SDSBB = xSDSBB_xndProd(v_CleProduit, True)
+	Set ni_ProdOptions = nd_Prod_SDSBB.GetFirstItem("Prod_Options")
+	
+	' Extraire les produits déjà sélectionnées
+	a_Cle(0) = xVar(pnd_Prod, "Prod_NoProposition", "") &amp; ";" &amp; xVar(pnd_Prod, "Prod_NoSite", "") &amp; _
+	";" &amp; xVar(pnd_Prod, "Prod_NoProduit", "")
+	a_CleProduits = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2); "")|)
+	
+	If gnv_Prod40_SDSPX Is Nothing Then
+		Set gnv_Prod40_SDSPX = gndb_SDSPX.GetView("V_Prod40")
+		Call gnv_Prod40_SDSPX.Refresh
+	End If
+	
+	' Extraire les composants
+	Set ndc = xSDSBB_xndcProd_Comp(v_CleProduit)
+	If ndc.Count &gt; 0 Then
+		Set nd_Suivant = ndc.GetFirstDocument
+		Do Until nd_Suivant Is Nothing
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+			
+			v_Quantite = xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(nd, "Comp_Quantite", 1)
+			v_Pos = Arraygetindex(a_CleProduits, xVar(nd, "Comp_CleComposant", ""))
+			If Isnull(v_Pos) Then
+				' Ajouter le produit au site
+				Call SDSPX_AjouterProduit(pnd_Prop, pnd_Site, xVar(nd, "Comp_CleComposant", ""), _
+				v_Quantite, "", "C", xVar(pnd_Prod, "Prod_Departement", ""), "", xVar(pnd_Prod, "Prod_NoProduit", ""), True, True, pnd_Prod)
+			Elseif v_Quantite &gt; 0 Then
+				' Modifier le produit au besoin
+				a_Cle(1) = a_CleProduits(v_Pos)
+				Set nd_Prod = gnv_Prod40_SDSPX.GetDocumentByKey(a_Cle, True)
+				If Not (nd_Prod Is Nothing) Then
+					If xVar(nd_Prod, "Prod_TypeDescendant", "") = "C" Then
+						' Modifier le produit
+						If xVar(nd, "Prod_Quantite", 0) &lt;&gt; v_Quantite Then
+							Call SDSPX_ModifierProduit(pnd_Prop, pnd_Site, nd_Prod, v_Quantite, "", "C", "", True, Nothing)
+						End If
+						a_CleProduits(v_Pos) = ""
+					End If
+				End If
+			End If
+		Loop
+	End If
+	
+	' Extraire les dépendants
+	If p_TypeDescendant &lt;&gt; "C" And p_TypeDescendant &lt;&gt; "E" Then
+		Set ndc = xSDSBB_xndcProd_Depe("Prod;" &amp; v_CleProduit)
+		If ndc.Count = 0 Then
+			Set ndc = xSDSBB_xndcProd_Depe("Cate;" &amp; xVarElem(pnd_Prod, "Prod_CategorieProduit", 0, ""))
+		Else
+			Set ndc2 = xSDSBB_xndcProd_Depe("Cate;" &amp; xVarElem(pnd_Prod, "Prod_CategorieProduit", 0, ""))
+			If ndc2.Count &gt; 0 Then
+				Call ndc.Merge(ndc2)
+			End If
+		End If
+		If ndc.Count &gt; 0 Then
+			Set nd_Suivant = ndc.GetFirstDocument
+			Do Until nd_Suivant Is Nothing
+				Set nd = nd_Suivant
+				Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+				
+				v_Quantite = xVar(pnd_Prod, "Prod_Quantite", 0) * xVar(nd, "Depe_Quantite", 1)
+				v_Pos = Arraygetindex(a_CleProduits, xVar(nd, "Depe_CleDependant", ""))
+				If Isnull(v_Pos) Then
+					' Ajouter le produit au site
+					v_AjouterDependant = False
+					
+					If ni_ProdOptions.Contains("D") Then
+						If xVar(nd, "Depe_PrefixeParent", "") &lt;&gt; "Prod" Then
+							v_AjouterDependant = True
+						Elseif xVar(nd, "Depe_PrefixeParent", "") = "Prod" And xVarContient(nd, "Depe_TypePropDependant", xVar(pnd_Prop, "Prop_TypeProposition", "")) Then
+							v_AjouterDependant = True
+						End If
+					End If
+					
+					If v_AjouterDependant Then									
+						Call SDSPX_AjouterProduit(pnd_Prop, pnd_Site, xVar(nd, "Depe_CleDependant", ""), _
+						v_Quantite, "", "D", xVar(pnd_Prod, "Prod_Departement", ""), "", xVar(pnd_Prod, "Prod_NoProduit", ""), True, True, pnd_Prod)
+					End If
+				Elseif v_Quantite &gt; 0 Then
+					' Modifier le produit au besoin
+					a_Cle(1) = a_CleProduits(v_Pos)
+					Set nd_Prod = gnv_Prod40_SDSPX.GetDocumentByKey(a_Cle, True)
+					If Not (nd_Prod Is Nothing) Then
+						If xVar(nd_Prod, "Prod_TypeDescendant", "") = "D" Then
+							' Modifier le produit
+							If xVar(nd, "Prod_Quantite", 0) &lt;&gt; v_Quantite Then
+								Call SDSPX_ModifierProduit(pnd_Prop, pnd_Site, nd_Prod, v_Quantite, "", "D", "", True, Nothing)
+							End If
+							a_CleProduits(v_Pos) = ""
+						End If
+					End If
+				End If
+			Loop
+		End If
+	End If
+	
+	' Extraire les écofrais
+	If p_TypeDescendant = "E" Then
+		Set nd = xSDSBB_xndProd_Code(xVar(pnd_Prod, "Prod_EcoFrais", ""), True)
+		
+		If Not nd Is Nothing Then
+			v_Quantite = xVar(pnd_Prod, "Prod_Quantite", 0)
+			v_Pos = Arraygetindex(a_CleProduits, xVar(nd, "Depe_CleDependant", ""))
+			If Isnull(v_Pos) Then
+				' Ajouter le produit au site
+				Call SDSPX_AjouterProduit(pnd_Prop, pnd_Site, xVar(nd, "Prod_CodeProduit", ""), _
+				v_Quantite, "", "E", xVar(pnd_Prod, "Prod_Departement", ""), "", xVar(pnd_Prod, "Prod_NoProduit", ""), True, True, pnd_Prod)
+			Elseif v_Quantite &gt; 0 Then
+				' Modifier le produit au besoin
+				a_Cle(1) = a_CleProduits(v_Pos)
+				Set nd_Prod = gnv_Prod40_SDSPX.GetDocumentByKey(a_Cle, True)
+				If Not (nd_Prod Is Nothing) Then
+					If xVar(nd_Prod, "Prod_TypeDescendant", "") = "E" Then
+						' Modifier le produit
+						If xVar(nd, "Prod_Quantite", 0) &lt;&gt; v_Quantite Then
+							Call SDSPX_ModifierProduit(pnd_Prop, pnd_Site, nd_Prod, v_Quantite, "", "E", "", True, Nothing)
+						End If
+						a_CleProduits(v_Pos) = ""
+					End If
+				End If
+			End If
+		End If
+	End If
+	
+	' Supprimer les produits inactifs
+	For i = Lbound(a_CleProduits) To Ubound(a_CleProduits)
+		If a_CleProduits(i) &lt;&gt; "" Then
+			a_Cle(1) = a_CleProduits(i)
+			Set nd_Prod = gnv_Prod40_SDSPX.GetDocumentByKey(a_Cle, True)
+			Call SDSPX_SupprimerProduit(nd_Prod, Getthreadinfo(1))
+		End If
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPX_DoublonCS"><lotusscript>Function SDSPX_DoublonCS (p_ClientNoFmt As String, p_CleProduit As String, p_ClasseProduit As String) As String
+	'-----------------------------------------------------------------------------------------------
+	'Lors de l'ajout d'un produit logiciel, ajouter un champ Prod_DoublonCS. Inscrire "1" si le produit (CleProduit)
+	'se trouve dans SDS CS Local, CS ou BT, pour le client du site
+	'-----------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	'Dim nd_CSPr As NotesDocument
+	
+	
+	SDSPX_DoublonCS = ""
+	
+	If p_ClasseProduit = "LG" Then
+		
+		'Extraire les produits pour le client		
+		Set ndc = xSDSCSL_xndcCSPr (p_ClientNoFmt, p_CleProduit)
+		 
+		
+		If ndc.Count &gt; 0 Then
+			SDSPX_DoublonCS = "1"	
+		End If			
+		
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, GetThreadInfo(1), "", False)
+	
+End Function
+
+</lotusscript></code><code event="SDSPX_Initialisations"><lotusscript>Sub SDSPX_Initialisations
+	
+	If gns_SDSPX Is Nothing Then
+		Set gns_SDSPX = New NotesSession
+		Set gndb_SDSPX = gns_SDSPX.CurrentDatabase
+		
+		g_NoRep_SDSPX = gns_SDSPX.GetEnvironmentString("SDSPP_NoRep")
+		g_NomBaseLog_SDSPX = xVarProf("Prof_MiLogSDSP3", "")
+	End If
+	
+End Sub
+
+</lotusscript></code><code event="SDSPX_aProduitsProgramme"><lotusscript>Function SDSPX_aProduitsProgramme(pnd_Prop As NotesDocument, p_CodeProgramme As String, pa_Banniere As Variant, pa_CleProduits As Variant) _
+As Integer
+	On Error Goto GererErreur
+	
+	Dim nv As NotesView
+	Dim v_Formule As String
+	Dim i As Integer
+	Dim j As Integer
+	Dim a_CleProduits As Variant
+	
+	Call xSDSBB_Initialisations
+	
+	If Not Isarray(pa_Banniere) Then
+		If pa_Banniere = "" Then
+			v_Formule = |@IfError(@Unique(@DBLookup(""; "| &amp; gndb_xSDSBB.Server &amp; |" : "| &amp; _
+			Replace(gndb_xSDSBB.FilePath,"\","\\") &amp; |"; "v_Prod55"; "| &amp; p_CodeProgramme &amp; |"; 2)); "ERR")|
+		Else
+			v_Formule = |@IfError(@DBLookup(""; "| &amp; gndb_xSDSBB.Server &amp; |" : "| &amp; _
+			Replace(gndb_xSDSBB.FilePath,"\","\\") &amp; |"; "v_Prod56"; "| &amp; p_CodeProgramme &amp; ";" &amp; pa_Banniere &amp; ";" &amp; xVar(pnd_Prop, "Prop_TypeProposition", "0") &amp; |"; 2); "ERR")|
+		End If
+		
+		pa_CleProduits = Evaluate(v_Formule)
+		If pa_CleProduits(0) &lt;&gt; "ERR" Then
+			SDSPX_aProduitsProgramme = Ubound(pa_CleProduits) + 1
+		Else
+			pa_CleProduits = ""
+			SDSPX_aProduitsProgramme = 0
+		End If
+	Else
+		For i = Lbound(pa_Banniere) To Ubound(pa_Banniere)
+			v_Formule = |@IfError(@DBLookup(""; "| &amp; gndb_xSDSBB.Server &amp; |" : "| &amp; _
+			Replace(gndb_xSDSBB.FilePath,"\","\\") &amp; |"; "v_Prod56"; "| &amp; p_CodeProgramme &amp; ";" &amp; pa_Banniere(i) &amp; ";" &amp; xVar(pnd_Prop, "Prop_TypeProposition", "0") &amp; |"; 2); "ERR")|
+			
+			a_CleProduits = Evaluate(v_Formule)
+			If a_CleProduits(0) &lt;&gt; "ERR" Then
+				If Isarray(pa_CleProduits) Then
+					For j = 0 To Ubound(a_CleProduits)
+						If Isnull(Arraygetindex(pa_CleProduits, a_CleProduits(j))) Then
+							pa_CleProduits = Arrayappend(pa_CleProduits, a_CleProduits(j))
+						End If	
+					Next
+				Else
+					pa_CleProduits = a_CleProduits
+				End If
+			End If
+			
+		Next
+		If Isarray(pa_CleProduits) Then
+			SDSPX_aProduitsProgramme = Ubound(pa_CleProduits) + 1
+		Else
+			pa_CleProduits = ""
+			SDSPX_aProduitsProgramme = 0
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPX, gc_Element_SDSPX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073642,42-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="A_Inst" hide="v3 v4strict" designerversion="8.5.3" comment="7.2">
+<noteinfo noteid="5558ce" unid="EB45B098EEA2B8DC852589A200784AD1" sequence="15">
+<created><datetime dst="true">20230501T175354,73-04</datetime></created>
+<modified><datetime>20260105T014838,12-05</datetime></modified>
+<revised><datetime>20250319T073636,89-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,11-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,11-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gnuiws_AInst As NotesUIWorkspace
+Dim gns_AInst As NotesSession
+Dim gndb_AInst As NotesDatabase
+Dim gndb_GDKLocal_AInst As NotesDatabase
+Dim g_DataPath_AInst As String
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_AInst = "SL"
+Const gc_Element_AInst = "A_Inst"
+
+</lotusscript></code><code event="AInst_NdbSurServeur"><lotusscript>Function AInst_NdbSurServeur(p_MsgCache As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	' Initialisations
+	AInst_NdbSurServeur = False
+	Call AInst_Initialisations
+	
+	If gns_AInst.Isonserver Then
+		Print "A_Inst: Cette action ne peut être utilisée que sur un poste de travail... Opération annulée"
+		Exit Function
+	End If
+	
+	If gndb_AInst.Server = "" Then
+		If Not p_MsgCache Then
+			Messagebox xGDK_xMessage("SI", 44, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+		Exit Function
+	End If
+	
+	AInst_NdbSurServeur = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_AInst, gc_Element_AInst, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="AInst_InitialiserGDKLocal"><lotusscript>Function AInst_InitialiserGDKLocal As Boolean
+	On Error Goto GererErreur
+	
+	Dim ndb_GDKLocal_Serveur As NotesDatabase
+	Dim v_Repliquer As Boolean
+	Dim nr As NotesReplication
+	Dim nre As NotesReplicationEntry
+	
+	AInst_InitialiserGDKLocal = False
+	Call AInst_Initialisations
+	
+	' Extraire le GDK local sur le serveur
+	' -----------------------------
+	Set ndb_GDKLocal_Serveur = New NotesDatabase(gndb_AInst.Server, "SI_GDK(Local).nsf")
+	If ndb_GDKLocal_Serveur Is Nothing Then
+		Messagebox xGDK_xMessage("SI", 43, "", "") &amp; "  " &amp; xGDK_xMessage("SI", 9, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	Elseif Not ndb_GDKLocal_Serveur.IsOpen Then
+		Set gndb_GDKLocal_AInst = Nothing
+		Messagebox xGDK_xMessage("SI", 43, "", "") &amp; "  " &amp; xGDK_xMessage("SI", 9, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	Call gnuiws_AInst.AddDatabase(ndb_GDKLocal_Serveur.Server, ndb_GDKLocal_Serveur.Filepath)
+	
+	' Vérifier l'existence du GDK local
+	' ---------------------------------
+	If AInst_ndbGDKLocal Then
+		If gndb_GDKLocal_AInst.ReplicaID = ndb_GDKLocal_Serveur.ReplicaID Then
+			v_Repliquer = False
+		Else
+			Messagebox "La base de documents locale à l'emplacement du GDK local n'est pas une réplique de cette dernière.", 16, "Opération annulée"
+			Exit Function
+		End If
+	Else
+		v_Repliquer = True
+	End If
+	
+	If v_Repliquer Then
+		' Créer le GDK local
+		' ------------------
+		Set gndb_GDKLocal_AInst = ndb_GDKLocal_Serveur.CreateReplica("", "SI_GDK.nsf")
+	End If
+	Call gnuiws_AInst.AddDatabase(gndb_GDKLocal_AInst.Server, gndb_GDKLocal_AInst.Filepath)
+	
+	' Ajouter le GDK local dans le réplicateur
+	' ----------------------------------------
+	Set nr = gndb_GDKLocal_AInst.ReplicationInfo
+	Set nre = nr.GetEntry("Local", gndb_AInst.Server, True)
+	Call nre.Save
+	
+	AInst_InitialiserGDKLocal = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_AInst, gc_Element_AInst, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="AInst_ndbGDKLocal"><lotusscript>Function AInst_ndbGDKLocal As Boolean
+	On Error Goto GererErreur
+	
+	AInst_ndbGDKLocal = False
+	
+	' Extraire le GDK local
+	' ---------------------------------
+	Set gndb_GDKLocal_AInst = New NotesDatabase("", "SI_GDK.nsf")
+	If Not (gndb_GDKLocal_AInst Is Nothing) Then
+		If gndb_GDKLocal_AInst.IsOpen Then
+			AInst_ndbGDKLocal = True
+		End If
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_AInst, gc_Element_AInst, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="AInst_Initialisations"><lotusscript>Sub AInst_Initialisations
+	If gns_AInst Is Nothing Then
+		Set gnuiws_AInst = New NotesUIWorkspace
+		
+		Set gns_AInst = New Notessession
+		Set gndb_AInst = gns_AInst.Currentdatabase
+		
+		g_DataPath_AInst = gns_AInst.GetEnvironmentString("Directory", True)
+	End If
+End Sub
+
+</lotusscript></code><code event="AInst_CreerRepliqueLocale"><lotusscript>Function AInst_CreerRepliqueLocale(p_NomUsuel As String, p_CreerIndex As Long) As Boolean
+	' Paramètre p_CreerIndex
+	' ----------------------
+	' False (0) not to create an index
+	' FTINDEX_ALL_BREAKS (4) to index sentence and paragraph breaks
+	' FTINDEX_ATTACHED_BIN_FILES (16) to index attached files (binary)
+	' FTINDEX_ATTACHED_FILES (1) to index attached files (raw text)
+	' FTINDEX_CASE_SENSITIVE (8) to enable case-sensitive searches
+	' FTINDEX_ENCRYPTED_FIELDS (2) to index encrypted fields
+	' * Combine options with addition.
+	On Error Goto GererErreur
+	
+	Dim ndb_Serveur As NotesDatabase
+	Dim nv As NotesView
+	Dim nd_GDKLocal As NotesDocument
+	Dim v_Repliquer As Boolean
+	Dim ndb_Replique As Notesdatabase
+	Dim nr As NotesReplication
+	Dim nre As NotesReplicationEntry
+	
+	AInst_CreerRepliqueLocale = False
+	Call AInst_Initialisations
+	
+	' Extraire la base de documents du serveur
+	' ----------------------------------------
+	Set ndb_Serveur = xGDK_xndbNDB(p_NomUsuel)
+	If ndb_Serveur Is Nothing Then
+		Messagebox xGDK_xMessage("SI", 45, "", p_NomUsuel), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	Elseif Not ndb_Serveur.IsOpen Then
+		Messagebox xGDK_xMessage("SI", 45, "", p_NomUsuel), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	Call gnuiws_AInst.AddDatabase(ndb_Serveur.Server, ndb_Serveur.Filepath)
+	
+	' Extraire l'emplacement local de la base de documents (GDK)
+	' ----------------------------------------------------------
+	Call xnd("NDB_NomUsuel", p_NomUsuel, True, gndb_GDKLocal_AInst, "V_NDB20", nv, nd_GDKLocal)
+	If nd_GDKLocal Is Nothing Then
+		Messagebox xGDK_xMessage("SI", 46, "", p_NomUsuel), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	' Vérifier l'existence d'une réplique locale
+	' ------------------------------------------
+	Set ndb_Replique = gns_AInst.GetDatabase(xVar(nd_GDKLocal, "Ndb_Serveur", ""), _
+	xVar(nd_GDKLocal, "Ndb_Fichier", ""))
+	If ndb_Replique Is Nothing Then
+		v_Repliquer = True
+	Elseif ndb_Replique.IsOpen Then
+		If ndb_Replique.ReplicaID = ndb_Serveur.ReplicaID Then
+			v_Repliquer = False
+		Else
+			Messagebox xGDK_xMessage("SI", 47, "", p_NomUsuel), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+	Else
+		v_Repliquer = True
+	End If
+	
+	If v_Repliquer Then
+		' Créer la nouvelle réplique locale
+		' ---------------------------------
+		Set ndb_Replique = New NotesDatabase("", "")
+		Set ndb_Replique = ndb_Serveur.CreateReplica("", xVar(nd_GDKLocal, "Ndb_Fichier", ""))
+	End If
+	Call gnuiws_AInst.AddDatabase(ndb_Replique.Server, ndb_Replique.Filepath)
+	
+	' Ajouter la réplique locale dans le réplicateur
+	' ----------------------------------------------
+	Set nr = ndb_Replique.ReplicationInfo
+	Set nre = nr.GetEntry("Local", Ndb_Serveur.Server, True)
+	Call nre.Save
+	
+	' Créer l'index
+	' -------------
+	If v_Repliquer And p_CreerIndex &gt; 0 Then
+		Call ndb_Replique.CreateFTIndex(p_CreerIndex, False)
+	End If
+	
+	AInst_CreerRepliqueLocale = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_AInst, gc_Element_AInst, Getthreadinfo(1), p_NomUsuel, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="AInst_ndbExisteSurLocal"><lotusscript>Function AInst_ndbExisteSurLocal(p_NomUsuel As String, p_Muet As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim ndb_Serveur As NotesDatabase
+	Dim nv As NotesView
+	Dim nd_GDKLocal As NotesDocument
+	Dim ndb_Replique As Notesdatabase
+	
+	AInst_ndbExisteSurLocal = False
+	Call AInst_Initialisations
+	If AInst_ndbGDKLocal = False Then
+		Exit Function
+	End If
+	
+	' Extraire l'emplacement local de la base de documents (GDK)
+	' ----------------------------------------------------------
+	Call xnd("NDB_NomUsuel", p_NomUsuel, True, gndb_GDKLocal_AInst, "V_NDB20", nv, nd_GDKLocal)
+	If nd_GDKLocal Is Nothing Then
+		If p_Muet = False Then
+			Messagebox xGDK_xMessage("SI", 46, "", p_NomUsuel), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+		Exit Function
+	End If
+	
+	' Vérifier l'existence d'une réplique locale
+	' ------------------------------------------
+	Set ndb_Replique = gns_AInst.GetDatabase(xVar(nd_GDKLocal, "Ndb_Serveur", ""), xVar(nd_GDKLocal, "Ndb_Fichier", ""))
+	If Not (ndb_Replique Is Nothing) Then
+		AInst_ndbExisteSurLocal = ndb_Replique.IsOpen
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_AInst, gc_Element_AInst, Getthreadinfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073636,89-05</datetime></item></scriptlibrary>
+
+</database>

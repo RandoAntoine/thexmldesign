@@ -1,0 +1,559 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_GestionErreurs" hide="v3 v4strict" designerversion="8.5.3" comment="4.7b">
+<noteinfo noteid="555816" unid="9E284F1A168E356C8525884C0060421B" sequence="27">
+<created><datetime dst="true">20220524T133123,79-04</datetime></created>
+<modified><datetime>20260105T014837,81-05</datetime></modified>
+<revised><datetime>20250319T073633,51-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,80-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,80-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "x_GDK"
+'
+'	Les fonctions définies dans cette bibliothèque de script permettent d'enregistrer les erreurs survenues
+'	lors de l'exécution de script dans la base de données "SI Registre des erreurs" (Mail-in Database)
+'
+'	Routine disponible
+'
+'	====================
+'	SIDS_TraiterErreur
+'	====================
+'	Cette fonction affiche un message d'erreur et envoie un courriel dans la base "SI Registre des erreurs" 
+'	(Mail-in Database).
+'	Syntaxe:				SIGE_TraiterErreur(p_TypeElement, p_Element, p_NomFonction, p_Muet)
+'	Paramètres:			p_TypeElement		String.	Type de l'élement qui a déclenchée l'erreur.
+'																	Seules les valeurs suivantes sont reconnues :
+'																	"A"	===&gt; Agents
+'																	"SL"	===&gt; Bibliothèque de script
+'																	"D"	===&gt; Dossier
+'																	"F"	===&gt; Masque
+'																	"P"	===&gt; Page
+'																	"V"	===&gt; Vue
+'							p_Element				String.  	Nom de l'élément qui a déclenchée l'erreur.
+'							p_NomFonction		String.	Nom de la fonction qui a déclenchée l'erreur.
+'							p_Muet					Integer.	True indique qu'il ne faut pas afficher de message à
+'																	l'utilisateur.
+'
+'	====================
+'	SIDS_EnregistrerErreur
+'	====================
+'	Cette fonction envoie un courriel dans la base "SI Registre des erreurs" (Mail-in Database)
+'	lorsqu'une erreur est déclenchée.
+'	Syntaxe:				SIGE_EnregistrerErreur(p_TypeElement, p_Element, p_NomFonction)
+'	Paramètres:			p_TypeElement		String.	Type de l'élement qui a déclenchée l'erreur.
+'																	Seules les valeurs suivantes sont reconnues :
+'																	"A"	===&gt; Agents
+'																	"SL"	===&gt; Bibliothèque de script
+'																	"D"	===&gt; Dossier
+'																	"F"	===&gt; Masque
+'																	"P"	===&gt; Page
+'																	"V"	===&gt; Vue
+'							p_Element				String.  	Nom de l'élément qui a déclenchée l'erreur.
+'							p_NomFonction		String.	Nom de la fonction qui a déclenchée l'erreur.
+'
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SIGE As NotesSession
+Dim gndb_SIGE As NotesDatabase
+Dim g_Langue_SIGE As String
+
+' Log
+Dim g_NoLog_SIGE As String
+Dim g_NoPage_SIGE As Integer
+Dim g_LogErreur_SIGE As Boolean
+Dim gnd_Log_SIGE As NotesDocument
+Dim gni_Log_SIGE As NotesItem
+
+' Traitement des erreurs
+Const gc_TypeElement_SIGE = "SL"
+Const gc_Element_SIGE = "SI_GestionErreurs"
+
+</lotusscript></code><code event="SIGE_EnregistrerErreurManuelle"><lotusscript>Sub SIGE_EnregistrerErreurManuelle(p_TypeElement As String, p_Element As String, p_NomFonction As String, p_Ligne As Long, p_Description As String, p_Texte As String)
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim v_NomFonction As String
+	Dim v_Texte As String
+	
+	Call SIGE_Initialisations
+	
+	v_NomFonction = SIGE_FormatterNomFonction(p_NomFonction)
+	
+	' Créé un document de registre d'erreur
+	Set nd = gns_SIGE.CurrentDatabase.CreateDocument
+	nd.Form = "F_Erre"
+	nd.Form_Icone = 81
+	
+	' Met à jour l'information sur la base de données
+	nd.Erre_Serveur = gndb_SIGE.Server
+	nd.Erre_Fichier = gndb_SIGE.Filepath
+	nd.Erre_Database = gndb_SIGE.Title
+	nd.Erre_Date = Now
+	nd.Erre_Utilisateur = gns_SIGE.Commonusername
+	
+	' Met à jour l'information de l'erreur
+	nd.Erre_TypeElement = p_TypeElement
+	nd.Erre_Element = p_Element
+	nd.Erre_NomFonction = v_NomFonction
+	nd.Erre_Ligne = p_Ligne
+	nd.Erre_Numero = 0
+	nd.Erre_Description = p_Description
+	nd.Erre_Texte = p_Texte
+	
+	' Envois le document dans le registre des accès
+	If xGDK_xVarProf("Prof_SIRgEncapsuler", "0") = "1" Then
+		Call nd.ReplaceItemValue("MailFormat", "E")
+	End If
+	Call nd.Send(False, "SI Registre")
+	
+	' Ajouter le message d'erreur dans le log, s'il y en a un
+	v_Texte = "**SIGE**  Fonction " &amp; v_NomFonction &amp; " ligne " &amp; Cstr(p_Ligne) &amp; " : " &amp; p_Description
+	If p_Texte &lt;&gt; "" Then
+		v_Texte = v_Texte &amp; " (+)"
+	End If
+	Call SIGE_AjouterLog(v_Texte, -1, 0, False)
+	Exit Sub
+	
+GererErreur:
+	If g_Langue_SIGE = "EN" Then
+		Messagebox "An error occurred during processing of an error!!!" &amp; Chr(13) &amp; _
+		"Please contact your administrator and provide him with the following information:" &amp; Chr(13) &amp; _
+		"Error 0: " &amp; p_Description &amp; Chr(13) &amp; p_TypeElement &amp; " " &amp; _
+		p_Element &amp; ", function " &amp; p_NomFonction &amp; " line " &amp; Cstr(p_Ligne), 16
+	Else
+		Messagebox "Une erreur s'est produite pendant le traitement d'une erreur!!!" &amp; Chr(13) &amp; _
+		"Veuillez contacter votre administrateur et lui transmettre les informations suivantes:" &amp; Chr(13) &amp; _
+		"Erreur 0: " &amp; p_Description &amp; Chr(13) &amp; p_TypeElement &amp; " " &amp; _
+		p_Element &amp; ", fonction " &amp; p_NomFonction &amp; " ligne " &amp; Cstr(p_Ligne), 16
+	End If
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIGE_EnregistrerPageLog"><lotusscript>Function SIGE_EnregistrerPageLog As Boolean
+	On Error Goto GererErreur
+	
+	SIGE_EnregistrerPageLog = False
+	
+	gnd_Log_SIGE.Log_DateFin = Now
+	
+	' Envois le document dans le registre des accès
+	If xGDK_xVarProf("Prof_SIRgEncapsuler", "0") = "1" Then
+		Call gnd_Log_SIGE.ReplaceItemValue("MailFormat", "E")
+	End If
+	
+	Call gnd_Log_SIGE.Send(False, "SI Registre")
+	SIGE_EnregistrerPageLog = True
+	
+	Set gni_Log_SIGE = Nothing
+	Set gnd_Log_SIGE = Nothing
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGE, gc_Element_SIGE, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGE_Initialisations"><lotusscript>Sub SIGE_Initialisations
+	Dim v_Langue As Variant
+	
+	If gns_SIGE Is Nothing Then
+		Set gns_SIGE = New NotesSession
+		Set gndb_SIGE = gns_SIGE.CurrentDatabase
+		
+		' Déterminer la langue d'affichage de l'utilisateur
+		v_Langue = Evaluate("@UpperCase(@Left(@LanguagePreference([Region]); 2))")
+		If Isarray(v_Langue) And v_Langue(0) = "EN" Then
+			g_Langue_SIGE = v_Langue(0)
+		Else
+			g_Langue_SIGE = "FR"
+		End If
+	End If
+End Sub
+
+</lotusscript></code><code event="SIGE_EnvoyerErreur"><lotusscript>Function SIGE_EnvoyerErreur(p_SendTo As Variant, p_CopyTo As Variant, p_Subject As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	
+	' Initialisations
+	SIGE_EnvoyerErreur = False
+	Call SIGE_Initialisations
+	
+	Set nd = New NotesDocument(gndb_SIGE)
+	nd.Form = "Memo"
+	nd.SendTo = p_SendTo
+	nd.CopyTo = p_CopyTo
+	nd.Subject = p_Subject
+	Call nd.Send(False)
+	
+	SIGE_EnvoyerErreur = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGE, gc_Element_SIGE, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGE_EnregistrerErreur"><lotusscript>Sub SIGE_EnregistrerErreur(p_TypeElement As String, p_Element As String, p_NomFonction As String, p_Texte As String)
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim v_Err As String
+	Dim v_Error As String
+	Dim v_Erl As String
+	Dim v_NomFonction As String
+	Dim v_Texte As String
+	
+	Call SIGE_Initialisations
+	v_Err = Cstr(Err)
+	v_Error = Error$
+	v_Erl = Cstr(Erl)
+	v_NomFonction = SIGE_FormatterNomFonction(p_NomFonction)
+	
+	' Créé un document de registre d'erreur
+	Set nd = gns_SIGE.CurrentDatabase.CreateDocument
+	nd.Form = "F_Erre"
+	nd.Form_Icone = 81
+	
+	' Met à jour l'information sur la base de données
+	nd.Erre_Serveur = gndb_SIGE.Server
+	nd.Erre_Fichier = gndb_SIGE.Filepath
+	nd.Erre_Database = gndb_SIGE.Title
+	nd.Erre_Date = Now
+	nd.Erre_Utilisateur = gns_SIGE.Commonusername
+	
+	' Met à jour l'information de l'erreur
+	nd.Erre_TypeElement = p_TypeElement
+	nd.Erre_Element = p_Element
+	nd.Erre_NomFonction = v_NomFonction
+	nd.Erre_Ligne = v_Erl
+	nd.Erre_Numero = v_Err
+	nd.Erre_Description = v_Error
+	nd.Erre_Texte = p_Texte
+	
+	' Envois le document dans le registre des accès
+	If xGDK_xVarProf("Prof_SIRgEncapsuler", "0") = "1" Then
+		Call nd.ReplaceItemValue("MailFormat", "E")
+	End If
+	Call nd.Send(False, "SI Registre")
+	
+	' Ajouter le message d'erreur dans le log, s'il y en a un
+	v_Texte = "**SIGE**  Fonction " &amp; v_NomFonction &amp; " ligne " &amp; Cstr(v_Erl) &amp; " : " &amp; Cstr(v_Err) &amp; " " &amp; v_Error
+	If p_Texte &lt;&gt; "" Then
+		v_Texte = v_Texte &amp; " (+)"
+	End If
+	Call SIGE_AjouterLog(v_Texte, -1, 0, False)
+	Exit Sub
+	
+GererErreur:
+	If g_Langue_SIGE = "EN" Then
+		Messagebox "An error occurred during processing of an error!!!" &amp; Chr(13) &amp; _
+		"Please contact your administrator and provide him with the following information:" &amp; Chr(13) &amp; _
+		"Error " &amp; v_Err &amp; ": " &amp; v_Error &amp; Chr(13) &amp; p_TypeElement &amp; " " &amp; _
+		p_Element &amp; ", function " &amp; p_NomFonction &amp; " line " &amp; v_Erl, 16
+	Else
+		Messagebox "Une erreur s'est produite pendant le traitement d'une erreur!!!" &amp; Chr(13) &amp; _
+		"Veuillez contacter votre administrateur et lui transmettre les informations suivantes:" &amp; Chr(13) &amp; _
+		"Erreur " &amp; v_Err &amp; ": " &amp; v_Error &amp; Chr(13) &amp; p_TypeElement &amp; " " &amp; _
+		p_Element &amp; ", fonction " &amp; p_NomFonction &amp; " ligne " &amp; v_Erl, 16
+	End If
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIGE_SautDePageLog"><lotusscript>Function SIGE_SautDePageLog As Integer
+	On Error Goto GererErreur
+	
+	Dim v_TypeElement As String
+	Dim v_Element As String
+	Dim v_NoPage As String
+	
+	SIGE_SautDePageLog = False
+	
+	v_TypeElement = xVar(gnd_Log_SIGE, "Log_TypeElement", "")
+	v_Element = xVar(gnd_Log_SIGE, "Log_Element", "")
+	
+	Call SIGE_EnregistrerPageLog
+	
+	SIGE_SautDePageLog = SIGE_OuvrirLog(v_TypeElement, v_Element)
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGE, gc_Element_SIGE, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGE_EnregistrerLog"><lotusscript>Function SIGE_EnregistrerLog As Boolean
+	On Error Goto GererErreur
+	
+	SIGE_EnregistrerLog = False
+	
+	If Not (gnd_Log_SIGE Is Nothing) Then
+		If Not (gni_Log_SIGE Is Nothing) Then
+			gnd_Log_SIGE.Log_DernierePage = "1"
+			SIGE_EnregistrerLog = SIGE_EnregistrerPageLog
+			g_NoLog_SIGE = ""
+			g_NoPage_SIGE = 0
+			g_LogErreur_SIGE = False
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGE, gc_Element_SIGE, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGE_EnregistrerAcces"><lotusscript>Sub SIGE_EnregistrerAcces(p_TypeElement As String, p_Element As String, p_NomFonction As String, p_Texte As String)
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	
+	Call SIGE_Initialisations
+	
+	' Créé un document de registre d'erreur
+	Set nd = gns_SIGE.CurrentDatabase.CreateDocument
+	nd.Form = "F_Acce"
+	nd.Form_Icone = 18
+	
+	' Met à jour l'information sur la base de données
+	nd.Acce_Database = gndb_SIGE.Title
+	nd.Acce_Serveur = gndb_SIGE.Server
+	nd.Acce_Fichier = gndb_SIGE.Filepath
+	nd.Acce_Date = Now
+	nd.Acce_Utilisateur = gns_SIGE.Commonusername
+	
+	' Met à jour l'information de l'accès
+	nd.Acce_TypeElement = p_TypeElement
+	nd.Acce_Element = p_Element
+	nd.Acce_NomFonction = SIGE_FormatterNomFonction(p_NomFonction)
+	nd.Acce_Texte = p_Texte
+	
+	' Envois le document dans le registre des accès
+	If xGDK_xVarProf("Prof_SIRgEncapsuler", "0") = "1" Then
+		Call nd.ReplaceItemValue("MailFormat", "E")
+	End If
+	Call nd.Send(False, "SI Registre")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGE, gc_Element_SIGE, Getthreadinfo(1), p_TypeElement &amp; ";" &amp; p_Texte, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIGE_TraiterErreur"><lotusscript>Sub SIGE_TraiterErreur(p_TypeElement As String, p_Element As String, p_NomFonction As String, p_Texte As String, _
+p_Muet As Integer)
+	
+	Call SIGE_Initialisations
+	
+	' Afficher un message à l'utilisateur
+	If Not p_Muet Then
+		
+		If g_Langue_SIGE = "EN" Then
+			Messagebox "An error occurred during processing." &amp; Chr(13) &amp; _
+			"If the error persists, contact your administrator." &amp; Chr(13) &amp; Chr(13) &amp; Error$, 16
+		Else
+			Messagebox "Une erreur s'est produite pendant le traitement." &amp; Chr(13) &amp; _
+			"Si cette erreur persiste, contactez votre administrateur." &amp; Chr(13) &amp; Chr(13) &amp; Error$, 16
+		End If
+	End If
+	
+	' Envoyer le détail du message d'erreur au registre des erreurs
+	Call SIGE_EnregistrerErreur(p_TypeElement, p_Element, p_NomFonction, p_Texte)
+End Sub
+
+</lotusscript></code><code event="SIGE_OuvrirLog"><lotusscript>Function SIGE_OuvrirLog(p_TypeElement As String, p_Element As String) As Integer
+	' Valeur retournée:
+	'	Faux = Un Log est déjà ouvert
+	'	Vrai = Un nouveau Log a été ouvert
+	'	-9 = Une erreur s'est produite
+	On Error Goto GererErreur
+	
+	SIGE_OuvrirLog = False
+	
+	' Initialisations
+	Call SIGE_Initialisations
+	
+	If gnd_Log_SIGE Is Nothing Then
+		If g_NoLog_SIGE = "" Then
+			g_NoLog_SIGE = xUnique("")
+			g_NoPage_SIGE = 1
+		Else
+			g_NoPage_SIGE = g_NoPage_SIGE + 1
+		End If
+		g_LogErreur_SIGE = False
+		
+		' Créé un document de log
+		Set gnd_Log_SIGE = New NotesDocument(gndb_SIGE)
+		gnd_Log_SIGE.Form = "F_Log"
+		gnd_Log_SIGE.Form_Icone = 23
+		gnd_Log_SIGE.Log_NoLog = g_NoLog_SIGE
+		gnd_Log_SIGE.Log_NoPage = g_NoPage_SIGE
+		gnd_Log_SIGE.Cle = g_NoLog_SIGE &amp; Cstr(g_NoPage_SIGE)
+		
+		' Met à jour l'information sur la base de données
+		gnd_Log_SIGE.Log_Serveur = gndb_SIGE.Server
+		gnd_Log_SIGE.Log_Fichier = gndb_SIGE.Filepath
+		gnd_Log_SIGE.Log_Database = gndb_SIGE.Title
+		gnd_Log_SIGE.Log_DateDebut = Now
+		gnd_Log_SIGE.Log_Utilisateur = gns_SIGE.Commonusername
+		
+		' Met à jour l'information du programme
+		gnd_Log_SIGE.Log_TypeElement = p_TypeElement
+		gnd_Log_SIGE.Log_Element = p_Element
+		
+		SIGE_OuvrirLog = True
+	End If
+	Exit Function
+	
+GererErreur:
+	SIGE_OuvrirLog = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGE, gc_Element_SIGE, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGE_AjouterLog"><lotusscript>Sub SIGE_AjouterLog(p_Texte As String, p_CodeErreur As Integer, p_IconeErreur As Integer, p_Print As Boolean)
+	' p_CodeErreur : 0 = pas d'erreur, &gt; 0 = Erreur.  Conserve la plus grande valeur.
+	' p_IconeErreur : Icone liée au plus grand code d'erreur envoyé.  Défaut = 115
+	On Error Goto GererErreur
+	
+	Dim v_Texte As string
+	Dim v_Log As String
+	
+	v_Texte = Trim(p_Texte)
+	If v_Texte = "" Then
+		If p_CodeErreur &lt;&gt; 0 Then
+			v_Texte = "SIGE - Erreur indéfinie. | Undefined error."
+		Else
+			Exit Sub	' Pas de message à ajouter au log
+		End If
+	End If
+	
+	If p_Print Then
+		Print Left(v_Texte, 1024)
+	End If
+	
+	If gnd_Log_SIGE Is Nothing Then
+		Exit Sub		' Le log n'a pas été ouvert.
+	End If
+	
+	v_Log = Format(Now, "yyyy/mm/dd hh:nn:ss") &amp; "  " &amp; p_Texte
+	If gni_Log_SIGE Is Nothing Then
+		Set gni_Log_SIGE = New NotesItem(gnd_Log_SIGE, "Log_Texte", "")
+	End If
+	
+	If gni_Log_SIGE.Valuelength + Len(v_Log) &gt; 32000 Then
+		Do
+			If gni_Log_SIGE.Text &lt;&gt; "" then
+				If SIGE_SautDePageLog Then
+					Set gni_Log_SIGE = New NotesItem(gnd_Log_SIGE, "Log_Texte", "")
+				Else
+					Exit Sub
+				End If
+			End If
+			
+			If Len(v_Log) &gt; 32000 Then
+				call gni_Log_SIGE.Appendtotextlist(Left(v_Log, 32000))
+				v_Log = Right(v_Log, Len(v_Log) - 32000)
+			Else
+				Call gni_Log_SIGE.Appendtotextlist(v_Log)
+				v_Log = ""
+			End If
+			
+		Loop Until v_Log = ""
+	Else
+		Call gni_Log_SIGE.AppendToTextList(v_Log)
+	End If
+	
+	If p_CodeErreur &lt;&gt; 0 Then
+		g_LogErreur_SIGE = True
+		If p_CodeErreur &gt; xVar(gnd_Log_SIGE, "Log_Erreur", -9999) Then
+			gnd_Log_SIGE.Log_Erreur = p_CodeErreur
+			If p_IconeErreur &lt;= 0 Or p_IconeErreur &gt; 212 Then
+				gnd_Log_SIGE.Log_ErreurIcone = 115
+			Else
+				gnd_Log_SIGE.Log_ErreurIcone = p_IconeErreur
+			End If
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGE, gc_Element_SIGE, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIGE_FormatterNomFonction"><lotusscript>Function SIGE_FormatterNomFonction(p_NomFonction As String) As String
+	On Error Goto GererErreur
+	
+	Dim v_Position As Integer
+	Dim v_NomFonction
+	Dim v_Mot As String
+	
+	If Len(p_NomFonction) &lt;= 1 Then
+		SIGE_FormatterNomFonction = p_NomFonction
+		Exit Function
+	End If
+	
+	v_Position = Instr(p_NomFonction, "_")
+	If v_Position = 0 Then
+		SIGE_FormatterNomFonction = Ucase(Left(p_NomFonction, 1)) &amp; _
+		Lcase(Right(p_NomFonction, Len(p_NomFonction) - 1))
+		Exit Function
+	End If
+	
+	SIGE_FormatterNomFonction = ""
+	v_NomFonction = p_NomFonction
+	Do Until v_Position = 0
+		If v_Position = 1 Then
+			v_Mot = ""
+			v_NomFonction = Right(v_NomFonction, Len(v_NomFonction) - v_Position)
+			
+			SIGE_FormatterNomFonction = SIGE_FormatterNomFonction &amp; "_"
+		Else
+			v_Mot= Left(v_NomFonction, v_Position - 1)
+			If v_Position = Len(v_NomFonction) Then
+				v_NomFonction = ""
+			Else
+				v_NomFonction = Right(v_NomFonction, Len(v_NomFonction) - v_Position)
+			End If
+			
+			SIGE_FormatterNomFonction = SIGE_FormatterNomFonction &amp; Ucase(Left(v_Mot, 1)) &amp; _
+			Lcase(Right(v_Mot, Len(v_Mot) - 1)) &amp; "_"
+		End If
+		
+		v_Position = Instr(v_NomFonction, "_")
+	Loop
+	
+	If Len(v_NomFonction) &gt; 0 Then
+		SIGE_FormatterNomFonction = SIGE_FormatterNomFonction &amp; Ucase(Left(v_NomFonction, 1)) &amp; _
+		Lcase(Right(v_NomFonction, Len(v_NomFonction) - 1))
+	End If
+	Exit Function
+	
+GererErreur:
+	SIGE_FormatterNomFonction = p_NomFonction
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGE_TraiterErreurManuelle"><lotusscript>Sub SIGE_TraiterErreurManuelle(p_TypeElement As String, p_Element As String, p_NomFonction As String, p_Ligne As Long, p_Description As String, p_Texte As String, p_Muet As Integer)
+	Call SIGE_Initialisations
+	
+	' Afficher un message à l'utilisateur
+	If Not p_Muet Then
+		If g_Langue_SIGE = "EN" Then
+			Messagebox "An error occurred during processing." &amp; Chr(13) &amp; _
+			"If the error persists, contact your administrator." &amp; Chr(13) &amp; Chr(13) &amp; p_Description, 16
+		Else
+			Messagebox "Une erreur s'est produite pendant le traitement." &amp; Chr(13) &amp; _
+			"Si cette erreur persiste, contactez votre administrateur." &amp; Chr(13) &amp; Chr(13) &amp; p_Description, 16
+		End If
+	End If
+	
+	' Envoyer le détail du message d'erreur au registre des erreurs
+	Call SIGE_EnregistrerErreurManuelle(p_TypeElement, p_Element, p_NomFonction, p_Ligne, p_Description, p_Texte)
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073633,51-05</datetime></item></scriptlibrary>
+
+</database>

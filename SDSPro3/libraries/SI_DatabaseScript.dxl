@@ -1,0 +1,580 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_DatabaseScript" hide="v3 v4strict" designerversion="8.5.3" comment="9.0e">
+<noteinfo noteid="555956" unid="0009E137104C997085258BE8006E8D64" sequence="6">
+<created><datetime>20241203T150731,56-05</datetime></created>
+<modified><datetime>20260105T014838,38-05</datetime></modified>
+<revised><datetime>20250319T073635,55-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,37-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,37-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>' =============================================================
+' Les fonctions définies dans cette bibliothèque sont utilisées
+' par le "Database script" de la base de documents.
+' =============================================================
+Option Public
+Option Explicit
+
+Use "SI_NotesDatabase"
+Use "SI_Insertions"
+Use "SI_Windows"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SIDS As NotesSession
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SIDS = "SL"
+Const gc_Element_SIDS = "SI_DatabaseScript"
+
+
+</lotusscript></code><code event="SIDS_InstallerPolice"><lotusscript>Sub SIDS_InstallerPolice(p_CodeApp As String, p_NomFichierPolice As String)
+	On Error Goto GererErreur
+	On Error 4005 GoTo FinSub
+	
+	Dim v_CheminAcces As String
+	Dim v As Variant
+	Dim v_Dir As String
+	
+	v_CheminAcces = "c:\windows\fonts\" &amp; p_NomFichierPolice
+	On Error 76 GoTo FinSub		' Path not found»
+	If Dir$(v_CheminAcces, 0) &lt;&gt; "" Then
+		Exit Sub			' Police déjà installée
+	End If
+	
+	v = Evaluate(|@RegQueryValue("HKEY_CURRENT_USER"; "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders"; "Desktop")|)
+	v_CheminAcces = v(0) &amp; "\" &amp; p_NomFichierPolice
+	v_Dir = Dir$(v_CheminAcces, 0)
+	If v_Dir = "" Then
+		Call xGDK_xExtraireAApp(p_CodeApp, True, v_CheminAcces, False)
+		If xLangue = "EN" Then
+			MessageBox "Font " &amp; p_NomFichierPolice &amp; " was saved to your desktop. It is recommended to better dusplay Notes databases. You can install it by right-clicking on it and selecting «Install».", 16, "" 
+		Else
+			MessageBox "La police " &amp; p_NomFichierPolice &amp; " a été copiée sur votre bureau. Elle est recommandée pour un meilleur affichage des bases de documents. Vous pouvez l'installer en cliquant-droit sur le fichier et en sélectionnant «Installer».", 16, ""
+		End If
+	End If
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_CorbeilleReponses"><lotusscript>Sub SIDS_CorbeilleReponses(pnd As Notesdocument, p_NoAdmS As Variant, p_NomProgramme As String)
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim E As Variant
+	
+	' Supprimer les documents réponses-de-réponses
+	Set ndc = pnd.Responses
+	If Not (ndc Is Nothing) Then
+		If ndc.Count &gt; 0 Then
+			Set nd = ndc.Getfirstdocument
+			Do Until nd Is Nothing
+				If xVar(nd, "Form", "") &lt;&gt; "F_AdmS" Then
+					Call SIDS_CorbeilleReponses(nd, p_NoAdmS, p_NomProgramme)
+					
+					' Supprimer le document
+					nd.HistoNS = p_NoAdmS
+					nd.FormOriginal = xVar(nd, "Form", "")
+					E = Evaluate(|@SetField("HistoDS"; @Now)|, nd)
+					nd.HistoUS = gns_SIDS.UserName
+					nd.Form = "F_AdmS"
+					E = Evaluate(|@Text(HistoDS; "*")|, nd)
+					nd.HistoDS100 = Clng("&amp;H" &amp; Right$(E(0), 8)) Mod 100
+					
+					If p_NomProgramme = "" Then
+						nd.HistoPS = SIGE_FormatterNomFonction(Getthreadinfo(1))
+					Else
+						nd.HistoPS = SIGE_FormatterNomFonction(p_NomProgramme)
+					End If
+					
+					Call nd.Save(True, False)
+				End If
+				
+				Set nd = ndc.GetNextDocument(nd)
+			Loop
+		End If
+		
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_CorbeilleDocument"><lotusscript>Function SIDS_CorbeilleDocument(pnd As Notesdocument, p_NoAdmS As Variant, p_NomProgramme As String, p_UserName As string) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_Masque As String
+	Dim E As Variant
+	
+	SIDS_CorbeilleDocument = False
+	
+	v_Masque = xVar(pnd, "Form", "")
+	If v_Masque = "F_AdmS" Then
+		SIDS_CorbeilleDocument = True
+		Exit Function
+	End If
+	
+	If gns_SIDS Is Nothing Then
+		Set gns_SIDS = New NotesSession
+	End If
+	If p_UserName = "" Then
+		p_UserName = gns_SIDS.UserName
+	End If
+	
+	' Initialiser le numéro de la suppression
+	If Not Isarray(p_NoAdmS) Then
+		p_NoAdmS = Evaluate(|@Right(@Unique; 6)|)
+	End If
+	
+	' Supprimer les documents réponse
+	Call SIDS_CorbeilleReponses(pnd, p_NoAdmS, p_NomProgramme)
+	
+	' Supprimer le document
+	pnd.HistoNS = p_NoAdmS
+	pnd.FormOriginal = v_Masque
+	E = Evaluate(|@SetField("HistoDS"; @Now)|, pnd)
+	pnd.HistoUS = gns_SIDS.UserName
+	pnd.Form = "F_AdmS"
+	E = Evaluate(|@Text(HistoDS; "*")|, pnd)
+	pnd.HistoDS100 = Clng("&amp;H" &amp; Right$(E(0), 8)) Mod 100
+	
+	If p_NomProgramme = "" Then
+		pnd.HistoPS = SIGE_FormatterNomFonction(Getthreadinfo(1))
+	Else
+		pnd.HistoPS = SIGE_FormatterNomFonction(p_NomProgramme)
+	End If
+	
+	Call pnd.Save(True, False)
+	SIDS_CorbeilleDocument = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIDS_SupprimerReponses"><lotusscript>Sub SIDS_SupprimerReponses(pnd As Notesdocument)
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As Notesdocument
+	
+	' Supprimer les documents réponses-de-réponses
+	Set ndc = pnd.Responses
+	If Not (ndc Is Nothing) Then
+		If ndc.Count &gt; 0 Then
+			Set nd_Suivant = ndc.Getfirstdocument
+			Do Until nd Is Nothing
+				Set nd = nd_Suivant
+				Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+				
+				Call SIDS_SupprimerReponses(nd)
+			Loop
+		End If
+		
+		' Supprimer les documents réponses
+		Call ndc.RemoveAll(True)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_Postdocumentdelete"><lotusscript>Sub SIDS_Postdocumentdelete(pnuidb_Source As NotesUIDatabase)
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	
+	' Initialise la collection des documents supprimés
+	Set ndc = pnuidb_Source.Documents
+	
+	' Boucle dans la collection des documents supprimés
+	Set nd = ndc.Getfirstdocument
+	Do Until nd Is Nothing
+		' Supprimer les documents réponse
+		Call SIDS_SupprimerReponses(nd)
+		
+		' Passe au document supprimé suivant
+		Set nd = ndc.Getnextdocument(nd)
+	Loop
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_ViderHistoriqueReplication"><lotusscript>Sub SIDS_ViderHistoriqueReplication
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim nv_SIHR As NotesView
+	Dim nd_SIHR As NotesDocument
+	Dim nd_SIHR_Utilisateur As NotesDocument
+	Dim ndb_HR As NotesDatabase
+	Dim ni_Auteurs As NotesItem
+	
+	Dim a_NDBs As Variant
+	Dim v_date As Variant
+	Dim v_date2 As Variant
+	
+	Set ndb = gns_SIDS.currentdatabase
+	If ndb.Server &lt;&gt; "" Then
+		Exit Sub
+	End If
+	
+	Set nv_SIHR = ndb.GetView("V_SIHR20")
+	If nv_SIHR Is Nothing Then
+		Exit Sub
+	End If
+	
+	Set nd_SIHR = nv_SIHR.GetDocumentByKey("SIHR_Profil", True)
+	v_date2 = xvar(nd_SIHR, "SIHR_Date", "")
+	If v_date2 = "" Then
+		Exit Sub
+	End If
+	
+	Set nd_SIHR_Utilisateur = nv_SIHR.GetDocumentByKey(gns_SIDS.Username, True)
+	If nd_SIHR_Utilisateur Is Nothing Then
+		Set nd_SIHR_Utilisateur = ndb.Createdocument()
+		nd_SIHR_Utilisateur.SIHR_cle = gns_SIDS.Username
+		nd_SIHR_Utilisateur.cle = gns_SIDS.Username
+		nd_SIHR_Utilisateur.Form = "F_SIHR"
+		Set ni_Auteurs = New NotesItem(nd_SIHR_Utilisateur, "Auteurs", gns_SIDS.Username, AUTHORS)
+	End If
+	
+	v_date = xvar(nd_SIHR_Utilisateur, "SIHR_Date", "")
+	If v_date = "" Or v_Date &lt; v_Date2 Then
+		Call SINDB_ViderHistoriqueReplication(ndb)
+		
+		a_NDBs = xVarArray(nd_SIHR, "SIHR_NDB_Additionnelles")
+		If IsArray(a_NDBs) Then
+			ForAll FA_db In a_NDBs
+				Set ndb_HR = xGDK_xndbNDB(FA_db)
+				Call SINDB_ViderHistoriqueReplication(ndb_HR)
+			End ForAll
+		End If
+		
+		' Mise à jour le doc de l'utilisateur (date)
+		Call SIIx_AssignerDate(nd_SIHR_Utilisateur, "SIHR_Date", Today)
+		Call nd_SIHR_Utilisateur.Save(True, False)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_EnvoyerInfoPoste"><lotusscript>Sub SIDS_EnvoyerInfoPoste(p_Origine As String)
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim v_NomPoste As String
+	Dim nd As NotesDocument
+	Dim a As Variant
+	
+	Set ndb = gns_SIDS.CurrentDatabase
+
+	v_NomPoste = Environ("computername")	
+	If v_NomPoste = "" And LCase(Left(gns_SIDS.Platform, 7)) = "windows" Then			' Windows seulement
+		a = SIW_PosteDeTravail
+		v_NomPoste = a(3)
+	End If
+
+	Set nd = New NotesDocument(ndb)
+	nd.Form = "F_InPC"
+	Call nd.ReplaceItemValue("$ConflictAction", "2")
+	nd.From = gns_SIDS.UserName
+	nd.Subject = "Poste de travail - " &amp; v_NomPoste
+	
+	nd.NomPoste = v_NomPoste
+	nd.Date = Now
+	nd.Origine = p_Origine
+	
+	nd.NotesVersion = gns_SIDS.NotesVersion
+	nd.NotesBuildVersion= gns_SIDS.NotesBuildVersion
+	nd.UserName= gns_SIDS.UserName
+	nd.Platform= gns_SIDS.Platform
+	
+	nd.DateSep = gns_SIDS.International.DateSep
+	nd.IsDateDMY = CStr(gns_SIDS.International.IsDateDMY)
+	nd.IsDateMDY = CStr(gns_SIDS.International.IsDateMDY)
+	nd.IsDateYMD = CStr(gns_SIDS.International.IsDateYMD)
+	nd.TimeSep = gns_SIDS.International.TimeSep
+	nd.TimeZone = gns_SIDS.International.TimeZone
+	nd.DecimalSep = gns_SIDS.International.DecimalSep
+	nd.ThousandsSep = gns_SIDS.International.ThousandsSep
+	
+	If LCase(Left(gns_SIDS.Platform, 7)) = "windows" Then			' Windows seulement
+		a = SIW_PosteDeTravail
+		nd.PosteDeTravail = a
+	
+		a = SIW_SystemeExploitation
+		nd.SystemeExploitation = a
+		
+		a = SIW_Reseau
+		nd.Reseau = a
+	End If
+	
+	If xGDK_TypeNDBCourante = "T" Then
+		Call nd.Send(False, "miSICf_Test")
+	Else
+		Call nd.Send(False, "miSICf")
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, LSI_Info(2), "", True)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_Queryclose"><lotusscript>Sub SIDS_Queryclose(pnuidb_Source As NotesUIDatabase)
+	On Error Goto GererErreur
+	
+	Dim v_Roles As Variant
+	
+	' Initialisations
+	Set gns_SIDS = New NotesSession
+	
+	' Enlever le droit de exporter les documents
+	' ------------------------------------------
+	v_Roles = Evaluate(|@IsMember("[ini.NoExport]"; @UserRoles)|)
+	If Isarray(v_Roles) Then
+		If v_Roles(0) = 1 Then
+			Call SIDS_RemettreExportation
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_CorbeilleDocumentCollection"><lotusscript>Function SIDS_CorbeilleDocumentCollection(pndc As NotesDocumentCollection, p_NoAdmS As Variant, p_NomProgramme As String, p_UserName As String) As Boolean
+	' Retourne TRUE si TOUS les documents de la collection ont été mis dans la corbeille.
+	On Error Goto GererErreur
+	
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	
+	SIDS_CorbeilleDocumentCollection = True
+	
+	' Boucler sur tous les documents de la collection
+	Set nd_Suivant = pndc.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = pndc.Getnextdocument(nd_Suivant)
+		
+		' Appeler le Sub SIDS_CorbeilleDocument
+		if SIDS_CorbeilleDocument(nd, p_NoAdmS, p_NomProgramme, p_UserName) = False Then
+			SIDS_CorbeilleDocumentCollection = False
+		End If
+	Loop
+	
+	Exit Function
+	
+GererErreur:
+	SIDS_CorbeilleDocumentCollection = False
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SIDS_Querydocumentdelete"><lotusscript>Sub SIDS_Querydocumentdelete(pnuidb_Source As Notesuidatabase, p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim v_Privileges As Variant
+	Dim ndc As Notesdocumentcollection
+	Dim nd As Notesdocument
+	Dim v_NoAdmS As Variant
+	
+	p_Continue = False
+	
+	' Si l'utilisateur a les droits de suppression, continuer
+	v_Privileges = Evaluate(|@UserAccess(@DbName; [DELETEDOCUMENTS])|)
+	If v_Privileges(0) &lt;&gt; "1" Then
+		Call nuiws.Prompt(PROMPT_OK, xGDK_xMessage("SI", 1, "", ""), xGDK_xMessage("SI", 161, "", ""))
+		Exit Sub
+	End If
+	
+	' Initialise la collection des documents supprimés
+	Set ndc = pnuidb_Source.Documents
+	If ndc.Count = 0 Then
+		Exit Sub
+	End If
+	
+	' Demander une confirmation
+	If nuiws.Prompt(PROMPT_YESNO, xGDK_xMessage("SI", 98, "", Cstr(ndc.Count)), xGDK_xMessage("SI", 111, "", "")) &lt;&gt; 1 Then
+		Exit Sub
+	End If
+	
+	' Boucle dans la collection des documents supprimés
+	Set gns_SIDS = New NotesSession
+	Set nd = ndc.Getfirstdocument
+	Do Until nd Is Nothing
+		
+		If xVar(nd, "Form", "") &lt;&gt; "F_AdmS" Then
+			Call SIDS_CorbeilleDocument(nd, v_NoAdmS, "SIDS_Querydocumentdelete", "")
+		End If
+		
+		' Passe au document à supprimer suivant
+		Set nd = ndc.Getnextdocument(nd)
+	Loop
+	
+	If Not nuiws.CurrentView Is Nothing Then
+		Call nuiws.CurrentView.DeselectAll
+	End If
+	Call nuiws.ViewRefresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_Postopen"><lotusscript>Sub SIDS_Postopen(pnuidb_Source As NotesUIDatabase)
+	On Error Goto GererErreur
+	
+	Dim v_Roles As Variant
+	Dim nd_Prof As NotesDocument
+	Dim v_ServeurPrincipal As Variant
+	Dim v_ServeurDB As Variant
+	
+	' Initialisations
+	Set gns_SIDS = New NotesSession
+	Set nd_Prof = gns_SIDS.CurrentDatabase.GetProfileDocument("F_Prof")
+	
+	' Il n'est pas permis d'utiliser une copie locale de cette base de documents.
+	If gns_SIDS.CurrentDatabase.Server = "" Then
+		If xVar(nd_Prof, "Prof_RepliqueLocale", 0) &lt;&gt; 1 Then
+			Messagebox "Il n'est pas permis d'utiliser une copie locale de cette base de documents." &amp; _
+			Chr(10) &amp; Chr(10) &amp; "Using a local replica of this database is not allowed.", 48, "Opération annulée"
+			
+			Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), 0, _
+			|SÉCURITÉ - L'utilisateur | &amp; gns_SIDS.CommonUserName &amp; | possède une copie locale de la base de documents | &amp; gns_SIDS.CurrentDatabase.Title &amp; |.|, "")
+			
+			Call pnuidb_Source.Close()
+			Exit Sub
+		End If
+	End If
+	
+	' Vérifie si le GDK existe
+	If xGDK_xndbGDK Is Nothing Then
+		Messagebox "GDK non trouvé." &amp; Chr(10) &amp; Chr(10) &amp; "GDK not found.", 48, "Opération annulée"
+		Call pnuidb_Source.Close()
+		Exit Sub
+	End If
+	
+	' Enlever le droit d'exporter les documents
+	' -----------------------------------------
+	v_Roles = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
+	If v_Roles(0) &lt;&gt; 1 Then
+		v_Roles = Evaluate(|@IsMember("[ini.NoExport]"; @UserRoles)|)
+		If v_Roles(0) = 1 Then
+			Call SIDS_EnleverExportation
+		End If
+	End If
+	
+	' Extraire les polices Serti
+	Call SIDS_InstallerPolice("Hatten.ttf", "Hatten.ttf")
+	
+	' Vérifie si la copie principale est utilisée
+	If xGDK_TypeNDBCourante = "P" Then
+		v_ServeurPrincipal = Evaluate(|@Name([ABBREVIATE]; "| &amp; xvar(nd_Prof, "Prof_Serveur", "") &amp; |")|)
+		If v_ServeurPrincipal(0) &lt;&gt; "" Then
+			v_ServeurDB = Evaluate(|@Name([ABBREVIATE]; "| &amp; gns_SIDS.CurrentDatabase.Server &amp; |")|)
+			If Lcase(v_ServeurDB(0)) &lt;&gt; Lcase(v_ServeurPrincipal(0)) Then
+				Messagebox xGDK_xMessage("SI", 203, "", "") &amp; "  " &amp; xGDK_xMessage("SI", 215, "", v_ServeurPrincipal(0)), 48, "Attention"
+			End If
+		End If
+	End If
+	
+	Call SIDS_ViderHistoriqueReplication
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_EnleverExportation"><lotusscript>Sub SIDS_EnleverExportation
+	On Error Goto GererErreur
+	
+	Dim v_ViewExpName(25) As String
+	Dim v_ViewExpVal(25) As String
+	Dim v_EditExpName(25) As String
+	Dim v_EditExpVal(25) As String
+	Dim i As Integer
+	
+	For i = 1 To 25
+		v_ViewExpName(i) = "ViewExp" &amp; i
+		v_EditExpName(i) = "EditExp" &amp; i
+		v_ViewExpVal(i) = gns_SIDS.GetEnvironmentString( v_ViewExpName(i) , True )
+		v_EditExpVal(i) = gns_SIDS.GetEnvironmentString( v_EditExpName(i) , True )
+		
+		If v_ViewExpVal(i) &lt;&gt; "" Then
+			Call gns_SIDS.SetEnvironmentVar( "temp" &amp; v_ViewExpName(i), v_ViewExpVal(i), True )
+			Call gns_SIDS.SetEnvironmentVar( v_ViewExpName(i), "", True )
+		End If
+		
+		If v_EditExpVal(i) &lt;&gt; "" Then
+			Call gns_SIDS.SetEnvironmentVar( "temp" &amp; v_EditExpName(i), v_EditExpVal(i), True )
+			Call gns_SIDS.SetEnvironmentVar( v_EditExpName(i), "", True)
+		End If
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIDS_RemettreExportation"><lotusscript>Sub SIDS_RemettreExportation
+	On Error Goto GererErreur
+	
+	Dim v_ViewExpName(25) As String
+	Dim v_ViewExpVal(25) As String
+	Dim v_EditExpName(25) As String
+	Dim v_EditExpVal(25) As String
+	Dim i As Integer
+	
+	For i = 1 To 25
+		v_ViewExpName(i) = "tempViewExp" &amp; i
+		v_EditExpName(i) = "tempEditExp" &amp; i
+		v_ViewExpVal(i) = gns_SIDS.GetEnvironmentString( v_ViewExpName(i) , True )
+		v_EditExpVal(i) = gns_SIDS.GetEnvironmentString( v_EditExpName(i) , True )
+		
+		If v_ViewExpVal(i) &lt;&gt; "" Then
+			Call gns_SIDS.SetEnvironmentVar( "ViewExp" &amp; i, v_ViewExpVal(i), True )
+			Call gns_SIDS.SetEnvironmentVar( v_ViewExpName(i), "", True )
+		End If 
+		
+		If v_EditExpVal(i) &lt;&gt; "" Then
+			Call gns_SIDS.SetEnvironmentVar( "EditExp" &amp; i, v_EditExpVal(i), True )
+			Call gns_SIDS.SetEnvironmentVar( v_EditExpName(i), "", True)
+		End If
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDS, gc_Element_SIDS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,55-05</datetime></item></scriptlibrary>
+
+</database>

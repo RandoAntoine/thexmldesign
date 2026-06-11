@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><sharedfield name="SF_ServeurSIDV" designerversion="8">
+<noteinfo noteid="15a" unid="D534B86AA553AA458525813600654F4A" sequence="12">
+<created><datetime dst="true">20170605T142634,34-04</datetime></created>
+<modified><datetime dst="true">20190830T091605,24-04</datetime></modified>
+<revised><datetime dst="true">20180718T105556,87-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091605,22-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205649,02-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><field type="text" kind="computedfordisplay" name="SF_ServeurSIDV"><code event="defaultvalue"><formula>v_NomBase := "SIDV";
+@IfError(@DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_NDB20"; v_NomBase; 2); "")</formula></code></field>
+<item name="OriginalModTime"><datetime dst="true">20050406T140232,53-04</datetime></item>
+<item name="$HTMLCode" sign="true">
+<rawitemdata type="1">
+</rawitemdata></item></sharedfield>
+
+</database>

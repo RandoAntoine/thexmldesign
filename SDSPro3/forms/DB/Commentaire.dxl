@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="DB\Commentaire" alias="DB_Comm" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" comment="1.1b" bgcolor="system" inherit="true">
+<noteinfo noteid="2ce65e" unid="D1166EB2EFFB65B685258765004D0195" sequence="51">
+<created><datetime dst="true">20211005T100106,77-04</datetime></created>
+<modified><datetime>20250319T074051,68-05</datetime></modified>
+<revised><datetime>20250319T073753,23-05</datetime></revised>
+<lastaccessed><datetime>20250319T074051,67-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20211006T194333,39-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<actionbar bgcolor="silver" bordercolor="black">
+<actionbuttonstyle bgcolor="silver"/><border width="0px 0px 1px"/></actionbar>
+<body><richtext>
+<pardef id="1" hide="notes web mobile"/>
+<par def="1"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" allowmultivalues="true" kind="computed" name="DB_CommentaireRequis" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><keywords helperbutton="false" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field type="text" kind="computed" name="DB_NouveauStatut"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="14" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<table widthtype="fixedleft" colorstyle="solid" bgcolor="#e6eff4" refwidth="5.8264in"><tablecolumn width="0.1375in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="3.9368in"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="3" keepwithnext="true" keeptogether="true"/>
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="4" keepwithnext="true" keeptogether="true"/>
+<par def="4"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="5" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="6" align="right" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par>
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="7" leftmargin="0.0778in" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="9pt"/>Nouveau statut : </run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="8" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/> </run><run><font size="9pt"/><field type="text" kind="computedfordisplay" name="DB_StatutAlerte_1"><code event="defaultvalue"><formula>DB_NouveauStatut</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/>  </run><run><font size="9pt" color="maroon"/><field type="text" kind="computedfordisplay" name="DB_StatutDesc_1"><code event="defaultvalue"><formula>v_NomTable := "Aler_Statut_FR";
+v_Cle := DB_NouveauStatut;
+
+@Replace(v_Cle; @IfError(@DbLookup( "" : "NoCache"; "" : ""; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup( "" : "NoCache"; "" : ""; "V_Tabl20"; v_NomTable; 5); ""))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="13" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="9pt"/>Commentaires :</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="10" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_Commentaire != "1"</formula></code></pardef>
+<par def="10"><run><font size="9pt"/></run><picture width="12px" height="16px"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="1.9688in" width="3.9368in" multiline="true" borderstyle="single" type="text" kind="editable" name="DB_Commentaire"><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue) &amp; DB_CommentaireRequis = "1"; @Failure("Le commentaire est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par>
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell columnspan="3" valign="center" borderwidth="0px">
+<pardef id="12" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="9pt"/>Note: Pour annuler l'opération, cliquer sur ANNULER.</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="13" leftmargin="1in" hide="notes web"/>
+<par def="13"><run><font size="9pt"/></run></par></richtext></body>
+<item name="NbCopie" summary="false" sign="true"><number>0</number></item>
+<item name="Asgn_Date" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="OriginalModTime" sign="true"><datetime>20070219T173914,30-05</datetime></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>DB_Comm</text></item></form>
+
+</database>

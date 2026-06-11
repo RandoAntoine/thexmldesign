@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Salesforce\SyncOpportunities" alias="A_SFSO" hide="v3" publicaccess="false" designerversion="8.5.3" restrictions="unrestricted" activatable="false" enabled="false">
+<noteinfo noteid="5559ae" unid="B8162F8B4A9B92A585258C9E006BD21D" sequence="2">
+<created><datetime dst="true">20250603T153741,41-04</datetime></created>
+<modified><datetime>20260105T014838,56-05</datetime></modified>
+<revised><datetime dst="true">20250603T153741,75-04</datetime></revised>
+<lastaccessed><datetime>20260105T014838,55-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,55-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime dst="true">20250424T134208,40-04</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="daily" runlocation="any">
+<starttime><datetime>T010000,00</datetime></starttime></schedule></trigger><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_Salesforce"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Traitement des erreurs
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_SFSO"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+	
+	Dim v_NomProfilAPI As String
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim v_Resultat As Integer
+	Dim ns As New NotesSession
+	Dim ndb As NotesDatabase
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Prop As NotesDocument
+	Dim v_NoProposition As String
+	Dim v_NoOpportunite As String
+	Dim l_NoOpportunite List As String
+	Dim v_Continue As Boolean
+	Dim v_Statut As String
+	Dim v_StatutDate As Variant
+	Dim v_DateMajOppSF As Variant
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	Dim v_NbErr As Long
+	
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)
+	Print gc_Element_SLSf &amp; " - Début"
+
+	v_NomProfilAPI = xVarProf("Prof_NomProfilSalesforceAPI", "")
+	If v_NomProfilAPI = "" Then
+		Call SIGE_AjouterLog(|Erreur | &amp; CStr(v_Resultat) &amp; |: Le profil Salesforce n'est pas défini dans les paramètres de l'application."|, 1, 0, False)
+		GoTo FinSub
+	End If
+	
+	Set cl_ConnexionAPI = New SLSf_clConnexionAPI(v_NomProfilAPI)
+	If cl_ConnexionAPI.Resultat &lt;&gt; 1 Then
+		Call SIGE_AjouterLog(|Erreur | &amp; CStr(v_Resultat) &amp; |: Une erreur s'est produite lors de l'établissement de la connxion avec Salesforce.|, 1, 0, False)
+		GoTo FinSub
+	End If
+
+	' Extraire la liste des propositions actives avec un no d'opportunité
+	Set ndb = ns.CurrentDatabase
+	Set ndc = ndb.Search(|Form = "F_Prop" &amp; Prop_Statut &lt;= "50" &amp; Prop_Origine = "SF" &amp; !@IsAvailable($Conflict)|, Nothing, 0)
+	Set nd_Prop = ndc.Getfirstdocument
+	Do Until nd_Prop Is Nothing
+		v_NbLus = v_NbLus + 1
+		v_Continue = True
+		
+		v_Statut = xVar(nd_Prop, "Prop_Statut", "")
+		If v_Statut &gt;= "50" Then
+			v_DateMajOppSF = xVar(nd_Prop, "Prop_DateMajOppSF", "")
+			If v_DateMajOppSF &lt;&gt; "" Then
+				v_StatutDate = xVar(nd_Prop, "Prop_StatutDate", "")
+				If v_StatutDate &lt;&gt; "" Then
+					If v_DateMajOppSF &gt;= v_StatutDate Then
+						v_Continue = False
+					End If
+				End If
+			End If
+		End If
+		
+		If v_Continue Then
+			' Vérifier s'il y a des doublons dans les no d'opportunité
+			v_NoProposition = xVar2(nd_Prop, "Prop_NbPropositionTXT", "Prop_NoProposition", "")
+			v_NoOpportunite = xVar(nd_Prop, "Prop_NoOpportuniteSF", "")
+			If IsElement(l_NoOpportunite(v_NoOpportunite)) Then
+				Call SIGE_AjouterLog(|Erreur: L'opportunité | &amp; v_NoOpportunite &amp; | a déjà été synchronisée avec la proposition | &amp; l_NoOpportunite(v_NoOpportunite) &amp; _
+				|. La proposition | &amp; v_NoProposition &amp; | est un doublon.|, 1, 0, False)
+			Else
+				l_NoOpportunite(v_NoOpportunite) = 	v_NoProposition
+
+				v_Resultat = SDSPSf_MajOpportunite(nd_Prop, cl_ConnexionAPI)
+				If v_Resultat &lt; 0 Then
+					Call SIGE_AjouterLog(|Erreur | &amp; CStr(v_Resultat) &amp; |: Une erreur s'est produite lors de la synchronisation de la proposition | &amp; _
+					| avec l'opportunité | &amp; v_NoOpportunite &amp; |.|, 1, 0, False)
+					v_NbErr = v_NbErr + 1
+				ElseIf v_Resultat &gt; 0 Then
+					v_NbMaj = v_NbMaj + 1
+				End If
+			End If
+		End If
+		
+		If (v_NbLus Mod 1000) = 0 Then
+			Print gc_Element_SLSf &amp; " " &amp; CStr(v_NbMaj) &amp; |/| &amp; CStr(v_NbLus) &amp; | - Nb erreurs = | &amp; CStr(v_NbErr)
+		End If
+		
+		Set nd_Prop = ndc.GetNextDocument(nd_Prop)
+	Loop
+
+	Call SIGE_AjouterLog(gc_Element_SLSf &amp; " - Fin " &amp; CStr(v_NbMaj) &amp; |/| &amp; CStr(v_NbLus) &amp; | - Nb erreurs = | &amp; CStr(v_NbErr), 0, 0, True)
+	
+FinSub:
+	Call SIGE_EnregistrerLog
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="8577737480B7EB1485258D810064862B">
+<agentmodified><datetime>20260105T014838,56-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260407T182137,02-04</datetime></agentrun>
+<runlog>Started running agent 'Salesforce\SyncOpportunities|A_SFSO' on 2026-04-07 06:14:49 PM
+Found 0 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Salesforce\SyncOpportunities|A_SFSO' on 2026-04-07 06:21:37 PM
+</runlog></rundata>
+<item name="$POID"><datetime dst="true">20250603T153741,75-04</datetime></item></agent>
+
+</database>

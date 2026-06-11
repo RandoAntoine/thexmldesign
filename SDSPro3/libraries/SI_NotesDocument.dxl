@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_NotesDocument" hide="v3 v4strict" designerversion="8.5.3" comment="1.8">
+<noteinfo noteid="357806" unid="209E7D47CBC9959685258877005FE737" sequence="31">
+<created><datetime dst="true">20220706T132731,11-04</datetime></created>
+<modified><datetime>20250319T074102,32-05</datetime></modified>
+<revised><datetime>20250319T073635,47-05</datetime></revised>
+<lastaccessed><datetime>20250319T074102,31-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20220707T224014,47-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_NotesAPI"
+Use "SI_FichierWIN"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIND = "SL"
+Const gc_Element_SIND = "SI_NotesDocument"
+
+'Const APIModule = "NNOTES" 
+
+'Declare Function MailGetMessageBodyComposite Lib APIModule Alias "MailGetMessageBodyComposite" ( ByVal hNT As Long, ByVal N As String, ByVal D As String, nD As Long) As Integer
+'Declare Function ExportRTF Lib "nxrtf" Alias "ExportRTF" (ByVal sTempFile As String, ByVal flags As Long, hmod As Long, ByVal altlibrary As String, ByVal sRTFFile As String) As Integer
+
+
+</lotusscript></code><code event="SIND_AccesAuteur"><lotusscript>Function SIND_AccesAuteur(pnd As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim v_AccessLevel As Integer
+	Dim a_UserNamesList As Variant
+	Dim a_Items As Variant
+	Dim ni As NotesItem
+	
+	Dim i As Integer
+	Dim j As Integer
+	
+	' Vérifier l'accès à la base de documents
+	Set ndb = pnd.ParentDatabase
+	v_AccessLevel = ndb.CurrentAccessLevel
+	
+	If v_AccessLevel &lt; ACLLEVEL_AUTHOR Then
+		SIND_AccesAuteur = False
+	Elseif v_AccessLevel &gt; ACLLEVEL_AUTHOR Then
+		SIND_AccesAuteur = True
+	Else
+		' Vérifier l'accès au document
+		a_UserNamesList = Evaluate("@Usernameslist")
+		a_Items = pnd.Items
+		For i = 0 To Ubound(a_Items)
+			Set ni = a_Items(i)
+			If ni.IsAuthors() Then
+				For j = 0 To Ubound(a_UserNamesList)
+					If Not Isnull(Arraygetindex(ni.Values, a_UserNamesList(j))) Then
+						SIND_AccesAuteur = True
+						Exit Function
+					End If
+				Next
+			End If
+		Next
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIND, gc_Element_SIND, Getthreadinfo(1), "", False)		
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIND_ValeurItemEgale"><lotusscript>Function SIND_ValeurItemEgale(pnd As NotesDocument, p_NomItem As String, p_Valeur As Variant, ByVal p_Date As Boolean) As Boolean
+	' Vérifie si la valeur de l'item p_NomItem est égale à p_Valeur
+	On Error GoTo GererErreur
+	
+	Dim v_ValeurDifferente As Boolean
+	Dim a_ValeurOrig As Variant
+	Dim i As Integer
+	Dim ndt As New NotesDateTime("")
+	
+	SIND_ValeurItemEgale = False
+	v_ValeurDifferente = False
+	
+	' Extraire les valeurs actuelles
+	a_ValeurOrig = xVarArray(pnd, p_NomItem)
+	If p_Date Then
+		If IsArray(a_ValeurOrig) Then		' Dates - retirer la portion heure
+			For i = LBound(a_ValeurOrig) To UBound(a_ValeurOrig)
+				ndt.LSLocalTime = a_ValeurOrig(i)
+				Call ndt.SetAnyTime
+				a_ValeurOrig(i) = ndt.LSLocalTime
+			Next
+		End If
+		
+	' Si la nouvelle veleur contient des dates, retirer la portion heure
+		If IsArray(p_Valeur) Then
+			For i = LBound(p_Valeur) To UBound(p_Valeur)
+				ndt.LSLocalTime = p_Valeur(i)
+				Call ndt.SetAnyTime
+				p_Valeur(i) = ndt.LSLocalTime
+			Next
+		ElseIf p_Valeur &lt;&gt; "" Then
+			ndt.LSLocalTime = p_Valeur
+			Call ndt.SetAnyTime
+			p_Valeur = ndt.LSLocalTime
+		End If
+	End If
+	
+	' Vérifier si la nouvelle valeur est différent de la valeur actuelle
+	If IsArray(p_Valeur) Then
+		If IsArray(a_ValeurOrig) Then							' Les deux valeurs sont des tableaux
+			If UBound(p_Valeur) &lt;&gt; UBound(a_ValeurOrig) Then
+				v_ValeurDifferente = True
+			Else
+				For i = LBound(p_Valeur) To UBound(p_Valeur)
+					If CStr(p_Valeur(i)) &lt;&gt; CStr(a_ValeurOrig(i)) Then
+						v_ValeurDifferente = True
+						Exit For
+					End If
+				Next
+			End If
+		Else																' p_Valeur est un tableau mais pas a_ValeurOrig
+			If UBound(p_Valeur) &gt; 0 Then
+				v_ValeurDifferente = True
+			ElseIf CStr(p_Valeur(0)) &lt;&gt; CStr(a_ValeurOrig) Then
+				v_ValeurDifferente = True
+			End If
+		End If
+	ElseIf IsArray(a_ValeurOrig) Then						' a_ValeurOrig est un tableau mais pas p_Valeur
+		If UBound(a_ValeurOrig) &gt; 0 Then
+			v_ValeurDifferente = True
+		ElseIf CStr(a_ValeurOrig(0)) &lt;&gt; CStr(p_Valeur) Then
+			v_ValeurDifferente = True
+		End If
+	ElseIf CStr(p_Valeur) &lt;&gt; CStr(a_ValeurOrig) Then	' Ni p_Valeur ni a_ValeurOrig n'est un tableau
+		v_ValeurDifferente = True
+	End If
+	
+	SIND_ValeurItemEgale = Not v_ValeurDifferente
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIND, gc_Element_SIND, GetThreadInfo(1), p_NomItem, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIND_AddedToFile"><lotusscript>Function SIND_AddedToFile(pnd As NotesDocument) As String
+	
+	Dim db As String
+	Dim s As String
+	Dim ns As Integer
+	
+	With pnd.ParentDatabase
+		db = String$(1024, " ")
+		SINAPI_OSPathNetConstruct 0, .Server, .FilePath, db
+	End With
+	
+	Dim hDB As Long
+	SINAPI_NSFDbOpen db$, hDB
+	If hDB = 0 Then Exit Function
+	
+	Dim hNT As Long
+	Dim T(1) As Long
+	SINAPI_NSFNoteOpen hDB, Clng("&amp;H" &amp; pnd.NoteID), 0, hNT
+	If Not hNT = 0 Then
+		SINAPI_NSFNoteGetInfo hNT, 13, T(0)
+		SINAPI_NSFNoteClose hNT
+		s = Space(80)
+		SINAPI_ConvertTIMEDATEToText 0, 0, T(0), s, 80, ns
+		SIND_AddedToFile = Left$(s, ns)
+	End If
+	
+	SINAPI_NSFDbClose hDB
+End Function
+
+</lotusscript></code><code event="SIND_Initialisations"><lotusscript>Sub SIND_Initialisations
+	
+End Sub
+
+</lotusscript></code><code event="SIND_DecrypterDocument"><lotusscript>Function SIND_DecrypterDocument(pnd As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	On Error 17 Goto ErreurEncrypt
+	
+	SIND_DecrypterDocument = False
+	
+	If pnd.HasItem("Encrypt") Then
+		' Décryptage des champs
+		' ---------------------------------
+		Forall ni In pnd.items
+			If ni.isencrypted Then
+				ni.isencrypted = False
+			End If
+		End Forall
+		
+		' Crypter le document avec une clé bidon
+		' ------------------------------------------------------
+		Dim temp As New NotesItem(pnd, "x_Decrypter", "Cryptage")
+		temp.IsEncrypted=True
+		Call pnd.encrypt
+		Call pnd.save(True, False)
+		
+		' Retirer les champs relatifs au cryptage
+		' ----------------------------------------------------
+		Call pnd.removeitem("$Seal")
+		Call pnd.removeitem("$SealData")
+		Call pnd.removeitem("SecretEncryptionKeys")
+		Call pnd.removeitem("Encrypt")
+		
+		' Retirer le champ temporaire
+		' ---------------------------------------
+		Call pnd.removeItem("x_Decrypter")
+		Call pnd.Save(True, False)
+	End If
+	
+	SIND_DecrypterDocument = True
+	Exit Function
+	
+ErreurEncrypt:
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIND, gc_Element_SIND, Getthreadinfo(1), Cstr(pnd.UniversalID), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIND_DetacherFichiersAttaches"><lotusscript>Function SIND_DetacherFichiersAttaches(pnd As NotesDocument, p_CheminAcces As String, p_NomItemCle As String) As Long
+	'------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	'	Ce script extrait le.s fichier.s attaché.s d'un document et le.s place dans le chemin d'accès spécifié (p_CheminAcces).
+	'
+	'	Paramètres:
+	'		pnd					: document qui contient un ou des fichiers attachés
+	'		p_NomItemRT	: nom du champ RichText à traiter
+	'		p_CheminAcces	: chemin incluant le nom du fichier à détacher; si p_CheminAcces est vide, le TEMP de l'OS est alors utilisé
+	'		p_NomItemCle	: clé du document; ce texte est ajouté à la fin du nom du fichier. Exemple: &lt;NoCandidat&gt;_&lt;NomFichier&gt;
+	'
+	'	Exemple: Fichier "ABC.PDF" et p_NomItemCle = 12345; le fichier sera nommé "12345_ABC.PDF" et s'il y a plusieurs fichiers au même nom alors 
+	'	le deuxième deviendra "12345_ABC (2).PDF".
+	'
+	'	Valeur retournée:
+	'		 0	: pas de fichier attaché dans le document
+	'		-1	: une erreur s'est produite
+	'		nombre de fichiers attachés traités
+	'------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim a_NomFichierAttaches As Variant
+	Dim i As Integer
+	Dim neo As NotesEmbeddedObject
+	
+	Dim v_NomFichier As String
+	Dim v_LienArchive As String
+	Dim v_NoDocument As String
+	Dim v_Chemin As String
+	Dim v_Format As String
+	Dim s As String
+	
+	Dim v_NbMaj As Long
+	
+	' Initialisations
+	Call SIND_Initialisations
+	SIND_DetacherFichiersAttaches = 0
+	
+	a_NomFichierAttaches = Evaluate(|@AttachmentNames|, pnd)
+	If a_NomFichierAttaches(0) = "" Then
+		Exit Function
+	End If
+	
+	' Boucler sur tous les fichiers attachés du champ
+	For i = 0 to UBound(a_NomFichierAttaches)
+		
+		' Créer le dossier où sera placé le fichier
+		If p_CheminAcces = "" Then
+			On Error 75 Resume Next
+			p_CheminAcces = Environ("Temp") &amp; "\SIND"
+			MkDir p_CheminAcces
+			p_CheminAcces = p_CheminAcces &amp; "\"
+		Else
+			s = Dir$(p_CheminAcces, 16)
+			If s = "" Then
+				MkDir p_CheminAcces
+			End If
+		End If
+		
+		Set neo = pnd.Getattachment(a_NomFichierAttaches(i))
+		v_NomFichier = p_NomItemCle &amp; "_" &amp; neo.name
+		v_Chemin = SLFWIN_NomFichierUnique(p_CheminAcces &amp; "\" &amp; v_NomFichier)
+		v_NomFichier = StrRightBack(v_NomFichier, "\")
+		
+		' Extraire le fichier et le placer dans le chemin indiqué
+		Call neo.ExtractFile(v_Chemin)
+		v_NbMaj = v_NbMaj + 1
+		
+	Next
+	
+	SIND_DetacherFichiersAttaches = v_NbMaj
+	Exit Function
+	
+GererErreur:
+	SIND_DetacherFichiersAttaches = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SIND, gc_Element_SIND, GetThreadInfo(1), v_NomFichier &amp; " --&gt; " &amp; p_CheminAcces, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SIND_ConvertirDocumentRTF"><lotusscript>%REM
+  Description: Converts a NotesDocument to an RTF-Document and saves it under the filePath
+  Generates and removes some temporary Files while Working
+%END REM
+
+Function SIND_ConvertirDocumentRTF(pnd As NotesDocument, p_CheminAccesRTF As String) As boolean
+	On Error GoTo ErrorHandler
+
+	Dim nd_Temp As NotesDocument
+	Dim nrti As NotesRichTextItem
+	Dim v_CheminFichier_Body As String
+	Dim v_CheminFichier_Fonts As String
+	Dim v_CheminFichier_Temp As String
+	Dim v_FileSize As Long
+	
+	Dim i As Integer
+	Dim f As Integer
+	Dim fnew As Integer
+	
+	SIND_ConvertirDocumentRTF = False
+	
+	Set nd_Temp = pnd.ParentDatabase.CreateDocument()
+	Set nrti = nd_Temp.CreateRichTextItem("Body")
+	
+	Call pnd.RenderToRTItem(nrti)
+	
+	v_CheminFichier_Body = p_CheminAccesRTF &amp; "_Body.cd"
+	v_CheminFichier_Fonts = p_CheminAccesRTF &amp; "_Fonts.cd"
+	v_CheminFichier_Temp = p_CheminAccesRTF &amp; ".cd"
+	
+	Call SINAPI_MailGetMessageBodyComposite(nd_Temp.handle , "Body", v_CheminFichier_Body, v_FileSize) 
+	Call SINAPI_MailGetMessageBodyComposite(nd_Temp.handle , "$Fonts", v_CheminFichier_Fonts, v_FileSize)
+	
+	' Concatener le body et les polices dans un seul fichier
+	fnew = FreeFile
+	Open v_CheminFichier_Temp For Binary As #fnew
+	
+	' $fonts
+	f = FreeFile
+	Open v_CheminFichier_Fonts For Binary As #f
+	Do Until EOF (f)
+		Get #f,,i
+		Put #fnew,, i
+	Loop
+	Close #f
+	
+	' rich text
+	Open v_CheminFichier_Body For Binary As #f
+	' skip 2 bytes	
+	Seek #f, 3
+	Do Until EOF (f)
+		Get #f,,i
+		Put #fnew,, i
+	Loop
+	Close
+	' Fin concatener
+	
+	Call SINAPI_ExportRTF(v_CheminFichier_Temp, 0, 0, "", p_CheminAccesRTF)
+	
+	SIND_ConvertirDocumentRTF = True
+	Kill v_CheminFichier_Body
+	Kill v_CheminFichier_Fonts
+	Kill v_CheminFichier_Temp
+
+	Exit Function
+
+ErrorHandler:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIND, gc_Element_SIND, GetThreadInfo(1), CStr(pnd.UniversalID), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIND_NotesURL"><lotusscript>Function SIND_NotesURL(pnd As NotesDocument) As String
+	' Retourne l'URL permettant d'ouvrir un document dans Notes.
+	' Format: Notes://DbReplicaId/ViewNoteUNID/DocUNID
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim v_Serveur As String
+	Dim nv As NotesView
+	Dim v_URL As String
+	
+	If pnd Is Nothing Then
+		Exit Function
+	End If
+	
+	Set ndb = pnd.ParentDatabase
+	v_Serveur = ndb.Server
+	If v_Serveur = "" Then
+		Exit Function
+	End If
+	
+	Set nv = ndb.GetView("V_AdmT")
+	If nv Is nothing Then
+		Exit Function
+	End If
+	
+	
+	v_URL = "Notes://" &amp; StrRight(StrLeft(v_Serveur, "/"), "=") &amp; "/" &amp; ndb.Replicaid &amp; "/" &amp; nv.UniversalId &amp; "/" &amp; pnd.UniversalId
+	SIND_NotesURL = v_URL
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIND, gc_Element_SIND, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,47-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,1540 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Workflow" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="555992" unid="9489F37C4323C81985258C0C0071BB8B" sequence="6">
+<created><datetime>20250108T154215,79-05</datetime></created>
+<modified><datetime>20260319T100416,94-05</datetime></modified>
+<revised><datetime>20260319T100329,79-05</datetime></revised>
+<lastaccessed><datetime>20260319T100416,93-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,49-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SDSP_Proposition"
+Use "SDSP_BonCommande"
+Use "SDSP_Commissions"  
+Use "SDSP_Salesforce"
+Use "wsc_BonCommande" 
+Use "wsc_SIPJ_Client"  '#58112
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' --------------------
+Dim gns_SDSPWF As NotesSession
+Dim gndb_SDSPWF As NotesDatabase
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPWF = "SL"
+Const gc_Element_SDSPWF = "SDSPWF_Workflow"
+
+
+</lotusscript></code><code event="SDSPWF_DestinataireConditionel"><lotusscript>Function SDSPWF_DestinataireConditionel(pnd_Prop As NotesDocument, p_Statut As String) As Variant
+	' ---------------------------------------------------------------------
+	' 	Cette fonction calcule le destinataire CC supplémentaire 
+	' 
+	' 	pnd_Prop:	document de la proposition
+	'	p_Statut:	nouveau statut de la proposition
+	' ---------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim a_StatutWFCourCC As Variant
+	Dim a_DestCopyToConditionel As Variant
+	Dim v_WFNomCourrielCC As String
+	
+	SDSPWF_DestinataireConditionel = "" 
+	
+	v_WFNomCourrielCC = "Prop_WFCourCC"
+	
+	' Caculer destinataire conditionel s'il y a lieu
+	'-------------------------------------------------
+	a_StatutWFCourCC = xVarTabl(v_WFNomCourrielCC, "Tabl_Valeurs", "", True)
+		
+	If IsArray(a_StatutWFCourCC) Then
+		If Not IsNull(ArrayGetIndex(a_StatutWFCourCC, p_Statut)) Then
+			If xComplTabl(p_Statut, v_WFNomCourrielCC, "1", True) = "1" Then
+				If SDSI_ContratRequis(pnd_Prop) Then
+					a_DestCopyToConditionel = xComplTabl(p_Statut, v_WFNomCourrielCC, "2", True)					
+				End If
+			Else
+				a_DestCopyToConditionel = xComplTabl(p_Statut, v_WFNomCourrielCC, "2", True)
+			End If
+		End If
+	Else
+		If a_StatutWFCourCC = p_Statut Then
+			If xComplTabl(p_Statut, v_WFNomCourrielCC, "1", True) = "1" Then
+				If SDSI_ContratRequis(pnd_Prop) Then
+					a_DestCopyToConditionel = xComplTabl(p_Statut, v_WFNomCourrielCC, "2", True)	
+				End If
+			Else
+				a_DestCopyToConditionel = xComplTabl(p_Statut, v_WFNomCourrielCC, "2", True)	
+			End If
+		End If 		
+	End If
+	
+	If InStr(a_DestCopyToConditionel, ";") &gt; 0  Then
+		a_DestCopyToConditionel = FullTrim(Split(a_DestCopyToConditionel, ";"))		
+	ElseIf 	InStr(a_DestCopyToConditionel, ",") &gt; 0  Then
+		a_DestCopyToConditionel = FullTrim(Split(a_DestCopyToConditionel, ","))			
+	End If
+	
+	SDSPWF_DestinataireConditionel = a_DestCopyToConditionel
+		
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPWF_CreerAlerteStatut"><lotusscript>Function SDSPWF_CreerAlerteStatut(pnd_Prop As NotesDocument, p_StatutSuggere As String, p_Erreur As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_NoProposition As String
+	Dim v_NbPropositionFmt As String
+	Dim v_NbProposition As Long
+	
+	Dim v_StatutProposition As String
+
+	Dim nd_Aler As NotesDocument
+	Dim ni As NotesItem
+	
+	SDSPWF_CreerAlerteStatut = False
+	Call SDSPWF_Initialisations
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	v_NbPropositionFmt = xVar(pnd_Prop, "Prop_NbPropositionFmt", "")
+	v_NbProposition = xVar(pnd_Prop, "Prop_NbProposition", 0)
+	
+	v_StatutProposition = xVar(pnd_Prop, "Prop_Statut", "")
+	
+	Set nd_Aler = xSDSP3_xndAler_Nouv(v_NoProposition, False)
+	If nd_Aler Is Nothing Then
+		Set nd_Aler = New NotesDocument(pnd_Prop.ParentDatabase)
+		nd_Aler.Form = "F_Aler"
+		nd_Aler.Cle = v_NoProposition		
+		nd_Aler.Description = CStr(v_NbProposition)
+		
+		Set ni = New NotesItem(nd_Aler, "Auteur", "[Alertes]", AUTHORS)
+		Set ni = New NotesItem(nd_Aler, "AuteurAdmin", "[Admin]", AUTHORS)
+		
+		nd_Aler.Aler_StatutAlerte = "10"
+		nd_Aler.Aler_StatutAlerteDate = Now
+		nd_Aler.Aler_StatutAlerteIcone = xIcnTabl("10", "Aler_Statut_FR", True)
+		nd_Aler.Aler_StatutAlerteDescFR = xDescTabl("10", "Aler_Statut_FR", True)
+		nd_Aler.Aler_StatutAlerteDescEN = xDescTabl("10", "Aler_Statut_EN", True)
+		
+		nd_Aler.Aler_NoProposition = v_NoProposition
+		nd_Aler.Aler_NbProposition = v_NbProposition
+		nd_Aler.Aler_NbPropositionFmt = v_NbPropositionFmt 'MZE utilisé comme categorie dans EV V_Btra73			
+		nd_Aler.Aler_NbPropositionPrefixe =  xVar(pnd_Prop, "Prop_NbPropositionPrefixe","")
+				
+		
+		nd_Aler.Aler_TypeProposition = xVar(pnd_Prop, "Prop_TypeProposition", "")	
+		nd_Aler.Aler_TypePropositionDescFR = xVar(pnd_Prop, "Prop_TypePropositionDescFR", "")
+		
+		nd_Aler.HistoDC = Now
+		nd_Aler.HistoUC = gns_SDSPWF.UserName
+		
+		nd_Aler.Aler_NbAlertes = 1
+		Call nd_Aler.MakeResponse(pnd_Prop)
+	Else
+		nd_Aler.HistoDM = Now
+		nd_Aler.HistoUM = gns_SDSPWF.UserName
+		
+		nd_Aler.Aler_NbAlertes = xVar(nd_Aler, "Aler_NbAlertes", 0) + 1 
+	End If
+	
+	nd_Aler.Aler_StatutProposition = v_StatutProposition
+	nd_Aler.Aler_StatutPropositionDate = xVar(pnd_Prop, "Prop_StatutDate", "")
+	nd_Aler.Aler_StatutPropositionIcone = xIcnTabl(v_StatutProposition, "Prop_Statut_FR", True)
+	nd_Aler.Aler_StatutPropositionDescFR = xDescTabl(v_StatutProposition, "Prop_Statut_FR", True)
+	nd_Aler.Aler_StatutPropositionDescEN = xDescTabl(v_StatutProposition, "Prop_Statut_EN", True)
+	
+	nd_Aler.Aler_ClientNoFmt = xVar(pnd_Prop, "Prop_ClientNoFmt", "")
+	nd_Aler.Aler_ClientNom = xVar(pnd_Prop, "Prop_ClientNom", "")
+	nd_Aler.Aler_ClientNomInterne = xVar(pnd_Prop, "Prop_ClientNomInterne", "")
+	nd_Aler.Aler_DescProposition = xVar(pnd_Prop, "Prop_DescProposition", "")
+	nd_Aler.Aler_NbSites = xVar(pnd_Prop, "Prop_NbSites", "")
+
+	nd_Aler.Aler_NoRepresentant = xVar(pnd_Prop, "Prop_NoRepresentant", "")
+	nd_Aler.Aler_NomRepresentant = xVar(pnd_Prop, "Prop_NomRepresentant", "")
+	
+	nd_Aler.Aler_StatutSuggere = p_StatutSuggere
+	nd_Aler.Aler_StatutSuggereIcone = xIcnTabl(p_StatutSuggere, "Prop_Statut_FR", True)
+	nd_Aler.Aler_StatutSuggereDescFR = xDescTabl(p_StatutSuggere, "Prop_Statut_FR", True)
+	nd_Aler.Aler_StatutSuggereDescEN = xDescTabl(p_StatutSuggere, "Prop_Statut_EN", True)
+	nd_Aler.Aler_Erreur = p_Erreur
+	
+	Call nd_Aler.Save(True, False)
+	
+	SDSPWF_CreerAlerteStatut = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), "" , False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPWF_EnvoyerCourriel"><lotusscript>Function SDSPWF_EnvoyerCourriel(pnd_Prop As NotesDocument, p_Commentaire As String, p_Username As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim nd_Courriel As NotesDocument
+	Dim ni_EnvoyerCourriel As NotesItem
+	Dim nrti As NotesRichTextItem
+	
+	Dim v_ServeurSIRR As String
+	Dim v_Langue As String
+	Dim v_Statut As String
+	Dim v_Origine As String
+	Dim v_RepliqueLocale As Boolean
+	Dim v_Destinataires As String
+	Dim v_DestSendTo As String
+	Dim v_DestCopyTo As String
+	Dim a_DestCopyToConditionel As Variant
+	Dim a_IdCreateur As Variant
+	Dim a_IdRepresentant As Variant
+	
+	Dim v_NoEquipe As String
+	Dim a_IdEquipeRepresentant As Variant
+	Dim a_IdSuperviseur As Variant
+	Dim a_IdSuperviseursSDep As Variant
+	Dim a_IdVerificateur As Variant
+	Dim a_IdDirecteur As Variant
+	Dim a_IdDirNational As Variant
+	Dim a_IdDirMondial As Variant
+	Dim a_IdTechnique As Variant
+	Dim a_SendTo As Variant
+	Dim a_CopyTo As Variant
+	Dim i As Integer
+	Dim v_AjouterCourriel As Boolean
+	Dim v_MajProp As Boolean
+	
+	Dim a_IdDirecteur2 As Variant
+	Dim v_Prop_TypeProposition As String
+	Dim v_Prof_DirecteurDestinataire As Variant
+	Dim v_TpPp_DirecteurDestinataire As Variant
+	
+	SDSPWF_EnvoyerCourriel = False
+	
+	v_ServeurSIRR = xGDK_xFormulaNDB("SIRR")
+	
+	' Toujours envoyer dans langue du représentant
+	'v_Langue = xSIRR_xVarRepr(xVar(pnd_Prop, "Prop_NoRepresentant", ""), "Repr_Langue", "FR", True)
+	
+	'Prend la langue du contrat req. 49901
+	v_Langue = xVar(pnd_Prop, "Prop_Langue", "FR")
+	
+	v_Statut = xVar(pnd_Prop, "Prop_Statut", "")
+	v_Origine = xVar(pnd_Prop, "Prop_Origine", "")
+
+
+	' Vérifie si travaille sur réplique locale
+	If gndb_SDSPP.Server = "" Then
+		v_RepliqueLocale = True
+	Else
+		v_RepliqueLocale = False
+	End If
+	
+	'Call SIGE_OuvrirLog(gc_TypeElement_SDSPWF, gc_Element_SDSPWF)
+	'Call SIGE_AjouterLog ("SDSPWF_EnvoyerCourriel: DÉBUT", 0, 0)
+	
+	' Déterminer les destinataires en fonction du statut
+	' --------------------------------------------------
+	If v_Origine &lt;&gt; "SICl" Then
+		v_Destinataires = xComplTabl(v_Statut, "Prop_Statut_FR", "2", True)
+	Else
+		v_Destinataires = xComplTabl(v_Statut, "Prop_Statut_FR", "4", True)
+	End If
+	
+	If Instr(v_Destinataires, ";") &gt; 0 Then
+		v_DestSendTo = Strleft(v_Destinataires, ";")
+		v_DestCopyTo = Strright(v_Destinataires, ";")
+	Else
+		v_DestSendTo = v_Destinataires
+	End If
+	
+	' Caculer destinataire conditionel s'il y a lieu
+	'-------------------------------------------------
+	a_DestCopyToConditionel = SDSPWF_DestinataireConditionel(pnd_Prop, v_Statut)
+						
+	If v_DestSendTo = "" Then
+		Exit Function
+	End If
+	
+	a_IdCreateur = xVar(pnd_Prop, "HistoUC", "")
+	a_IdRepresentant = xVar(pnd_Prop, "Prop_IdRepresentant", "")
+	
+	If a_IdCreateur = a_IdRepresentant Then
+		a_IdCreateur = ""
+	End If
+	
+	' Superviseurs du créateur (HistoUC)
+	a_IdSuperviseursSDep = SDSPP_SuperviseursSDep(CStr(a_IdCreateur))
+	
+	' Equipe du représentant
+	v_NoEquipe = xSIRR_xVarRepr_Id(a_IdRepresentant,"", "Repr_NoEquipe", "0")
+	If v_NoEquipe &lt;&gt; "0" Then
+		a_IdEquipeRepresentant = Evaluate(|@IfError(@DbLookup("";| &amp; v_ServeurSIRR &amp; |; "V_Repr22";  "| &amp; v_NoEquipe &amp; |"; 3); "");|)
+	End If
+	
+	a_IdSuperviseur = xVar(pnd_Prop, "Prop_IdSuperviseur", "")
+	
+	' Vérificateur
+	a_IdVerificateur = xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_VerificateurDestinataire", "", True)
+	
+	' Directeur
+	' Si Prop_Directeur vide retourne TpPp_DirecteurDestinataire
+	' Si Prop_Directeur vide et TpPp_DirecteurDestinataire vide retourne Prof_DirecteurDestinataire
+	' PBE 2022-05-27 Correction Type Mismatch lorsque TpPp_DirecteurDestinataire contient un seul destinataire
+	a_IdDirecteur2 = xVarArray(pnd_Prop, "Prop_IdDirecteur")
+	If IsArray(a_IdDirecteur2) Then
+		a_IdDirecteur = a_IdDirecteur2
+	Else
+		v_Prop_TypeProposition = xVar(pnd_Prop,"Prop_TypeProposition", "")
+		v_TpPp_DirecteurDestinataire = xSDSBB_xVarTpPp(v_Prop_TypeProposition, "TpPp_DirecteurDestinataire", "", True)
+		If IsArray(v_TpPp_DirecteurDestinataire) Then
+			a_IdDirecteur = v_TpPp_DirecteurDestinataire
+		ElseIf v_TpPp_DirecteurDestinataire &lt;&gt; "" Then
+			a_IdDirecteur = Evaluate(|"| &amp; v_TpPp_DirecteurDestinataire &amp; |"|)
+		Else
+			v_Prof_DirecteurDestinataire = xVarProf("Prof_DirecteurDestinataire", "")
+			If IsArray(v_Prof_DirecteurDestinataire) Then
+				a_IdDirecteur = v_Prof_DirecteurDestinataire
+			ElseIf v_Prof_DirecteurDestinataire &lt;&gt; "" Then
+				a_IdDirecteur = Evaluate(|"| &amp; v_Prof_DirecteurDestinataire &amp; |"|)
+			End If
+		End If
+	End If
+	%REM
+	a_IdDirecteur = xVar(pnd_Prop, "Prop_IdDirecteur", _
+	xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_DirecteurDestinataire", _
+	xVarProf("Prof_DirecteurDestinataire", ""), True))
+	%END REM
+	
+	a_IdDirNational = xVarArray(pnd_Prop, "Prop_IdDirNational") 
+	a_IdDirMondial = xVarArray(pnd_Prop, "Prop_IdDirMondial")
+		
+	' Technique
+	a_IdTechnique = xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_TechniqueDestinataire", "", True)
+	
+	' Codes de destinataire
+	'	C = Créateur
+	'	R = Représentant
+	'	E = Équippe du représentant
+	'	S = Superviseur de l'équipe
+	'	V = Vérificateur (Coordinator)
+	'	D = Directeur
+	'	T = Département technique
+	
+	' Destinataire - SendTo
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "C", a_IdCreateur, a_SendTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "R", a_IdRepresentant, a_SendTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "E", a_IdEquipeRepresentant, a_SendTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "S", a_IdSuperviseur, a_SendTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "S", a_IdSuperviseursSDep, a_SendTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "V", a_IdVerificateur, a_SendTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "D", a_IdDirecteur, a_SendTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "N", a_IdDirNational, a_SendTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "M", a_IdDirMondial, a_SendTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "T", a_IdTechnique, a_SendTo)
+	
+	' Destinataire - CopyTo
+	Call SDSPP_AjouterDestinataire(v_DestCopyTo, "C", a_IdCreateur, a_CopyTo)
+	Call SDSPP_AjouterDestinataire(v_DestCopyTo, "R", a_IdRepresentant, a_CopyTo)
+	Call SDSPP_AjouterDestinataire(v_DestCopyTo, "E", a_IdEquipeRepresentant, a_CopyTo)
+	Call SDSPP_AjouterDestinataire(v_DestCopyTo, "S", a_IdSuperviseur, a_CopyTo)
+	Call SDSPP_AjouterDestinataire(v_DestSendTo, "S", a_IdSuperviseursSDep, a_CopyTo)
+	Call SDSPP_AjouterDestinataire(v_DestCopyTo, "V", a_IdVerificateur, a_CopyTo)
+	Call SDSPP_AjouterDestinataire(v_DestCopyTo, "D", a_IdDirecteur, a_CopyTo)
+	Call SDSPP_AjouterDestinataire(v_DestCopyTo, "N", a_IdDirNational, a_CopyTo)
+	Call SDSPP_AjouterDestinataire(v_DestCopyTo, "M", a_IdDirMondial, a_CopyTo)
+	Call SDSPP_AjouterDestinataire(v_DestCopyTo, "T", a_IdTechnique, a_CopyTo)
+	
+	' Destinataire conditionel - CopyTo	
+	If IsArray(a_DestCopyToConditionel) Then
+		For i = 0 To UBound(a_DestCopyToConditionel)
+			Call SDSPP_AjouterDestinataire(a_DestCopyToConditionel(i), a_DestCopyToConditionel(i), CVar(a_DestCopyToConditionel(i)), a_CopyTo)
+		Next	
+		i = 0
+	Else
+		Call SDSPP_AjouterDestinataire(CStr(a_DestCopyToConditionel), CStr(a_DestCopyToConditionel), a_DestCopyToConditionel, a_CopyTo)
+	End If
+		
+	'EnvoyerCourriel:
+	pnd_Prop.Temp_Comm = p_Commentaire			' Inclure le commentaire du changement de statut dans le courriel
+	
+	pnd_Prop.Temp_NomClient = xVar(pnd_Prop, "Prop_ClientNomInterne",xVar(pnd_Prop, "Prop_ClientNom",""))
+	
+	' Si travaille sur serveur assigner le numéro et envoyer le courriel immédiatement
+	If Not v_RepliqueLocale Then
+		
+		' Assigner le numéro de proposition si nouveau et pas de numéro
+		If xVar(pnd_Prop, "Prop_NbProposition", 0) = 0 Then
+			If SDSPP_AssignerNbProposition(pnd_Prop) Then
+				v_MajProp = True
+			End If
+		Else
+			If SDSPP_MajPrefixProposition(pnd_Prop)	Then
+				v_MajProp = True
+			End If
+		End If
+		
+		If Isarray(a_SendTo) Then
+			
+			' Enlever noms de copy to si déja dans send to
+			If Isarray(a_CopyTo) Then
+				a_CopyTo = Fulltrim(Replace(a_CopyTo, a_SendTo, ""))
+			Else
+				If Not Isnull(Arraygetindex(a_SendTo, a_CopyTo)) Then
+					a_CopyTo = ""
+				End If
+			End If
+			
+			If xVar(pnd_Prop, "Prop_NePasPartager", "") = "1" And v_NoEquipe &lt;&gt; "0" Then
+				a_IdEquipeRepresentant = Fulltrim(Replace(a_IdEquipeRepresentant, a_IdRepresentant, ""))
+				
+				If Isarray(a_CopyTo) Then
+					a_CopyTo = Fulltrim(Replace(a_CopyTo, a_IdEquipeRepresentant, ""))
+				Else
+					If Not Isnull(Arraygetindex(a_IdEquipeRepresentant, a_CopyTo)) Then
+						a_CopyTo = ""
+					End If
+				End If
+				
+				If Isarray(a_SendTo) Then
+					a_SendTo = Fulltrim(Replace(a_SendTo, a_IdEquipeRepresentant, ""))
+				Else
+					If Not Isnull(Arraygetindex(a_IdEquipeRepresentant, a_SendTo)) Then
+						a_SendTo = ""
+					End If
+				End If
+				
+			End If
+
+			Set nd_Courriel = SICT_ConstruireMessage(pnd_Prop, "Statut" &amp; v_Statut, v_Langue, Arrayunique(a_SendTo), a_CopyTo, "", False, "")
+		End If
+	End If
+	
+	If Not nd_Courriel Is Nothing Then
+		Set nrti = nd_Courriel.GetFirstItem("Body")
+		If xVar(pnd_Prop, "Prop_NomRepresentant", "") = "" Then
+			Call SItRT_Remplacer(nrti, "[prop_nomrepresentant]", "")
+		End If
+		'Call SIGE_AjouterLog ("Envoie du courriel sendto= " &amp; xVarImplode(nd_Courriel, "SendTo", ","), 0, 0)
+		nd_Courriel.Principal = p_Username
+		Call nd_Courriel.Send(False)
+		Call pnd_Prop.RemoveItem("Temp_Comm")
+		Call pnd_Prop.RemoveItem("Temp_NomClient")
+		v_MajProp = True
+	End If
+	
+	If v_MajProp Then
+		Call pnd_Prop.Save(True, False)
+	End If
+	
+	' Si réplique locale, envoyer le courriel par l'agent "A_WFCO"
+	If v_RepliqueLocale Then
+		Set ni_EnvoyerCourriel = xni(pnd_Prop, "SIWF_EnvoyerCourriel", "")
+		
+		v_AjouterCourriel = True
+		For i = 0 To Ubound(ni_EnvoyerCourriel.Values)
+			If Strleft(ni_EnvoyerCourriel.Values(i),";") = v_Statut Then
+				v_AjouterCourriel = False
+				Exit For
+			End If
+		Next
+		If v_AjouterCourriel Then
+			' Statut;Commentaire;Principal
+			Call ni_EnvoyerCourriel.AppendToTextList(v_Statut &amp; ";" &amp; p_Commentaire &amp; ";" &amp; gns_SDSPP.UserName)
+			Call pnd_Prop.RemoveItem("Temp_Comm")
+			Call pnd_Prop.RemoveItem("Temp_NomClient")
+			Call pnd_Prop.Save(True, False)
+		End If
+		
+	End If
+	
+	'Call SIGE_AjouterLog("FIN.", 0, 0)
+	'Call SIGE_EnregistrerLog
+	
+	SDSPWF_EnvoyerCourriel = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_AjouterLog("***ERREUR*** Voir SI registre.  Envoie de courriel annulée.", 1, 92, False)
+	Call SIGE_EnregistrerLog
+	
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPWF_ImporterContratsService"><lotusscript>Function SDSPWF_ImporterContratsService(pnd_Prop As NotesDocument, p_UserName As String) As Integer
+	On Error Goto GererErreur
+	
+	Dim nd_Site As NotesDocument	
+	
+	Set nd_Site = xSDSP3_xndSite(xVarElem(pnd_Prop, "Prop_NoSites", 0 , ""), True)	
+	
+	If Not nd_Site Is Nothing Then
+		SDSPWF_ImporterContratsService = SDSPP_ImporterContratsService(pnd_Prop, nd_Site, "", p_UserName)
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, Getthreadinfo(1), xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+
+
+</lotusscript></code><code event="SDSPWF_AssignerNoClientSites"><lotusscript>Function SDSPWF_AssignerNoClientSites(pnd_Prop As NotesDocument, pnd_DB As NotesDocument, p_UserName As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_NbSites As Integer
+	Dim a_NoSite As Variant
+	Dim v_PosSite As Integer
+	Dim v_NoItem As String
+	Dim v_SiteNoSite As String
+	Dim nd_Site As NotesDocument
+	Dim v_SiteClientNoFmt As String
+	Dim nd_Clie As NotesDocument
+	Dim v_ClientNoFmt As String
+	
+	SDSPWF_AssignerNoClientSites = False
+	
+	a_NoSite = xVarArray(pnd_Prop, "Prop_NoSites")
+	For v_PosSite = LBound(a_NoSite) To UBound(a_NoSite)
+		v_NoItem = Format(v_PosSite + 1, "000")		
+		
+		Set nd_Site = xSDSP3_xndSite(a_NoSite(v_PosSite), True)
+		If nd_Site Is Nothing Then
+			Exit Function
+		End If
+		
+		If xVar(pnd_Prop, "Prop_Origine", "") = "SF" Then '*** Salesforce		
+			v_ClientNoFmt = xVar(pnd_DB, "DB_SiteClientNoFmt" &amp; v_NoItem, "")
+		Else			
+			Set nd_Clie = xPJ_xndClie(xVar(pnd_Prop, "Prop_Origine", ""), xVar(nd_Site, "Site_OrigineCle", ""), True)
+			If nd_Clie Is Nothing Then
+				Exit Function
+			End If
+			
+			' Maj le client (PJ)
+			v_ClientNoFmt = xVar(nd_Clie, "Clie_NoClientFmt", "")
+			If v_ClientNoFmt = "" Then
+				v_SiteClientNoFmt = xVar(pnd_DB, "DB_SiteClientNoFmt" &amp; v_NoItem, "")
+				If v_SiteClientNoFmt &lt;&gt; "" Then
+					nd_Clie.Clie_CUCLI1 = xVar(pnd_DB, "DB_SiteClientNo1_" &amp; v_NoItem, "")
+					nd_Clie.Clie_CUCLI2 = xVar(pnd_DB, "DB_SiteClientNo2_" &amp; v_NoItem, "")
+					nd_Clie.Clie_NoClientFmt = v_SiteClientNoFmt
+					nd_Clie.HistoDM = Now
+					nd_Clie.HistoUM = p_UserName
+					Call nd_Clie.Save(True, False)
+					
+					v_ClientNoFmt = v_SiteClientNoFmt
+				End If
+			End If
+		End If '*** FIN Salesforce, ne pas voir dans Projeto
+		
+		' Maj le site
+		If v_ClientNoFmt &lt;&gt; "" And xVar(nd_Site, "Site_ClientNoFmt", "") &lt;&gt; v_ClientNoFmt Then
+			nd_Site.Site_ClientNoFmt = v_ClientNoFmt
+			nd_Site.HistoDM = Now
+			nd_Site.HistoUM = p_UserName
+			Call nd_Site.Save(True, False)
+		End If
+	Next
+	
+	SDSPWF_AssignerNoClientSites = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), "" , False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPWF_ChangerStatut60"><lotusscript>Function SDSPWF_ChangerStatut60(pnd_Prop As NotesDocument, ByVal p_Username As String,_
+	pnd_DB As NotesDocument) As Boolean 
+	' -------------------------------------------------------------------------------------------------------
+	' Maj pour le statut 60 - Signée
+	' 
+	'	pnd_Prop:	document de la proposition
+	'	p_Statut:	nouveau statut de la proposition
+	'	p_Username:	nom de l'utilisateur qui change le statut de la proposition
+	'	pnd_DB: 	document du DialogBbox (commentaire (DB_SIHi) ou attachement du Proposition signé(DB_PropSg))
+	' -------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_Origine As String
+	Dim v_NoClientFmt As String
+	Dim v_CleClient As String
+	
+	Dim nd_SICl As NotesDocument
+	Dim nd_Clie As NotesDocument
+	Dim v_Resultat As Integer
+	Dim nd_Docu As NotesDocument
+	
+	Dim p_IdFichier As String
+	Dim wsc As Cl_SIPJ_Client
+	
+	SDSPWF_ChangerStatut60 = False
+	
+	' Si la proposition est créée sans no de client via projeto,
+	' maj. les champs clients lors de la signature
+	v_Origine = xVar(pnd_Prop, "Prop_Origine", "")
+	If v_Origine &lt;&gt; "SICl" Then
+		v_NoClientFmt = xVar(pnd_DB, "DB_ClientNoFmt","")
+		Set nd_SICl = xSICl_xndClie(v_NoClientFmt, False)
+		If nd_SICl Is Nothing Then
+			Exit Function
+		End If
+		
+		' Maj le no de client de la proposition
+		If xVar(pnd_Prop, "Prop_ClientNoFmt", "") = "" Then
+			Call SIIx_MajItem(pnd_Prop, "Prop_ClientNoFmt", v_NoClientFmt, False)
+			
+			If v_Origine = "SF" Then
+				' Maj du no de client dans Salesforce
+				If xVarProf("Prof_DesactiverSalesforceAPI", "") &lt;&gt; "1" Then
+					v_Resultat = SDSPSf_MajAccount(pnd_Prop, Nothing)
+				End If
+			Else				'#58112		
+				Set wsc = New Cl_SIPJ_Client
+				v_CleClient = xPJ_xVarProj(v_Origine, xVar(pnd_Prop, "Prop_NoProjet", ""), "CleClient", "", True)
+				Call wsc.MajNoClient (v_CleClient, v_NoClientFmt, p_Username)  
+			End If
+		End If
+		
+		If SDSPWF_AssignerNoClientSites(pnd_Prop, pnd_DB, p_UserName) = False Then
+			Exit Function
+		End If
+	End If
+	
+	If Not SDSPWF_AttacherContratSigne(pnd_Prop, pnd_DB, p_UserName, nd_Docu) Then
+		Exit Function
+	End If
+
+	Print "SDSPWF_ChangerStatut60 -&gt; " &amp; v_Origine
+	If v_Origine = "SF" Then
+		If xVarProf("Prof_DesactiverSalesforceAPI", "") &lt;&gt; "1" Then
+			' Attacher le contrat signé à l'opportunité Salesforce
+			v_Resultat = SDSPSf_EnvoyerPDF(pnd_Prop, nd_Docu, Nothing, p_IdFichier)
+			If v_Resultat &gt;= 0 Then
+				pnd_Prop.Prop_IdFichierSF = p_IdFichier
+			End If
+		End If
+		
+	ElseIf Left(v_Origine, 2) = "PJ" Then
+		pnd_Prop.Prop_MajProjet = "1"
+		pnd_Prop.Prop_PJCreerNote = "1"
+	End If
+	
+	' Date de signature
+	Call SIIx_AssignerDate(pnd_Prop, "Prop_DateSignature", xVar(pnd_DB, "DB_DateSignature", Today))
+	
+	
+	
+	SDSPWF_ChangerStatut60 = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPWF_AssignerStatut"><lotusscript>Function SDSPWF_AssignerStatut (pnd_Prop As NotesDocument, p_Statut As String, _
+p_DemanderCommentaire As Boolean, p_Commentaire As String, ByVal p_UserName As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_StatutDesc As String
+		
+	SDSPWF_AssignerStatut = False
+	
+	If p_Username = "" Then 
+		p_UserName = gns_SDSPP.UserName
+	End If
+		
+	
+	' Ajouter le commentaire à l'historique
+	' -------------------------------------
+	v_StatutDesc = xDescTabl(p_Statut, "Prop_Statut_" &amp; xLangue, True)
+	If Not SIHi_Ajouter(pnd_Prop, p_Statut &amp; "-" &amp; v_StatutDesc, p_Commentaire, p_Username, False) Then
+		Exit Function
+	End If
+	
+	' Assigner le nouveau statut
+	' --------------------------
+	pnd_Prop.Prop_Statut = p_Statut
+	pnd_Prop.Prop_StatutDate = Now
+	pnd_Prop.Prop_StatutIcone = xIcnTabl(p_Statut, "Prop_Statut_FR", True)
+	pnd_Prop.Prop_StatutDescFR = xDescTabl(p_Statut, "Prop_Statut_FR", True)
+	pnd_Prop.Prop_StatutDescEN = xDescTabl(p_Statut, "Prop_Statut_EN", True)
+	
+	pnd_Prop.HistoDM = Now
+	pnd_Prop.HistoUM = p_UserName
+	
+	' Mettre à jour l'historique de la proposition
+	' --------------------------------------------
+	Call SIHi_BatirHistorique(pnd_Prop)
+	
+	'Assigner le statut aux produits  Req#56560
+	' --------------------------------------------
+	Call SDSPWF_AssignerStatutProduits (pnd_Prop, p_Statut)
+	
+	
+	SDSPWF_AssignerStatut = True
+	
+	If p_statut = "84" Or p_statut = "94" Or p_statut = "96" Then  '**********************************************
+		Call SIGE_EnregistrerAcces(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), "Prop No: " &amp; xVar(pnd_Prop, "Prop_NoProposition","") &amp; " statut changé a: " &amp; p_statut &amp; " (" &amp; CStr(Today) &amp; ")" )
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", "") &amp; ";" &amp; p_Statut, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPWF_ChangerStatut90"><lotusscript>Function SDSPWF_ChangerStatut90(pnd_Prop As NotesDocument, pnd_DB As NotesDocument, p_Langue As String, p_UserName As String, p_Commentaire) as Boolean 
+	' -------------------------------------------------------------------------------------------------------
+	' Maj pour le statut 90 - Facturé
+	' 
+	'	pnd_Prop:	document de la proposition		
+	'	pnd_DB: 	document du DialogBbox (commentaire (DB_SIHi) ou commentaire (DB_Statut))
+	'	p_Username:	nom de l'utilisateur qui change le statut de la proposition
+	'   p_Langue:   la langue du représentant ( pour commentaire du courriel envoyé)
+	'   p_Commentaire : le commentaire	
+	' -------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_Commentaire As String
+	Dim j As Integer
+	
+	'Dim ws_PropComm As Cl_PropComm
+	'Dim wsc As Cl_SDSCommissionsiii
+	
+	SDSPWF_ChangerStatut90 = False
+		
+	
+	' Créer une image de la proposition
+	' ---------------------------------
+	If xComplTabl(xVar(pnd_Prop, "Prop_Statut",""), "Prop_Statut_FR", "1", True) = "1" Then
+		If Not SDSPP_CreerImageProposition(pnd_Prop, False, "90", p_Username) Then
+			Print xGDK_xMessage("SDSP", 92, "", "")
+		End If
+	End If
+	
+	' Commentaire
+	Call SDSPWF_GenererCommentaire(pnd_Prop, pnd_DB, p_Langue, v_Commentaire)
+		
+	' Modifier le statut
+	' ------------------
+	If Not SDSPWF_AssignerStatut(pnd_Prop, "90", False, v_Commentaire, p_Username) Then
+		Exit Function
+	End If
+	
+	' Gérer le workflow
+	' -----------------
+	j= InStr(v_Commentaire, Chr(13))
+	If j &gt; 0 Then
+		v_Commentaire = Left(v_Commentaire, j) &amp; Right(v_Commentaire, (Len(v_Commentaire) - j))
+	End If
+	
+	Call SDSPWF_EnvoyerCourriel(pnd_Prop, v_Commentaire, p_Username)
+	
+	' Modifier les accès (sécurité)
+	' -----------------------------
+	Call SDSPP_AssignerSecurite(pnd_Prop, False) 
+			
+'	Call SDSPC_AssignerStatutProp(pnd_Prop, "86", xVar(pnd_DB, "SIHi_Commentaire", ""), "SDSP3")	RQ55667 			
+				
+	'Set wsc = New Cl_sdscommissionsiii				
+	'Call wsc.Sdsc3_changerstatut(xVar(pnd_Prop, "Prop_NoProposition",""), "86", xVar(pnd_DB, "SIHi_Commentaire", ""), "SDSP3") 
+		
+		
+	SDSPWF_ChangerStatut90 = True
+	Exit Function
+	
+GererErreur:	
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPWF_GenererCommentaire"><lotusscript>Sub SDSPWF_GenererCommentaire(pnd_Prop As NotesDocument, pnd_DB As NotesDocument, p_Langue As String, p_Commentaire As String)
+	' -------------------------------------------------------------------------------------------------------
+	' Le scipt permet de générer le commentaire
+	' 
+	'	pnd_Prop:	document de la proposition
+	'	pnd_DB: 	document du DialogBbox (commentaire (DB_SIHi) ou commentaire (DB_Statut))
+	'   p_Langue:   la langue du représentant (commentaire du courriel envoyé)
+	'	p_Commentaire:	variable pour calculer le commentaire	
+	' -------------------------------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim v_Commentaire As String
+	Dim v_PrixTotalEQ As Double
+	Dim v_PrixTotalLG As Double
+	Dim v_PrixTotalPR As Double
+	Dim v_PrixTotalSV As Double
+	Dim v_Prop_EntretienMensuelLG As Double
+	Dim v_Prop_EntretienMensuelLG_1 As Double
+	Dim v_Prop_PaiementNetMensuel_1 As Double
+	Dim v_TotalAjuste As Double
+	
+	
+	' Prix Total
+	v_PrixTotalPR = SDSI_PrixTotal(pnd_Prop, v_PrixTotalEQ, v_PrixTotalLG, v_PrixTotalSV, False)
+	
+	' Total ajusté
+	v_TotalAjuste = v_PrixTotalPR - xVar(pnd_Prop, "Prop_EscompteMontant", 0) - xVar(pnd_Prop, "Prop_EscompteCorporatif", 0)
+	
+	Call SDSI_EntretienMensuelTotal(pnd_Prop, 0, v_Prop_EntretienMensuelLG_1)
+	
+	If v_Prop_EntretienMensuelLG_1 = 0 Then
+		Call SDSI_EntretienMensuelTotal(pnd_Prop, 0, v_Prop_EntretienMensuelLG)
+		v_Prop_EntretienMensuelLG_1 = v_Prop_EntretienMensuelLG
+	End If
+	
+	
+	v_Prop_PaiementNetMensuel_1 = v_Prop_EntretienMensuelLG_1 - xVar(pnd_Prop, "Prop_EscompteMensualite", 0)
+	
+	v_Commentaire = p_Commentaire
+	
+	' Commentaire saisi par l'utilisateur dans le DialogBox
+	If xVar(pnd_DB, "Form","") = "DB_SIHi" Then
+		If v_Commentaire &lt;&gt; "" Then
+			v_Commentaire = v_Commentaire  &amp; xVar(pnd_DB, "SIHi_Commentaire", "")
+		Else
+			v_Commentaire =  xVar(pnd_DB, "SIHi_Commentaire", "")
+		End If		
+	Else
+		If v_Commentaire &lt;&gt; "" Then
+			v_Commentaire  = v_Commentaire  &amp; xvar(pnd_DB, "DB_Commentaire", "")
+		Else
+			v_Commentaire  = xvar(pnd_DB, "DB_Commentaire", "")
+		End If
+		
+	End If
+				
+	If SDSI_ContratRequis(pnd_Prop) Then
+		v_Commentaire = xGDK_xMessage("SDSPP", 95, p_Langue, "") &amp; " = " &amp; SDSI_FormatDevise(v_TotalAjuste , p_Langue) &amp; Chr(13) &amp; _
+		xGDK_xMessage("SDSPP", 94, p_Langue, "") &amp; " = " &amp; SDSI_FormatDevise(v_Prop_PaiementNetMensuel_1, p_Langue) &amp; Chr(13) &amp; _
+		xGDK_xMessage("SDSPP", 182, p_Langue, "")&amp; " = " &amp; xVar(pnd_Prop, "Prop_ContratDureeDesc" &amp; p_Langue, "") &amp; Chr(13) &amp; _
+		xGDK_xMessage("SDSPP", 183, p_Langue, "")&amp; " = " &amp; xVar(pnd_Prop, "Prop_TauxContrat", "") &amp; "%" &amp; Chr(13) &amp; Chr(13) &amp; v_Commentaire
+		
+	Else
+		v_Commentaire = xGDK_xMessage("SDSPP", 95, p_Langue, "") &amp; " = " &amp; SDSI_FormatDevise(v_TotalAjuste , p_Langue) &amp; Chr(13) &amp; _
+		xGDK_xMessage("SDSPP", 94, p_Langue, "") &amp; " = " &amp; SDSI_FormatDevise(v_Prop_PaiementNetMensuel_1, p_Langue) &amp; Chr(13) &amp; Chr(13) &amp; v_Commentaire		
+	End If		
+	
+	p_Commentaire = v_Commentaire	
+		
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Sub
+	
+End Sub
+
+</lotusscript></code><code event="SDSPWF_TotalCommissions"><lotusscript>Function SDSPWF_TotalCommissions(pnd_Prop As NotesDocument) As Double
+	' ---------------------------------------------------------------------------
+	' 	Cette fonction calcule le total des commissions représentant et directeur	
+	' ---------------------------------------------------------------------------
+	On Error GoTo GererErreur
+		
+	Dim v_CommissionsRep As Double
+	Dim v_CommissionsDir As Double
+	Dim l_Commissions  As Variant
+	Dim v_ServeurSDSBB As String
+			
+    'Initialisations
+	v_ServeurSDSBB = xGDK_xFormulaNDB("SDSBB")
+	
+	l_Commissions = SDSPCP_CalculerCommissions(pnd_Prop)
+	
+	'Call SIGE_OuvrirLog(gc_TypeElement_SDSPWF, gc_Element_SDSPWF)
+	'Call SIGE_AjouterLog ("SDSPWF_TotalCommissions: DÉBUT", 0, 0, False)
+	
+	ForAll commission In l_Commissions
+		Call SIGE_AjouterLog (ListTag(commission) &amp; " : " &amp; commission, 0, 0, False)
+	End ForAll
+					
+	v_CommissionsRep = l_Commissions("CommRepresentantEQ") + l_Commissions("CommRepresentantLG")  + l_Commissions("CommRepresentantSV") + l_Commissions("Boni")
+	v_CommissionsDir = l_Commissions("CommDirecteurEQ") + l_Commissions("CommDirecteurLG") + l_Commissions("CommDirecteurSV")
+
+	SDSPWF_TotalCommissions = v_CommissionsRep + v_CommissionsDir
+	
+	'Call SIGE_AjouterLog ("Total Commission Rep : " &amp; CStr(v_CommissionsRep), 0, 0, False)
+	'Call SIGE_AjouterLog ("Total Commission Dir : " &amp; CStr(v_CommissionsDir), 0, 0, False)
+	'Call SIGE_AjouterLog ("TotalCommissions : " &amp; CStr(SDSPWF_TotalCommissions), 0, 0, False)
+	'Call SIGE_AjouterLog ("SDSPWF_TotalCommissions: FIN", 0, 0, False)
+	'Call SIGE_EnregistrerLog
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPWF_Initialisations"><lotusscript>Sub SDSPWF_Initialisations
+	If gns_SDSPWF Is Nothing Then
+		Set gns_SDSPWF= New NotesSession
+		Set gndb_SDSPWF = gns_SDSPWF.CurrentDatabase
+	End If
+End Sub
+
+
+
+</lotusscript></code><code event="SDSPWF_ChangerStatut"><lotusscript>Function SDSPWF_ChangerStatut(pnd_Prop As NotesDocument, p_Statut As String, Byval p_Username As String,_
+	pnd_DB As NotesDocument, p_WebService As Boolean) As Boolean 
+	
+	' ----------------------------------------------------------------------------------------------------------
+	' Fonction récursive qui permet de passer au statut suivant
+	' 
+	'	pnd_Prop:	document de la proposition
+	'	p_Statut:	nouveau statut de la proposition
+	'	p_Username:	nom de l'utilisateur qui change le statut de la proposition
+	'	pnd_DB: 	document du DialogBbox (commentaire (DB_SIHi) ou attachement du Proposition signé(DB_PropSg))
+	'   p_WebService:	Indique si la fonction est appelée à partir d'un web service
+	' -------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Prod As NotesDocument
+	Dim nd_ProduitSuivant As NotesDocument
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim nd_PropSDSC3 As NotesDocument
+	Dim ndc_Produits As NotesDocumentCollection
+	Dim ndc_sites As NotesDocumentCollection
+	Dim ni_PropOptions As NotesItem
+	Dim nv_Prod20 As NotesView
+	
+	Dim a_IdVerificateur As Variant
+	Dim j As Integer
+	Dim v_Commentaire As String
+	Dim v_CopierCommissions As Boolean
+	Dim v_DemanderCommentaire As Boolean
+	Dim v_Origine As String
+	Dim v_Langue As String
+	Dim v_NbBonCommandeRegenere As Integer
+	Dim v_NbProposition As Double
+	Dim v_NbrSiteCopier As Integer
+	Dim v_NbSitesProp As Long
+	Dim v_NoProposition As String
+	Dim v_NoRepresentant As String
+	Dim nd_Repr_User as NotesDocument
+	Dim v_Prop_NbSites As Integer
+	Dim v_Statut As String
+	Dim v_StatutPayee As String
+	Dim v_StatutCommPayee As String
+	Dim v_StatutSignee As String
+	Dim v_PrixTotal As Double
+	Dim v_WFVerification As Variant
+	Dim v_NbCS As Integer
+	Dim v_PasDeVerifications As String
+	Dim v_NotesId As String
+	
+	SDSPWF_ChangerStatut = False
+	
+	' Initialisations
+	Call SDSPP_Initialisations
+	Call SDSPWF_Initialisations
+	
+	
+	v_StatutSignee = "60"
+	v_StatutPayee = "94"
+	v_StatutCommPayee = "95"
+	
+	v_CopierCommissions = False
+	
+	If p_Username = "" Then
+		p_Username = gns_SDSPWF.Username
+	End If
+	
+	v_Langue = xVar(pnd_Prop, "Prop_Langue", "FR")
+	
+	If nv_Prod20 Is Nothing Then
+		Set nv_Prod20 = gndb_SDSPWF.GetView("V_Prod20")
+		Call nv_Prod20.Refresh
+	End If
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition","")
+	v_NoRepresentant = xVar(pnd_Prop, "Prop_NoRepresentant", "")
+	v_Origine = xVar(pnd_Prop, "Prop_Origine", "")
+	v_DemanderCommentaire = True
+	
+	v_Statut = p_Statut
+	
+	' Temp pour debug
+	If xVarElem(pnd_Prop, "Prop_NoSites",0, "") = "" Then
+		Call SIGE_OuvrirLog(gc_TypeElement_SDSPWF, gc_Element_SDSPWF)
+		Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; Proposition: " &amp; v_NoProposition &amp; " champ Prop_NoSites vide." , 1, 0, False)
+		Call SIGE_EnregistrerLog	
+	End If
+	
+	Select Case CInt(v_Statut)
+			'	Case "10" :						' Nouvelle - s.o.
+			
+		Case 12 :								' Rejetée
+			' Rien à faire
+			
+		Case 14 :								' Ré-Ouvert
+			' Increment le nomber de fois ré-ouvert de 1
+			pnd_Prop.Prop_NbFoisReOuvert = xVar(pnd_Prop, "Prop_NbFoisReOuvert", 0) + 1
+			' Increment le numéro de proposition de .01 si ré-ouvert
+			pnd_Prop.Prop_NbProposition = Fix(xVar(pnd_Prop, "Prop_NbProposition", 0)) + (xVar(pnd_Prop, "Prop_NbFoisReOuvert", 0)/100)
+			pnd_Prop.Prop_NbPropositionTXT = Replace(Cstr(xVar(pnd_Prop, "Prop_NbProposition", 0)), ",", ".")
+			' Ré-initialise maj. projet
+			pnd_Prop.Prop_MajProjet = "" 
+			pnd_Prop.Prop_PJCreerNote = ""
+			
+		Case 16 :								' Duplicata - s.o.&lt;
+			' Ré-initialise maj. projet
+			pnd_Prop.Prop_MajProjet = ""
+			pnd_Prop.Prop_PJCreerNote = ""
+			
+			v_Commentaire = "Duplicata de la proposition  /  Duplicate of proposal (" &amp; xVar(pnd_Prop, "Prop_NbPropositionOrigineDuplica", "") &amp; ")" &amp; Chr(13) &amp; Chr(13)
+			
+			v_DemanderCommentaire = False
+			
+		Case 20 :								' Soumise
+			If xVar(pnd_Prop, "Prop_Statut", "") &lt;&gt; "30" And xVar(pnd_Prop, "Prop_Statut", "") &lt;&gt; "40" Then
+				
+				'If Not SDSPP_ProdAutoModifiee(pnd_Prop, v_Statut) Then
+				'	SDSPWF_ChangerStatut = True
+				'	Exit Function
+				'End If
+				
+				' Si statut courrant de la proposition est ré-ouvert
+				If xVar(pnd_Prop, "Prop_Statut", "") = "14" Then
+					If SDSPP_PropositionModifiee(pnd_Prop, True) Then
+						v_Statut = "20"
+					Else
+						' Si re-ouvert et notes modifé passer au vérification directeur sinon, accepter
+						v_Statut = "50"
+					End If
+				End If
+				
+				If v_Statut = "30" Then
+					If SDSPWF_ChangerStatut(pnd_Prop, "30", p_Username, pnd_DB, p_WebService) Then
+						SDSPWF_ChangerStatut = True
+					End If
+					Exit Function
+				End If
+				
+				If v_Statut = "50" Then
+					If SDSPWF_ChangerStatut(pnd_Prop, "50", p_Username, pnd_DB, p_WebService) Then
+						SDSPWF_ChangerStatut = True
+					End If
+					Exit Function
+				End If
+				
+				'Else
+				
+				' Si il n'y a pas de vérificateurs passer au statut accepté
+				a_IdVerificateur = xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_VerificateurDestinataire", "", True)
+				If Not Isarray(a_IdVerificateur) Then
+					If a_IdVerificateur = "" Then
+						If SDSPWF_ChangerStatut(pnd_Prop, "50", p_Username, pnd_DB, p_WebService) Then
+							SDSPWF_ChangerStatut = True
+						End If
+						Exit Function
+					End If
+				End If
+				
+				' Si Client existant : 2 ou Conversion serveur hébergé : 3
+				If xVar(pnd_Prop, "Prop_TypeProposition", "") &gt;= "2" Then
+					Call SIGE_OuvrirLog(gc_TypeElement_SDSPWF, gc_Element_SDSPWF)
+					Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; v_NoProposition: " &amp; v_NoProposition, 0, 0, False)
+					Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; v_NoRepresentant: " &amp; v_NoRepresentant, 0, 0, False)
+					
+					' Bypass vérifications selon représentant
+					v_PasDeVerifications = xSIRR_xVarRepr(v_NoRepresentant, "Repr_PasDeVerifications", "", True)
+					Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; v_PasDeVerifications: " &amp; v_PasDeVerifications, 0, 0, False)
+					If v_PasDeVerifications = "1" Then
+						v_NotesId = LCase(xSIRR_xVarRepr(v_NoRepresentant, "Repr_NotesId", "", True))
+						Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; v_NotesId: " &amp; v_NotesId, 0, 0, False)
+						Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; gns_SDSPWF.UserName: " &amp; gns_SDSPWF.UserName, 0, 0, False)
+						If LCase(v_NotesId) = LCase(gns_SDSPWF.UserName) Then
+							Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; v_Statut := 50 (1)", 0, 0, False)
+							v_Statut = "50"
+						Else
+							Set nd_Repr_User = xSIRR_xndRepr_Id(gns_SDSPWF.UserName, "60")
+							Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; No Rep User: " &amp; xVar(nd_Repr_User, "Repr_NoRepresentant", ""), 0, 0, False)
+							v_PasDeVerifications = xVar(nd_Repr_User, "Repr_PasDeVerifications", "")
+							Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; v_PasDeVerifications: " &amp; v_PasDeVerifications, 0, 0, False)
+							If v_PasDeVerifications = "1" Then
+								Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; v_Statut := 50 (2)", 0, 0, False)
+								v_Statut = "50"
+							End If 
+						End If
+						
+						If v_Statut = "50" Then
+							Call SIGE_AjouterLog("SDSPWF_ChangerStatut --&gt; call SDSPWF_ChangerStatut(50)", 0, 0, False)
+							If SDSPWF_ChangerStatut(pnd_Prop, v_Statut, p_Username, pnd_DB, p_WebService) Then
+								SDSPWF_ChangerStatut = True
+							End If
+							Exit Function
+						End If
+					End If
+					Call SIGE_EnregistrerLog
+					
+					'20 - Vérif. Coordinateur
+					v_WFVerification = False
+					
+					Set ndc_Produits = nv_Prod20.GetAllDocumentsByKey(v_NoProposition, False)
+					
+					If ndc_Produits.Count &gt; 0 Then
+						
+						Set nd_ProduitSuivant = ndc_Produits.GetFirstDocument
+						
+						Do Until nd_ProduitSuivant Is Nothing
+							Set nd_Prod = nd_ProduitSuivant
+							Set nd_ProduitSuivant = ndc_Produits.GetNextDocument(nd_ProduitSuivant)
+							
+							If xVar(nd_Prod, "Prod_Quantite", 0) &gt; 0 Then
+								
+								Set nd_Prod_SDSBB = xSDSBB_xndProd(xVar(nd_Prod, "Prod_CleProduit", ""), True)
+								If Not nd_Prod_SDSBB Is Nothing Then
+									Set ni_PropOptions = nd_Prod_SDSBB.GetFirstItem("Prod_PropOptions")
+									If ni_PropOptions.Contains("VC") Then
+										v_WFVerification = True
+										Exit Do
+									End If
+								End If
+								
+							End If
+							
+						Loop
+					End If
+					
+					If v_WFVerification = False Then
+						v_Statut = "30"
+						If SDSPWF_ChangerStatut(pnd_Prop, "30", p_Username, pnd_DB, p_WebService) Then
+							SDSPWF_ChangerStatut = True
+						End If
+						Exit Function
+					End If
+					
+					If v_Statut = "50" Then				' PBE 2015/04/07
+						If SDSPWF_ChangerStatut(pnd_Prop, "50", p_Username, pnd_DB, p_WebService) Then
+							SDSPWF_ChangerStatut = True
+						End If
+						Exit Function
+					End If
+				End If
+				
+			End If
+			
+		Case 30 :								' Directeur
+			
+			
+			'If Not SDSPP_ProdAutoModifiee(pnd_Prop, v_Statut) Then
+			'	SDSPWF_ChangerStatut = True
+			'	Exit Function
+			'End If
+			
+			If xVar(pnd_Prop, "Prop_TypeProposition", "") &gt;= "2" And xVar(pnd_Prop, "Prop_Statut", "") &lt;&gt; "30" And xVar(pnd_Prop, "Prop_Statut", "") &lt;&gt; "40" Then
+				
+				v_WFVerification = False
+				
+				Set ndc_Produits = nv_Prod20.GetAllDocumentsByKey(v_NoProposition, False)
+				
+				If ndc_Produits.Count &gt; 0 Then
+					
+					Set nd_ProduitSuivant = ndc_Produits.GetFirstDocument
+					
+					Do Until nd_ProduitSuivant Is Nothing
+						Set nd_Prod = nd_ProduitSuivant
+						Set nd_ProduitSuivant = ndc_Produits.GetNextDocument(nd_ProduitSuivant)
+						
+						If xVar(nd_Prod, "Prod_Quantite", 0) &gt; 0 Then
+							
+							Set nd_Prod_SDSBB = xSDSBB_xndProd(xVar(nd_Prod, "Prod_CleProduit", ""), True)
+							If Not nd_Prod_SDSBB Is Nothing Then
+								Set ni_PropOptions = nd_Prod_SDSBB.GetFirstItem("Prod_PropOptions")
+								If ni_PropOptions.Contains("VD") Then
+									v_WFVerification = True
+									Exit Do
+								End If
+							End If
+						End If 
+					Loop
+				End If
+				
+				' Si pas de vérification directeur passer directement au statut accepté
+				If v_WFVerification = False Then
+					v_Statut = "50"
+					If SDSPWF_ChangerStatut(pnd_Prop, "50", p_Username, pnd_DB, p_WebService) Then
+						SDSPWF_ChangerStatut = True
+					End If
+					Exit Function
+				End If
+			End If
+			
+		Case 40 :								' Vérification technique
+			
+			v_Statut = "50"
+			If SDSPWF_ChangerStatut(pnd_Prop, "50", p_Username, pnd_DB, p_WebService) Then
+				SDSPWF_ChangerStatut = True
+			End If
+			Exit Function
+			
+		Case 50 :								' Acceptée
+			
+			'If Not SDSPP_ProdAutoModifiee(pnd_Prop, v_Statut) Then
+			'	SDSPWF_ChangerStatut = True
+			'	Exit Function
+			'End If
+			
+			If Not SDSPP_AccepterProposition(pnd_Prop, v_Statut) Then
+				Exit Function
+			Else
+				SDSPWF_ChangerStatut = True
+			End If
+			
+			
+		Case 55 :								' En attente de signature
+			
+		Case 60 :								' Signé
+			If SDSPWF_ChangerStatut60(pnd_Prop, p_Username, pnd_DB) = False Then
+				Exit Function
+			End If
+			v_DemanderCommentaire = False
+			
+		Case 62 :								' Travaux en cours
+			
+		Case 69 : 								' À facturer partiellement
+			
+		Case 70 :								' À facturer
+			
+		Case 72 :								' Facturation en cours
+			
+		Case 80 :								' Facturé partiellement
+			
+			'Call SDSPC_AssignerStatutProp(pnd_Prop,"85", xVar(pnd_DB, "SIHi_Commentaire", ""), "SDSP3") 	
+			
+		Case 84 :								' Payé partiellement   RQ55667
+			
+			Call SDSPC_AssignerStatutProp(pnd_Prop, "45", xVar(pnd_DB, "SIHi_Commentaire", ""), "SDSP3")
+			
+		Case 90 :								' Facturé
+			
+			Set nd_PropSDSC3 = xSDSC3_xndProp (v_NoProposition, True) 
+			v_PrixTotal = SDSPWF_TotalCommissions(pnd_Prop)
+			
+			If SDSPWF_ChangerStatut90(pnd_Prop, pnd_DB, v_Langue, p_Username, v_Commentaire) Then
+				
+				v_Statut = "90"		
+				
+				If xVar(pnd_Prop, "Prop_TypeProposition", "") = "4" Then
+					' Si changement propriétaire
+					
+					If nd_PropSDSC3 Is Nothing Then
+						v_Statut = "95"
+						If SDSPWF_ChangerStatut(pnd_Prop, "95", p_Username, pnd_DB, p_WebService) Then
+							SDSPWF_ChangerStatut = True											
+						End If
+					Else
+						Call SDSPC_AssignerStatutProp(pnd_Prop, "92", xVar(pnd_DB, "SIHi_Commentaire", ""), "SDSP3") 			
+					End If
+					
+					Exit Function
+					
+					' Si pas de rep. ou aucun commission à payer 
+					' Req# 53247 MK		
+				Elseif v_NoRepresentant = "" Then
+					
+					If nd_PropSDSC3 Is Nothing Then
+						v_Statut = "95"
+						If SDSPWF_ChangerStatut(pnd_Prop, "95", p_Username, pnd_DB, p_WebService) Then
+							SDSPWF_ChangerStatut = True											
+						End If
+					Else						
+						Call SDSPC_AssignerStatutProp(pnd_Prop, "92", xVar(pnd_DB, "SIHi_Commentaire", ""), "SDSP3") 			
+					End If
+					
+					Exit Function
+					
+				ElseIf v_PrixTotal = 0 Then
+
+					If nd_PropSDSC3 Is Nothing Then
+						v_Statut = "95"
+						If SDSPWF_ChangerStatut(pnd_Prop, "95", p_Username, pnd_DB, p_WebService) Then
+							SDSPWF_ChangerStatut = True											
+						End If
+					Else
+						Call SDSPC_AssignerStatutProp(pnd_Prop, "92", xVar(pnd_DB, "SIHi_Commentaire", ""), "SDSP3") 			
+					End If
+					
+					Exit Function
+
+				End If	
+				
+				SDSPWF_ChangerStatut = True							
+			End If
+			
+			Exit Function	
+			
+		Case 94 :								' Payée
+			
+			Call SDSPC_AssignerStatutProp(pnd_Prop, "50", xVar(pnd_DB, "SIHi_Commentaire", ""), "SDSP3")	' RQ55667 			
+			
+		Case 96 To 99 :						' Client Refusé ou abandonnée
+
+			If Left(v_Origine, 2) = "PJ" Then 'Requ.54738
+				pnd_Prop.Prop_MajProjet = "1"
+				pnd_Prop.Prop_PJCreerNote = "1"
+			End If
+			
+			If v_Statut = "98" Then
+				v_Commentaire = "No opportunité / Opportunity nbr : " &amp; xvar(pnd_Prop, "Prop_NoOpportuniteSF", "")
+				pnd_Prop.Prop_NoOpportuniteSF = ""
+			End If
+			
+			Call SDSPC_AssignerStatutProp(pnd_Prop, "99", xVar(pnd_DB, "SIHi_Commentaire", ""), "SDSP3") 	' RQ55667 
+
+		Case Else
+			Messagebox "Statut invalide.", 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+	End Select
+	
+	If v_Statut = "50" And SDSPWF_ChangerStatut = False Then
+		Exit Function
+	End If
+	
+	' Calculer le nombre de sites avec commission requise
+	If p_Statut = v_StatutSignee Then
+		pnd_Prop.Prop_NbSitesCommissionsRequises = SDSPP_NbSitesACommission(v_NoProposition)
+	End If
+	
+	' Commentaire
+	Call SDSPWF_GenererCommentaire(pnd_Prop, pnd_DB, v_Langue, v_Commentaire) 
+	
+	'Req# 49322 MZE. Lorsque le statut de la proposition passe de &lt; 60 à 60-90, copier la proposition dans SDSC (statut 10) si elle n'a pas déjà été copiée
+	'et que l'origine de la PP &lt;&gt; SICl.
+	If xVar(pnd_Prop, "Prop_Statut", "") &lt; "60" And (v_Statut &gt;= "60" And v_Statut &lt;= "90") And v_Origine &lt;&gt; "SICl" Then		
+		v_CopierCommissions = True
+	End if
+	
+	
+	' Créer une image de la proposition
+	' ---------------------------------
+	If xComplTabl(xVar(pnd_Prop, "Prop_Statut",""), "Prop_Statut_FR", "1", True) = "1" Then
+		If Not SDSPP_CreerImageProposition(pnd_Prop, False, v_Statut, p_Username) Then
+			Print xGDK_xMessage("SDSP", 92, "", "")
+		End If
+	End If
+	
+	' Regénérer les linges importé du contrat de service pour le typeProp 3 (Conversion serveur hébérgé)	
+	' ----------------------------------------------------------------------------------------------	
+	If xVar(pnd_Prop, "Prop_TypeProposition", "") = "3" And v_Statut &lt; "60" Then
+		v_NbCS = SDSPWF_ImporterContratsService(pnd_Prop, p_Username)	
+		
+		Select Case v_NbCS
+		Case 0					
+			' Ce client n'a pas de contrat de service à importer.					
+			Print xGDK_xMessage("SDSPP", 139, "", "")	
+		Case Is &gt;0 					
+			'Les contrats de service ont été importés.
+			Print xGDK_xMessage("SDSPP", 142, "", CStr(v_NbCS))								
+		Case -3					
+			'la base SDS Contrats de service local est introuvable
+			Print xGDK_xMessage ("SDSPP", 185, "", "")
+		Case Else
+			' Une erreur s'est produite pendant l'importation des contrats de service.
+			Print xGDK_xMessage("SDSPP", 144, "", "")					
+	End Select
+		
+	End If		
+	
+	
+	' Modifier le statut
+	' ------------------
+	If Not SDSPWF_AssignerStatut(pnd_Prop, v_Statut, v_DemanderCommentaire, v_Commentaire, p_Username) Then
+		Exit Function
+	End If
+	
+	
+	' Gérer le workflow
+	' -----------------
+	j= Instr(v_Commentaire, Chr(13))
+	If j &gt; 0 Then
+		'v_Commentaire = Left(v_Commentaire, j) &amp; Ustring(3, Chr(9)) &amp; Right(v_Commentaire, (Len(v_Commentaire) - j))
+		v_Commentaire = Left(v_Commentaire, j) &amp; Right(v_Commentaire, (Len(v_Commentaire) - j))
+	End If
+	
+	
+	'Envoyer courriel
+	'----------------
+	Call SDSPWF_EnvoyerCourriel(pnd_Prop, v_Commentaire, p_Username)
+	
+	
+	' Modifier les accès (sécurité)
+	' -----------------------------
+	Call SDSPP_AssignerSecurite(pnd_Prop, False) 
+	
+	
+	'Copier la proposition dans SDSC . Req# 49322 MZE 
+	'--------------------------------------------------------------
+	Set ndc_Sites = xSDSP3_xndcSite(v_NoProposition) 	
+
+	v_NbSitesProp = ndc_Sites.Count
+	
+	If v_CopierCommissions Then	
+		
+		'		If p_WebService Then  'RQ59317 Utilise un agent au lieu du web service
+		
+		'			Set ws_PropComm = New Cl_PropComm
+		'			v_NbrSiteCopier = ws_PropComm.Copierpropositioncommsdsp3(v_NoProposition, xVarImplode(pnd_Prop, "Prop_NoSites", ";"), p_Username)
+		'		Else
+		
+		v_NbrSiteCopier = SDSPC_CopierPropositionComm (pnd_Prop, ndc_Sites, p_UserName) 
+		
+		'		End If
+		
+		Print "v_NbrSiteCopier = " &amp; v_NbrSiteCopier 
+		
+		Call SDSPC_VerifierSitecopier (pnd_Prop, v_NbrSiteCopier, CStr(v_NbSitesProp))
+		
+	End If
+
+	' Maj l'opportunité SalesForce
+	' -----------------------------
+	If v_Origine = "SF" Then
+		If xVarProf("Prof_DesactiverSalesforceAPI", "") &lt;&gt; "1" Then
+			Call SDSPSf_MajOpportunite(pnd_Prop, Nothing)
+		End If
+	End If
+	
+	' Créer le bon de commande
+	'--------------------------
+	If v_Statut = v_StatutSignee Then
+		Call SDSPBC_CreerBonCommandes(pnd_Prop, xVarImplode(pnd_Prop, "Prop_NoSites", ";"), p_Username)
+	End If
+	
+	' Maj. statut bon de commandes
+	'-----------------------------
+	If v_Statut = v_StatutPayee Or _
+	v_Statut = v_StatutCommPayee Then
+		Call SDSPBC_AssignerStatutBonCommandes(xVarArray(pnd_Prop, "Prop_NoSites"), v_Statut, "", "SDSP3")
+	End If
+	
+	SDSPWF_ChangerStatut = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPWF_AttacherContratSigne"><lotusscript>Function SDSPWF_AttacherContratSigne(pnd_Prop As NotesDocument, pnd_DB As NotesDocument, p_UserName As String, pnd_Docu As NotesDocument) As Boolean
+	' ---------------------------------------------------------------------
+	' 	Cette fonction attache le fichier du Proposition signéà la proposition
+	' 
+	' 	pnd_Prop:	document de la proposition
+	' 	pnd_DB:		document du DialogBox "Joindre contrat signé"
+	' ---------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nuiws As NotesUIWorkspace
+	
+	' Initialisations
+	SDSPWF_AttacherContratSigne = False
+	Call SDSPWF_Initialisations
+	
+	If Not xVarContient(pnd_DB, "DB_SansContrat", "SC") Then
+		Set pnd_Docu = SDSPD_AttacherContratSigne_SIDV(xVar(pnd_Prop, "Prop_NoProposition", ""), pnd_DB.UniversalID, xVar(pnd_DB, "DB_TypeDocument", ""), xvar(pnd_DB, "DB_Commentaire", ""), p_UserName)
+		If pnd_Docu Is Nothing Then
+			Exit Function
+		End If
+	End If
+	
+	SDSPWF_AttacherContratSigne = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, Getthreadinfo(1), xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPWF_AssignerStatutProduits"><lotusscript>Sub SDSPWF_AssignerStatutProduits (pnd_Prop As NotesDocument, p_Statut As String)
+	' --------------------------------------------------------------------------------------------------
+	'Assigner le statut aux produits
+	' --------------------------------------------------------------------------------------------------
+	
+	On Error GoTo GererErreur
+	
+	Dim ndc_Produits As NotesDocumentCollection
+	Dim nd_Prod As NotesDocument
+	Dim nv_Prod20 As NotesView
+	Dim nd_ProduitSuivant As NotesDocument
+	Dim v_NoProposition As String
+	
+	Call SDSPWF_Initialisations
+	
+	
+	Set nv_Prod20 = gndb_SDSPWF.GetView("V_Prod20")
+	Call nv_Prod20.Refresh
+	
+	
+	'--------------------------------
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	
+	Set ndc_Produits = nv_Prod20.GetAllDocumentsByKey(v_NoProposition, False)
+	
+	If ndc_Produits.Count &gt; 0 Then
+		
+		Call ndc_Produits.StampAll("Prod_StatutProposition", p_Statut)
+		Call ndc_Produits.StampAll("Prod_DateSignature", xVar(pnd_Prop, "Prop_DateSignature", ""))		'p_statut = "60" 			
+		Call ndc_Produits.StampAll("Prod_NoRepresantant", xVar(pnd_Prop, "Prop_NoRepresentant", ""))
+		Call ndc_Produits.StampAll("Prod_NomRepresantant", xVar(pnd_Prop, "Prop_NomRepresentant", ""))
+		
+	End If
+	
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, GetThreadInfo(1), xVar(pnd_Prop, "Prop_NoProposition", "") &amp; ";" &amp; p_Statut, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPWF_EditMode"><lotusscript>Function SDSPWF_EditMode(pnd_Prop As Notesdocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_EditMode As Boolean
+	Dim v_Statut As String
+	
+	If SDSPP_AccesAuteur(pnd_Prop) Then
+		Select Case SDSPP_EstAuteur(pnd_Prop)
+		Case 1:
+			v_Statut = xVar(pnd_Prop, "Prop_Statut", "10")
+			If Left(v_Statut, 1) &lt; "5" Then
+				v_EditMode = True
+			End If
+		Case 2:
+			v_EditMode = True
+		End Select
+	End If
+	
+	SDSPWF_EditMode = v_EditMode
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPWF, gc_Element_SDSPWF, Getthreadinfo(1), xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20260319T100329,79-05</datetime></item></scriptlibrary>
+
+</database>

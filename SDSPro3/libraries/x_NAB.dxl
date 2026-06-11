@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_NAB" hide="v3 v4strict" designerversion="8.5.3" comment="1.3a Notes Address Book">
+<noteinfo noteid="55575a" unid="6D6644E7D6474788852586B40011FBA1" sequence="76">
+<created><datetime dst="true">20210410T231625,29-04</datetime></created>
+<modified><datetime>20260105T014837,41-05</datetime></modified>
+<revised><datetime>20250319T073637,11-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,40-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,40-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "x_GDK"
+'
+' Cette bibliothèque de script permet d'extraire un document ou un item d'un document.  Les documents
+' à extraire ne se trouvent pas dans la base de documents courante.  Il faut rechercher la base de documents
+' à utiliser dans le GDK.
+'
+' Instructions
+'	1.	Renommer le script library.  Le nouveau nom devrait être "x_NAB" ou "NAB" est 
+'		l'identifiant de la base de documents.
+'	2.	Inscrire le nom usuel de la base de documents de recherche, le nom de l'item qui contient
+'		la clé et le nom de la vue de recherche dans la section (Declarations).
+'	3.	Remplacer toutes les occurences de "NAB" par l'identifiant de la base de documents.  
+'		Les subs seront automatiquement renommés.
+'	4.	Remplacer toutes les occurences de "Group" par l'identifiant du type de document.  
+'		Les subs seront automatiquement renommés.
+
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_xELrod
+Dim gndb_xNAB As Notesdatabase
+
+' Section 2 - Définition des valeurs conservées dans la cache
+Dim gnv_Person_xNAB As Notesview					' La vue d'ou est extrait le document
+Dim gnv_PersonCN_xNAB As Notesview				' La vue d'ou est extrait le document
+Dim gnd_Person_xNAB As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_Group_xNAB As Notesview					' La vue d'ou est extrait le document
+Dim gnd_Group_xNAB As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_Server_xNAB As NotesView					' La vue d'ou est extrait le document
+Dim gnd_Server_xNAB As NotesDocument			' Le document qui contient les informations recherchées
+
+' Section 3 - Les constantes à définir
+Const gc_NomBD_xNAB = "Address Book" 		' Inscrire le nom usuel de la base de documents de recherche, tel que déclaré dans le GDK.
+Const gc_NomItemClePerson_xNAB = ""						' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVuePerson_xNAB = "V_Person23"			' Le nom de la vue de recherche
+Const gc_NomVuePersonCN_xNAB = "V_Person21"		' Le nom de la vue de recherche
+Const gc_NomItemCleGroup_xNAB = "ListName"			' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueGroup_xNAB = "V_Group20"			' Le nom de la vue de recherche
+Const gc_NomItemCleServer_xNAB = "ServerName"		' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueServer_xNAB = "($ServersLookup)"			' Le nom de la vue de recherche
+Const gc_NomVueMailIn_xNAB = "Mail-In Databases"			' Le nom de la vue de recherche
+
+</lotusscript></code><code event="xNAB_xVarPerson"><lotusscript>Function xNAB_xVarPerson(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	Dim nd As NotesDocument
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Set nd = xNAB_xndPerson(p_Cle, p_Cache)
+	xNAB_xVarPerson = xVar(nd, p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xNAB_xndMailIn"><lotusscript>Function xNAB_xndMailIn(Byval p_Cle As Variant, ByVal p_Cache As Integer) As NotesDocument
+	' Cette fonction retourne un document du type approprié.
+		
+	Dim ndc As NotesDocumentCollection
+	Dim nv As NotesView
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	
+	' Initialisation des variables globales
+	Call xNAB_Initialisation
+	
+	' Extraire une collection de documents de la catégorie "Databases"
+	Set ndc = xndc("Databases", gndb_xNAB, gc_NomVueMailIn_xNAB, nv)
+			
+	Set nd_Suivant = ndc.Getfirstdocument
+	
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		
+		' Sortir de la boucle si le document recherché est trouvé  		
+		If xEvaluate(|@Name([Abbreviate];@Subset(FullName; 1))|, nd) = p_Cle Then
+			'Retourne le document trouvé dans la collection
+			Set xNAB_xndMailIn = nd
+			Exit Do
+		End If
+	loop
+		
+End Function
+
+</lotusscript></code><code event="xNAB_xndPersonCN"><lotusscript>Function xNAB_xndPersonCN(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xNAB_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemClePerson_xNAB, p_Cle, p_Cache, gndb_xNAB, gc_NomVuePersonCN_xNAB, gnv_PersonCN_xNAB, gnd_Person_xNAB)
+	
+	' Retourne le document défini en variable globale
+	Set xNAB_xndPersonCN = gnd_Person_xNAB
+End Function
+
+</lotusscript></code><code event="xNAB_Initialisation"><lotusscript>Sub xNAB_Initialisation
+	' Initialisation des variables globales
+	If gndb_xNAB Is Nothing Then
+		Set gndb_xNAB = xGDK_xndbNDB(gc_NomBD_xNAB)
+	End If
+End Sub
+
+</lotusscript></code><code event="xNAB_xndServer"><lotusscript>Function xNAB_xndServer(Byval p_Cle As Variant, Byval p_Cache As Integer) As NotesDocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xNAB_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleServer_xNAB, Lcase(p_Cle), p_Cache, gndb_xNAB, gc_NomVueServer_xNAB, gnv_Server_xNAB, gnd_Server_xNAB)
+	
+	' Retourne le document défini en variable globale
+	Set xNAB_xndServer = gnd_Server_xNAB
+End Function
+
+</lotusscript></code><code event="xNAB_xndb"><lotusscript>Function xNAB_xndb As Notesdatabase
+	' Cette fonction retourne une base de documents.
+	
+	' Initialisation des variables globales
+	Call xNAB_Initialisation
+	
+	' Retourne la base de documents
+	Set xNAB_xndb = gndb_xNAB
+End Function
+
+</lotusscript></code><code event="xNAB_xVarPersonCN"><lotusscript>Function xNAB_xVarPersonCN(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	Dim nd As NotesDocument
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Set nd = xNAB_xndPersonCN(p_Cle, p_Cache)
+	xNAB_xVarPersonCN = xVar(nd, p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xNAB_xndGroup"><lotusscript>Function xNAB_xndGroup(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xNAB_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleGroup_xNAB, p_Cle, p_Cache, gndb_xNAB, gc_NomVueGroup_xNAB, gnv_Group_xNAB, gnd_Group_xNAB)
+	
+	' Retourne le document défini en variable globale
+	Set xNAB_xndGroup = gnd_Group_xNAB
+End Function
+
+
+
+</lotusscript></code><code event="xNAB_xVarGroup"><lotusscript>Function xNAB_xVarGroup(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	Dim nd As NotesDocument
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Set nd = xNAB_xndGroup(p_Cle, p_Cache)
+	xNAB_xVarGroup = xVar(nd, p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xNAB_xndPerson"><lotusscript>Function xNAB_xndPerson(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xNAB_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemClePerson_xNAB, Lcase(p_Cle), p_Cache, gndb_xNAB, gc_NomVuePerson_xNAB, gnv_Person_xNAB, gnd_Person_xNAB)
+	
+	' Retourne le document défini en variable globale
+	Set xNAB_xndPerson = gnd_Person_xNAB
+End Function
+
+</lotusscript></code><code event="xNAB_xVarServer"><lotusscript>Function xNAB_xVarServer(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	Dim nd As NotesDocument
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Set nd = xNAB_xndServer(p_Cle, p_Cache)
+	xNAB_xVarServer = xVar(nd, p_NomVar, p_ValeurNulle)
+End Function
+
+
+</lotusscript></code><code event="xNAB_xVarMailIn"><lotusscript>Function xNAB_xVarMailIn(ByVal p_Cle As Variant, ByVal p_NomVar As String, ByVal p_ValeurNulle As Variant, _
+	ByVal p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+		
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xNAB_xVarMailIn = xVar(xNAB_xndMailIn(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073637,11-05</datetime></item></scriptlibrary>
+
+</database>

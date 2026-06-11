@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><sharedfield name="SF_ServeurSIRR" designerversion="8">
+<noteinfo noteid="13e" unid="38ED0FC484B1FF8785257DF200551FE6" sequence="15">
+<created><datetime>20150220T102947,26-05</datetime></created>
+<modified><datetime dst="true">20190830T091605,27-04</datetime></modified>
+<revised><datetime dst="true">20180718T105547,63-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091605,25-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205648,95-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><field type="text" kind="computedfordisplay" name="SF_ServeurSIRR"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_NDB20"; "SIRR"; 2); "")</formula></code></field>
+<item name="OriginalModTime" sign="true"><datetime>20070216T141140,06-05</datetime></item>
+<item name="$HTMLCode" sign="true">
+<rawitemdata type="1">
+</rawitemdata></item></sharedfield>
+
+</database>

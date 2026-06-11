@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_SDSI" hide="v3 v4strict" designerversion="8.5.3" comment="1.4b SDS Installations">
+<noteinfo noteid="287166" unid="4706A3096B2CAB4C852586B40011FBA9" sequence="78">
+<created><datetime dst="true">20210410T231625,37-04</datetime></created>
+<modified><datetime>20250319T074102,52-05</datetime></modified>
+<revised><datetime>20250319T073637,95-05</datetime></revised>
+<lastaccessed><datetime>20250319T074102,51-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20210410T235628,60-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "x_GDK"
+'
+' Cette bibliothèque de script permet d'extraire un document ou un item d'un document.  Les documents
+' à extraire ne se trouvent pas dans la base de documents courante.  Il faut rechercher la base de documents
+' à utiliser dans le GDK.
+'
+' Instructions
+'	1.	Renommer le script library.  Le nouveau nom devrait être "x_SDSI" ou "SDSI" est 
+'		l'identifiant de la base de documents.
+'	2.	Inscrire le nom usuel de la base de documents de recherche, le nom de l'item qui contient
+'		la clé et le nom de la vue de recherche dans la section (Declarations).
+'	3.	Remplacer toutes les occurences de "SDSI" par l'identifiant de la base de documents.  
+'		Les subs seront automatiquement renommés.
+'	4.	Remplacer toutes les occurences de "BBBB" par l'identifiant du type de document.  
+'		Les subs seront automatiquement renommés.
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_xELrod
+Dim gndb_xSDSI As Notesdatabase
+
+' Section 2 - Définition des valeurs conservées dans la cache
+Dim gnv_Cale_xSDSI As Notesview				' La vue d'ou est extrait le document
+Dim gnd_Cale_xSDSI As Notesdocument	' Le document qui contient les informations recherchées
+Dim gnv_Inst_xSDSI As Notesview				' La vue d'ou est extrait le document
+Dim gnd_Inst_xSDSI As Notesdocument	' Le document qui contient les informations recherchées
+Dim gnv_Inte_xSDSI As Notesview				' La vue d'ou est extrait le document
+Dim gnd_Inte_xSDSI As Notesdocument		' Le document qui contient les informations recherchées
+Dim gnv_Suiv_xSDSI As Notesview				' La vue d'ou est extrait le document
+Dim gnd_Suiv_xSDSI As Notesdocument		' Le document qui contient les informations recherchées
+Dim gnv_TypI_xSDSI As Notesview				' La vue d'ou est extrait le document
+Dim gnd_TypI_xSDSI As Notesdocument		' Le document qui contient les informations recherchées
+
+' Section 3 - Les constantes à définir
+Const gc_NomBD_xSDSI = "SDSI"			' Inscrire le nom usuel de la base de documents de recherche, tel que déclaré dans le GDK.
+Const gc_NomItemCleCale_xSDSI = "Cale_NoCalendrier"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueCale_xSDSI = "V_Cale20"		' Le nom de la vue de recherche
+Const gc_NomItemCleInst_xSDSI = "Inst_NoInstallation"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueInst_xSDSI = "V_Inst20"		' Le nom de la vue de recherche
+Const gc_NomItemCleInte_xSDSI = "Inte_NoIntervention"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueInte_xSDSI = "V_Inte20"		' Le nom de la vue de recherche
+Const gc_NomItemCleSuiv_xSDSI = "Suiv_NoInstallation"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueSuiv_xSDSI = "V_Suiv20"		' Le nom de la vue de recherche
+Const gc_NomItemCleTypI_xSDSI = "TypI_Code"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueTypI_xSDSI = "V_TypI20"		' Le nom de la vue de recherche
+
+</lotusscript></code><code event="xSDSI_Initialisation"><lotusscript>Sub xSDSI_Initialisation
+	' Initialisation des variables globales
+	If gndb_xSDSI Is Nothing Then
+		Set gndb_xSDSI = xGDK_xndbNDB(gc_NomBD_xSDSI)
+	End If
+End Sub
+</lotusscript></code><code event="xSDSI_xndCale"><lotusscript>Function xSDSI_xndCale(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSDSI_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleCale_xSDSI, p_Cle, p_Cache, gndb_xSDSI, gc_NomVueCale_xSDSI, gnv_Cale_xSDSI, gnd_Cale_xSDSI)
+	
+	' Retourne le document défini en variable globale
+	Set xSDSI_xndCale = gnd_Cale_xSDSI
+End Function
+</lotusscript></code><code event="xSDSI_xVarCale"><lotusscript>Function xSDSI_xVarCale(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSDSI_xVarCale = xVar(xSDSI_xndCale(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+</lotusscript></code><code event="xSDSI_xndInst"><lotusscript>Function xSDSI_xndInst(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSDSI_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleInst_xSDSI, p_Cle, p_Cache, gndb_xSDSI, gc_NomVueInst_xSDSI, gnv_Inst_xSDSI, gnd_Inst_xSDSI)
+	
+	' Retourne le document défini en variable globale
+	Set xSDSI_xndInst = gnd_Inst_xSDSI
+End Function
+</lotusscript></code><code event="xSDSI_xVarInst"><lotusscript>Function xSDSI_xVarInst(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSDSI_xVarInst = xVar(xSDSI_xndInst(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+</lotusscript></code><code event="xSDSI_xndInte"><lotusscript>Function xSDSI_xndInte(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSDSI_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleInte_xSDSI, p_Cle, p_Cache, gndb_xSDSI, gc_NomVueInte_xSDSI, gnv_Inte_xSDSI, gnd_Inte_xSDSI)
+	
+	' Retourne le document défini en variable globale
+	Set xSDSI_xndInte = gnd_Inte_xSDSI
+End Function
+</lotusscript></code><code event="xSDSI_xVarInte"><lotusscript>Function xSDSI_xVarInte(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSDSI_xVarInte = xVar(xSDSI_xndInte(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+</lotusscript></code><code event="xSDSI_xndSuiv"><lotusscript>Function xSDSI_xndSuiv(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSDSI_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleSuiv_xSDSI, p_Cle, p_Cache, gndb_xSDSI, gc_NomVueSuiv_xSDSI, gnv_Suiv_xSDSI, gnd_Suiv_xSDSI)
+	
+	' Retourne le document défini en variable globale
+	Set xSDSI_xndSuiv = gnd_Suiv_xSDSI
+End Function
+</lotusscript></code><code event="xSDSI_xVarSuiv"><lotusscript>Function xSDSI_xVarSuiv(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSDSI_xVarSuiv = xVar(xSDSI_xndSuiv(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+</lotusscript></code><code event="xSDSI_xndTypI"><lotusscript>Function xSDSI_xndTypI(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSDSI_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleTypI_xSDSI, p_Cle, p_Cache, gndb_xSDSI, gc_NomVueTypI_xSDSI, gnv_TypI_xSDSI, gnd_TypI_xSDSI)
+	
+	' Retourne le document défini en variable globale
+	Set xSDSI_xndTypI = gnd_TypI_xSDSI
+End Function
+</lotusscript></code><code event="xSDSI_xVarTypI"><lotusscript>Function xSDSI_xVarTypI(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSDSI_xVarTypI = xVar(xSDSI_xndTypI(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+</lotusscript></code><code event="xSDSI_xContainsTypI"><lotusscript>Function xSDSI_xContainsTypI(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_Valeur As Variant, _
+Byval p_Cache As Integer) As Boolean
+	' Cette fonction vérifie si un champ multi-valeur contient la valeur recherchée.
+	Dim nd As NotesDocument
+	Dim ni As NotesItem
+	
+	xSDSI_xContainsTypI = False
+	Set nd = xSDSI_xndTypI(p_Cle, p_Cache)
+	If Not (nd Is Nothing) Then
+		If nd.HasItem(p_NomVar) Then
+			Set ni = nd.GetFirstItem(p_NomVar)
+			If ni.Contains(p_Valeur) Then
+				xSDSI_xContainsTypI = True
+			End If
+		End If
+	End If
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073637,95-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Test Signataire" alias="A_OSSCbx" hide="v3" noreplace="true" publicaccess="false" designerversion="8.5.3" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" restrictions="unrestricted" enabled="false">
+<noteinfo noteid="397bea" unid="1DF232DA2B274E028525890B00055D31" sequence="3">
+<created><datetime>20221130T195835,37-05</datetime></created>
+<modified><datetime>20221130T195911,77-05</datetime></modified>
+<revised><datetime>20221130T195911,76-05</datetime></revised>
+<lastaccessed><datetime>20221130T195911,76-05</datetime></lastaccessed>
+<addedtofile><datetime>20221130T195836,63-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mourad Zellouf/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Mourad Zellouf/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20221130T195913,08-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="selected"/><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "SI_CourrielsTypes"
+Use "x_GDK"
+Use "x_SDSP3"
+Use "x_SIRR"
+Use "SDSP_OneSpanSign"
+Use "SDSP_OneSpanSign_Paquet"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+
+Dim g_TypeNDBCourante_SLOSSCB As String
+Dim g_Url_SLOSSCB As String
+
+' Traitement des erreurs
+
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_OSSCb"
+
+
+
+
+Class A_OSSCBPaquet
+	Public CleIntegration As String
+	Public PackageID As String
+		
+	Sub New(p_CleIntegration As String, p_PackageID As String)
+		me.CleIntegration = p_CleIntegration
+		me.PackageID = p_PackageID	
+	End Sub
+	
+	Function A_OSSCBEnvoyerTransactionGetPackage(p_CleIntegration As String, p_Url As String, p_Reponse As String, p_ReponseJSON As String) As Boolean
+		On Error GoTo GererErreur
+		Dim objHttp As Variant
+		Dim v_Reponse As String
+		
+		A_OSSCBEnvoyerTransactionGetPackage = False
+		
+		' --- instantiate an MSXML XMLHTTP object
+		Set objHttp = CreateObject("Microsoft.XMLHTTP")
+				
+		' --- open a new POST request and set the Content-type header 
+		objHttp.open "GET", p_url, False
+		objHttp.setRequestHeader "Accept", "application/json"
+		objHttp.setRequestHeader "Content-type", "application/json"
+		objHttp.setRequestHeader "Authorization", "Basic " &amp; p_CleIntegration
+		objHttp.send
+		
+		v_Reponse = objHTTP.Status
+		p_ReponseJSON = objHttp.responseText
+		Set objHttp = Nothing
+		
+		p_Reponse = CInt(v_Reponse)
+		If p_Reponse &lt; 300 Then
+			A_OSSCBEnvoyerTransactionGetPackage = True
+		Else
+			Call SIGE_TraiterErreurManuelle(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), 0, v_Reponse, p_ReponseJSON, False)
+		End If
+		
+EnregistrerLog:
+		'	Call SIGE_OuvrirLog(gc_TypeElement_SLOSSR, gc_Element_SLOSSR)
+		Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGE_AjouterLog("Requête : " &amp; p_url, 0, 0, False)
+		Call SIGE_AjouterLog("Reponse : " &amp; CStr(p_Reponse), 0, 0, False)
+		Call SIGE_AjouterLog("JSON    :", 0, 0, False)
+		Call SIGE_AjouterLog(p_ReponseJSON, 0, 0, False)
+		Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+		'	Call SIGE_EnregistrerLog
+		
+		Exit Function
+		
+GererErreur:
+		Set objHttp = Nothing
+		Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), p_URL, False)
+		GoTo EnregistrerLog
+	End Function
+	
+End Class
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+	
+	Dim v_DocId As String
+	Dim ndb_SITp As NotesDatabase
+	Dim nd_Temp As NotesDocument
+	Dim nd_Prop As NotesDocument
+	
+	Dim v_NoProposition As String
+	Dim v_TypeNotificationCallback As String
+	Dim v_PackageID As String
+	Dim v_CleIntegration As String
+	Dim v_SessionUserID As String
+	Dim v_Url As String
+	
+	Dim cl_Paquet As SDSP_clOSSP_Paquet
+	
+	Dim v_NoRep As String
+	Dim v_TransactionEvoyePar As String
+	Dim v_SignataireTrouve As Boolean
+		
+	'Initialisations
+	Call A_Initialisations
+	
+				
+	Print "Début A_OSSCb"
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)
+	Call SIGE_AjouterLog("Début A_OSSCb", 0, 0, False)
+	
+	%REM
+	Set ndb_SITp = xGDK_xndbNDB("SITp")
+	
+	v_DocId = gns_A.Currentagent.ParameterDocId	
+	
+	If v_DocId &lt;&gt; "" Then
+		
+		Set nd_Temp = ndb_SITp.Getdocumentbyid(v_DocId)
+	End If
+	
+	Set nd_Temp = ndb_SITp.Getdocumentbyunid("E80994E75ACE7799852587820045C7E6")
+		
+	If nd_Temp Is Nothing Then
+		Call SIGE_AjouterLog("Document temporaire dans SI Temp pas trouvé", 0, 0, False)
+		Call SIGE_EnregistrerLog
+		Exit Sub
+	End If
+	%END REM
+	
+	Dim ndc_Prop As NotesDocumentCollection	
+
+	Set ndc_Prop = gndb_A.UnprocessedDocuments
+	
+	If ndc_Prop.Count = 0 Then
+		MessageBox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	ElseIf ndc_Prop.Count &gt; 1 Then
+		MessageBox xGDK_xMessage("SI", 166, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	
+	Set nd_Prop = ndc_Prop.GetFirstDocument
+	
+	v_NoProposition = xVar(nd_Prop, "Prop_NoProposition", "")
+	v_TypeNotificationCallback = xVar(nd_Temp, "TypeNotificationCallback", "")
+	v_PackageID = xVar(nd_Prop, "PROP_NOENVELOPPE", "")
+	'v_SessionUserID = xVar(nd_Temp, "SessionUserID", "")
+	
+	'v_NoProposition = "BZ7RP2R602"  'Ok
+	v_TypeNotificationCallback = "EMAIL_BOUNCE"
+
+	'v_PackageID = "5c0K3XUHKICu7qgtkp34cab689g="  'Ok
+	'v_SessionUserID = "85967430-ddd8-4f04-bd3c-c58a322ae1f4"
+
+	'v_CleIntegration = "NzFQbVhaaDQwdWNYOkNZdnlhNzlQSTRBNA=="  'Ok
+
+
+	
+	' Extraire le profil
+	' ---------------------------------------
+	If Not SDSPOSSg_ExtraireProfil("POSSg") Then  'Pour Test
+		Exit Sub
+	End If
+	
+	v_CleIntegration = xVar(gnd_Prof_SDSPOSSg, "POSSg_CleIntegration", "")
+		
+	' Construire l'URL
+	v_Url = g_Url_SDSPOSSP &amp;  "/packages/" &amp; v_PackageID
+	
+		
+	'Set nd_Prop = xSDSP3_xndProp(v_NoProposition, False)
+	
+	If Not nd_Prop Is Nothing Then
+		Call SIGE_AjouterLog("Proposition trouvé", 0, 0, False)
+	Else
+		Call SIGE_AjouterLog("Proposition pas trouvé", 0, 0, False)
+		Call SIGE_EnregistrerLog
+		Exit Sub
+	End If
+			
+	'Envoyer courriel au rep. pour aviser l'envoie onespan à échoué
+	If v_TypeNotificationCallback = "EMAIL_BOUNCE" Then	
+		
+		Set cl_Paquet = New SDSP_clOSSP_Paquet(v_CleIntegration,v_PackageID)
+		
+		If cl_Paquet.Resultat &lt; 0 Then
+			Call SIGE_AjouterLog("Erreur de traitement du paquet :" &amp; CStr(v_PackageID) &amp; " Resultat : " &amp; Cstr(cl_Paquet.Resultat), 0, 0, False)
+			Exit Sub
+		End If
+		
+		v_TransactionEvoyePar = cl_Paquet.Expediteur.Courriel
+				
+		' Envoyer courriel au rep. si envoyé par sdspo ou sdsdemo
+		If v_TransactionEvoyePar = "sdspo@serti.com" Or v_TransactionEvoyePar = "sdsdemo@serti.com" Then
+			
+			v_SignataireTrouve = False
+			ForAll signataire In cl_Paquet.Signataires
+				'Note : Pour callback EMAIL_BOUNCE, sessionuserid correspond au id du signataire qui a échoué
+				If signataire.Id = v_SessionUserID Then
+					v_SignataireTrouve = True
+					'Call SDSPOSSg_EnvoyerCourDestInvalide(nd_Prop, signataire)	
+					'Call SDSPOSSg_EnvoyerCourDestInvalide(Nothing, "", "", "")
+					Exit Forall
+				End If
+			End ForAll	
+			
+			If Not v_SignataireTrouve Then
+				Call SIGE_AjouterLog("Signataire avec id :" &amp; v_SessionUserID &amp; " introuvable.", 0, 0, False)
+			End If
+			
+		End If				
+			
+	End If
+	
+	Call SIGE_AjouterLog("Fin A_OSSCb", 0, 0, False)
+	Call SIGE_EnregistrerLog
+		
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), v_DocId, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+		
+		g_TypeNDBCourante_SLOSSCB = xGDK_TypeNDBCourante
+		If g_TypeNDBCourante_SLOSSCB = "P" Or g_TypeNDBCourante_SLOSSCB = "L" Then		' Production ou Local
+			g_Url_SLOSSCB = "https://apps.e-signlive.ca/api"
+		Else																			' Développement/Tests
+			g_Url_SLOSSCB = "https://sandbox.esignlive.com/api"
+		End If
+	End If
+End Sub
+
+
+
+
+</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="30A933B3E54F83A28525890B00057E0D">
+<agentmodified><datetime>20221130T195911,77-05</datetime></agentmodified>
+<agentrun><datetime>20240325T151216,63-05</datetime></agentrun>
+<runlog>Début d'exécution de l'agent "Test Signataire|A_OSSCbx" le 2026-02-10 11:04:39
+Erreur : B4:82
+</runlog></rundata></agent>
+
+</database>

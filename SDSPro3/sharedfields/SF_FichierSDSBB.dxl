@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><sharedfield name="SF_FichierSDSBB" designerversion="8">
+<noteinfo noteid="14e" unid="8C4BBD40BA6E61A485257DF200551FE1" sequence="15">
+<created><datetime>20150220T102947,21-05</datetime></created>
+<modified><datetime dst="true">20190830T091604,86-04</datetime></modified>
+<revised><datetime dst="true">20180718T105548,73-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091604,84-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205648,99-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><field type="text" kind="computedfordisplay" name="SF_FichierSDSBB"><code event="defaultvalue"><formula>v_NomBase := "SDSBB";
+@IfError(@DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_NDB20"; v_NomBase; 3); "")</formula></code></field>
+<item name="OriginalModTime" sign="true"><datetime dst="true">20050406T140122,66-04</datetime></item>
+<item name="$HTMLCode" sign="true">
+<rawitemdata type="1">
+</rawitemdata></item></sharedfield>
+
+</database>

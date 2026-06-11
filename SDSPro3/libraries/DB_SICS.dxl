@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="DB_SICS" hide="v3 v4strict" comment="3.1">
+<noteinfo noteid="555696" unid="0F671F71CD6BEE91852586B40011FB3F" sequence="76">
+<created><datetime dst="true">20210410T231624,31-04</datetime></created>
+<modified><datetime>20260105T014836,94-05</datetime></modified>
+<revised><datetime>20250319T073636,51-05</datetime></revised>
+<lastaccessed><datetime>20260105T014836,93-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014836,93-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Richard Riopel/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Automatisation/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_CompteurSequentiel"
+
+'	Les fonctions définies dans cette bibliothèque de script permettent la gestion de tous les
+'	opérations reliés au formulaire Admin\Compteurs séquentiels | DB_SICS.
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_DBSICS As Notessession
+Dim gndb_DBSICS As Notesdatabase
+Dim gnuid_DBSICS As Notesuidocument
+Dim gnd_DBSICS As Notesdocument
+Dim gnd_SICS_DBSICS As Notesdocument
+
+Dim gnuiws_DBSICS As Notesuiworkspace
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_DBSICS = "SL"
+Const gc_Element_DBSICS = "DB_SICS"
+
+</lotusscript></code><code event="DBSICS_Initialisations"><lotusscript>Sub DBSICS_Initialisations
+	If gns_DBSICS Is Nothing Then
+		Set gns_DBSICS = New Notessession
+		Set gndb_DBSICS = gns_DBSICS.Currentdatabase
+		
+		Set gnuiws_DBSICS = New Notesuiworkspace
+	End If
+End Sub
+
+</lotusscript></code><code event="DBSICS_Postopen"><lotusscript>Sub DBSICS_Postopen(p_Source As Notesuidocument)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script initialise à première page à afficher
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Call DBSICS_Initialisations
+	Set gnuid_DBSICS = p_Source
+	Set gnd_DBSICS = p_Source.Document
+	
+	Call DBSICS_InitialiserPage(0)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBSICS, gc_Element_DBSICS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBSICS_Queryopen"><lotusscript>Sub DBSICS_Queryopen(p_Source As Notesuidocument, p_Mode As Integer, p_Isnewdoc As Variant, _
+p_Continue As Variant)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script initialise à première page à afficher
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim i As Long
+	Dim v_Erreur As Integer
+	
+	p_Continue = True
+	
+	Set gnd_SICS_DBSICS = SICS_Document(False)
+	' Si le document des compteurs séquentiels n'existe pas
+	If gnd_SICS_DBSICS Is Nothing Then
+		Messagebox "Aucun compteur séquentiel n'est défini dans cette base de documents.", 16, _
+		"Opération annulée"
+		p_Continue = False
+	' Si le document des compteurs séquentiels ne contient pas d'items
+	Elseif Not Isarray(gnd_SICS_DBSICS.Items) Then
+		Messagebox "Aucun compteur séquentiel n'est défini dans cette base de documents.", 16, _
+		"Opération annulée"
+		p_Continue = False
+	' Si le document des compteurs séquentiels ne contient pas d'items de compteur séquentiel
+	Else
+		v_Erreur = True
+		For i = Lbound(gnd_SICS_DBSICS.Items) To Ubound(gnd_SICS_DBSICS.Items)
+			If Left(gnd_SICS_DBSICS.Items(i).Name, 1) &lt;&gt; "$" And _
+			gnd_SICS_DBSICS.Items(i).Name &lt;&gt; "Form" Then
+				v_Erreur = False
+				Exit For
+			End If
+		Next
+		If v_Erreur Then
+			Messagebox "Aucun compteur séquentiel n'est défini dans cette base de documents.", 16, _
+			"Opération annulée"
+			p_Continue = False
+		End If
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBSICS, gc_Element_DBSICS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBSICS_hsSupprimerCompteur"><lotusscript>Sub DBSICS_hsSupprimerCompteur(p_Compteur As Integer)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de supprimer un compteur séquentiel.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_NomCompteur As String
+	
+	v_NomCompteur = xVar(gnd_DBSICS, "SICS_NomCompteur_" &amp; Cstr(p_Compteur), "")
+	
+	If Messagebox("Etes-vous sûr de vouloir supprimer le compteur """ &amp; v_NomCompteur &amp; """?", 36, _
+	"Suppression d'un compteur séquentiel") = 6 Then
+		' Supprimer le compteur
+		If SICS_SupprimerCompteur(v_NomCompteur) Then	
+			' Réinitialiser la page courante
+			Call DBSICS_InitialiserPage(0)
+		End If
+	End If	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBSICS, gc_Element_DBSICS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBSICS_hsModifierCompteur"><lotusscript>Sub DBSICS_hsModifierCompteur(p_Compteur As Integer)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de supprimer un compteur séquentiel.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_NomCompteur As String
+	Dim v_Valeur As Variant
+	Dim v_ValeurLong As Long
+	
+	v_NomCompteur = xVar(gnd_DBSICS, "SICS_NomCompteur_" &amp; Cstr(p_Compteur), "")
+	v_Valeur = gnuiws_DBSICS.Prompt(PROMPT_OKCANCELEDIT, "Modification d'un compteur séquentiel", _
+	"Veuillez saisir la nouvelle valeur du compteur """ &amp; v_NomCompteur &amp; """.")
+	
+	If Not Isempty(v_Valeur) Then
+		If Isnumeric(v_Valeur) Then
+			v_ValeurLong = Clng(v_Valeur)
+			If v_ValeurLong &gt;= 0 Then
+				' Initialiser le compteur
+				If SICS_InitialiserCompteur(v_NomCompteur, v_Valeur) Then
+					' Réinitialiser la page courante
+					Call DBSICS_InitialiserPage(0)
+				End If
+			Else
+				Messagebox "La valeur saisie est invalide.", 16, "Opération annulée"
+			End If
+		Else
+			Messagebox "La valeur saisie est invalide.", 16, "Opération annulée"
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBSICS, gc_Element_DBSICS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBSICS_InitialiserPage"><lotusscript>Sub DBSICS_InitialiserPage(p_Page As Integer)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet d'initialiser les champs d'affichage du masque "DB_SICS".
+	' Paramètre : Page à initialiser		-1 = Page précédente
+	'											0 = Première page
+	'											1 = Page suivante
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_Page As Long
+	Dim v_NbItems As Long
+	Dim v_Item As Long
+	Dim v_ItemCS As Long
+	Dim v_ItemCourant As Long
+	Dim v_PremierItem As Long
+	Dim v_DernierItem As Long
+	Dim i As Long
+	Dim ni As Notesitem
+	
+	' Extraire les compteurs séquentiels
+	' -----------------------------------------------------
+	Set gnd_SICS_DBSICS = SICS_Document(False)
+	Call gnd_SICS_DBSICS.RemoveItem("Form")
+	
+	' Calcul du numéro de la page à afficher
+	' -------------------------------------------------------------
+	v_Page = xVar(gnd_DBSICS, "SICS_Page", 0) + p_Page
+	If v_Page &lt;= 0 Then
+		v_Page = 1
+	End If
+	
+	' Vérifier s'il y a des compteurs à afficher
+	' -------------------------------------------------------------
+	v_ItemCourant = 1	
+	v_Item = 1
+	If Isarray(gnd_SICS_DBSICS.Items) Then
+		
+		' Boucler jusqu'au premier compteur séquentiel de la page à afficher
+		' ---------------------------------------------------------------------------------------------------------
+		v_ItemCS = Lbound(gnd_SICS_DBSICS.Items)
+		v_PremierItem = ((v_Page - 1) * 10) + 1
+		Do Until v_Item &gt;= v_PremierItem Or v_ItemCS &gt; Ubound(gnd_SICS_DBSICS.Items)
+			If Left(gnd_SICS_DBSICS.Items(v_ItemCS).Name, 1) &lt;&gt; "$" Then
+				v_Item = v_Item + 1
+			End If
+			v_ItemCS = v_ItemCS + 1
+		Loop
+		
+		If v_ItemCS &gt; Ubound(gnd_SICS_DBSICS.Items) Then
+			If v_Page = 1 Then
+				v_NbItems = 0
+			Else
+				Call DBSICS_InitialiserPage(-1)
+				Exit Sub
+			End If
+		End If	
+		
+		' Initialiser les valeurs de la nouvelle page
+		' ---------------------------------------------------------------
+		Do Until v_ItemCourant &gt; 10 Or v_ItemCS &gt; Ubound(gnd_SICS_DBSICS.Items)
+			If Left(gnd_SICS_DBSICS.Items(v_ItemCS).Name, 1) &lt;&gt; "$" Then
+				Call gnd_DBSICS.Replaceitemvalue("SICS_NomCompteur_" &amp; Cstr(v_ItemCourant Mod 10), _
+				gnd_SICS_DBSICS.Items(v_ItemCS).Name)
+				Call gnd_DBSICS.Replaceitemvalue("SICS_ValeurCompteur_" &amp; Cstr(v_ItemCourant Mod 10), _
+				xVar(gnd_SICS_DBSICS, gnd_SICS_DBSICS.Items(v_ItemCS).Name, 0))
+				
+				v_ItemCourant = v_ItemCourant + 1
+				v_Item = v_Item + 1
+			End If
+			v_ItemCS = v_ItemCS + 1
+		Loop
+		
+		' Calculer le nombre de pages
+		' ---------------------------------------------
+		For i = v_ItemCS To Ubound(gnd_SICS_DBSICS.Items)
+			If Left(gnd_SICS_DBSICS.Items(v_ItemCourant).Name, 1) &lt;&gt; "$" Then
+				v_Item = v_Item + 1
+			End If
+		Next
+	End If
+	
+	' Initialiser les lignes vides si page partielle
+	' ----------------------------------------------------------------
+	For i = v_ItemCourant To 10
+		Call gnd_DBSICS.Replaceitemvalue("SICS_NomCompteur_" &amp; Cstr(i Mod 10), "")
+		Call gnd_DBSICS.Replaceitemvalue("SICS_ValeurCompteur_" &amp; Cstr(i Mod 10), "")
+	Next
+	
+	Call gnd_DBSICS.Replaceitemvalue("SICS_Page", v_Page)
+	Call gnd_DBSICS.Replaceitemvalue("SICS_NbPages", (v_Item \ 10) + 1)
+	Call gnuid_DBSICS.RefreshHideFormulas
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBSICS, gc_Element_DBSICS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073636,51-05</datetime></item></scriptlibrary>
+
+</database>

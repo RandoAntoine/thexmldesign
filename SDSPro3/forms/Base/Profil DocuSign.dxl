@@ -1,0 +1,797 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Base\Profil DocuSign" alias="F_PDSg" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" conflictaction="mergeconflicts">
+<noteinfo noteid="1d106a" unid="6639ECBA65918D2385258512005B5E9C" sequence="182">
+<created><datetime>20200218T113759,96-05</datetime></created>
+<modified><datetime>20250319T074051,18-05</datetime></modified>
+<revised><datetime>20250319T073751,29-05</datetime></revised>
+<lastaccessed><datetime>20250319T074051,17-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20210410T235610,81-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="windowtitle"><formula>@If(@IsNewDoc; "Nouveau profil"; PDSg_Nom + " - Signatures électroniques")</formula></code>
+<actionbar borderstyle="none" bgcolor="#2f2f2f" bordercolor="#2f2f2f"><actionbarstyle height="31px" repeat="tile"><imageref><code event="value"><formula>"bg_Actions"</formula></code></imageref></actionbarstyle>
+<actionbuttonstyle bgcolor="none"/><font size="8pt" style="bold"/><border/></actionbar>
+<background allowoverride="false"/>
+<body><richtext>
+<pardef id="1" leftmargin="1in" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/>Shared fields : </run><run><font size="8pt" color="red"/><sharedfieldref name="SF_GDK"/></run><run><font size="8pt" color="red"/></run></par>
+<pardef id="2" leftmargin="1in" hide="notes web mobile"/>
+<par def="2"><run><font size="8pt" color="red"/>Lookups : </run><run><font size="8pt" color="red"/><field type="text" allowmultivalues="true" kind="computedfordisplay" name="PDSg_TypesDestinataires_1" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>@DbLookup(""; SF_GDK; "V_Tabl20"; "SLDS_TypesDestinataires"; 6; [FailSilent])</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/><field type="text" allowmultivalues="true" kind="computedfordisplay" name="PDSg_TypesElements_1" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>@DbLookup(""; SF_GDK; "V_Tabl20"; "SLDS_TypesElements"; 6; [FailSilent])</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="16" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run></par>
+<par def="1"><run><font size="8pt" color="red"/>Identificateurs : </run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Form"><code event="defaultvalue"><formula>"F_PDSg"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" style="bold underline" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>PDSg_Nom</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="18" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>PDSg_Description</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="27" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt"/></run><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Titre"><code event="defaultvalue"><formula>"Signatures électroniques - Profil de connexion"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="33" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run></par>
+<par def="1"><run><font size="8pt" color="red"/>Sécurité : </run><run><font size="8pt" color="red"/><field type="authors" kind="computedwhencomposed" name="Auteurs"><code event="defaultvalue"><formula>"[Base]"</formula></code></field></run><run><font size="8pt" color="red"/></run></par>
+<pardef id="3" leftmargin="1in" rightmargin="100%" hide="notes web mobile"/><subformref name="Entete | SF_Ente"/>
+<pardef id="4" leftmargin="1in"/>
+<par def="4"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" rightmargin="100%" refwidth="6.5313in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="6" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/>Nom :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="7" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="9pt"/></run><popup hotspotstyle="none"><popuptext>Champ obligatoire</popuptext><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></popup><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="8" leftmargin="0" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.1813in" borderstyle="single" type="text" kind="editable" name="PDSg_Nom"><code event="inputvalidation"><formula>v_Cle := PDSg_Nom;
+v_NomVue := "V_PDSg20";
+
+@If(v_Cle = NULL; @Return(@Failure("Le nom est obligatoire.")); "");
+v_Lookup := @DbLookup("" : "NoCache"; ""; v_NomVue; v_Cle; 1; [ReturnDocumentUniqueID]);
+@If(@IsError(v_Lookup); @Success; @Elements(v_Lookup) = 1 &amp; v_Lookup = @Text(@DocumentUniqueID); @Success; @Failure("Le profil est déjà défini."))</formula></code><code event="exiting"><lotusscript>Sub Exiting(Source As Field)
+	Dim nuiws As New NotesUIWorkspace
+	Dim nuid As NotesUIDocument
+	
+	Set nuid = nuiws.CurrentDocument
+	On Error 4412 Resume Next
+	Call nuid.Refresh
+End Sub</lotusscript></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/>Description :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="4.7243in" borderstyle="single" type="text" kind="editable" name="PDSg_Description"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/>Catégorie(s) :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="10" keepwithnext="true" keeptogether="true"/>
+<par def="10"><run><font size="9pt"/></run><run><font size="9pt"/><field type="keyword" allowmultivalues="true" kind="editable" name="PDSg_Categorie" listinputseparators="comma" listdisplayseparator="comma"><keywords ui="dialoglist" allownew="true"><formula>@DbColumn("":"NoCache";"";"V_PDSg10";1)</formula></keywords></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/>Fournisseur :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="10"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.1813in" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_Fournisseur"><keywords helperbutton="false" columns="1" ui="combobox"><formula>v_NomTable := "ESign_Fournisseur";
+@DbLookup(""; ""; "V_Tabl20"; v_NomTable; 6; [FailSilent])</formula></keywords><code event="defaultvalue"><formula>@DbLookup(""; "" : ""; "V_Tabl20"; "ESign_Fournisseur"; 3; [FailSilent])</formula></code><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue); @Failure("Le fournisseur est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par>
+<pardef id="11" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="11"><run><font size="9pt" color="red"/><field computeaftervalidation="true" type="text" kind="computedfordisplay" name="PDSg_DescFournisseur"><code event="defaultvalue"><formula>v_NomTable := "ESign_Fournisseur";
+v_Cle := POSSg_Fournisseur;
+v_Valeurs := @DbLookup( ""; ""; "V_Tabl20"; v_NomTable; 4);
+v_Descriptions := @DbLookup( ""; ""; "V_Tabl20"; v_NomTable; 5);
+
+@If(@IsNull(v_Cle) | @IsError(v_Valeurs) | @IsNull(v_Valeurs) | @IsNull(v_Descriptions) | @IsError(v_Descriptions); ""; @Replace(v_Cle; v_Valeurs; v_Descriptions))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="12"/>
+<par def="12"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="6.5208in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="14" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="8pt" style="bold" color="maroon"/>Connexion</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="15" keepwithnext="true" keeptogether="true"/>
+<par def="15"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="12"><run><font size="3pt"/>	</run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" rightmargin="100%" refwidth="6.5313in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="16" leftmargin="0.0785in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="16"><run><font size="9pt" color="red"/>Utilisateur :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="17" align="right" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="17"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="11"><run><font color="red"/></run><run><font size="9pt" color="red"/><field usenotesstyle="false" height="0.2340in" width="3.9368in" borderstyle="single" type="text" kind="editable" name="PDSg_Utilisateur"/></run><run><font size="9pt" color="red"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="16"><run><font size="9pt" color="red"/>Mot de passe :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="17"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="11"><run><font color="red"/></run><run><font size="9pt" color="red"/><field usenotesstyle="false" height="0.2340in" width="3.9368in" borderstyle="single" type="text" kind="editable" name="PDSg_MotDePasse"/></run><run><font size="9pt" color="red"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/>Clé d'intégration :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><picture width="12px" height="16px" scaledheight="0.1563in" scaledwidth="0.1250in"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="10"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="3.9368in" borderstyle="single" type="text" kind="editable" name="PDSg_CleIntegration"><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue);@Failure("La clé d'intégration est obligatoire.");@Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="12"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="6.5208in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="14"><run><font size="8pt" style="bold" color="maroon"/>Distribution</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="18" keepwithnext="true" keeptogether="true"/>
+<par def="18"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="12"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" refwidth="6.5313in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/>Envoyer courriel brouillon :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="10"><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_EnvoyerBrouillon"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>Oui|1</text><text>Non|0</text></textlist></keywords><code event="defaultvalue"><formula>"1"</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="12"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="6.5208in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="14"><run><font size="8pt" style="bold" color="maroon"/>Contrat</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="15"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<pardef id="13" firstlineleftmargin="1in"/>
+<par def="13"><run><font size="9pt"/></run></par>
+<par def="13"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="6.5208in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="14"><run><font size="8pt" style="bold" color="maroon"/>Destinataires</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="15"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="12"/>
+<table cellbordercolor="#2f2f2f" widthtype="fixedleft" refwidth="12.9069in"><tablecolumn width="0.6299in"/><tablecolumn width="2.8139in"/><tablecolumn width="2.8347in"/><tablecolumn width="1.3521in"/><tablecolumn width="0.6299in"/><tablecolumn width="4.6465in"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<pardef id="19" keepwithnext="true" keeptogether="true"/>
+<par def="19"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="20" leftmargin="0.0868in" keepwithnext="true" keeptogether="true"/>
+<par def="20"><run><font size="8pt" style="bold" color="maroon"/>Nom / ID Groupe</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="21" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="21"><run><font size="8pt" style="bold" color="maroon"/>Courriel</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="22" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="22"><run><font size="8pt" style="bold" color="maroon"/>Type</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="23" align="right" leftmargin="0.0785in" rightmargin="0.4417in" keepwithnext="true" keeptogether="true"/>
+<par def="23"><run><font size="8pt" style="bold" color="maroon"/>Ordre</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="24" leftmargin="0.0785in" rightmargin="1.1813in" keepwithnext="true" keeptogether="true"/>
+<par def="24"><run><font size="8pt" style="bold" color="maroon"/>Element(s)</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="25" keepwithnext="true" keeptogether="true"/>
+<par def="25"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="26" keepwithnext="true" keeptogether="true"/>
+<par def="26"><run><font size="1pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="27" keepwithnext="true" keeptogether="true"/>
+<par def="27"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="28" keepwithnext="true" keeptogether="true"/>
+<par def="28"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="29" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="29"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="30" keepwithnext="true" keeptogether="true"/>
+<par def="30"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="12"><run><font size="3pt"/></run></par>
+<table minrowheight="0.2951in" widthtype="fixedleft" colorstyle="solid" bgcolor="white" refwidth="12.0215in"><tablecolumn width="0.2361in"/><tablecolumn width="0.1965in"/><tablecolumn width="0.2028in"/><tablecolumn width="2.8264in"/><tablecolumn width="2.8229in"/><tablecolumn width="1.4063in"/><tablecolumn width="0.5903in"/><tablecolumn width="3.7403in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="31" align="center" keepwithnext="true" keeptogether="true"/>
+<par def="31"><run><font size="9pt"/>1</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="32" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="32"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="33" leftmargin="0" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="33"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeCT01"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="34" leftmargin="0" hide="read print copy preview embedded" keepwithnext="true" keeptogether="true"/>
+<par def="34"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeCT01"; @If(PDSg_GroupeCT01 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeCT01 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="35" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="35"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireCT01"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="36" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeCT01 = "G"</formula></code></pardef>
+<par def="36"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireCT01"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT01) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeCT01); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="37" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="37"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireCT01"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT01) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire"); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="38" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="38"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireCT01"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT01) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="39" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireCT01 != "S"</formula></code></pardef>
+<par def="39"><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementCT01" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireCT01= "S" &amp; @IsNotMember("I" : "S"; PDSg_TypeElementCT01);@Failure("Vous devez choisir l'élément de signature (intiales ou signature) pour le type « Signataire »."); @Success)</formula></code></field></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>2</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="32"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeCT02"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="40" leftmargin="0" hide="read copy preview embedded" keepwithnext="true" keeptogether="true"/>
+<par def="40"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeCT02"; @If(PDSg_GroupeCT02 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeCT02 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireCT02"/></run><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="41" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeCT02 = "G"</formula></code></pardef>
+<par def="41"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireCT02"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT02) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeCT02); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireCT02"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT02) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire"); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireCT02"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT02) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="42" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireCT02 != "S"</formula></code></pardef>
+<par def="42"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementCT02" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireCT02 = "S" &amp; @IsNotMember("I" : "S"; PDSg_TypeElementCT02);@Failure("Vous devez choisir l'élément de signature (intiales ou signature) pour le type « Signataire »."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>3</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="32"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeCT03"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="40"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeCT03"; @If(PDSg_GroupeCT03 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeCT03 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireCT03"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="43" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeCT03 = "G"</formula></code></pardef>
+<par def="43"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireCT03"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT03) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeCT03); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireCT03"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT03) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire"); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireCT03"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT03) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="44" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireCT03 != "S"</formula></code></pardef>
+<par def="44"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementCT03" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireCT03= "S" &amp; @IsNotMember("I" : "S"; PDSg_TypeElementCT03);@Failure("Vous devez choisir l'élément de signature (intiales ou signature) pour le type « Signataire »."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>4</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="32"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeCT04"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="40"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeCT04"; @If(PDSg_GroupeCT04 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeCT04 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireCT04"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="45" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeCT04 = "G"</formula></code></pardef>
+<par def="45"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireCT04"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT04) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeCT04); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireCT04"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT04) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire"); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireCT04"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT04) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="46" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireCT04 != "S"</formula></code></pardef>
+<par def="46"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementCT04" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireCT04 = "S" &amp; @IsNotMember("I" : "S"; PDSg_TypeElementCT04);@Failure("Vous devez choisir l'élément de signature (intiales ou signature) pour le type « Signataire »."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>5</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="32"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeCT05"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="34"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeCT05"; @If(PDSg_GroupeCT05 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="22.7500in" scaledwidth="22.7500in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeCT05 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireCT05"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="47" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeCT05 = "G"</formula></code></pardef>
+<par def="47"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireCT05"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT05) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeCT05); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireCT05"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT05) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire"); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireCT05"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT05) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="48" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireCT05 != "S"</formula></code></pardef>
+<par def="48"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementCT05" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireCT05 = "S" &amp; @IsNotMember("I" : "S"; PDSg_TypeElementCT05);@Failure("Vous devez choisir l'élément de signature (intiales ou signature) pour le type « Signataire »."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>6</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="32"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeCT06"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="40"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeCT06"; @If(PDSg_GroupeCT06 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeCT06 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireCT06"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="49" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeCT06 = "G"</formula></code></pardef>
+<par def="49"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireCT06"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT06) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeCT06); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireCT06"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT06) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire"); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireCT06"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT06) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="50" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireCT06 != "S"</formula></code></pardef>
+<par def="50"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementCT06" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireCT06 = "S" &amp; @IsNotMember("I" : "S"; PDSg_TypeElementCT06);@Failure("Vous devez choisir l'élément de signature (intiales ou signature) pour le type « Signataire »."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>7</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="32"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeCT07"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="34"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeCT07"; @If(PDSg_GroupeCT07 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeCT07 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireCT07"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="51" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeCT07 = "G"</formula></code></pardef>
+<par def="51"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireCT07"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT07) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeCT07); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireCT07"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT07) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire"); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireCT07"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT07) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="52" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireCT07 != "S"</formula></code></pardef>
+<par def="52"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementCT07" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireCT07 = "S" &amp; @IsNotMember("I" : "S"; PDSg_TypeElementCT07);@Failure("Vous devez choisir l'élément de signature (intiales ou signature) pour le type « Signataire »."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>8</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="32"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeCT08"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="40"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeCT08"; @If(PDSg_GroupeCT08 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeCT08 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireCT08"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="53" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeCT08 = "G"</formula></code></pardef>
+<par def="53"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireCT08"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT08) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeCT08); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireCT08"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT08) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire"); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireCT08"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT08) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="54" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireCT08 != "S"</formula></code></pardef>
+<par def="54"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementCT08" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireCT08 = "S" &amp; @IsNotMember("I" : "S"; PDSg_TypeElementCT08);@Failure("Vous devez choisir l'élément de signature (intiales ou signature) pour le type « Signataire »."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>9</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="32"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="33"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeCT09"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="40"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeCT09"; @If(PDSg_GroupeCT09 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeCT09 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireCT09"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="55" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeCT09 = "G"</formula></code></pardef>
+<par def="55"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireCT09"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT09) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeCT09); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireCT09"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT09) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire"); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="56" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="56"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireCT09"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireCT09) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="57" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireCT09 != "S"</formula></code></pardef>
+<par def="57"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementCT09" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireCT09 = "S" &amp; @IsNotMember("I" : "S"; PDSg_TypeElementCT09);@Failure("Vous devez choisir l'élément de signature (intiales ou signature) pour le type « Signataire »."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="12"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="6.5208in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="14"><run><font size="8pt" style="bold" color="maroon"/>Bon de commande</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="15"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="12"><run><font size="9pt"/></run></par>
+<par def="12"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="6.5208in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="14"><run><font size="8pt" style="bold" color="maroon"/>Destinataires</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="15"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="12"/>
+<table cellbordercolor="#2f2f2f" widthtype="fixedleft" refwidth="12.9063in"><tablecolumn width="0.6299in"/><tablecolumn width="2.8139in"/><tablecolumn width="2.8347in"/><tablecolumn width="1.3521in"/><tablecolumn width="0.6299in"/><tablecolumn width="4.6458in"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<par def="19"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<par def="20"><run><font size="8pt" style="bold" color="maroon"/>Nom / ID Groupe</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<par def="21"><run><font size="8pt" style="bold" color="maroon"/>Courriel</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<par def="22"><run><font size="8pt" style="bold" color="maroon"/>Type</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<par def="23"><run><font size="8pt" style="bold" color="maroon"/>Ordre</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<par def="24"><run><font size="8pt" style="bold" color="maroon"/>Element(s)</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="25"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="26"><run><font size="1pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="27"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="28"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="29"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="58" keepwithnext="true" keeptogether="true"/>
+<par def="58"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="12"><run><font size="3pt"/></run></par>
+<table minrowheight="0.2951in" widthtype="fixedleft" colorstyle="solid" bgcolor="white" refwidth="12.0215in"><tablecolumn width="0.2361in"/><tablecolumn width="0.1965in"/><tablecolumn width="0.2028in"/><tablecolumn width="2.8264in"/><tablecolumn width="2.8229in"/><tablecolumn width="1.4063in"/><tablecolumn width="0.5903in"/><tablecolumn width="3.7403in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="59" align="center" keepwithnext="true" keeptogether="true"/>
+<par def="59"><run><font size="9pt"/>1</run></par>
+<par def="59"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="60" keepwithnext="true" keeptogether="true"/>
+<par def="60"/></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="61" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="61"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeBC01"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="62" hide="read print copy preview embedded" keepwithnext="true" keeptogether="true"/>
+<par def="62"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeBC01"; @If(PDSg_GroupeBC01 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="22.7500in" scaledwidth="22.7500in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeBC01 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireBC01"/></run><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="63" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeBC01 = "G"</formula></code></pardef>
+<par def="63"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireBC01"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC01) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeBC01); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireBC01"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC01) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireBC01"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC01) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="64" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireBC01 != "S"</formula></code></pardef>
+<par def="64"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementBC01" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireBC01= "S" &amp; @IsNotMember("S"; PDSg_TypeElementBC01);@Failure("L'élément de signature est obligatoire");@Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>2</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="60"/></tablecell>
+<tablecell borderwidth="0px">
+<par def="61"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeBC02"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="65" hide="read copy preview embedded" keepwithnext="true" keeptogether="true"/>
+<par def="65"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeBC02"; @If(PDSg_GroupeBC02 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeBC02 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireBC02"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="66" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeBC02 = "G"</formula></code></pardef>
+<par def="66"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireBC02"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC02) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeBC02); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireBC02"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC02) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire."); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireBC02"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC02) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="67" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireBC02 != "S"</formula></code></pardef>
+<par def="67"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementBC02" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireBC02 = "S" &amp; @IsNotMember("S"; PDSg_TypeElementBC02);@Failure("L'élément de signature est obligatoire");@Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>3</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="60"/></tablecell>
+<tablecell borderwidth="0px">
+<par def="61"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeBC03"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="65"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeBC03"; @If(PDSg_GroupeBC03 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeBC03 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireBC03"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="68" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeBC03 = "G"</formula></code></pardef>
+<par def="68"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireBC03"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC03) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeBC03); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireBC03"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC03) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire."); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="56"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireBC03"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC03) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="69" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireBC03 != "S"</formula></code></pardef>
+<par def="69"><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementBC03" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireBC03 = "S" &amp; @IsNotMember("S"; PDSg_TypeElementBC03);@Failure("L'élément de signature est obligatoire");@Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>4</run></par>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="60"/></tablecell>
+<tablecell borderwidth="0px">
+<par def="61"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeBC04"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="65"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeBC04"; @If(PDSg_GroupeBC04 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeBC04 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireBC04"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="70" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeBC04 = "G"</formula></code></pardef>
+<par def="70"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireBC04"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC04) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeBC04); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireBC04"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC04) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire."); @Success)</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="56"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireBC04"><numberformat format="general" varying="true" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC04) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="71" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireBC04 != "S"</formula></code></pardef>
+<par def="71"><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementBC04" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireBC04 = "S" &amp; @IsNotMember("S"; PDSg_TypeElementBC04);@Failure("L'élément de signature est obligatoire");@Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="31"><run><font size="9pt"/>5</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="60"/></tablecell>
+<tablecell borderwidth="0px">
+<par def="61"><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="PDSg_GroupeBC05"><keywords helperbutton="false" recalconchange="true" columns="1" ui="checkbox"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="62"><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("PDSg_GroupeBC05"; @If(PDSg_GroupeBC05 = "G"; "P"; "G"));
+@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" scaledheight="22.7500in" scaledwidth="22.7500in" align="top"><imageref><code event="value"><formula>"hs_" + @If(PDSg_GroupeBC05 = "G"; "Groupe"; "Personne")</formula></code></imageref></picture><run><font size="9pt"/></run></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="72" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="72"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_NomDestinataireBC05"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="73" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_GroupeBC05 = "G"</formula></code></pardef>
+<par def="73"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.7563in" borderstyle="single" type="text" kind="editable" name="PDSg_CourrielDestinataireBC05"><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC05) &amp; @IsNull(@ThisValue) &amp; @IsNull(PDSg_GroupeBC05); @Failure("L'adresse courriel est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par>
+<pardef id="74" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code1)</formula></code></pardef>
+<par def="74"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.3389in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="PDSg_TypeDestinataireBC05"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>"" : PDSg_TypesDestinataires_1</formula></keywords><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC05) &amp; @IsNull(@ThisValue); @Failure("Le type de destinataire est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="number" kind="editable" name="PDSg_OrdreDestinataireBC05"><numberformat format="general" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(!@IsNull(PDSg_NomDestinataireBC05) &amp; @IsNull(@ThisValue); @Failure("L'ordre est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="75" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>PDSg_TypeDestinataireBC05 != "S"</formula></code></pardef>
+<par def="75"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="PDSg_TypeElementBC05" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="4" ui="checkbox"><formula>PDSg_TypesElements_1</formula></keywords><code event="inputvalidation"><formula>@If(PDSg_TypeDestinataireBC05 = "S" &amp; @IsNotMember("S"; PDSg_TypeElementBC05);@Failure("L'élément de signature est obligatoire");@Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="12"><run><font size="9pt"/></run></par>
+<pardef id="76" leftmargin="1.0785in" hide="print"/>
+<par def="76"><run><font size="9pt"/>Notes :</run></par>
+<par def="76"><run><font size="9pt"/></run><run><font size="9pt"/><field type="richtext" kind="editable" name="PDSg_Notes"/></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<pardef id="77" leftmargin="1in" rightmargin="100%" hide="notes web"/><subformref name="Historique EN | SF_Histo"/>
+<par def="12"/></richtext></body>
+<item name="HistoDC_1" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Tabl_Icones" summary="false" sign="true"><number>0</number></item>
+<item name="OriginalModTime" sign="true"><datetime dst="true">20070416T164832,95-04</datetime></item>
+<item name="HISTODP" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$SCRIPTOBJ_0" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAGwCCAAQAAACMBlgDAAAAABQGBAPsBAAAAAAoADgBHAA8APwAVAEA
+AAAAAAAAAAIAAAAsAIABAAAAAIABgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAALAAsAAIAAACoBTAGAAAAAAAAAACoBagFAAAAAAAAAAAAAAAAAAAAAAAAAAAwBjAGAAAA
+AAAAAAAAAAAAAAAAAAUAAADgAOwEEAPsBAAAAAA0AjQCAAAAANQD1APgAOAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAAggAAAAAAAACMBgAAWAMAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAUAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwBcAwAAAABYAAoAJABWADUAQQBDAFQASQBPAE4AUwAAAAAAcAADAE4ARQBXAAAAhAAGAEQA
+RQBMAEUAVABFAAAAAACMAAoASQBOAEkAVABJAEEATABJAFoARQAAAAAAcAEJAFQARQBSAE0ASQBO
+AEEAVABFAAAA4AEGAE8AQgBKAEUAQwBUAAAAAACwAAAAAAAAANQADwAoAEcATABPAEIAQQBMAFMA
+KQBGAF8AUwBJAEMAVAAAACQBDwAoAEcAbABvAGIAYQBsAHMAKQBGAF8AUwBJAEMAVAAAAJgBEQBT
+AEkAXwBDAG8AdQByAHIAaQBlAGwAcwBUAHkAcABlAHMAAAD//xEAUwBJAF8AQwBPAFUAUgBSAEkA
+RQBMAFMAVABZAFAARQBTAAAA3AIGAFMATwBVAFIAQwBFAAAAAACEAQoAQgBJAE4ARABFAFYARQBO
+AFQAUwAAAAAAqAELAE8AQgBKAEUAQwBUAE4AQQBNAEUAXwAAAPQBBgBCAFUAVABUAE8ATgAAAAAA
+//8GACUATABTAEkARABFAAAAAAAgAgUAQwBMAEkAQwBLAAAAuAEFAE4AVQBJAFcAUwAAAFQCEABO
+AE8AVABFAFMAVQBJAFcATwBSAEsAUwBQAEEAQwBFAAAAAACsAgYAJQBMAFMAWABVAEkAAAAAAAAC
+AgBOAEQAAAAAADQCDQBOAE8AVABFAFMARABPAEMAVQBNAEUATgBUAAAAEAMGACUATABTAFgAQgBF
+AAAAAAA0Aw0ATgBPAFQARQBTAEQAQQBUAEEAQgBBAFMARQAAAHACCgBOAEQAXwBOAE8AVABIAEkA
+TgBHAAAAAACUAg8AQwBVAFIAUgBFAE4AVABEAE8AQwBVAE0ARQBOAFQAAAAEAwgARABPAEMAVQBN
+AEUATgBUAAAAAADsAhQAUwBJAEMAVABfAEUATgBWAE8AWQBFAFIAQwBPAFUAUgBSAEkARQBMAAAA
+AAD//wQAWABWAEEAUgAAAAAA//8IAFMASQBDAFQAXwBOAG8AbQAAAAAA//8CAEYAUgAAAAAA//8P
+AE4ATwBUAEUAUwBVAEkARABPAEMAVQBNAEUATgBUAAAA//8OAFMASQBfAEUAWABUAFIAQQBDAFQA
+SQBPAE4AUwAAAAAABQCQBgAAAAA4axhXGAAAAAAAkAAwQkkhAAAAAAAAAAAYAAAABAAAATjSYR8A
+AAAAAAAAAAgAAACAAQAAPAEAAAAAAAACAAAAxABwAQAAAAAAAAAAAAAAAAAAAADEAMQAAAAAAAAA
+AAAAAAAAAAAAAAAAAABwAXABAAAAAAAAAAABAAAAAgAAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwABAHABAABYAQYI
+AAAAABoAAACIAf//AAAAABAAAAA0AgAAdAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABFhMp7S5pEL9dAN0BEYa3AAAAAAAA
+AAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAACANQAAAC4BAAAAABaBAEA//8AAAMAIAAAAAAAKAEJ
+AgAA4AAIAAAAAAAAAJwBAAAAAAAABAAAABgCqAT0AvQCqASoBAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAJgEmAQAAAAAGAIYAgAAAAAAAAAAAQAAABQAAAAtAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAQD0AgAAKAEJAgAA
+4AAaANQA5AH//wAAAAAQAAAAEAMAALwBAAAAAAAAAQAAAMgEyAQAAAAAyATIBAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhUTKe0uaRC/XQDdARGGtwAAAAAAAAAA
+AAAAAAAAAABkAAAAAAAAAAAAAAAAAAAAAgAoAsQCAADgAAAACgABAP//AAASABQAAAAAAP//CQIA
+AAAAAAYAAAAANAIoAv//AAAAAAQAAQAAAAkCNAIJAjQCGQADAAIAmAQAAKwBCQIAADQCGgAoAiQC
+//8AAAAAEAAEANQD7AQEAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQUEyntLmkQv10A3QERhrcAAAAAAAAAAAAAAAAAAAAA
+ZAAAAAAAAAAAAAAAAAAAAAIABAOgAwAA1AMAAAIAAQD//wAAEgAUAAAAAAD//wkCAAAAAI0EAAAA
+ABADBAP//wAAAAAGAAIAAAAJAhADCQIQAwkC1AMZABAAAADsBAAAOAIAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACFBMp7S5p
+EL9dAN0BEYa3AAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAACAAQDZAQAADQCAAACAAEA
+//8AABIAFAAAAAAA//8JAgAAAAASBAAAAADUAwQD//8AAAAABgADAAAACQLUAwkC1AMGCAYIGQAD
+AAIAqAQAAPgBCQIEABADAwACAAAAAABYAgkCCAAQAxMAAACcAQAA1QAAAAAAAAARABAFAAAAAHQC
+CQLiBQAAAAAAAAAAAAAAAAAAAAAAAAAA7AQQAAAAAAAAABQDAAAAAAAAAQAAAHwFfAUAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwFfAUAAAAABBUTKe0uaRC/XQDd
+ARGGtwAAAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAAAAAAAAgAoAgAAAAAQAwAACgABAP//AAAR
+ABAFAAAAAJgCCQKoBgAAAAAAAAAAAAAAAAAAAAAAAAAAEAMhABgAAA4AAAcAQAAwBgAAsAINAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAJAA0ADQAJAhADBggGCAAAAAAAAAYAAQAAAAkCEAMZABgAAAAYADgDUI5hHyg2XR8EAAAA
+IQAUBvQaAAAHAEAAAAAAAOACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAGAAAACQIQAwYIAAAAAAQAhgAAAAAAOgMAHQAA
+GgIA0tgAHQAAGgwAW3ABScQAyuAAphoNAEdwAcvVAAAAgAEaDgAdGhIAXvQCKzQCJKYaFgBeqASB
+phoXAF6YBEv0Ai3IBCMtfAUjphoZACmoBV6oBCkwBl6YBH3wAn2IACObfQgDfYgAfYgAfYgAfYgA
+hX2IACMxGhsAHQIAAAARABgAAAAAAP//AQADAAQAAAAHADwBCQCcARAACgAAAA==
+</rawitemdata></item>
+<item name="PDSg_OrdreDestinataire1_1" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire1" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire2" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire3" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire4" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire5" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire6" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire7" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire8" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire9" summary="false"><number>0</number></item>
+<item name="Prof_EQMajoTrim" summary="false"><number>0</number></item>
+<item name="Prof_LGMajoTrim" summary="false"><number>0</number></item>
+<item name="Prof_EQMajoMens" summary="false"><number>0</number></item>
+<item name="Prof_LGMajoMens" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire00_1" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire01_1" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire02_1" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire00" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire01" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireBC00" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire02" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire03" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire04" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire05" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire06" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire07" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire08" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataire09" summary="false"><number>0</number></item>
+<item name="$FormUsers"><text>[Base]</text></item>
+<item name="$SubForm_RepIDs" sign="true"><textlist><text>0000000000000000</text><text>0000000000000000</text></textlist></item>
+<item name="PDSg_OrdreDestinataireCT01" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireCT02" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireCT03" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireCT04" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireCT05" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireCT06" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireCT07" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireCT08" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireCT09" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireBC01" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireBC02" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireBC03" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireBC04" summary="false"><number>0</number></item>
+<item name="PDSg_OrdreDestinataireBC05" summary="false"><number>0</number></item>
+<item name="HistoDC" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="HistoDM" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$PDSg_Nom_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEQBZAAQAAAD4AxACAAAAAAQAFALwAgAAAAAoAIwAHAA8AP//AABY
+AAAAAAAAAAIAAAAYAGwBAAAAAGwBbAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAMAAADMAPAC8ALwAswAzAAgAiACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAAWQAAAAAAAAD4AwAAEAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAUAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAUAgAAAAAEAQoAJAAkAFAARABTAEcAXwBOAE8ATQAAAAAAcAADAE4ARQBXAAAAhAAGAEQA
+RQBMAEUAVABFAAAAAAC0AQoASQBOAEkAVABJAEEATABJAFoARQAAAAAA//8JAFQARQBSAE0ASQBO
+AEEAVABFAAAAkAEGAE8AQgBKAEUAQwBUAAAAAADUAAAAAAAAALAADwAoAEcATABPAEIAQQBMAFMA
+KQBGAF8AUABEAFMARwAAAOgADwAoAEcAbABvAGIAYQBsAHMAKQBGAF8AUABEAFMAZwAAACABBgBT
+AE8AVQBSAEMARQAAAAAAMAEKAEIASQBOAEQARQBWAEUATgBUAFMAAAAAAFgBCwBPAEIASgBFAEMA
+VABOAEEATQBFAF8AAABEAQUARgBJAEUATABEAAAA//8GACUATABTAEkARABFAAAAAAD//wcARQBY
+AEkAVABJAE4ARwAAAGgBBQBOAFUASQBXAFMAAADYARAATgBPAFQARQBTAFUASQBXAE8AUgBLAFMA
+UABBAEMARQAAAAAApAEGACUATABTAFgAVQBJAAAAAAD//wQATgBVAEkARAAAAAAA/AEPAE4ATwBU
+AEUAUwBVAEkARABPAEMAVQBNAEUATgBUAAAA//8PAEMAVQBSAFIARQBOAFQARABPAEMAVQBNAEUA
+TgBUAAAA//8HAFIARQBGAFIARQBTAEgAAAAFAPwDAAAAAHFD2AUYAAAAAACQAED+VyAAAAAAAAAA
+AAgAAABsAQAA7AAAAAAAAAACAAAAsABcAQAAAAAAAAAAAAAAAAAAAACwALAAAAAAAAAAAAAAAAAA
+AAAAAAAAAABcAVwBAAAAAAAAAAABAAAAAgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwABAFwBAAAIAQYIAAAAABoA
+AAA0Af//AAAAABAAAAAgAgAAJAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFhMp7S5pEL9dAN0BEYa3AAAAAAAAAAAAAAAA
+AAAAAGQAAAAAAAAAAAAAAAAAAAACAMAAAACQAwAAAABcBAEA//8AAAMAIAAAAAAA2AAJAgAAzAAI
+AAAAAAAAAEgBAAAAAAAAAwAAAAQCgAPgAuACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AACAA4ADBAIEAgAAAAAAAAAAAQAAAAsAAAAkAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAQDgAgAA2AAJAgAAzAAaAMAA
+lAH//wAAAAAQAAAA8AIAAGwBAAAAAAAAAQAAAKADoAMAAAAAoAOgAwAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhUTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAA
+AABkAAAAAAAAAAAAAAAAAAAAAgAUArACAADMAAAACgABAP//AAASABQAAAAAAP//CQIAAAAAAAYA
+AAAAIAIUAv//AAAAAAQAAQAAAAkCIAIJAiACGQADAAIAgAMAAFwBCQIAACACEAAAAAAAAAC4AQAA
+AAAAAAEAAADEA8QDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAxAPEAwQVEyntLmkQv10A3QERhrcAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAIA
+FAIAAAAAIAIAAAoAAQD//wAAAwACAAAAAACoAQkCBADwAhMAAABIAQAA1wAAAAAAAAARABAFAAAA
+ANwBCQLiBQAAAAAAAAAAAAAAAAAAAAAAAAAA8AISABQAAAAAAAACCgAAAAAA2AYAAAAA8AIUAv//
+AAAAAAYABAAAAAoACQLwAoAAgACAABkABABdAAAAAADStAAdAAAaCwBbXAFJsADKzACmGgwAR1wB
+y9cAAABsARoNAB0aEQBe4AIrIAIkphoUAF6AA0vgAi2gAyOmGhUADDwRCAAaFgBLgAMsxAOLAIsA
+iwAjGhcAHQIAAAARABgAAAAAAP//AQADAAMAAAAGAOwACABIAQ8ACgAAAHU=
+</rawitemdata></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>F_PDSg</text></item></form>
+
+</database>

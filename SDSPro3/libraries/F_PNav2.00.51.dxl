@@ -1,0 +1,570 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_PNav2.00.51" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="5556b2" unid="9FC41CF97B69EFBC852586B40011FB4B" sequence="76">
+<created><datetime dst="true">20210410T231624,43-04</datetime></created>
+<modified><datetime>20260105T014837,01-05</datetime></modified>
+<revised><datetime>20250319T073713,31-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,00-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,00-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>' Site \ Pas de maj
+Option Public
+Option Declare
+Use "wsc_SDSP3"
+Use "SDSP_MasquePNav"
+Use "SDSP_Navigation"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_FPNavxx = "SL"
+Const gc_Element_FPNavxx = "F_PNav2.00.xx"
+
+</lotusscript></code><code event="FPNav_DocumentValide"><lotusscript>Function FPNav_DocumentValide(p_AfficherErreur As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	FPNav_DocumentValide = False
+	
+	If xVar(gnd_SDSPM, "Prop_DescProposition", "") = "" Then
+		If p_AfficherErreur Then
+			MessageBox xGDK_xMessage("SI", 23, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_DescProposition")
+		End If
+		Exit Function
+	End If
+	
+	FPNav_DocumentValide = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_acImage"><lotusscript>Sub FPNav_acImage
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument("") Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImage(gnd_Prop_SDSPM)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsAnnuler"><lotusscript>Sub FPNav_hsAnnuler
+	On Error Goto GererErreur
+	
+	gnd_SDSPM.SaveOptions = "0"
+	Call gnuid_SDSPN.Close
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_QuerySave"><lotusscript>Sub FPNav_QuerySave(pnuid_Source As Notesuidocument, p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	p_Continue = FPNav_SauvegarderDocument("")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acGenererCommande"><lotusscript>Sub FPNav_acGenererCommande
+	On Error GoTo GererErreur
+	
+	Call SDSPUI_acGenererCommande(gnd_Prop_SDSPM)
+	
+	Call gnuid_SDSPM.Refreshhideformulas
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsSuivant"><lotusscript>Sub FPNav_hsSuivant
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(True) Then
+		' Ouvrir le masque suivant
+		Call SDSPN_OuvrirMasqueSuivant
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acImprimerPropositionSommaire"><lotusscript>Sub FPNav_acImprimerPropositionSommaire
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument(True) Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImprimerPropositionSommaire
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acDupliquerProposition"><lotusscript>Sub FPNav_acDupliquerProposition
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim nd_Duplicata As NotesDocument
+	Dim nd_DB As NotesDocument
+	
+	Dim v_UserName As String
+	Dim v_Description As Variant
+	Dim v_ID As String
+	Dim v_DB_ID As String
+	Dim v_EditMode As String
+	Dim v_Commentaire As String
+	Dim v_DBRecalcTous As Boolean
+	Dim v_RecalcListe As Boolean
+	
+	On Error 4411 GoTo FinSub
+	Call gnuid_SDSPM.Save
+	
+	' Demander la nouvelle description à l'utilisateur
+	v_Description = gnuiws_SDSPM.Prompt(PROMPT_OKCANCELEDIT, _
+	xGDK_xMessage("SDSPP", 46, "", ""), xGDK_xMessage("SDSPP", 47, "", ""), CStr(Today()))
+	If v_Description = "" Then
+		Exit Sub
+	Else
+		If v_Description = xVar(gnd_SDSPM,"Prop_DescProposition","") Then
+			MessageBox xGDK_xMessage("SDSPP", 48, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+	End If
+	
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	nd_DB.Form = "DB_SIHi"	
+	nd_DB.SIHi_Obligatoire = True	' Image "&gt;" pour Commentaire obligatoire
+	
+	If Not gnuiws_SDSPN.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+	xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+		Exit Sub
+	End If
+	
+	v_Commentaire = xVar(nd_DB, "SIHi_Commentaire", "")
+	v_UserName = gns_SDSPM.UserName
+	v_EditMode = xVar(gnd_SDSPM, "PNav_EditMode", "")
+	
+	Call SDSPDp_DupliquerProposition(gnd_Prop_SDSPM,CStr(v_Description), nd_Duplicata, nd_DB, v_UserName)
+	
+	If Not nd_Duplicata Is Nothing Then
+		Call SDSPM_acRecalculerCouts(nd_Duplicata, False, False)
+		
+		' Fermer la proposition
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPM.Close
+		Call gnuiws_SDSPM.ViewRefresh
+	Else
+		Call gnuid_SDSPM.Refresh
+	End If
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+	
+
+</lotusscript></code><code event="FPNav_acImprimerProposition"><lotusscript>Sub FPNav_acImprimerProposition
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument(True) Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImprimerProposition
+	
+	Exit Sub
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_SauvegarderDocument"><lotusscript>Function FPNav_SauvegarderDocument(p_ValiderDocument As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_NoOptionCourante As String
+	Dim v_NoOptionMax As String
+	Dim v_DocumentValide As Boolean
+	
+	If xVar(gnd_SDSPM, "PNav_EditMode", False) Then
+		FPNav_SauvegarderDocument = False
+	Else
+		FPNav_SauvegarderDocument = True
+		Exit Function
+	End If
+	
+	' Calculer les champs automatiques
+	On Error 4412 Goto FinSub
+	Call gnuid_SDSPN.Refresh
+	On Error 4412 Goto GererErreur
+	
+	' Valider le document courant
+	v_NoOptionCourante = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "0.00")
+	v_NoOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00")
+	If p_ValiderDocument = "" Then
+		v_DocumentValide = FPNav_DocumentValide(CInt(v_NoOptionCourante =&lt; v_NoOptionMax))
+	Else
+		v_DocumentValide = FPNav_DocumentValide(CInt(p_ValiderDocument))
+	End If
+	If v_DocumentValide = False Then
+		If p_ValiderDocument = True Then
+			Call gnuid_SDSPN.RefreshHideFormulas
+			Exit Function
+		End If
+		
+		gnd_SDSPM.PNav_MenuOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "")
+	End If
+	
+	FPNav_SauvegarderDocument = True
+FinSub:
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_PostOpen"><lotusscript>Sub FPNav_PostOpen(pnuid_Source As Notesuidocument)
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call SDSPN_Initialisations
+	Call SDSPM_Initialisations
+	
+	If xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; 1 Then
+		Call gnuid_SDSPM.Refresh
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsFermer"><lotusscript>Sub FPNav_hsFermer
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	If FPNav_SauvegarderDocument("") Then
+		' Fermer le masque courant
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acWorkflow"><lotusscript>Sub FPNav_acWorkflow(p_Statut As String)
+	On Error GoTo GererErreur
+		
+	If SDSPM_acWorkflow(p_Statut) Then
+		
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		' Ouvrir le masque	
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		
+		gnd_SDSPM.PNav_Titre =  Trim("C" &amp; CStr(xVar(gnd_Prop_SDSPM, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(gnd_Prop_SDSPM, "Prop_ClientNomInterne", xVar(gnd_Prop_SDSPM, "Prop_ClientNom", "")))
+		gnd_SDSPM.Titre =  Trim(xVar(gnd_SDSPM, "PNav_Titre", "") &amp; " - " &amp; xVar(gnd_SDSPM, "PNav_MenuDesc000", ""))
+				
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbProposition", xVar(gnd_Prop_SDSPM, "Prop_NbProposition", 0))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionFmt", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionFmt", ""))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionPrefixe", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionPrefixe", ""))		
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+		
+		Call gnuid_SDSPN.Refresh
+	End If
+		
+	Exit Sub
+		
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acSignerProposition"><lotusscript>Sub FPNav_acSignerProposition
+	On Error Goto GererErreur
+	
+	If SDSPUI_acSignerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acRecalculerCouts"><lotusscript>Sub FPNav_acRecalculerCouts
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet au directeur de modifier le prix
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument("") Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acRecalculerCouts(gnd_Prop_SDSPM, False, False)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsOuvrirMasque"><lotusscript>Sub FPNav_hsOuvrirMasque(p_NoItem As String)
+	On Error Goto GererErreur
+	
+	Dim v_MenuItemCourant As String
+	Dim v_ValiderDocument As Boolean
+	Dim a_MenuItems As Variant
+	Dim v_NoItem As String
+	Dim i As Variant
+	
+	v_MenuItemCourant = xVar(gnd_SDSPM, "PNav_MenuItemCourant", "")
+	a_MenuItems = xVarArray(gnd_SDSPM, "PNav_MenuItems")
+	
+	v_ValiderDocument = False
+	
+	' Si clique sur menu item qui est lui même, ne rien faire
+	If v_MenuItemCourant = p_NoItem Then
+		Exit Sub
+	End If
+	
+	If p_NoItem = "**" Then
+		v_NoItem = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "")
+		If a_MenuItems(Cint(v_MenuItemCourant)) = v_NoItem Then
+			Exit Sub
+		End If
+		i = Arraygetindex(a_MenuItems, xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00"))
+		If Not Isnull(i) Then
+			v_NoItem = Cstr(i)
+		End If
+		
+	Else
+		v_NoItem = p_NoItem
+	End If
+	
+	If Not Isnull(i) Then
+		v_ValiderDocument = (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1" And Cint(v_NoItem) &gt; Cint(v_MenuItemCourant))
+	End If
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(v_ValiderDocument) Then
+		
+		' Construire le menu
+		If Not Isnull(i) Then
+			If (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1" And Cint(v_NoItem) &lt; Cint(v_MenuItemCourant)) Then
+				Call SDSPN_ConstruireMenu(gnd_SDSPM)
+				Call gnuid_SDSPM.Refresh
+			End If
+		Else
+			Call SDSPN_ConstruireMenu(gnd_SDSPM)
+			Call gnuid_SDSPM.Refresh
+		End If
+		
+		' Ouvrir le masque suivant
+		Call SDSPN_OuvrirMasqueMenu(p_NoItem)
+		
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsPrecedent"><lotusscript>Sub FPNav_hsPrecedent
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(False) Then
+		' Ouvrir le masque précédent
+		Call SDSPN_OuvrirMasquePrecedent
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="Custom__________________"><lotusscript>Sub Custom__________________
+	
+End Sub
+
+</lotusscript></code><code event="FPNav_acPayerProposition"><lotusscript>Sub FPNav_acPayerProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acPayerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acReouvrirProposition"><lotusscript>Sub FPNav_acReouvrirProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acReOuvrirProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_QueryOpen"><lotusscript>Sub FPNav_QueryOpen(pnuid_Source As Notesuidocument, p_Mode As Integer, p_Isnewdoc As Variant, _
+p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	Dim nd_PNav As NotesDocument
+	
+	' Initialisations
+	p_Continue = False
+	If p_Mode &lt;&gt; 1 Then
+		Exit Sub
+	End If
+	
+	Set nd_PNav = pnuid_Source.Document
+	
+	' Initialiser les champs du document de navigation
+	If FPNav_DocumentExistant(nd_PNav) Then
+		p_Continue = True
+	End If
+	
+	' Effacer les champs RT des autres écrans
+	If nd_PNav.Hasitem("Prop_DescDetaillee") Then
+		Call nd_PNav.Removeitem("Prop_DescDetaillee")
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_DocumentExistant"><lotusscript>Function FPNav_DocumentExistant(pnd_PNav As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	FPNav_DocumentExistant = False
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp(xVar(pnd_PNav, "Prop_NoProposition", "")) Then
+		Exit Function
+	End If
+	
+	' Extraire le site
+	If Not SDSPM_InitSite(pnd_PNav) Then
+		Exit Function
+	End If
+	
+	Call pnd_PNav.ReplaceItemValue("Prop_StatutDesc" &amp; xLangue, _
+	xVar(gnd_Prop_SDSPM, "Prop_StatutDesc" &amp; xLangue, ""))
+	
+	' Mettre à jour l'entête du site
+	pnd_PNav.Site_ClientNomInterne = xVar(gnd_Site_SDSPM, "Site_ClientNomInterne", "")
+	pnd_PNav.Site_BanniereDesc = xVar(gnd_Site_SDSPM, "Site_BanniereDesc", "")
+	
+	' Mettre à jour le document de navigation
+	pnd_PNav.Prop_PropositionImprimee = xVar(gnd_Prop_SDSPM, "Prop_PropositionImprimee", "")
+	pnd_PNav.Prop_NotesContrat = xVar(gnd_Prop_SDSPM, "Prop_NotesContrat", "")
+	
+	FPNav_DocumentExistant = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNavxx, gc_Element_FPNavxx, GetThreadInfo(1), xVar(pnd_PNav, "Cle", ""), False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073713,31-05</datetime></item></scriptlibrary>
+
+</database>

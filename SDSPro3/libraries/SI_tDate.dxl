@@ -1,0 +1,762 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_tDate" hide="v3 v4strict" designerversion="8.5.3" comment="2.10">
+<noteinfo noteid="555726" unid="9AD07A18B03AD346852586B40011FB8E" sequence="76">
+<created><datetime dst="true">20210410T231625,10-04</datetime></created>
+<modified><datetime>20260105T014837,30-05</datetime></modified>
+<revised><datetime>20250319T073639,03-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,29-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,29-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "x_SICg"
+Use "x_GDK"
+'
+'	Les fonctions définies dans cette bibliothèque permettent de manipuler des chaînes de caractères.
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim g_Annee_SItD As Integer
+Dim ga_JoursFeries_SItD As Variant
+Dim ga_NomsJoursFeries_SItD As Variant
+
+Const gc_NbSecondesParJour_SItD = 86400
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SItD = "SL"
+Const gc_Element_SItD = "SI_tDate"
+
+</lotusscript></code><code event="SItD_FacteurProrata"><lotusscript>Function SItD_FacteurProrata(p_DebutPeriode As Variant, p_FinPeriode As Variant, p_DebutSousPeriode As Variant, _
+p_FinSousPeriode As Variant) As Double
+	' Retourne le facteur du nombre de jours d'une sous-période dans par rapport au nombre de jours d'une période plus large.
+	' Ex.: Le nombre de jours de février 2017 par rapport à l'année 2017 :
+	' Facteur = SItD_FacteurProrata(2017/01/01, 2017/12/31, 2017/02/01, 5017/12/28)
+	' Période = 365 jours, sous-période = 28 jours, Facteur = 28 / 365 = 0.0767123
+	On Error Goto GererErreur
+	
+	Dim ndt_DebutPeriode As New NotesDateTime("")
+	Dim ndt_FinPeriode As New NotesDateTime("")
+	Dim ndt_DebutSousPeriode As New NotesDateTime("")
+	Dim ndt_FinSousPeriode As New NotesDateTime("")
+	Dim v_NbJoursPeriode As Long
+	Dim v_NbJoursSousPeriode As Long
+	
+	ndt_DebutPeriode.LSLocalTime = p_DebutPeriode
+	ndt_FinPeriode.LSLocalTime = p_FinPeriode
+	ndt_DebutSousPeriode.LSLocalTime = p_DebutSousPeriode
+	ndt_FinSousPeriode.LSLocalTime = p_FinSousPeriode
+	
+	Call ndt_DebutPeriode.SetAnyTime
+	Call ndt_FinPeriode.SetAnyTime
+	Call ndt_DebutSousPeriode.SetAnyTime
+	Call ndt_FinSousPeriode.SetAnyTime
+	
+	v_NbJoursPeriode = (ndt_FinPeriode.TimeDifference(ndt_DebutPeriode) / gc_NbSecondesParJour_SItD) + 1
+	v_NbJoursSousPeriode = (ndt_FinSousPeriode.TimeDifference(ndt_DebutSousPeriode) / gc_NbSecondesParJour_SItD) + 1
+	
+	SItD_FacteurProrata = v_NbJoursSousPeriode / v_NbJoursPeriode
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItD_Age"><lotusscript>Function SItD_Age(p_DateNaissance As Variant, p_DateReference As Variant) As Integer
+	On Error Goto GererErreur
+	
+	SItD_Age = -1
+	
+	If p_DateNaissance = "" Or p_DateReference = "" Then
+		Exit Function
+	End If
+	
+	'Calcul de l'age d'une personne
+	If p_DateReference &gt; p_DateNaissance Then
+		SItD_Age = Year(p_DateReference) - Year(p_DateNaissance)
+		If Month(p_DateReference) &lt; Month(p_DateNaissance) Then
+			SItD_Age = SItD_Age - 1
+		Elseif Month(p_DateReference) &lt; Month(p_DateNaissance) Then
+			If Day(p_DateReference) &lt; Day(p_DateNaissance) Then
+				SItD_Age = SItD_Age - 1
+			End If
+		End If
+		
+		If SItD_Age &lt; 0 Then
+			SItD_Age = 0
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SItD_JoursFeries"><lotusscript>Sub SItD_JoursFeries(p_Annee As Integer, p_Langue As String, pa_JoursFeries As Variant, pa_NomsJoursFeries As Variant)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script retourne un array des jours fériés de l'année demandée
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Tabl As NotesDocument
+	Dim a_CodesJF As Variant
+	Dim a_DescJF As Variant
+	Dim a_TypesJF As Variant
+	Dim a_DeplacerJF As Variant
+	Dim v_NbJF As Integer
+	Dim i As Integer
+	Dim v_Mois As Integer
+	Dim v_Jour As Integer
+	Dim v_TypeJF As String
+	Dim v_Date As Variant
+	Dim n As Integer
+	
+	' Si l'année souhaitée est la même qu'au dernier appel, pas besoin de recalculer
+	If p_Annee = g_Annee_SItD Then
+		pa_JoursFeries = ga_JoursFeries_SItD
+		pa_NomsJoursFeries = ga_NomsJoursFeries_SItD
+		Exit Sub
+	End If
+	
+	g_Annee_SItD = 0
+	ga_JoursFeries_SItD = ""
+	ga_NomsJoursFeries_SItD = ""
+	
+	' Extraire la table des jours fériés
+	Set nd_Tabl = xGDK_xndTabl("JoursFériés" &amp; p_Langue, True)
+	If nd_Tabl Is Nothing And p_Langue &lt;&gt; "FR" Then
+		Set nd_Tabl = xGDK_xndTabl("JoursFériésFR", True)
+	End If
+	If nd_Tabl Is Nothing Then
+		Set nd_Tabl = xGDK_xndTabl("JoursFériés", True)
+	End If
+	a_CodesJF = xVarArray(nd_Tabl, "Tabl_Valeurs")
+	If Isarray(a_CodesJF) Then
+		a_DescJF = xVarArray(nd_Tabl, "Tabl_Descriptions")
+		a_TypesJF = xVarArray(nd_Tabl, "Tabl_Complement1")
+		a_DeplacerJF = xVarArray(nd_Tabl, "Tabl_Complement2")
+		v_NbJF = -1
+		Redim a_JoursFeries(Ubound(a_CodesJF)) As Variant
+		Redim a_NomsJoursFeries(Ubound(a_CodesJF)) As String
+		
+		For i = Lbound(a_CodesJF) To Ubound(a_CodesJF)
+			v_Mois = Cint(Strleft(a_CodesJF(i), "-"))
+			v_Jour = Cint(Strright(a_CodesJF(i), "-"))
+			
+			If i &gt; Ubound(a_TypesJF) Then
+				v_TypeJF = "0"
+			Else
+				v_TypeJF = a_TypesJF(i)
+			End If
+			Select Case v_TypeJF
+			Case "1", "2" :																	' nième lundi du mois
+				v_Date = Datenumber(p_Annee, v_Mois, 01)
+				n = (Cint(v_TypeJF) - 1) * 7
+				If Weekday(v_Date) &lt; 2 Then
+					v_Date = v_Date + Weekday(v_Date) + n
+				Elseif Weekday(v_Date) &gt; 2 Then
+					v_Date = v_Date + 9 - Weekday(v_Date) + n
+				Else
+					v_Date = v_Date + n
+				End If
+			Case "5" :																		' Vendredi Saint
+				v_Date = SItD_Paques(p_Annee) - 2
+			Case "6" :																		' Lundi de Pâques
+				v_Date = SItD_Paques(p_Annee) + 1
+			Case "7" :																		' Jour des patriotes (lundi qui précède le 25)
+				v_Date = Datenumber(p_Annee, v_Mois, v_Jour)
+				If Weekday(v_Date) &gt;= 3 Then
+					v_Date = v_Date - (Weekday(v_Date) - 2)
+				Else
+					v_Date = v_Date - (5 + Weekday(v_Date))
+				End If
+			Case Else :																	' date fixe (0)
+				v_Date = Datenumber(p_Annee, v_Mois, v_Jour)
+			End Select
+			
+			' Déplacer le jour férié si la date est un samedi ou un dimanche
+			If Weekday(v_Date) = 1 Or Weekday(v_Date) = 7 Then
+				If i &gt; Ubound(a_DeplacerJF) Then
+					a_CodesJF(i) = ""
+				Elseif a_DeplacerJF(i) = "0" Then
+					a_CodesJF(i) = ""
+				Elseif Weekday(v_Date) = 7 Then
+					If a_DeplacerJF(i) = "3" Then
+						v_Date = v_Date + 2
+					Else
+						v_Date = v_Date - 1
+					End If
+				Else ' Weekday(v_Date) = 1
+					If a_DeplacerJF(i) = "2" Then
+						v_Date = v_Date - 2
+					Else
+						v_Date = v_Date + 1
+					End If
+				End If
+			End If
+			
+			If a_CodesJF(i) &lt;&gt; "" Then
+				v_NbJF = v_NbJF + 1
+				a_JoursFeries(v_NbJF) = v_Date
+				a_NomsJoursFeries(v_NbJF) = a_DescJF(i)
+			End If
+		Next
+		
+		If v_NbJF &gt;= 0 Then
+			Redim Preserve a_JoursFeries(v_NbJF) As Variant
+			Redim Preserve a_NomsJoursFeries(v_NbJF) As String
+			ga_JoursFeries_SItD = a_JoursFeries
+			ga_NomsJoursFeries_SItD = a_NomsJoursFeries
+			g_Annee_SItD = p_Annee
+		End If
+	End If
+	
+	pa_JoursFeries = ga_JoursFeries_SItD
+	pa_NomsJoursFeries = ga_NomsJoursFeries_SItD
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItD_DifferenceDates"><lotusscript>Function SItD_DifferenceDates(p_DateDebut As Variant, p_DateFin As Variant, p_Options As String) As Long
+	'---------------------------------------------------------------------------------------------------
+	'	Cette fonction compte le nombre de jours entre deux dates.
+	'	Paramètres: 
+	'		p_DateDebut:	Date de début
+	'		p_DateFin:		Date de fin
+	'		p_Options: 		F - enlève les jours fériés
+	'						W - enlève les jours de fin de semaine
+	'						FW - enlève les jours fériés et les fins de semaine
+	'						"" - compte le nombre de jours entre la date de début et la date de fin
+	'							incluant les jours fériés et les fins de semaine
+	'
+	'	Le nombre de jours inclus le jour de début, de fin et tous les jours entre les deux
+	'---------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim ndc_JoursFeries As NotesDocumentCollection
+	
+	Dim a As Variant
+	Dim v As Variant
+	Dim v_DateDebut As String
+	Dim v_DateFin As String
+	Dim v_Formule As String
+	Dim v_NbJours As Long
+
+	' Initialisation
+	Call xSICg_Initialisation
+
+	p_Options = UCase(p_Options)
+	
+	' Si la date de début est supérieure à la date de fin, les inverser
+	If p_DateDebut &gt; p_DateFin Then
+		v = p_DateDebut
+		p_DateDebut = p_DateFin
+		p_DateFin = v
+	End If
+
+	' Formater les dates
+	v_DateDebut = "@Date(" &amp; CStr(Year(p_DateDebut)) &amp; "; " &amp; CStr(Month(p_DateDebut)) &amp; "; " &amp; CStr(Day(p_DateDebut)) &amp; ")"
+	v_DateFin = "@Date(" &amp; CStr(Year(p_DateFin)) &amp; "; " &amp; CStr(Month(p_DateFin)) &amp; "; " &amp; CStr(Day(p_DateFin)) &amp; ")"
+	
+	' Option W - enlever les fins de semaine
+	If InStr(1, p_Options, "W", 1) &gt; 0 Then
+		' Enlever les fins de semaine
+		a = Evaluate(|@BusinessDays(| &amp; v_DateDebut &amp; |; | &amp; v_DateFin &amp; |; 1:7)|)
+		v_NbJours = a(0)
+	Else
+		v_NbJours = p_DateFin - p_DateDebut + 1		' Option "" - compter tous les jours
+	End If
+	
+	' Option F - enlever les jours fériés
+	If InStr(1, p_Options, "F", 1) &gt; 0 Then
+		' Extraire le nombre de jours fériés entre la date de début et la date de fin
+		v_Formule = |Form = "F_JFer" &amp; JFer_DateOriginale &gt;= | &amp; v_DateDebut &amp; | &amp; JFer_DateOriginale &lt;= | &amp; v_DateFin
+		Set ndc_JoursFeries = gndb_xSICg.Search(v_Formule, Nothing, 0)
+		
+		' Enlever les jours fériés
+		If ndc_JoursFeries.Count &lt;&gt; 0 Then
+			v_NbJours = v_NbJours - ndc_JoursFeries.Count
+		End If
+	End If
+	
+	SItD_DifferenceDates = v_NbJours
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+	
+
+</lotusscript></code><code event="SItD_ConvertirDeEpoch"><lotusscript>Function SItD_ConvertirDeEpoch(p_EpochDate As Long) As Variant
+	' p_EpochDate Contains a 64-bit value representing the number of 100-nanosecond intervals since January 1, 1601 (UTC).
+	On Error Goto GererErreur
+	
+	Dim ndt As NotesDateTime
+	Dim v_TimeZone As Integer
+	Dim v_EpochReferenceGMT As Double
+	Dim v_EpochReferenceLocal As Double
+	Dim v_EpochDate As Double
+	
+	'	JavaScript millisecond values are based on GMT but writable LotusScript date/time values are local.
+	'	We need to know the local timezone offset from GMT, and for that we need a NotesDateTime object
+	'	with both date and time components.
+	
+	If p_EpochDate = 0 Then
+		Exit Function
+	End If
+	
+	Set ndt = New NotesDateTime(Now)
+	v_TimeZone = ndt.TimeZone
+	
+	'The JavaScript epoch is midnight (day start) January 1, 1970 GMT
+	v_EpochReferenceGMT = Cdbl(Datenumber(1970,1,1))
+	
+	'Adjust epoch to local time
+	v_EpochReferenceLocal = v_EpochReferenceGMT - (v_TimeZone/24)
+	
+	'There are 86400 seconds in a day
+	v_EpochDate = v_EpochReferenceLocal + (p_EpochDate / gc_NbSecondesParJour_SItD)
+	SItD_ConvertirDeEpoch = Cdat(v_EpochDate)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItD_DateLongue"><lotusscript>Function SItD_DateLongue(p_Date As Variant, Byval p_Langue As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de formater une date.
+	' Le format généré dépend de la langue demandée.
+	' Anglais: Mmmm jj, aaaa (January 1, 2004)
+	' Autre (français): jj mmmm aaaa (1 janvier 2004)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_Langue As Variant
+	Dim v_Mois As String
+	
+	SItD_DateLongue = ""
+	
+	' Initialiser la langue si pas passée en paramètre
+	If p_Langue = "" Then
+		p_Langue = xLangue
+	End If
+	
+	' Obtenir le mois en lettres
+	v_Mois = xGDK_xDescTabl(Cstr(Right("0" &amp; Month(p_Date), 2)), "Mois" &amp; p_Langue, True)
+	If v_Mois &lt;&gt; "" Then
+		' Formater la date
+		If p_Langue = "EN" Then
+			SItD_DateLongue = v_Mois &amp; " " &amp; Cstr(Day(p_Date)) &amp; ", " &amp; Cstr(Year(p_Date))
+		Else
+			SItD_DateLongue = Cstr(Day(p_Date)) &amp; " " &amp; Lcase(v_Mois) &amp; " " &amp; Cstr(Year(p_Date))			
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItD_DateSearch"><lotusscript>Function SItD_DateSearch(p_Date As Variant) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de formater une date pour être incluse dans une formule.
+	' La date retournée utilise le formst @date(YYYY;MM;DD)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	SItD_DateSearch = ""
+	
+	If p_Date &lt;&gt; "" Then
+		SItD_DateSearch = |@Date(| &amp; Cstr(Year(p_Date)) &amp; ";" &amp; Cstr(Month(p_Date)) &amp; ";" &amp; Cstr(Day(p_Date)) &amp; ")" 
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItD_Paques"><lotusscript>Function SItD_Paques(p_Annee) As Variant
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script retourne la date de Pâques
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim r As Integer
+	Dim t As Integer
+	Dim Pm As Integer
+	
+	r = ((p_Annee Mod 19) * 19 + 24) Mod 30
+	If r = 29 Then
+		r = 28
+	End If
+	If (r = 28) And (p_Annee Mod 19 &gt; 10) Then
+		r = 27
+	End If
+	t = (((p_Annee Mod 4) * 2) + ((p_Annee Mod 7) * 4) + (6 * r) + 5) Mod 7
+	Pm = (r + t - 9)
+	If Pm &gt; 0 Then
+		SItD_Paques = Datenumber(p_Annee, 04, Pm)
+	Else
+		SItD_Paques = Datenumber(p_Annee, 03, 22) + r + t
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItD_ConvertirDate"><lotusscript>Function SItD_ConvertirDate(Byval p_Date As Variant, p_FormatDate As String) As Variant
+	' Cette fonction retourne la valeur d'une zone de l'enregistrement courant sous forme de date
+	On Error Goto GererErreur
+	
+	Dim v_Date As Long
+	Dim v_Annee As Integer
+	Dim v_Mois As Integer
+	Dim v_Jour As Integer
+	Dim a As Variant
+	
+	SItD_ConvertirDate = ""
+	If Datatype(p_Date) = 8 Then		' String
+		a = Evaluate(|"-":"/"|)
+		p_Date = Replace(p_Date, a, "")
+	End If
+	v_Date = Clng(p_Date)
+	
+	Select Case p_FormatDate	
+	Case "CYMD", "YYYYMMDD" :
+		v_Annee = v_Date \ 10000
+		v_Mois = (v_Date \ 100) Mod 100
+		v_Jour = v_Date Mod 100
+	Case "DMY", "DDMMYY" : 
+		v_Annee = v_Date Mod 100
+		v_Mois = (v_Date \ 100) Mod 100
+		v_Jour = v_Date \ 10000
+	Case "MDY", "MMDDYY" : 
+		v_Annee = v_Date Mod 100
+		v_Mois = v_Date \ 10000
+		v_Jour = (v_Date \ 100) Mod 100
+	Case "YMD", "YYMMDD" : 
+		v_Annee = v_Date \ 10000
+		v_Mois = (v_Date \ 100) Mod 100
+		v_Jour = v_Date Mod 100
+	End Select					
+	
+	On Error Resume Next
+	SItD_ConvertirDate = Datenumber(v_Annee, v_Mois, v_Jour)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SItD_JoursFeries_Old"><lotusscript>Sub SItD_JoursFeries_Old(p_Annee As Integer, pa_JoursFeries As Variant, pa_NomsJoursFeries As Variant)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script retourne un array des jours fériés de l'année demandée
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+%REM
+	Redim a_JoursFeries(10) As Variant
+	Redim a_NomsJoursFeries(10) As String
+	Dim v_Date As Variant
+	Dim v_Date2 As Variant
+	Dim i As Integer
+	Dim r As Integer
+	Dim t As Integer
+	Dim Pm As Integer
+	
+	' Si l'année souhaitée est la même qu'au dernier appel, pas besoin de recalculer
+	If p_Annee = g_Annee_SItD Then
+		pa_JoursFeries = ga_JoursFeries_SItD
+		pa_NomsJoursFeries = ga_NomsJoursFeries_SItD
+		Exit Sub
+	End If
+	i = -1
+	
+	' Jour de l'an et lendemain du jour de l'an
+	v_Date = SItD_JourFerie(Datenumber(p_Annee, 01, 01), "")
+	v_Date2 = SItD_JourFerie(v_Date + 1, "")
+	If v_Date2 = v_Date Then
+		v_Date2 = v_Date2 + 3
+	End If
+	If Year(v_Date) = p_Annee Then
+		i = i + 1
+		a_JoursFeries(i) = v_Date
+		a_NomsJoursFeries(i) = "Jour de l'an"
+	End If
+	i = i + 1
+	a_JoursFeries(i) = v_Date2
+	a_NomsJoursFeries(i) = "Lendemain du jour de l'an"
+	' Vendredi saint
+	r = ((p_Annee Mod 19) * 19 + 24) Mod 30
+	If r = 29 Then
+		r = 28
+	End If
+	If (r = 28) And (p_Annee Mod 19 &gt; 10) Then
+		r = 27
+	End If
+	t = (((p_Annee Mod 4) * 2) + ((p_Annee Mod 7) * 4) + (6 * r) + 5) Mod 7
+	Pm = (r + t - 9)
+	If Pm &gt; 0 Then
+		v_Date = Datenumber(p_Annee, 04, Pm)
+	Else
+		v_Date = Datenumber(p_Annee, 03, 22) + r + t
+	End If
+	i = i + 1
+	a_JoursFeries(i) = v_Date - 2
+	a_NomsJoursFeries(i) = "Vendredi saint"
+	' Jour des patriotes (lundi qui précède le 25 mai)
+	v_Date = Datenumber(p_Annee, 05, 25)
+	i = i + 1
+	If Weekday(v_Date) &gt;= 3 Then
+		a_JoursFeries(i) = v_Date - (Weekday(v_Date) - 2)
+	Else
+		a_JoursFeries(i) = v_Date - (5 + Weekday(v_Date))
+	End If
+	a_NomsJoursFeries(i) = "Jour des patriotes"
+	' Saint-Jean-Baptiste
+	i = i + 1
+	a_JoursFeries(i) = SItD_JourFerie(Datenumber(p_Annee, 06, 24), "+")
+	a_NomsJoursFeries(i) = "Saint-Jean-Baptiste"
+	' Fête du Canada
+	i = i + 1
+	a_JoursFeries(i) = SItD_JourFerie(Datenumber(p_Annee, 07, 1), "+")
+	a_NomsJoursFeries(i) = "Fête du Canada"
+	' Fête du travail (1er lundi de septembre)
+	v_Date = Datenumber(p_Annee, 09, 01)
+	i = i + 1
+	If Weekday(v_Date) &lt; 2 Then
+		a_JoursFeries(i) = v_Date + Weekday(v_Date)
+	Elseif Weekday(v_Date) &gt; 2 Then
+		a_JoursFeries(i) = v_Date + 9 - Weekday(v_Date)
+	Else
+		a_JoursFeries(i) = v_Date
+	End If
+	a_NomsJoursFeries(i) = "Fête du travail"
+	' Action de grâce (2e lundi d'octobre)
+	v_Date = Datenumber(p_Annee, 10, 01)
+	i = i + 1
+	If Weekday(v_Date) &lt; 2 Then
+		a_JoursFeries(i) = v_Date + Weekday(v_Date) + 7
+	Elseif Weekday(v_Date) &gt; 2 Then
+		a_JoursFeries(i) = v_Date + 9 - Weekday(v_Date) + 7
+	Else
+		a_JoursFeries(i) = v_Date + 7
+	End If
+	a_NomsJoursFeries(i) = "Action de grâce"
+	' Noël et lendemain de Noël
+	v_Date = SItD_JourFerie(Datenumber(p_Annee, 12, 25), "")
+	v_Date2 = SItD_JourFerie(v_Date + 1, "")
+	If v_Date2 = v_Date Then
+		v_Date2 = v_Date2 + 3
+	End If
+	i = i + 1
+	a_JoursFeries(i) = v_Date
+	a_NomsJoursFeries(i) = "Noël"
+	i = i + 1
+	a_JoursFeries(i) = v_Date2
+	a_NomsJoursFeries(i) = "Lendemain de Noël"
+	' Jour de l'an de l'année suivante
+	v_Date = SItD_JourFerie(Datenumber(p_Annee + 1, 01, 01), "")
+	v_Date2 = SItD_JourFerie(v_Date + 1, "")
+	If v_Date2 = v_Date Then
+		v_Date2 = v_Date2 + 3
+	End If
+	If Year(v_Date) = p_Annee Then
+		i = i + 1
+		a_JoursFeries(i) = v_Date
+		a_NomsJoursFeries(i) = "Jour de l'an"
+	End If	
+	
+	g_Annee_SItD = p_Annee
+	Redim Preserve a_JoursFeries(i) As Variant
+	Redim Preserve a_NomsJoursFeries(i) As String
+	ga_JoursFeries_SItD = a_JoursFeries
+	ga_NomsJoursFeries_SItD = a_NomsJoursFeries
+	pa_JoursFeries = a_JoursFeries
+	pa_NomsJoursFeries = a_NomsJoursFeries
+	Exit Sub
+%END REM
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SItD_JourFerie_Old"><lotusscript>Function SItD_JourFerie_Old(p_Date As Variant, p_Samedi As String) As Variant
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script retourne la date du jour férié
+	' Si Dimanche, retourne le lundi suivant
+	' Si Samedi et p_Samedi = "+", retourne le lundi suivant
+	' Si Samedi et p_Samedi &lt;&gt; "+", retourne le vendredi précédent
+	' Sinon, retourne le jour même
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+%REM
+	Select Case Weekday(p_Date)
+	Case 1:
+		SItD_JourFerie = p_Date + 1
+	Case 7:
+		If p_Samedi = "+" Then
+			SItD_JourFerie = p_Date + 2
+		Else
+			SItD_JourFerie = p_Date - 1
+		End If
+	Case Else:
+		SItD_JourFerie = p_Date
+	End Select
+	Exit Function
+%END REM	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItD_JourSemaine"><lotusscript>Function SItD_JourSemaine(p_Date As Variant, Byval p_Langue As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script retourne la jour de la semaine correspondant à la date
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialiser la langue si pas passée en paramètre
+	If p_Langue = "" Then
+		p_Langue = xLangue
+	End If
+	
+	SItD_JourSemaine = xGDK_xDescTabl(Cstr(Weekday(p_Date)), "Jours" &amp; p_Langue, True)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItD_AjusterDate"><lotusscript>Sub SItD_AjusterDate(p_Date As Variant, p_Ajustement As Long, p_Options As String)
+	'---------------------------------------------------------------------------------
+	' Le script retourne une nouvelle date ajustée selon les paramètres F, W et O
+	'---------------------------------------------------------------------------------
+	' Date      : date de base
+	' Ajustement: nombre de jours (positif ou négatif) à ajuster
+	' Options   : F : enlever les jours fériés (à venir)
+	'             W : enlever les jours de fin de semaine
+	'             O : arrondir la date ajustée au jour ouvrable suivant
+	'---------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndt As NotesDateTime
+	Dim nd As NotesDocument
+	Dim nv As NotesView
+	Dim v_Signe As Integer
+	Dim i As Integer
+	Dim a_Dates As Variant
+	Dim a_NomDates As Variant
+	Dim v_NbJours As Variant
+	Dim v_NbJoursPrec As Long
+	Dim v_DateOriginale As String
+	Dim v_DateAjustee As String
+	Dim v_Ajustement As Long
+	
+	If p_Ajustement &lt; 0 Then
+		v_Signe = -1
+	Else
+		v_Signe = 1 
+	End If 
+	p_Options = Ucase(p_Options)
+	v_DateOriginale = "@Date(" &amp; Cstr(Year(p_Date)) &amp; "; " &amp; Cstr(Month(p_Date)) &amp; "; " &amp; Cstr(Day(p_Date)) &amp; ")"
+	
+	'Calcul de la date en fonction du nombre de jours de l'ajustement
+	Set ndt = New NotesDateTime("")
+	ndt.LSLocalTime = p_Date
+	Call ndt.SetAnyTime
+	Call ndt.AdjustDay(p_Ajustement)
+	
+	' Ne pas compter les fins de semaine
+	If Instr(1, p_Options, "W", 1) &gt; 0 Then
+		v_DateAjustee = "@Date(" &amp; CStr(Year(ndt.LSLocalTime)) &amp; "; " &amp; CStr(Month(ndt.LSLocalTime)) &amp; "; " &amp; CStr(Day(ndt.LSLocalTime)) &amp; ")" 
+		
+		v_NbJoursPrec = 0
+		If p_Ajustement &gt; 0 Then
+			v_NbJours = Evaluate(|@BusinessDays(| &amp; v_DateOriginale &amp; |; | &amp; v_DateAjustee &amp; |; 1:7)|)
+		Else
+			v_NbJours = Evaluate(|@BusinessDays(| &amp; v_DateAjustee &amp; |; | &amp; v_DateOriginale &amp; |; 1:7)|)
+		End If
+		
+		Do Until v_NbJours(0) &gt;= Abs(p_Ajustement)
+			v_Ajustement = p_Ajustement - (v_Signe * Abs(v_NbJours(0)))
+			Call ndt.AdjustDay(v_Ajustement)
+			v_DateAjustee = "@Date(" &amp; Cstr(Year(ndt.LSLocalTime)) &amp; "; " &amp; Cstr(Month(ndt.LSLocalTime)) &amp; "; " &amp; Cstr(Day(ndt.LSLocalTime)) &amp; ")" 
+			
+			v_NbJoursPrec = v_NbJours(0)
+			If p_Ajustement &gt; 0 Then
+				v_NbJours = Evaluate(|@BusinessDays(| &amp; v_DateOriginale &amp; |; | &amp; v_DateAjustee &amp; |; 1:7)|)
+			Else
+				v_NbJours = Evaluate(|@BusinessDays(| &amp; v_DateAjustee &amp; |; | &amp; v_DateOriginale &amp; |; 1:7)|)
+			End If
+		Loop
+		
+		Do Until Weekday(ndt.LSLocalTime) &gt; 1 And Weekday(ndt.LSLocalTime) &lt; 7
+			Call ndt.AdjustDay(v_Signe)
+		Loop
+	End If
+	
+	If Instr(1, p_Options, "O", 1) &gt; 0 Then
+		'Si la date calculée est un jour de fin de semaine, on la bouge pour qu'elle soit en semaine
+		Do While Weekday(ndt.LSLocalTime) = 1 Or Weekday(ndt.LSLocalTime) = 7
+			Do While Weekday(ndt.LSLocalTime) = 1 Or Weekday(ndt.LSLocalTime) = 7
+				Call ndt.AdjustDay(v_signe, True)
+			Loop
+			'Si la date calculée est un jour férié, on la bouge pour qu'elle soit en semaine
+			Call SItD_JoursFeries(Year(ndt.LSLocalTime), "", a_Dates, a_NomDates)
+			If Isarray(a_Dates) Then
+				For i = Lbound(a_Dates) To Ubound(a_Dates)
+					If a_Dates(i) = ndt.LSLocalTime Then
+						Call ndt.AdjustDay(v_signe, True)
+						Exit For
+					End If
+				Next
+			End If
+		Loop
+	End If
+	
+	p_Date = ndt.Lslocaltime
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SItD_DernierJourMois"><lotusscript>Function SItD_DernierJourMois(ByVal p_Date As Variant) As Variant
+	On Error GoTo GererErreur
+	
+	Dim ndt As New NotesDateTime("")
+	
+	ndt.LSLocalTime = DateNumber(Year(p_Date), Month(p_Date), 1)
+	Call ndt.AdjustMonth(1)
+	Call ndt.AdjustDay(-1)
+	Call ndt.SetAnyTime
+	SItD_DernierJourMois = ndt.LSLocalTime
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItD, gc_Element_SItD, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073639,03-05</datetime></item></scriptlibrary>
+
+</database>

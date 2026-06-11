@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_DatabaseScript" hide="v3 v4strict">
+<noteinfo noteid="555906" unid="E793EF634BF0AAE385258A8A006D3F1F" sequence="10">
+<created><datetime>20231219T145315,83-05</datetime></created>
+<modified><datetime>20260105T014838,23-05</datetime></modified>
+<revised><datetime>20250319T073641,17-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,22-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,22-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "A_Inst"
+Use "SI_DatabaseScript"
+Use "x_SDSP3"
+Use "x_SIEm"
+Use "x_SIRR"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SDSP As NotesSession
+Dim gndb_SDSP As NotesDatabase
+Dim gnuiws_SDSP As NotesUIWorkspace
+Dim gnuidb_SDSP As NotesUIDatabase
+	
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSP = "SL"
+Const gc_Element_SDSP = "SDSP_DatabaseScript"
+
+
+</lotusscript></code><code event="SDSP_Initialisations"><lotusscript>Sub SDSP_Initialisations
+	If gns_SDSP Is Nothing Then
+		Set gns_SDSP = New Notessession
+		Set gndb_SDSP = gns_SDSP.CurrentDatabase
+		
+		Set gnuiws_SDSP = New NotesUIWorkspace
+		Set gnuidb_SDSP = gnuiws_SDSP.CurrentDatabase
+	End If
+End Sub
+
+
+</lotusscript></code><code event="SDSPDS_NotesIni"><lotusscript>Sub SDSPDS_NotesIni
+	' Inscrire le no d'employé et le no de représentant dans le notes.ini
+	' -------------------------------------------------------------------
+	On Error GoTo GererErreur
+	Dim ns As New NotesSession
+	Dim v_EnvNoRep As String
+	Dim v_NoRep As String
+	
+	v_EnvNoRep = ns.GetEnvironmentString("SDSPP_NoRep")
+	
+	' Ajouter le # de représentant dans le notes.ini
+	'-----------------------------------------------
+	If v_NoRep = "" Then
+		v_NoRep = CStr(xSIRR_xVarRepr_Id(ns.UserName, "60", "Repr_NoRepresentant", ""))
+		If v_NoRep = "" Then
+			v_NoRep = CStr(xSIRR_xVarRepr_Id(ns.UserName, "62", "Repr_NoRepresentant", ""))
+		End If
+	End If
+	
+	If v_NoRep = "" Then
+		v_NoRep = CStr(xSIEm_xVarEmpl_Id(ns.UserName, "Empl_NoEmploye", "", True))
+	Else
+		v_NoRep = "R" &amp; v_NoRep
+	End If
+	If v_NoRep = "" Then
+		If ns.CommonUserName = "Developpement Serti" Then
+			v_NoRep = "DSER"
+		Else
+			v_NoRep = "*"
+		End If
+	End If
+	If v_NoRep &lt;&gt; v_EnvNoRep Then
+		Call ns.SetEnvironmentVar("SDSPP_NoRep", v_NoRep)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSP, gc_Element_SDSP, GetThreadInfo(1), "", False)	
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSP_Postopen"><lotusscript>Sub SDSP_Postopen(pnuidb As NotesUIDatabase)
+	On Error GoTo GererErreur
+	
+	Dim v_Erreur As String
+	
+	Call SDSP_Initialisations
+	Call SIDS_Postopen(pnuidb)
+	Call SIDS_EnvoyerInfoPoste("SDSP3")
+	v_Erreur = ""
+	
+	' Ne pas executer si la base est un template "database is a master template.."
+	If pnuidb.Database.TemplateName = "" Then
+		' Ne pas créer de réplique local de SI Documents Ventes si l'utilisateur est sur le serveur
+		If Not AInst_NdbSurServeur(True) Then
+			
+			'Vérifie si les bases nécessaires sont installées localement
+			If AInst_ndbExisteSurLocal("SIDV", True) = False Then
+				v_Erreur = "SIDV"
+			'ElseIf AInst_ndbExisteSurLocal("PJSDS", True) = False Then
+			'	v_Erreur = "PJSDS"
+			ElseIf AInst_ndbExisteSurLocal("SDSBB", True) = False Then
+				v_Erreur = "SDSBB"
+			ElseIf AInst_ndbExisteSurLocal("SIRR", True) = False Then
+				v_Erreur = "SIRR"
+			'ElseIf AInst_ndbExisteSurLocal("SICo", True) = False Then		' SI Contacts
+			'	Call AInst_CreerRepliqueLocale("SICo", 0)
+			End If
+			
+			If v_Erreur &lt;&gt; "" Then
+				' Votre installation n'est pas complète.  Veuillez refaire l'installation pour pouvoir utiliser l'application.
+				MessageBox xGDK_xMessage("SI", 227, "", v_Erreur), 16, xGDK_xMessage("SI", 1, "", "")
+				Call gnuidb_SDSP.Close()
+			End If
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSP, gc_Element_SDSP, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SDSP_Queryclose"><lotusscript>Sub SDSP_Queryclose(pnuidb_Source As Notesuidatabase)
+	On Error Goto GererErreur
+	
+	Dim v_Roles As Variant
+	
+	' Initialisations
+	Set gns_SDSP = New NotesSession
+	
+	' Enlever le droit de exporter les documents
+	' ------------------------------------------
+	v_Roles = Evaluate(|@IsMember("[ini.NoExport]"; @UserRoles)|)
+	If Isarray(v_Roles) Then
+		If v_Roles(0) = 1 Then
+			Call SIDS_RemettreExportation
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSP, gc_Element_SDSP, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSP_Postdocumentdelete"><lotusscript>Sub SDSP_Postdocumentdelete(pnuidb_Source As Notesuidatabase)
+	On Error Goto GererErreur
+	
+	Dim ndc As Notesdocumentcollection
+	Dim nd As Notesdocument
+	
+	' Initialise la collection des documents supprimés
+	Set ndc = pnuidb_Source.Documents
+	
+	' Boucle dans la collection des documents supprimés
+	Set nd = ndc.Getfirstdocument
+	Do Until nd Is Nothing
+		' Supprimer les documents réponse
+		Call SIDS_SupprimerReponses(nd)
+		
+		' Passe au document supprimé suivant
+		Set nd = ndc.Getnextdocument(nd)
+	Loop
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSP, gc_Element_SDSP, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSP_Querydocumentdelete"><lotusscript>Sub SDSP_Querydocumentdelete(pnuidb_Source As Notesuidatabase, p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim v_Privileges As Variant
+	Dim ndc As Notesdocumentcollection
+	Dim nd As Notesdocument
+	Dim v_NoAdmS As Variant
+	
+	p_Continue = False
+	
+	' Si l'utilisateur a les droits de suppression, continuer
+	v_Privileges = Evaluate(|@UserAccess(@DbName; [DELETEDOCUMENTS])|)
+	If v_Privileges(0) &lt;&gt; "1" Then
+		Call nuiws.Prompt(PROMPT_OK, xGDK_xMessage("SI", 1, "", ""), xGDK_xMessage("SI", 161, "", ""))
+		Exit Sub
+	End If
+	
+	' Si l'utilisateur a les droits de suppression, continuer
+	v_Privileges = Evaluate(|@IsMember("[Admin_Supp]"; @UserRoles)|)
+	If v_Privileges(0) = 1 Then
+		p_Continue = True
+		Exit Sub
+	Else		
+		' Initialise la collection des documents supprimés
+		Set ndc = pnuidb_Source.Documents
+		' Boucle dans la collection des documents supprimés
+		Set nd = ndc.Getfirstdocument
+		Do Until nd Is Nothing
+			
+			If xVar(nd, "Form", "") = "F_Prop" Then
+				Messagebox xGDK_xMessage("SDSPP", 110, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+				p_Continue = False
+				Exit Sub
+			End If
+			
+			If xVar(nd, "Form", "") = "F_Prod" Then
+				
+				If xSDSP3_xVarProp(xVar(nd, "Prod_NoProposition", ""), "Prop_Statut", "", False) &gt;= "50" Then
+					Messagebox xGDK_xMessage("SDSPP", 77, "", Lcase(xSDSP3_xVarProp(xVar(nd, "Prod_NoProposition", ""), "Prop_StatutDesc" &amp; xLangue, "", True))), 16, xGDK_xMessage("SI", 1, "", "") 
+					p_Continue = False
+					Exit Sub
+				End If
+				
+				If xVar(nd, "Prod_CleParent", "") &lt;&gt; "" Or _
+				xVar(nd, "Prod_NoContratFmt_CS", "") &lt;&gt; "" Then
+					p_Continue = False
+					Messagebox xGDK_xMessage("SDSPP", 37, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+					p_Continue = False
+					Exit Sub
+				End If
+			End If
+			
+			' Passe au document supprimé suivant
+			Set nd = ndc.Getnextdocument(nd)
+		Loop
+		
+	End If
+	
+	' Initialise la collection des documents supprimés
+	Set ndc = pnuidb_Source.Documents
+	If ndc.Count = 0 Then
+		Exit Sub
+	End If
+	
+	' Demander une confirmation
+	If nuiws.Prompt(PROMPT_YESNO, xGDK_xMessage("SI", 98, "", Cstr(ndc.Count)), xGDK_xMessage("SI", 111, "", "")) &lt;&gt; 1 Then
+		Exit Sub
+	End If
+	
+	' Boucle dans la collection des documents supprimés
+	Set gns_SDSP = New NotesSession
+	Set nd = ndc.Getfirstdocument
+	Do Until nd Is Nothing
+		
+		If xVar(nd, "Form", "") &lt;&gt; "F_AdmS" Then
+			Call  SIDS_CorbeilleDocument(nd, v_NoAdmS, "", "")
+		End If
+		
+		' Passe au document à supprimer suivant
+		Set nd = ndc.Getnextdocument(nd)
+	Loop
+	
+	If Not nuiws.CurrentView Is Nothing Then
+		Call nuiws.CurrentView.DeselectAll
+	End If
+	Call nuiws.ViewRefresh
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSP, gc_Element_SDSP, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073641,17-05</datetime></item></scriptlibrary>
+
+</database>

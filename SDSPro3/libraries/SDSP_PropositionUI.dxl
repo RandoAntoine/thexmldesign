@@ -1,0 +1,845 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_PropositionUI" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="55597a" unid="51E4A4C6F475E9E185258C0C006EA540" sequence="5">
+<created><datetime>20250108T150832,64-05</datetime></created>
+<modified><datetime>20260105T014838,44-05</datetime></modified>
+<revised><datetime>20250319T073649,56-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,43-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,43-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SDSP_Workflow"
+Use "SDSP_Facturation"
+Use "wsc_SDSP3"
+Use "SL_SalesforceAPI"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSPUI As NotesSession
+Dim gndb_SDSPUI As NotesDatabase
+
+Dim gcl_ConnexionAPI_SDSPUI As SLSf_clConnexionAPI 
+
+Const gc_ndbAliasMSG_SDSPUI = "SDSPP" 
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPUI = "SL"
+Const gc_Element_SDSPUI = "SDSP_PropositionUI"
+
+
+
+
+</lotusscript></code><code event="SDSPUI_acSignerProposition"><lotusscript>Function SDSPUI_acSignerProposition(pnd_Prop As NotesDocument, p_WebService As Boolean) As Boolean
+	On Error GoTo GererErreur 
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nd_DB As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim ndc_Temp As NotesDocumentCollection
+	Dim ndc_Sites As NotesDocumentCollection	
+	
+	Dim a_NomSites As Variant	
+	Dim v_NbBonCommande As Variant
+	Dim v_NoProposition As String
+	Dim v_Prop_NbSites As Long
+	Dim v_PropStatut As String
+	Dim v_SignerClientsExistant As Variant
+	Dim v_SignerChangementProprietaire As Variant
+	Dim v_Langue As String
+	Dim v_UserName As String
+	Dim v_Origine As String
+	
+	Dim v_NbSitesCopies As Integer
+	Dim v_NbSiteSelectiones As String
+	
+	Dim ws_Proposition As Cl_proposition
+	
+	' Initialisations
+	SDSPUI_acSignerProposition = False
+	Call SDSPUI_Initialisations
+	
+	v_langue = xLangue
+	v_PropStatut = xVar(pnd_Prop, "Prop_Statut", "")
+	v_SignerClientsExistant = xEvaluate(|@IsNotMember("[Directeur]" : "[Admin]" : "[acSigne]" : "[acSigne_CP]"; @UserRoles) &amp; @IsMember("[acSigne_CE]"; @UserRoles)|, Nothing)
+	v_SignerChangementProprietaire = xEvaluate(|@IsNotMember("[Directeur]" : "[Admin]" : "[acSigne]" : "[acSigne_CE]"; @UserRoles) &amp; @IsMember("[acSigne_CP]"; @UserRoles)|, Nothing)
+	
+	
+	' Validation
+	If v_PropStatut &lt; "50" Then
+		' La proposition sélectionnée n'est pas dans le statut « Accepté ».
+		MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 73, v_langue, xDescTabl("50", "Prop_Statut_" &amp; v_langue, False)), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+		
+	ElseIf v_PropStatut &gt; "59" Then		
+		' La proposition sélectionnée n'est pas dans un statut autorisé.
+		MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 74, v_langue, ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	ElseIf v_SignerClientsExistant = 1 Then		
+		If  xVar(pnd_Prop, "Prop_TypeProposition", "") &lt;&gt; "2" Then	
+			'Vous êtes uniquement autorisé à signer les propositions de clients existants.
+			MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 148, v_langue, ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If	
+	ElseIf v_SignerChangementProprietaire = 1 Then
+		If  xVar(pnd_Prop, "Prop_TypeProposition", "") &lt;&gt; "4" Then	
+			'Vous êtes uniquement autorisé à signer les propositions de changement de propriétaire.
+			MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 178, v_langue, ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If	
+	End If
+	
+	
+	' Vérifier que la valeur de la proposition n'a pas changé
+	If SDSPP_PropositionModifiee(pnd_Prop, False) Then
+		''	MessageBox xGDK_xMessage("SDSPP", 75, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		''	Exit Function
+	End If
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	v_NbBonCommande = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Site21"; "| &amp; v_NoProposition &amp; |"; 10); 0)|)
+	v_Prop_NbSites = xVar(pnd_Prop, "Prop_NbSites", 0)
+	
+	Set nd_DB = SDSPUI_ndDBPropSg(pnd_Prop)
+	If IsArray(v_NbBonCommande) Then
+		If CStr(v_NbBonCommande(UBound(v_NbBonCommande))) = "0" Or v_NbBonCommande(UBound(v_NbBonCommande)) = "" Then
+			nd_DB.DB_NbBonCommande = v_Prop_NbSites
+		Else
+			nd_DB.DB_NbBonCommande = v_Prop_NbSites - (UBound(v_NbBonCommande) +1)
+		End If
+	End If
+	
+	
+	' Demander d'attacher le contrat signé
+	If Not nuiws.DialogBox("DB_PropSg", True, True, False, False, False, False, _
+	xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 115, "", ""), nd_DB, True, False, False) Then
+		' 115: Joindre contrat signé
+		Exit Function
+	End If
+	
+	' Si contrat attaché, récupérer le document temporaire sauvegardé par le DB
+	Set ndc_Temp = gndb_Temp_SITp.Search(|Cle = "| &amp; xVar(nd_DB, "Cle", "") &amp; |"|, Nothing, 0)
+	If ndc_Temp.Count &gt; 0 Then
+		Set nd_DB = ndc_Temp.GetFirstDocument
+	Else
+		Call nd_DB.save(True, False)
+	End If
+	
+	
+	' Signer la proposition
+	v_UserName = gns_SDSPUI.UserName
+	
+	If p_WebService Then
+		Set ws_Proposition = New Cl_proposition
+		Call ws_Proposition.ChangerStatutSDSP3(v_NoProposition, "60", v_UserName, nd_DB.UniversalId)
+		Set pnd_Prop = xSDSP3_xndProp(v_NoProposition, False)
+	Else		
+		Call SDSPWF_ChangerStatut(pnd_Prop, "60", "", nd_DB, False)
+	End If
+	
+	' Retirer le document attaché
+	If nd_DB.HasEmbedded Then			
+		If nd_DB.HasItem("$File") Then
+			Call nd_DB.RemoveItem("$File")
+			Call nd_DB.save(True, False)
+		End If
+	End If
+	
+	'Req #49322 - MZE. ' On prends en compte tous les sites liés a la propostion si Origine != SICl
+	v_Origine = xVar(pnd_Prop, "Prop_Origine", "")
+	
+	If v_Origine = "SICl" And xVar(nd_DB, "DB_CopierCommissions", "") = "CC" Then
+		
+		a_NomSites = xVarArray(nd_DB, "DB_NomSites")  'Origine = SICl
+		
+		Set ndc_Sites = gndb_SDSPUI.CreateDocumentCollection	
+		
+		If IsArray(a_NomSites) Then
+			
+			ForAll s In a_NomSites
+				Set nd_Site = xSDSP3_xndSite(s, True) 
+				Call ndc_Sites.Adddocument(nd_site)
+				
+				' Vérifier si au moins un produit est à commissionner
+				If Not SDSPS_SiteAvecCommission(nd_Site) Then
+					MessageBox xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 123, "", xVar(nd_Site, "Site_ClientNomInterne", "")), 64, xGDK_xMessage("SI", 8, "", "")
+					' 123: Le site &amp; ne contient pas de produits générant une commission (SDS Bases II).
+				End If
+			End ForAll
+			
+			
+			If ndc_Sites.Count &gt; 0  Then		
+				
+				'				If p_WebService Then				 'RQ59317 Utilise un agent au lieu du web service
+				'Signer - Appel du Webservice ws_PropCom ...."
+				'					Set ws_PropComm = New Cl_PropComm
+				'					v_NbSitesCopies =  ws_PropComm.Copierpropositioncommsdsp3(v_NoProposition, v_NoSites, gns_SDSPUI.Username) 
+				
+				'				Else
+				'Signer - Appel de la fonction SDSPC_CopierPropositionComm ...."												
+				v_NbSitesCopies =  SDSPC_CopierPropositionComm (pnd_Prop, ndc_Sites, v_UserName)
+				'				End If
+				
+				Call SDSPC_VerifierSitecopier (pnd_Prop, v_NbSitesCopies, CStr(ndc_Sites.Count))	
+				
+			End If	
+			
+			
+		End If	
+		
+	End If	
+	
+	
+	
+	SDSPUI_acSignerProposition = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), xVar(pnd_Prop, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPUI_ExtraireAccountSalesforce"><lotusscript>Function SDSPUI_ExtraireAccountSalesforce(p_NoAccount As String, cl_Account As SLSf_clObject) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_ConnectID As String
+	Dim v_Resultat As Integer
+	Dim v_AccountId As String	
+	
+	SDSPUI_ExtraireAccountSalesforce = 0
+	v_ConnectID = SDSPSf_NomProfilSalesforceAPI
+	
+	If gcl_ConnexionAPI_SDSPUI Is Nothing then
+		Set gcl_ConnexionAPI_SDSPUI = New SLSf_clConnexionAPI(v_ConnectID)
+	End If
+	If gcl_ConnexionAPI_SDSPUI.Resultat = 1 Then
+		
+		Set cl_Account = New SLSf_clObject(gcl_ConnexionAPI_SDSPUI, "Account", v_AccountId)
+		If cl_Account.Resultat = 1 Then						
+			SDSPUI_ExtraireAccountSalesforce = 1				
+		Else
+			SDSPUI_ExtraireAccountSalesforce = cl_Account.Resultat			
+		End If
+		
+	Else
+		SDSPUI_ExtraireAccountSalesforce = gcl_ConnexionAPI_SDSPUI.Resultat
+	End If	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPUI_acReOuvrirProposition"><lotusscript>Function SDSPUI_acReOuvrirProposition(pnd_Prop As NotesDocument, p_WebService As Boolean) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nd_DB As NotesDocument
+	Dim v_UserName As String
+	Dim v_NoProposition As String
+	Dim v_StatutReouvrir As String
+	
+	Dim ws_Proposition As Cl_proposition
+	
+	' Initialisations
+	SDSPUI_acReOuvrirProposition = False
+	Call SDSPUI_Initialisations
+	
+	' Demander le commentaire	
+	If gns_SDSPUI.CurrentDatabase.Server = "" Then
+		Set nd_DB = New NotesDocument(gndb_SDSPUI)
+	Else
+		Set nd_DB = SITp_ndTemp("SDSP3.acReouvrir")	
+	End If
+	
+	
+	nd_DB.Form = "DB_SIHi"
+	nd_DB.SIHi_Obligatoire = CInt(True)	' Image "&gt;" pour Commentaire obligatoire
+	If Not nuiws.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+	xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+		Exit Function
+	End If
+	
+	Call nd_DB.save(True, False)
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	v_StatutReouvrir = "14"
+	v_UserName = gns_SDSPUI.UserName
+	
+	' re-ouvrir la proposition		
+	If gns_SDSPUI.CurrentDatabase.Server = "" Then
+		Call SDSPWF_ChangerStatut(pnd_Prop, v_StatutReouvrir, v_UserName, nd_DB, False)
+	Else		
+		If p_WebService Then
+			Set ws_Proposition = New Cl_proposition
+			Call ws_Proposition.ChangerStatutSDSP3(v_NoProposition, v_StatutReouvrir, v_UserName, nd_DB.UniversalId)			
+			Set pnd_Prop = xSDSP3_xndProp(v_NoProposition, False) 
+		Else		
+			Call SDSPWF_ChangerStatut(pnd_Prop, v_StatutReouvrir, v_UserName, nd_DB, False)
+		End If
+	End if
+	
+	
+	SDSPUI_acReouvrirProposition = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), xVar(pnd_Prop, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPUI_acCreerBonDeCommande"><lotusscript>Function SDSPUI_acCreerBonDeCommande(pnd_Prop As NotesDocument, p_NoSites As String, p_WebService As Boolean) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim i As Integer
+	Dim nd_Site As NotesDocument
+	Dim v_NoBonCommande As Long
+	Dim v_CalcBonCommandes As String	
+	Dim v_NbBonCommandeRegenere As Integer
+	Dim v_NbBonCommande As Integer
+	Dim v_Parametres(1) As String
+	Dim v_NoProposition As String
+	
+	Dim ws_Proposition As Cl_proposition
+	
+	' Initialisations
+	SDSPUI_acCreerBonDeCommande = False
+	
+	Call SDSPUI_Initialisations
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")	
+	
+	v_CalcBonCommandes = "0"
+	v_NbBonCommandeRegenere = "0"
+	
+	If p_WebService Then
+		Set ws_Proposition = New Cl_proposition		
+		v_CalcBonCommandes = ws_Proposition.Creerboncommandessdsp3(v_NoProposition, p_NoSites, gns_SDSPUI.UserName)		
+	Else
+		v_CalcBonCommandes = SDSPBC_CreerBonCommandes(pnd_Prop, p_NoSites, _
+		gns_SDSPUI.UserName)
+	End If
+	
+	If InStr(v_CalcBonCommandes, ";") &gt; 0 Then
+		v_NbBonCommande = CInt(Trim(StrLeft(v_CalcBonCommandes, ";")))
+		v_NbBonCommandeRegenere = CInt(Trim(StrRight(v_CalcBonCommandes, ";")))
+	Else
+		v_NbBonCommande = 0
+		v_NbBonCommandeRegenere = 0
+	End If
+	
+	
+	If v_NbBonCommande = 0 And v_NbBonCommandeRegenere = 0 Then		
+		
+		' Aucun nouveau bon de cmd
+		MessageBox xGDK_xMessage("SDSPP", 111, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		
+	ElseIf v_NbBonCommande = 0 And v_NbBonCommandeRegenere = 1 Then	
+		MessageBox xGDK_xMessage("SDSPP", 164, "", v_NbBonCommandeRegenere), 64, xGDK_xMessage("SI", 10, "", "")
+		
+	ElseIf v_NbBonCommande = v_NbBonCommandeRegenere  Then
+		MessageBox xGDK_xMessage("SDSPP", 162, "", v_NbBonCommandeRegenere), 64, xGDK_xMessage("SI", 10, "", "")	
+		
+	ElseIf v_NbBonCommande &gt; v_NbBonCommandeRegenere Then
+		
+		If v_NbBonCommandeRegenere = 0 Then
+			If v_NbBonCommande = 1 Then
+				MessageBox xGDK_xMessage("SDSPP", 113, "", v_NbBonCommande), 64, xGDK_xMessage("SI", 10, "", "")
+			Else
+				MessageBox xGDK_xMessage("SDSPP", 112, "", v_NbBonCommande), 64, xGDK_xMessage("SI", 10, "", "")
+			End If
+			
+		Else
+			v_Parametres(0) = v_NbBonCommande
+			v_Parametres(1) = v_NbBonCommandeRegenere			
+			MessageBox xGDK_xMessage("SDSPP", 163, "", v_Parametres), 64, xGDK_xMessage("SI", 10, "", "")				
+		End If
+		
+	End If
+	
+	
+	
+	SDSPUI_acCreerBonDeCommande = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), xVar(pnd_Prop, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPUI_acGenererCommande"><lotusscript>Sub SDSPUI_acGenererCommande(pnd_Prop As NotesDocument)
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nd_DB As NotesDocument
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim nd_SiteSuivant As NotesDocument
+	Dim v_NomVue As String
+	Dim v_NoProposition As String
+	Dim v_NoCommande As String
+	Dim v_NbSitesFacture As Integer
+	
+	' Initialisations
+	Call SDSPUI_Initialisations
+	
+	v_NomVue = "V_Site22"
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	
+	' Sélectionner les sites pour lesquels on génére une commande
+	Set ndc = nuiws.PickListCollection(PICKLIST_CUSTOM, True, gndb_SDSPUI.Server, gndb_SDSPUI.FilePath, v_NomVue,_
+	xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 150, "", ""), xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 151, "", ""), v_NoProposition)
+	
+	If ndc.Count = 0 Then
+		Print xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	Set nd_SiteSuivant = ndc.GetFirstDocument
+	
+	Do Until nd_SiteSuivant Is Nothing
+		Set nd = nd_SiteSuivant
+		Set nd_SiteSuivant = ndc.GetNextDocument(nd_SiteSuivant)
+		
+		'Test
+		'If xVar(nd, "Site_NoCommandeSIFc","") &lt;&gt; "" Then			
+		'	nd.Site_NoCommandeSIFc = ""
+		'End If
+		
+		If xVar(nd, "Site_NoCommandeSIFc","") &lt;&gt; "" Then
+			'Une commande a déjà été générée pour le site
+			MessageBox xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 152, "", xVar(nd, "Site_ClientNomInterne", "Site_ClientNom")), 64, xGDK_xMessage("SI", 8, "", "")
+		ElseIf xVar(nd, "Site_ClientNoFmt", "") = "" Then
+			' 158 - Impossible de facturer le site car le numéro de client est manquante
+			MessageBox xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 158, "", xVar(nd, "Site_ClientNomInterne", "")), _
+			64, xGDK_xMessage("SI", 8, "", "")			
+		Else
+			
+			If SDSPF_FacturerSite(pnd_Prop, nd, v_NoCommande) Then
+				v_NbSitesFacture = v_NbSitesFacture + 1
+				
+				nd.Site_NoCommandeSIFc = v_NoCommande
+				
+				nd.HistoDM = Now
+				nd.HistoUM = gns_SDSPUI.UserName
+				Call nd.Save(True, False)
+				
+				' Mettre à jour l'historique de la proposition
+				' --------------------------------------------
+				Call SIHi_Ajouter(pnd_Prop, "", "Action : " &amp; _
+				"Commande " &amp; v_NoCommande &amp; " généré pour le site " &amp; xVar(nd, "Site_ClientNomInterne","") &amp; _
+				"  /  Command " &amp; v_NoCommande &amp; " generated for the site " &amp; xVar(nd, "Site_ClientNomInterne",""),  "", True)
+				
+				If SIIx_MajItem(pnd_Prop, "Prop_NbSitesCommandes", xVar(Pnd_Prop, "Prop_NbSitesCommandes", 0) +  v_NbSitesFacture, False) Then
+					pnd_Prop.HistoUM = gns_SDSPUI.Username
+					pnd_Prop.HistoDM = Now
+					Call pnd_Prop.Save(True, False)
+				End If			
+			End If
+		End If
+		
+	Loop
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), xVar(pnd_Prop, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPUI_acCopierCommissions"><lotusscript>Function SDSPUI_acCopierCommissions(pnd_Prop As NotesDocument, p_WebService As Boolean) As Boolean
+	
+	'Permet de copier les sites dans la base SDS commission
+	'p_WebService	Boolean.  Si True, utilise le web service pour exécuter la recherche.
+	
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace 
+	Dim nd As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim nd_SiteSuivant As NotesDocument
+	Dim ndc As NotesDocumentCollection
+	Dim nv As NotesView
+	
+	Dim v_NoProposition As String
+	Dim v_NomVue As String
+	
+	Dim v_NbSitesCopies As Integer 
+	Dim v_NbSitesSelectiones As string
+	
+	' Initialisations
+	SDSPUI_acCopierCommissions = False
+	
+	Call SDSPUI_Initialisations
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	v_NomVue = "V_Site22"
+	
+	Set nv = gndb_SDSPUI.GetView(v_NomVue)
+	Call nv.Refresh
+	
+	
+	Set ndc= nv.GetAllDocumentsByKey(v_NoProposition, True)
+	
+	
+	' Si la proposition a plusieurs succursales
+	If ndc.Count &gt; 1 Then
+		
+		' Sélectionner la ou les succursales à copier
+		Set ndc = nuiws.PickListCollection(PICKLIST_CUSTOM, True, gndb_SDSPUI.Server, gndb_SDSPUI.FilePath, v_NomVue,_
+		xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 106, "", ""), xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 109, "", ""), v_NoProposition)
+		' 106: Copie d'une proposition
+		' 109: Veuillez saisir la description de la nouvelle proposition.
+		
+		If ndc.Count = 0 Then
+			Print xGDK_xMessage("SI", 1, "", "")
+			' 1: Opération annulée
+			Exit Function
+		End If
+	Else
+		' Demander une confirmation
+		If nuiws.Prompt(PROMPT_YESNO, xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 106, "", ""), _
+		xGDK_xMessage(gc_ndbAliasMSG_SDSPUI, 107, "", "")) &lt;&gt; 1 Then
+			' 107: Voulez-vous copier cette proposition dans la base de calcul des commissions?
+			Print xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+	End If
+	
+	' Boucler sur les succursales
+	Set nd_SiteSuivant = ndc.GetFirstDocument
+	Do Until nd_SiteSuivant Is Nothing
+		Set nd = nd_SiteSuivant
+		Set nd_SiteSuivant = ndc.GetNextDocument(nd_SiteSuivant)
+		
+		' Vérifier si au moins un produit est à commission
+		If Not SDSPS_SiteAvecCommission(nd) Then
+			MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 123, "", xVar(nd, "Site_ClientNomInterne", "")), 64, xGDK_xMessage("SI", 8, "", "")
+			' 123: Le site &amp; ne contient pas de produits générant une commission (SDS Bases II).
+		End If
+	Loop	
+	
+	v_NbSitesSelectiones = CStr(ndc.Count)
+	
+	If ndc.Count &gt; 0 Then	
+		
+		'		If p_WebService Then			 'RQ59317 Utilise un agent au lieu du web service
+		
+		'			Set ws_PropComm = New Cl_propcomm			
+		'			v_NbrSitesCopies = ws_PropComm.Copierpropositioncommsdsp3(v_NoProposition, v_NoSites, gns_SDSPUI.Username)	
+		'		Else
+		
+		v_NbSitesCopies = SDSPC_CopierPropositionComm (pnd_Prop, ndc, gns_SDSPUI.Username) 
+		
+		'		End If
+		
+		Call SDSPC_VerifierSitecopier (pnd_Prop, v_NbSitesCopies, v_NbSitesSelectiones) 'NE PAS deplacer dans SDSP_Commissions / SDSPC_CopierPropositionComm
+		
+		
+	End If
+	
+	Call SIGE_EnregistrerLog
+	
+	SDSPUI_acCopierCommissions = True
+	Exit Function
+	
+GererErreur:	
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), xVar(pnd_Prop, "Cle", ""), False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPUI_InitialiserSitesSansNoClient"><lotusscript>Sub SDSPUI_InitialiserSitesSansNoClient(pnd_Prop As NotesDocument, p_Origine As String, pnd_DB As NotesDocument)
+	On Error GoTo GererErreur
+	
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim cl_Opportunity As SLSf_clObject
+	Dim cl_Account As SLSf_clObject	
+	Dim v_NoOpportuniteSF As String
+	Dim v_Resultat As Integer
+	
+	Dim v_NbSitesSansClients As Integer
+	Dim v_CleClientFact As String
+	Dim a_NoSite As Variant
+	Dim v_PosSite As Integer
+	Dim nv_Sites As NotesView
+	Dim nd_Site As NotesDocument
+	Dim v_OrigineCle As String
+	Dim v_ClientNoFmt As String
+	Dim v_ClientNoFmtSF As String
+	Dim v_ClientNo1 As String
+	Dim v_ClientNo2 As String
+	Dim v_NoItem As string
+	Dim nd_Clie As NotesDocument
+	
+	v_NbSitesSansClients = 0
+	
+	If xVar(pnd_Prop, "Prop_NbSites", 0) &gt; 0 Then
+		
+		Set nv_Sites = gndb_SDSPUI.getview("v_Site20")
+		Call nv_Sites.Refresh
+		
+		a_NoSite = xVarArray(pnd_Prop, "Prop_NoSites")
+		For v_PosSite = LBound(a_NoSite) To UBound(a_NoSite)
+			Set nd_Site = nv_Sites.GetDocumentByKey(a_NoSite(v_PosSite), True)
+			v_ClientNoFmt = xVar(nd_Site, "Site_ClientNoFmt", "")
+			If v_ClientNoFmt = "" Then
+				v_OrigineCle = xVar(nd_Site, "Site_OrigineCle", "")
+				v_ClientNoFmt = ""
+				v_ClientNo1 = ""
+				v_ClientNo2 = ""
+				
+				If p_Origine = "SF" Then
+					If v_OrigineCle &lt;&gt; "" Then
+						If SDSPUI_ExtraireAccountSalesforce(v_OrigineCle, cl_Account) = 1 Then
+							v_ClientNoFmtSF = cl_Account.ExtraireValeur("SERTI_ID__c", "")
+							If v_ClientNoFmt &lt;&gt; "" Then
+								v_ClientNo1 = StrLeft(v_ClientNoFmtSF, "-")
+								v_ClientNo2 = StrRight(v_ClientNoFmtSF, "-")	
+							End If
+						End If
+					End If
+	%rem					
+					v_NoOpportuniteSF = xVar(pnd_Prop, "Prop_NoOpportuniteSF" , "")				
+					v_Resultat = SDSPUi_ExtraireInfoSalesforce(v_NoOpportuniteSF, cl_Opportunity, cl_Account)
+					
+					If v_Resultat &lt; 0 Then
+						v_ClientNoFmt = ""
+					Else
+						v_ClientNoFmt = cl_Account.ExtraireValeur("SERTI_ID__c", "")
+					End If							
+	%end rem				
+					
+				Else
+					Set nd_Clie = xPJ_xndClie(p_Origine, v_OrigineCle, True)
+					v_ClientNoFmt = xVar(nd_Clie, "Clie_NoClientFmt", "")
+					
+				End If	
+
+				If v_ClientNoFmt = "" Then
+					v_NoItem = Format((v_PosSite + 1), "000")
+					Call pnd_DB.ReplaceItemValue("DB_SiteNoSite" &amp; v_NoItem, a_NoSite(v_PosSite))
+					If v_ClientNo1 &lt;&gt; "" then
+						Call pnd_DB.ReplaceItemValue("DB_SiteClientNo1_" &amp; v_NoItem, CLng(v_ClientNo1))
+						Call pnd_DB.ReplaceItemValue("DB_SiteClientNo2_" &amp; v_NoItem, v_ClientNo2)
+					End If
+					Call pnd_DB.ReplaceItemValue("DB_SiteClientNom" &amp; v_NoItem, xVar(nd_Site, "Site_ClientNomInterne", xVar(nd_Site, "Site_ClientNom", "")))
+					Call pnd_DB.ReplaceItemValue("DB_SiteOrigneCle" &amp; v_NoItem, xVar(nd_Site, "Site_OrigineCle", ""))
+					v_NbSitesSansClients = v_NbSitesSansClients + 1
+				End If
+
+			End if
+		Next
+	End If
+	
+	pnd_DB.DB_NbSitesSansNoClient = v_NbSitesSansClients
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPUI_ndDBPropSg"><lotusscript>Function SDSPUI_ndDBPropSg(pnd_Prop As NotesDocument) As Notesdocument
+	On Error GoTo GererErreur
+	
+	Dim nd_DB As NotesDocument
+	Dim v_Origine As string
+	Dim nd_ClieSICl As NotesDocument
+	Dim v_CleClient As String
+	Dim nd_CliePJ As NotesDocument
+	Dim v_ClientNoFmt As String
+	
+	
+	' Sélectionner le Proposition signéà attacher
+	Set nd_DB = SITp_ndTemp("SDSP3.acSignee")
+	nd_DB.Form = "DB_PropSg"
+	nd_DB.DB_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	nd_DB.DB_TypeProposition = xVar(pnd_Prop, "Prop_TypeProposition", "")
+	
+	v_Origine = xVar(pnd_Prop, "Prop_Origine", "")
+	nd_DB.DB_Origine = v_Origine	
+	
+	If v_Origine = "SF" Then			'Origine = Salesforce		
+		' Extraire le document SI Clients
+		v_ClientNoFmt = xVar(pnd_Prop, "Prop_ClientNoFmt","")
+		
+		Set nd_ClieSICl = xSICl_xndClie(v_ClientNoFmt, False)
+		If nd_ClieSICl Is Nothing Then
+			nd_DB.DB_ClientRequis = "1"	
+		Else
+			nd_DB.DB_ClientNoFmt = xVar(nd_ClieSICl, "Clie_ClientNoFmt", "")
+			nd_DB.DB_ClientNo1 = xVar(nd_ClieSICl, "Clie_ClientNo1", "")
+			nd_DB.DB_ClientNo2 = Right("000" &amp; CStr(xVar(nd_ClieSICl, "Clie_ClientNo2", "")), 3)
+			nd_DB.DB_ClientNomInterne = xVar(nd_ClieSICl, "Clie_ClientNomInterne", "")
+		End If
+		
+		Call SDSPUI_InitialiserSitesSansNoClient(pnd_Prop, v_Origine, nd_DB)
+		
+	ElseIf v_Origine = "SICl" Then			'Origine = SI CLients
+		' Extraire le document SI Clients
+		Set nd_ClieSICl = xSICl_xndClie(xVar(pnd_Prop, "Prop_ClientNoFmt", ""), False)
+		
+		If Not nd_ClieSICl Is Nothing Then
+			nd_DB.DB_ClientNoFmt = xVar(nd_ClieSICl, "Clie_ClientNoFmt", "")
+			nd_DB.DB_ClientNomInterne = xVar(nd_ClieSICl, "Clie_ClientNomInterne", "")
+		End If
+		
+		nd_DB.DB_NbSitesSansNoClient = 0
+	Else								'Origine = Projeto
+		v_CleClient = xPJ_xVarProj(v_Origine, xVar(pnd_Prop, "Prop_NoProjet", ""), "CleClient", "", True)
+		
+		If v_CleClient = "" Then
+			nd_DB.DB_ClientRequis = "1"	
+		Else
+			' Extraire le document client de projeto
+			v_ClientNoFmt = xVar(pnd_Prop, "Prop_ClientNoFmt","")
+			
+			' Selectionnez le doc de client           
+			If v_ClientNoFmt &lt;&gt; "" Then
+				Set nd_CliePJ = xPJ_xndClieSI(v_Origine, v_ClientNoFmt, True)	
+			End if
+			
+			If nd_CliePJ Is Nothing Then
+				Set nd_CliePJ = xPJ_xndClie(v_Origine, xVar(pnd_Prop, "Prop_ClientCleSitePrinc", ""), True)
+				'Set nd_CliePJ = xPJ_xndClie(v_Origine,v_CleClient, True)
+			End If
+			
+			If nd_CliePJ Is Nothing Then
+				nd_DB.DB_ClientRequis = "1"	
+			Else
+				' Extraire le document SI Clients
+				Set nd_ClieSICl = xSICl_xndClie(xVar(nd_CliePJ, "Clie_NoClientFmt", ""), False)
+				If nd_ClieSICl Is Nothing Then
+					nd_DB.DB_ClientRequis = "1"	
+				Else
+					nd_DB.DB_ClientNoFmt = xVar(nd_ClieSICl, "Clie_ClientNoFmt", "")
+					nd_DB.DB_ClientNo1 = xVar(nd_ClieSICl, "Clie_ClientNo1", "")
+					nd_DB.DB_ClientNo2 = Right("000" &amp; CStr(xVar(nd_ClieSICl, "Clie_ClientNo2", "")), 3)
+					nd_DB.DB_ClientNomInterne = xVar(nd_ClieSICl, "Clie_ClientNomInterne", "")
+				End If
+			End If
+			
+		End If
+		
+		Call SDSPUI_InitialiserSitesSansNoClient(pnd_Prop, v_Origine, nd_DB)
+	End If
+	
+	Set SDSPUI_ndDBPropSg = nd_DB
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPUI_acPayerProposition"><lotusscript>Function SDSPUI_acPayerProposition(pnd_Prop As NotesDocument, p_WebService As Boolean) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nd_DB As NotesDocument
+	Dim v_UserName As String
+	Dim v_NoProposition As String
+	Dim v_StatutPaye As String
+	
+	Dim ws_Proposition As Cl_proposition
+	
+	' Initialisations
+	SDSPUI_acPayerProposition = False
+	Call SDSPUI_Initialisations
+	
+	' Demander le commentaire
+	If Not gns_SDSPUI.IsOnServer Then
+		Set nd_DB = SITp_ndTemp("SDSP3.acPayer")	
+		nd_DB.Form = "DB_SIHi"
+		nd_DB.SIHi_Obligatoire = CInt(True)	' Image "&gt;" pour Commentaire obligatoire
+		If Not nuiws.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+		xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+			Exit Function
+		End If
+	End If
+	
+	Call nd_DB.save(True, False)
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	v_StatutPaye = "94"
+	v_UserName = gns_SDSPUI.UserName
+	
+	' Payer la proposition			
+	If p_WebService Then
+		Set ws_Proposition = New Cl_proposition
+		Call ws_Proposition.ChangerStatutSDSP3(v_NoProposition, v_StatutPaye, v_UserName, nd_DB.UniversalId)
+		Set pnd_Prop = xSDSP3_xndProp(v_NoProposition, False)
+	Else		
+		Call SDSPWF_ChangerStatut(pnd_Prop, v_StatutPaye, v_UserName, nd_DB, False)
+	End If
+	
+	SDSPUI_acPayerProposition = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), xVar(pnd_Prop, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPUI_Initialisations"><lotusscript>Sub SDSPUI_Initialisations
+	If gns_SDSPUI Is Nothing Then
+		Set gns_SDSPUI = New NotesSession
+		Set gndb_SDSPUI = gns_SDSPUI.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="SDSPUI_ExtraireInfoSalesforce"><lotusscript>Function SDSPUI_ExtraireInfoSalesforce(p_NoOpportunite As String,  cl_Opportunity As SLSf_clObject, cl_Account As SLSf_clObject) As Integer
+	On Error GoTo GererErreur
+	
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim v_ConnectID As String
+	Dim v_Resultat As Integer
+	Dim v_AccountId As String	
+	
+	SDSPUI_ExtraireInfoSalesforce = 0
+	v_ConnectID = SDSPSf_NomProfilSalesforceAPI
+
+	Set cl_ConnexionAPI = New SLSf_clConnexionAPI(v_ConnectID)
+	If cl_ConnexionAPI.Resultat = 1 Then
+		
+		Set cl_Opportunity = New SLSf_clObject(cl_ConnexionAPI, "Opportunity", p_NoOpportunite)
+		If cl_Opportunity.Resultat = 1 Then
+			v_AccountId = cl_Opportunity.Contenu("AccountId")	
+		Else
+			SDSPUI_ExtraireInfoSalesforce = cl_Opportunity.Resultat
+			Exit Function			
+		End If			
+		
+
+		Set cl_Account = New SLSf_clObject(cl_ConnexionAPI, "Account", v_AccountId)
+		If cl_Account.Resultat = 1 Then						
+			SDSPUI_ExtraireInfoSalesforce = 1				
+		Else
+			SDSPUI_ExtraireInfoSalesforce = cl_Account.Resultat			
+		End If
+		
+	Else
+		SDSPUI_ExtraireInfoSalesforce = cl_ConnexionAPI.Resultat
+	End If	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPUI, gc_Element_SDSPUI, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073649,56-05</datetime></item></scriptlibrary>
+
+</database>

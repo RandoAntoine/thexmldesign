@@ -1,0 +1,893 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_GDK" hide="v3 v4strict" designerversion="8.5.3" comment="8.4b">
+<noteinfo noteid="5558e6" unid="6F33EB0BF197674485258A0E0072ABF2" sequence="11">
+<created><datetime dst="true">20230817T165231,22-04</datetime></created>
+<modified><datetime>20260105T014838,17-05</datetime></modified>
+<revised><datetime>20250319T073632,17-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,16-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,16-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+'
+'	Les fonctions définies dans cette bibliothèque de script permettent d'extraire de l'information de la base de
+'	documents SI_GDK.
+'
+'	Fonctions disponibles
+'
+'	================
+'	xndNDB
+'	================
+'	Extraire un document de type F_NDB (Notes database).
+'	Syntaxe:				flag = xndNDB( Cle , Cache )
+'	Paramètres:			Cle				String.  Le nom usuel de la base de documents pour laquelle on veut
+'												extraire le document de type NDB.
+'							Cache			Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il
+'												correspond au document recherché.  Si vous indiquez False, le
+'												document est relu même s'il est déjà en mémoire.
+'	Valeur retournée:	Notesdocument.  Le document recherché.  Retourne Nothing si aucun document n'est
+'												trouvé pour la clé spécifiée.
+'
+'	================
+'	xVarNDB
+'	================
+'	Extrait la valeur d'un document de type F_NDB (Notes database).
+'	Syntaxe:				flag = xVarNDB( Cle , NomVar , ValeurNulle , Cache )
+'	Paramètres:			Cle				String.  Le nom usuel de la base de documents pour laquelle on veut
+'												extraire le document de type NDB.
+'							NomVar			String.  Le nom de la variable contenant la valeur recherchée.
+'							ValeurNulle		Variant.  La valeur à retourner si la variable recherchée n'existe pas
+'												dans le document recherché.
+'							Cache			Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il
+'												correspond au document recherché.  Si vous indiquez False, le
+'												document est relu même s'il est déjà en mémoire.
+'	Valeur retournée:	La valeur de la variable recherchée.  Si la variable recherchée n'existe pas dans le
+'							document, retourne la valeur du paramètre ValeurNulle.
+'
+'	================
+'	xndbNDB
+'	================
+'	Extrait une base de documents Notes.
+'	Syntaxe:				flag = xVarNDB( Cle  )
+'	Paramètres:			Cle				String.  Le nom usuel de la base de documents qu'on veut obtenir.
+'	Valeur retournée:	Notesdatabase.  La base de documents identifiée par la clé dans le GDK.  Si la base de
+'												documents n'existe pas, retourne une base de documents fermée 
+'												(propriété IsOpen = False).
+'
+'	================
+'	xndTabl
+'	================
+'	Extraire un document de type F_Tabl (Table).
+'	Syntaxe:				flag = xndTabl( Cle , Cache )
+'	Paramètres:			Cle				String.  Le nom de la table à extraire.
+'							Cache			Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il
+'												correspond au document recherché.  Si vous indiquez False, le
+'												document est relu même s'il est déjà en mémoire.
+'	Valeur retournée:	Notesdocument.  Le document recherché.  Retourne Nothing si aucun document n'est
+'												trouvé pour la clé spécifiée.
+'
+'	================
+'	xVarTabl
+'	================
+'	Extrait la valeur d'un document de type F_Tabl (Table).
+'	Syntaxe:				flag = xVarTabl( Cle , NomVar , ValeurNulle , Cache )
+'	Paramètres:			Cle				String.  Le nom de la table à extraire.
+''							NomVar			String.  Le nom de la variable contenant la valeur recherchée.
+'							ValeurNulle		Variant.  La valeur à retourner si la variable recherchée n'existe pas
+'												dans le document recherché.
+'							Cache			Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il
+'												correspond au document recherché.  Si vous indiquez False, le
+'												document est relu même s'il est déjà en mémoire.
+'	Valeur retournée:	La valeur de la variable recherchée.  Si la variable recherchée n'existe pas dans le
+'							document, retourne la valeur du paramètre ValeurNulle.
+'
+
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_XXX
+'	- La session (gns_XXX) sera déclarée une seule fois pour le script library.
+'	- La base de documents (gndbZZZ_XXX) d'où provient le document recherché.
+Dim gns_xGDK As Notessession
+Dim gndbGDK_xGDK As Notesdatabase
+Dim gndbGDKServeur_xGDK As Notesdatabase
+Dim gnd_Prof_GDK As NotesDocument
+
+' Section 2 - Définition des valeurs conservées dans la cache
+' 	Répéter pour chaque type de document
+'	- La vue (gnvYYY_XXX) d'ou est extrait le document
+'	- Le document (gndYYY_XXX) qui contient les informations recherchées
+
+'	Base de documents
+Dim gnvNDB1_xGDK As NotesView
+Dim gnvNDB23_xGDK As NotesView
+Dim gndNDB_xGDK As NotesDocument
+
+'	Compteurs
+Dim gnvComp_xGDK As NotesView
+Dim gndComp_xGDK As NotesDocument
+
+'	Tables
+Dim gnvTabl_xGDK As NotesView
+Dim gndTabl_xGDK As NotesDocument
+
+'  Messages
+Dim gnv_xGDK As NotesView
+Dim gnd_xGDK As NotesDocument
+
+' Bannières SDS
+Dim gnvBann_xGDK As NotesView
+Dim gndBann_xGDK As NotesDocument
+
+' Medias
+Dim gnvTypM_xGDK As NotesView
+Dim gndTypM_xGDK As NotesDocument
+
+' Application
+Dim gnvAApp_xGDK As NotesView
+Dim gndAApp_xGDK As NotesDocument
+
+' Aide
+Dim gnvSIAi_xGDK As NotesView
+Dim gndSIAi_xGDK As NotesDocument
+
+' Mot de passe
+Dim gnvPass_xGDK As NotesView
+Dim gndPass_xGDK As NotesDocument
+
+' Table des abbréviations:
+'	XXX = Abbréviation trouvée dans le nom du script library courant
+'	YYY = Identifiant du type d'information (2e partie de l'alias d'un masque)
+'	ZZZ = Identifiant de la base de documents (abbréviation)
+
+Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (Byval hwnd As Long, Byval lpOperation As String, Byval lpFile As String, Byval lpParameters As String, Byval lpDirectory As String, Byval nShowCmd As Long) As Long
+
+Const SW_HIDE = 0
+Const SW_SHOWNORMAL = 1
+Const SW_NORMAL = 1
+Const SW_SHOWMINIMIZED = 2
+Const SW_SHOWMAXIMIZED = 3
+Const SW_MAXIMIZE = 3
+Const SW_SHOWNOACTIVATE = 4
+Const SW_SHOW = 5
+Const SW_MINIMIZE = 6
+Const SW_SHOWMINNOACTIVE = 7
+Const SW_SHOWNA = 8
+Const SW_RESTORE = 9
+Const SW_SHOWDEFAULT = 10
+Const SW_MAX = 10
+
+</lotusscript></code><code event="xGDK_xndTabl"><lotusscript>Function xGDK_xndTabl(Byval pCle As Variant, Byval pCache As Integer) As NotesDocument
+	' Cette fonction retourne un document de type F_Tabl.
+	
+	' Initialisation des variables globales
+	Call xGDK_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("Tabl_Nom", pCle, pCache, gndbGDK_xGDK, "V_Tabl20", gnvTabl_xGDK, gndTabl_xGDK)
+	'	Paramètres:		1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xGDK_xndTabl = gndTabl_xGDK
+End Function
+
+</lotusscript></code><code event="xGDK_xndNDB"><lotusscript>Function xGDK_xndNDB(Byval pCle As Variant, Byval pCache As Integer) As NotesDocument
+	' Cette fonction retourne un document de type F_NDB.
+	
+	' Initialisation des variables globales
+	Call xGDK_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("NDB_NomUsuel", pCle, pCache, gndbGDK_xGDK, "V_NDB20", gnvNDB1_xGDK, gndNDB_xGDK)
+	'	Paramètres:	1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xGDK_xndNDB = gndNDB_xGDK
+End Function
+
+</lotusscript></code><code event="xGDK_xndbNDB"><lotusscript>Function xGDK_xndbNDB(Byval pCle As Variant) As NotesDatabase
+	' Cette fonction retourne une base de documents.
+	
+	Dim ndb As NotesDatabase
+	
+	' Initialisation des variables globales
+	Set xGDK_xndbNDB = Nothing
+	Call xGDK_Initialisations
+	
+	' Retourne la base de documents
+	Set ndb = gns_xGDK.Getdatabase(xGDK_xVarNDB(pCle, "NDB_Serveur", "", False), xGDK_xVarNDB(pCle, "NDB_Fichier", "", True), False)
+	If Not ndb Is Nothing Then
+		If ndb.Isopen Then
+			Set xGDK_xndbNDB = ndb
+		Else
+			Set xGDK_xndbNDB = Nothing
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xGDK_xExtraireAApp"><lotusscript>Function xGDK_xExtraireAApp(Byval pCle As Variant, Byval pCache As Integer, p_CheminAcces As String, p_Executer As Boolean) As Boolean
+	' Cette fonction retourne un document de type F_NDB.
+	On Error 75 Resume Next 'Path/File Error  ===&gt; fichier "locké" au niveau du kill
+	
+	Dim nd_AApp As NotesDocument
+	Dim nrti As NotesRichTextItem
+	Dim aneo As Variant
+	Dim neo As NotesEmbeddedObject
+	Dim v_Dossier As String
+	Dim i As Integer
+	
+	xGDK_xExtraireAApp = False
+	
+	' Extraire le document de l'application
+	Set nd_AApp = xGDK_xndAApp(pCle, pCache)
+	If nd_AApp Is Nothing Then
+		Exit Function
+	End If
+	
+	Set nrti = nd_AApp.GetFirstItem("AApp_Executable")
+	If Not Isarray(nrti.Embeddedobjects) Then
+		Exit Function
+	End If
+	aneo = nrti.EmbeddedObjects
+	Set neo = aneo(Lbound(aneo))
+	
+	' Créer le dossier temporaire (au besoin)
+	If p_CheminAcces = "" Then
+		v_Dossier = Environ("Temp") &amp; "\AApp"
+		p_CheminAcces = v_Dossier &amp; "\" &amp; neo.Source
+	Elseif Instr(p_CheminAcces, "\") &gt; 0 Then
+		v_Dossier = Strleftback(p_CheminAcces, "\")
+	Else
+		v_Dossier = Environ("Temp") &amp; "\AApp"
+		p_CheminAcces = v_Dossier &amp; "\" &amp; p_CheminAcces
+	End If
+	Mkdir v_Dossier
+	
+	' Extraire l'application
+	Kill p_CheminAcces
+	Call neo.Extractfile(p_CheminAcces)
+	xGDK_xExtraireAApp = True
+	
+	' Executer le fichier
+	If p_Executer Then
+		If Lcase(Strrightback(p_CheminAcces, ".")) = "exe" Then
+			i = Shell(p_CheminAcces, 1)
+		Else
+			Call ShellExecute(0&amp;, "open", p_CheminAcces, Null, Strleftback(p_CheminAcces, "\"), SW_SHOWDEFAULT)
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xGDK_xndbGDK"><lotusscript>Function xGDK_xndbGDK As NotesDatabase
+	' Cette fonction retourne la base de documents GDK.
+	
+	Call xGDK_Initialisations
+	Set xGDK_xndbGDK = gndbGDK_xGDK
+End Function
+
+</lotusscript></code><code event="xGDK_xVarNDB_Acc"><lotusscript>Function xGDK_xVarNDB_Acc(ByVal p_Serveur As String, ByVal p_Fichier As String, ByVal pNomVar As String, ByVal pValeurNulle As Variant, _
+ByVal pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_NDB.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xGDK_xVarNDB_Acc = xVar(xGDK_xndNDB_Acc(p_Serveur, p_Fichier, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function
+
+</lotusscript></code><code event="xGDK_xndNDB_Acc"><lotusscript>Function xGDK_xndNDB_Acc(ByVal p_Serveur As String, ByVal p_Fichier As String, ByVal pCache As Integer) As NotesDocument
+	' Cette fonction retourne un document de type F_NDB en fonction du chemin d'accès.
+	
+	Dim v_Cle As String
+	
+	' Initialisation des variables globales
+	Call xGDK_Initialisations
+	
+	v_Cle = LCase(p_Serveur &amp; ";" &amp; p_Fichier)
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("", v_Cle, pCache, gndbGDK_xGDK, "V_NDB23", gnvNDB23_xGDK, gndNDB_xGDK)
+	'	Paramètres:	1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xGDK_xndNDB_Acc = gndNDB_xGDK
+End Function
+
+</lotusscript></code><code event="xGDK_xDescTabl"><lotusscript>Function xGDK_xDescTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_Cache As Integer) As String
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Descriptions As Variant
+	Dim i As Long
+	
+	xGDK_xDescTabl = ""
+	
+	' Extraire les valeurs et les descriptions
+	v_Valeurs = xGDK_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Descriptions = xGDK_xVarTabl(p_Table, "Tabl_Descriptions", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Descriptions) Then
+					If i &gt;= Lbound(v_Descriptions) And i &lt;= Ubound(v_Descriptions) Then
+						xGDK_xDescTabl = v_Descriptions(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Descriptions) Then
+				xGDK_xDescTabl = v_Descriptions(0)
+			Else
+				xGDK_xDescTabl = v_Descriptions
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xGDK_xndTypM"><lotusscript>Function  xGDK_xndTypM(Byval pCle As Variant, Byval pCache As Integer) As NotesDocument
+	' Cette fonction retourne un document de type F_Medi.
+	
+	' Initialisation des variables globales
+	Call xGDK_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("TypM_Code", pCle, pCache, gndbGDK_xGDK, "V_TypM20", gnvTypM_xGDK, gndTypM_xGDK)
+	'	Paramètres:		1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xGDK_xndTypM = gndTypM_xGDK
+End Function
+
+</lotusscript></code><code event="xGDK_xVarTabl"><lotusscript>Function xGDK_xVarTabl(Byval pCle As Variant, Byval pNomVar As String, Byval pValeurNulle As Variant, _
+Byval pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_Tabl.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xGDK_xVarTabl = xVar(xGDK_xndTabl(pCle, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function
+
+</lotusscript></code><code event="xGDK_xVarBann"><lotusscript>Function xGDK_xVarBann(Byval pCle As Variant, Byval pNomVar As String, Byval pValeurNulle As Variant, _
+Byval pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_Medi.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xGDK_xVarBann = xVar(xGDK_xndBann(pCle, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function
+
+</lotusscript></code><code event="xGDK_xVarProf"><lotusscript>Function xGDK_xVarProf(Byval p_NomVar As String, Byval p_ValeurNulle As Variant) As Variant
+	On Error Goto GererErreur
+	' Cette fonction retourne la valeur d'une variable du profil de la base de documents.
+	
+	' Initialisation des variables globales
+	xGDK_xVarProf = p_ValeurNulle
+	Call xGDK_Initialisations
+	
+	' Extraire le document de profil
+	If gnd_Prof_GDK Is Nothing Then
+		Set gnd_Prof_GDK = gndbGDK_xGDK.Getprofiledocument("F_Prof")
+	End If
+	
+	If Not (gnd_Prof_GDK Is Nothing) Then
+		xGDK_xVarProf = xVar(gnd_Prof_GDK, p_NomVar, p_ValeurNulle)
+	End If
+	Exit Function
+	
+GererErreur:
+	Print "Erreur x_GDK. " &amp; Getthreadinfo(1) &amp; " ligne " &amp; Erl &amp; " - " Error$ &amp; " (" &amp; Cstr(Err) &amp; ")"
+	Exit Function
+End Function
+
+</lotusscript></code><code event="xGDK_TypeNDBCourante"><lotusscript>Function xGDK_TypeNDBCourante As String
+	' Cette fonction retourne le type de la base de documents courante
+	' P = Production, L = Local, T = Tests
+	On Error Goto GererErreur
+	
+	Dim a_DossiersTests As Variant
+	Dim v_Dossier As String
+	Dim v_LongDossier As Integer
+	Dim i As Integer
+	
+	xGDK_TypeNDBCourante = "T"
+	Call xGDK_Initialisations
+	
+	If Not (gndbGDK_xGDK Is Nothing) Then
+		If gndbGDK_xGDK.Server = "" Or Lcase(gndbGDK_xGDK.Server) = "local" Then
+			xGDK_TypeNDBCourante = "L"
+		Elseif Instr(Lcase(gndbGDK_xGDK.Server), "zulu") &gt; 0 Then
+			Exit Function
+		Else
+			a_DossiersTests = xGDK_xVarProf("Prof_DossiersTests", "")
+			If Not Isarray(a_DossiersTests) Then
+				If a_DossiersTests = "" Then
+					xGDK_TypeNDBCourante = "P"
+					Exit Function
+				Elseif a_DossiersTests = "*" Then
+					Exit Function
+				End If
+				a_DossiersTests = Evaluate(|"| &amp; a_DossiersTests &amp; |"|)
+			End If
+			v_Dossier = Lcase(gndbGDK_xGDK.Filepath)
+			If Right(v_Dossier, 1) &lt;&gt; "\" Then
+				v_Dossier = v_Dossier &amp; "\"
+			End If
+			v_LongDossier = Len(v_Dossier)
+			For i = Lbound(a_DossiersTests) To Ubound(a_DossiersTests)
+				If Len(a_DossiersTests(i)) &gt; v_LongDossier Then
+					If Left(Lcase(a_DossiersTests(i)), v_LongDossier) = v_Dossier Then
+						Exit Function
+					End If
+				End If 
+			Next
+			xGDK_TypeNDBCourante = "P"
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Print "Erreur x_GDK. " &amp; Getthreadinfo(1) &amp; " ligne " &amp; Erl &amp; " - " Error$ &amp; " (" &amp; Cstr(Err) &amp; ")"
+	Exit Function
+End Function
+
+</lotusscript></code><code event="xGDK_xVarTypM"><lotusscript>Function xGDK_xVarTypM(Byval pCle As Variant, Byval pNomVar As String, Byval pValeurNulle As Variant, _
+Byval pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_Medi.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xGDK_xVarTypM = xVar(xGDK_xndTypM(pCle, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function
+
+</lotusscript></code><code event="xGDK_xRemplacerParametres"><lotusscript>Function xGDK_xRemplacerParametres(Byval p_Message As String, p_Parametres As Variant) As String
+	Dim v_Pos As Long
+	Dim v_Message1 As String
+	Dim v_Message2 As String
+	Dim v_Message3 As String
+	Dim v_NoParm As String
+	
+	v_Pos = Instr(p_Message, "&amp;")
+	If v_Pos = 0 Then
+		xGDK_xRemplacerParametres = p_Message
+		Exit Function
+	End If
+	
+	' Extraire la chaine à gauche de la valeur à insérer
+	v_Message1 = Left(p_Message, v_Pos - 1)
+	
+	' Extraire le numéro du paramètre à insérer
+	If v_Pos &lt; Len(p_Message) Then
+		v_NoParm = Mid(p_Message, v_Pos + 1, 1)
+		If Instr("0123456789", v_NoParm) = 0 Then
+			v_NoParm = "0"
+		Else
+			v_Pos = v_Pos + 1
+		End If
+	Else
+		v_NoParm = "0"
+	End If
+	
+	' Extraire le paramètre à insérer
+	v_Message2 = ""
+	If Isarray(p_Parametres) Then
+		If v_NoParm &lt;= Ubound(p_Parametres) Then
+			v_Message2 = p_Parametres(Cint(v_NoParm))
+		End If
+	Elseif v_NoParm = "0" Then
+		v_Message2 = p_Parametres
+	End If
+	
+	' Extraire la chaine à droite de la valeur à insérer
+	If v_Pos &lt; Len(p_Message) Then
+		v_Message3 = xGDK_xRemplacerParametres(Right(p_Message, Len(p_Message) - v_Pos), p_Parametres)
+	Else
+		v_Message3 = ""
+	End If
+	
+	' Construire le message
+	xGDK_xRemplacerParametres = v_Message1 &amp; v_Message2 &amp; v_Message3
+End Function
+
+</lotusscript></code><code event="xGDK_xFormulaNDB"><lotusscript>Function xGDK_xFormulaNDB(Byval pCle As Variant) As String	
+	' Cette fonction retourne le serveur et le chamin d'accès utilisé par les formules
+	' @DbLookup et @DbColumn
+	
+	Dim ndb As NotesDatabase
+	
+	' Extraire la base de documents
+	Set ndb = xGDK_xndbNDB(pCle) 
+	
+	If Not (ndb Is Nothing) Then
+		xGDK_xFormulaNDB = |"| &amp; ndb.Server &amp; |":"| &amp; Replace(ndb.FilePath,"\","\\") &amp; |"|
+	End If
+End Function
+
+</lotusscript></code><code event="xGDK_xIcnTabl"><lotusscript>Function xGDK_xIcnTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_Cache As Integer) As Integer
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Icones As Variant
+	Dim i As Long
+	
+	xGDK_xIcnTabl = 0
+	
+	' Extraire les valeurs et les Icones
+	v_Valeurs = xGDK_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Icones = xGDK_xVarTabl(p_Table, "Tabl_Icones", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Icones) Then
+					If i &gt;= Lbound(v_Icones) And i &lt;= Ubound(v_Icones) Then
+						xGDK_xIcnTabl = v_Icones(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Icones) Then
+				xGDK_xIcnTabl = v_Icones(0)
+			Else
+				xGDK_xIcnTabl = v_Icones
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xGDK_xndPass"><lotusscript>Function  xGDK_xndPass(ByVal pCle As Variant, ByVal pCache As Integer) As NotesDocument
+	' Cette fonction retourne un document de type F_Medi.
+	
+	' Initialisation des variables globales
+	Call xGDK_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("Pass_Code", pCle, pCache, gndbGDK_xGDK, "V_Pass20", gnvPass_xGDK, gndPass_xGDK)
+	'	Paramètres:		1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xGDK_xndPass = gndPass_xGDK
+End Function
+
+</lotusscript></code><code event="xGDK_xValeurExisteTabl"><lotusscript>Function xGDK_xValeurExisteTabl(Byval p_Cle As Variant, p_Valeur As Variant, _
+Byval p_Cache As Integer) As Integer
+	Dim ni As NotesItem
+	
+	xGDK_xValeurExisteTabl = False
+	
+	If Not (xGDK_xndTabl(p_Cle, True) Is Nothing) Then
+		Set ni = gndTabl_xGDK.GetFirstItem("Tabl_Valeurs")
+		If ni.Contains(p_Valeur) Then
+			xGDK_xValeurExisteTabl = True
+		End If
+	End If	
+End Function
+
+</lotusscript></code><code event="xGDK_xMessage"><lotusscript>Function xGDK_xMessage(Byval p_NomDocument As String, Byval p_NoMessage As Integer, _
+Byval p_Langue As String, p_Parametres As Variant) As String
+	Dim v_Langue As Variant
+	Dim v_Message As String
+	Dim ni_Messages As NotesItem
+	Dim va As Variant
+	Dim v_Pos As Long
+	Dim v_Suivant As String
+	Dim v_NoParm As Integer
+	
+	Const c_MessageVide = "SIMs_MessageVide"
+	
+	Call xGDK_Initialisations
+	xGDK_xMessage = ""
+	If p_NoMessage &lt; 0 Or gndbGDK_xGDK Is Nothing Then
+		Exit Function
+	End If
+	' Initialiser le document de messages si pas passé en paramètre
+	If p_NomDocument = "" Then
+		p_NomDocument = "SI"
+	End If
+	' Initialiser la langue si pas passée en paramètre
+	If p_Langue = "" Then
+		p_Langue = "FR"
+		v_Langue = Evaluate("@UpperCase(@Left(@LanguagePreference([Content]); 2))")
+		If Isarray(v_Langue) Then
+			If v_Langue(0) = "EN" Then
+				p_Langue = v_Langue(0)
+			End If
+		End If
+	End If
+	
+	' Extraire le document des messages
+	' ---------------------------------
+	If xVar(gnd_xGDK, "SIMs_Nom", "") &lt;&gt; p_NomDocument Then
+		If gnv_xGDK Is Nothing Then
+			Set gnv_xGDK = gndbGDK_xGDK.Getview("V_SIMs20")
+		End If
+		Set gnd_xGDK = gnv_xGDK.GetDocumentbykey(p_NomDocument)
+		If gnd_xGDK Is Nothing Then
+			Exit Function
+		End If
+	End If
+	
+	' Extraire le message d'une langue autre que Français
+	' ---------------------------------------------------
+	If p_Langue &lt;&gt; "FR" Then
+		Set ni_Messages = gnd_xGDK.GetFirstItem("SIMs_Messages" &amp; p_Langue)
+		If Not (ni_Messages Is Nothing) Then
+			va = ni_Messages.Values
+			If Ubound(va) &gt;= p_NoMessage Then
+				If va(p_NoMessage) &lt;&gt; c_MessageVide Then
+					v_Message = va(p_NoMessage)
+				End If
+			End If
+		End If
+	End If
+	
+	' Extraire le message Français
+	' ----------------------------
+	If v_Message = "" Then
+		Set ni_Messages = gnd_xGDK.GetFirstItem("SIMs_MessagesFR")
+		If Not (ni_Messages Is Nothing) Then
+			va = ni_Messages.Values
+			If Ubound(va) &gt;= p_NoMessage Then
+				If va(p_NoMessage) &lt;&gt; c_MessageVide Then
+					v_Message = va(p_NoMessage)
+				End If
+			End If
+		End If
+	End If
+	
+	' Effectuer les substitutions
+	' ---------------------------
+	If v_Message &lt;&gt; "" Then
+		xGDK_xMessage = xGDK_xRemplacerParametres(v_Message, p_Parametres)
+	End If
+End Function
+
+</lotusscript></code><code event="xGDK_xCompTabl"><lotusscript>Function xGDK_xCompTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_NoComp As String, Byval p_Cache As Integer) As String
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Descriptions As Variant
+	Dim i As Long
+	
+	xGDK_xCompTabl = ""
+	
+	' Extraire les valeurs et les descriptions
+	v_Valeurs = xGDK_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Descriptions = xGDK_xVarTabl(p_Table, "Tabl_Complement" &amp; p_NoComp, "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Descriptions) Then
+					If i &gt;= Lbound(v_Descriptions) And i &lt;= Ubound(v_Descriptions) Then
+						xGDK_xCompTabl = v_Descriptions(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Descriptions) Then
+				xGDK_xCompTabl = v_Descriptions(0)
+			Else
+				xGDK_xCompTabl = v_Descriptions
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xGDK_xndAApp"><lotusscript>Function xGDK_xndAApp(Byval pCle As Variant, Byval pCache As Integer) As Notesdocument
+	' Cette fonction retourne un document de type F_NDB.
+	
+	' Initialisation des variables globales
+	Call xGDK_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("AApp_Code", pCle, pCache, gndbGDK_xGDK, "V_AApp20", gnvAApp_xGDK, gndAApp_xGDK)
+	'	Paramètres:	1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xGDK_xndAApp = gndAApp_xGDK
+End Function
+
+</lotusscript></code><code event="xGDK_xndBann"><lotusscript>Function  xGDK_xndBann(Byval pCle As Variant, Byval pCache As Integer) As NotesDocument
+	' Cette fonction retourne un document de type F_Medi.
+	
+	' Initialisation des variables globales
+	Call xGDK_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("Bann_Code", pCle, pCache, gndbGDK_xGDK, "V_Bann20", gnvBann_xGDK, gndBann_xGDK)
+	'	Paramètres:		1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xGDK_xndBann = gndBann_xGDK
+End Function
+
+</lotusscript></code><code event="xGDK_xndSIAi"><lotusscript>Function xGDK_xndSIAi(ByVal pCle As Variant, ByVal pCache As Integer) As NotesDocument
+	' Cette fonction retourne un document de type F_NDB.
+	
+	' Initialisation des variables globales
+	Call xGDK_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("SIAi_Nom", pCle, pCache, gndbGDK_xGDK, "V_SIAi20", gnvSIAi_xGDK, gndSIAi_xGDK)
+	'	Paramètres:	1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xGDK_xndSIAi = gndSIAi_xGDK
+End Function
+
+</lotusscript></code><code event="xGDK_xVarPass"><lotusscript>Function xGDK_xVarPass(ByVal pCle As Variant, ByVal pNomVar As String, ByVal pValeurNulle As Variant, _
+ByVal pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_Medi.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xGDK_xVarPass = xVar(xGDK_xndPass(pCle, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function
+
+</lotusscript></code><code event="xGDK_Initialisations"><lotusscript>Sub xGDK_Initialisations
+	Dim ndb As NotesDatabase
+	
+	' Initialisation des variables globales
+	If gns_xGDK Is Nothing Then
+		Set gns_xGDK = New Notessession
+		Set gndbGDK_xGDK = Nothing
+		Set ndb = gns_xGDK.Getdatabase(gns_xGDK.Currentdatabase.Server, "SI_GDK.nsf", False)
+		If Not ndb Is Nothing Then
+			If ndb.Isopen Then
+				Set gndbGDK_xGDK = ndb
+			End If
+		End If
+	End If
+End Sub
+
+</lotusscript></code><code event="xGDK_xVarNDB"><lotusscript>Function xGDK_xVarNDB(Byval pCle As Variant, Byval pNomVar As String, Byval pValeurNulle As Variant, _
+Byval pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_NDB.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xGDK_xVarNDB = xVar(xGDK_xndNDB(pCle, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073632,17-05</datetime></item></scriptlibrary>
+
+</database>

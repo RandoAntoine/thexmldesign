@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_MSPowerPoint" hide="v3 v4strict" designerversion="8.5.3" comment="1.0">
+<noteinfo noteid="55570e" unid="9D4E575C647D7D60852586B40011FB84" sequence="76">
+<created><datetime dst="true">20210410T231625,00-04</datetime></created>
+<modified><datetime>20260105T014837,24-05</datetime></modified>
+<revised><datetime>20250319T073634,75-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,23-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,23-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_GestionErreurs"
+'
+'	Script library SI_MSPowerPoint v1.0
+'
+'	Les fonctions définies dans cette bibliothèque de script permettent de démarrer PowerPoint afin d'y faire des opérations simples
+
+'	Fonctions disponibles
+
+'  ===================
+'	DemarrerPowerPoint
+'	==================
+'	Démarre le programme Ms PowerPoint
+'	Syntaxe:				flag = Demarre_PowerPoint
+'	Paramètres:			Aucun.
+'	Valeur retournée:	True indique que l'ouverture du programme powerpoint a bien fonctionnée.
+'							False indique que l'ouverture du programme powerpoint a échouée.
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim g_PowerPointApp_SIMP As Variant
+Dim g_PowerPointPresentation_SIMP As Variant
+
+Dim g_PowerPointActif_SIMP As Integer
+Dim g_PowerPointVersion_SIMP As Integer
+Dim g_PresentationsOuverts_SIMP As Integer
+Dim g_NbDiapositiveExport As Integer
+
+' Traitement des erreurs
+Const gc_TypeElement_SIMP = "SL"
+Const gc_Element_SIMP = "SI_MSPowerPoint"
+
+
+</lotusscript></code><code event="terminate"><lotusscript>Sub Terminate
+	
+End Sub
+
+
+
+</lotusscript></code><code event="SIMP_FermerPresentation"><lotusscript>Function SIMP_FermerPresentation
+	On Error GoTo GererErreur
+	
+	SIMP_FermerPresentation = False
+	
+	If g_PresentationsOuverts_SIMP &gt; 0 Then
+		' Fermeture du diapositive
+		g_PowerPointPresentation_SIMP.Saved = True		'Evite la boite de demande de sauvegarde
+		g_PowerPointPresentation_SIMP.Close			'Ferme le document
+		
+		g_PresentationsOuverts_SIMP = g_PresentationsOuverts_SIMP - 1
+	End If
+	
+	SIMP_FermerPresentation = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMP, gc_Element_SIMP, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMP_FermerPowerPoint"><lotusscript>Function SIMP_FermerPowerPoint As Integer
+	On Error GoTo GererErreur
+	
+	SIMP_FermerPowerPoint = False
+	
+	If g_PowerPointActif_SIMP Then
+		
+		' Fermer les documents ouverts
+		ForAll v_Presentation In g_PowerPointApp_SIMP.Presentations			
+			Set g_PowerPointPresentation_SIMP = v_Presentation
+			Call SIMP_FermerPresentation
+		End ForAll
+		
+		' Libérer la mémoire de tous les objets
+		Set g_PowerPointPresentation_SIMP = Nothing
+		
+		' Fermer PowerPoint
+		Call g_PowerPointApp_SIMP.Quit
+		Set g_PowerPointApp_SIMP = Nothing
+		
+		g_PresentationsOuverts_SIMP = 0
+		g_PowerPointActif_SIMP = False
+	End If
+	
+	SIMP_FermerPowerPoint = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMP, gc_Element_SIMP, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SIMP_DemarrerPowerPoint"><lotusscript>Function SIMP_DemarrerPowerPoint As Integer
+	On Error GoTo GererErreur
+	
+	SIMP_DemarrerPowerPoint = False
+	
+	If Not g_PowerPointActif_SIMP Then
+		' Création d'un objet Microsoft PowerPoint
+		Set g_PowerPointApp_SIMP = CreateObject("PowerPoint.application")
+		g_PowerPointVersion_SIMP = CInt(StrLeft(g_PowerPointApp_SIMP.Version, "."))
+						
+		g_PresentationsOuverts_SIMP = 0
+		g_PowerPointActif_SIMP = True
+	End If
+	
+	SIMP_DemarrerPowerPoint = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMP, gc_Element_SIMP, GetThreadInfo(1), "", False)
+	Exit Function
+	
+	
+		
+	
+End Function
+
+</lotusscript></code><code event="SIMP_OuvrirPresentation"><lotusscript>Function SIMP_OuvrirPresentation(p_CheminFichier As String) As Integer
+	On Error GoTo GererErreur
+	
+	SIMP_OuvrirPresentation = False
+	
+	' Vérifie l'existance du fichier
+	If Len(Dir(p_CheminFichier)) &gt; 0 Then
+		' Ouverture du fichier powerpoint
+		g_PowerPointApp_SIMP.Presentations.Open p_CheminFichier
+		Set g_PowerPointPresentation_SIMP = g_PowerPointApp_SIMP.ActivePresentation
+		
+		g_PresentationsOuverts_SIMP = g_PresentationsOuverts_SIMP + 1
+		SIMP_OuvrirPresentation = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMP, gc_Element_SIMP, GetThreadInfo(1), p_CheminFichier, False)
+	Exit Function
+End Function
+
+
+
+</lotusscript></code><code event="SIMP_EnregistrerPresentationGIF"><lotusscript>Function SIMP_EnregistrerPresentationGIF(p_CheminFichier As String) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_CheminFichier As Variant
+	Dim v_NomFichierGif As String
+	Dim i As integer
+	
+	SIMP_EnregistrerPresentationGIF = False
+	
+	i = 0
+	
+	ForAll v_Diapositive In g_PowerPointApp_SIMP.ActivePresentation.Slides
+		'v_NomFichierGif = v_Diapositive.Name &amp; ".gif"
+		i = i + 1
+		v_Diapositive.Export p_CheminFichier &amp; CStr(i) &amp; ".gif", "gif"		
+		
+	End ForAll
+	
+	g_NbDiapositiveExport = i			
+	SIMP_EnregistrerPresentationGIF = True
+	Exit Function
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMP, gc_Element_SIMP, GetThreadInfo(1), p_CheminFichier, True) ' Muet
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,75-05</datetime></item></scriptlibrary>
+
+</database>

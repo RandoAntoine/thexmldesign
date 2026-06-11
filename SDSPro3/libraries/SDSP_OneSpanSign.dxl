@@ -1,0 +1,1318 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_OneSpanSign" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="5558f2" unid="1BB60BEFB0AB048D85258A77004B3E5F" sequence="14">
+<created><datetime>20231130T084151,67-05</datetime></created>
+<modified><datetime>20260319T100409,86-05</datetime></modified>
+<revised><datetime>20260204T142056,11-05</datetime></revised>
+<lastaccessed><datetime>20260319T100409,85-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,19-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SI_NotesDocumentCollection"
+Use "SI_CourrielsTypes"
+Use "SI_tNombre"
+Use "SL_OneSpanSign"
+Use "SDSP_OneSpanSign_Paquet"
+Use "x_Tabl"
+Use "x_POSSg"
+Use "x_SIRR"
+Use "x_SIDocV"
+Use "x_PJ"
+Use "SI_tString"
+
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSPOSSg As NotesSession
+Dim gndb_SDSPOSSg As NotesDatabase
+
+Dim gnd_Prof_SDSPOSSg As NotesDocument
+
+Dim g_NbrDestinatairesBC_SDSPOSSg As Integer
+Dim g_NbrDestinatairesCT_SDSPOSSg As Integer
+
+Const gc_NbDestinatairesMax_SDSPOSSg = 9
+Const gc_NbDestinatairesCTMax_SDSPOSSg = 9
+Const gc_NbDestinatairesBCMax_SDSPOSSg = 5
+REM Const gc_NbSignetsBCMax_SDSPOSSg = 2
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPOSSg = "SL"
+Const gc_Element_SDSPOSSg = "SDSP_OneSpanSign"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	
+End Sub
+
+
+
+</lotusscript></code><code event="SDSPOSSg_RemplacerSignets"><lotusscript>Function SDSPOSSg_RemplacerSignets(pnd_Prop As NotesDocument, p_Objet As String, p_Message As String) As Boolean
+	On Error GoTo GererErreur
+	
+	SDSPOSSg_RemplacerSignets = False
+	
+	Dim nn As NotesName
+	
+	Dim v_Signet As String
+	Dim v_ValeurItem As String
+	Dim i As Integer
+	Dim v_Objet As String
+	Dim v_Message As String
+	Dim v_Valeurs As Variant
+	
+	v_Objet = p_Objet 
+	v_Message = p_Message
+	
+	
+	ForAll ni In pnd_Prop.Items
+		If Left(ni.Name, 1) &lt;&gt; "$" Then
+			If ni.IsNames Then
+				Set nn = New NotesName(ni.Text)
+				v_ValeurItem = nn.Abbreviated
+			Else
+				v_Valeurs = xVar(pnd_Prop, ni.Name, "")
+				If IsArray(v_Valeurs) Then
+					v_ValeurItem = Implode(v_Valeurs, ", ")
+				Else
+					v_ValeurItem = CStr(v_Valeurs)
+				End If
+			End If
+			
+			If v_ValeurItem = "" Then
+				v_ValeurItem = " "
+			End If
+						
+			v_Signet = "[" &amp; LCase(ni.Name) &amp; "]"
+			
+			
+			v_Objet = Replace(v_Objet, v_Signet, v_ValeurItem)
+			v_Message = Replace(v_Message, v_Signet, v_ValeurItem)
+			End If
+	End ForAll
+			
+	p_Objet = v_Objet
+	p_Message = v_Message
+			
+	SDSPOSSg_RemplacerSignets = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_BCAjouterSignatures"><lotusscript>Function SDSPOSSg_BCAjouterSignatures(p_Enveloppe As cl_Envelope_SLOSS, p_IdSignataire() As Integer, _
+	p_IdDocument As Integer, p_NbOccurences As Integer, p_Langue As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_Ajustmentx As Integer
+	Dim v_Ajustmenty As Integer
+	Dim v_Signet As String
+	Dim v_TypeSignature As String	
+	Dim v_TypeElement As String
+	Dim a_TypeElementsDestinataire As Variant
+	Dim i As Integer
+	Dim j As Integer
+	Dim v_NomTablBCSignets As String
+	
+	SDSPOSSg_BCAjouterSignatures = False
+	
+	v_NomTablBCSignets =  "SLOSS_BCSignets"
+	
+	If g_NbrDestinatairesBC_SDSPOSSg &gt; 0 Then
+		
+		For i = 1 To g_NbrDestinatairesBC_SDSPOSSg
+			
+			' S = Signature, DS = Date signature, I = Initiales
+			'v_TypeElement = xVar(gnd_Prof_SDSPOSSg, "POSSg_TypeElementBC0" &amp; CStr(i), "") 
+			a_TypeElementsDestinataire = xVarArray(gnd_Prof_SDSPOSSg, "POSSg_TypeElementBC0" &amp; CStr(i))	
+			
+			If IsArray(a_TypeElementsDestinataire) Then
+				For j = 0 To UBound(a_TypeElementsDestinataire)
+					
+					v_TypeElement = a_TypeElementsDestinataire(j)
+					
+					If v_TypeElement &lt;&gt; "" Then		
+						
+						'If v_TypeElement = "S" Then
+						'	p_NbOccurences = 2
+					'	End If
+						
+						v_Signet = "[#" &amp; "B" &amp; Left(v_TypeElement, 1) &amp; CStr(i) &amp; "]"
+						v_Ajustmentx = CInt(xComplTabl("[B" &amp; Left(v_TypeElement, 1) &amp; CStr(i) &amp; "]", v_NomTablBCSignets, "1", True))
+						v_Ajustmenty = CInt(xComplTabl("[B" &amp; Left(v_TypeElement, 1) &amp; CStr(i) &amp; "]", v_NomTablBCSignets, "2", True))				
+						
+						If Not SDSPOSSg_AjouterSignature(p_Enveloppe, p_IdSignataire(i -1), v_TypeElement, p_IdDocument, v_Signet, p_NbOccurences, v_Ajustmentx, v_Ajustmenty) Then
+							Exit Function
+						End If	
+						
+					End If
+					
+				Next
+			End If
+			
+		Next
+	End If
+	
+
+	
+	
+	%REM			
+		If v_Envelope.AjouterSignature(1, "DS", 1, "[#D1]", 0, 4) Then	' ???			
+			If v_Envelope.AjouterSignature(1, "S", 1, "[#S1]", 0, 7) Then' ???
+	%END REM			
+	
+	SDSPOSSg_BCAjouterSignatures = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPOSSg_BCAjouterDestinataires"><lotusscript>Function SDSPOSSg_BCAjouterDestinataires(pnd_Prop As NotesDocument, p_Enveloppe As cl_Envelope_SLOSS, p_Objet As String, _
+	p_Message As String, p_IdSignataire() As Integer, p_Langue As String) As Boolean	
+	On Error GoTo GererErreur
+	
+	
+	Dim i As Integer	
+	Dim j As Integer	
+	Dim k As Integer
+	Dim v_CourrielDestinataire As Variant
+	Dim v_NoRepresentant As String
+	Dim v_ClasseDestinataire As String 'P = Personne, G = Groupe
+	Dim v_OrdreDestinataire As Integer
+	Dim v_TypeDestinataire As String
+	Dim v_TypeElementsDestinataire As Variant
+	Dim v_idDestinataire As Integer
+	Dim v_idGroupe As Long
+	Dim v_Prenom As Variant
+	Dim v_Nom As Variant
+	Dim v_PrenomDestinataire As Variant
+	Dim v_NomDestinataire As Variant
+	Dim v_Compagnie As String
+	
+	SDSPOSSg_BCAjouterDestinataires = False
+	
+	g_NbrDestinatairesBC_SDSPOSSg = 0	
+	v_NoRepresentant = xVar(pnd_Prop, "Prop_NoRepresentant", "")
+	ReDim p_IdSignataire(gc_NbDestinatairesBCMax_SDSPOSSg - 1)
+	
+	j = 0
+	v_idDestinataire = 1
+	
+	v_Compagnie = xEvaluate(|@If(!@IsNull(Prop_ClientNomInterne);Prop_ClientNomInterne;Prop_ClientNom)|, pnd_Prop)
+	
+	For i = 1 To gc_NbDestinatairesBCMax_SDSPOSSg
+		
+		v_ClasseDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_GroupeBC0" &amp; CStr(i), "P")
+		
+		v_PrenomDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_PrenomDestinataireBC0" &amp; CStr(i), "")
+		v_NomDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_NomDestinataireBC0" &amp; CStr(i), "")
+		
+		If SItN_isNumeric(v_NomDestinataire) Then
+			v_idGroupe = v_NomDestinataire
+		End If
+		
+		
+		If v_NomDestinataire &lt;&gt; "" Then
+			
+			If v_ClasseDestinataire = "P" Then
+				
+				v_CourrielDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_CourrielDestinataireBC0" &amp; CStr(i), "")
+				
+				'If Left(v_NomDestinataire, 1) = "$" Then
+				'	Call SDSPOSSg_RemplacerSignetDestinataire(pnd_Prop, CStr(v_NomDestinataire), CStr(v_PreNomDestinataire))
+				'End If
+				
+				If Left(v_NomDestinataire, 1) = "$" Then
+					
+					v_Prenom = CStr(v_PreNomDestinataire)
+					v_Nom = CStr(v_NomDestinataire)
+					
+					Call SDSPOSSg_RemplacerSignetNomDestinataire(pnd_Prop, v_Nom, v_Prenom)
+					
+					v_PreNomDestinataire = v_Prenom
+					v_NomDestinataire = v_Nom
+					
+				End If
+				
+				
+				
+				If Left(v_CourrielDestinataire, 1) = "$" Then					
+					v_CourrielDestinataire = SDSPOSSg_RemplacerSignetCourDestinataire(pnd_Prop, CStr(v_CourrielDestinataire))
+				End If
+				
+			End If
+			
+						
+			v_TypeDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_TypeDestinataireBC0" &amp; CStr(i), "")
+			v_OrdreDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_OrdreDestinataireBC0" &amp; CStr(i), "")
+			
+			If v_TypeDestinataire = "S" Then
+				'p_IdSignataire = v_idDestinataire
+				p_IdSignataire(j) = v_idDestinataire				
+				j = j + 1
+			End If
+			
+			If IsArray(v_CourrielDestinataire) Then
+				
+				If v_CourrielDestinataire(k) &lt;&gt; "" Then					
+					For k = 0 To UBound(v_CourrielDestinataire)
+						
+						If SDSPOSSg_AjouterDestinataire(p_Enveloppe, v_ClasseDestinataire, v_TypeDestinataire, CStr(v_PrenomDestinataire(k)), CStr(v_NomDestinataire(k)), CStr(v_CourrielDestinataire(k)), v_Compagnie, v_idGroupe, v_idDestinataire, _
+						v_OrdreDestinataire, p_Objet, p_Message, p_Langue) Then				
+							SDSPOSSg_BCAjouterDestinataires = True							
+							v_idDestinataire = 	v_idDestinataire + 1
+							g_NbrDestinatairesBC_SDSPOSSg = g_NbrDestinatairesBC_SDSPOSSg + 1
+							
+						Else							
+							' Si destinataire doublon l'enveloppe retourne le statut "E32" (avertissement pas une erreur)
+							If p_Enveloppe.Statut = "E32" Then
+								SDSPOSSg_BCAjouterDestinataires = True	
+							Else
+								'Si statut erreur lors de l'ajout du destinataire
+								If Left(p_Enveloppe.Statut, 1) = "E" Then
+									SDSPOSSg_BCAjouterDestinataires = False	
+									Exit For
+								End If
+								
+							End if						
+						End If	
+						
+					Next					
+				End If
+				
+			Else
+
+				If v_CourrielDestinataire &lt;&gt; "" Then
+					If SDSPOSSg_AjouterDestinataire(p_Enveloppe, v_ClasseDestinataire, v_TypeDestinataire, CStr(v_PrenomDestinataire), CStr(v_NomDestinataire), CStr(v_CourrielDestinataire), v_Compagnie, v_idGroupe, v_idDestinataire, _
+					v_OrdreDestinataire, p_Objet, p_Message, p_Langue) Then				
+						SDSPOSSg_BCAjouterDestinataires = True						
+						v_idDestinataire = 	v_idDestinataire + 1
+						g_NbrDestinatairesBC_SDSPOSSg = g_NbrDestinatairesBC_SDSPOSSg + 1
+						
+					Else
+						' Si destinataire doublon l'enveloppe retourne le statut "E32" (avertissement pas une erreur)
+						If p_Enveloppe.Statut = "E32" Then
+							SDSPOSSg_BCAjouterDestinataires = True	
+						Else
+							'Si statut erreur lors de l'ajout du destinataire
+							If Left(p_Enveloppe.Statut, 1) = "E" Then
+								SDSPOSSg_BCAjouterDestinataires = False	
+								Exit For
+							End If
+							
+						End If		
+						
+					End If
+				End If
+				
+			End If
+			
+			
+			
+		End If
+		
+		
+	Next
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_CTAjouterDestinataires"><lotusscript>Function  SDSPOSSg_CTAjouterDestinataires(pnd_Prop As NotesDocument, p_Enveloppe As cl_Envelope_SLOSS, p_Objet As String, _
+	p_Message As String, p_IdSignataire() As integer, p_Langue As String) As Boolean	
+	On Error GoTo GererErreur
+	
+	Dim i As Integer	
+	Dim j As Integer	
+	Dim k As integer
+	Dim v_CourrielDestinataire As Variant
+	Dim v_idDestinataire As Integer
+	Dim v_idGroupe As Long
+	Dim v_NoRepresentant As String
+	Dim v_ClasseDestinataire As String
+	Dim v_Prenom As Variant
+	Dim v_Nom As Variant
+	Dim v_PrenomDestinataire As Variant
+	Dim v_NomDestinataire As Variant
+	Dim v_OrdreDestinataire As Integer
+	Dim v_TypeDestinataire As String	
+	Dim v_TypeElementsDestinataire As Variant
+	Dim v_Compagnie As String
+	
+	SDSPOSSg_CTAjouterDestinataires = False
+	
+	g_NbrDestinatairesCT_SDSPOSSg = 0	
+	v_NoRepresentant = xVar(pnd_Prop, "Prop_NoRepresentant", "")	
+	ReDim p_IdSignataire(gc_NbDestinatairesCTMax_SDSPOSSg - 1)
+	
+	j = 0
+	v_idDestinataire = 1
+	
+	v_Compagnie = xEvaluate(|@If(!@IsNull(Prop_ClientNomInterne);Prop_ClientNomInterne;Prop_ClientNom)|, pnd_Prop)
+	
+	
+	
+	For i = 1 To gc_NbDestinatairesCTMax_SDSPOSSg
+		
+		v_ClasseDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_GroupeCT0" &amp; CStr(i), "P")
+		
+		v_PrenomDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_PrenomDestinataireCT0" &amp; CStr(i), "")
+		v_NomDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_NomDestinataireCT0" &amp; CStr(i), "")
+		
+		If SItN_isNumeric(v_NomDestinataire) Then
+			v_idGroupe = v_NomDestinataire
+		End If
+		
+		If v_NomDestinataire &lt;&gt; "" Then
+			
+			If v_ClasseDestinataire = "P" Then
+				
+				v_CourrielDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_CourrielDestinataireCT0" &amp; CStr(i), "")
+				
+				If Left(v_NomDestinataire, 1) = "$" Then
+					
+					v_Prenom = CStr(v_PreNomDestinataire)
+					v_Nom = CStr(v_NomDestinataire)
+					
+					Call SDSPOSSg_RemplacerSignetNomDestinataire(pnd_Prop, v_Nom, v_Prenom)
+					
+					v_PreNomDestinataire = v_Prenom
+					v_NomDestinataire = v_Nom
+					
+				End If
+				
+				If Left(v_CourrielDestinataire, 1) = "$" Then					
+					v_CourrielDestinataire = SDSPOSSg_RemplacerSignetCourDestinataire(pnd_Prop, CStr(v_CourrielDestinataire))
+				End If
+				
+			End If
+						
+			
+			v_TypeDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_TypeDestinataireCT0" &amp; CStr(i), "")
+			v_OrdreDestinataire = xVar(gnd_Prof_SDSPOSSg, "POSSg_OrdreDestinataireCT0" &amp; CStr(i), "")
+						
+			
+			If v_TypeDestinataire = "S" Then				
+				'p_IdSignataire(j) = v_idDestinataire ******************* Remplacée par la ligne suivante - MZE 23 Fev 2023
+				p_IdSignataire(j) = i
+				j = j + 1
+			End If
+			
+			If IsArray(v_CourrielDestinataire) Then
+				
+				If v_CourrielDestinataire(k) &lt;&gt; "" Then					
+					For k = 0 To UBound(v_CourrielDestinataire)
+						
+						If SDSPOSSg_AjouterDestinataire(p_Enveloppe, v_ClasseDestinataire, v_TypeDestinataire, CStr(v_PrenomDestinataire(k)), CStr(v_NomDestinataire(k)), CStr(v_CourrielDestinataire(k)), v_Compagnie, v_idGroupe, v_idDestinataire, _
+						v_OrdreDestinataire, p_Objet, p_Message, p_Langue) Then				
+							SDSPOSSg_CTAjouterDestinataires = True							
+							v_idDestinataire = 	v_idDestinataire + 1
+							g_NbrDestinatairesCT_SDSPOSSg = g_NbrDestinatairesCT_SDSPOSSg + 1
+						Else
+							' Si destinataire doublon l'enveloppe retourne le statut "E32" (avertissement pas une erreur)
+							If p_Enveloppe.Statut = "E32" Then
+								SDSPOSSg_CTAjouterDestinataires = True	
+							Else
+								'Si statut erreur lors de l'ajout du destinataire
+								If Left(p_Enveloppe.Statut, 1) = "E" Then
+									SDSPOSSg_CTAjouterDestinataires = False	
+									Exit For
+								End If
+								
+							End If	
+						End If	
+									
+					Next					
+				End If
+				
+			Else
+
+				If v_CourrielDestinataire &lt;&gt; "" Then
+					If SDSPOSSg_AjouterDestinataire(p_Enveloppe, v_ClasseDestinataire, v_TypeDestinataire, CStr(v_PrenomDestinataire), CStr(v_NomDestinataire), CStr(v_CourrielDestinataire), v_Compagnie, v_idGroupe, v_idDestinataire, _
+					v_OrdreDestinataire, p_Objet, p_Message, p_Langue) Then				
+						SDSPOSSg_CTAjouterDestinataires = True												
+						v_idDestinataire = 	v_idDestinataire + 1
+						g_NbrDestinatairesCT_SDSPOSSg = g_NbrDestinatairesCT_SDSPOSSg + 1
+					Else
+						' Si destinataire doublon l'enveloppe retourne le statut "E32" (avertissement pas une erreur)
+						If p_Enveloppe.Statut = "E32" Then
+							SDSPOSSg_CTAjouterDestinataires = True	
+						Else
+							'Si statut erreur lors de l'ajout du destinataire
+							If Left(p_Enveloppe.Statut, 1) = "E" Then
+								SDSPOSSg_CTAjouterDestinataires = False	
+								Exit For
+							End If
+							
+						End If	
+					End If
+				End If
+				
+			End if
+						
+			
+		End If
+		
+	Next
+	
+	If j &gt; 0 Then
+		ReDim Preserve p_IdSignataire(j -1)
+	Else
+		ReDim Preserve p_IdSignataire(j)
+	End If	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_AjouterExpediteur"><lotusscript>Function SDSPOSSg_AjouterExpediteur(p_Enveloppe As cl_Envelope_SLOSS, p_CourrielExepediteur As String) As Boolean
+	On Error GoTo GererErreur
+	
+	SDSPOSSg_AjouterExpediteur = False
+	
+	If Not p_Enveloppe.AjouterExpediteur(p_CourrielExepediteur) Then	
+		Exit Function
+	End If
+	
+	SDSPOSSg_AjouterExpediteur = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPOSSg_RemplacerSignetNomDestinataire"><lotusscript>Sub SDSPOSSg_RemplacerSignetNomDestinataire(pnd_Prop As NotesDocument, p_Nom As Variant, p_Prenom As Variant)
+	On Error GoTo GererErreur
+	
+	Dim a_Noms As Variant
+	Dim a_Prenoms As Variant
+	Dim i As Integer
+	Dim v_NoRepresentant As String
+	Dim v_NoDirecteur As String
+	Dim v_Noms As Variant	
+	Dim v_Prenom As String
+	Dim v_Nom As String	
+	
+	
+	'Initialisations
+	v_NoRepresentant = xVar(pnd_Prop, "Prop_NoRepresentant", "")
+	v_NoDirecteur = xVar(pnd_Prop, "Prop_NoDirNational", "")
+	v_Prenom = p_Prenom
+	v_Nom = p_Nom
+	
+	Select Case p_Nom
+			
+		Case "$VN"
+			
+			Call SItS_NomPrenom(xSIRR_xVarRepr(v_NoRepresentant, "Repr_NomRepresentant", "", True), v_Nom, v_Prenom)
+			
+			p_Nom = v_Nom
+			p_Prenom = v_Prenom
+			
+		Case "$CN"
+			
+			Call SItS_NomPrenom(xVar(pnd_Prop, "Prop_ContactNom", ""), v_Nom, v_Prenom)	
+			
+			p_Nom = v_Nom
+			p_Prenom = v_Prenom
+							
+		Case "$CCN"		
+						
+			If xVarElem(pnd_Prop, "Prop_ContactNomsCCDsg",0, "") = "" And xVarElem(pnd_Prop, "Prop_ContactNomsManCCDsg",0, "") = ""	 Then
+				p_Nom = ""
+				p_Prenom  = ""
+			Else
+				v_Noms = Evaluate(|@Trim(Prop_ContactNomsCCDsg : Prop_ContactNomsManCCDsg)|, pnd_Prop)	
+				
+				If IsArray(v_Noms) Then
+					
+					ReDim a_Noms(UBound(v_Noms))
+					ReDim a_Prenoms(UBound(v_Noms))
+					
+					For i = 0 To UBound(v_Noms)
+						
+						Call SItS_NomPrenom(v_Noms(i), v_Nom, v_Prenom)	
+						a_Noms(i) = v_Nom
+						a_Prenoms(i) = v_Prenom
+					Next
+					
+					p_Nom = a_Noms
+					p_Prenom = a_Prenoms
+				End If
+			End If
+						
+		Case "$DN"
+			
+			Call SItS_NomPrenom(xSIRR_xVarRepr(v_NoDirecteur, "Repr_NomRepresentant", "", True), v_Nom, v_Prenom)
+			
+			p_Nom = v_Nom
+			p_Prenom = v_Prenom
+						
+	End Select
+		
+	
+	Exit sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit sub
+End sub
+
+</lotusscript></code><code event="SDSPOSSg_EnvoyerEnveloppe"><lotusscript>Function SDSPOSSg_EnvoyerEnveloppe(p_Enveloppe As cl_Envelope_SLOSS, p_CleIntegration As String, p_Brouillon As Boolean) As Boolean
+	On Error GoTo GererErreur	
+	SDSPOSSg_EnvoyerEnveloppe = False
+	
+	' Si destinataire doublon l'enveloppe retourne le statut "E32" (avertissement pas une erreur)
+		If p_Enveloppe.Statut = "E32" Then
+			p_Enveloppe.Statut = ""
+		End If
+		
+	If p_Enveloppe.Envoyer(p_CleIntegration, p_Brouillon) Then
+		SDSPOSSg_EnvoyerEnveloppe = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_CTAjouterSignatures"><lotusscript>Function SDSPOSSg_CTAjouterSignatures(p_Enveloppe As cl_Envelope_SLOSS, p_IdSignataire() As Integer, _
+	p_IdDocument As Integer, p_NbOccurences As Integer, p_Langue As String) As Boolean
+	On Error GoTo GererErreur
+		
+	Dim v_Ajustmentx As Integer
+	Dim v_Ajustmenty As Integer
+	Dim v_Signet As String
+	Dim v_TypeSignature As String	
+	Dim v_TypeElement As String
+	Dim a_TypeElementsDestinataire As Variant
+	Dim i As Integer
+	Dim j As Integer
+	Dim v_NbOccurences As Integer
+	Dim v_NomTablCTSignets As String
+	Dim v_IdSignataire As Integer
+		
+	SDSPOSSg_CTAjouterSignatures = False
+	
+	v_NomTablCTSignets =  "SLOSS_CTSignets"
+	
+	If g_NbrDestinatairesCT_SDSPOSSg &gt; 0 Then
+				
+			
+			'For i = 1 To g_NbrDestinatairesCT_SDSPOSSg  'Remplacée pas la ligne suivante  - MZE
+			
+			For i = 1 To UBound(p_IdSignataire) + 1 
+				
+				' S = Signature, DS = Date signature, I = Initiales			
+				
+				'a_TypeElementsDestinataire = xVarArray(gd_Prof_SDSPOSSg, "POSSg_TypeElementCT0" &amp; CStr(i))	''Remplacée pas la ligne suivante  - MZE
+				
+				v_IdSignataire = p_IdSignataire(i-1)
+				a_TypeElementsDestinataire = xVarArray(gnd_Prof_SDSPOSSg, "POSSg_TypeElementCT0" &amp; CStr(v_IdSignataire))
+			
+			If IsArray(a_TypeElementsDestinataire) Then
+				For j = 0 To UBound(a_TypeElementsDestinataire)
+					
+					v_TypeElement = a_TypeElementsDestinataire(j)
+					
+					If v_TypeElement &lt;&gt; "" Then		
+						
+						If v_TypeElement = "I" Then
+							
+							If xComplTabl("[C" &amp; Left(v_TypeElement, 1) &amp; CStr(i) &amp; "]", v_NomTablCTSignets, "3", True) &lt;&gt; "1" Then
+								'signature/intial x fois 
+							v_NbOccurences = p_NbOccurences	
+							Else
+								'signature/intial 1 fois 
+								v_NbOccurences = 1
+							End If																				
+						Else
+							v_NbOccurences = 1
+						End If
+						
+						v_Signet = "[#" &amp; "C" &amp; Left(v_TypeElement, 1) &amp; CStr(i) &amp; "]"
+						v_Ajustmentx = CInt(xComplTabl("[C" &amp; Left(v_TypeElement, 1) &amp; CStr(i) &amp; "]", v_NomTablCTSignets, "1", True))
+						v_Ajustmenty = CInt(xComplTabl("[C" &amp; Left(v_TypeElement, 1) &amp; CStr(i) &amp; "]", v_NomTablCTSignets, "2", True))				
+						
+						If Not SDSPOSSg_AjouterSignature(p_Enveloppe, v_IdSignataire, v_TypeElement, p_IdDocument, v_Signet, v_NbOccurences, v_Ajustmentx, v_Ajustmenty) Then
+							Exit Function						
+						End If	
+						
+					End If
+					
+				Next
+			End If
+			
+		Next
+	End If
+			
+	%REM			
+		If v_Envelope.AjouterSignature(1, "DS", 1, "[#D1]", 0, 4) Then	
+			If v_Envelope.AjouterSignature(1, "S", 1, "[#S1]", 0, 7) Then
+	%END REM			
+	
+	SDSPOSSg_CTAjouterSignatures = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_ndDernierDocument"><lotusscript>Function SDSPOSSg_ndDernierDocument(p_NoPropostion As String, p_TypeDocument As String) As NotesDocument
+	On Error GoTo GererErreur
+		
+	Dim ndc As NotesDocumentCollection			
+	Dim nd_Docu As NotesDocument
+	Dim nv As NotesView
+	
+	Dim v_Cles(1) As String
+	Dim v_FormuleTri As String
+		
+	' Initialisations
+	Call xSIDocV_Initialisations
+	
+	v_Cles(0) = p_NoPropostion
+	
+	If p_TypeDocument = "B" Then
+		v_Cles(1) = "1"
+	ElseIf p_TypeDocument = "C" Then
+		v_Cles(1) = "2"
+	End If
+		
+	v_FormuleTri = |@If(!@IsNull(HistoDM);HistoDM;HistoDC)|
+	
+	Set ndc = xndc(v_Cles, gndb_xSIDocV, "V_Docu22", nv)
+					
+		If ndc.Count &gt; 1 Then
+			Call SINDC_TrierCollection(ndc, v_FormuleTri, "")
+			Set nd_Docu = ndc.GetLastDocument
+		Else
+			Set nd_Docu = ndc.GetFirstDocument
+		End If
+	
+	If Not nd_Docu Is Nothing Then	
+		If xVar(nd_Docu, "Docu_TypeDocument", "") =  v_Cles(1) Then
+			Set SDSPOSSg_ndDernierDocument = nd_Docu
+		End If			
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+		
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_ChangerStatutEnveloppe_SJOSS"><lotusscript>Function SDSPOSSg_ChangerStatutEnveloppe_SJOSS (pnd_Prop As NotesDocument, p_NoEnveloppe As Variant, p_Statut As String, p_NomProfil As String) As Boolean
+	'---------------------------------------------------------------------------
+	'Lors de la soumission d'un nouveau paquet à OneSpan, vérifier le contenu du champ Prop_NoEnveloppe.
+	'Si un no d'enveloppe est présent, il faut changer le statut de cette enveloppe pour EXPIRED.
+	'---------------------------------------------------------------------------
+	'---------------------------------------------------------------------------
+	'Lors de la soumission d'un nouveau paquet à OneSpan, vérifier le contenu du champ Prop_NoEnveloppe.
+	'Si un no d'enveloppe est présent, il faut changer le statut de cette enveloppe pour EXPIRED.
+	'---------------------------------------------------------------------------
+	Dim v_JSON As String
+	Dim v_Statut As String
+	'Dim v_StatutTran As String
+	
+	Dim js_SJOSS As JavaSession
+	Dim jcl_SJOSS As JavaClass
+	Dim jo_SJOSS As JavaObject
+	
+	Dim v_Resultat As String	
+	Dim v_Url As String
+	Dim v_Reponse As Integer
+	Dim v_ReponseJSON As String
+	Dim v_CleIntegration As String
+	
+	
+	'Initialisations
+	Call SDSPOSSP_Initialisations
+	
+	SDSPOSSg_ChangerStatutEnveloppe_SJOSS  = False
+	
+	
+	' Construire l'URL
+	v_Url = g_Url_SDSPOSSP &amp;  "/packages/" &amp; p_NoEnveloppe
+	
+	' Extraire le profil
+	' ---------------------------------------
+	If Not SDSPOSSg_ExtraireProfil(p_NomProfil) Then
+		Exit Function
+	End If
+	
+	' Initialise les paramètres de connection
+	'----------------------------------------		
+	v_CleIntegration = xVar(gnd_Prof_SDSPOSSg, "POSSg_CleIntegration", "")  
+
+	Set js_SJOSS = New JavaSession()
+	Set jcl_SJOSS = js_SJOSS.GetClass("pk_SJOSS.cl_SJOSS2")		
+	Set jo_SJOSS = jcl_SJOSS.CreateObject
+
+
+	v_JSON = |{"status": "| &amp; p_Statut &amp; |"}|
+
+	v_Resultat = jo_SJOSS.EnvoyerTransactionPut (v_CleIntegration, v_URL, v_JSON, v_ReponseJSON, "")', a_Fichier(1) = ""
+	
+	
+	Call SIGE_AjouterLog("JAVA Resultat : " &amp; v_Resultat, 0, 0, False)
+	If v_Resultat = "" Or Left(v_Resultat, 3) = "ERR" Then
+		Print "Erreur envoi de la transaction" 
+		v_Statut = "E88"	
+	Else 
+		v_Reponse = CInt(StrLeft(v_Resultat, ";"))
+		v_ReponseJSON = StrRight(v_Resultat, ";")
+		
+		
+		If v_Reponse &lt; 300 Then
+			SDSPOSSg_ChangerStatutEnveloppe_SJOSS = True
+		ElseIf Left(v_Reponse,1) = 4 Then	
+			'4xx erreurs client
+			Call SIGE_TraiterErreurManuelle(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), 0, CStr(v_Reponse) &amp; " - " &amp; xVar(pnd_Prop, "Prop_NoProposition", "")  &amp; " : " &amp; v_URL, v_ReponseJSON, True)		
+			
+		Else
+			'5xx erreurs serveur et autres
+			Call SIGE_TraiterErreurManuelle(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), 0, CStr(v_Reponse) &amp; " - " &amp; xVar(pnd_Prop, "Prop_NoProposition", "")  &amp; " : " &amp; v_URL, v_ReponseJSON, False)		
+		End If
+
+	End If
+	
+
+	
+	'Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+	Call SIGE_AjouterLog("URL : " &amp; v_URL, 0, 0, False)
+	Call SIGE_AjouterLog("PUT : " &amp; v_JSON, 0, 0, False)
+	Call SIGE_AjouterLog("Reponse : " &amp; CStr(v_Reponse), 0, 0, False)
+	If v_Reponse &gt;= 300 Then
+		Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGE_AjouterLog("JSON Reponse : ", 0, 0, False)
+		Call SIGE_AjouterLog(v_ReponseJSON, 0, 0, False)
+	End If
+	Call SIGE_AjouterLog("----------------------------------------------------------------------------------------", 0, 0, False)
+	'Call SIGE_EnregistrerLog
+	
+	Exit Function
+	
+	
+GererErreur:	
+	v_Statut = "E89"			' Erreur de programmation	
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), v_URL, False)
+	
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_EnvoyerCourDestInvalide"><lotusscript>Function SDSPOSSg_EnvoyerCourDestInvalide(pnd_Prop As NotesDocument, p_CleIntegration As String, p_PackageID As String, p_Message As String,_
+	p_SessionUserID As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim nd_Rep As NotesDocument
+	Dim nd_Courriel As NotesDocument
+	Dim v_NoRep As String
+	Dim v_SendTo As String
+	Dim v_Langue As String
+	Dim cl_Paquet As SDSP_clOSSP_Paquet
+	Dim v_TransactionEvoyePar As String
+	Dim v_SignataireTrouve As Boolean
+	Dim v_Signataire As SDSPOSSP_clSignataire
+	
+	SDSPOSSg_EnvoyerCourDestInvalide = False
+	
+	' Initialisations
+	Call SDSPOSSg_Initialisations
+	
+	v_NoRep = xVar(pnd_Prop, "Prop_NoRepresentant", "")	
+	Set nd_Rep = xSIRR_xndRepr(v_NoRep, False)
+	
+	Set cl_Paquet = New SDSP_clOSSP_Paquet(p_CleIntegration,p_PackageID)
+	
+	If cl_Paquet.Resultat &lt; 0 Then
+		Exit Function
+	End If
+	
+	v_TransactionEvoyePar = cl_Paquet.Expediteur.Courriel
+	
+	' Envoyer courriel au rep. si envoyé par sdspo ou sdsdemo
+	If v_TransactionEvoyePar = "sdspo@serti.com" Or v_TransactionEvoyePar = "sdsdemo@serti.com" Then
+		
+		v_SignataireTrouve = False
+		ForAll signataire In cl_Paquet.Signataires
+			'Note : Pour callback EMAIL_BOUNCE, sessionuserid correspond au id du signataire qui a échoué
+			If signataire.Id = p_SessionUserID Then
+				If p_Message = "BOUNCE" Or StrRight(signataire.Courriel, "@") &lt;&gt; "serti.com"  Then 		'Or p_Message = "OOTO"	
+					Set v_Signataire = signataire
+					v_SignataireTrouve = True
+					Exit ForAll
+				End If				
+			End If
+		End ForAll
+		
+	End If
+	
+	If Not nd_Rep Is Nothing Then	
+		If v_SignataireTrouve Then	
+			
+			v_SendTo = xVar(nd_Rep, "Repr_NotesID", "")
+			v_Langue = xVar(nd_Rep, "Repr_Langue", "FR")
+			
+			pnd_Prop.Temp_NomClient = xVar(pnd_Prop, "Prop_ClientNomInterne",xVar(pnd_Prop, "Prop_ClientNom",""))
+			pnd_Prop.Temp_NomSignataire = v_Signataire.Prenom &amp; " " &amp; v_Signataire.Nom
+			pnd_Prop.Temp_CourrielSignataire = v_Signataire.Courriel
+			pnd_Prop.Temp_Message = p_Message '58057
+			
+			Call SIGE_AjouterLog("Courriel erroné :" &amp; v_Signataire.Courriel, 0, 0, False)	
+			
+			Set nd_Courriel = SICT_ConstruireMessage(pnd_Prop, "A_OSSCb", v_Langue, v_SendTo, "", "", False, "")
+			
+			If Not nd_Courriel Is Nothing Then
+				nd_Courriel.Principal = gndb_SDSPOSSg.Title		
+				nd_Courriel.Send(False)
+				
+				Call pnd_Prop.RemoveItem("Temp_NomClient")
+				Call pnd_Prop.RemoveItem("Temp_Message")
+				Call pnd_Prop.Save(True, False)
+				
+				SDSPOSSg_EnvoyerCourDestInvalide = True
+			End If
+			
+		End If
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), v_NoRep, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_AjouterDestinataire"><lotusscript>Function SDSPOSSg_AjouterDestinataire(p_Enveloppe As cl_Envelope_SLOSS, p_ClasseDestinataire As String, p_TypeDestinataire As String, p_PrenomNomDestinataire As String, p_NomDestinataire As String, p_CourrielDestinataire As String, _
+	p_CompagnieDestinataire As String, p_idGroupe As Long, p_idDestinataire As Integer, p_OrdreDestinataire As Integer, p_Objet As String, p_Message As String, p_Langue As String) As Boolean
+	On Error GoTo GererErreur
+	
+	SDSPOSSg_AjouterDestinataire = False
+	
+	
+	If p_ClasseDestinataire = "P" Then
+		If p_Enveloppe.AjouterDestinataire(p_TypeDestinataire, p_PrenomNomDestinataire, p_NomDestinataire, p_CourrielDestinataire, p_CompagnieDestinataire, p_idDestinataire, p_OrdreDestinataire, _
+		p_Objet, p_Message, p_Langue) Then
+			SDSPOSSg_AjouterDestinataire = True
+			Exit Function
+			''Else
+			'	' Si destinataire doublon l'enveloppe retourne le statut "E32" (avertissement pas une erreur)
+			'''''	If p_Enveloppe.Statut = "E32" Then
+			''		SDSPOSSg_AjouterDestinataire = True
+			''		Exit Function
+			''	End if
+		End If
+	End If
+	
+	If p_ClasseDestinataire = "G" Then
+		If p_enveloppe.AjouterGroupeDestinataires(p_TypeDestinataire, p_idGroupe, CLng(p_idDestinataire), p_OrdreDestinataire, p_Objet, p_Message, p_Langue) Then
+			SDSPOSSg_AjouterDestinataire = True
+			Exit Function
+			''Else
+			'	' Si destinataire doublon l'enveloppe retourne le statut "E32" (avertissement pas une erreur)
+			'''''	If p_Enveloppe.Statut = "E32" Then
+			''		SDSPOSSg_AjouterDestinataire = True
+			''		Exit Function
+			''	End if
+		End If
+	End if
+	
+	Exit Function	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_RemplacerSignetCourDestinataire"><lotusscript>Function SDSPOSSg_RemplacerSignetCourDestinataire(pnd_Prop As NotesDocument, p_Signet As Variant) As Variant
+	On Error GoTo GererErreur
+	
+	Dim v_NoRepresentant As String
+	Dim v_NoDirecteur As String
+	
+	'Initialisations
+	v_NoRepresentant = xVar(pnd_Prop, "Prop_NoRepresentant", "")
+	v_NoDirecteur = xVar(pnd_Prop, "Prop_NoDirNational", "")
+	
+	SDSPOSSg_RemplacerSignetCourDestinataire = ""
+	
+	Select Case p_Signet
+			
+		Case "$VC"
+			SDSPOSSg_RemplacerSignetCourDestinataire = xSIRR_xVarRepr(v_NoRepresentant, "Repr_Courriel", "", True)
+		Case "$CC"
+			SDSPOSSg_RemplacerSignetCourDestinataire = xVar(pnd_Prop, "Prop_ContactCourriel", "")										
+		Case "$CCC"
+			If xVarElem(pnd_Prop, "Prop_ContactCourrielsCCDsg",0, "") = "" And xVarElem(pnd_Prop, "Prop_ContactCourrielsManCCDsg",0, "") = ""	 Then
+				SDSPOSSg_RemplacerSignetCourDestinataire = ""
+			Else
+				SDSPOSSg_RemplacerSignetCourDestinataire  = Evaluate(|@Trim(Prop_ContactCourrielsCCDsg : Prop_ContactCourrielsManCCDsg)|, pnd_Prop)	
+			End If	
+		Case "$DC"
+			SDSPOSSg_RemplacerSignetCourDestinataire = xSIRR_xVarRepr(v_NoDirecteur, "Repr_Courriel", "", True)
+			
+	End Select
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_CTCreerEnveloppe"><lotusscript>Function SDSPOSSg_CTCreerEnveloppe(pnd_Prop As NotesDocument, p_Enveloppe As cl_Envelope_SLOSS, p_IdDocument As Integer, p_Objet As String, _
+	p_Message As String, p_CheminFicherPDF As String, p_NbOccurences As Integer, p_Langue As String, p_CourrielExpediteur As String, p_Nom As String) As Boolean	
+	On Error GoTo GererErreur
+	
+	Dim v_IdSignataire() As Integer
+	
+	SDSPOSSg_CTCreerEnveloppe = False
+	
+	If SDSPOSSg_CTAjouterDestinataires(pnd_Prop, p_Enveloppe, p_Objet, p_Message, v_IdSignataire, p_Langue) Then		
+		
+		If SDSPOSSg_AjouterExpediteur(p_Enveloppe, p_CourrielExpediteur)Then	
+			
+			If SDSPOSSg_AjouterDocument(p_Enveloppe, p_idDocument, p_CheminFicherPDF, p_Nom) Then
+				
+				If SDSPOSSg_CTAjouterSignatures(p_Enveloppe, v_IdSignataire, p_idDocument, p_NbOccurences, p_Langue) Then 
+					
+					SDSPOSSg_CTCreerEnveloppe = True		
+					
+				End If	
+				
+			End If				
+			
+		End If		
+		
+	End If
+	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_CreerEnveloppe"><lotusscript>Function SDSPOSSg_CreerEnveloppe(pnd_Prop As NotesDocument, p_NomProfil As String, ByVal p_CheminFicherPDF As String, p_TypeDocument As String, _
+	p_Objet As String, p_Message As String, p_Utilisateur, p_MotDePasse, p_NbOccurences As Integer, p_Langue As String, p_CourrielExpediteur As String, p_Nom As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_CleIntegration As String
+	Dim v_Brouillon As Boolean
+	Dim v_Enveloppe As cl_Envelope_SLOSS		
+	Dim v_idDocument As Integer
+	Dim v_Langue As String	
+	Dim v_Message As String		
+	Dim v_Objet As String	
+	Dim v_EnvelopppeGenere As Boolean
+	'Dim v_Date As Variant
+		
+	
+	SDSPOSSg_CreerEnveloppe = False	
+	v_EnvelopppeGenere = False
+		
+	' Extraire le profil
+	' ---------------------------------------
+	If Not SDSPOSSg_ExtraireProfil(p_NomProfil) Then
+		Call SIGE_AjouterLog("SDSPOSSg_CreerEnveloppe - Profil " &amp; p_NomProfil &amp; " inexistant", 1, 0, False)
+		Exit Function
+	End If
+	
+	v_Langue = p_Langue
+	
+	If v_Langue = "" Then
+		v_Langue = "FR"		
+	End If
+	
+	v_idDocument = 1
+	
+	'v_Date = Format(Now, "yyyy-mm-dd hh:nn:ss")
+	
+	' Initialise les paramètres de connection
+	'----------------------------------------		
+	v_CleIntegration = xVar(gnd_Prof_SDSPOSSg, "POSSg_CleIntegration", "")
+	
+	if xVar(gnd_Prof_SDSPOSSg, "POSSg_EnvoyerBrouillon", "1") = "0" Then
+		v_Brouillon = False
+	Else
+		v_Brouillon = True
+	End If
+	
+	'If InStr(LCase(gndb_SDSPOSSg.Server), "zulu") &gt; 0 Then
+	'End If	'' 
+			
+	v_Objet  = p_Objet
+	v_Message =  p_Message
+	
+	' Générer enveloppe
+	' -----------------
+	If SDSPOSSg_RemplacerSignets(pnd_Prop, v_Objet, v_Message) Then
+		
+		If p_TypeDocument = "B" Then
+			
+			'Set v_Enveloppe = New cl_Envelope_SLOSS(xGDK_TypeNDBCourante, v_Objet &amp; " "  &amp; CStr(v_Date), v_Message, p_Langue)			
+			Set v_Enveloppe = New cl_Envelope_SLOSS(xGDK_TypeNDBCourante, v_Objet, v_Message, p_Langue)
+			If SDSPOSSg_BCCreerEnveloppe(pnd_Prop, v_Enveloppe, v_idDocument, v_Objet, v_Message, p_CheminFicherPDF, p_NbOccurences, v_Langue, p_CourrielExpediteur, p_Nom) Then
+				v_EnvelopppeGenere = True				
+			End If	
+			
+		ElseIf p_TypeDocument = "C" Then
+			
+			'Set v_Enveloppe = New cl_Envelope_SLOSS(xGDK_TypeNDBCourante, v_Objet &amp; " "  &amp; CStr(v_Date), v_Message, p_Langue)			
+			Set v_Enveloppe = New cl_Envelope_SLOSS(xGDK_TypeNDBCourante, v_Objet, v_Message, p_Langue)	
+			If SDSPOSSg_CTCreerEnveloppe(pnd_Prop, v_Enveloppe, v_idDocument, v_Objet, v_Message, p_CheminFicherPDF, p_NbOccurences, v_Langue, p_CourrielExpediteur, p_Nom) Then
+				v_EnvelopppeGenere = True				
+			End If			
+		End If
+		
+	End If
+	
+	' Envoyer enveloppe
+	'-------------------	
+	If v_EnvelopppeGenere Then
+		Call SIGE_AjouterLog("SDSPOSSg_CreerEnveloppe - SDSPOSSg_EnvoyerEnveloppe", 0, 0, False)
+		If SDSPOSSg_EnvoyerEnveloppe(v_Enveloppe, v_CleIntegration, v_Brouillon) Then 			
+			Call SDSPOSSg_MajIDEnveloppe(v_Enveloppe, pnd_Prop, p_TypeDocument)					
+			SDSPOSSg_CreerEnveloppe = True
+			Call SIGE_AjouterLog("Enveloppe " &amp; v_Enveloppe.Id &amp; " envoyée à " &amp; CStr(v_Enveloppe.NbDestinataires) &amp; " destinataires.", 0, 0, True)
+		Else
+			Call SIGE_AjouterLog("SDSPOSSg_CreerEnveloppe - Enveloppe pas envoyée", 1, 0, False)
+		End If
+	End If
+	
+		
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+	
+End Function
+
+
+
+</lotusscript></code><code event="SDSPOSSg_Initialisations"><lotusscript>Sub SDSPOSSg_Initialisations
+	
+	If gns_SDSPOSSg Is Nothing Then
+		Set gns_SDSPOSSg = New NotesSession
+		Set gndb_SDSPOSSg = gns_SDSPOSSg.Currentdatabase
+	end If
+	
+End Sub
+
+
+
+
+
+
+
+</lotusscript></code><code event="SDSPOSSg_AjouterDocument"><lotusscript>Function SDSPOSSg_AjouterDocument(p_Enveloppe As cl_Envelope_SLOSS, p_IdDocument As Integer, p_CheminPDF As String, p_Nom As String) As Boolean
+	On Error GoTo GererErreur
+	
+	SDSPOSSg_AjouterDocument = False
+		
+	If p_Enveloppe.AjouterDocument(p_IdDocument, p_CheminPDF, p_Nom) Then
+		SDSPOSSg_AjouterDocument = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_ChangerStatutEnveloppe"><lotusscript>Function SDSPOSSg_ChangerStatutEnveloppe (p_NoEnveloppe As Variant, p_Statut As String, p_NomProfil As String) As Integer
+	'---------------------------------------------------------------------------
+	'Lors de la soumission d'un nouveau paquet à OneSpan, vérifier le contenu du champ Prop_NoEnveloppe.
+	'Si un no d'enveloppe est présent, il faut changer le statut de cette enveloppe pour EXPIRED.
+	'---------------------------------------------------------------------------
+	
+	Dim v_Url As String
+	Dim v_Reponse As Integer
+	Dim v_ReponseJSON As String
+	Dim v_CleIntegration As String
+	
+	
+	'Initialisations
+	Call SDSPOSSP_Initialisations
+	
+	SDSPOSSg_ChangerStatutEnveloppe = -1
+	
+	' Construire l'URL
+	v_Url = g_Url_SDSPOSSP &amp;  "/packages/" &amp; p_NoEnveloppe
+	
+	
+	' Extraire le profil
+	' ---------------------------------------
+	If Not SDSPOSSg_ExtraireProfil(p_NomProfil) Then
+		Exit Function
+	End If
+	
+	' Initialise les paramètres de connection
+	'----------------------------------------		
+	v_CleIntegration = xVar(gnd_Prof_SDSPOSSg, "POSSg_CleIntegration", "")  
+	
+	
+	If v_CleIntegration &lt;&gt; "" Then
+		
+		If SDSPOSSP_EnvoyerTransactionPut (v_CleIntegration, v_Url, p_Statut, v_Reponse, v_ReponseJSON) Then
+			SDSPOSSg_ChangerStatutEnveloppe = 1
+			
+		End If
+		
+	End If
+	
+	
+	Exit Function
+	
+GererErreur:		
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), v_URL, False)
+	
+	
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_BCCreerEnveloppe"><lotusscript>Function SDSPOSSg_BCCreerEnveloppe(pnd_Prop As NotesDocument, p_Enveloppe As cl_Envelope_SLOSS, p_IdDocument As Integer, p_Objet As String, _
+	p_Message As String, p_CheminFicherPDF As String, p_NbOccurences As Integer, p_Langue As String, p_CourrielExpediteur As String, p_Nom As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_IdSignataire() As Integer
+		
+	SDSPOSSg_BCCreerEnveloppe = False
+	
+	If SDSPOSSg_BCAjouterDestinataires(pnd_Prop, p_Enveloppe, p_Objet, p_Message, v_IdSignataire, p_Langue) Then		
+			
+		If SDSPOSSg_AjouterExpediteur(p_Enveloppe, p_CourrielExpediteur)Then		
+			
+		If SDSPOSSg_AjouterDocument(p_Enveloppe, p_idDocument, p_CheminFicherPDF, p_Nom) Then
+			
+			If SDSPOSSg_BCAjouterSignatures(p_Enveloppe, v_IdSignataire, p_idDocument, p_NbOccurences, p_Langue) Then 
+										
+				SDSPOSSg_BCCreerEnveloppe = True		
+								
+			End If					
+			
+		End If	
+		
+		End if	
+		
+	End if
+	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_AjouterSignature"><lotusscript>Function SDSPOSSg_AjouterSignature(p_Enveloppe As cl_Envelope_SLOSS, p_IdSignataire As Integer, p_TypeSignature As String, p_IdDocument As Integer, p_Signet As String, _
+	p_NbOccurences As Integer, p_Ajustmentx As Integer, p_Ajustmenty As Integer) As Boolean
+	On Error GoTo GererErreur
+	
+	SDSPOSSg_AjouterSignature = False
+	
+	If Not p_Enveloppe.AjouterSignature(p_IdSignataire, p_TypeSignature, p_IdDocument, p_Signet, p_NbOccurences, p_Ajustmentx, p_Ajustmenty) Then
+		Exit Function
+	End If
+	
+	SDSPOSSg_AjouterSignature = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPOSSg_MajIDEnveloppe"><lotusscript>Sub SDSPOSSg_MajIDEnveloppe(p_Enveloppe As cl_Envelope_SLOSS, pnd_Prop As NotesDocument, p_TypeDocument As String)
+	On Error GoTo GererErreur
+		
+	Dim nd_Docu As NotesDocument
+	
+	Set nd_Docu = SDSPOSSg_ndDernierDocument(xVar(pnd_Prop, "Prop_NoProposition", ""), p_TypeDocument)
+		
+	If Not nd_Docu Is Nothing Then
+		nd_Docu.Docu_NoEnveloppe = p_Enveloppe.Id
+		Call nd_Docu.Save(True, False)
+		
+		pnd_Prop.Prop_NoEnveloppe = p_Enveloppe.Id
+		Call pnd_Prop.Save(True, False)					
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPOSSg_ExtraireProfil"><lotusscript>Function SDSPOSSg_ExtraireProfil(ByVal p_NomProfil As String) As Integer
+%REM
+--------------------------------------------------------------------
+ Extraire le document de couttiel type.
+	Paramètres:
+		p_NomProfil		String.  Le nom du profil à extraire.
+	Valeur retournée
+		NotesDocument.  Le document du profil demandé.
+--------------------------------------------------------------------
+%END REM
+	On Error GoTo GererErreur
+	
+	SDSPOSSg_ExtraireProfil = False
+	
+	If p_NomProfil &lt;&gt; xVar(gnd_Prof_SDSPOSSg, "POSSg_Nom", "") Then
+		' Extraire le profil
+		' -------------------------
+		Set gnd_Prof_SDSPOSSg = xndPOSSg(p_NomProfil, True)
+		
+		If gnd_Prof_SDSPOSSg Is Nothing Then
+			Set gnd_Prof_SDSPOSSg = xndPOSSg(StrLeftBack(p_NomProfil, "_"), True)
+		End If
+		
+	End If
+	
+	If Not (gnd_Prof_SDSPOSSg Is Nothing) Then
+		SDSPOSSg_ExtraireProfil = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPOSSg, gc_Element_SDSPOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code>
+<item name="$POID"><datetime>20260204T142056,11-05</datetime></item></scriptlibrary>
+
+</database>

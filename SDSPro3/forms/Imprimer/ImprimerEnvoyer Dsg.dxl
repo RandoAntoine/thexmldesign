@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Imprimer\ImprimerEnvoyer Dsg" alias="DB_ImpEnvQDSg" hide="web" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" renderpassthrough="true">
+<noteinfo noteid="287116" unid="C7095E4C950C246D852586B400058780" sequence="83">
+<created><datetime dst="true">20210410T210023,68-04</datetime></created>
+<modified><datetime>20250319T074052,24-05</datetime></modified>
+<revised><datetime>20250319T073754,89-05</datetime></revised>
+<lastaccessed><datetime>20250319T074052,23-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20210410T235615,89-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="windowtitle"><formula>v_NomCourriel := @If( (DB_Type = "BC" &amp; DB_QuestionChoix = "02") | (DB_Type = "CT" &amp; DB_QuestionChoix = "01") ; "Courriel " + DB_Type + " DocuSign" ;"Courriel");
+v_NomCourriel</formula></code>
+<body><richtext>
+<pardef id="1" leftmargin="1in" hide="notes web mobile"/>
+<par def="1"><run><font size="9pt" color="red"/><sharedfieldref name="SF_Langue"/></run></par>
+<par def="1"><run><font size="9pt" color="red"/>Identificateurs : </run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Form"><code event="defaultvalue"><formula>"DB_ImpEnvQ"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" style="bold underline" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>@Text(@InheritedDocumentUniqueID)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="18" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>"Question"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="27" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computedfordisplay" name="Titre"><code event="defaultvalue"><formula>@If(DB_Type = "BC"; @If(SF_Langue = "EN"; "Purchase Order"; "Bon de commande");
+@If(DB_Type = "CT";@If(SF_Langue = "EN"; "Contract"; "Contrat");"")
+)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="36" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field type="text" kind="editable" name="SI_DialogBox"><code event="defaultvalue"><formula>"1"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="42" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="1"><run><font size="9pt" color="red"/>Autre champs : </run><run><font size="9pt" color="red"/><field borderstyle="none" type="text" kind="computed" name="DB_NoRepresentant"><keywords helperbutton="false" recalconchange="true" columns="1" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="DB_Type"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="16" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="DB_ClientNomLegal"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="22" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="DB_ChoixBC" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>v_BCOptions := @DbLookup(""; ""; "V_Tabl20"; "SLDS_BCOptions_" + SF_Langue; 6; [FailSilent]);
+v_BCOptionsRoles := @DbLookup(""; ""; "V_Tabl20"; "SLDS_BCOptions_" + SF_Langue; 11; [FailSilent]);
+
+@For(n :=1; n &lt;= @Elements(v_BCOptions); n := n + 1;
+@Do(
+v_Cle := @Trim(v_BCOptionsRoles[n]);
+@If(n = 1; v_Choix := @If(@Length(v_Cle) &gt; 1;@If(@IsMember(v_Cle; @UserRoles);v_BCOptions[n];"");v_BCOptions[n]); v_Choix := v_Choix : @If(@Length(v_Cle) &gt; 1;@If(@IsMember(v_Cle; @UserRoles);v_BCOptions[n];"");v_BCOptions[n]))
+));
+@Trim(v_Choix)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="28" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="DB_ChoixCT" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>v_CTOptions := @DbLookup(""; ""; "V_Tabl20"; "SLDS_CTOptions_" + SF_Langue; 6; [FailSilent]);
+v_CTOptionsRoles := @DbLookup(""; ""; "V_Tabl20"; "SLDS_CTOptions_" + SF_Langue; 11; [FailSilent]);
+
+@For(n :=1; n &lt;= @Elements(v_CTOptions); n := n + 1;
+@Do(
+v_Cle := @Trim(v_CTOptionsRoles[n]);
+@If(n = 1; v_Choix := @If(@Length(v_Cle) &gt; 1;@If(@IsMember(v_Cle; @UserRoles);v_CTOptions[n];"");v_CTOptions[n]); v_Choix := v_Choix : @If(@Length(v_Cle) &gt; 1;@If(@IsMember(v_Cle; @UserRoles);v_CTOptions[n];"");v_CTOptions[n]))
+));
+@Trim(v_Choix)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="34" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<table widthtype="fixedleft" refwidth="8.6701in"><tablecolumn width="8.6701in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="3" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="3"><run><font size="9pt" color="red"/></run></par><subformref name="Entete | SF_Ente"/>
+<pardef id="4" keepwithnext="true" keeptogether="true"/>
+<par def="4"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="3%" rightmargin="97%" refwidth="8.1389in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="6" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SF_Langue != "FR"</formula></code></pardef>
+<par def="6"><run><font size="8pt" style="bold" color="maroon"/>Veuillez sélectionner l'une des options suivantes:</run></par>
+<pardef id="7" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SF_Langue != "EN"</formula></code></pardef>
+<par def="7"><run><font size="8pt" style="bold" color="maroon"/>Please </run><run><font size="8pt" style="bold" color="maroon"/>select one of the following options:</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(Theme = ""; "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="8" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="4"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="3%" rightmargin="97%" refwidth="8.1493in"><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="9" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="10" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_Type != "BC"</formula></code></pardef>
+<par def="10"> <run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="DB_QuestionBC"><keywords helperbutton="false" recalconchange="true" columns="3" ui="radiobutton"><formula>DB_ChoixBC</formula></keywords><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue) &amp; DB_Type = "BC"; @If(SF_Langue = "FR";@Failure("Le champ options est obligatoire.");@Failure("The options field is mandatory."));
+@If(@ThisValue = "02" &amp; @IsNull(DB_ClientNomLegal); @If(SF_Langue = "FR";@Failure("Impossible d'envoyer avec DocuSign - Nom légal manquant.");@Failure("Unable to send with DocuSign - Missing Lega Name."))
+;@Success))</formula></code></field></run></par>
+<pardef id="11" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_Type != "CT"</formula></code></pardef>
+<par def="11"> <run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="DB_QuestionCT"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"><formula>DB_ChoixCT</formula></keywords><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue) &amp; DB_Type = "CT"; @If(SF_Langue = "FR";@Failure("Le champ options est obligatoire.");@Failure("The options field is mandatory."));
+@If(@ThisValue = "01" &amp; @IsNull(DB_ClientNomLegal); @If(SF_Langue = "FR";@Failure("Impossible d'envoyer avec DocuSign - Nom légal manquant.");@Failure("Unable to send with DocuSign - Missing Lega Name."))
+;@Success))</formula></code></field></run><run><font size="9pt"/></run></par>
+<pardef id="12" leftmargin="0" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="DB_QuestionChoix"><code event="defaultvalue"><formula>@GetField("DB_Question" + DB_Type)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/> </run></par></tablecell></tablerow></table>
+<par def="4"><run><font size="9pt"/></run></par>
+<table leftmargin="0" widthtype="fixedleft" refwidth="6.4854in"><tablecolumn width="0.1965in"/><tablecolumn width="6.2889in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="14" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="9pt"/></run></par>
+<par def="14"><run><font size="9pt"/></run></par>
+<par def="14"><run><font size="9pt"/></run></par>
+<par def="14"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="15" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="15"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0" refwidth="6.2785in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="17" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_Type = "CT"  | (DB_Type = "BC" &amp; (@IsNotMember("01":"02"; DB_QuestionChoix) |  !@IsNull(DB_NoRepresentant)))  | SF_Langue != "FR"</formula></code></pardef>
+<par def="17"><run><font size="8pt" style="bold" color="maroon"/>À quelle adresse courriel le client doit-il répondre?</run></par>
+<pardef id="18" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_Type = "CT"  | (DB_Type = "BC" &amp; (@IsNotMember("01":"02"; DB_QuestionChoix) |  !@IsNull(DB_NoRepresentant)))  | SF_Langue != "EN"</formula></code></pardef>
+<par def="18"><run><font size="8pt" style="bold" color="maroon"/>Which email address should the customer reply to?</run></par>
+<pardef id="19" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>(DB_Type = "CT" &amp; @IsNotMember("01"; DB_QuestionChoix)) |
+(DB_Type = "BC" &amp; (@IsNotMember("01":"02"; DB_QuestionChoix) | @IsNull(DB_NoRepresentant)))  | SF_Langue != "EN"</formula></code></pardef>
+<par def="19"><run><font size="8pt" style="bold" color="maroon"/>The reply will be sent to the following email address :</run></par>
+<pardef id="20" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>(DB_Type = "CT" &amp; @IsNotMember("01"; DB_QuestionChoix)) |
+(DB_Type = "BC" &amp; (@IsNotMember("01":"02"; DB_QuestionChoix) | @IsNull(DB_NoRepresentant)))  | SF_Langue != "FR"</formula></code></pardef>
+<par def="20"><run><font size="8pt" style="bold" color="maroon"/>L</run><run><font size="8pt" style="bold" color="maroon"/>a réponse sera envoyée à l'adresse e-mail suivante :</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(Theme = ""; "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="21" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>(DB_Type = "CT" &amp; @IsNotMember("01"; DB_QuestionChoix)) | (DB_Type = "BC" &amp; @IsNotMember("01":"02"; DB_QuestionChoix))</formula></code></pardef>
+<par def="21"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<pardef id="22" keepwithnext="true" keeptogether="true"><code event="hidewhen" enabled="false"><formula>DB_Type = "CT"  | (DB_Type = "BC" &amp; @IsNotMember("01"; DB_QuestionChoix))</formula></code></pardef>
+<par def="22"><run><font size="3pt" color="blue"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0" refwidth="6.2889in"><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="24" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_Type = "CT"  | (DB_Type = "BC" &amp; @IsNotMember("01":"02"; DB_QuestionChoix))</formula></code></pardef>
+<par def="24"><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1771in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par>
+<par def="24"><run><font size="9pt"/></run></par>
+<pardef id="25" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("01":"02"; DB_QuestionChoix)</formula></code></pardef>
+<par def="25"><run><font size="4pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="26" leftmargin="0" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="26"><run><font size="9pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="DB_RepondreAChoix" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>v_CTUsr := @DbLookup(""; ""; "V_Tabl20"; "SLDS_CTUsr"; 6; [FailSilent]);
+v_BCUsr := @DbLookup(""; ""; "V_Tabl20"; "SLDS_BCUsr_" + SF_Langue; 6; [FailSilent]);
+v_DisponibleRepr := @DbLookup(""; ""; "V_Tabl20"; "SLDS_BCUsr_" + SF_Langue; 13; [FailSilent]);
+
+@If(DB_Type = "CT";@Return(v_CTUsr);"");
+@If(@IsNull(DB_NoRepresentant);@Return(@If(DB_QuestionBC = "01"; ((@Name([CN]; @UserName) + "| 00") : v_BCUsr);v_BCUsr));"");
+
+@For(n :=1; n &lt;= @Elements(v_BCUsr); n := n + 1;
+@Do(
+v_Cle := v_BCUsr[n];
+@If(n = 1; v_RepondreAChoix := @If(v_DisponibleRepr[n] ="1";v_BCUsr[n];""); v_RepondreAChoix := v_RepondreAChoix : @If(v_DisponibleRepr[n] ="1";v_BCUsr[n];""))));
+
+@If(DB_QuestionBC = "01"; ((@Name([CN]; @UserName) + "| 00") : @Trim(v_RepondreAChoix));@Trim(v_RepondreAChoix))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="27" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_Type = "CT" | (DB_Type = "BC" &amp; ( (@IsNotMember("01":"02"; DB_QuestionChoix) | (@IsMember(DB_QuestionChoix;"01":"02") &amp; !@IsNull(DB_NoRepresentant)) ) ))</formula></code></pardef>
+<par def="27"><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="ReplyTo"><keywords helperbutton="false" recalconchange="true" recalcchoices="true" columns="4" ui="radiobutton"><formula>DB_RepondreAChoix</formula></keywords><code event="defaultvalue"><formula>@GetProfileField("F_Pers"; "Pers_RepondreAChoix"; @UserName)</formula></code><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue) &amp; DB_Type = "BC" &amp; @IsMember(DB_QuestionChoix; "01") &amp; @IsNull(DB_NoRepresentant)  ; @If(SF_Langue = "FR";@Failure("Le champ répondre à est obligatoire.");@Failure("The field Reply To is mandatory.")); @Success)</formula></code></field></run><run><font size="9pt"/> </run></par>
+<pardef id="28" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>(DB_Type = "CT" &amp; @IsNotMember("01"; DB_QuestionChoix)) | (DB_Type = "BC" &amp; (@IsNotMember("01":"02"; DB_QuestionChoix) | @IsNull(DB_NoRepresentant)))</formula></code></pardef>
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><computedtext><code event="value"><formula>@LeftBack(DB_RepondreAChoix;"|")</formula></code></computedtext></run><run><font size="9pt"/></run></par>
+<pardef id="29" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>(DB_Type = "CT" &amp; @IsNotMember("01"; DB_QuestionChoix)) | (DB_Type = "BC" &amp; @IsNotMember("01":"02"; DB_QuestionChoix))</formula></code></pardef>
+<par def="29"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="15"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par></tablecell></tablerow></table>
+<par def="4"/>
+<table leftmargin="0" widthtype="fixedleft" refwidth="6.4854in"><tablecolumn width="0.1965in"/><tablecolumn width="6.2889in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="14"><run><font size="9pt"/></run></par>
+<par def="14"><run><font size="9pt"/></run></par>
+<par def="14"><run><font size="9pt"/></run></par>
+<par def="14"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="15"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0" refwidth="6.2785in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="30" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("01":"02"; DB_QuestionChoix) | SF_Langue != "FR"</formula></code></pardef>
+<par def="30"><run><font size="8pt" style="bold" color="maroon"/>Sélectionner un modèle de courriel?</run></par>
+<pardef id="31" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("01":"02"; DB_QuestionChoix) | SF_Langue != "EN"</formula></code></pardef>
+<par def="31"><run><font size="8pt" style="bold" color="maroon"/>Select an email template?</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(Theme = ""; "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="32" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("01":"02"; DB_QuestionChoix)</formula></code></pardef>
+<par def="32"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<pardef id="33" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("01":"02"; DB_QuestionChoix)</formula></code></pardef>
+<par def="33"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0" refwidth="6.2889in"><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="34" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("01":"02"; DB_QuestionChoix)</formula></code></pardef>
+<par def="34"><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par>
+<pardef id="35" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("01":"02"; DB_QuestionChoix) | SF_Langue != "FR"</formula></code></pardef>
+<par def="35"><run><font size="4pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="36" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNotMember("01":"02"; DB_QuestionChoix)</formula></code></pardef>
+<par def="36"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.3625in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="DB_ModeleCourriel"><keywords helperbutton="false" recalconchange="true" recalcchoices="true" columns="4" ui="combobox"><formula>v_NomCourriel := @If( (DB_Type = "BC" &amp; DB_QuestionChoix = "02") | (DB_Type = "CT" &amp; DB_QuestionChoix = "01") ; "DocuSign" ;"Courriel");
+v_Type := @DbLookup("":"NoCache";""; "V_SICT10"; v_NomCourriel; 4);
+@If(@IsError(v_Type); ""; "|" : v_Type)</formula></keywords><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue) &amp; @IsMember(DB_QuestionChoix; "01" : "02");
+@If(SF_Langue = "FR";@Failure("Le champ modèle de courriel est obligatoire.");@Failure("The email template field is mandatory."))
+;@Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="15"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par></tablecell></tablerow></table>
+<par def="4"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0" refwidth="8.6701in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(Theme = ""; "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="37" keepwithnext="true" keeptogether="true"/>
+<par def="37"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="4"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="2" leftmargin="1in"/>
+<par def="2"/></richtext></body>
+<item name="$SubForm_RepIDs" sign="true"><text>0000000000000000</text></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>DB_ImpEnvQDSg</text></item></form>
+
+</database>

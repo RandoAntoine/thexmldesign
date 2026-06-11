@@ -1,0 +1,830 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="PNav\Produits par département" alias="DB_PDep" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" language="fr" bgcolor="system">
+<noteinfo noteid="175e" unid="803BECEA86972C438525821100522C76" sequence="817">
+<created><datetime>20180110T095733,34-05</datetime></created>
+<modified><datetime>20260105T014845,81-05</datetime></modified>
+<revised><datetime>20250319T073756,03-05</datetime></revised>
+<lastaccessed><datetime>20260105T014845,80-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205708,56-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Declare
+Use "DB_PDep"
+</lotusscript></code></globals><code event="queryclose"><lotusscript>Sub Queryclose(Source As Notesuidocument, Continue As Variant)
+	Continue =  DBPDep_Queryclose(Source)	
+End Sub</lotusscript></code>
+<actionbar bgcolor="silver" bordercolor="black">
+<actionbuttonstyle bgcolor="silver"/><border width="0px 0px 1px"/></actionbar>
+<body><richtext>
+<pardef id="1" hide="notes web mobile"/>
+<par def="1"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fixedleft" refwidth="8.3167in"><tablecolumn width="8.3167in"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="white">
+<pardef id="3" keepwithnext="true" keeptogether="true"/>
+<par def="3"><run><font size="9pt"/></run></par>
+<table cellbordercolor="#2f2f2f" leftmargin="0" widthtype="fixedleft" refwidth="7.9125in"><tablecolumn width="0.1375in"/><tablecolumn width="1.5750in"/><tablecolumn width="4.1139in"/><tablecolumn width="0.7479in"/><tablecolumn width="0.7479in"/><tablecolumn width="0.5903in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="5" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<pardef id="6" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="8pt" style="bold" color="maroon"/>Code</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="7" leftmargin="0.1771in" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="8pt" style="bold" color="maroon"/>Description</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="8" align="center" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="8pt" style="bold" color="maroon"/>Prix</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="8pt" style="bold" color="maroon"/>Type</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="10" align="right" rightmargin="0.5514in" keepwithnext="true" keeptogether="true"/>
+<par def="10"><run><font size="8pt" style="bold" color="maroon"/>Quantité</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="11" keepwithnext="true" keeptogether="true"/>
+<par def="11"><run><font size="1pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="12" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="13" keepwithnext="true" keeptogether="true"/>
+<par def="13"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="9"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="14" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="3"><run><font size="3pt"/></run></par>
+<table minrowheight="0.1965in" leftmargin="0" widthtype="fixedleft" colorstyle="solid" bgcolor="white" refwidth="7.9125in"><tablecolumn width="0.1375in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="3.9368in"/><tablecolumn width="0.7479in"/><tablecolumn width="0.7479in"/><tablecolumn width="0.5903in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="15" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code1)</formula></code></pardef>
+<par def="15"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="16" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code1)</formula></code></pardef>
+<par def="16"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code1"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="17" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code1)</formula></code></pardef>
+<par def="17"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="18" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code1)</formula></code></pardef>
+<par def="18"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc1"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="18"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="19" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code1)</formula></code></pardef>
+<par def="19"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix1"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="20" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code1)</formula></code></pardef>
+<par def="20"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix1"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="21" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code1)</formula></code></pardef>
+<par def="21"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite1"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="22" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code2)</formula></code></pardef>
+<par def="22"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="23" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code2)</formula></code></pardef>
+<par def="23"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code2"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="24" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code2)</formula></code></pardef>
+<par def="24"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="25" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code2)</formula></code></pardef>
+<par def="25"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc2"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="25"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="26" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code2)</formula></code></pardef>
+<par def="26"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix2"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="27" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code2)</formula></code></pardef>
+<par def="27"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix2"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="28" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code2)</formula></code></pardef>
+<par def="28"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite2"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="29" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code3)</formula></code></pardef>
+<par def="29"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="30" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code3)</formula></code></pardef>
+<par def="30"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code3"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="31" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code3)</formula></code></pardef>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="32" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code3)</formula></code></pardef>
+<par def="32"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc3"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="32"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="33" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code3)</formula></code></pardef>
+<par def="33"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix3"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="34" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code3)</formula></code></pardef>
+<par def="34"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix3"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="35" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code3)</formula></code></pardef>
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite3"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="36" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code4)</formula></code></pardef>
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="37" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code4)</formula></code></pardef>
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code4"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="38" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code4)</formula></code></pardef>
+<par def="38"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="39" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code4)</formula></code></pardef>
+<par def="39"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc4"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="39"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="40" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code4)</formula></code></pardef>
+<par def="40"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix4"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="41" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code4)</formula></code></pardef>
+<par def="41"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix4"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="42" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code4)</formula></code></pardef>
+<par def="42"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite4"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="43" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code5)</formula></code></pardef>
+<par def="43"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="44" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code5)</formula></code></pardef>
+<par def="44"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code5"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="45" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code5)</formula></code></pardef>
+<par def="45"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="46" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code5)</formula></code></pardef>
+<par def="46"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc5"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="46"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="47" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code5)</formula></code></pardef>
+<par def="47"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix5"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="48" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code5)</formula></code></pardef>
+<par def="48"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix5"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="49" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code5)</formula></code></pardef>
+<par def="49"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite5"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="50" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code6)</formula></code></pardef>
+<par def="50"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="51" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code6)</formula></code></pardef>
+<par def="51"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code6"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="52" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code6)</formula></code></pardef>
+<par def="52"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="53" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code6)</formula></code></pardef>
+<par def="53"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc6"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="53"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="54" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code6)</formula></code></pardef>
+<par def="54"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix6"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="55" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code6)</formula></code></pardef>
+<par def="55"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix6"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="56" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code6)</formula></code></pardef>
+<par def="56"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite6"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="57" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code7)</formula></code></pardef>
+<par def="57"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="58" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code7)</formula></code></pardef>
+<par def="58"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code7"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="59" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code7)</formula></code></pardef>
+<par def="59"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="60" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code7)</formula></code></pardef>
+<par def="60"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc7"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="60"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="61" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code7)</formula></code></pardef>
+<par def="61"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix7"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="62" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code7)</formula></code></pardef>
+<par def="62"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix7"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="63" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code7)</formula></code></pardef>
+<par def="63"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite7"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="64" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code8)</formula></code></pardef>
+<par def="64"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="65" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code8)</formula></code></pardef>
+<par def="65"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code8"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="66" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code8)</formula></code></pardef>
+<par def="66"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="67" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code8)</formula></code></pardef>
+<par def="67"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc8"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="67"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="68" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code8)</formula></code></pardef>
+<par def="68"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix8"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="69" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code8)</formula></code></pardef>
+<par def="69"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix8"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="70" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code8)</formula></code></pardef>
+<par def="70"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite8"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="71" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code9)</formula></code></pardef>
+<par def="71"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="72" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code9)</formula></code></pardef>
+<par def="72"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code9"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="73" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code9)</formula></code></pardef>
+<par def="73"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="74" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code9)</formula></code></pardef>
+<par def="74"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc9"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="74"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="75" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code9)</formula></code></pardef>
+<par def="75"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix9"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="76" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code9)</formula></code></pardef>
+<par def="76"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix9"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="77" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code9)</formula></code></pardef>
+<par def="77"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite9"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="78" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code10)</formula></code></pardef>
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="79" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code10)</formula></code></pardef>
+<par def="79"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code10"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="80" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code10)</formula></code></pardef>
+<par def="80"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="81" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code10)</formula></code></pardef>
+<par def="81"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc10"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="82" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code10)</formula></code></pardef>
+<par def="82"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix10"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="83" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code10)</formula></code></pardef>
+<par def="83"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix10"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="84" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code10)</formula></code></pardef>
+<par def="84"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite10"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="85" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code11)</formula></code></pardef>
+<par def="85"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code11"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="86" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code11)</formula></code></pardef>
+<par def="86"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="87" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code11)</formula></code></pardef>
+<par def="87"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc11"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="88" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code11)</formula></code></pardef>
+<par def="88"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix11"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="89" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code11)</formula></code></pardef>
+<par def="89"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix11"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="90" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code11)</formula></code></pardef>
+<par def="90"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite11"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="91" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code12)</formula></code></pardef>
+<par def="91"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code12"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="92" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code12)</formula></code></pardef>
+<par def="92"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="93" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code12)</formula></code></pardef>
+<par def="93"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc12"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="94" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code12)</formula></code></pardef>
+<par def="94"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix12"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="95" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code12)</formula></code></pardef>
+<par def="95"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix12"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="96" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code12)</formula></code></pardef>
+<par def="96"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite12"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="97" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code13)</formula></code></pardef>
+<par def="97"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code13"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="98" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code13)</formula></code></pardef>
+<par def="98"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="99" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code13)</formula></code></pardef>
+<par def="99"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc13"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="100" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code13)</formula></code></pardef>
+<par def="100"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix13"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="101" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code13)</formula></code></pardef>
+<par def="101"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix13"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="102" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code13)</formula></code></pardef>
+<par def="102"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite13"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="103" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code14)</formula></code></pardef>
+<par def="103"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code14"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="104" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code14)</formula></code></pardef>
+<par def="104"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="105" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code14)</formula></code></pardef>
+<par def="105"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc14"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="106" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code14)</formula></code></pardef>
+<par def="106"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix14"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="107" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code14)</formula></code></pardef>
+<par def="107"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix14"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="108" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code14)</formula></code></pardef>
+<par def="108"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite14"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="109" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code15)</formula></code></pardef>
+<par def="109"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code15"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="110" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code15)</formula></code></pardef>
+<par def="110"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="111" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code15)</formula></code></pardef>
+<par def="111"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc15"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="112" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code15)</formula></code></pardef>
+<par def="112"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix15"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="113" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code15)</formula></code></pardef>
+<par def="113"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix15"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="114" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code15)</formula></code></pardef>
+<par def="114"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite15"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="115" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code16)</formula></code></pardef>
+<par def="115"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code16"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="116" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code16)</formula></code></pardef>
+<par def="116"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="117" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code16)</formula></code></pardef>
+<par def="117"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc16"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="118" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code16)</formula></code></pardef>
+<par def="118"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix16"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="119" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code16)</formula></code></pardef>
+<par def="119"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix16"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="120" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code16)</formula></code></pardef>
+<par def="120"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite16"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="121" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code17)</formula></code></pardef>
+<par def="121"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code17"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="122" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code17)</formula></code></pardef>
+<par def="122"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="123" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code17)</formula></code></pardef>
+<par def="123"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc17"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="124" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code17)</formula></code></pardef>
+<par def="124"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix17"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="125" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code17)</formula></code></pardef>
+<par def="125"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix17"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="126" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code17)</formula></code></pardef>
+<par def="126"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite17"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="127" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code18)</formula></code></pardef>
+<par def="127"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code18"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="128" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code18)</formula></code></pardef>
+<par def="128"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="129" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code18)</formula></code></pardef>
+<par def="129"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc18"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="130" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code18)</formula></code></pardef>
+<par def="130"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix18"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="131" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code18)</formula></code></pardef>
+<par def="131"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix18"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="132" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code18)</formula></code></pardef>
+<par def="132"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite18"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="133" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code19)</formula></code></pardef>
+<par def="133"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code19"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="134" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code19)</formula></code></pardef>
+<par def="134"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="135" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code19)</formula></code></pardef>
+<par def="135"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc19"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="136" align="right" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code19)</formula></code></pardef>
+<par def="136"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix19"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="137" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code19)</formula></code></pardef>
+<par def="137"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix19"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="138" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code19)</formula></code></pardef>
+<par def="138"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite19"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="139" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code20)</formula></code></pardef>
+<par def="139"><run><font size="9pt"/><field type="text" kind="computed" name="DB_Code20"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="134"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="140" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code20)</formula></code></pardef>
+<par def="140"><run><font size="9pt"/><field type="text" kind="computed" name="DB_Desc20"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="141" align="center" rightmargin="0.5903in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code20)</formula></code></pardef>
+<par def="141"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_Prix20"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="142" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code20)</formula></code></pardef>
+<par def="142"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescTypePrix20"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="143" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_Code20)</formula></code></pardef>
+<par def="143"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="single" type="text" kind="editable" name="DB_Quantite20"/></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="144" leftmargin="0.2167in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>!@IsNull(DB_Code1)</formula></code></pardef>
+<par def="144"><run><font size="9pt" style="italic"/>Aucun produit disponible.</run></par>
+<pardef id="145" leftmargin="0.2167in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_NbProduits &lt;= 20</formula></code></pardef>
+<par def="145"><run><font size="9pt" style="italic"/>Il y a plus de produits disponibles que d'espace pour les afficher.</run></par>
+<pardef id="146" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_NbProduitsNS = 0</formula></code></pardef>
+<par def="146"><run><font size="9pt"/></run></par>
+<pardef id="147" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_NbProduitsNS != 1</formula></code></pardef>
+<par def="147"><run><font size="8pt" style="bold" color="red"/>!!! Un produit n'est plus disponible et sera supprimé de la proposition :</run></par>
+<pardef id="148" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_NbProduitsNS &lt; 2</formula></code></pardef>
+<par def="148"><run><font size="8pt" style="bold" color="red"/>!!! </run><run><font size="8pt" style="bold" color="red"/><computedtext><code event="value"><formula>@Text(DB_NbProduitsNS)</formula></code></computedtext></run><run><font size="8pt" style="bold" color="red"/> produits ne sont plus disponibles et serons supprimés de la proposition :</run></par>
+<table minrowheight="0.1965in" leftmargin="0" widthtype="fixedleft" colorstyle="solid" bgcolor="white" refwidth="7.0069in"><tablecolumn width="0.1375in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="3.9368in"/><tablecolumn width="0.5903in"/><tablecolumn width="0.5903in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="149" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS1)</formula></code></pardef>
+<par def="149"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="150" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS1)</formula></code></pardef>
+<par def="150"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_CodeNS1"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="151" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS1)</formula></code></pardef>
+<par def="151"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="152" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS1)</formula></code></pardef>
+<par def="152"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescNS1"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="152"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="153" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS1)</formula></code></pardef>
+<par def="153"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" kind="computed" name="DB_PrixNS1"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="154" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS1)</formula></code></pardef>
+<par def="154"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="none" type="text" kind="computed" name="DB_QuantiteNS1"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="155" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS2)</formula></code></pardef>
+<par def="155"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="156" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS2)</formula></code></pardef>
+<par def="156"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_CodeNS2"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="157" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS2)</formula></code></pardef>
+<par def="157"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="158" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS2)</formula></code></pardef>
+<par def="158"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescNS2"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="158"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="159" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS2)</formula></code></pardef>
+<par def="159"><run><font size="9pt"/><field type="number" kind="computed" name="DB_PrixNS2"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="160" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS2)</formula></code></pardef>
+<par def="160"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="none" type="text" kind="computed" name="DB_QuantiteNS2"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="161" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS3)</formula></code></pardef>
+<par def="161"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="162" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS3)</formula></code></pardef>
+<par def="162"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_CodeNS3"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="163" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS3)</formula></code></pardef>
+<par def="163"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="164" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS3)</formula></code></pardef>
+<par def="164"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescNS3"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="164"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="165" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS3)</formula></code></pardef>
+<par def="165"><run><font size="9pt"/><field type="number" kind="computed" name="DB_PrixNS3"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="166" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS3)</formula></code></pardef>
+<par def="166"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="none" type="text" kind="computed" name="DB_QuantiteNS3"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="167" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS4)</formula></code></pardef>
+<par def="167"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="168" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS4)</formula></code></pardef>
+<par def="168"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_CodeNS4"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="169" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS4)</formula></code></pardef>
+<par def="169"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="170" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS4)</formula></code></pardef>
+<par def="170"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="DB_DescNS4"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="170"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="171" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS4)</formula></code></pardef>
+<par def="171"><run><font size="9pt"/><field type="number" kind="computed" name="DB_PrixNS4"><numberformat format="fixed" digits="2" punctuated="true" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="172" leftmargin="0.1181in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(DB_CodeNS4)</formula></code></pardef>
+<par def="172"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" borderstyle="none" type="text" kind="computed" name="DB_QuantiteNS4"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="3"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" leftmargin="0" refwidth="7.0278in"><tablecolumn width="0.1375in"/><tablecolumn width="2.1653in"/><tablecolumn width="1.5750in"/><tablecolumn width="1.5750in"/><tablecolumn width="1.5750in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="173" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="173"><run><font size="9pt"/>Devise : </run><run><font size="9pt"/><field type="text" kind="computed" name="DB_Devise"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="173"><run><font size="9pt"/><field type="text" kind="computed" name="DB_NomItem"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="174" align="center" keepwithnext="true" keeptogether="true"/>
+<par def="174"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="175" align="center" keepwithnext="true" keeptogether="true"/>
+<par def="175"><run><font size="9pt"/></run><actionhotspot hotspotstyle="none"><picture width="24px" height="24px" scaledheight="0.3333in" scaledwidth="0.3333in"><imageref name="hs_Annuler.gif|hs_Annuler"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Dim nuiws As New NotesUIWorkspace
+	
+	nuiws.CurrentDocument.Document.DB_Continue = ""
+	Call nuiws.RefreshParentNote
+	Call nuiws.CurrentDocument.Close
+End Sub
+</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="176" align="center" keepwithnext="true" keeptogether="true"/>
+<par def="176"><run><font size="9pt"/></run><actionhotspot hotspotstyle="none"><picture width="24px" height="24px" scaledheight="0.3333in" scaledwidth="0.3333in"><imageref name="hs_OK.gif|hs_OK"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Dim nuiws As New NotesUIWorkspace
+	
+	nuiws.CurrentDocument.Document.DB_Continue = "1"
+	Call nuiws.RefreshParentNote
+	If DBPDep_Queryclose(nuiws.CurrentDocument) Then
+		Call nuiws.CurrentDocument.Close
+	End If
+	
+End Sub
+</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="3"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="1"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par></richtext></body>
+<item name="AdmC_Page" summary="false" sign="true"><number>0</number></item>
+<item name="AdmC_NbPages" summary="false" sign="true"><number>0</number></item>
+<item name="Edition" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_1" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_2" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_3" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_4" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_5" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_6" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_7" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_8" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_9" summary="false" sign="true"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_0" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_1" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_2" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_3" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_4" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_5" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_6" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_7" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_8" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_9" summary="false" sign="true"><number>0</number></item>
+<item name="SICS_ValeurCompteur_0" summary="false" sign="true"><number>0</number></item>
+<item name="Prop_Usagers" summary="false" sign="true"><number>0</number></item>
+<item name="Succ_Usagers" summary="false" sign="true"><number>0</number></item>
+<item name="OriginalModTime" sign="true"><datetime dst="true">20070416T145739,01-04</datetime></item>
+<item name="DB_Prix1" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix2" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix3" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix4" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix5" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix6" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix7" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix8" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix9" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix10" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix11" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix12" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix13" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix14" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix15" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix16" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix17" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix18" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix19" summary="false" sign="true"><number>0</number></item>
+<item name="DB_Prix20" summary="false" sign="true"><number>0</number></item>
+<item name="DB_PrixNS1" summary="false" sign="true"><number>0</number></item>
+<item name="DB_PrixNS2" summary="false" sign="true"><number>0</number></item>
+<item name="DB_PrixNS3" summary="false" sign="true"><number>0</number></item>
+<item name="DB_PrixNS4" summary="false" sign="true"><number>0</number></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>DB_PDep</text></item></form>
+
+</database>

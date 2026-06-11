@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Outils\Rafraîchir Documents" alias="A_ORDoc" hide="web v3" publicaccess="false" designerversion="8.5.3" comment="1.1">
+<noteinfo noteid="555882" unid="F2CC31B29F2A3EA2852588AF006A719F" sequence="2">
+<created><datetime dst="true">20220831T152239,03-04</datetime></created>
+<modified><datetime>20260105T014837,99-05</datetime></modified>
+<revised><datetime dst="true">20220831T152240,05-04</datetime></revised>
+<lastaccessed><datetime>20260105T014837,98-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,98-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20180222T133412,13-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="runonce"/><code event="action">
+<simpleaction action="runformula"><formula>@If(@IsMember("[Admin]"; @UserRoles); ""; @Return( @Prompt([Ok]; "Opération annulée"; "Vous n'êtes pas autorisé à utiliser cette action.")));SELECT
+@Command([ToolsRefreshSelectedDocs])</formula></simpleaction></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20150206T095411,30-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20170905T111013,80-04</datetime></agentrun>
+<runlog>Started running agent 'Outils\Rafraîchir Documents | A_ORDoc' on 2017-09-05 11:10:13
+Formula error: Cannot execute the specified command.
+0 document(s) were modified by formula
+Done running agent 'Outils\Rafraîchir Documents | A_ORDoc' on 2017-09-05 11:10:13
+</runlog></rundata>
+<item name="$POID"><datetime dst="true">20220831T152240,05-04</datetime></item></agent>
+
+</database>

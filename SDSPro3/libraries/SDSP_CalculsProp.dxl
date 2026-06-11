@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_CalculsProp" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="4ed94a" unid="3E2CC3C5C36C3C8B85258C0C006DAF5E" sequence="5">
+<created><datetime>20250108T145803,18-05</datetime></created>
+<modified><datetime>20250319T074101,13-05</datetime></modified>
+<revised><datetime>20250319T073636,12-05</datetime></revised>
+<lastaccessed><datetime>20250319T074101,12-05</datetime></lastaccessed>
+<addedtofile><datetime>20250318T171803,91-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_tNombre"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SDSPCP As NotesSession
+Dim gndb_SDSPCP As NotesDatabase
+ 
+' Traitement des erreurs
+Const gc_TypeElement_SDSPCP = "SL"
+Const gc_Element_SDSPCP = "SDSP_CalculsProp"
+
+
+</lotusscript></code><code event="SDSPCP_CalculerCommissions"><lotusscript>Function SDSPCP_CalculerCommissions(pnd_Prop As NotesDocument) As Variant
+	' ----------------------------------------------------------------
+	' Le script calcule les valeurs des commissions de la proposition.
+	' 	Parametres:		pnd_Prop: L'objet document de la proposition
+	' ----------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_NoProposition As String
+	Dim v_TypeProposition As String
+	Dim ndb As NotesDatabase
+	Dim v_Database As String
+	Dim l_Commissions List As Double
+	Dim l_TableCommissions List As String
+	Dim l_CalculCommissions List As String
+	Dim l_CalculBoni List As String	
+	Dim l_ColonneSDS List As String
+	Dim v_Boni As Double
+	Dim v_ServeurSDSBB As String
+	Dim v_EscompteMensualite As Double
+	Dim v_EscompteMontant As Double
+	Dim v_EscompteCorporatif As Double
+	Dim v_Formule As Variant
+	Dim v_Colonne As Integer
+	
+	Set ndb = pnd_Prop.ParentDatabase
+	v_Database = Replace(|"| &amp; ndb.Server &amp; |":"| &amp; ndb.FilePath &amp; |"|, "\", "\\")
+	v_ServeurSDSBB = xGDK_xFormulaNDB("SDSBB")
+	
+	v_NoProposition = CStr(xVar(pnd_Prop, "Prop_NoProposition", ""))
+	v_TypeProposition = xVar(pnd_Prop, "Prop_TypeProposition", "")
+	
+	v_EscompteMensualite = xVar(pnd_Prop,"Prop_EscompteMensualite", 0)
+	l_Commissions("EscompteMensualite") = v_EscompteMensualite
+	v_EscompteMontant = xVar(pnd_Prop,"Prop_EscompteMontant", 0)
+	v_EscompteCorporatif = xVar(pnd_Prop,"Prop_EscompteCorporatif", 0)
+	l_Commissions("EscompteMontant") = v_EscompteMontant + v_EscompteCorporatif
+	
+	l_TableCommissions("Rep") = xVar(pnd_Prop, "Prop_CommissionsRepresentant", "")
+	l_TableCommissions("Dir") = xVar(pnd_Prop, "Prop_CommissionsDirecteur", "")
+	l_TableCommissions("DirN") = xVar(pnd_Prop, "Prop_CommissionsDirNational", "")
+	l_TableCommissions("DirM") = xVar(pnd_Prop, "Prop_CommissionsDirMondial", "")
+	l_CalculCommissions("Rep") = xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _
+	l_TableCommissions("Rep") &amp; |"; 11); "")|, Nothing)
+	l_CalculCommissions("Dir") = xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _
+	l_TableCommissions("Dir") &amp; |"; 11); "")|, Nothing)
+	l_CalculCommissions("DirN") = xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _
+	l_TableCommissions("DirN") &amp; |"; 11); "")|, Nothing)
+	l_CalculCommissions("DirM") = xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _
+	l_TableCommissions("DirM") &amp; |"; 11); "")|, Nothing)
+	If l_CalculCommissions("Rep") = "2" And v_TypeProposition &gt;= "2" Then
+		l_ColonneSDS("Rep") = "20"
+	Else
+		l_ColonneSDS("Rep") = "5"
+	End If
+	If l_CalculCommissions("Dir") = "2" And v_TypeProposition &gt;= "2" Then
+		l_ColonneSDS("Dir") = "20"
+	Else
+		l_ColonneSDS("Dir") = "5"
+	End If
+	If l_CalculCommissions("DirN") = "2" And v_TypeProposition &gt;= "2" Then
+		l_ColonneSDS("DirN") = "20"
+	Else
+		l_ColonneSDS("DirN") = "5"
+	End If
+	If l_CalculCommissions("DirM") = "2" And v_TypeProposition &gt;= "2" Then
+		l_ColonneSDS("DirM") = "20"
+	Else
+		l_ColonneSDS("DirM") = "5"
+	End If
+	l_CalculBoni("Rep") = xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; l_TableCommissions("Rep") &amp; |"; 21); "")|, Nothing)
+	
+	'==================== Résumé
+	' Profit
+	l_Commissions("PrixTotalEQ_Brut") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod20"; "| &amp; _
+	v_NoProposition &amp; |"+ ";EQ."; 5 ;[PartialMatch]); 0))|, Nothing)
+	l_Commissions("PrixTotalLG_Brut") =xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod20"; "| &amp; _
+	v_NoProposition &amp; |"+ ";LG."; 5 ;[PartialMatch]); 0))|, Nothing)
+	l_Commissions("PrixTotalSV_Brut") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod20"; "| &amp; _
+	v_NoProposition &amp; |"+ ";SV."; 5 ;[PartialMatch]); 0))|, Nothing)
+	
+	l_Commissions("CoutTotalEQ_Brut") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod20"; "| &amp; _
+	v_NoProposition &amp; |"+ ";EQ."; 7 ;[PartialMatch]); 0))|, Nothing)	
+	l_Commissions("CoutTotalLG_Brut") =xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod20"; "| &amp; _
+	v_NoProposition &amp; |"+ ";LG."; 7 ;[PartialMatch]); 0))|, Nothing)	
+	l_Commissions("CoutTotalSV_Brut") =xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod20"; "| &amp; _
+	v_NoProposition &amp; |"+ ";SV."; 7 ;[PartialMatch]); 0))|, Nothing)
+	
+	l_Commissions("PrixTotalPR") = l_Commissions("PrixTotalEQ_Brut") + l_Commissions("PrixTotalSV_Brut")
+	l_Commissions("CoutTotalPR") = l_Commissions("CoutTotalEQ_Brut") + l_Commissions("CoutTotalSV_Brut")
+	l_Commissions("ProfitPR") = l_Commissions("PrixTotalPR") - l_Commissions("CoutTotalPR")
+	l_Commissions("ProfitNetPR") = l_Commissions("ProfitPR") - v_EscompteMontant - v_EscompteCorporatif
+	
+	'==================== Commissions - Prix et coûts
+	' Equipment (1)
+	l_Commissions("PrixTotalEQ") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; "| &amp; _
+	v_NoProposition &amp; |"+ ";EQ."; 5 ;[PartialMatch]); 0))|, Nothing)
+	l_Commissions("CoutTotalEQ") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; "| &amp; _
+	v_NoProposition &amp; |"+ ";EQ."; 7 ;[PartialMatch]); 0))|, Nothing)	
+	
+	' Logiciels (1)
+	l_Commissions("PrixTotalLG") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; "| &amp; _
+	v_NoProposition &amp; |"+ ";LG."; 5 ;[PartialMatch]); 0))|, Nothing)	
+	l_Commissions("CoutTotalLG") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; "| &amp; _
+	v_NoProposition &amp; |"+ ";LG."; 7 ;[PartialMatch]); 0))|, Nothing)	
+	
+	' Services (1)
+	l_Commissions("PrixTotalSV") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; "| &amp; _
+	v_NoProposition &amp; |"+ ";SV."; 5 ;[PartialMatch]); 0))|, Nothing)		
+	l_Commissions("CoutTotalSV") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; "| &amp; _
+	v_NoProposition &amp; |"+ ";SV."; 7 ;[PartialMatch]); 0))|, Nothing)	
+	
+	'==================== Commissions - Équipements
+	If l_CalculCommissions("Rep") = "2" Then		' Keyloop
+		l_Commissions("ReferenceEQ") = l_Commissions("PrixTotalEQ")
+	Else
+		l_Commissions("ReferenceEQ") = l_Commissions("PrixTotalEQ") - l_Commissions("CoutTotalEQ")	
+	End If
+	If l_Commissions("PrixTotalSV")	&lt; v_EscompteMontant Then
+		l_Commissions("ReferenceEQ") = l_Commissions("ReferenceEQ") - (v_EscompteMontant - l_Commissions("PrixTotalSV"))
+	End If
+	l_Commissions("CommRepresentantEQ") = SItN_Round(l_Commissions("ReferenceEQ") * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+	l_TableCommissions("Rep") &amp; |" ;  3); 0)|, Nothing), 2)
+	
+	If l_TableCommissions("Dir") = "" Then
+		l_Commissions("CommDirecteurEQ") = 0
+	Else
+		If l_CalculCommissions("Dir") = "2" Then		' Keyloop
+			l_Commissions("ReferenceEQ_Dir") = l_Commissions("PrixTotalEQ")
+		Else
+			l_Commissions("ReferenceEQ_Dir") = l_Commissions("PrixTotalEQ") - l_Commissions("CoutTotalEQ")
+		End If 
+		l_Commissions("CommDirecteurEQ") = SItN_Round(xEvaluate(|@If("| &amp; l_Commissions("ReferenceEQ_Dir") &amp; |" = 0; 0;(| &amp; l_Commissions("ReferenceEQ_Dir") &amp; || &amp; "* " &amp; _
+		|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; l_TableCommissions("Dir") &amp; |" ;  3); 0)| &amp; |)| &amp; "+" &amp; _
+		|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; l_TableCommissions("Dir") &amp; |" ;  4); 0)| &amp; |)|, Nothing), 2)
+	End If
+
+	If l_TableCommissions("DirN") = "" Then
+		l_Commissions("CommDirNationalEQ") = 0
+	Else
+		If l_CalculCommissions("DirN") = "2" Then		' Keyloop
+			l_Commissions("ReferenceEQ_DirN") = l_Commissions("PrixTotalEQ")
+		Else
+			l_Commissions("ReferenceEQ_DirN") = l_Commissions("PrixTotalEQ") - l_Commissions("CoutTotalEQ")
+		End If 
+		l_Commissions("CommDirNationalEQ") = SItN_Round(xEvaluate(|@If("| &amp; l_Commissions("ReferenceEQ_DirN") &amp; |" = 0; 0;(| &amp; l_Commissions("ReferenceEQ_DirN") &amp; || &amp; "* " &amp; _
+		|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; l_TableCommissions("DirN") &amp; |" ;  3); 0)| &amp; |)| &amp; "+" &amp; _
+		|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; l_TableCommissions("DirN") &amp; |" ;  4); 0)| &amp; |)|, Nothing), 2)
+	End If
+	
+	If l_TableCommissions("DirM") = "" Then
+		l_Commissions("CommDirMondialEQ") = 0
+	Else
+		If l_CalculCommissions("DirM") = "2" Then		' Keyloop
+			l_Commissions("ReferenceEQ_DirM") = l_Commissions("PrixTotalEQ")
+		Else
+			l_Commissions("ReferenceEQ_DirM") = l_Commissions("PrixTotalEQ") - l_Commissions("CoutTotalEQ")
+		End If 
+		l_Commissions("CommDirMondialEQ") = SItN_Round(xEvaluate(|@If("| &amp; l_Commissions("ReferenceEQ_DirM") &amp; |" = 0; 0;(| &amp; l_Commissions("ReferenceEQ_DirM") &amp; || &amp; "* " &amp; _
+		|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; l_TableCommissions("DirM") &amp; |" ;  3); 0)| &amp; |)| &amp; "+" &amp; _
+		|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; l_TableCommissions("DirM") &amp; |" ;  4); 0)| &amp; |)|, Nothing), 2)
+	End If
+	
+	'==================== Commissions - Logiciels
+	l_Commissions("EntretienAnnuelLG") = xEvaluate(|@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod21"; "| &amp; _
+	v_NoProposition &amp; |" + ";LG."; 8 ;[PartialMatch]); 0))|, Nothing)	
+	
+	Dim v_TauxMaj As Double
+	Dim v_EntretienMensuelLG As Double
+	
+	v_TauxMaj = xVarProf("Prof_LGMajoMens", 1)		
+	v_EntretienMensuelLG = (l_Commissions("EntretienAnnuelLG") * v_TauxMaj) / 12
+	l_Commissions("PaiementMensuel") = v_EntretienMensuelLG
+	l_Commissions("PaiementMensuelNet") = v_EntretienMensuelLG - v_EscompteMensualite
+	
+	If v_EscompteMensualite &gt; 0 Then
+		l_Commissions("ReferenceLG") = l_Commissions("EntretienAnnuelLG") - (v_EscompteMensualite * 12)
+	Else
+		l_Commissions("ReferenceLG") = l_Commissions("EntretienAnnuelLG")
+	End If
+	
+	l_Commissions("CommRepresentantLG") = SItN_Round(l_Commissions("ReferenceLG") * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+	l_TableCommissions("Rep") &amp; |"; | &amp; l_ColonneSDS("Rep") &amp; |); 0)|, Nothing), 2)
+		
+	'l_Commissions("CommDirecteurLG") = (l_Commissions("ReferenceLG") - l_Commissions("CommRepresentantLG")) * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+	'xVar(pnd_Prop, "Prop_CommissionsDirecteur",0) &amp; |" ;  5); 0)|, Nothing)
+	
+	''formula = @Round(Prop_ReferenceLG_7  * @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm20"; Prop_CommissionsDirecteur; 5); 0); 0,01)
+	
+	If l_TableCommissions("Dir") = "" Then
+		l_Commissions("CommDirecteurLG") = 0
+	Else
+		l_Commissions("CommDirecteurLG") = SItN_Round(l_Commissions("ReferenceLG") * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+		l_TableCommissions("Dir") &amp; |" ;  | &amp; l_ColonneSDS("Dir") &amp; |); 0)|, Nothing), 2)
+	End If
+	If l_TableCommissions("DirN") = "" Then
+		l_Commissions("CommDirNationalLG") = 0
+	Else
+		l_Commissions("CommDirNationalLG") = SItN_Round(l_Commissions("ReferenceLG") * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+		l_TableCommissions("DirN") &amp; |" ;  | &amp; l_ColonneSDS("DirN") &amp; |); 0)|, Nothing), 2)
+	End If
+	If l_TableCommissions("DirM") = "" Then
+		l_Commissions("CommDirMondialLG") = 0
+	Else
+		l_Commissions("CommDirMondialLG") = SItN_Round(l_Commissions("ReferenceLG") * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+		l_TableCommissions("DirM") &amp; |" ;  | &amp; l_ColonneSDS("DirM") &amp; |); 0)|, Nothing), 2)
+	End If
+
+	'==================== Commissions - Services
+	l_Commissions("ReferenceSV") = l_Commissions("PrixTotalSV")	 - v_EscompteMontant
+	If l_Commissions("ReferenceSV") &lt; 0 Then
+		l_Commissions("ReferenceSV") = 0
+	End If
+	l_Commissions("CommRepresentantSV") = SItN_Round(l_Commissions("ReferenceSV") * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+	l_TableCommissions("Rep") &amp; |" ;  8); 0)|, Nothing), 2)
+	
+	If l_TableCommissions("Dir") = "" Then
+		l_Commissions("CommDirecteurSV") = 0
+	Else
+		If l_CalculCommissions("Dir") = "2" Then		' Keyloop
+			l_Commissions("ReferenceSV_Dir") = l_Commissions("ReferenceSV")
+		Else
+			l_Commissions("ReferenceSV_Dir") = l_Commissions("ReferenceSV") - l_Commissions("CommRepresentantSV")
+		End If
+		l_Commissions("CommDirecteurSV") = SItN_Round(l_Commissions("ReferenceSV_Dir") * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+		l_TableCommissions("Dir") &amp; |" ;  8); 0)|, Nothing), 2)
+	End If
+	
+	If l_TableCommissions("DirN") = "" Then
+		l_Commissions("CommDirNationalSV") = 0
+	Else
+		If l_CalculCommissions("DirN") = "2" Then		' Keyloop
+			l_Commissions("ReferenceSV_DirN") = l_Commissions("ReferenceSV")
+		Else
+			l_Commissions("ReferenceSV_DirN") = l_Commissions("ReferenceSV") - l_Commissions("CommRepresentantSV")
+		End If 
+		l_Commissions("CommDirNationalSV") = SItN_Round(l_Commissions("ReferenceSV_DirN") * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+		l_TableCommissions("DirN") &amp; |" ;  8); 0)|, Nothing), 2)
+	End If
+	
+	If l_TableCommissions("DirM") = "" Then
+		l_Commissions("CommDirMondialSV") = 0
+	Else
+		If l_CalculCommissions("DirM") = "2" Then		' Keyloop
+			l_Commissions("ReferenceSV_DirM") = l_Commissions("ReferenceSV")
+		Else
+			l_Commissions("ReferenceSV_DirM") = l_Commissions("ReferenceSV") - l_Commissions("CommRepresentantSV")
+		End If 
+		l_Commissions("CommDirMondialSV") = SItN_Round(l_Commissions("ReferenceSV_DirM") * xEvaluate(|@IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+		l_TableCommissions("DirM") &amp; |" ;  8); 0)|, Nothing), 2)
+	End If
+	
+	l_Commissions("PrixTotalSV") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod23"; "| &amp; _
+	v_NoProposition &amp; |"+ ";SV."; 5 ;[PartialMatch]); 0))|, Nothing)
+	l_Commissions("CoutTotalSV") = xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod23"; "| &amp; _
+	v_NoProposition &amp; |"+ ";SV."; 7 ;[PartialMatch]); 0))|, Nothing)	
+	l_Commissions("ProfitSV") = l_Commissions("PrixTotalSV") - l_Commissions("CoutTotalSV")
+	
+	'Brutes
+	''	l_Commissions("ContribMarginalesBrutes") = l_Commissions("ReferenceEQ") + l_Commissions("ReferenceLG") + l_Commissions("ReferenceSV") - 	_
+	''	xEvaluate(|@If(Prop_EscompteMontant = ""; 0; Prop_EscompteMontant)|, pnd_Prop)
+	
+	'l_Commissions("ContribMarginalesBrutes") = l_Commissions("ReferenceEQ") + l_Commissions("ProfitSV") - v_EscompteMontant - v_EscompteCorporatif
+	l_Commissions("ContribMarginalesBrutes") = l_Commissions("ReferenceEQ") + l_Commissions("PrixTotalSV") - v_EscompteMontant - v_EscompteCorporatif
+	
+	'==================== Commissions - Boni sur ventes
+		'	If xVar(pnd_Prop, "Prop_ClientPays", "") = "US" Or ...
+	If (v_TypeProposition &lt;&gt; "0" And v_TypeProposition &lt;&gt; "1") Or l_CalculBoni("Rep") = "0" Then
+		l_Commissions("Boni") = 0
+	Else
+		If l_CalculBoni("Rep") = "3" Then		' Durée du contrat
+			l_Commissions("CommRepresentantAvBoni") = l_Commissions("CommRepresentantEQ") + l_Commissions("CommRepresentantLG") + l_Commissions("CommRepresentantSV")
+			l_Commissions("PaiementNetMensuelBoni") = xEvaluate(|@Replace(Prop_ContratDuree; @IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; _
+			|; "V_Tabl20"; "Prop_ContDuree_FR"; 4); ""); @IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Tabl20"; "Prop_ContDuree_FR"; 11); ""))|, pnd_Prop)
+			v_Colonne = 19
+		Else
+			l_Commissions("EntretienMensuelLG") = SItN_Round(l_Commissions("EntretienAnnuelLG") / 12, 2)
+			l_Commissions("PaiementNetMensuelBoni") = l_Commissions("EntretienMensuelLG") - v_EscompteMensualite
+			v_Colonne = 10
+		End If
+		
+		
+		v_Formule = |v_Contributions := @IfError(@DbLookup("";  | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; l_TableCommissions("Rep") &amp; _
+		|"; 9); 0); @If(@Elements(v_Contributions) = 0; @Return(0); "");v_Montants := @IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _
+		l_TableCommissions("Rep") &amp; |"; | &amp; CStr(v_Colonne) &amp; |); 0); @If(@Elements(v_Montants) = 0; @Return(0); "");	@If(| &amp; _
+		l_Commissions("PaiementNetMensuelBoni") &amp; | &gt; @Subset(v_Contributions; -1); @Return(@Subset(v_Montants; -1)); ""); v_Indice := 1; 	@While(v_Indice &lt; @Elements(v_Contributions) &amp; | &amp; _
+		l_Commissions("PaiementNetMensuelBoni") &amp; | &gt; @Subset(@Subset(v_Contributions; v_Indice); -1); v_Indice := v_Indice + 1);
+		@If(v_Indice &gt; @Elements(v_Montants); @Subset(v_Montants; -1); @Subset(@Subset(v_Montants; v_Indice); -1))|
+		v_Boni = xEvaluate(v_Formule, Nothing)
+		If l_CalculBoni("Rep") = "3" Then		' Durée du contrat
+			l_Commissions("Boni") = SItN_Round(l_Commissions("CommRepresentantAvBoni") * v_Boni, 2)
+		Else
+			l_Commissions("Boni") = v_Boni
+		End If
+	End If
+	
+	
+	%REM
+	|
+	' Commission globale 
+	l_Commissions("CommissionGlobale") = xEvaluate(|@If("| &amp; xVar(pnd_Prop, "Prop_TypeCommission", "") &amp; |" = "1";	
+	@Do(
+	v_ProfitNet := "| &amp; l_Commissions("ProfitNetPR") &amp; |" ;
+	v_BorneSuperieure := @IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+	xVar(pnd_Prop, "Prop_CommissionsRepresentant",0) &amp;  |"; 12); @Return(0));
+	v_MontantCommissions := @IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+	xVar(pnd_Prop, "Prop_CommissionsRepresentant",0) &amp;  |"; 13); @Return(0));
+	v_MontantSuplementaire := @IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+	xVar(pnd_Prop, "Prop_CommissionsRepresentant",0) &amp;  |"; 15); @Return(0));
+	v_TrancheSupplementaire := @IfError(@DbLookup(""; | &amp; v_ServeurSDSBB &amp; |; "V_Comm20"; "| &amp; _ 
+	xVar(pnd_Prop, "Prop_CommissionsRepresentant",0) &amp;  |"; 14); @Return(0));
+	n := 1;
+	@While(n &lt;= @Elements(v_BorneSuperieure);
+	@If(v_ProfitNet &lt;=v_BorneSuperieure[n];  @Return(v_MontantCommissions[n]);
+	"");
+	n := n + 1);	
+	v_Supplementaire :=  (v_ProfitNet - (v_BorneSuperieure[@Elements(v_BorneSuperieure)]))  ;
+	v_Commission := @Integer(v_Supplementaire / v_TrancheSupplementaire);
+	@Return(v_Commission * v_MontantSuplementaire  + v_MontantCommissions[@Elements(v_MontantCommissions)]))
+	;0)|,Nothing)
+	
+	l_Commissions("CommRepresentantBrutesPR") = xEvaluate(|@If("| &amp; xVar(pnd_Prop, "Prop_TypeProposition", "") &amp; |" = "1"; "| &amp; l_Commissions("CommissionGlobale") &amp; |" ;
+	"| &amp;  (l_Commissions("CommRepresentantEQ") + l_Commissions("CommRepresentantLG") + l_Commissions("CommRepresentantSV") + l_Commissions("Prop_Boni"))&amp; |")|, Nothing)
+	l_Commissions("CommDirecteurBrutesPR") = l_Commissions("CommDirecteurEQ") + l_Commissions("CommDirecteurLG") + l_Commissions("CommDirecteurSV") 
+	%END REM
+	
+	'Adjustment
+	l_Commissions("EscompteTotale") = xEvaluate(|@If(Prop_EscompteMontant = ""; 0; Prop_EscompteMontant)|, pnd_Prop)	
+	'l_Commissions("ContribMarginalesCorr") = l_Commissions("ContribMarginalesBrutes") - l_Commissions("CoutTotalLG") - l_Commissions("CoutTotalSV") - _
+	'l_Commissions("EscompteTotale") - l_Commissions("CommRepresentantBrutesPR") - l_Commissions("CommDirecteurBrutesPR") 
+	
+	%REM	
+	|
+	l_Commissions("CommissionCorrectionAuto") = xEvaluate(|@If(Prop_ClientPays = "US" | &amp; {|} &amp; | Prop_TypeProposition != "0";0;
+	| &amp; l_Commissions("EscompteTotale") &amp; | = 0; 1000;
+ 	| &amp; l_Commissions("EscompteTotale") &amp; | &lt;= 4000; 500;
+	| &amp; l_Commissions("EscompteTotale") &amp; | &lt;= 6500;
+	@If(| &amp; l_Commissions("ContribMarginalesCorr" ) &amp; |  &gt;= 10000; 0; @Round((10000 - | &amp; l_Commissions("ContribMarginalesCorr" ) &amp; |) * -(15/100); (1/100)));
+	@Round(@Max(| &amp; l_Commissions("EscompteTotale") &amp; |  - 6500; 10000 - | &amp; l_Commissions("ContribMarginalesCorr" ) &amp; |) * -(15/100); (1/100)))|, pnd_Prop)
+	%END REM
+	
+	'==================== Commissions - Commissions nettes
+	'	l_Commissions("CommRepresentantNettesPR") = l_Commissions("CommRepresentantBrutesPR") + l_Commissions("CommissionCorrection")
+	l_Commissions("CommRepresentantNettesPR") = (l_Commissions("CommRepresentantEQ") + l_Commissions("CommRepresentantLG") + l_Commissions("CommRepresentantSV") + l_Commissions("Boni"))
+	'''l_Commissions("CommRepresentantEQ") + l_Commissions("CommRepresentantLG") +	l_Commissions("CommRepresentantSV")
+	'	l_Commissions("CommDirecteurNettesPR") = l_Commissions("CommDirecteurBrutesPR")
+	l_Commissions("CommDirecteurNettesPR") = l_Commissions("CommDirecteurEQ") + l_Commissions("CommDirecteurLG") + l_Commissions("CommDirecteurSV")
+	l_Commissions("CommDirNationalNettesPR") = l_Commissions("CommDirNationalEQ") + l_Commissions("CommDirNationalLG") + l_Commissions("CommDirNationalSV")
+	l_Commissions("CommDirMondialNettesPR") = l_Commissions("CommDirMondialEQ") + l_Commissions("CommDirMondialLG") + l_Commissions("CommDirMondialSV")
+	
+	'Nette
+	l_Commissions("ContribMarginalesNettes") = l_Commissions("ContribMarginalesBrutes") - l_Commissions("CoutTotalSV") - l_Commissions("CommRepresentantNettesPR") _
+	- l_Commissions("CommDirecteurNettesPR") - l_Commissions("CommDirNationalNettesPR") - l_Commissions("CommDirMondialNettesPR") _
+	+ l_Commissions("CommRepresentantLG") + l_Commissions("CommDirecteurLG") + l_Commissions("CommDirNationalLG") + l_Commissions("CommDirMondialLG")
+		
+	' Profit net
+	l_Commissions("ProfitNetContribMargNet") = l_Commissions("ContribMarginalesNettes")
+	
+	SDSPCP_CalculerCommissions = l_Commissions
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPCP, gc_Element_SDSPCP, GetThreadInfo(1), xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPCP_Initialisations"><lotusscript>Sub SDSPCP_Initialisations
+	If gns_SDSPCP Is Nothing Then
+		Set gns_SDSPCP = New NotesSession
+		Set gndb_SDSPCP = gns_SDSPCP.CurrentDatabase
+	End If
+End Sub
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073636,12-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_SIEx" hide="v3 v4strict" designerversion="8.5.3" comment="1.0">
+<noteinfo noteid="3f0a0a" unid="E615AAB624BFB22E852589A200786D12" sequence="18">
+<created><datetime dst="true">20230501T175522,42-04</datetime></created>
+<modified><datetime>20250319T074052,01-05</datetime></modified>
+<revised><datetime>20250319T073636,34-05</datetime></revised>
+<lastaccessed><datetime>20250319T074052,00-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20230501T183534,45-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "SI_NotesFormula"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_FSIEx As NotesSession
+Dim gndb_FSIEx As NotesDatabase
+
+Dim gnuiws_FSIEx As NotesUIWorkspace
+Dim gnuid_FSIEx As NotesUIDocument
+Dim gnd_FSIEx As NotesDocument
+
+' Traitement des erreurs
+' -------------------------------
+Const gc_TypeElement_FSIEx = "SL"
+Const gc_Element_FSIEx = "F_SIEx"
+
+</lotusscript></code><code event="terminate"><lotusscript>Sub Terminate
+	
+End Sub
+
+
+
+</lotusscript></code><code event="FSIEx_QuerySave"><lotusscript>Sub FSIEx_QuerySave(pnuid_Source As NotesUIDocument, p_Continue As Variant)
+	'---------------------------------------------------------------------------------------------------
+	' Ce script valide les formules d'exportation saisies dans le form F_SIEx
+	'---------------------------------------------------------------------------------------------------
+	
+	On Error Goto GererErreur
+	
+	Dim v_Formule As String
+	Dim a_Formules As Variant
+	Dim v_Erreur As String
+	Dim i As Integer
+	
+	' Initialisations
+	p_Continue = False
+	Call FSIEx_Initialisations
+	
+	' Valider la formule de sélection (SIEx_Source_Select)
+	' ----------------------------------------------------
+	v_Formule = xVar(gnd_FSIEx, "SIEx_Source_Select", "")
+	If v_Formule &lt;&gt; "" Then
+		If Not SINF_ValiderFormule(v_Formule, v_Erreur) Then
+			Messagebox v_Erreur, 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_FSIEx.GotoField("SIEx_Source_Select")
+			Exit Sub
+		End If
+	End If
+	
+	' Valider la ou les formules Source (SIEx_Formules)
+	' -------------------------------------------------
+	a_Formules = xVarArray(gnd_FSIEx, "SIEx_Formules")
+	If Isarray(a_Formules) Then
+		For i = Lbound(a_Formules) To Ubound(a_Formules)
+			If Not SINF_ValiderFormule(a_Formules(i), v_Erreur) Then
+				Messagebox "L." &amp; Cstr(i+1) &amp; ": " &amp; v_Erreur, 16, xGDK_xMessage("SI", 0, "", "")
+				Call gnuid_FSIEx.GotoField("SIEx_Formules")
+				Exit Sub
+			End If
+		Next
+	End If	
+	
+	p_Continue = True
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FSIEx, gc_Element_FSIEx, Getthreadinfo(1), "", False)
+	Exit Sub
+	
+End Sub
+
+</lotusscript></code><code event="FSIEx_Initialisations"><lotusscript>Sub FSIEx_Initialisations
+	
+	If gns_FSIEx Is Nothing Then
+		Set gns_FSIEx = New NotesSession
+		Set gndb_FSIEx = gns_FSIEx.CurrentDatabase
+		
+		Set gnuiws_FSIEx = New NotesUIWorkspace
+		Set gnuid_FSIEx = gnuiws_FSIEx.CurrentDocument
+		Set gnd_FSIEx = gnuid_FSIEx.Document	
+	End If
+	
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073636,34-05</datetime></item></scriptlibrary>
+
+</database>

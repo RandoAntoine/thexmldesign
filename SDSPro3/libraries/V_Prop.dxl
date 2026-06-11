@@ -1,0 +1,619 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="V_Prop" hide="v3 v4strict">
+<noteinfo noteid="555936" unid="6A1E60A8DD83CF9C85258B6D00534617" sequence="7">
+<created><datetime dst="true">20240802T110934,31-04</datetime></created>
+<modified><datetime>20260105T014838,30-05</datetime></modified>
+<revised><datetime>20250319T073650,92-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,29-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,29-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_ChangerNoClient"
+Use "SDSP_Commissions"
+Use "SDSP_PropositionUI"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>
+Dim gns_VProp As NotesSession
+Dim gndb_VProp As NotesDatabase
+
+Dim gnuiws_VProp As NotesUIWorkspace
+
+' Traitement des erreurs
+Const gc_TypeElement_VProp = "SL"
+Const gc_Element_VProp = "V_Prop"
+
+
+
+
+</lotusscript></code><code event="VProp_acRouvrir"><lotusscript>Sub VProp_acRouvrir
+	On Error Goto GererErreur
+	
+	Dim ws_Proposition As New Cl_proposition
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument
+	Dim v_DroitReouvrir As Boolean
+	Dim v_Statut As string
+	Dim v_ChangerStatut As String
+	
+	' Initialisations
+	Call VProp_Initialisations
+	
+	'Set gndb_VProp = gns_VProp.CurrentDatabase
+	Set ndc = gndb_VProp.UnprocessedDocuments
+	
+	If ndc.Count = 0 Then
+		Messagebox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	Elseif ndc.Count &gt; 1 Then
+		Messagebox xGDK_xMessage("SI", 166, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+		
+	Set nd = ndc.GetFirstDocument
+	v_Statut = xVar(nd, "Prop_Statut", "")
+	
+	If v_Statut &lt; "50" Then
+		' La proposition sélectionnée n'est pas dans un statut autorisé.
+		MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 74, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+		
+	' Valider si l'usager a les droits
+	v_DroitReouvrir = SDSPP_DroitReouvrir(nd, v_Statut)
+	
+	If Not v_DroitReouvrir Then
+		' Vous n'êtes pas autorisé à utiliser cette action.
+		MessageBox xGDK_xMessage("SI", 165, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	' Demander une confirmation
+	If gnuiws_VProp.Prompt(PROMPT_YESNO, xGDK_xMessage(c_ndbAliasMSG_SDSPP, 96, "", ""), xGDK_xMessage(c_ndbAliasMSG_SDSPP, 97, "", Cstr(xVar(nd, "Prop_NbPropositionTXT", "")))) &lt;&gt; 1 Then
+		Exit Sub
+	End If
+	
+	' Demander le commentaire
+	If Not gns_VProp.IsOnServer Then
+		Set nd_DB = SITp_ndTemp("SDSP3.acRouvrir")
+		nd_DB.Form = "DB_SIHi"
+		nd_DB.SIHi_Obligatoire = Cint(True)	' Image "&gt;" pour Commentaire obligatoire
+		If Not gnuiws_VProp.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+		xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+			' 49: Nouveau commentaire
+			Exit Sub
+		End If
+	End If
+	
+	Call nd_DB.save(True, False)	
+	
+	Call gnuiws_VProp.CurrentView.DeselectAll
+	
+	' Rouvrir la proposition
+	v_ChangerStatut = ws_Proposition.ChangerStatutSDSP3(xVar(nd, "Prop_NoProposition", ""),"14",gns_VProp.Username, nd_DB.UniversalId)
+	If v_ChangerStatut = "1" Then		
+		Call gnuiws_VProp.ViewRefresh
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VProp, gc_Element_VProp, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="VProp_Initialisations"><lotusscript>Sub VProp_Initialisations
+'	If gns_VProp Is Nothing Then
+	Set gns_VProp = New NotesSession
+	Set gndb_VProp = gns_VProp.CurrentDatabase
+	Set gnuiws_VProp = New NotesUIWorkspace
+'	End If
+	
+End Sub
+
+</lotusscript></code><code event="VProp_acPayer"><lotusscript>Sub VProp_acPayer
+	On Error Goto GererErreur
+	
+	Dim ws_Proposition As New Cl_proposition
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument
+	
+	Dim v_UserName As String
+	Dim v_PropStatut As String
+	Dim v_StatutDesc As String
+	Dim v_StatutSignee As String
+	
+		
+	' Initialisations
+	Call VProp_Initialisations
+	v_StatutSignee = "60"
+	
+	Set ndc = gndb_VProp.UnprocessedDocuments
+	Call gnuiws_VProp.CurrentView.DeselectAll
+	If ndc.Count = 0 Then
+		' Aucun document sélectionné.
+		Messagebox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	Elseif ndc.Count &gt; 1 Then
+		' Vous ne pouvez sélectionner qu'un seul document pour effectuer cette action.
+		Messagebox xGDK_xMessage("SI", 166, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	Set nd = ndc.GetFirstDocument
+	v_PropStatut = xVar(nd, "Prop_Statut", "")
+	If v_PropStatut &lt; v_StatutSignee Then
+		v_StatutDesc = xDescTabl(v_StatutSignee, "Prop_Statut_" &amp; xLangue, False)
+		' La proposition sélectionnée n'est pas dans le statut « &amp; ».
+		Messagebox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 73, "", v_StatutDesc), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	Elseif v_PropStatut &gt; v_StatutSignee Then
+		' La proposition sélectionnée n'est pas dans un statut autorisé.
+		Messagebox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 74, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	' Vérifier que la valeur de la proposition n'a pas changé
+	If SDSPP_PropositionModifiee(nd, False) Then
+		Messagebox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 75, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	If SDSPUI_acPayerProposition(nd, True) Then
+		' Rafraîchir la vue
+		Call gnuiws_VProp.ViewRefresh
+	End If
+		
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VProp, gc_Element_VProp, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="VProp_acQueryOpenDocument"><lotusscript>Sub VProp_acQueryOpenDocument(pnuid_Source As NotesUIView, p_Continue As Variant)
+	On Error GoTo GererErreur
+	
+	Dim nd_Prop As NotesDocument
+	Dim nd_PNav As NotesDocument
+	
+	Dim v_EditMode As Boolean
+	Dim v_Statut As String
+	
+	' Initialisations
+	p_Continue = False
+	Call VProp_Initialisations
+	Set nd_Prop = pnuid_Source.Documents.GetFirstDocument
+	
+	Set nd_PNav = New NotesDocument(gndb_VProp)
+	nd_PNav.Form = "F_PNav0.00"
+	
+	nd_PNav.PNav_Titre = Trim("C" &amp; CStr(xVar(nd_Prop, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(nd_Prop, "Prop_ClientNomInterne", xVar(nd_Prop, "Prop_ClientNom", "")))
+	
+	nd_PNav.Prop_NoProposition = xVar(nd_Prop, "Prop_NoProposition", "")
+	nd_PNav.Prop_ClientNomInterne = xVar(nd_Prop, "Prop_ClientNomInterne", "")
+	
+	v_EditMode = False
+	
+	If SDSPP_AccesAuteur(nd_Prop) Then
+		
+		Select Case SDSPP_EstAuteur(nd_Prop)			
+		Case 1:
+			' si pas role [Admin] - lookup dans table des statut
+			v_EditMode = SDSPP_EditMode(nd_Prop)		
+		Case 2:
+			' Si role [Admin]- toujours ouvrir en edit mode
+			v_EditMode = True			
+		End Select		
+		
+	End If
+	
+	If Not SLSf_VersionNotesValide Then
+		MessageBox xGDK_xMessage("SI", 272, "", ""), 16, xGDK_xMessage("SI", 8, "", "")
+		v_EditMode = False
+	End If
+		
+	If v_EditMode Then
+		nd_PNav.PNav_EditMode = 1 
+	Else
+		nd_PNav.PNav_EditMode = 0
+		nd_PNav.SaveOptions = "0"
+	End If
+	
+	On Error Resume Next
+	Call gnuiws_VProp.EditDocument(True, nd_PNav)
+	Exit Sub
+	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VProp, gc_Element_VProp, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="VProp_acCopierCommissions"><lotusscript>Sub VProp_acCopierCommissions
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument	
+	Dim ndc As NotesDocumentCollection
+	Dim v_Autorise As String	
+	Dim v_Langue As String
+	Dim v_TitreDB As String	
+	Dim p_Webservice As Boolean
+	
+	
+	' Initialisations
+	Call VProp_Initialisations
+	Call xSDSC3_Initialisation
+	
+	Set ndc = gndb_VProp.UnprocessedDocuments
+	v_Langue = xLangue
+	
+	v_TitreDB = "SDSC3"
+	If gndb_xSDSC3 Is Nothing Then
+		Messagebox xGDK_xMessage("SI", 48, "", v_TitreDB), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	Elseif Not gndb_xSDSC3.Isopen Then
+		Messagebox xGDK_xMessage("SI", 48, "", v_TitreDB), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	If ndc.Count &gt; 1 Then
+		Messagebox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 62, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	Elseif ndc.Count = 0 Then
+		Print xGDK_xMessage("SI", 2, "", "")
+		Exit Sub
+	End If
+	
+	Set nd = ndc.Getfirstdocument
+	If xVar(nd, "Form", "") &lt;&gt; "F_Prop" Then
+		Messagebox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 63, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	
+	If xVar(nd, "Prop_Statut", "") &lt; "60" Or xVar(nd, "Prop_Statut", "") &gt; "94" Then
+		If v_Langue = "EN" Then
+			v_Autorise = "Authorized"
+		Else
+			v_Autorise = "Autorisée"
+		End If
+		' La proposition sélectionnée n'est pas dans un statut autorisé.
+		Messagebox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 74, v_Langue, v_Autorise), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	
+		
+	'Req 49322 - Vérification des droits d'accès, le role [SI_Commissions] est déja assigné a l'usager
+	
+	p_Webservice = True
+
+	If Not (gndb_VProp.CurrentAccessLevel &lt; ACLLEVEL_EDITOR)  Then 
+		p_Webservice = False
+		
+	End If
+	
+	
+	If SDSPUI_acCopierCommissions(nd, p_Webservice) Then
+		' Rafraîchir la vue
+		Call gnuiws_VProp.ViewRefresh
+	End If
+	
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VProp, gc_Element_VProp, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="VProp_acSigner"><lotusscript>Sub VProp_acSigner
+	%REM
+	' Pas utilisé req.49663	
+		
+	On Error Goto GererErreur
+	
+	Dim ws_Proposition As New Cl_proposition
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument
+	
+	Dim v_NbBonCommande As Variant
+	Dim v_UserName As String	
+	Dim v_NoProposition As String
+	Dim v_Prop_NbSites As Long
+	
+	
+	' Initialisations
+	Call VProp_Initialisations
+	
+	
+	Set ndc = gndb_VProp.UnprocessedDocuments
+	If ndc.Count = 0 Then
+		Messagebox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	Elseif ndc.Count &gt; 1 Then
+		Messagebox xGDK_xMessage("SI", 166, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub		
+	End If
+	
+	
+	Call gnuiws_VProp.CurrentView.DeselectAll
+	Set nd = ndc.GetFirstDocument
+	
+	If xVar(nd, "Form", "") &lt;&gt; "F_Prop" Then
+		Messagebox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 63, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+		
+	
+	If SDSPUI_acSignerProposition(nd, True) Then
+		' Rafraîchir la vue
+		Call gnuiws_VProp.ViewRefresh
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VProp, gc_Element_VProp, Getthreadinfo(1), "", False)
+	Exit Sub
+	%END REM
+End Sub
+
+</lotusscript></code><code event="VProp_acChangerNoClient"><lotusscript>Sub VProp_acChangerNoClient
+	On Error GoTo GererErreur
+	' ===========================================================
+	' Ce Sub (# 59742) traite la proposition sélectionnée par l'utilisateur
+	' Il permet de changer le no de client sur la proposition, le site dont le no de client est le même, tous les BCs et BTs attachés au site, la PP et la succursale dans SDS Commissions.
+	'Maj les champs associés au no de client (nom, nom interne, adresse)
+	' ===========================================================
+	Dim ws_Proposition As cl_Proposition
+	Dim nuiws As New NotesUIWorkspace
+	Dim ns As New NotesSession
+	Dim ndb As NotesDatabase
+	Dim ndc_Prop As NotesDocumentCollection	
+	Dim nd_Prop As NotesDocument	
+	Dim nd_DialogBox As NotesDocument
+	Dim v_Roles As Variant
+	Dim v_Cle As String
+	Dim v_Titre As String
+	Dim v_UserName As String
+	Dim v_ClientNoFmt As String
+	Dim v_Maj As Boolean
+	
+	Print "Début"
+	
+	'Ne pas exécuter localement
+	Set ndb = ns.CurrentDatabase
+	If ndb.Server = "" Then
+		Exit Sub
+	End If
+	
+	v_UserName = ns.Username
+	
+	' Doit avoir le rôle [Directeur] et [Admin] pour utiliser cette action	
+	v_Roles = Evaluate({!@IsNotMember("[Admin]" : "[Directeur]" : "[ChgNoClient]"; @UserRoles)})
+	If v_Roles(0) &lt;&gt; 1 Then
+		MessageBox "Vous n'êtes pas autorisé à utiliser cette action.", 16, "Opération annulée"
+		Exit Sub
+	End If
+	
+	Set ndc_Prop = ndb.UnprocessedDocuments
+	If ndc_Prop.Count = 0 Then
+		MessageBox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	ElseIf ndc_Prop.Count &gt; 1 Then
+		MessageBox xGDK_xMessage("SI", 166, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	Call nuiws.CurrentView.Deselectall
+	
+	Set nd_Prop = ndc_Prop.GetFirstDocument
+	
+	' Saisie des paramètres
+	' ---------------------
+	Set nd_DialogBox = New NotesDocument(ndb)
+	
+	nd_DialogBox.Prop_ClientNoFmt = xVar(nd_Prop, "Prop_ClientNoFmt", "")
+	nd_DialogBox.Prop_ClientNomInterne = xVar(nd_Prop, "Prop_ClientNomInterne", "")
+	
+	v_Titre = "Modifier le numéro du client"
+	
+	If Not nuiws.DialogBox("DB_PropCl", True, True, False, False, False, False, v_Titre, nd_DialogBox, True, False, False) Then
+		Print "Opération annulée."
+		Exit Sub
+	End If
+	
+	v_ClientNoFmt = CStr(xVar(nd_DialogBox, "DB_ClientNoFmt", 0))  
+	Set ws_Proposition = New cl_Proposition
+	If ws_Proposition.ChangerNoClientSDSP3(xVar(nd_Prop, "Prop_NoProposition", ""), v_ClientNoFmt, ns.UserName) Then
+		Call nuiws.ViewRefresh
+		MessageBox "Changement de nom terminé.", 64, xGDK_xMessage("SI", 230, "", "")
+	Else
+		MessageBox xGDK_xMessage("SI", 238, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+	End If
+	
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VProp, gc_Element_VProp, GetThreadInfo(1), v_ClientNoFmt, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="VProp_acClientRefuser"><lotusscript>
+Sub VProp_acClientRefuser
+	On Error Goto GererErreur
+	
+	Dim ws_Proposition As New Cl_proposition
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument			
+	Dim v_DroitStatut As Boolean	
+	Dim v_Statut As String
+	Dim v_ChangerStatut As String
+	
+	' Initialisations
+	Call VProp_Initialisations
+	
+	'Set gndb_VProp = gns_VProp.CurrentDatabase
+	Set ndc = gndb_VProp.UnprocessedDocuments
+	
+	If ndc.Count = 0 Then
+		Messagebox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	Elseif ndc.Count &gt; 1 Then
+		Messagebox xGDK_xMessage("SI", 166, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	Set nd = ndc.GetFirstDocument
+	v_Statut = xVar(nd, "Prop_Statut", "")
+		
+	' Il n'est pas permis d'annuler ou refuser une proposition déja signé
+	If v_Statut &gt;= "60" Then
+		' La proposition sélectionnée n'est pas dans un statut autorisé.
+		MessageBox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 74, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	' Valider si l'usager a les droits
+	v_DroitStatut = SDSPP_DroitDesactiver(nd, v_Statut)
+	
+	If Not v_DroitStatut Then
+		' Vous n'êtes pas autorisé à utiliser cette action.
+		Messagebox xGDK_xMessage("SI", 165, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	' Demander une confirmation
+	' Voulez-vous refuser la proposition numéro &amp; ?
+	If gnuiws_VProp.Prompt(PROMPT_YESNO, xGDK_xMessage(c_ndbAliasMSG_SDSPP, 127, "", ""), xGDK_xMessage(c_ndbAliasMSG_SDSPP, 126, "", Cstr(xVar(nd, "Prop_NbPropositionTXT", "")))) &lt;&gt; 1 Then
+		Exit Sub
+	End If
+	
+	' Demander le commentaire
+	If Not gns_VProp.IsOnServer Then
+		Set nd_DB = SITp_ndTemp("SDSPP.acClientRefuser")
+		nd_DB.Form = "DB_SIHi"
+		nd_DB.SIHi_Obligatoire = Cint(True)	' Image "&gt;" pour Commentaire obligatoire
+		If Not gnuiws_VProp.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+		xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+			' 49: Nouveau commentaire
+			Exit Sub
+		End If
+	End If
+	
+	Call nd_DB.save(True, False)
+	
+	Call gnuiws_VProp.CurrentView.DeselectAll
+	
+	' Refuser la proposition
+	v_ChangerStatut = ws_Proposition.ChangerStatutSDSP3(xVar(nd, "Prop_NoProposition", ""), "96", gns_VProp.Username, nd_DB.UniversalId)
+	If v_ChangerStatut = "1" Then		
+		Call gnuiws_VProp.ViewRefresh
+	End If
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VProp, gc_Element_VProp, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="VProp_acAbandonner"><lotusscript>Sub VProp_acAbandonner
+	On Error Goto GererErreur
+	
+	Dim ws_Proposition As New cl_Proposition
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument			
+	Dim v_DroitStatut As Boolean
+	Dim v_Statut As String
+	Dim v_ChangerStatut As String
+	
+	' Initialisations
+	Call VProp_Initialisations
+	
+	Set ndc = gndb_VProp.UnprocessedDocuments
+	
+	If ndc.Count = 0 Then
+		Messagebox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	Elseif ndc.Count &gt; 1 Then
+		Messagebox xGDK_xMessage("SI", 166, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	Set nd = ndc.GetFirstDocument
+	v_Statut = xVar(nd, "Prop_Statut", "")	
+		
+		' Il n'est pas permis d'annuler ou refuser une proposition déja signé
+		If v_Statut &gt;= "60" Then
+			' La proposition sélectionnée n'est pas dans un statut autorisé.
+			Messagebox xGDK_xMessage(c_ndbAliasMSG_SDSPP, 74, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+		
+	' Valider si l'usager a les droits
+	v_DroitStatut = SDSPP_DroitDesactiver(nd, v_Statut)
+	
+	If Not v_DroitStatut Then
+		' Vous n'êtes pas autorisé à utiliser cette action.
+		Messagebox xGDK_xMessage("SI", 165, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	' Demander une confirmation
+	' Voulez-vous abandonner la proposition numéro &amp; ?
+	If gnuiws_VProp.Prompt(PROMPT_YESNO, xGDK_xMessage(c_ndbAliasMSG_SDSPP, 124, "", ""), xGDK_xMessage(c_ndbAliasMSG_SDSPP, 125, "", Cstr(xVar(nd, "Prop_NbPropositionTXT", "")))) &lt;&gt; 1 Then
+		Exit Sub
+	End If
+	
+	' Demander le commentaire
+	If Not gns_VProp.IsOnServer Then
+		Set nd_DB = SITp_ndTemp("SDSPP.acAbandonner")
+		nd_DB.Form = "DB_SIHi"
+		nd_DB.SIHi_Obligatoire = Cint(True)	' Image "&gt;" pour Commentaire obligatoire
+		If Not gnuiws_VProp.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+		xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+			' 49: Nouveau commentaire
+			Exit Sub
+		End If
+	End If
+	
+	Call nd_DB.save(True, False)
+	
+	Call gnuiws_VProp.CurrentView.DeselectAll
+	
+	' Abandonner la proposition		
+	v_ChangerStatut = ws_Proposition.ChangerStatutSDSP3(xVar(nd, "Prop_NoProposition", ""), "98", gns_VProp.Username, nd_DB.UniversalId)
+	If v_ChangerStatut = "1" Then		
+		Call gnuiws_VProp.ViewRefresh
+	End If
+	
+		
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VProp, gc_Element_VProp, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073650,92-05</datetime></item></scriptlibrary>
+
+</database>

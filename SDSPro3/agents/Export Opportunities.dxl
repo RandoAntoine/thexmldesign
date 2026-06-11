@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Export Opportunities" hide="v3" noreplace="true" publicaccess="false" designerversion="8.5.3">
+<noteinfo noteid="54542a" unid="DBE22FE74A20D92A85258D3700575B43" sequence="17">
+<created><datetime>20251103T105409,95-05</datetime></created>
+<modified><datetime>20251105T102832,57-05</datetime></modified>
+<revised><datetime>20251105T102830,18-05</datetime></revised>
+<lastaccessed><datetime>20251105T102832,56-05</datetime></lastaccessed>
+<addedtofile><datetime>20251103T105411,42-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20251105T152830,22+00</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="runonce"/><code event="options"><lotusscript>Option Public
+Option Declare
+
+</lotusscript></code><code event="initialize"><lotusscript>
+Sub Initialize
+    Dim session As New NotesSession
+    Dim db As NotesDatabase
+    Dim view As NotesView
+    Dim doc As NotesDocument
+    Dim excelApp As Variant
+    Dim workbook As Variant
+    Dim worksheet As Variant
+    Dim row As Long
+    Dim col As Integer
+    Dim columnCount As Integer
+    
+    ' --- Configuration ---
+    Dim viewName As String
+    viewName = "lkupProp"       ' Change this to your view name
+    Dim outputFile As String
+    outputFile = "C:\Temp\NotesViewExport.xlsx" ' Output Excel file
+    
+    ' --- Open database and view ---
+    Set db = session.CurrentDatabase
+    Set view = db.GetView(viewName)
+    If view Is Nothing Then
+        MsgBox "View not found: " &amp; viewName
+        Exit Sub
+    End If
+    
+    ' --- Start Excel ---
+    Set excelApp = CreateObject("Excel.Application")
+    excelApp.Visible = True
+    Set workbook = excelApp.Workbooks.Add
+    Set worksheet = workbook.Sheets(1)
+    
+    ' --- Get column titles from view ---
+    Dim colTitles() As String
+    columnCount = view.Columns.Count
+    ReDim colTitles(1 To columnCount)
+    
+    For col = 1 To columnCount
+        colTitles(col) = view.Columns(col - 1).Title
+        worksheet.Cells(1, col).Value = colTitles(col)
+    Next
+    
+    ' --- Export view data ---
+    row = 2
+    Set doc = view.GetFirstDocument
+    While Not (doc Is Nothing)
+        Dim nextDoc As NotesDocument
+        Set nextDoc = view.GetNextDocument(doc)
+        
+        For col = 1 To columnCount
+            Dim colValue As String
+            colValue = doc.GetItemValue(view.Columns(col - 1).ItemName)(0)
+            worksheet.Cells(row, col).Value = colValue
+        Next
+        
+        row = row + 1
+        Set doc = nextDoc
+    Wend
+    
+    ' --- Autofit and Save ---
+    worksheet.Columns.AutoFit
+    workbook.SaveAs outputFile
+    MsgBox "Export completed: " &amp; outputFile
+    
+    ' --- Cleanup ---
+    'workbook.Close 
+    'SaveChanges:=True
+    excelApp.Quit
+    Set worksheet = Nothing
+    Set workbook = Nothing
+    Set excelApp = Nothing
+End Sub
+</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20251105T152819,47+00</datetime></agentmodified></rundata></agent>
+
+</database>

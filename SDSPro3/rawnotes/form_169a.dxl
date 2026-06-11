@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><note class="form">
+<noteinfo noteid="169a" unid="50D572B199097BA78525822F0061C927" sequence="21">
+<created><datetime>20180209T124804,87-05</datetime></created>
+<modified><datetime>20260105T014845,89-05</datetime></modified>
+<revised><datetime dst="true">20190410T103352,54-04</datetime></revised>
+<lastaccessed><datetime>20260105T014845,88-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205707,68-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<item name="$TITLE"><text>.settings/org.eclipse.wst.validation.prefs</text></item>
+<item name="$Flags"><text>~C4g</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$FileSize" sign="true"><number>39</number></item>
+<item name="$FileData" sign="true">
+<rawitemdata type="1">
+YQAYAAAAAAAnAAAAAQAAAAAAAAAAAAAAYAA5AAAAJwAoAAAAAAAAAAAAb3ZlcnJpZGU9dHJ1ZQpz
+dXNwZW5kPXRydWUKdmYudmVyc2lvbj0zAA==
+</rawitemdata></item>
+<item name="$FileNames" sign="true"><text>.settings/org.eclipse.wst.validation.prefs</text></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>.settings/org.eclipse.wst.validation.prefs</text></item></note>
+
+</database>

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="Logo_Serti" alias="lg_SI" publicaccess="false" designerversion="6.5" imagename="Logo SI 2013.gif">
+<noteinfo noteid="171a" unid="6CE9A0E269CCCE1A85257B7A00615A2C" sequence="14">
+<created><datetime dst="true">20130529T134320,76-04</datetime></created>
+<modified><datetime dst="true">20190830T091559,84-04</datetime></modified>
+<revised><datetime dst="true">20180718T105545,87-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091559,82-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205708,27-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhoABQAPcAAAAAABgXFxkYGBoZGRoaGRsaGhwbGx0cHB4dHR8eHiAfHyEgICEhISMiIiQj
+IyUkJCUlJScmJicnJygnJykoKCopKSsqKisrKywrKywsKy0sLC8uLjAvLzEwMDMyMjU0NDY1NTc2
+Njk4ODs6Oj08PD49PT4+PUA/P0FAQEJBQUVEREZFRUdGRkhHR0tKSkxLS01NTE9OTlBQT1BQUFJR
+UVJSUVJSUlVUVFdWVlhXV1hYV1paWV5dXV5eXV9eXl9fX2BfX2FgYGJhYWJiYWNjYmRjY2RkY2Vk
+ZGloaGppaWpqaWxra2xsa21sbG9ubnBwb3FxcXNzcnR0c3V0dHZ1dXd2dnh4d3l4eHt6ent7e319
+fH59fX9/foCAf4OCgoSDg4iIh4mIiIqKiYuKioyLi4yMi46OjY+PjpCPj5KSkpSUk5eWlpiXl5mY
+mJqamZ2dnJ2dnZ+fnqCfn6GgoKSjo6inp6mpqKqqqayrq6ysq62srK6tra6ura+vrrCwr7GwsLS0
+s7W1tLW1tbm5uLu7ury8u728vL6+vcDAwMLBwcLCwcPCwsbGxcjHx8nIyMrKycvLysvLy83NzM7O
+zc/PztDQ0NLR0dPT0tTU09XV1NbW1dnY2Nvb2t3d3N7e3d/e3uDg3+Li4ePj4uTk4+Xl5Obm5ejn
+5+rq6evr6uzs6+3s7O7u7e7u7vDw7/Hx8PLy8fPz8vX19Pb29fj49/n5+Pr6+fv7+vz8+/39/P7+
+/f///gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAACgAFAA
+AAj/AP8JHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuX
+MGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJPKXNUGx4YCAaJKdZCiyiODqqoo2cq1a9cutAQy
+auK1rJIpYPykKmjri9m3XeMIpGPWjc89EqTq3RtAwJBWBO3wHSzVkcAghAkngKJqYKbEkAMksPUP
+wmABPfUIiLz3RViBdTjrZSQQiOi9IUYJxHSaL4Ja/xoQ5pkqQmupaQaGbk36n+nbUWPk+scaeNTX
+sWfvXGM8QIdboG/3/m38EPHmAZDLHszzBvZL0XmX/8b+5Hpz7cp1asCeJ/zp6dhPmDeOnvvOAYR5
+oOGigDAb95wJoMl4zUGQCyj4GWcBLsnZpxNhHDD4DxmEqQGgXkAgouGGlQxE3V5/mEKKGoQxQNkl
+GyICCGEYpIgIKAJtxxdPhKkwUCAVXigVFgp9qFciAs2SwGALUFYQK4R5gJCMe9E4mI0CCZLjP7vx
+xWNCPkoF5D+1MECkkQQhOZiSBzGpl5N8QfmPlINZSCVhVyKUZVRbdvmlQWLyRaZBZkqF5l5qEjJl
+lXvFedCcAdTpJV9F4pnkkunlVONAhgwKZ4+EKXrnkY+WGSlOhKEwECxJHMCXm4TqZahBiGrKKJgD
+5f+5154F9RnVn3pVIKFApYixgV6oXoplpgLZyRcD0HE6JqQOSkrYHAbRwgcMm62hY1SrFtRqsQsM
+xsFBsupFK0G2BsATAYQNAAWMBllSxinXBpAtQdv+U8lmfOkAbqd8fnoTB5AdgAR4CaUqVQYtJJyw
+DJ94SNgILazQ7WByObqsp83i9EOAOSwynEEGJ3aHw8aJIMu+F/eb8U18tMbCICC3NjKBt4nACULh
+SjXuQOXyZIsKtxnxCkEhEzazb8DRwEpCOUe1c4z+3uQJwK25cHK8gx2NKGQiEGyxnszO2JMoNdy2
+hW4ykwzcBfB+PWvYTfqUiyE24BtZAo29eZrW2Hn/gTLYGIsNlCRFQBVZH1jvJYAiagNXwt9vBx63
+UJ1M0V9iYcTrhCicc942zXvpIUoocBCmwGdh8ltr1DX1kOHHBI3iQ2JXxDtv4z8KlIttfBkQi9vi
+wn3mTlKR8IYrBeFCBGFW2I7pYFv+Q8FgvgOvs/B+Eq/XA1dsQlAhzDs/LPQDTd/778oCrrLgzu41
+wBgDQRK+3lY+z1f05u9VffqRrz95+3uZwUAiMb+i3Q50uRNI/vSyv9SlbHUrswlhBCgQAg6mefQr
+lP32gj/qoc+B6oMg+0A1GAr+w4J8waABN5hA6XnQek7D3q20xxcTonAvKhSWnIilwBfyL3iSG96D
+/0o4wALq8FA8dOH5YBiApzVohDchTAk+tqILxitDLnLEx+qlRP19MFaqIxfraJIgvhwBDWHwgLCK
+RhiYIY18PVziD68XxOypBztmSBxfZsbFBUqlALBgohN7thPvNEcQetwLH5MIAsJ8DowPFGMEa8Ic
+4ygAMBnkzCLh+I8YEIYSgpShuXZSG+NQAW1pe+P9BqIFwsghlHWcoU50kQe7iUYEq0Dl3hCopYEo
+gjA7gKX/hJgTXehiDxM4zQxKEZjb4EEgQiDMIgZyCxMMpgDIA+FePoAQy/AFMzsxpi6Y4hTD6WUB
+JHDCIXYlEFREAS5ekULeGrGEsmThi5NgQlnCwC7Of+TiDGbZA0LoUha7KOWgCE2oQhfK0IY69KEQ
+jahEJ0rRilr0ohjNqEY3ytGODnr0oyANqUhHStKSviQgADs=
+</gif>
+<item name="$FileSize" sign="true"><number>2144</number></item>
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20130529T133205,62-04</datetime></item></imageresource>
+
+</database>

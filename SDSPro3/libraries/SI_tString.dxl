@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_tString" hide="v3 v4strict" designerversion="8.5.3" comment="1.9">
+<noteinfo noteid="55572e" unid="2442EFFADB506241852586B40011FB92" sequence="76">
+<created><datetime dst="true">20210410T231625,14-04</datetime></created>
+<modified><datetime>20260105T014837,32-05</datetime></modified>
+<revised><datetime>20250319T073634,06-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,31-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,31-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Stéphane Lachance/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_GestionErreurs"
+'
+'	Les fonctions définies dans cette bibliothèque permettent de manipuler des chaînes de caractères.
+
+</lotusscript></code><code event="declarations"><lotusscript>' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SItS = "SL"
+Const gc_Element_SItS = "SI_tString"
+
+</lotusscript></code><code event="SItS_NomPrenom"><lotusscript>Function SItS_NomPrenom(Byval p_NomComplet As String, p_Nom As String, p_Prenom As String) As Integer
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de séparer le nom du prénom d'une chaîne de caractères
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	SItS_NomPrenom = False
+	
+	p_Nom = ""
+	p_Prenom = ""
+	p_NomComplet = Fulltrim(p_NomComplet)
+	If p_NomComplet &lt;&gt; "" Then
+		If Instr(p_NomComplet, ",") &gt; 0 Then
+			p_Nom = Trim(Strleft(p_NomComplet, ","))
+			p_Prenom = Trim(Strright(p_NomComplet, ","))
+		Elseif Instr(p_NomComplet, " ") &gt; 0 Then
+			p_Nom = Strrightback(p_NomComplet, " ")
+			p_Prenom = Strleftback(p_NomComplet, " ")
+		Else
+			p_Nom = p_NomComplet
+		End If
+	End If
+	
+	SItS_NomPrenom = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItS, gc_Element_SItS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItS_FormaterCodePostal"><lotusscript>Function SItS_FormaterCodePostal(Byval p_CodePostal As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de formater un code postal.
+	' Le format généré est XXX XXX.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	SItS_FormaterCodePostal = p_CodePostal
+	
+	Call SItS_Remplacer(p_CodePostal, " ", "")
+	
+	If Len(p_CodePostal) = 6 Then
+		SItS_FormaterCodePostal = Left(p_CodePostal, 3) &amp; " " &amp; Right(p_CodePostal, 3)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItS, gc_Element_SItS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItS_AjouterLigne"><lotusscript>Function SItS_AjouterLigne(p_Chaine As String, Byval p_Ligne As String, Byval p_Separateur As String) As Integer
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet d'ajouter une ligne à une chaine.  Un séparateur est ajouté entre les lignes
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	SItS_AjouterLigne = False
+	
+	If p_Chaine = "" Then
+		p_Chaine = p_Ligne
+	Elseif p_Ligne &lt;&gt; "" Then
+		p_Chaine = p_Chaine &amp; p_Separateur &amp; p_Ligne
+	End If
+	
+	SItS_AjouterLigne = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItS, gc_Element_SItS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItS_TelephoneValide"><lotusscript>Function SItS_TelephoneValide(Byval p_Pays As String, Byval p_Telephone As String, _
+p_TelephoneFmt As String) As Boolean
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de valider un numéro de téléphone.
+	' Un numéro de téléphone doit avoir 10 chiffres.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim i As Integer
+	Dim v As Integer
+	Dim v_Somme As Integer
+	
+	SItS_TelephoneValide = False
+	p_TelephoneFmt = p_Telephone
+	
+	' Canada &amp; Etats-Unis
+	If p_Pays = "CA" Or p_Pays = "US" Then
+		p_Telephone = Replace(p_Telephone, " ", "")
+		p_Telephone = Replace(p_Telephone, "(", "")
+		p_Telephone = Replace(p_Telephone, ")", "")
+		p_Telephone = Replace(p_Telephone, "-", "")
+		If p_Telephone Like "##########" Then
+			SItS_TelephoneValide = True
+			p_TelephoneFmt = Left(p_Telephone, 3) &amp; " " &amp; Mid(p_Telephone, 4, 3) &amp; _
+			"-" &amp; Right(p_Telephone, 4)
+		End If
+	Else
+		SItS_TelephoneValide = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItS, gc_Element_SItS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItS_Remplacer"><lotusscript>Function SItS_Remplacer(p_Chaine As String, Byval p_ValeurDe As String, Byval p_ValeurA As String) As Boolean
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de remplacer toutes les occurences de "p_ValeurDe" par "p_ValeurA" dans la chaîne 
+	' "p_Chaine".
+	' Ne tient pas comte des majuscules-miniscules.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	SItS_Remplacer = False
+	
+	Do Until Instr(1, p_Chaine, p_ValeurDe, 5) = 0
+		p_Chaine = Strleft(p_Chaine, p_ValeurDe, 5) &amp; p_ValeurA &amp; _
+		Strright(p_Chaine, p_ValeurDe, 5)
+	Loop
+	
+	SItS_Remplacer = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItS, gc_Element_SItS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItS_TelephoneLD"><lotusscript>Function SItS_TelephoneLD(Byval p_Pays As String, Byval p_Telephone As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet d'ajouter le 1 devant le numéro de téléphone pour les
+	' appels longue distance.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_Telephone As String
+	Dim v_CodeRegional As String
+	Dim v_Prefixe As String
+	
+	If p_Pays = "CA" Or p_Pays = "US" Then
+		If SItS_TelephoneValide(p_Pays, p_Telephone, v_Telephone) Then
+			v_CodeRegional = Left(v_Telephone, 3)
+			v_Prefixe = Mid(v_Telephone, 5, 3)
+			If xGDK_xValeurExisteTabl("CRL", v_CodeRegional, True) _
+			Or xGDK_xValeurExisteTabl("CR" &amp; v_CodeRegional, v_Prefixe, True) Then
+				SItS_TelephoneLD = v_Telephone
+			Else
+				SItS_TelephoneLD = "1 " &amp; v_Telephone
+			End If
+		Else
+			SItS_TelephoneLD = ""
+		End If
+	Else
+		SItS_TelephoneLD = p_Telephone
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItS, gc_Element_SItS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItS_Initiales"><lotusscript>Function SItS_Initiales(Byval p_NomComplet As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de séparer le nom du prénom d'une chaîne de caractères
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	SItS_Initiales = ""
+	
+	p_NomComplet = Fulltrim(p_NomComplet)
+	If Instr(p_NomComplet, " ") &gt; 0 Then
+		SItS_Initiales = Left(Strleft(p_NomComplet, " "), 1) &amp; Left(Strright(p_NomComplet, " "), 1)
+	Else
+		SItS_Initiales = Left(p_NomComplet, 1)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItS, gc_Element_SItS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItS_FormaterTelephone"><lotusscript>Function SItS_FormaterTelephone(Byval p_Telephone As String, p_Langue As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de formater un numéro de téléphone.
+	' Le format généré est 999 999-9999 x9 ou x9 représente un numéro d'extension.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_Telephone As String
+	
+	SItS_FormaterTelephone = p_Telephone
+	
+	v_Telephone = Lcase(p_Telephone)
+	Call SItS_Remplacer(v_Telephone, " ", "")
+	Call SItS_Remplacer(v_Telephone, "-", "")
+	Call SItS_Remplacer(v_Telephone, "(", "")
+	Call SItS_Remplacer(v_Telephone, ")", "")
+	Call SItS_Remplacer(v_Telephone, ".", "")
+	Call SItS_Remplacer(v_Telephone, "ext", "")
+	Call SItS_Remplacer(v_Telephone, "x", "")
+	
+	If Len(v_Telephone) &gt; 0 And Isnumeric(v_Telephone) Then
+		If Len(v_Telephone) &gt; 10 And Left(v_Telephone, 1) = "1" Then
+			v_Telephone = Right(v_Telephone, Len(v_Telephone) - 1)
+		End If
+		
+		If Len(v_Telephone) = 7 Then
+			SItS_FormaterTelephone = Left(v_Telephone, 3) &amp; "-" &amp; Right(v_Telephone, 4)
+		Elseif Len(v_Telephone) &gt;= 10 Then
+			If Ucase(p_Langue) = "EN" Then
+				SItS_FormaterTelephone = "(" &amp; Left(v_Telephone, 3) &amp; ")" &amp; " " &amp; Mid(v_Telephone, 4, 3) &amp; "-" &amp; _
+				Mid(v_Telephone, 7, 4)
+			Else
+				SItS_FormaterTelephone = Left(v_Telephone, 3) &amp; " " &amp; Mid(v_Telephone, 4, 3) &amp; "-" &amp; _
+				Mid(v_Telephone, 7, 4)
+			End If
+			If Len(v_Telephone) &gt; 10 Then
+				SItS_FormaterTelephone = SItS_FormaterTelephone &amp; " x" &amp; _
+				Right(v_Telephone, Len(v_Telephone) - 10)
+			End If
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItS, gc_Element_SItS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SItS_NASValide"><lotusscript>Function SItS_NASValide(Byval p_NAS As String) As Integer
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de valider un numéro d'assurance sociale.
+	' Un numéro d'assurance sociale doit avoir 7 chiffres.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim i As Integer
+	Dim v As Integer
+	Dim v_Somme As Integer
+	
+	SItS_NASValide = False			
+	
+	p_NAS = Replace(p_NAS, " ", "")
+	If p_NAS Like "#########" Then
+		For i = 1 To 8
+			If i Mod 2 = 0 Then
+				v = Cint(Mid(p_NAS, i, 1)) * 2
+				If v &gt; 9 Then
+					v_Somme = v_Somme + (v \ 10) + (v Mod 10)
+				Else
+					v_Somme = v_Somme + v
+				End If
+			Else
+				v_Somme = v_Somme + Cint(Mid(p_NAS, i, 1))
+			End If
+		Next
+		
+		If (10 - (v_Somme Mod 10)) Mod 10 = Cint(Right(p_NAS, 1)) Then
+			SItS_NASValide = True
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SItS, gc_Element_SItS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,06-05</datetime></item></scriptlibrary>
+
+</database>

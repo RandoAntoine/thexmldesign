@@ -1,0 +1,1132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Exportations" hide="v3 v4strict" designerversion="8.5.3" comment="7.1f">
+<noteinfo noteid="5558d2" unid="0111F3066A90D541852589A20078E463" sequence="15">
+<created><datetime dst="true">20230501T180027,87-04</datetime></created>
+<modified><datetime>20260105T014838,13-05</datetime></modified>
+<revised><datetime>20250319T073641,37-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,12-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,12-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>'--------------------------------------------------------------------------------
+'	Note: ne pas oublier de mettre le masque et les vues suivantes:
+'		F_SIEx	
+'		V_SIEx10	(EN et FR)
+' **************************************************************** PBE 2021-12-15
+' CHANGEMENT DU TYPE DES FONCTION D'EXPORTATION BOOLEAN --&gt; INTEGER
+' NOUVELLES VALEURS RETOURNÉES
+'	&gt; 0 = Nb de documents exportés (ok), 0 = Aucun document sélectionné, &lt; 0 = Erreur
+'		-265 = Exportation annulée, -238 = Erreur générale
+'--------------------------------------------------------------------------------
+Option Public
+Option Explicit
+Use "SI_ClasseursTypes"
+Use "SI_MSExcel"  
+Use "x_SIEx"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ------------------------------
+Dim gns_SIEx As Notessession
+
+Dim gnv_SIEx10_SIEx As Notesview
+Dim gnv_SIEx20_SIEx As Notesview
+
+Dim gnd_SIEx_SIEx As NotesDocument
+Dim g_FormatFichier_SIEx As String
+Dim g_SeparateurCSV_SIEx As String
+Dim g_RemplacerParCSV_SIEx As String
+Dim g_DocumentExportationOuvert_SIEx As Integer
+Dim g_OngletCourant_SIEx As String
+Dim g_LigneCourante_SIEx As Long
+Dim g_NbDocumentsExportes_SIEx As Long
+Dim g_CheminAccesTemp_SIEx As String
+Dim g_NoFichierTemp_SIEx As Integer
+Dim ga_CaracteresEffacer_SIEx(1) As String	' CSV - Liste des caractères à remplacer par un espace (retours de charriot)
+
+Dim ga_ParametresValeurs_SIEx As Variant	' utilisé dans SIEx_InitialiserParametres
+Dim ga_Variables_SIEx As Variant					' utilisé dans SIEx_VerifierSelectionSupp
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIEx = "SL"
+Const gc_Element_SIEx = "SI_Exportations"
+
+
+</lotusscript></code><code event="SIEx_SelectionnerExportation"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_SelectionnerExportation(Byval p_Categorie As String) As String
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sélectionner l'exportation à effectuer.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim v_Exportation As Variant
+	Dim nuiws As NotesUIWorkspace
+	
+	SIEx_SelectionnerExportation = ""
+	Call SIEx_Initialisations
+	Call Initialisation_xSIEx
+	
+	Set nuiws = New Notesuiworkspace
+	
+	' Si aucune catégorie n'est spécifiée, sélectionner une exportation parmis toutes les catégorie
+	' ---------------------------------------------------------------------------------------------------------------------------------------------
+	If p_Categorie = "" Then
+		If gnv_SIEx20_SIEx Is Nothing Then
+			Set gnv_SIEx20_SIEx = gndb_xSIEx.Getview("v_SIEx20")
+		End If
+		
+		Set nd = gnv_SIEx20_SIEx.Getfirstdocument
+		If nd Is Nothing Then
+			MessageBox xGDK_xMessage("SI", 241, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+		
+		' Sélection de l'Exportation
+		v_Exportation = nuiws.Pickliststrings(PICKLIST_CUSTOM, False, gndb_xSIEx.Server, gndb_xSIEx.Filepath, _
+		"v_SIEx10", xGDK_xMessage("SI", 242, "", ""), 	xGDK_xMessage("SI", 243, "", ""), 3)
+		
+		' Si une catégorie est spécifiée, sélectionner une exportation de la catégorie
+		' ------------------------------------------------------------------------------------------------------------------
+	Else
+		If gnv_SIEx10_SIEx Is Nothing Then
+			Set gnv_SIEx10_SIEx = gndb_xSIEx.Getview("v_SIEx10")
+		End If
+		
+		Set nd = gnv_SIEx10_SIEx.Getdocumentbykey(p_Categorie)
+		If nd Is Nothing Then
+			MessageBox xGDK_xMessage("SI", 244, "", p_Categorie), 16, xGDK_xMessage("SI", 1, "", "")
+			' 244: Il n'y a aucune exportation disponible dans la catégorie &amp;.
+			Exit Function
+		End If
+		
+		' Sélection de l'Exportation
+		v_Exportation = nuiws.Pickliststrings(PICKLIST_CUSTOM, False, gndb_xSIEx.Server, gndb_xSIEx.Filepath, _
+			"v_SIEx10", xGDK_xMessage("SI", 242, "", ""), 	xGDK_xMessage("SI", 243, "", ""), 3, p_Categorie)
+	End If
+	
+	If Isarray(v_Exportation) Then
+		SIEx_SelectionnerExportation = v_Exportation(Lbound(v_Exportation))
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIEx_EnregistrerFichier"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_EnregistrerFichier(p_Exportation As String, p_CheminFichier As String, p_AfficherDB As Integer) As Long
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'exporter les documents de la collection dans un document Excel.
+	'
+	' Paramètres:
+	'	pndc:						Collection. 
+	'	p_Exportation:				Nom de l'exportation (modèle). Optionnel
+	'	p_CheminFichier:			Chemin d'accès pour la sauvegarde, optionnel
+	'	p_AfficherDB:				Utilisé si p_SauvegarderExportation est à True.
+	'	Valeur retournée:			&gt; 0 = Nb de documents exportés (ok), 0 = Aucun document sélectionné, &lt; 0 = Erreur, -265 = Exportation annulée
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	
+	Dim nuiws As NotesUIWorkspace
+	Dim a As Variant
+	Dim v_NomFichier As String
+	Dim v_Extension As String
+	
+	SIEx_EnregistrerFichier = 0
+	
+	If g_NbDocumentsExportes_SIEx = 0 Then
+		MessageBox "Aucun tableau à exporter", 32, "Opération annulée"
+		SIEx_EnregistrerFichier = -32
+	Else
+		If g_FormatFichier_SIEx = "CSV" Then
+			Close g_NoFichierTemp_SIEx
+			
+			If p_CheminFichier = "" Then
+				p_CheminFichier = SIEx_NomFichierSauvegarde(xVarSIEx(p_Exportation, "SIEx_CheminDefaut", "", True), "csv")
+				If p_AfficherDB Then
+					Set nuiws = New NotesUiWorkspace
+					a = nuiws.SaveFileDialog(False, "Sauvegarde", "*.CSV")
+					If Not IsEmpty(a) Then
+						p_CheminFichier = SIEx_NomFichierSauvegarde(a(0), "csv")
+					End If
+				End If
+			End If
+			
+			If p_CheminFichier = "" Then
+				SIEx_EnregistrerFichier = -265
+				Exit Function
+			End If
+			
+			' L'extension du fichier a pu être changée dans la boîte de dialogue
+			v_NomFichier = StrRightBack(p_CheminFichier, "\")	
+			If Dir$(p_CheminFichier) &lt;&gt; "" then
+				Kill p_CheminFichier
+			End If
+			FileCopy g_CheminAccesTemp_SIEx, p_CheminFichier
+			SIEx_EnregistrerFichier = 1
+			Kill g_CheminAccesTemp_SIEx
+		Else
+			' Ajuster la largeur des colonnes
+			' ------------------------------------------------------------
+			If xVarSIEx(p_Exportation, "SIEx_AjusterColonnes", "", True) = "1" Then
+				Call SIMX_AjusterLargeurColonnes
+			End If
+			' Ajuster la hauteur des lignes
+			' --------------------------------------------------------
+			Call SIMX_AjusterHauteurLignes
+
+			' Réactiver les calculs automatiques
+			Call SIMX_ReactiverCalculsAutomatiques
+			
+			' Sauvegarder le document excel
+			' --------------------------------------------------
+			SIEx_EnregistrerFichier = SIEx_EnregistrerExportation(p_Exportation, p_CheminFichier, p_AfficherDB)
+			If SIEx_EnregistrerFichier = 1 Then
+				Print "Exportation terminée. " &amp; CStr(g_NbDocumentsExportes_SIEx) &amp; " documents exportés."
+			ElseIf SIEx_EnregistrerFichier = -265 Then
+				Print "Exportation annulée."
+			End If
+		End If
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	SIEx_EnregistrerFichier = -238
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, GetThreadInfo(1), p_Exportation, False)
+	Call SIEx_FermerExcel(False)
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="SIEx_FermerExcel"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Sub SIEx_FermerExcel(p_NePasFermerExcel As Boolean)
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de fermer Excel proprement.
+	' p_NePasFermerExcel = True : Relâcher le programme Excel mais le laisser actif dans Windows (visible) RQ51336 PBE
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	
+	' Fermer Excel
+	' ---------------------
+	g_ClasseurCourant_SIXT = ""
+	g_LangueCourante_SIXT = ""
+	g_CheminAccesClasseurExcel_SIXT = ""
+	
+	Call SIMX_FermerExcel(p_NePasFermerExcel)
+	If p_NePasFermerExcel = False then
+		Call SIXT_TerminerTraitement
+	End If
+	
+	g_DocumentExportationOuvert_SIEx = False
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIEx_NomFichierSauvegarde"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_NomFichierSauvegarde(p_CheminAcces As String, p_Extension As String) As String
+	'------------------------------------------------------------------------------------------------------------------------------	
+	'	Ce script remplace les signets dans le chemin d'accès du fichier d'exportation et ajoute l'extension passée en paramètre.
+	'
+	'	Paramètres:
+	'		p_CheminAcces	: chemin d'accès au fichier (ex: champ SIEx_CheminDefaut de l'exportation F_SIEX)
+	'		p_Extension		: extension qu'on veut donner au fichier (ex: CSV, XLS,...)
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	
+	Dim v_CheminAcces As String
+	Dim v_Extension As String
+
+	v_CheminAcces = p_CheminAcces
+	
+	' Remplacer les signets standards
+	' ---------------------------------------------
+	'	Call SIEx_RemplacerSignetCheminAcces(v_CheminAcces, "[#MesDocuments]", |fx:@RegQueryValue("HKEY_CURRENT_USER"; "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders"; "Personal")|)
+	'	Call SIEx_RemplacerSignetCheminAcces(v_CheminAcces, "[#MesDocuments]", |%UserProfile%\Documents|)
+	Call SIEx_RemplacerSignetCheminAcces(v_CheminAcces, "[#Date]", Format(Today, "YYYYMMDD"))
+	Call SIEx_RemplacerSignetCheminAcces(v_CheminAcces, "[#Unique]", xUnique(""))
+	
+	' Extension du fichier d'exportation
+	If p_Extension &lt;&gt; "" Then
+		If Right(v_CheminAcces, 1) = "." Then
+			v_CheminAcces = v_CheminAcces &amp; p_Extension
+		Else
+			If InStr(v_CheminAcces, ".") &gt; 0 Then
+				v_Extension = LCase(StrRightBack(v_CheminAcces, "."))
+				If v_Extension &lt;&gt; LCase(p_Extension) Then
+					v_CheminAcces = v_CheminAcces &amp; "." &amp; p_Extension
+				End If
+			Else
+				v_CheminAcces = v_CheminAcces &amp; "." &amp; p_Extension
+			End If
+		End If
+	End If
+	
+	SIEx_NomFichierSauvegarde = v_CheminAcces
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, GetThreadInfo(1), p_CheminAcces, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIEx_ExporterTableauDocuments"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_ExporterTableauDocuments(pa_nd As Variant, p_Exportation As String, Byval p_Categorie As String, p_Langue As String, pa_Parametres As Variant, _
+	Byval p_SauvegarderExportation As Boolean, p_CheminFichier As String, p_AfficherDB As Integer) As Long
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'exporter un tableaux de documents vers Excel.
+	'
+	' Paramètres:
+	'	pa_nd:						Tableau de documents 
+	'	p_Exportation:				Nom de l'exportation (modèle). Optionnel
+	'	p_Categorie:				Catégorie pour la fenêtre de sélection si p_Exportation est nul. Optionnel
+	'	p_Langue					Langue du modèle. Optionnel NOUVEAU RQ51336 PBE
+	'	pa_Parametres:				Paramètres de sélection des documents pour inclusion dans le fichier Excel
+	'	p_SauvegarderExportation: 	True pour sauvegarder l'exportation
+	'	p_AfficherDB:				Utilisé si p_SauvegarderExportation est à True
+	'	Valeur retournée:			&gt; 0 = Nb de documents exportés (ok), 0 = Aucun document sélectionné, &lt; 0 = Erreur, -265 = Exportation annulée
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim i As Long
+	Dim v_NbLus As Long
+	Dim v_Resultat As Long
+		
+	' Initialisations
+	SIEx_ExporterTableauDocuments = 0
+	Call SIEx_Initialisations
+	g_LigneCourante_SIEx = 0
+	
+	' Sélectionner l'exportation à effectuer
+	If p_Exportation = "" Then
+		p_Exportation = SIEx_SelectionnerExportation(p_Categorie)
+		If p_Exportation = "" Then
+			SIEx_ExporterTableauDocuments = -265
+			Print "Exportation annulée."
+			Exit Function
+		End If
+	End If
+	
+	Set gnd_SIEx_SIEx = xndSIEx(p_Exportation, False)
+	If gnd_SIEx_SIEx Is Nothing Then
+		SIEx_ExporterTableauDocuments = -1
+		Print "Exportation annulée - Document d'exportation inexistant. (" &amp; p_Exportation &amp; ")"
+		Exit Function
+	End If
+	
+	If Not Isarray(pa_nd) Then
+		Print "Exportation annulée - Aucun document sélectionné. (" &amp; p_Exportation &amp; ")"
+		Exit Function
+	Elseif pa_nd(0) Is Nothing Then
+		Print "Exportation annulée - Aucun document sélectionné. (" &amp; p_Exportation &amp; ")"
+		Exit Function
+	End If
+	
+	Print "Exportations des documents... "
+	
+	' Ouvrir Excel
+	If SIEx_OuvrirDocumentExportation(p_Exportation, p_Langue, pa_Parametres, True, "") Then
+		
+		' Boucler sur tous les documents du tableau
+		For i = Lbound(pa_nd, 1) To Ubound(pa_nd, 1)
+			v_NbLus = v_NbLus + 1
+			If v_NbLus Mod 1000 = 0 Then
+				Print "Exportations des documents... " &amp; Cstr(v_NbLus) &amp; "/" &amp; Ubound(pa_nd) + 1
+			End If
+			
+			' Ajouter le document dans Excel
+			If Not SIEx_AjouterDocument(pa_nd(i), p_Exportation) Then
+				SIEx_ExporterTableauDocuments = -238
+				Print "Exportation annulée - Erreur dans l'ajout de documents vers Excel. (" &amp; p_Exportation &amp; ")"	
+				Goto FermerExcel
+			End If
+		Next
+		
+		If p_SauvegarderExportation Then
+			v_Resultat = SIEx_EnregistrerFichier(p_Exportation, p_CheminFichier, p_AfficherDB)
+			If v_Resultat = 1 Then
+				SIEx_ExporterTableauDocuments = v_NbLus
+			Else
+				SIEx_ExporterTableauDocuments = v_Resultat
+			End If
+		Else
+			SIEx_ExporterTableauDocuments = v_NbLus
+		End If
+
+		If g_FormatFichier_SIEx = "XL" Then
+			GoTo FermerExcel
+		End If
+	Else
+		SIEx_ExporterTableauDocuments = -1
+		Print "Exportation annulée - Problème lors de l'ouverture d'Excel. (" &amp; p_Exportation &amp; ")"	
+	End If
+	Exit Function
+	
+	' Fermer Excel
+FermerExcel:
+	Call SIEx_FermerExcel(False)
+	Exit Function
+	
+GererErreur:
+	SIEx_ExporterTableauDocuments = -238
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, Getthreadinfo(1), "", False)
+	Call SIEx_FermerExcel(False)
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="SIEx_ExporterTableau"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_ExporterTableau(pa_Donnees As Variant, p_Entetes As Variant, p_Sauvegarder As Boolean) As Long
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'exporter le contenu d'un tableau dans une feuille Excel.   ************* EXCEL SEULEMENT *********************
+	'
+	' Paramètres:
+	'		pa_Donnees:		Tableau qui contient les valeurs à exporter
+	'		p_Entetes:		Nom des entêtes de colonnes dans la feuille Excel
+	' 2017-11-13 PBE : 2 paramètres inutilisés retirés
+	'	Valeur retournée:			&gt; 0 = Nb de documents exportés (ok), 0 = Aucun document sélectionné, &lt; 0 = Erreur, -265 = Exportation annulée
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	
+	Dim v_NoEnteteExcel As Long
+	Dim v_NoEnteteTableau As Integer
+	Dim v_NoColonneExcel As Long
+	Dim v_NoColonneTableau As Integer
+	Dim v_NoLigneExcel As Long
+	Dim v_NoLigneTableau As Integer 
+	
+	SIEx_ExporterTableau = 0
+	
+	' Initialisation
+	' --------------
+	Call SIEx_Initialisations
+	
+	' Démarrer Excel
+	'---------------
+	If Not SIMX_DemarrerExcel(False) Then
+		Exit Function
+	End If
+	
+	' Ouvrir un classeur Excel
+	' ------------------------
+	If Not SIMX_NouveauClasseur("")Then
+		SIEx_ExporterTableau = -1
+		GoTo FermerExcel
+	End If
+	
+	g_NbDocumentsExportes_SIEx = 0
+	
+	Print "Exportation du tableau vers Excel... "
+	
+	' Ajouter les entêtes de colonnes (en gras) dans la feuille Excel
+	' ---------------------------------------------------------------
+	Call SIMX_AssignerPolice("", "", True, False)
+	v_NoEnteteExcel = 0
+	If IsArray(p_Entetes) Then
+		For v_NoEnteteTableau = LBound(p_Entetes) To UBound(p_Entetes)
+			v_NoEnteteExcel = v_NoEnteteExcel + 1
+			Call SIMX_InsererTexteCellule(CStr(p_Entetes(v_NoEnteteTableau)), 1, v_NoEnteteExcel)
+		Next
+	ElseIf p_Entetes = "" Then 
+		GoTo FermerExcel
+	End If
+	
+	' Boucler dans le tableau et l'exporter dans la feuille Excel
+	' -----------------------------------------------------------
+	Call SIMX_AssignerPolice("", "", False, False)
+	
+	v_NoLigneExcel = 1 
+	
+	For v_NoLigneTableau = (LBound(pa_Donnees, 1)) To UBound(pa_Donnees, 1)
+		v_NoLigneExcel = v_NoLigneExcel + 1
+		v_NoColonneExcel = 0
+		For v_NoColonneTableau = LBound(pa_Donnees, 2) To UBound(pa_Donnees, 2)
+			v_NoColonneExcel = v_NoColonneExcel + 1	
+			If Not SIMX_InsererTexteCellule(CStr(pa_Donnees(v_NoLigneTableau, v_NoColonneTableau)), v_NoLigneExcel, v_NoColonneExcel) Then
+				GoTo FermerExcel
+			End If
+		Next
+		g_NbDocumentsExportes_SIEx = g_NbDocumentsExportes_SIEx + 1
+		If v_NoLigneExcel Mod 1000 = 0 Then
+			Print "Exportation du tableau... " &amp; CStr(v_NoLigneExcel) &amp; " lignes exportées"
+		End If
+	Next
+	
+	' Sauvegarder l'exportation
+	' -------------------------
+	If g_NbDocumentsExportes_SIEx = 0 Then
+		MessageBox "Aucun document à exporter", 32, "Opération annulée"
+		GoTo FermerExcel
+	Else
+		' Réactiver les calculs automatiques
+		Call SIMX_ReactiverCalculsAutomatiques
+		
+		If p_Sauvegarder Then
+			' Ajuster la largeur des colonnes et la hauteur des lignes
+			' --------------------------------------------------------
+			Call SIMX_AjusterLargeurColonnes
+			Call SIMX_AjusterHauteurLignes
+				
+			' Sauvegarder la feuille Excel
+			' ----------------------------
+			SIEx_ExporterTableau = SIEx_EnregistrerExportation("", "", True)
+			If SIEx_ExporterTableau = 1 Then
+				SIEx_ExporterTableau = g_NbDocumentsExportes_SIEx
+				Print "Exportation terminée. " &amp; CStr(g_NbDocumentsExportes_SIEx) &amp; " documents exportés."
+			ElseIf SIEx_ExporterTableau = -265 Then
+				Print "Exportation annulée."
+			End If
+		Else
+			SIEx_ExporterTableau = 1
+		End If
+	End If
+	
+	' Fermer Excel
+	' ------------
+	If p_Sauvegarder Then
+FermerExcel:
+		Call SIEx_FermerExcel(False)
+	End If
+	Exit Function
+	
+GererErreur:
+	SIEx_ExporterTableau = -238
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, GetThreadInfo(1), "", False)
+	Call SIEx_FermerExcel(False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIEx_Initialisations"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Sub SIEx_Initialisations
+	If gns_SIEx Is Nothing Then
+		Set gns_SIEx = New Notessession
+		Call Initialisation_xSIEx
+		
+		g_DocumentExportationOuvert_SIEx = False
+		ga_CaracteresEffacer_SIEx(0) = Chr(10)
+		ga_CaracteresEffacer_SIEx(1) = Chr(13)
+	End If
+End Sub
+
+</lotusscript></code><code event="SIEx_OuvrirOnglet"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_OuvrirOnglet(p_Onglet As String, pa_Parametres As Variant) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'ouvrir un onglet du classeur Excel et d'initialiser les entêtes.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim a As Variant
+	Dim i As Long
+	Dim v_Ligne As Long
+	Dim v_Colonne As Long
+	Dim v_Entetes As Variant
+	Dim v_ColonneCourante As Long
+	
+	SIEx_OuvrirOnglet = False
+	
+	If p_Onglet &lt;&gt; "" And p_Onglet &lt;&gt; g_OngletCourant_SIEx Then
+		' Ouvrir l'onglet
+		' --------------------
+		Call SIMX_OuvrirFeuille(p_Onglet, True)
+		g_OngletCourant_SIEx = p_Onglet
+	End If
+	
+	' Assigner les paramètres
+	' ---------------------------------
+	a = xVarArray(gnd_SIEx_SIEx, "SIEx_Parametres")
+	If Isarray(a) Then
+		If Not Isarray(pa_Parametres) Then
+			pa_Parametres = Evaluate(|"| &amp; Cstr(pa_Parametres) &amp; |"|)
+		End If
+		Call SIMX_AssignerPolice(xVar(gnd_SIEx_SIEx, "SIEx_Police", ""), xVar(gnd_SIEx_SIEx, "SIEx_TaillePolice", ""), "", "")
+		
+		For i = Lbound(a) To Ubound(a)
+			If i &gt; Ubound(pa_Parametres) Then
+				Exit For
+			End If
+			
+			If i &gt;= Lbound(pa_Parametres) Then
+				v_Ligne = Clng(Right(a(i), Len(a(i)) - 1))
+				v_Colonne = Asc(Left(a(i), 1)) - Asc("A") + 1
+				Call SIMX_InsererTexteCellule(pa_Parametres(i), v_Ligne, v_Colonne)
+			End If
+		Next			
+	End If
+	
+	g_LigneCourante_SIEx = xVar(gnd_SIEx_SIEx, "SIEx_SauterLignes", 0)
+	
+	' Initialiser les entêtes de colonne
+	' --------------------------------------------
+	If xVar(gnd_SIEx_SIEx, "SIEx_PasEntetesDeColonnes", "") &lt;&gt; "1" Then
+		Call SIMX_AssignerPolice(xVar(gnd_SIEx_SIEx, "SIEx_Police", ""), xVar(gnd_SIEx_SIEx, "SIEx_TaillePolice", ""), True, "")
+		
+		v_Entetes = xVar(gnd_SIEx_SIEx, "SIEx_Entetes", "")	
+		If Isarray(v_Entetes) Then
+			g_LigneCourante_SIEx = g_LigneCourante_SIEx + 1
+			v_ColonneCourante = 0
+			For i = Lbound(v_Entetes) To Ubound(v_Entetes)
+				v_ColonneCourante = v_ColonneCourante + 1
+				If Not(SIMX_InsererTexteCellule(v_Entetes(i), g_LigneCourante_SIEx, v_ColonneCourante)) Then
+					Exit Function
+				End If
+			Next
+		Else
+			If v_Entetes &lt;&gt; "" Then
+				g_LigneCourante_SIEx = g_LigneCourante_SIEx + 1
+				If Not SIMX_InsererTexteCellule(Cstr(v_Entetes), g_LigneCourante_SIEx, 1) Then
+					Exit Function
+				End If
+			End If
+		End If
+	End If
+	
+	Call SIMX_AssignerPolice(xVar(gnd_SIEx_SIEx, "SIEx_Police", ""), xVar(gnd_SIEx_SIEx, "SIEx_TaillePolice", ""), "", "")
+	
+	SIEx_OuvrirOnglet = True
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, Getthreadinfo(1), p_Onglet, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIEx_ExporterDocument"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_ExporterDocument(pnd As Notesdocument, p_Exportation As String, Byval p_Categorie As String, p_Langue As String, pa_Parametres As Variant, _
+	Byval p_SauvegarderExportation As Integer, p_CheminFichier As String, p_AfficherDB As Integer) As Long
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'exporter un document.
+	'
+	' Paramètres:
+	'	pnd:						Document à exporter. 
+	'	p_Exportation:				Nom de l'exportation (modèle). Optionnel
+	'	p_Categorie:				Catégorie pour la fenêtre de sélection si p_Exportation est nul. Optionnel
+	'	p_Langue					Langue du modèle. Optionnel NOUVEAU RQ51336 PBE
+	'	pa_Parametres:				Paramètres de sélection des documents pour inclusion dans le fichier Excel.
+	'	p_SauvegarderExportation: 	True pour sauvegarder l'exportation
+	'	p_AfficherDB:				Afficher le DialogBox.  Utilisé si p_SauvegarderExportation est à True.
+	'	Valeur retournée:			&gt; 0 = Nb de documents exportés (ok), 0 = Aucun document sélectionné, &lt; 0 = Erreur, -265 = Exportation annulée
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+
+	Dim v_Resultat As Long
+	
+	SIEx_ExporterDocument = 0
+	Call SIEx_Initialisations
+	
+	If Not pnd Is Nothing Then
+		' Sélectionner l'exportation à imprimer
+		' ---------------------------------------------------
+		If p_Exportation = "" Then
+			p_Exportation = SIEx_SelectionnerExportation(p_Categorie)
+		End If
+		
+		If p_Exportation &lt;&gt; "" Then
+			' Ouvrir un document d'exportations dans Word
+			' ---------------------------------------------------------------------
+			If SIEx_OuvrirDocumentExportation(p_Exportation, p_Langue, pa_Parametres, True, "") Then
+				
+				' Ajouter un document
+				' ---------------------------------
+				If Not SIEx_AjouterDocument(pnd, p_Exportation) Then
+					SIEx_ExporterDocument = -238
+					g_DocumentExportationOuvert_SIEx = False
+					GoTo FermerExcel
+				End If	
+			Else
+				SIEx_ExporterDocument = -1
+				Exit Function
+			End If
+		End If
+	End If
+	
+	If p_SauvegarderExportation Then
+		v_Resultat = SIEx_EnregistrerFichier(p_Exportation, p_CheminFichier, p_AfficherDB)
+		If v_Resultat = 1 Then
+			SIEx_ExporterDocument = g_NbDocumentsExportes_SIEx
+		Else
+			SIEx_ExporterDocument = v_Resultat
+		End If
+	Else
+		SIEx_ExporterDocument = g_NbDocumentsExportes_SIEx
+	End If
+
+	If g_FormatFichier_SIEx = "XL" Then
+		GoTo FermerExcel
+	End If
+	Exit Function
+	
+	' Fermer Excel
+	' ---------------------
+FermerExcel:
+	Call SIEx_FermerExcel(False)
+	Exit Function
+	
+GererErreur:
+	SIEx_ExporterDocument = -238
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, Getthreadinfo(1), p_Exportation, False)
+	Call SIEx_FermerExcel(False)
+	g_DocumentExportationOuvert_SIEx = False
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIEx_AjouterDocument"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_AjouterDocument(pnd As Notesdocument, p_Exportation As String) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'ajouter un document (ligne) dans un document Excel.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd_SIEx As NotesDocument
+	
+	Dim i As Long
+	Dim v As Variant
+	Dim v_LigneCourante As String
+	Dim v_ValeurNouvelle As String
+	Dim v_Colonne As String
+	Dim v_Colonnes As Variant
+	Dim v_ColonneCourante As Long
+	Dim v_Continue As Boolean
+	Dim v_Erreur As String
+	Dim v_Format As String
+	Dim v_Formats As Variant
+	Dim v_NbFormats As Integer
+	
+	SIEx_AjouterDocument = False
+	v_Continue = True
+	
+	Set nd_SIEx = xndSIEx(p_Exportation, True)
+	v_LigneCourante = ""
+	v_Colonnes = xVarArray(nd_SIEx, "SIEx_Colonnes")
+	If Not Isarray(v_Colonnes) Then
+		Exit Function
+	End If
+	v_Formats = xVarArray(nd_SIEx, "SIEx_Formats")
+	If Isarray(v_Formats) Then
+		v_NbFormats = Ubound(v_Formats)
+	Else
+		v_NbFormats = -1
+	End If
+	
+	If Isarray(v_Colonnes) Then
+		' Remplacer les signets
+		' -----------------------------------
+		For i = Lbound(v_Colonnes) To Ubound(v_Colonnes)
+			v_Erreur = v_Colonnes(i)
+			If Left(v_Colonnes(i), 1) &lt;&gt; "&lt;" Then
+				v = Evaluate(v_Colonnes(i), pnd)
+				If Isarray(v) Then
+					If Ubound(v) &gt; 0 Then
+						v_Colonnes(i) = Implode(v, ":")
+					Else
+						v_Colonnes(i) = v(0)
+					End If
+				Else
+					v_Colonnes(i) = ""
+				End If
+				
+			End If
+		Next
+		
+		' Ajouter les valeurs au classeur Excel
+		' ----------------------------------------------------------
+		g_LigneCourante_SIEx = g_LigneCourante_SIEx + 1
+		v_ColonneCourante = 0
+		For i = Lbound(v_Colonnes) To Ubound(v_Colonnes)
+			v_ColonneCourante = v_ColonneCourante + 1
+			If Left(v_Colonnes(i), 1) &lt;&gt; "&lt;" Then
+				If i &lt;= v_NbFormats Then
+					v_Format = v_Formats(i)
+				Else
+					v_Format = "S"
+				End If
+				
+				If g_FormatFichier_SIEx = "CSV" Then
+					If v_LigneCourante &lt;&gt; "" Then
+						v_LigneCourante = v_LigneCourante &amp; g_SeparateurCSV_SIEx
+					End If
+					If v_Colonnes(i) &lt;&gt; "" Then
+						If v_Format = "Y"  Then	' Date
+							v_ValeurNouvelle = Format(CDat(v_Colonnes(i)), "yyyy-mm-dd")
+						Else
+							v_ValeurNouvelle = Replace(CStr(v_Colonnes(i)), ga_CaracteresEffacer_SIEx, " ")
+						End If
+						v_LigneCourante = v_LigneCourante &amp; Replace(v_ValeurNouvelle, g_SeparateurCSV_SIEx, g_RemplacerParCSV_SIEx)
+					End If
+				Else
+					If v_Colonnes(i) &lt;&gt; "" Then
+						Select Case v_Format
+						Case "Y" :	' Date
+							v_Continue = SIMX_InsererDateCellule(Cdat(v_Colonnes(i)), g_LigneCourante_SIEx, v_ColonneCourante)
+						Case "L" :	' Long
+							v_Continue = SIMX_InsererLongCellule(Clng(v_Colonnes(i)), g_LigneCourante_SIEx, v_ColonneCourante)
+						Case "D" :	' Double
+							v_Continue = SIMX_InsererDoubleCellule(Cdbl(v_Colonnes(i)), g_LigneCourante_SIEx, v_ColonneCourante)
+						Case Else :	' String
+							v_Continue = SIMX_InsererTexteCellule(v_Colonnes(i), g_LigneCourante_SIEx, v_ColonneCourante)
+					End Select
+					End If
+				End If
+				
+				If v_Continue = False Then
+					Exit Function
+				End If
+			End If
+		Next
+	End If
+	
+	If g_FormatFichier_SIEx = "CSV" then
+		Print #g_NoFichierTemp_SIEx, v_LigneCourante
+	End If
+	g_NbDocumentsExportes_SIEx = g_NbDocumentsExportes_SIEx + 1
+	SIEx_AjouterDocument = True	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, Getthreadinfo(1), p_Exportation &amp; " - " &amp; v_Erreur, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIEx_InitialiserParametres"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Sub SIEx_InitialiserParametres(pnd_SIEx As NotesDocument, pa_Parametres As Variant)
+	On Error GoTo GererErreur
+
+	Dim a_Parametres As Variant
+	Dim i As Integer
+	Dim v As Variant
+	
+	If IsArray(pa_Parametres) Then
+		ga_ParametresValeurs_SIEx = pa_Parametres
+	ElseIf pa_Parametres &lt;&gt; "" Then
+		ga_ParametresValeurs_SIEx = pa_Parametres
+	Else	
+		a_Parametres = xVarArray(pnd_SIEx, "SIEx_ParametresFormules")
+		If IsArray(a_Parametres) Then
+			ReDim a_ValeursParametres(UBound(a_Parametres)) As String
+			For i = 0 To UBound(a_Parametres)
+				v = Evaluate(a_Parametres(i))
+				ga_ParametresValeurs_SIEx = v(0)
+			Next
+		Else
+			ga_ParametresValeurs_SIEx = ""
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SIEx_OuvrirDocumentExportation"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_OuvrirDocumentExportation(p_Exportation As String, p_Langue As String, pa_Parametres As Variant, _
+	p_DesactiverCalculsAuto As Boolean, p_NomFichier As string) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'ouvrir un document d'exportation dans Excel.
+	'	p_Langue			: Langue du modèle. Optionnel NOUVEAU RQ51336 PBE
+	'	p_NomFichier	: Nom du classeur type. Optionnel.  Chemin d'accès optionnel. NOUVEAU RQ51336 PBE
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim v_DossierTemp As String
+	Dim v_CheminAcces As String
+	Dim a_Entetes As Variant
+	Dim v_Onglet As String
+	
+	SIEx_OuvrirDocumentExportation = False
+	Set gnd_SIEx_SIEx = xndSIEx(p_Exportation, False)
+	g_FormatFichier_SIEx = xVar(gnd_SIEx_SIEx, "SIEx_FormatResultat", "XL")
+	
+	If Not g_DocumentExportationOuvert_SIEx Then
+		g_NbDocumentsExportes_SIEx = 0
+		Call SIEx_InitialiserParametres(gnd_SIEx_SIEx, pa_Parametres)
+		
+		If g_FormatFichier_SIEx = "CSV" Then
+			g_SeparateurCSV_SIEx = xVar(gnd_SIEx_SIEx, "SIEx_SeparateurCSV", ";")
+			g_RemplacerParCSV_SIEx = xVar(gnd_SIEx_SIEx, "SIEx_RemplacerParCSV", ".")
+
+			' Ouvrir un fichier texte temporaire
+			v_DossierTemp = Environ("Temp") &amp; "\SIEx"
+			g_CheminAccesTemp_SIEx = v_DossierTemp &amp; "\" &amp; xUnique("") &amp; ".csv"
+			On Error 75 Resume next
+			MkDir v_DossierTemp
+			
+			g_NoFichierTemp_SIEx = FreeFile()
+			Open g_CheminAccesTemp_SIEx For Append As g_NoFichierTemp_SIEx CHARSET="utf-16"
+			
+			If xVar(gnd_SIEx_SIEx, "SIEx_PasEntetesDeColonnes", "") &lt;&gt; "1" Then
+				a_Entetes = xVarArray(gnd_SIEx_SIEx, "SIEx_Entetes")
+				If IsArray(a_Entetes) Then
+					Print #g_NoFichierTemp_SIEx, Implode(Replace(a_Entetes, g_SeparateurCSV_SIEx, g_RemplacerParCSV_SIEx), g_SeparateurCSV_SIEx)
+				End If
+			End If
+		Else
+			' Démarrer Excel
+			'------------------------
+			If Not SIMX_DemarrerExcel(False) Then
+				Exit Function
+			End If
+			
+			' Ouvrir un classeur
+			' -------------------------
+			If xVar(gnd_SIEx_SIEx, "SIEx_NomClasseurType", "") &lt;&gt; "" Then
+				v_CheminAcces = SIXT_ExtraireClasseurType(xVar(gnd_SIEx_SIEx, "SIEx_NomClasseurType", ""), p_Langue, p_NomFichier)
+				If v_CheminAcces = "" Then
+					Goto FermerExcel
+				End If
+				If Not SIMX_OuvrirClasseur(False, v_CheminAcces) Then
+					Goto FermerExcel
+				End If
+			Else
+				v_Onglet = xVar(gnd_SIEx_SIEx, "SIEx_Onglet", "")
+				If Not SIMX_NouveauClasseur(v_Onglet) Then
+					Goto FermerExcel
+				End If
+			End If
+			
+			Call SIEx_InitialiserDocumentExportation(pa_Parametres, p_DesactiverCalculsAuto)
+		End If
+		
+		g_DocumentExportationOuvert_SIEx = True
+	End If
+	
+	SIEx_OuvrirDocumentExportation = True	
+	Exit Function
+	
+	' Fermer Excel
+	' ---------------------
+FermerExcel:
+	Call SIEx_FermerExcel(False)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIEx_InitialiserDocumentExportation"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_InitialiserDocumentExportation(pa_Parametres As Variant, p_DesactiverCalculsAuto As Boolean) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'ouvrir un document d'exportation dans EXCEL.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	
+	Dim v_Onglet As String
+	
+	SIEx_InitialiserDocumentExportation = False
+	v_Onglet = xVar(gnd_SIEx_SIEx, "SIEx_Onglet", "")
+	
+	g_OngletCourant_SIEx = ""
+	g_LigneCourante_SIEx = 0
+
+	Call SIEx_OuvrirOnglet(v_Onglet, ga_ParametresValeurs_SIEx)
+
+	If p_DesactiverCalculsAuto Then
+		Call SIMX_DesactiverCalculsAutomatiques
+	End If
+
+	SIEx_InitialiserDocumentExportation = True	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIEx_ExporterCollection"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_ExporterCollection(pndc As Variant, p_Exportation As String, Byval p_Categorie As String, p_Langue As String, pa_Parametres As Variant, _
+	Byval p_SauvegarderExportation As Boolean, p_CheminFichier As String, p_AfficherDB As Integer) As Long
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'exporter les documents de la collection dans un document Excel.
+	'
+	' Paramètres:
+	'	pndc:						Collection. 
+	'	p_Exportation:				Nom de l'exportation (modèle). Optionnel
+	'	p_Categorie:				Catégorie pour la fenêtre de sélection si p_Exportation est nul. Optionnel
+	'	p_Langue					Langue du modèle. Optionnel NOUVEAU RQ51336 PBE
+	'	pa_Parametres:				Paramètres de sélection des documents pour inclusion dans le fichier Excel.
+	'	p_SauvegarderExportation:	True pour sauvegarder l'exportation
+	'	p_CheminFichier:			Chemin d'accès pour la sauvegarde, optionnel
+	'	p_AfficherDB:				Utilisé si p_SauvegarderExportation est à True.
+	'	Valeur retournée:			&gt; 0 = Nb de documents exportés (ok), 0 = Aucun document sélectionné, &lt; 0 = Erreur, -265 = Exportation annulée 
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim v_Formule As String
+	Dim nd_Suivant As Notesdocument
+	Dim nd As Notesdocument
+	Dim v_NbLus As Long
+	Dim v_Resultat As Long
+	
+	SIEx_ExporterCollection = 0
+	Call SIEx_Initialisations
+	g_LigneCourante_SIEx = 0
+	
+	' Sélectionner l'exportation à effectuer
+	' ----------------------------------------------------------
+	If p_Exportation = "" Then
+		p_Exportation = SIEx_SelectionnerExportation(p_Categorie)
+		If p_Exportation = "" Then
+			SIEx_ExporterCollection = -265
+			Print "Exportation annulée."
+			Exit Function
+		End If
+	End If
+	
+	Set gnd_SIEx_SIEx = xndSIEx(p_Exportation, False)
+	If gnd_SIEx_SIEx Is Nothing Then
+		SIEx_ExporterCollection = -1
+		Print "Exportation annulée - Document d'exportation inexistant. (" &amp; p_Exportation &amp; ")"
+		Exit Function
+	End If
+	
+	if pndc Is Nothing then
+		v_Formule = xVar(gnd_SIEx_SIEx, "SIEx_Select", "")
+		If v_Formule &lt;&gt; "" Then
+			Set pndc = gndb_xSIEx.Search(v_Formule, Nothing, 0)
+		End If
+	End If
+	
+	If pndc Is Nothing Then
+		Print "Exportation annulée - Aucun document sélectionné. (" &amp; p_Exportation &amp; ")"
+		Exit Function
+	Elseif pndc.Count = 0 Then
+		Print "Exportation annulée - Aucun document sélectionné. (" &amp; p_Exportation &amp; ")"
+		Exit Function
+	End If
+	
+	Print "Exportations des documents... "
+	
+	' Ouvrir un document d'exportations dans Excel
+	' ------------------------------------------------------------------------
+	If SIEx_OuvrirDocumentExportation(p_Exportation, p_Langue, pa_Parametres, True, "") Then
+		
+		' Boucle sur tous les documents sélectionnés
+		' ---------------------------------------------------------------------
+		Set nd_Suivant = pndc.Getfirstdocument
+		Do Until nd_Suivant Is Nothing
+			Set nd = nd_Suivant
+			Set nd_Suivant = pndc.Getnextdocument(nd_Suivant)
+			v_NbLus = v_NbLus + 1
+			If v_NbLus Mod 1000 = 0 Then
+				Print "Exportations des documents... " &amp; Cstr(v_NbLus) &amp; "/" &amp; pndc.Count
+			End If
+			
+			' Ajouter un document
+			' ---------------------------------
+			If Not SIEx_AjouterDocument(nd, p_Exportation) Then
+				SIEx_ExporterCollection = -238
+				GoTo FermerExcel
+			End If
+		Loop
+		
+		If p_SauvegarderExportation Then
+			v_Resultat = SIEx_EnregistrerFichier(p_Exportation, p_CheminFichier, p_AfficherDB)
+			If v_Resultat = 1 Then
+				SIEx_ExporterCollection = v_NbLus
+			Else
+				SIEx_ExporterCollection = v_Resultat
+			End If
+		Else
+			SIEx_ExporterCollection = v_NbLus
+		End If
+
+		If g_FormatFichier_SIEx = "XL" Then
+			GoTo FermerExcel
+		End If
+	Else
+		SIEx_ExporterCollection = -1
+		Print "Exportation annulée - Problème lors de l'ouverture d'Excel. (" &amp; p_Exportation &amp; ")"	
+	End If
+	Exit Function
+	
+	' Fermer Excel
+	' ---------------------
+FermerExcel:
+	Call SIEx_FermerExcel(False)
+	Exit Function
+	
+GererErreur:
+	SIEx_ExporterCollection = -238
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, Getthreadinfo(1), p_Exportation, False)
+	Call SIEx_FermerExcel(False)
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="SIEx_EnregistrerExportation"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIEx_EnregistrerExportation(Byval p_Exportation As String, p_CheminFichier As String, p_AfficherDB As Integer) As Long
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de formater le classeur EXCEL et de le sauvegarder.
+	' Pour les dossiers spéciaux, utiliser les raccourcis de Windows : %Temp% ou %UserProfile%\Documents
+	'	Valeur retournée:			&gt; 0 = Nb de documents exportés (ok), 0 = Aucun document sélectionné, &lt; 0 = Erreur, -265 = Exportation annulée
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim v As Variant
+	Dim v_CheminAcces As String
+	
+	SIEx_EnregistrerExportation = 0
+	
+	' Sauvegarder le document excel
+	' --------------------------------------------
+	If p_CheminFichier &lt;&gt; "" Then
+		v_CheminAcces = p_CheminFichier
+	ElseIf p_Exportation &lt;&gt; "" then
+		v_CheminAcces = xVarSIEx(p_Exportation, "SIEx_CheminDefaut", "", True)
+	End If
+
+	' Remplacer les signets standards
+	' ---------------------------------------------
+	v_CheminAcces = SIEx_NomFichierSauvegarde(v_CheminAcces, "")
+	
+	If SIMX_EnregistrerClasseur(p_AfficherDB, v_CheminAcces, "") Then
+		SIEx_EnregistrerExportation = 1
+	Else
+		SIEx_EnregistrerExportation = -265	' Exportation annulée
+	End If
+	Exit Function
+	
+GererErreur:
+	SIEx_EnregistrerExportation = -238		' Une erreur s'est produite pendant le traitement.  Voir le registre pour plus d'information.
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, Getthreadinfo(1), p_Exportation, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIEx_RemplacerSignetCheminAcces"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Sub SIEx_RemplacerSignetCheminAcces(p_CheminAcces As String, p_Signet As String, p_Valeur As String)
+	On Error GoTo GererErreur
+
+	Dim v As Variant
+	Dim v_Valeur As string
+
+	If InStr(1, p_CheminAcces, p_Signet, 1) &gt; 0 Then
+		If Left(p_Valeur, 3) = "fx:" Then
+			v = Evaluate(Right(p_Valeur, Len(p_Valeur - 2)))
+			v_Valeur = CStr(v(0))
+		Else
+			v_Valeur = p_Valeur
+		End If
+		p_CheminAcces = Replace(p_CheminAcces, p_Signet, v_Valeur, 1, 1, 1)
+	End If
+
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIEx, gc_Element_SIEx, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073641,37-05</datetime></item></scriptlibrary>
+
+</database>

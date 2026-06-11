@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><databaseinfo dbid="8525830500052BF1" odsversion="53" diskspace="41603039232" percentused="95.5450319346515" numberofdocuments="1059259"><datamodified><datetime dst="true">20260407T145159,61-04</datetime></datamodified><designmodified><datetime dst="true">20260407T182239,92-04</datetime></designmodified></databaseinfo>
+</database>

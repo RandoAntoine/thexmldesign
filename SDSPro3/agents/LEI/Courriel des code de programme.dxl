@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="LEI\Courriel des code de programme" alias="A_LEI" hide="v3" publicaccess="false" designerversion="8.5.3" comment="** SI Agents" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" activatable="false" enabled="false">
+<noteinfo noteid="5557ce" unid="3611DE0DD52FB284852586FC0057F63F" sequence="57">
+<created><datetime dst="true">20210622T120046,71-04</datetime></created>
+<modified><datetime>20260105T014837,68-05</datetime></modified>
+<revised><datetime>20250319T073740,81-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,67-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,67-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073740,34-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="byminutes" hours="1" minutes="0" runlocation="any"/></trigger>
+<documentset type="modified"/><code event="options"><lotusscript>Option Public
+Option Declare
+Use "x_SDSBB"
+Use "SI_Arrays"
+Use "SI_tRichText"
+Use "x_Tabl"
+Use "SI_CourrielsTypes"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As Notessession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+Const gc_TypeElement_Prod = "A"
+Const gc_Element_Prod = "A_LEI"
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call A_Initialisations	
+	Call xSDSBB_Initialisations
+	
+	' Courriel des code de produit sans produit ou produit inactif dans SDS Base II
+	Call A_CourrielProduitsCodeProgramme
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_Prod, gc_Element_Prod, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="A_CourrielProduitsCodeProgramme"><lotusscript>Sub A_CourrielProduitsCodeProgramme
+	On Error Goto GererErreur
+	
+	Dim nrti As NotesRichTextItem
+	Dim nd As NotesDocument
+	
+	' Construire le courriel des modifications
+	Set nd = SICT_ConstruireMessage(Nothing, "A_CodePg", "", "", "", "", False, "")
+	
+	Set nrti = nd.GetFirstItem("Body")
+	
+	' Construire et envoyé le courriel
+	If A_CourrielRechCodeProgramme(nrti) Then
+		Call nd.Send(False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_Prod, gc_Element_Prod, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_CourrielRechCodeProgramme"><lotusscript>Function A_CourrielRechCodeProgramme(pnrti As NotesRichTextItem) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_Formule As String
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim  nd_Suivant_SDSBB As NotesDocument
+	Dim v_CleProduit As String
+	Dim l_Codes List As String	
+	Dim nd_Tabl As NotesDocument
+	Dim a_CodesProgramme As Variant
+	Dim nd_Prod As NotesDocument
+	Dim a_Codes As Variant	
+	Dim v_Pos As Variant
+	Dim i As Integer	
+	Dim j As Integer
+	Dim k As Integer
+	Dim v_Code As String
+	Dim v_StatutProd_SDSBB As String
+	Dim v_CodeTrouve As Boolean
+	
+	
+	' Sélectionner les produits dont une description a changé
+	v_Formule = {Form = "F_Prod" &amp; !@IsNull(Prod_ProgNomItem3)}	
+	Set ndc = gndb_xSDSBB.Search(v_Formule, Nothing, 0)
+	If ndc.Count = 0 Then
+		Exit Function
+	End If
+	
+	' Construire la liste des produits
+	Set nd_Suivant_SDSBB = ndc.Getfirstdocument
+	Do Until nd_Suivant_SDSBB Is Nothing
+		Set nd_Prod_SDSBB = nd_Suivant_SDSBB
+		Set nd_Suivant_SDSBB = ndc.Getnextdocument(nd_Suivant_SDSBB)
+		
+		v_CleProduit = xVar(nd_Prod_SDSBB, "Prod_CleProduit", "")
+		
+		If Not IsElement(l_Codes(v_CleProduit)) Then
+			l_Codes(v_CleProduit) = xVarImplode(nd_Prod_SDSBB, "Prod_ProgNomItem3", ";")
+		End If		
+	Loop
+	
+	' Retourne le tableau de code programme
+	Set nd_Tabl = xndTabl("CodesProgramme", True)		
+	a_CodesProgramme = nd_Tabl.Tabl_Descriptions
+	
+	If Not IsArray(a_CodesProgramme) Then
+		a_CodesProgramme = Split(a_CodesProgramme,";")
+	End If
+	
+	' Sortir la liste des code de programme utilisé par SDS Pro II qui sont inexistant ou inactif dans SDS Base II
+	For i = 0 To UBound(a_CodesProgramme)
+		v_Code = a_CodesProgramme(i)
+		v_CodeTrouve = False
+		
+		ForAll code In l_Codes
+			
+			'If code = v_Code Then
+			If InStr(UCase(code), UCase(v_Code)) &gt; 0 Then
+				
+				v_CodeTrouve = True
+				v_StatutProd_SDSBB = xSDSBB_xVarProd(ListTag(code), "Prod_Statut", "", True)
+				
+				If v_StatutProd_SDSBB = "90" Then
+					a_CodesProgramme(i) = a_CodesProgramme(i) &amp; " (Inactif)"
+				Else
+					a_CodesProgramme(i) = ""
+				End If
+				
+			End If
+			
+		End ForAll
+		
+		If Not v_CodeTrouve Then
+			a_CodesProgramme(i) = a_CodesProgramme(i) &amp; " (Inexistant)"
+		End If
+		
+	Next
+		
+
+	If IsArray(a_CodesProgramme) Then
+		a_Codes = ArrayUnique(FullTrim(a_CodesProgramme))		
+		If a_Codes(0) &lt;&gt; "" Then
+			A_CourrielRechCodeProgramme = True
+		End If		
+	Else
+		a_Codes = a_CodesProgramme
+		If a_Codes &lt;&gt; "" Then
+			A_CourrielRechCodeProgramme = True
+		End If		
+	End If
+	
+	If A_CourrielRechCodeProgramme Then
+		Call pnrti.AddNewLine(2)
+		
+		For i = 0 To UBound(a_Codes)
+			Call pnrti.AppendText(a_Codes(i))
+			Call pnrti.AddNewLine(1)
+		Next
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_Prod, gc_Element_Prod, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="F0A48D2F8B68AF6E85258D840037B5E3">
+<agentmodified><datetime>20260105T014837,68-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260407T050911,51-04</datetime></agentrun>
+<runlog>Started running agent 'LEI\Courriel des code de programme|A_LEI' on 2026-04-07 05:09:04 AM
+Running on new or modified documents: 1059268 total
+Found 1059268 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'LEI\Courriel des code de programme|A_LEI' on 2026-04-07 05:09:11 AM
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073740,81-05</datetime></item></agent>
+
+</database>

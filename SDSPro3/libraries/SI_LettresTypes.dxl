@@ -1,0 +1,567 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_LettresTypes" hide="v3 v4strict" comment="7.4">
+<noteinfo noteid="55570a" unid="0E29A4A4E5BF2567852586B40011FB82" sequence="76">
+<created><datetime dst="true">20210410T231624,98-04</datetime></created>
+<modified><datetime>20260105T014837,23-05</datetime></modified>
+<revised><datetime>20250319T073640,80-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,22-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,22-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Bruno Beauparlant/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Richard Riopel/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Automatisation/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_MSWord"
+Use "x_GDK"
+Use "x_SILT"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SILT As Notessession
+Dim gndb_SILT As Notesdatabase
+
+Dim gnuiws_SILT As Notesuiworkspace
+
+Dim gnv_SILT20_SILT As Notesview
+Dim gnV_SILT10_SILT As Notesview
+
+' Déclarations utilisées par SI_Word97
+' ----------------------------------------------------------
+Dim g_LettreCourante_SILT As String
+Dim g_LangueCourante_SILT As String
+Dim g_DossierTemp_SILT As String
+Dim g_CheminAccesDocumentWord_SILT As String
+Dim g_NbLettresImprimees_SILT As Long
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SILT = "SL"
+Const gc_Element_SILT = "SI_LettresTypes"
+
+</lotusscript></code><code event="SILT_TerminerTraitement"><lotusscript>Function SILT_TerminerTraitement As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de terminer le traitement proprement.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	SILT_TerminerTraitement = False
+	
+	' Fermer Word
+	' ---------------------
+	Call SIMW_FermerWord
+	
+	' Détruire le document Word
+	' -------------------------------------------
+	If g_CheminAccesDocumentWord_SILT &lt;&gt; "" Then
+		On Error 75 Resume Next
+		Kill g_CheminAccesDocumentWord_SILT
+		On Error 75 Goto GererErreur
+	End If
+	
+	SILT_TerminerTraitement = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SILT, gc_Element_SILT, Getthreadinfo(1), "", False)
+	Call SIMW_FermerWord
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SILT_ExtraireLettreType"><lotusscript>Function SILT_ExtraireLettreType(Byval p_Lettre As String, p_Langue As String, p_Muet As Boolean) As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'imprimer une lettre.
+	' p_Langue (IO) reçoit la langue à sélectionner et retourne la langue sélectionnée.
+	' p_Muet : True pour ne pas afficher les messages d'erreur.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim nrti As Variant
+	Dim ni As Notesitem
+	Dim neo As Notesembeddedobject
+	
+	Dim v_aneo As Variant						' Array of NotesEmbeddedObjects
+	Dim v_Langues As Variant
+	Dim v_NomDocumentWord As String
+	Dim v_Trouve As Integer
+	
+	SILT_ExtraireLettreType = False
+	
+	If p_Lettre &lt;&gt; g_LettreCourante_SILT Or p_Langue &lt;&gt; g_LangueCourante_SILT Then
+		' Extraire la lettre type
+		' --------------------------------
+		Set nd = xndSILT(p_Lettre, True)
+		If nd Is Nothing Then
+			If p_Muet = False then
+				Messagebox xGDK_xMessage("SI", 36, "", p_Lettre), 16, xGDK_xMessage("SI", 1, "", "")
+			End if
+			Exit Function
+		End If
+		
+		' Extraire l'item contenant les lettres types
+		' ---------------------------------------------------------------
+		Set nrti = nd.Getfirstitem("SILT_Lettres")
+		If nrti Is Nothing Then
+			If p_Muet = False Then
+				Messagebox xGDK_xMessage("SI", 37, "", p_Lettre), 16, xGDK_xMessage("SI", 1, "", "")
+			End if
+			Exit Function
+		Elseif nrti.Type &lt;&gt; RICHTEXT Then
+			If p_Muet = False Then
+				Messagebox xGDK_xMessage("SI", 37, "", p_Lettre), 16, xGDK_xMessage("SI", 1, "", "")
+			End If
+			Exit Function			
+		Elseif Isarray(nrti.Embeddedobjects) = False Then
+			If p_Muet = False Then
+				Messagebox xGDK_xMessage("SI", 37, "", p_Lettre), 16, xGDK_xMessage("SI", 1, "", "")
+			End If
+			Exit Function
+		End If
+		
+		' Si la langue demandée n'est pas définie, vérifie la langue par défaut
+		' -----------------------------------------------------------------------------------------------------------
+		Set ni = nd.Getfirstitem("SILT_Langues")
+		If Not ni.Contains(p_Langue) Then
+			If Ubound(ni.Values) = 0 Then
+				p_Langue = ni.Values(0)
+			Else
+				p_Langue = xVar(nd, "SILT_LangueDefaut", "")
+			End If
+		End If
+		
+		If p_Langue = "" Then
+			If p_Muet = False Then
+				Messagebox xGDK_xMessage("SI", 38, p_Langue, p_Lettre), 16, xGDK_xMessage("SI", 1, "", "")
+			End If
+			Exit Function
+		Else
+			v_aneo = nrti.EmbeddedObjects
+			
+			' S'il y a plusieurs lettres, vérifie si la langue recherchée y est
+			' ---------------------------------------------------------------------------------------------
+			v_Langues = xVar(nd, "SILT_Langues", "")
+			If Isarray(v_Langues) Then
+				' Rechercher le document correspondant à la langue demandée
+				' ---------------------------------------------------------------------------------------------------
+				If p_Lettre &lt;&gt; g_LettreCourante_SILT Or p_Langue &lt;&gt; g_LangueCourante_SILT Then
+					v_NomDocumentWord = SILT_NomDocumentWord(nd, p_Langue)
+					If v_NomDocumentWord = "" Then
+						If p_Muet = False Then
+							Messagebox xGDK_xMessage("SI", 38, "", Split(xVar(nd, "SILT_Nom", "") _
+							&amp; ";" &amp; p_Langue, ";")), 16, xGDK_xMessage("SI", 1, "", "")
+						End If
+						Exit Function
+					Else
+						v_Trouve = False
+						Forall neo2 In v_aneo
+							Set neo = neo2
+							If neo.Source = v_NomDocumentWord Then
+								If Not SILT_ExtraireDocumentWord(neo) Then
+									Exit Function
+								End If
+								
+								g_LettreCourante_SILT = p_Lettre
+								v_Trouve = True
+								Exit Forall
+							End If
+						End Forall
+						
+						If Not v_Trouve Then
+							If p_Muet = False Then
+								Messagebox xGDK_xMessage("SI", 38, "", Split(xVar(nd, "SILT_Nom", "") _
+								&amp; ";" &amp; p_Langue, ";")), 16, xGDK_xMessage("SI", 1, "", "")
+							End If
+							Exit Function
+						End If
+					End If
+				End If
+				
+				' S'il n'y a qu'une seule lettre
+				' -------------------------------------------
+			Else
+				If Lbound(v_aneo) &lt;&gt; Ubound(v_aneo) Then
+					If p_Muet = False Then
+						Messagebox xGDK_xMessage("SI", 39, "", p_Lettre), 16, _
+						xGDK_xMessage("SI", 1, "", "")
+					End if
+					Exit Function						
+				Else
+					If p_Lettre &lt;&gt; g_LettreCourante_SILT Then
+						If Not SILT_ExtraireDocumentWord(v_aneo(Lbound(v_aneo))) Then
+							Exit Function
+						End If
+					End If
+				End If
+			End If
+		End If
+	End If
+	
+	SILT_ExtraireLettreType = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SILT, gc_Element_SILT, Getthreadinfo(1), p_Lettre, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SILT_EnregistrerLettre"><lotusscript>Function SILT_EnregistrerLettre(pnd As Notesdocument, Byval p_Lettre As String, p_NomItemLangue As String, p_NomFichier As String) As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'enregistrer une lettre.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim v_Langue As String
+	
+	SILT_EnregistrerLettre = False
+	Call SILT_Initialisations
+	
+	' Extraire la lettre à imprimer
+	' -----------------------------------------
+	v_Langue = xVar(pnd, p_NomItemLangue, "")
+	If Not SILT_ExtraireLettreType(p_Lettre, v_Langue, False) Then
+		Exit Function
+	End If
+	
+	If v_Langue &lt;&gt; "" Then
+		' Démarer Word
+		' -----------------------
+		If Not SIMW_DemarrerWord(False) Then
+			Exit Function
+		End If
+		
+		' Ouvrir la lettre dans Word
+		' ----------------------------------------
+		If Not SIMW_OuvrirDocument(g_CheminAccesDocumentWord_SILT) Then
+			Exit Function
+		End If
+		
+		' Remplacer les signets
+		' -----------------------------------
+		Forall ni In pnd.Items
+			Call SIMW_TrouverRemplacer("[" &amp; ni.Name &amp; "]",  ni.Text)
+		End Forall
+		
+		' Imprimer la lettre
+		' --------------------------
+		If Not SIMW_EnregistrerDocument(False, p_NomFichier, "") Then
+			Exit Function
+		End If
+		
+		' Fermer le document
+		' -------------------------------
+		If Not SIMW_FermerDocument Then
+			Exit Function
+		End If
+		
+	End If
+	
+	SILT_EnregistrerLettre = True	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SILT, gc_Element_SILT, Getthreadinfo(1), p_Lettre, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SILT_ImprimerLettreDocument"><lotusscript>Function SILT_ImprimerLettreDocument(pnd As Notesdocument, p_Lettre As String, _
+Byval p_Categorie As String, Byval p_NomItemLangue As String, Byval p_FermerWord As Integer) As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'imprimer une lettre pour un seul document.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	SILT_ImprimerLettreDocument = False
+	Call SILT_Initialisations
+	
+	If Not pnd Is Nothing Then
+		' Sélectionner la lettre à imprimer
+		' -------------------------------------------------
+		If p_Lettre = "" Then
+			p_Lettre = SILT_SelectionnerLettre(p_Categorie)
+		End If
+		
+		If p_Lettre &lt;&gt; "" Then
+			' Imprimer la lettre type
+			' ---------------------------------
+			If Not SILT_ImprimerLettre(pnd, p_Lettre, p_NomItemLangue) Then
+				Call SILT_TerminerTraitement
+				Exit Function
+			End If
+		End If
+	End If
+	
+	' Terminer le traitement
+	' ----------------------------------
+	If p_FermerWord Then
+		Call SILT_TerminerTraitement
+	End If
+	
+	SILT_ImprimerLettreDocument = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SILT, gc_Element_SILT, Getthreadinfo(1), p_Lettre, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SILT_SelectionnerLettre"><lotusscript>Function SILT_SelectionnerLettre(Byval p_Categorie As String) As String
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sélectionner la lettre à imprimer.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim v_Lettre As Variant
+	
+	SILT_SelectionnerLettre = ""
+	
+	' Si une catégorie est spécifiée, vérifie si des lettres existent dans cette cette catégorie
+	' ------------------------------------------------------------------------------------------------------------------
+	If p_Categorie = "" Then
+		If gnV_SILT20_SILT Is Nothing Then
+			Set gnV_SILT20_SILT = gndb_SILT.Getview("V_SILT20")
+		End If
+		
+		Call gnV_SILT20_SILT.Refresh
+		Set nd = gnV_SILT20_SILT.Getfirstdocument
+		If nd Is Nothing Then
+			Messagebox xGDK_xMessage("SI", 32, "", ""), 16, xGDK_xMessage("SI", 6, "", "")
+			Exit Function
+		End If
+		
+		' Permet à l'utilisateur de sélectionner une lettre
+		v_Lettre = gnuiws_SILT.Pickliststrings(PICKLIST_CUSTOM, False, _
+		gndb_SILT.Server, 	gndb_SILT.Filepath, "V_SILT20", xGDK_xMessage("SI", 33, "", ""), _
+		xGDK_xMessage("SI", 34, "", ""), 1)
+		
+	' Si une catégorie est spécifiée, vérifie si des lettres existent dans cette cette catégorie
+	' --------------------------------------------------------------------------------------------------------------------------------------
+	Else
+		If gnV_SILT10_SILT Is Nothing Then
+			Set gnV_SILT10_SILT = gndb_SILT.Getview("V_SILT10")
+		End If
+		
+		Call gnV_SILT10_SILT.Refresh
+		Set nd = gnV_SILT10_SILT.Getdocumentbykey(p_Categorie)
+		If nd Is Nothing Then
+			Messagebox xGDK_xMessage("SI", 35, "", p_Categorie), 16, _
+			xGDK_xMessage("SI", 6, "", "")
+			Exit Function
+		End If
+		
+		' Permet à l'utilisateur de sélectionner une lettre
+		v_Lettre = gnuiws_SILT.Pickliststrings(PICKLIST_CUSTOM, False, _
+		gndb_SILT.Server, 	gndb_SILT.Filepath, "V_SILT2", xGDK_xMessage("SI", 33, "", ""), _
+		xGDK_xMessage("SI", 34, "", ""), 2, p_Categorie)
+	End If
+	
+	If Isarray(v_Lettre) Then
+		SILT_SelectionnerLettre = v_Lettre(Lbound(v_Lettre))
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SILT, gc_Element_SILT, Getthreadinfo(1), p_Categorie, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SILT_Initialisations"><lotusscript>Sub SILT_Initialisations
+	If gns_SILT Is Nothing Then
+		Set gns_SILT = New Notessession
+		Set gndb_SILT = gns_SILT.Currentdatabase
+		
+		Set gnuiws_SILT = New Notesuiworkspace
+		
+		g_DossierTemp_SILT = Environ("Temp") &amp; "\silt"
+	End If
+End Sub
+
+</lotusscript></code><code event="SILT_NomDocumentWord"><lotusscript>Function SILT_NomDocumentWord(pnd As Notesdocument, p_Langue As String) As String
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de trouver le nom du document Word à utiliser.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim i As Long
+	
+	SILT_NomDocumentWord = ""
+	
+	For i = Lbound(pnd.SILT_Langues) To Ubound(pnd.SILT_Langues) 
+		If pnd.SILT_Langues(i) = p_Langue Then
+			SILT_NomDocumentWord = pnd.SILT_NomsLettres(i)
+			Exit Function
+		End If
+	Next
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SILT, gc_Element_SILT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SILT_ImprimerLettre"><lotusscript>Function SILT_ImprimerLettre(pnd As Notesdocument, Byval p_Lettre As String, p_NomItemLangue As String) As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'imprimer une lettre.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim v_Langue As String
+	
+	SILT_ImprimerLettre = False
+	
+	' Extraire la lettre à imprimer
+	' -----------------------------------------
+	v_Langue = xVar(pnd, p_NomItemLangue, "")
+	If Not SILT_ExtraireLettreType(p_Lettre, v_Langue, False) Then
+		Exit Function
+	End If
+	
+	If v_Langue &lt;&gt; "" Then
+		' Démarer Word
+		' -----------------------
+		If Not SIMW_DemarrerWord(False) Then
+			Exit Function
+		End If
+		
+		' Ouvrir la lettre dans Word
+		' ----------------------------------------
+		If Not SIMW_OuvrirDocument(g_CheminAccesDocumentWord_SILT) Then
+			Exit Function
+		End If
+		
+		' Remplacer les signets
+		' -----------------------------------
+		Forall ni In pnd.Items
+			Call SIMW_TrouverRemplacer("[" &amp; ni.Name &amp; "]",  ni.Text)
+		End Forall
+		
+		' Remplacer les signets standards
+		' ---------------------------------------------
+		Call SIMW_TrouverRemplacer("[#Date]", Format(Today, "Short Date"))
+		Call SIMW_TrouverRemplacer("[#Heure]", Format(Time, "Short Time"))
+		Call SIMW_TrouverRemplacer("[#Utilisateur]", gns_SILT.CommonUserName)
+		
+		' Imprimer la lettre
+		' --------------------------
+		If Not SIMW_ImprimerDocument(False) Then
+			Exit Function
+		End If
+		
+		' Fermer le document
+		' -------------------------------
+		If Not SIMW_FermerDocument Then
+			Exit Function
+		End If
+		
+		g_NbLettresImprimees_SILT = 	g_NbLettresImprimees_SILT + 1
+	End If
+	
+	SILT_ImprimerLettre = True	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SILT, gc_Element_SILT, Getthreadinfo(1), p_Lettre, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SILT_ExtraireDocumentWord"><lotusscript>Function SILT_ExtraireDocumentWord(pneo As Notesembeddedobject) As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sauvegarder le document Word dans le dossier temporaire.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	On Error 75 Resume Next		' Kill : Si le fichier n'existe pas --&gt; OK
+	
+	SILT_ExtraireDocumentWord = False
+	
+	' Détruire le document Word précédent
+	' ------------------------------------------------------------
+	If g_CheminAccesDocumentWord_SILT &lt;&gt; "" Then
+		Kill g_CheminAccesDocumentWord_SILT
+	End If
+	
+	' Créer le dossier temporaire (au besoin)
+	' ------------------------------------------------------------
+	Mkdir g_DossierTemp_SILT
+	
+	' Générer le nouveau document Word
+	' ----------------------------------------------------------
+	g_CheminAccesDocumentWord_SILT = g_DossierTemp_SILT &amp; "\" &amp; pneo.Source
+	Kill g_CheminAccesDocumentWord_SILT
+	Call pneo.Extractfile(g_CheminAccesDocumentWord_SILT)
+	
+	SILT_ExtraireDocumentWord = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SILT, gc_Element_SILT, Getthreadinfo(1), _
+	g_DossierTemp_SILT &amp; "\" &amp; pneo.Source, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SILT_ImprimerLettreCollection"><lotusscript>Function SILT_ImprimerLettreCollection(pndc As Notesdocumentcollection, p_Lettre As String, _
+Byval p_Categorie As String, Byval p_NomItemLangue As String) As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'imprimer une lettre pour chaque document de la collection..
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd_Suivant As Notesdocument
+	Dim nd As Notesdocument
+	Dim v_Erreur As Integer
+	Dim v_NbLus As Long
+	
+	SILT_ImprimerLettreCollection = False
+	Call SILT_Initialisations
+	g_NbLettresImprimees_SILT = 0
+	v_Erreur = False
+	
+	' Sélectionner la lettre à imprimer
+	' -------------------------------------------------
+	If p_Lettre = "" Then
+		p_Lettre = SILT_SelectionnerLettre(p_Categorie)
+	End If
+	
+	If p_Lettre &lt;&gt; "" Then
+		
+		' Boucle sur tous les documents sélectionnés
+		' ---------------------------------------------------------------------
+		Set nd_Suivant = pndc.Getfirstdocument
+		Do Until nd_Suivant Is Nothing
+			Set nd = nd_Suivant
+			Set nd_Suivant = pndc.Getnextdocument(nd_Suivant)
+			v_NbLus = v_NbLus + 1
+			Print xGDK_xMessage("SI", 4, "", "") &amp; Cstr(v_NbLus) &amp; "/" &amp; pndc.Count
+			
+			' Imprimer la lettre type
+			' ---------------------------------
+			If Not SILT_ImprimerLettre(nd, p_Lettre, p_NomItemLangue) Then
+				v_Erreur = True
+				Set nd_Suivant = Nothing
+			End If
+		Loop
+		
+		If Not v_Erreur Then
+			SILT_ImprimerLettreCollection = True
+		End If
+		
+		' Terminer le traitement
+		' ----------------------------------
+		Call SILT_TerminerTraitement
+	End If
+	
+	If SILT_ImprimerLettreCollection Then
+		Print xGDK_xMessage("SI", 4, "", "") &amp; Cstr(g_NbLettresImprimees_SILT) &amp; _
+		xGDK_xMessage("SI", 31, "", "")
+	Else
+		Print xGDK_xMessage("SI", 4, "", "") &amp; Cstr(g_NbLettresImprimees_SILT) &amp; _
+		xGDK_xMessage("SI", 31, "", "")
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SILT, gc_Element_SILT, Getthreadinfo(1), p_Lettre, False)
+	Call SIMW_FermerWord
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073640,80-05</datetime></item></scriptlibrary>
+
+</database>

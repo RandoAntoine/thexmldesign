@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><note class="form">
+<noteinfo noteid="164a" unid="3B5FE26693782A9B85257A300064E547" sequence="177">
+<created><datetime dst="true">20120703T142202,95-04</datetime></created>
+<modified><datetime>20260105T014845,21-05</datetime></modified>
+<revised><datetime dst="true">20190410T103430,38-04</datetime></revised>
+<lastaccessed><datetime>20260105T014845,20-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205707,33-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<item name="$Flags"><text>~C4g</text></item>
+<item name="$FlagsExt"><text>w</text></item>
+<item name="$TITLE"><text>WEB-INF/faces-config.xml</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$FileSize" sign="true"><number>55</number></item>
+<item name="$FileData" sign="true">
+<rawitemdata type="1">
+YQAYAAAAAAA3AAAAAQAAAAAAAAAAAAAAYABJAAAANwA4AAAAAAAAAAAAPD94bWwgdmVyc2lvbj0i
+MS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGZhY2VzLWNvbmZpZy8+CgA=
+</rawitemdata></item>
+<item name="$FileNames" sign="true"><text>WEB-INF/faces-config.xml</text></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>WEB-INF/faces-config.xml</text></item></note>
+
+</database>

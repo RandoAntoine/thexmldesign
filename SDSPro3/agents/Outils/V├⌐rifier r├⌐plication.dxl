@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Outils\Vérifier réplication" alias="A_OVRp" hide="v3" publicaccess="false" designerversion="8.5.3" comment="Envoi la liste des erreurs par courriel" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" restrictions="unrestricted" enabled="false">
+<noteinfo noteid="555892" unid="99E487FE674497BA852588AF006A71A1" sequence="21">
+<created><datetime dst="true">20220831T152239,05-04</datetime></created>
+<modified><datetime>20260105T014838,01-05</datetime></modified>
+<revised><datetime>20250319T073742,37-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,00-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,00-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073741,91-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="runonce"/><code event="options"><lotusscript>'
+' Cet agent bâtit un courriel avec un tableau des documents qui rencontrent les critères définis dans le code.
+'
+Option Public
+Option Explicit
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As Notessession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_OVRp"		' Inscrire l'alias de l'agent
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+	On Error 4091 Resume Next
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim ndb_Serveur As NotesDatabase
+	Dim nv As NotesView
+	Dim nd As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd_serveur As NotesDocument
+	Dim v_Serveur As String
+	Dim v_Unid As String
+	Dim v_Form As String
+	Dim v_Cle As String
+	Dim v_Desc As String
+	Dim v_Now As Variant
+	Dim v_FilePath As String
+	Dim ndc As NotesDocumentCollection
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	Dim v_NbSansChanger As Long
+	Dim v_NbCorrompu As Long
+	
+	Dim v_LogMaj As Long
+	Dim v_MsgDlBox As String
+	Call A_initialisations
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)
+	
+	If gndb_A.server &lt;&gt; "" Then
+		v_Serveur = nuiws.Prompt(PROMPT_OKCANCELEDIT, "Sélection du serveur", "Quel est nom commun du serveur principal? (ex.: Kilo)")
+		If v_Serveur = "" Then
+			Exit Sub
+		End If
+		v_Serveur = v_Serveur &amp; "/Serti Informatique"
+		v_FilePath = gndb_A.FilePath
+	Else
+		v_Serveur = "Kilo/Serti Informatique"
+		v_FilePath = StrRightBack(gndb_A.FilePath, "Data\")
+	End If
+	
+	Set ndb_Serveur = gns_A.Getdatabase(v_Serveur, v_FilePath, False)
+	If (ndb_Serveur Is Nothing) Then
+		MessageBox "Base sur le Serveur non trouvé", 16, "Opération annulée."
+		Exit Sub
+	End If
+	
+	Print "Début"
+	Set ndc = gndb_A.CreateDocumentCollection
+	
+	v_MsgDlBox = "Voulez-vous faire la MAJ des documents trouvés?" &amp; Chr(10) &amp; "    - Oui = Log + Maj" &amp; Chr(10) &amp; "    - Non = Log seulement" &amp; Chr(10) &amp; "    - Annuler = Sortir" 
+	v_LogMaj = nuiws.Prompt( PROMPT_YESNOCANCEL, "Confirmation", v_MsgDlBox ) 
+	If v_LogMaj = -1 Then
+		Exit Sub
+	End If
+	If v_LogMaj Then
+		Call SIGE_AjouterLog("*****  MAJ DES DOCUMENTS ACTIVEE  *****", 0, 0, False)
+	Else
+		Call SIGE_AjouterLog("*****  PAS DE MAJ EFFECTUÉES - LOG SEULEMENT  *****", 0, 0, False)
+	End If
+	
+	v_Now = Now
+	Set nv = gndb_A.Getview("V_AdmT")
+	Set nd_Suivant = nv.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = nv.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		
+		v_Unid = nd.Universalid
+		Set nd_Serveur = Nothing
+		Set nd_serveur = ndb_Serveur.Getdocumentbyunid(v_Unid)
+		If nd_Serveur Is Nothing Then
+			v_Form = xVar(nd, "Form", "")
+			v_Cle = xVar(nd, "Cle", "")
+			v_Desc = xVar(nd, "Description", "")
+			Call SIGE_AjouterLog("Doc non trouvé - Form: " &amp; v_Form &amp; "   - Cle: " &amp; v_Cle &amp; "   - Desc: " &amp; v_Desc, 0,0, False)
+			
+			' modifier le doc avec un champ bidon pour la prochaine réplication
+			If v_LogMaj Then
+				Call ndc.AddDocument(nd)
+'			 nd.Temp_Mod = v_Now
+'			 Call nd.save(True, True)
+			End If
+			v_NbMaj = v_NbMaj + 1
+		ElseIf Not(nd_Serveur.Isvalid) Then
+			v_Form = xVar(nd, "Form", "")
+			v_Cle = xVar(nd, "Cle", "")
+			v_Desc = xVar(nd, "Description", "")
+			Call SIGE_AjouterLog("Doc invalide - Form: " &amp; v_Form &amp; "   - Cle: " &amp; v_Cle &amp; "   - Desc: " &amp; v_Desc, 0,0, False)
+			
+			' modifier le doc avec un champ bidon pour la prochaine réplication
+			If v_LogMaj Then
+				Call ndc.AddDocument(nd)
+'				nd.Temp_Mod = v_Now
+'				Call nd.save(True, True)
+			End If
+			v_NbCorrompu = v_NbCorrompu + 1
+		Else
+			' Aucun changement
+			v_NbSansChanger = v_NbSansChanger + 1
+		End If
+		
+		If (v_NbLus Mod 10000) = 0 Then
+			Print CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus)
+		End If
+	Loop
+	
+	If v_LogMaj And ndc.Count &gt; 0 Then
+		Call ndc.Stampall("Temp_Mod", v_Now)
+	End If
+	
+	Call SIGE_AjouterLog("Fin " &amp; CStr(v_NbLus) &amp; " documents lus / " &amp; CStr(v_NbMaj) &amp; " non trouvés / " &amp; CStr(v_NbCorrompu) &amp; " documents invalides", 0, 0, False)
+	Call SIGE_EnregistrerLog
+	
+	Print "Fin " &amp; CStr(v_NbMaj + v_NbCorrompu) &amp; "/" &amp; CStr(v_NbLus)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_AjouterLog("ERREUR!  " &amp; CStr(Erl()) &amp; ": " &amp; Error(), Err(), 119, False)
+	Call SIGE_EnregistrerLog
+	Print "Erreur " &amp; CStr(Err()) &amp; " à la ligne " &amp; CStr(Erl()) &amp; ": " &amp; Error()
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20181030T093019,92-05</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20250319T073742,37-05</datetime></item></agent>
+
+</database>

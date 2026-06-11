@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Maj projeto" alias="A_MajP" hide="v3" publicaccess="false" designerversion="8.5.3" comment="** SI Agents 60min" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" restrictions="unrestricted" activatable="false" enabled="false">
+<noteinfo noteid="5558c6" unid="C268C09F50B8EDA1852589430073AD63" sequence="18">
+<created><datetime>20230126T160330,27-05</datetime></created>
+<modified><datetime>20260105T014838,10-05</datetime></modified>
+<revised><datetime>20250319T073741,64-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,09-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,09-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073741,17-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="daily" runlocation="any">
+<starttime><datetime>T010000,00</datetime></starttime></schedule></trigger>
+<documentset type="modified"/><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SDSP_Proposition"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As Notessession
+Dim gndb_A As Notesdatabase
+
+' Traitement des erreurs
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_MajP"		' Inscrire l'alias de l'agent
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call A_Initialisations
+	
+	' Traitement
+	Call A_Traitement
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="A_Traitement"><lotusscript>Sub A_Traitement
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As Notesdocument
+	Dim nd_Suivant As Notesdocument
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	Print "Début"
+	
+	Set ndc = gndb_A.Search({Form = "F_Prop" &amp; (Prop_MajProjet = "1" | Prop_PJCreerNote = "1") &amp; @IsNotMember(Prop_Origine; "SICl" : "SF")}, Nothing, 0)
+	Set nd_Suivant = ndc.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		
+		If xVar(nd, "Prop_MajProjet", "") = "1" Then
+			Call SDSPP_MajProjet(nd)
+		End If
+		If xVar(nd, "Prop_PJCreerNote", "") = "1" Then
+			Call SDSPP_CreerNoteDsProjeto(nd)
+		End If
+		Call nd.Save(True, False)
+		v_NbMaj = v_NbMaj + 1
+		
+		If (v_NbLus Mod 1000) = 0 Then
+			Print Cstr(v_NbMaj) &amp; "/" &amp; Cstr(v_NbLus)
+		End If
+	Loop
+	
+	Print "Fin " &amp; Cstr(v_NbMaj) &amp; "/" &amp; Cstr(v_NbLus)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="FE6A586B6EBC32C485258D81006314F5">
+<agentmodified><datetime>20260105T014838,10-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260407T180320,81-04</datetime></agentrun>
+<runlog>Started running agent 'Maj projeto|A_MajP' on 2026-04-07 06:02:49 PM
+Running on new or modified documents: 1059259 total
+Found 1059259 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Maj projeto|A_MajP' on 2026-04-07 06:03:20 PM
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073741,64-05</datetime></item></agent>
+
+</database>

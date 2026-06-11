@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SL_SecuriteMasque" hide="v3 v4strict" designerversion="8.5.3" comment="1.0">
+<noteinfo noteid="2f21ee" unid="32240A68DC3F8872852587AB007A82C4" sequence="43">
+<created><datetime>20211214T171808,68-05</datetime></created>
+<modified><datetime>20250319T074102,38-05</datetime></modified>
+<revised><datetime>20250319T073633,69-05</datetime></revised>
+<lastaccessed><datetime>20250319T074102,37-05</datetime></lastaccessed>
+<addedtofile><datetime>20211214T172833,41-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SLSM As NotesSession
+
+' Liste des champs AUTHORS - initialisée dans le sub Initialisations
+Dim g_NomItemsAuteurs_SLSM As Variant
+
+' Traitement des erreurs
+Const gc_TypeElement_SLSM = "SL"
+Const gc_Element_SLSM = "SL_SecuriteMasque"
+
+' Instructions pour changer la liste des champs AUTHORS
+' Dans le SL appelant:
+'	Call SLSM_Initialisations
+'	g_NomItemsAuteurs_SLSM = Evaluate(|"Liste":"des":"champs":"AUTHORS"|)
+
+</lotusscript></code><code event="SLSM_PeutModifierDocument"><lotusscript>Function SLSM_PeutModifierDocument(pnd As NotesDocument, p_NomItemsAuteurs As Variant) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim a_NomItemsAuteurs As Variant
+	Dim v_ContientChampAuteurs As Boolean
+	Dim i As Integer
+	Dim a_ValeurItem As Variant
+	Dim a_AuteursAutorises As Variant
+	Dim v_RolesPermis As string
+	Dim a_Roles As Variant
+
+	SLSM_PeutModifierDocument = False
+	Call SLSM_Initialisations
+	v_ContientChampAuteurs = False
+	
+	' Construire la liste des champs AUTHORS
+	If IsArray(p_NomItemsAuteurs) Then
+		a_NomItemsAuteurs = p_NomItemsAuteurs
+	Else
+		a_NomItemsAuteurs = Evaluate(|"| &amp; p_NomItemsAuteurs &amp; |"|)
+	End If
+	
+	If a_NomItemsAuteurs(LBound(a_NomItemsAuteurs)) = "" Then	' Pas de champs AUTHORS
+		SLSM_PeutModifierDocument = True
+	Else
+		For i = LBound(a_NomItemsAuteurs) To UBound(a_NomItemsAuteurs)
+			If pnd.HasItem(a_NomItemsAuteurs(i)) Then
+				v_ContientChampAuteurs = True
+				Exit For
+			End if
+		Next
+		
+		If v_ContientChampAuteurs = False Then							
+			SLSM_PeutModifierDocument = True					' Le document ne contient pas de champs AUTHORS
+		Else
+			
+			' Construire la liste des auteurs autorisés (Ids et rôles)
+			For i = LBound(a_NomItemsAuteurs) To UBound(a_NomItemsAuteurs)
+				a_ValeurItem = xVarArray(pnd, a_NomItemsAuteurs(i))
+				If IsArray(a_ValeurItem) Then
+					If IsArray(a_AuteursAutorises) Then
+						a_AuteursAutorises = ArrayAppend(a_AuteursAutorises, a_ValeurItem)
+					Else
+						a_AuteursAutorises = a_ValeurItem
+					End If
+				End If
+			Next
+
+			' Vérifier si l'utilisateur fais partie des auteurs autorisés
+			If IsArray(a_AuteursAutorises) then
+				If Not IsNull(ArrayGetIndex(a_AuteursAutorises, gns_SLSM.UserName, 1)) Then		' Username
+					SLSM_PeutModifierDocument = True
+				Else																	' Rôles
+					v_RolesPermis = |"| &amp; Join(a_AuteursAutorises, |":"|) &amp; |"|
+					a_Roles = Evaluate(|!@IsNotMember(| &amp; v_RolesPermis &amp; |; @UserRoles)|)
+					If a_Roles(0) = 1 Then
+						SLSM_PeutModifierDocument = True
+					End If
+				End If
+			End if
+		End If
+	End if
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSM, gc_Element_SLSM, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLSM_QueryModeChange"><lotusscript>Sub SLSM_QueryModeChange(pnuid_Source As NotesUIDocument, p_Continue As Variant)
+	On Error GoTo GererErreur
+	
+	Dim ni As NotesItem
+	Dim v_PlateformeSDS As Boolean
+	
+	p_Continue = False
+		
+	If pnuid_Source.EditMode Then
+		p_Continue = True
+	ElseIf SLSM_PeutModifierDocument(pnuid_Source.Document, g_NomItemsAuteurs_SLSM) Then
+		p_Continue = True
+	End If
+	
+	If p_Continue = False Then
+		MessageBox xGDK_xMessage("SI", 255, "", ""), 16, xGDK_xMessage("SI", 1, "", "") 
+	End If	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSM, gc_Element_SLSM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SLSM_QueryOpen"><lotusscript>Sub SLSM_QueryOpen(pnuid_Source As NotesUIDocument, p_Mode As Integer, p_Isnewdoc As Variant, p_Continue As Variant)
+	On Error GoTo GererErreur
+	
+	Dim ni As NotesItem
+	Dim v_PlateformeSDS As Boolean
+	
+	p_Continue = False
+		
+	If p_Mode &lt;&gt; 1 Or p_IsNewDoc Then
+		p_Continue = True
+	ElseIf SLSM_PeutModifierDocument(pnuid_Source.Document, g_NomItemsAuteurs_SLSM) Then
+		p_Continue = True
+	End If
+	
+	If p_Continue = False Then
+		MessageBox xGDK_xMessage("SI", 255, "", ""), 16, xGDK_xMessage("SI", 1, "", "") 
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSM, gc_Element_SLSM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SLSM_Initialisations"><lotusscript>Sub SLSM_Initialisations
+	On Error GoTo GererErreur
+
+	Dim v_Langue As Variant
+	
+	If gns_SLSM Is Nothing Then
+		Set gns_SLSM = New NotesSession
+		
+		g_NomItemsAuteurs_SLSM = Evaluate(|"AuteursAdmin":"Auteurs"|)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSM, gc_Element_SLSM, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073633,69-05</datetime></item></scriptlibrary>
+
+</database>

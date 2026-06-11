@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="V_AdmS" hide="v3 v4strict" comment="1.4">
+<noteinfo noteid="55574a" unid="97D5C72461FF9396852586B40011FB9B" sequence="76">
+<created><datetime dst="true">20210410T231625,23-04</datetime></created>
+<modified><datetime>20260105T014837,37-05</datetime></modified>
+<revised><datetime>20250319T073633,62-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,36-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,36-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "x_GDK"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_VAdmS As notesSession
+Dim gndb_VAdmS As NotesDatabase
+
+Dim gnuiws_VAdmS As notesuiworkspace
+Dim gnuiv_VAdmS As notesuiview
+
+' Traitement des erreurs
+Const gc_TypeElement_VAdmS = "SL"
+Const gc_Element_VAdmS = "V_AdmS"
+
+</lotusscript></code><code event="VAdmS_acRestaurer"><lotusscript>Sub VAdmS_acRestaurer
+'===============================================================	
+'	Restaurer des documents  par l'administrateur
+'===============================================================	
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument 		
+	Dim nd_Suivant As Notesdocument
+	Dim v_NbMaj As Long
+	
+	' Initialisations
+	Call VAdmS_Initialisations	
+	
+	Set ndc = gndb_VAdmS.UnprocessedDocuments
+	If ndc.Count = 0 Then
+		' Aucun document sélectionné.
+		Messagebox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If	
+	
+	'Valider avec l'usager
+	If Messagebox(xGDK_xMessage("SI", 112, "", ""), 36, xGDK_xMessage("SI", 98, "", Cstr(ndc.Count))) &lt;&gt; 6 Then		
+		Exit Sub
+	End If		
+	
+	Set nd_Suivant = ndc.Getfirstdocument
+	Do Until nd_Suivant Is Nothing		
+		Set nd = nd_Suivant				
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)		
+		
+		' Restaurer les sous-documents
+		If xVar(nd, "HistoNS", "") &lt;&gt; "" Then
+			Call VAdmS_RestaurerReponses(nd, xVar(nd,"HistoNS",""))
+		End If
+		
+		' Restaurer le document
+		nd.form = xVar(nd, "FormOriginal", "")
+		Call nd.RemoveItem( "FormOriginal" )
+		Call nd.RemoveItem( "HistoNS" )
+		Call nd.RemoveItem( "HistoDS" )
+		Call nd.RemoveItem( "HistoDS100" )
+		Call nd.RemoveItem( "HistoUS" )
+		nd.HistoDM = Now
+		nd.HistoUM = gns_VAdmS.UserName
+		Call nd.Save(True,False)		
+		
+		v_NbMaj = v_NbMaj + 1
+	Loop
+	
+	Call gnuiws_VAdmS.ViewRefresh
+	Print xGDK_xMessage("SI", 114, "", Cstr(v_NbMaj))
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VAdmS, gc_Element_VAdmS, Getthreadinfo(1), "", False)		
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="VAdmS_RestaurerReponses"><lotusscript>Sub VAdmS_RestaurerReponses(pnd As Notesdocument, p_NoAdmS As Variant)
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As Notesdocument
+	
+	' Supprimer les documents réponses-de-réponses
+	Set ndc = pnd.Responses
+	If Not (ndc Is Nothing) Then
+		If ndc.Count &gt; 0 Then
+			Set nd = ndc.Getfirstdocument
+			Do Until nd Is Nothing
+				If xVar(nd, "Form", "") &lt;&gt; "F_AdmS" Then
+					Call  VAdmS_RestaurerReponses(nd, p_NoAdmS)
+					
+					' Restaurer le document
+					nd.form = xVar(nd, "FormOriginal", "")
+					Call nd.RemoveItem( "FormOriginal" )
+					Call nd.RemoveItem( "HistoNS" )
+					Call nd.RemoveItem( "HistoDS" )
+					Call nd.RemoveItem( "HistoDS100" )
+					Call nd.RemoveItem( "HistoUS" )
+					nd.HistoDM = Now
+					nd.HistoUM = gns_VAdmS.UserName
+					Call nd.Save(True,False)		
+				End If
+				
+				Set nd = ndc.GetNextDocument(nd)
+			Loop
+		End If
+		
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VAdmS, gc_Element_VAdmS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="VAdmS_Initialisations"><lotusscript>Sub VAdmS_Initialisations	
+	If gns_VAdmS Is Nothing Then
+		Set gns_VAdmS = New notesSession
+		Set gndb_VAdmS = gns_VAdmS.CurrentDatabase
+		
+		Set gnuiws_VAdmS = New notesuiworkspace
+		Set gnuiv_VAdmS = gnuiws_VAdmS.CurrentView
+	End If
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073633,62-05</datetime></item></scriptlibrary>
+
+</database>

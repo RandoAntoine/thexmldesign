@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Representants" hide="v3 v4strict" designerversion="8.5.3" comment="1.0c">
+<noteinfo noteid="367b12" unid="132EB55C99351861852588AF00690B36" sequence="30">
+<created><datetime dst="true">20220831T150721,50-04</datetime></created>
+<modified><datetime>20250319T074102,35-05</datetime></modified>
+<revised><datetime>20250319T073641,08-05</datetime></revised>
+<lastaccessed><datetime>20250319T074102,34-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20220901T081216,26-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Selection"
+Use "x_SIRR"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SIRR As Notessession
+Dim gndb_SIRR As Notesdatabase
+Dim gndb_SIRR_SIRR As NotesDatabase
+
+Dim gnuiws_SIRR As Notesuiworkspace
+
+' Base de documents SI Projets
+' -----------------------------------------
+Const gc_NomBaseSIPj = "SIRR"
+Dim gnv_Repr15_SIRR As NotesView
+Dim gnv_Repr18_SIRR As NotesView
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIRR = "SL"
+Const gc_Element_SIRR = "SI_Representants"
+
+'+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_Commissions_SIRR
+
+	Public NoRepresentant As String
+	Public nd_Repr As NotesDocument
+	Public NoEquipe As String
+	Public nd_Equi As NotesDocument
+	Public RempCommEquipe As String
+	Public RempCommDefaut As String
+	Public SourceCommissions As String
+	Public NoRepresentantComm As String
+	Public nd_Comm_RP As NotesDocument
+	Public Commissions_RP As String
+	Public NoDirecteur_DR As String
+	Public nd_Repr_DR As NotesDocument
+	Public nd_Comm_DR As NotesDocument
+	Public Commissions_DR As String
+	Public NoDirecteur_DN As String
+	Public nd_Repr_DN As NotesDocument
+	Public nd_Comm_DN As NotesDocument
+	Public Commissions_DN As String
+	Public NoDirecteur_DM As String
+	Public nd_Repr_DM As NotesDocument
+	Public nd_Comm_DM As NotesDocument
+	Public Commissions_DM As String
+	Public Resultat As Integer
+	
+	Sub New(ByVal p_NoRepresentant As String, ByVal p_Pays As String, ByVal p_Province As String)
+		On Error GoTo GererErreur
+		
+		Me.Resultat = 0
+		
+		If p_NoRepresentant = "" Then
+			Me.Resultat = -1
+			Exit Sub
+		End If
+		
+		Me.NoRepresentant = p_NoRepresentant
+		Set Me.nd_Repr = xSIRR_xndRepr(Me.NoRepresentant, True)
+		If Me.nd_Repr Is Nothing Then
+			Me.Resultat = -2
+			Exit Sub
+		End If
+		
+		Me.NoEquipe = xVar(Me.nd_Repr, "Repr_NoEquipe", "")
+		If Me.NoEquipe &lt;&gt; "" Then
+			Set Me.nd_Equi = xSIRR_xndEqui(Me.NoEquipe, True)
+			If Me.nd_Equi Is Nothing Then
+				Me.Resultat = -3
+				Exit Sub
+			End If
+		End If
+		
+		If Me.NoEquipe &lt;&gt; "" Then
+			Me.RempCommEquipe = xVar(Me.nd_Repr, "Repr_RempCommEquipe", "")
+			If Me.RempCommEquipe = "1" Then
+				Me.SourceCommissions = "R"		' Représentant
+				'				Me.CleCommissions = Me.NoRepresentant
+			Else
+				Me.RempCommDefaut = xVar(Me.nd_Equi, "Equi_RempCommDefaut", "")
+				If Me.RempCommDefaut = "1" Then
+					Me.SourceCommissions = "E"		' Equipe
+					'					Me.CleCommissions = Me.NoRepresentant
+				Else
+					Me.SourceCommissions = "P"		' Profil
+				End If
+			End If
+		Else
+			Me.RempCommDefaut = xVar(Me.nd_Repr, "Repr_RempCommDefaut", "")
+			If Me.RempCommDefaut = "1" Then
+				Me.SourceCommissions = "R"		' Représentant
+			Else
+				Me.SourceCommissions = "P"		' Profil
+			End If
+		End If
+		
+		Select Case Me.SourceCommissions
+			Case "R":							' Représentant
+				Me.NoRepresentantComm = Me.NoRepresentant
+				Me.NoDirecteur_DR = xVar(Me.nd_Repr, "Repr_NoDirecteur_R", "")
+				Me.NoDirecteur_DN = xVar(Me.nd_Repr, "Repr_NoDirecteur_N", "")
+				Me.NoDirecteur_DM = xVar(Me.nd_Repr, "Repr_NoDirecteur_M", "")
+			Case "E":							' Équipe
+				Me.NoDirecteur_DR = xVar(Me.nd_Equi, "Equi_NoDirecteur_R", "")
+				Me.NoDirecteur_DN = xVar(Me.nd_Equi, "Equi_NoDirecteur_N", "")
+				Me.NoDirecteur_DM = xVar(Me.nd_Equi, "Equi_NoDirecteur_M", "")
+			Case Else:							' Profil
+				Me.NoRepresentantComm = "0"
+				Me.NoDirecteur_DR = xSIRR_xVarProf("Prof_NoDirecteur_R", "")
+				Me.NoDirecteur_DN = xSIRR_xVarProf("Prof_NoDirecteur_N", "")
+				Me.NoDirecteur_DM = xSIRR_xVarProf("Prof_NoDirecteur_M", "")
+		End Select
+		
+		Set Me.nd_Repr_DR = xSIRR_xndRepr(Me.NoDirecteur_DR, True)
+		Set Me.nd_Repr_DN = xSIRR_xndRepr(Me.NoDirecteur_DN, True)
+		Set Me.nd_Repr_DM = xSIRR_xndRepr(Me.NoDirecteur_DM, True)
+		
+		If Me.SourceCommissions = "E" Then		' Équipe
+			Set Me.nd_Comm_RP = xSIRR_xndComm_Equi(Me.NoEquipe, "1", "", p_Pays, p_Province)
+
+			If Me.NoDirecteur_DR &lt;&gt; "" Then
+				Set Me.nd_Comm_DR = xSIRR_xndComm_Equi(Me.NoEquipe, "0", "R", p_Pays, p_Province)
+			End If
+			If Me.NoDirecteur_DN &lt;&gt; "" Then
+				Set Me.nd_Comm_DN = xSIRR_xndComm_Equi(Me.NoEquipe, "0", "N", p_Pays, p_Province)
+			End If
+			If Me.NoDirecteur_DM &lt;&gt; "" Then
+				Set Me.nd_Comm_DM = xSIRR_xndComm_Equi(Me.NoEquipe, "0", "M", p_Pays, p_Province)
+			End If
+		Else									' Représentant, Profil
+			Set Me.nd_Comm_RP = xSIRR_xndComm_Repr(Me.NoRepresentantComm, "1", "", p_Pays, p_Province)
+
+			If Me.NoDirecteur_DR &lt;&gt; "" Then
+				Set Me.nd_Comm_DR = xSIRR_xndComm_Repr(Me.NoRepresentantComm, "0", "R", p_Pays, p_Province)
+			End If
+			If Me.NoDirecteur_DN &lt;&gt; "" Then
+				Set Me.nd_Comm_DN = xSIRR_xndComm_Repr(Me.NoRepresentantComm, "0", "N", p_Pays, p_Province)
+			End If
+			If Me.NoDirecteur_DM &lt;&gt; "" Then
+				Set Me.nd_Comm_DM = xSIRR_xndComm_Repr(Me.NoRepresentantComm, "0", "M", p_Pays, p_Province)
+			End If
+		End If
+		
+		Me.Commissions_RP = xVar(Me.nd_Comm_RP, "Comm_CodeCommissionsAH", "")
+
+		If Me.NoDirecteur_DR &lt;&gt; "" Then
+			Me.Commissions_DR = xVar(Me.nd_Comm_DR, "Comm_CodeCommissionsAH", "")
+		End If
+		If Me.NoDirecteur_DN &lt;&gt; "" Then
+			Me.Commissions_DN = xVar(Me.nd_Comm_DN, "Comm_CodeCommissionsAH", "")
+		End If
+		If Me.NoDirecteur_DM &lt;&gt; "" Then
+			Me.Commissions_DM = xVar(Me.nd_Comm_DM, "Comm_CodeCommissionsAH", "")
+		End If
+	
+		Me.Resultat = 1
+		Exit Sub
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SIRR, gc_Element_SIRR, GetThreadInfo(1), "", False)
+		Exit Sub
+	End Sub
+End Class
+</lotusscript></code><code event="SIRR_Initialisations"><lotusscript>'+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIRR_Initialisations As Boolean
+	SIRR_Initialisations = False
+	
+	If gns_SIRR Is Nothing Then
+		Set gns_SIRR = New Notessession	
+		Set gndb_SIRR = gns_SIRR.Currentdatabase
+		
+		Set gnuiws_SIRR = New Notesuiworkspace
+		
+		' Extraire la base de documents SI Projets
+		' -------------------------------------------------------
+		Set gndb_SIRR_SIRR = xGDK_xndbNDB(gc_NomBaseSIPj)
+		If gndb_SIRR_SIRR Is Nothing Then			
+			' 48 - La base de documents &amp; est introuvable.
+			Messagebox xGDK_xMessage("SI", 48, "", gc_NomBaseSIPj), 16, xGDK_xMessage("SI", 1, "", "")			
+			Exit Function
+		Elseif Not gndb_SIRR_SIRR.IsOpen Then
+			' 48 - La base de documents &amp; est introuvable.
+			Messagebox xGDK_xMessage("SI", 48, "", gc_NomBaseSIPj), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If		
+	End If	
+	
+	SIRR_Initialisations = True
+End Function
+
+</lotusscript></code><code event="SIRR_ndSelectionnerRepresentant"><lotusscript>'+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIRR_ndSelectionnerRepresentant(p_Departement As String, p_TypePersone As String) As Notesdocument
+	%REM
+------------------------------------------------------------------------------------------------------------------------------	
+	Paramètres:	p_ClientNoFmt	String.  Le numéro de client duquel il faut 
+												sélectionner un projet.
+	Valeur retournée:					Notesdocument.  Le projet sélectionné.
+------------------------------------------------------------------------------------------------------------------------------	
+	%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nv As NotesView
+	
+	Set SIRR_ndSelectionnerRepresentant = Nothing
+	
+	' Initialisations
+	If Not SIRR_Initialisations Then
+		Exit Function
+	End If
+	If p_TypePersone = "0" Then				' Directeur
+		If gnv_Repr18_SIRR Is Nothing Then
+			Set gnv_Repr18_SIRR = gndb_SIRR_SIRR.Getview("V_Repr18")
+		End If
+		Set nv = gnv_Repr18_SIRR
+	Else
+		If gnv_Repr15_SIRR Is Nothing Then
+			Set gnv_Repr15_SIRR = gndb_SIRR_SIRR.Getview("V_Repr15")
+		End If
+		Set nv = gnv_Repr15_SIRR
+	End If
+	Call nv.Refresh
+	
+	' Sélectionner d'un représentant
+	' --------------------------------------
+	Set SIRR_ndSelectionnerRepresentant = SISe_ndPickList(nv, "Sélection d'un représentant", p_Departement)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIRR, gc_Element_SIRR, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073641,08-05</datetime></item></scriptlibrary>
+
+</database>

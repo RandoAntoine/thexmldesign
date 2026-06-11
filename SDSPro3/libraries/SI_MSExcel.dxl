@@ -1,0 +1,706 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_MSExcel" hide="v3 v4strict" designerversion="8.5.3" comment="3.6b">
+<noteinfo noteid="5558d6" unid="066211153D35B0D7852589A20078E947" sequence="15">
+<created><datetime dst="true">20230501T180040,39-04</datetime></created>
+<modified><datetime>20260105T014838,14-05</datetime></modified>
+<revised><datetime>20250319T073634,83-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,13-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,13-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_GestionErreurs"
+'
+'	Script library SI_MSExcel v1.0
+'
+'	Les fonctions définies dans cette bibliothèque de script permettent de démarrer Excel afin d'y faire des opérations simples
+
+'	Fonctions disponibles
+'
+'	===============
+'	DemarrerExcel97
+'	===============
+'	Démarre le programme Ms Excel 97
+'	Syntaxe:			flag = Demarre_Excel97
+'	Paramètres:			Aucun.
+'	Valeur retournée:	True indique que l'ouverture du programme Excel a bien fonctionnée.
+'						False indique que l'ouverture du programme Excel a échouée.
+'
+'
+'	=============
+'	FermerExcel97
+'	=============
+'	Ferme le programme Ms Excel 97
+'	Syntaxe:				Flag = Ferme_Excel97
+'	Paramètre:			Aucun.
+'	Valeur retournée:	True indique que la fermeture du programme Excel a bien fonctionnée.
+'						False indique que fermeture du programme Excel a échouée.
+'
+'
+'
+'=================================================================================
+'
+'
+'
+'	==============
+'	OuvrirDocument
+'	==============
+'	Ouvre un document Excel dont le chemin est fournit en paramètre.
+'	Syntaxe:			Flag = Ouvrir_Document( p_CheminFichier )
+'	Paramètres:			p_CheminFichier	String			Chemin d'accès du fichier à ouvrir
+'	Valeur retournée:	True indique que l'ouverture du document Excel a bien fonctionnée.
+'						False indique que l'ouverture du document Excel a échouée.
+'
+'
+'	===============
+'	NouveauDocument
+'	===============
+'	Crée un nouveau document Excel.
+'	Syntaxe:			Flag = Nouveau_Document
+'	Paramètres:			Aucun.
+'	Valeur retournée:	True indique que la création du document Excel a bien fonctionnée.
+'						False indique que la création du document Excel a échouée.
+'
+'
+'	===================
+'	EnregistrerDocument
+'	===================
+'	Sauvegarde un document Excel.
+'	Syntaxe:			Flag = Sauver_Document(p_CheminFichier, p_MotPasse)
+'	Paramètres:			p_CheminFichier	String			Chemin d'accès au fichier à enregistrer.
+'						p_MotPasse		string			Mot de passe pour le document
+'	Valeur retournée:	True indique que le document a été sauvegardé.
+'						False indique que le document n'a pas été sauvegardé.
+'
+'
+'	==============
+'	FermerDocument
+'	==============
+'	Syntaxe:			Flag = Fermer_Document
+'	Paramètres:			Aucun.
+'	Valeur retournée:	True indique que le document a été fermé.
+'						False indique que le document n'a pas été fermé.
+
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim g_ExcelApp_SIMX As Variant
+Dim g_ExcelClasseur_SIMX As Variant
+Dim g_ExcelFeuille_SIMX As Variant
+
+Dim g_ExcelActif_SIMX As Integer
+Dim g_NbClasseursOuverts_SIMX As Integer
+Dim g_CalculsAutomatiques_SIMX As Integer
+
+' Assignation de la police
+Dim g_Police_SIMX As String
+Dim g_Taille_SIMX As Variant
+Dim g_Gras_SIMX As Variant
+Dim g_Italique_SIMX As Variant
+
+' Traitement des erreurs
+Const gc_TypeElement_SIMX = "SL"
+Const gc_Element_SIMX = "SI_MSExcel"
+
+</lotusscript></code><code event="SIMX_FermerClasseur"><lotusscript>Function SIMX_FermerClasseur As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_FermerClasseur = False
+	
+	If g_NbClasseursOuverts_SIMX &gt; 0 Then
+		' Fermeture du Classeur
+		Call g_ExcelClasseur_SIMX.Close(False)			'Ferme le Classeur
+		
+		g_NbClasseursOuverts_SIMX = g_NbClasseursOuverts_SIMX - 1
+	End If
+	
+	SIMX_FermerClasseur = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_InsererDoubleCellule"><lotusscript>Function SIMX_InsererDoubleCellule(p_Valeur As Double, p_Ligne As Long, p_Colonne As Long) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_InsererDoubleCellule = False
+	Call SIGE_Initialisations
+
+	' Assigner la police
+	Call SIMX_FormatCellule(p_Ligne, p_Colonne)
+	
+	' Inscrit le texte à la cellule fournie en paramètres
+	g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne).NumberFormat = "0" &amp; gns_SIGE.International.DecimalSep &amp; "00"
+	g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne) = p_Valeur
+	
+	SIMX_InsererDoubleCellule = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_SupprimerFeuille"><lotusscript>Function SIMX_SupprimerFeuille(p_Titre As String) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_SupprimerFeuille = False
+	
+	Forall v_ExcelFeuille In g_ExcelClasseur_SIMX.Worksheets
+		If v_ExcelFeuille.Name = p_Titre Then
+			g_ExcelApp_SIMX.DisplayAlerts = False
+			Call v_ExcelFeuille.Delete
+			g_ExcelApp_SIMX.DisplayAlerts = True
+			SIMX_SupprimerFeuille = True
+			Exit Function
+		End If
+	End Forall
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), p_Titre, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_AssignerPolice"><lotusscript>Function SIMX_AssignerPolice(Byval p_Police As String, Byval p_Taille As Variant, Byval p_Gras As Variant, _
+Byval p_Italique As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_AssignerPolice = False
+	
+	' Initialiser les variables globales avec les paramètres
+	g_Police_SIMX = p_Police
+	g_Taille_SIMX = p_Taille
+	g_Gras_SIMX = p_Gras
+	g_Italique_SIMX = p_Italique
+	
+	SIMX_AssignerPolice = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_OuvrirFeuille"><lotusscript>Function SIMX_OuvrirFeuille(p_Titre As String, p_Creer As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_OuvrirFeuille = False
+	
+	Forall v_ExcelFeuille In g_ExcelClasseur_SIMX.Worksheets
+		If v_ExcelFeuille.Name = p_Titre Then
+			Set g_ExcelFeuille_SIMX = v_ExcelFeuille
+			Call g_ExcelFeuille_SIMX.Activate
+			SIMX_OuvrirFeuille = True
+			Exit Function
+		End If
+	End Forall
+	
+	' Si la feuille n'existe pas, la créer.
+	If p_Creer Then
+		Set g_ExcelFeuille_SIMX = g_ExcelClasseur_SIMX.Worksheets.Add
+		g_ExcelFeuille_SIMX.Name = p_Titre
+		SIMX_OuvrirFeuille = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), p_Titre, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_ViderFeuille"><lotusscript>Function SIMX_ViderFeuille As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_ViderFeuille = False
+	
+	' Efface le contenu des cellules sélectionnées
+	g_ExcelFeuille_SIMX.Cells.ClearContents
+	
+	SIMX_ViderFeuille = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_OuvrirClasseur"><lotusscript>Function SIMX_OuvrirClasseur(p_AfficherDB As Integer, p_CheminFichier As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_CheminFichier As Variant
+	Dim v_NbErreurs As Integer
+	
+	SIMX_OuvrirClasseur = False
+	
+	' Afficher la boite de dialogue
+	If p_AfficherDB Then
+		v_CheminFichier = p_CheminFichier
+		If g_ExcelApp_SIMX.Dialogs(1).Show(v_CheminFichier) Then
+			Set g_ExcelClasseur_SIMX = g_ExcelApp_SIMX.ActiveWorkbook
+			' Lorsque le classeur est volumineux, il peut prendre plusieurs secondes à charger
+			On Error 207 Goto Erreur207
+			Set g_ExcelFeuille_SIMX = g_ExcelClasseur_SIMX.ActiveSheet
+			
+			g_NbClasseursOuverts_SIMX = g_NbClasseursOuverts_SIMX + 1
+			SIMX_OuvrirClasseur = True
+		End If
+		g_ExcelApp_SIMX.Visible = False
+		
+		' Sauvegarde du Classeur sans l'ajouter dans les Classeurs récents de Excel (False)
+	Else
+		' Vérifie l'existance du fichier
+		If Len(Dir(p_CheminFichier)) &gt; 0 Then
+			' Ouverture du fichier Excel
+			Set g_ExcelClasseur_SIMX = g_ExcelApp_SIMX.Workbooks.Open(p_CheminFichier)
+			' Lorsque le classeur est volumineux, il peut prendre plusieurs secondes à charger
+			On Error 207 Goto Erreur207
+			Set g_ExcelFeuille_SIMX = g_ExcelClasseur_SIMX.ActiveSheet
+			
+			g_NbClasseursOuverts_SIMX = g_NbClasseursOuverts_SIMX + 1
+			SIMX_OuvrirClasseur = True
+		End If
+	End If
+	
+	Exit Function
+	
+	' Lorsque le classeur est volumineux, il peut prendre plusieurs secondes à charger
+Erreur207:
+	v_NbErreurs = v_NbErreurs + 1
+	If v_NbErreurs &gt; 10 Then
+		On Error 207 Goto GererErreur
+	End If
+	Sleep 1	
+	Resume 0
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), p_CheminFichier, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_ImprimerClasseur"><lotusscript>Function SIMX_ImprimerClasseur(p_AfficherDB As Integer) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_ImprimerClasseur = False
+	
+	' Afficher la boite de dialogue
+	If p_AfficherDB Then
+		If g_ExcelApp_SIMX.Dialogs(8).Show Then
+			SIMX_ImprimerClasseur = True
+		End If
+		
+	'Imprime le Classeur Excel
+	Else
+		g_ExcelClasseur_SIMX.PrintOut
+		
+		SIMX_ImprimerClasseur = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_RetournerValeurCellule"><lotusscript>Function SIMX_RetournerValeurCellule(p_Ligne As Long, p_Colonne As Long) As Variant
+	On Error Goto GererErreur
+	
+	' Inscrit le texte à la cellule fournit en paramètres
+	SIMX_RetournerValeurCellule = g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne).Value
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_AjusterLargeurColonnes"><lotusscript>Function SIMX_AjusterLargeurColonnes As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_AjusterLargeurColonnes = False
+	
+	' Ajuster la largeur des colonnes
+	g_ExcelFeuille_SIMX.Columns.Autofit
+	
+	SIMX_AjusterLargeurColonnes = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_InsererTexteCellule"><lotusscript>Function SIMX_InsererTexteCellule(p_Valeur As String, p_Ligne As Long, p_Colonne As Long) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_InsererTexteCellule = False
+	
+	' Assigner la police
+	Call SIMX_FormatCellule(p_Ligne, p_Colonne)
+	
+	' Inscrit le texte à la cellule fournie en paramètres
+	' Note : Erreur OLE automation si p_Valeur contient "=".
+	g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne).NumberFormat = "@"
+	g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne) = Replace(Replace(p_Valeur, Chr$(13), ""),"=", "")
+	
+	SIMX_InsererTexteCellule = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), p_Valeur, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_DemarrerExcel"><lotusscript>Function SIMX_DemarrerExcel(p_Visible As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_DemarrerExcel = False
+	
+	If Not g_ExcelActif_SIMX Then
+		' Création d'un objet Microsoft Excel 8.0 (démarrage de l'application WINExcel)
+		Set g_ExcelApp_SIMX = CreateObject("Excel.application")
+		
+		g_NbClasseursOuverts_SIMX = 0
+		g_ExcelActif_SIMX = True
+	End If
+	
+	' Mode d'exécution - Rendre visible POUR TESTS SEULEMENT
+	g_ExcelApp_SIMX.Visible = p_Visible
+	
+	SIMX_DemarrerExcel = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_AjouterFeuille"><lotusscript>Function SIMX_AjouterFeuille(p_Titre As String) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_AjouterFeuille = False
+	
+	' Assignation d'une feuille de calcul
+	Set g_ExcelFeuille_SIMX = g_ExcelClasseur_SIMX.Worksheets.Add
+	
+	' Assigne un nom à la feuille de calcul
+	If p_Titre &lt;&gt; "" Then
+		g_ExcelFeuille_SIMX.Name = p_Titre
+	End If
+	
+	SIMX_AjouterFeuille = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), p_Titre, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_NouveauClasseur"><lotusscript>Function SIMX_NouveauClasseur(Byval p_Titre As String) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_NouveauClasseur = False
+	
+	' Création du nouveau Classeur
+	g_ExcelApp_SIMX.SheetsInNewWorkbook = 1
+	Set g_ExcelClasseur_SIMX = g_ExcelApp_SIMX.Workbooks.Add
+	Set g_ExcelFeuille_SIMX = g_ExcelClasseur_SIMX.ActiveSheet
+	
+	' Assigne un nom à la feuille de calcul
+	If p_Titre &lt;&gt; "" Then
+		g_ExcelFeuille_SIMX.Name = p_Titre
+	End If
+	
+	g_NbClasseursOuverts_SIMX = g_NbClasseursOuverts_SIMX + 1
+	SIMX_NouveauClasseur = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), p_Titre, False)
+	Exit Function
+End Function	
+
+</lotusscript></code><code event="SIMX_EnregistrerDocumentPDF"><lotusscript>Function SIMX_EnregistrerDocumentPDF(p_CheminFichier As String) As Integer
+	On Error Goto GererErreur
+	
+	Dim v_CheminFichier As Variant
+	
+	SIMX_EnregistrerDocumentPDF = False
+	
+	' Sauvegarde du document sans l'ajouter dans les documents récents de Word (False)
+	g_ExcelClasseur_SIMX.ExportAsFixedFormat 0, p_CheminFichier
+	' ActiveWorkbook.ExportAsFixedFormat Type:=xlTypePDF
+	' FileName:=“sales.pdf”
+	' Quality:=xlQualityStandard
+	' DisplayFileAfterPublish:=True
+	SIMX_EnregistrerDocumentPDF = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), p_CheminFichier, True) ' Muet
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_FormatCellule"><lotusscript>Function SIMX_FormatCellule(p_Ligne As Long, p_Colonne As Long) As Boolean
+	On Error Goto GererErreur
+	
+	If g_Police_SIMX &lt;&gt; "" Then
+		g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne).Font.Name = g_Police_SIMX
+	End If
+	If Cstr(g_Taille_SIMX) &lt;&gt; "" Then
+		g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne).Font.Size = g_Taille_SIMX
+	End If
+	If Cstr(g_Gras_SIMX) &lt;&gt; "" Then
+		g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne).Font.Bold = g_Gras_SIMX
+	End If
+	If Cstr(g_Italique_SIMX) &lt;&gt; "" Then
+		g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne).Font.Italic = g_Italique_SIMX
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SIMX_FermerExcel"><lotusscript>Function SIMX_FermerExcel(p_NePasFermerExcel As Boolean) As Boolean
+	' p_NePasFermerExcel = True : Relâcher le programme Excel mais le laisser actif dans Windows (visible) RQ51336 PBE
+	On Error Goto GererErreur
+	
+	SIMX_FermerExcel = False
+	
+	If g_ExcelActif_SIMX Then
+		If p_NePasFermerExcel Then
+			g_ExcelApp_SIMX.Visible = True
+		Else
+			' Supprime la possibilité d'avoir des messages
+			Forall v_Classeur In g_ExcelApp_SIMX.Workbooks
+				v_Classeur.Saved = True
+			End Forall
+			
+			'Fermer Excel
+			Call g_ExcelApp_SIMX.Quit
+		End If
+		Set g_ExcelFeuille_SIMX = Nothing
+		Set g_ExcelClasseur_SIMX = Nothing
+		Set g_ExcelApp_SIMX = Nothing
+		
+		g_NbClasseursOuverts_SIMX = 0
+		g_ExcelActif_SIMX = False
+	End If
+	
+	SIMX_FermerExcel = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_InsererDateCellule"><lotusscript>Function SIMX_InsererDateCellule(p_Valeur As String, p_Ligne As Long, p_Colonne As Long) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_InsererDateCellule = False
+	
+	' Assigner la police
+	Call SIMX_FormatCellule(p_Ligne, p_Colonne)
+	
+	' Inscrit le texte à la cellule fournie en paramètres
+	g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne).NumberFormat = "yyyy-mm-dd"
+	g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne) = p_Valeur
+	
+	SIMX_InsererDateCellule = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_DesactiverCalculsAutomatiques"><lotusscript>Function SIMX_DesactiverCalculsAutomatiques As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_DesactiverCalculsAutomatiques = False
+	
+	If g_NbClasseursOuverts_SIMX &gt; 0 Then
+		If g_ExcelApp_SIMX.Calculation &lt;&gt; -4135 Then
+			g_CalculsAutomatiques_SIMX = g_ExcelApp_SIMX.Calculation
+			
+			' Désactiver les calculs automatiques
+			With g_ExcelApp_SIMX
+'				.ScreenUpdating = False
+				.EnableEvents = False
+				.Calculation = -4135
+			End With
+			
+			SIMX_DesactiverCalculsAutomatiques = True
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_InsererLongCellule"><lotusscript>Function SIMX_InsererLongCellule(p_Valeur As Long, p_Ligne As Long, p_Colonne As Long) As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_InsererLongCellule = False
+	
+	' Assigner la police
+	Call SIMX_FormatCellule(p_Ligne, p_Colonne)
+	
+	' Inscrit le texte à la cellule fournie en paramètres
+	g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne).NumberFormat = "0"
+	g_ExcelFeuille_SIMX.Cells(p_Ligne, p_Colonne) = p_Valeur
+	
+	SIMX_InsererLongCellule = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SIMX_EnregistrerClasseur"><lotusscript>Function SIMX_EnregistrerClasseur(p_AfficherDB As Integer, p_CheminFichier As String, p_MotPasse As String) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_CheminFichier As Variant
+	Dim v_FileFormat As Variant
+	Dim v_NomFichier As Variant
+	Dim v_Extension As String
+	
+	SIMX_EnregistrerClasseur = False
+	
+	' Chemin d'accès: extraire le nom du fichier Excel pour l'afficher dans la boîte de dialogue et le chemin
+	v_NomFichier = Strrightback(p_CheminFichier, "\")
+	v_CheminFichier = Strleftback(p_CheminFichier, "\")
+	
+	' Afficher la boite de dialogue
+	If p_AfficherDB Then
+		Dim nuiws As New NotesUIWorkspace
+		v_CheminFichier = nuiws.savefiledialog(False, "", "Classeur Excel (*.xlsx)|*.xlsx|Tous les fichiers|*", v_CheminFichier, v_NomFichier)
+		
+		If Isempty(v_CheminFichier) Then
+			Exit Function
+		End If	
+		v_CheminFichier = v_CheminFichier(0)
+	Else
+		v_CheminFichier = p_CheminFichier
+	End If
+	
+	' L'extension du fichier a pu être changée dans la boîte de dialogue
+	v_NomFichier = Strrightback(v_CheminFichier, "\")	
+	' Si le fichier est avec une extension, l'enlever du nom du chemin
+	If InStr(v_NomFichier, ".") &gt; 0 Then
+		v_Extension = LCase(StrRightBack(v_NomFichier, "."))
+		If v_Extension = "xlsb" Then		' xlsb: format binaire (plus petit)
+			v_FileFormat = 50
+		ElseIf v_Extension = "xlsm" Then	' xlsm: format xlOpenXMLWorkbook (avec macros)
+			v_FileFormat = 52
+		Else
+			If v_Extension &lt;&gt; "xlsx" Then
+				v_CheminFichier = v_CheminFichier &amp; ".xlsx" ' xlsS: format xlOpenXMLWorkbook (sans macros)
+			End If
+			v_FileFormat = 51
+		End If
+	Else
+		v_CheminFichier = v_CheminFichier &amp; ".xlsx"
+		v_FileFormat = 51 
+	End If
+	
+	' Sauvegarde du Classeur
+	On Error 213 GoTo FinSub
+	If Len(p_MotPasse) = 0 Then
+		g_ExcelClasseur_SIMX.SaveAs v_CheminFichier, v_FileFormat
+	Else
+		g_ExcelClasseur_SIMX.SaveAs v_CheminFichier,, p_MotPasse, p_MotPasse, False
+	End If
+	
+	p_CheminFichier = v_CheminFichier
+	SIMX_EnregistrerClasseur = True
+FinSub:
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), p_CheminFichier, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_ReactiverCalculsAutomatiques"><lotusscript>Function SIMX_ReactiverCalculsAutomatiques As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_ReactiverCalculsAutomatiques = False
+	
+	If g_NbClasseursOuverts_SIMX &gt; 0 And g_CalculsAutomatiques_SIMX &lt;&gt; 0 Then
+		' Activer les calculs
+		With g_ExcelApp_SIMX
+'			.ScreenUpdating = True
+			.EnableEvents = True
+			.Calculation = -4105
+		End With
+		
+		g_CalculsAutomatiques_SIMX = 0
+		SIMX_ReactiverCalculsAutomatiques = True
+		
+		' Recalculer les formules
+		Call g_ExcelApp_SIMX.Calculate
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_AjusterHauteurLignes"><lotusscript>Function SIMX_AjusterHauteurLignes As Boolean
+	On Error Goto GererErreur
+	
+	SIMX_AjusterHauteurLignes = False
+	
+	' Ajuster la largeur des colonnes
+	g_ExcelFeuille_SIMX.Rows.Autofit
+	
+	SIMX_AjusterHauteurLignes = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIMX_DetacherExcel"><lotusscript>Function SIMX_DetacherExcel As Boolean
+	On Error GoTo GererErreur
+	
+	SIMX_DetacherExcel = False
+	
+	If g_ExcelActif_SIMX Then
+		' Supprime la possibilité d'avoir des messages
+		ForAll v_Classeur In g_ExcelApp_SIMX.Workbooks
+			v_Classeur.Saved = True
+		End ForAll
+		
+		'Fermer Excel
+		Call g_ExcelApp_SIMX.Quit
+		Set g_ExcelApp_SIMX = Nothing
+		
+		g_NbClasseursOuverts_SIMX = 0
+		g_ExcelActif_SIMX = False
+	End If
+	
+	SIMX_DetacherExcel = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIMX, gc_Element_SIMX, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,83-05</datetime></item></scriptlibrary>
+
+</database>

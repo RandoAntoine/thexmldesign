@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="hs_Suivant.gif" alias="hs_Suiv" publicaccess="false" designerversion="8" imagename="hs_Suivant24.gif">
+<noteinfo noteid="16f6" unid="65BF78D77B5047D285257DEB006A0AE9" sequence="13">
+<created><datetime>20150213T141816,09-05</datetime></created>
+<modified><datetime dst="true">20180910T205708,13-04</datetime></modified>
+<revised><datetime dst="true">20180718T105547,37-04</datetime></revised>
+<lastaccessed><datetime dst="true">20180910T205708,12-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205708,12-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhIAAgAPcAAAAAAP9NAP9RAP9SAP9UAP9XAP9YAP9aAP9cAP9dAf9eA/9fBP9gBf9gBv9h
+B/9iCf9jCv9lC/9kDP9lDf9lDv9mDv9mD/9nEP9nEf9oEv9pFP9qFf9qF/9sF/9sGP9sGf9uG/9w
+IP9xIv9zJP91Jv97MP9/Nf+EPf+RUv+RU/+RVP+YX/+ZYP+aYf+bZf+rev+qe/+sfv+vgf+xiP+z
+i/+0iP+2jP+3jv/Fo//Iqf/Ps//axv/k1//t4//07f/49f/9/P///wAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAgACAA
+AAj/AP8JFNgChYqDCBMqRIiixcCH/zZInEixosWKEC9q3EhxIMePGwWClGiBgYSR/1iMXAAiRgkD
+IFekAAnhRJCbMAZ8TKECpIEeN2/G0LnxoE8eQYUSvWj0I4UPSZVqbPqRQYioQYYy7bnyalStFalu
+qKAggdmzZwdIwAp2IlUHIGbcsEG3bt0XOtgu3dB0ggisgAPHgCmxKQIcgRNHNTGhMFcFNBRLDoIB
+g2OJGQ78mBz4wwO3XDdkGMCBxIjTqFEfyIH1AwOKYjdcoEC7du0AMlq/hh36o4Aaui3G1kgAeNQO
+u8P21tjABdYODaYuv1jAx/Ho0kEe2JEUOkcVMz9eL2gA5KYH7BtTqAR5gUAEAo0/rog4UrQGlPTr
+1/eoH2TG/iFBJBALPC1kYELqQRQQADs=
+</gif>
+<item name="$FileSize" sign="true"><number>1106</number></item>
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20110613T125649,33-04</datetime></item></imageresource>
+
+</database>

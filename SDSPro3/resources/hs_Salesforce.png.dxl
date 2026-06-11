@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="hs_Salesforce.png" alias="hs_Salesforce" publicaccess="false" designerversion="8.5.3">
+<noteinfo noteid="3cb156" unid="530BBAAE03773B488525896C0076F23E" sequence="3">
+<created><datetime>20230308T163912,62-05</datetime></created>
+<modified><datetime>20230315T060801,71-05</datetime></modified>
+<revised><datetime>20230308T163913,62-05</datetime></revised>
+<lastaccessed><datetime>20230315T060801,70-05</datetime></lastaccessed>
+<addedtofile><datetime>20230315T060801,70-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name></wassignedby><png>
+iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMvSURBVDhPnVVbSFRRFF3nvmYmx8c442RkpOaY
+YpBGWkRBD0hEowyiNNDwI/rIH78CK4IK6qe/IIKMKIqe9iLwK4rQsA8nMbI0gooSScdxfDT32T53
+xteIZS04cO8++66z1z5778uwAFYfOVegjo+WM10tMzTVx22irPy0JKVTSUpp+3DpWK/tmIB5hPmH
+z67SwkOnoal7LdN0AFZ8ZwoMTBCikJUHcqr3xMfLzZ/iGzbmEAbqj+/RxsItMHRP3PRniFJIdqc2
+9F078zBumSHkZHpkpNUydXpjME0TjFE0tBaGRdFKkJLTqqdIbW8uUx0aeMMjMwwTJtmSk5ZgMqqS
+8igsUs1t/MEhSxAEgb/FQZuiHFK8maVcvshNKXnFF+nLUsMw4Pd5ca6xHsfqqlG5eT2+h0ZRFMjF
+0QO7EMhegfefvyIcGYdBCiw6QBSJwjJdpq5ljLzruM/s2xz8FjQN3WExAS0nG7GjpMA+m0M3LUjC
+jOzn3X3o7v8Ct1NB2+sg2rt6IIsCmChFFX9WsZhSWHbQik5WGaaB5Zl+NNdX2w5TEBJymLPUi42F
+uVgXWIl92zbgx+gEunr7IQqCZDLWL/A6s5NLzjxnv1Qt9uUi0bS/El6Phy7RAOcSporWoNzWVW1H
+uttlOy4WvjQ3fOmc0ATn4tqYSTeb4U3HoYotMa9/wMBwGINDw9M3T8rlQa7XPoGI/wU6qTp/4zFC
+IyM2IW9N0VO8NYtpasXY+Dh0Yt5WUhh3Xxitr7rwtD2I89cf4XlnF9WmTDopKmfSFVZAZROlsrGo
+bHiJFAVysCYvG6ca9sLtIMc4nnT2IBSZQLD3E+60vYCmaZAlkZZk7zNBVBXfsrV2TeTsb7pJpVPD
+nzVNR1TXUbV1E5pqdyEtyYVnHRTN1bsYm5ik8mB2tyS2JHO4bn2+faHWts60nkZDIeaoErHD6YRM
+csYiEUgUTWJNxjC39aY9EocDB28tvub27mzMHw52L3MMv33Zm1G28y31ZDnvTW7767ShyOTktNrZ
+42uakIOT+rfsvscbnVlWPgUQy/gc8AErRpnivKt4/DV9Lac64hs2Fjz+/34BwG9iE2tk+VfznAAA
+AABJRU5ErkJggg==
+</png>
+<item name="$FileSize" sign="true"><number>922</number></item>
+<item name="$MimeType" sign="true"><text>image/png</text></item>
+<item name="$FileModDT" sign="true"><datetime>20230308T110535,17-05</datetime></item></imageresource>
+
+</database>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><note class="form">
+<noteinfo noteid="1776" unid="83C2B4311FEB20A6852579890070F776" sequence="177">
+<created><datetime>20120118T153353,82-05</datetime></created>
+<modified><datetime>20260105T014845,15-05</datetime></modified>
+<revised><datetime dst="true">20190410T103352,43-04</datetime></revised>
+<lastaccessed><datetime>20260105T014845,14-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205708,89-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<item name="$Flags"><text>~C4g</text></item>
+<item name="$TITLE"><text>.settings/.jsdtscope</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$FileSize" sign="true"><number>339</number></item>
+<item name="$FileData" sign="true">
+<rawitemdata type="1">
+YQAYAAAAAABTAQAAAQAAAAAAAAAAAAAAYABlAQAAUwFUAQAAAAAAAAAAPD94bWwgdmVyc2lvbj0i
+MS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxjbGFzc3BhdGg+DQoJPGNsYXNzcGF0aGVudHJ5IGtp
+bmQ9InNyYyIgcGF0aD0iQ29kZS9TY3JpcHRMaWJyYXJpZXMiLz4NCgk8Y2xhc3NwYXRoZW50cnkg
+a2luZD0iY29uIiBwYXRoPSJvcmcuZWNsaXBzZS53c3QuanNkdC5sYXVuY2hpbmcuSlJFX0NPTlRB
+SU5FUiIvPg0KCTxjbGFzc3BhdGhlbnRyeSBraW5kPSJjb24iIHBhdGg9Im9yZy5lY2xpcHNlLndz
+dC5qc2R0LmxhdW5jaGluZy5iYXNlQnJvd3NlckxpYnJhcnkiLz4NCgk8Y2xhc3NwYXRoZW50cnkg
+a2luZD0ib3V0cHV0IiBwYXRoPSIiLz4NCjwvY2xhc3NwYXRoPg0KAA==
+</rawitemdata></item>
+<item name="$FileNames" sign="true"><text>.settings/.jsdtscope</text></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>.settings/.jsdtscope</text></item></note>
+
+</database>

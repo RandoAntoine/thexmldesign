@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Test-TransactionPut" alias="os_OSPutTrans" hide="v3" noreplace="true" publicaccess="false" designerversion="8.5.3" comment="Ne pas supprimer." activatable="false" enabled="false">
+<noteinfo noteid="33960a" unid="EB31EA829186E0928525883900586D78" sequence="69">
+<created><datetime dst="true">20220505T120551,92-04</datetime></created>
+<modified><datetime dst="true">20220505T164340,69-04</datetime></modified>
+<revised><datetime dst="true">20220505T164340,68-04</datetime></revised>
+<lastaccessed><datetime dst="true">20220505T164340,68-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20220505T120553,61-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mourad Zellouf/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Mourad Zellouf/O=Serti Informatique</name></wassignedby>
+<designchange><datetime dst="true">20220505T164340,66-04</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="byminutes" hours="1" minutes="0" runlocation="specific" runserver="CN=Kilo/O=Serti Informatique"/></trigger>
+<documentset type="modified"/><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "SI_CourrielsTypes"
+'Use "x_GDK"
+Use "SDSP_OneSpanSign"
+Use "SDSP_OneSpanSign_Paquet"
+
+UseLSX "*javacon"
+Use "SJ_OneSpanSign"
+Use "SL_JSON"
+Use "SL_JSONWriter"		' ls.snapps.JSONWriter renamed for internal naming standards 
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+'Dim gns_SDSPOSSP As NotesSession
+'Dim gndb_SDSPOSSP As NotesDatabase
+
+'Dim g_TypeNDBCourante_SDSPOSSP As String
+'Dim g_Url_SDSPOSSP As String
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_A = "SL"
+Const gc_Element_A = "os_OSPutTrans"
+
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	
+	Dim v_Url As String
+	Dim v_PackageID As String
+	Dim v_Reponse As Integer
+	Dim v_ReponseJSON As String
+	Dim v_CleIntegration As String
+	
+	
+	v_CleIntegration = "RUhUU1VpcEZsTTBGOnZaY05zbk9tRE5FWg=="	
+	'v_PackageID = "P5qBzpFMb588rY0ASma-vN3iuKw="
+	'v_PackageID = "GhXCSFFsYNteBijkDM3uONEbdL8="  'OK
+	'v_PackageID = "P5qBzpFMb588rY0ASma-vN3iuKw="  'OK
+	v_PackageID = "zTqJDv6WtQsPuEDO5n6eKX0vlmg="
+	
+
+	v_Url = "https://apps.e-signlive.ca/api/packages/" &amp; v_PackageID
+
+'	Call A_EnvoyerTransactionPut(v_CleIntegration,v_Url, v_Reponse , v_ReponseJSON)
+
+	Call A_EnvoyerTransactionPut_SJOSS (v_CleIntegration, v_Url)
+
+	
+	
+End Sub
+
+
+
+</lotusscript></code><code event="A_EnvoyerTransactionPut"><lotusscript>Function A_EnvoyerTransactionPut (p_CleIntegration As String, p_URL As String, p_Reponse As Integer, p_ReponseJSON As String) As Boolean
+	'On Error GoTo GererErreur
+
+	Dim objHttp As Variant
+	Dim v_Reponse As String
+	Dim v_JSON As String
+	
+	A_EnvoyerTransactionPut = False
+	
+	' --- instantiate an MSXML XMLHTTP object
+	Set objHttp = CreateObject("Microsoft.XMLHTTP")
+	
+	v_JSON = |{"status": "EXPIRED"}|
+	
+	'v_JSON = "{\"status\": \"SENT\"}"
+ 	'v_json = |{\"status\": \"EXPIRED\"}|
+	
+	' --- open a PUT request and set the Content-type header 
+	objHttp.open "PUT", p_url, False
+	objHttp.setRequestHeader "Accept", "application/json"
+	objHttp.setRequestHeader "Content-type", "application/json"
+	objHttp.setRequestHeader "Authorization", "Basic " &amp; p_CleIntegration
+	'objHttp.send (v_JSON)
+	objHttp.send (|{"status": "EXPIRED"}|)
+	
+	%REM
+			
+	v_JSON = |{"status": "EXPIRED"}|
+	
+	' --- open a PUT request and set the Content-type header 
+	objHttp.open "PUT", p_url, False
+	objHttp.setRequestHeader "Accept", "application/json"
+	objHttp.setRequestHeader "Content-type", "application/json"
+	objHttp.setRequestHeader "Authorization", "Basic " &amp; p_CleIntegration
+	objHttp.send (v_JSON)
+	%END REM
+
+	v_Reponse = objHTTP.Status
+	p_ReponseJSON = objHttp.responseText
+	Set objHttp = Nothing
+	
+	
+	p_Reponse = CInt(v_Reponse)
+	If p_Reponse &lt; 300 Then
+		A_EnvoyerTransactionPut = True
+	Else
+		Call SIGE_TraiterErreurManuelle(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), 0, v_Reponse, p_ReponseJSON, False)
+	End If
+	
+	
+EnregistrerLog:
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)
+	Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+	Call SIGE_AjouterLog("Requête : " &amp; p_url, 0, 0, False)
+	Call SIGE_AjouterLog("Reponse : " &amp; CStr(p_Reponse), 0, 0, False)
+	If p_Reponse &gt;= 300  Then		
+		Call SIGE_AjouterLog("JSON    :", 0, 0, False)
+		Call SIGE_AjouterLog(p_ReponseJSON, 0, 0, False)
+	End If
+	Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+	Call SIGE_EnregistrerLog
+	
+	Exit Function
+	
+GererErreur:
+	Set objHttp = Nothing
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), p_URL, False)
+	GoTo EnregistrerLog
+End Function
+
+</lotusscript></code><code event="A_EnvoyerTransactionPut_SJOSS"><lotusscript>Function A_EnvoyerTransactionPut_SJOSS (p_CleIntegration As String, p_Url As String) As Boolean
+	On Error GoTo GererErreur
+
+	On Error GoTo GererErreur
+	
+	Dim v_JSON As String
+	Dim v_Statut As String
+	Dim v_StatutTran As String
+	
+	Dim js_SJOSS As JavaSession
+	Dim jcl_SJOSS As JavaClass
+	Dim jo_SJOSS As JavaObject
+	
+	Dim v_Resultat As String
+	Dim v_Reponse As Integer
+	Dim v_ReponseJSON As String	
+	Dim njsonn As NotesJSONNavigator
+	
+	
+	A_EnvoyerTransactionPut_SJOSS = False
+	
+
+	Call SLOSS_Initialisations
+	
+	'g_Url_SLOSS = "https://apps.e-signlive.ca/api"
+	'v_Url = g_Url_SLOSS &amp; "/packages"
+	
+	Set js_SJOSS = New JavaSession()
+	Set jcl_SJOSS = js_SJOSS.GetClass("pk_SJOSS.cl_SJOSS2")		
+	Set jo_SJOSS = jcl_SJOSS.CreateObject
+
+	
+	v_JSON = |{"status": "EXPIRED"}|
+	'v_json = |{\"status\": \"EXPIRED\"}|
+	
+	'If Not A_GenererJSON (v_JSON) Then
+	'	v_Statut = "E82"				' Erreur génération du JSON
+	'	Exit Function
+	'End If	
+	
+	v_StatutTran = |"EXPIRED"|
+	'\"SENT\"
+
+	'v_Resultat = jo_SJOSS.EnvoyerTransactionPut (p_CleIntegration, p_URL, v_JSON, v_ReponseJSON, "")', a_Fichier(1) = ""
+    v_Resultat = jo_SJOSS.EnvoyerTransactionPut (p_CleIntegration, p_URL, v_StatutTran, v_ReponseJSON, "")', a_Fichier(1) = ""
+	
+	
+	Call SIGE_AjouterLog("JAVA Resultat : " &amp; v_Resultat, 0, 0, False)
+	If v_Resultat = "" Or Left(v_Resultat, 3) = "ERR" Then
+		Print "Erreur envoi de la transaction" 
+		v_Statut = "E88"	
+	Else 
+		v_Reponse = CInt(StrLeft(v_Resultat, ";"))
+		v_ReponseJSON = StrRight(v_Resultat, ";")
+
+
+		If v_Reponse &lt; 300 Then
+			A_EnvoyerTransactionPut_SJOSS = True
+		Else
+			Call SIGE_TraiterErreurManuelle(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), 0, Cstr(v_Reponse), v_ReponseJSON, False)
+		End If
+
+	End If
+
+	Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+	Call SIGE_AjouterLog("URL : " &amp; p_URL, 0, 0, False)
+	Call SIGE_AjouterLog("Payload : " &amp; v_JSON, 0, 0, False)
+	Call SIGE_AjouterLog("Reponse : " &amp; CStr(v_Reponse), 0, 0, False)
+	If v_Reponse &gt;= 300 Then
+		Call SIGE_AjouterLog("-------------------------------------------------------------------------------", 0, 0, False)
+		Call SIGE_AjouterLog("JSON Reponse : ", 0, 0, False)
+		Call SIGE_AjouterLog(v_ReponseJSON, 0, 0, False)
+	End If
+	Call SIGE_EnregistrerLog
+	Exit Function
+	
+GererErreur:
+	v_Statut = "E89"			' Erreur de programmation
+	Call SIGE_TraiterErreur(gc_TypeElement_SLOSS, gc_Element_SLOSS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="A_GenererJSON"><lotusscript>Function A_GenererJSON (p_JSON As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_JSON As String
+	Dim jsonw As JSONWriter
+	
+	A_GenererJSON = False
+	
+	' Génération du JSON
+	Set jsonw = New JSONWriter
+	v_JSON = jsonw.BeginObject	' {
+
+	v_JSON = v_JSON &amp; jsonw.Key("status")
+	v_JSON = v_JSON &amp; jsonw.AppendValue("EXPIRED")
+	
+	v_JSON = v_JSON &amp; jsonw.EndObject	' }
+	
+	p_JSON = v_JSON
+	
+	A_GenererJSON = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLOSS, gc_Element_SLOSS, GetThreadInfo(1), "Expeditaire : " &amp; v_JSON, False)
+	Exit Function		
+End Function
+</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="AC55C75EF5F997CB852588390071DFCF">
+<agentmodified><datetime dst="true">20220505T164340,69-04</datetime></agentmodified>
+<agentrun><datetime dst="true">20220505T164349,44-04</datetime></agentrun>
+<runlog>Started running agent 'Test-TransactionPut|os_OSPutTrans' on 2022-05-05 04:43:46 PM
+Running on new or modified documents: 676703 total
+Found 676703 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Test-TransactionPut|os_OSPutTrans' on 2022-05-05 04:43:49 PM
+</runlog></rundata>
+<item name="$POID"><datetime dst="true">20220406T144855,65-04</datetime></item></agent>
+
+</database>

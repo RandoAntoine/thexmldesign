@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Windows" hide="v3 v4strict" designerversion="8.5.3" comment="1.1c">
+<noteinfo noteid="555802" unid="22C4EAA945C697E88525880D007080B0" sequence="29">
+<created><datetime>20220322T152849,76-05</datetime></created>
+<modified><datetime>20260105T014837,77-05</datetime></modified>
+<revised><datetime>20250319T073634,01-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,76-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,76-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SIW As NotesSession
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIW = "SL"
+Const gc_Element_SIW = "SI_Windows"
+
+
+</lotusscript></code><code event="SIW_PosteDeTravail"><lotusscript>Function SIW_PosteDeTravail As Variant
+	On Error Goto GererErreur
+	
+	Dim i As Integer
+	Dim a(6) As String
+	Dim objWMIService As Variant
+	Dim colItems As Variant
+	Dim m_oWSHNet As variant
+	
+	For i = 0 To 6
+		a(i) = "n. d."
+	Next
+	
+	On Error 207 GoTo FinSub
+	Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+	
+	Set colItems = objWMIService.ExecQuery("Select * from Win32_ComputerSystem")
+	Forall objItem In colItems
+		On Error Resume Next
+		a(0) = objItem.Domain
+		a(1) = objItem.Manufacturer
+		a(2) = objItem.Model
+		a(3) = objItem.Name
+		a(4) = objItem.NumberOfLogicalProcessors
+		a(5) = objItem.TotalPhysicalMemory
+		a(6) = objItem.UserName
+		On Error Goto GererErreur
+	End Forall
+	
+FinSub:
+	SIW_PosteDeTravail = a
+	Exit Function
+	
+GererErreur207:
+	On Error 207 GoTo FinSub
+	Set m_oWSHNet = CreateObject("WScript.Network") 
+'	Set m_oWSHShell = createobject("WScript.shell")
+	
+On Error GoTo FinSub
+	a(0) = m_oWshNet.UserDomain
+	a(3) = m_oWshNet.computerName
+	a(6) = m_oWshNet.UserName
+	GoTo FinSub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIW, gc_Element_SIW, Lsi_info(2), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIW_Initialisations"><lotusscript>Sub SIW_Initialisations
+	If gns_SIW Is Nothing Then
+		Set gns_SIW = New NotesSession
+	End If
+End Sub
+
+</lotusscript></code><code event="SIW_SystemeExploitation"><lotusscript>Function SIW_SystemeExploitation As Variant
+	On Error Goto GererErreur
+	
+	Dim i As integer
+	Dim a(5) As String
+	Dim objWMIService As Variant
+	Dim colItems As Variant
+	
+	On Error 207 GoTo GererErreur207
+	Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+	
+	Set colItems = objWMIService.ExecQuery("Select * from Win32_OperatingSystem",,48)
+	Forall objItem In colItems
+		On Error Resume Next
+		a(0) = objItem.BuildNumber
+		a(1) = objItem.Caption
+		a(2) = objItem.SerialNumber
+		a(3) = objItem.ServicePackMajorVersion
+		a(4) = objItem.ServicePackMinorVersion
+		a(5) = objItem.TotalVisibleMemorySize
+		On Error Goto GererErreur
+	End Forall
+	
+FinSub:
+	SIW_SystemeExploitation = a
+	Exit Function
+	
+GererErreur207:
+	For i = LBound(a) To UBound(a)
+		a(i) = "n. d."
+	Next
+	GoTo FinSub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIW, gc_Element_SIW, Lsi_info(2), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIW_Reseau"><lotusscript>Function SIW_Reseau As Variant
+	On Error Goto GererErreur
+	
+	Dim a(2) As String
+	Dim i As Integer
+	Dim objWMIService As Variant
+	Dim colItems As Variant
+	
+	On Error 207 GoTo GererErreur207
+	Set objWMIService = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\cimv2")
+	
+	Set colItems = objWMIService.ExecQuery("Select IPAddress, DefaultIPGateway, DNSServerSearchOrder from Win32_NetworkAdapterConfiguration ")
+	Forall objItem In colItems
+		If Not Isnull(objItem.IPAddress) Then 
+			For i = Lbound(objItem.IPAddress) To Ubound(objItem.IPAddress)
+				If objItem.IPAddress(i) &lt;&gt; "" And objItem.IPAddress(i) &lt;&gt; "0.0.0.0" Then
+					If a(0) = "" Then
+						a(0) = objItem.IPAddress(i)
+					Else
+						a(0) = a(0) &amp; ":" &amp; objItem.IPAddress(i)
+					End If
+				End If
+			Next
+		End If
+		
+		If Not Isnull(objItem.DefaultIPGateway) Then 
+			For i = Lbound(objItem.DefaultIPGateway) To Ubound(objItem.DefaultIPGateway)
+				If Cstr(objItem.DefaultIPGateway(i)) &lt;&gt; "" Then
+					If a(1) = "" Then
+						a(1) = Cstr(objItem.DefaultIPGateway(i))
+					Else
+						a(1) = a(1) &amp; ":" &amp; Cstr(objItem.DefaultIPGateway(i))
+					End If
+				End If
+			Next
+		End If
+		
+		If Not Isnull(objItem.DNSServerSearchOrder) Then 
+			For i = Lbound(objItem.DNSServerSearchOrder) To Ubound(objItem.DNSServerSearchOrder)
+				If objItem.DNSServerSearchOrder(i) &lt;&gt; "" Then
+					If a(2) = "" Then
+						a(2) = objItem.DNSServerSearchOrder(i)
+					Else
+						a(2) = a(2) &amp; ":" &amp; objItem.DNSServerSearchOrder(i)
+					End If
+				End If
+			Next
+		End If
+	End Forall
+	
+FinSub:
+	SIW_Reseau = a
+	Exit Function
+	
+GererErreur207:
+	For i = LBound(a) To UBound(a)
+		a(i) = "n. d."
+	Next
+	GoTo FinSub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIW, gc_Element_SIW, Lsi_info(2), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,01-05</datetime></item></scriptlibrary>
+
+</database>

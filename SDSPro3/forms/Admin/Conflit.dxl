@@ -1,0 +1,498 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Admin\Conflit" alias="DB_SIGC" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8" comment="7.1c" bgcolor="system">
+<noteinfo noteid="18c6" unid="FC74F49F95D23FAE85257EC80065D581" sequence="1098">
+<created><datetime dst="true">20150922T143217,93-04</datetime></created>
+<modified><datetime>20260105T014845,63-05</datetime></modified>
+<revised><datetime>20250319T073750,61-05</datetime></revised>
+<lastaccessed><datetime>20260105T014845,62-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205710,27-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "DB_SIGC"
+
+</lotusscript></code></globals><code event="postopen"><lotusscript>Sub Postopen(Source As Notesuidocument)
+	Call DBSIGC_Postopen(Source)
+End Sub
+</lotusscript></code><code event="queryclose"><lotusscript>Sub Queryclose(Source As Notesuidocument, Continue As Variant)
+	Call DBSIGC_Queryclose(Source, Continue)
+End Sub</lotusscript></code>
+<actionbar bgcolor="silver" bordercolor="black">
+<actionbuttonstyle bgcolor="silver"/><font size="8pt"/><border width="0px 0px 1px"/></actionbar>
+<body><richtext>
+<pardef id="1" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fixedleft" colorstyle="solid" bgcolor="white" rowspacing="0.0396in" refwidth="9.3493in"><tablecolumn width="0.1375in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="3.1493in"/><tablecolumn width="0.1771in"/><tablecolumn width="3.1493in"/><tablecolumn width="0.9840in"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="3" keepwithnext="true" keeptogether="true"/>
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="4" keepwithnext="true" keeptogether="true"/>
+<par def="4"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="5" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="6" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="7" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="8" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="9" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Edition = 0</formula></code></pardef>
+<par def="9"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="10" leftmargin="0" keepwithnext="true" keeptogether="true"/>
+<par def="10"><run><font size="9pt"/>Type de document :</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="SIGC_Form"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="11" leftmargin="0.0104in" keepwithnext="true" keeptogether="true"/>
+<par def="11">(<run><font size="9pt"/><field type="number" kind="computed" name="Edition"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/>)</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="12" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="10"><run><font size="9pt"/>Clé / Description :</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="11"><run><font size="9pt"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="9pt"/>HistoDM :</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="13" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(HistoDMOriginale) | @IsNull(HistoDMConflit) | HistoDMOriginale &gt;= HistoDMConflit</formula></code></pardef>
+<par def="13"><run><font size="9pt"/></run><run><font size="9pt"/><field type="datetime" kind="computed" name="HistoDMOriginale"><datetimeformat show="datetime" date="yearmonthday" fourdigityear="true" fourdigityearfor21stcentury="true" time="hourminutesecond" zone="never" dateformat="yearmonthdayweekday" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1="-" dateseparator2="-" dateseparator3=" " timeseparator=":" timeformat24="true" preference="usersetting"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par>
+<pardef id="14" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(HistoDMOriginale) | HistoDMOriginale &lt; HistoDMConflit</formula></code></pardef>
+<par def="14"><run><font size="9pt"/></run><run><font size="8pt" color="green" style="bold"/><field type="datetime" kind="computedfordisplay" name="HistoDMOriginale_1"><datetimeformat show="datetime" date="yearmonthday" fourdigityear="true" fourdigityearfor21stcentury="true" time="hourminutesecond" zone="never" dateformat="yearmonthdayweekday" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1="-" dateseparator2="-" dateseparator3=" " timeseparator=":" timeformat24="true" preference="usersetting"/><code event="defaultvalue"><formula>HistoDMOriginale</formula></code></field></run><run><font size="8pt" style="bold" color="green"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="15" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>dateModifOriginale &gt; DateModifConflit</formula></code></pardef>
+<par def="15"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="16" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(HistoDMOriginale) | @IsNull(HistoDMConflit) | HistoDMOriginale &lt; HistoDMConflit</formula></code></pardef>
+<par def="16"><run><font size="9pt"/></run><run><font size="9pt"/><field type="datetime" kind="computed" name="HistoDMConflit"><datetimeformat show="datetime" date="yearmonthday" fourdigityear="true" fourdigityearfor21stcentury="true" time="hourminutesecond" zone="never" dateformat="yearmonthdayweekday" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1="-" dateseparator2="-" dateseparator3=" " timeseparator=":" timeformat24="true" preference="usersetting"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par>
+<pardef id="17" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(HistoDMConflit) | HistoDMOriginale &gt;= HistoDMConflit</formula></code></pardef>
+<par def="17"><run><font size="9pt"/></run><run><font size="8pt" color="green" style="bold"/><field type="datetime" kind="computedfordisplay" name="HistoDMConflit_1"><datetimeformat show="datetime" date="yearmonthday" fourdigityear="true" fourdigityearfor21stcentury="true" time="hourminutesecond" zone="never" dateformat="yearmonthdayweekday" dayformat="twodigitday" monthformat="twodigitmonth" yearformat="fourdigityear" weekdayformat="shortname" dateseparator1="-" dateseparator2="-" dateseparator3=" " timeseparator=":" timeformat24="true" preference="usersetting"/><code event="defaultvalue"><formula>HistoDMConflit</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="18" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>dateModifOriginale &gt; DateModifConflit</formula></code></pardef>
+<par def="18"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="19" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NbPages = 1</formula></code></pardef>
+<par def="19"><run><font size="9pt"/>Page </run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computedfordisplay" name="SIGC_Page"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SIGC_Page</formula></code></field></run><run><font size="9pt"/> de </run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computedfordisplay" name="SIGC_NbPages"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SIGC_NbPages</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="20" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NbPages = 1</formula></code></pardef>
+<par def="20"><run><font size="9pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="21" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_Page = 1</formula></code></pardef>
+<par def="21"><run><font size="9pt"/></run><actionhotspot hotspotstyle="none"><run><font size="9pt"/></run><picture width="20px" height="20px"><imageref name="hs_FlecheGauche.gif|hs_FlecheGauche"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSIGC_InitialiserPage(-1)
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="22" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NbPages = 1</formula></code></pardef>
+<par def="22"><run><font size="9pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="23" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NbPages = 1</formula></code></pardef>
+<par def="23"><run><font size="9pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="24" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NbPages = 1</formula></code></pardef>
+<par def="24"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="25" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_Page = SIGC_NbPages</formula></code></pardef>
+<par def="25"><run><font size="9pt" style="bold"/></run><actionhotspot hotspotstyle="none"><run><font size="9pt" style="bold"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSIGC_InitialiserPage(-1)
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run><actionhotspot hotspotstyle="none"><run><font size="9pt"/></run><picture width="20px" height="20px"><imageref name="hs_FlecheDroite.gif|hs_FlecheDroite"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSIGC_InitialiserPage(1)
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="26" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NbPages = 1 | Edition = 0</formula></code></pardef>
+<par def="26"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="8pt" style="bold" color="maroon"/>Item</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="8pt" style="bold" color="maroon"/>Valeur originale</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="8"><run><font size="8pt" style="bold" color="maroon"/>Valeur en conflit</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="21px" height="21px"><gif>
+R0lGODlhFQAVALIDAAAAAACAgAD//////8DAwP///wAAAAAAACH5BAEAAAUALAAAAAAVABUAAANH
+WLrc/jDKuYC9lhYQRO+DBngkEVJcKZzT+Amm2BHwKqoxOtfsg+EDjGNA2tGOPQbxdYQlG8QmkhKt
+5ajWpySqnQy6mrBYkQAAIf4fT3B0aW1pemVkIGJ5IFVsZWFkIFNtYXJ0U2F2ZXIhAAA7
+</gif></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSIGC_hsColonneGarderValeur(0)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/>      </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="21px" height="21px"><gif>
+R0lGODlhFQAVALIDAAAAAACAgAD//////8DAwP///wAAAAAAACH5BAEAAAUALAAAAAAVABUAAANH
+WLrc/jDKuYC9lhYQRO+DBngkEVJcKZzT+Amm2BHwKqoxOtfsg+EDjGNA2tGOPQbxdYQlG8QmkhKt
+5ajWpySqnQy6mrBYkQAAIf4fT3B0aW1pemVkIGJ5IFVsZWFkIFNtYXJ0U2F2ZXIhAAA7
+</gif></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSIGC_hsColonneGarderValeur(1)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_1"><code event="defaultvalue"><formula>SIGC_NomItem_1</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="27" hide="notes web" keepwithnext="true" keeptogether="true"/>
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_1"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_1</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="28" hide="notes web" keepwithnext="true" keeptogether="true"/>
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="8"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_1"><code event="defaultvalue"><formula>SIGC_ValeurConflit_1</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="29" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Edition = 0</formula></code></pardef>
+<par def="29"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_1"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_1</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="30" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_2 = "" &amp; SIGC_NbPages = 1</formula></code></pardef>
+<par def="30"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="31" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_2 = ""</formula></code></pardef>
+<par def="31"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_2"><code event="defaultvalue"><formula>SIGC_NomItem_2</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="32" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_2 = ""</formula></code></pardef>
+<par def="32"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_2"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_2</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="33" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_2 = ""</formula></code></pardef>
+<par def="33"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_2"><code event="defaultvalue"><formula>SIGC_ValeurConflit_2</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="34" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_2 = "" | Edition = 0</formula></code></pardef>
+<par def="34"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_2"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_2</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="35" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_3 = "" &amp; SIGC_NbPages = 1</formula></code></pardef>
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="36" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_3 = ""</formula></code></pardef>
+<par def="36"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_3"><code event="defaultvalue"><formula>SIGC_NomItem_3</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="37" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_3 = ""</formula></code></pardef>
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_3"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_3</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="38" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_3 = ""</formula></code></pardef>
+<par def="38"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_3"><code event="defaultvalue"><formula>SIGC_ValeurConflit_3</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="39" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_3 = "" | Edition = 0</formula></code></pardef>
+<par def="39"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_3"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_3</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="40" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_4 = "" &amp; SIGC_NbPages = 1</formula></code></pardef>
+<par def="40"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="41" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_4 = ""</formula></code></pardef>
+<par def="41"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_4"><code event="defaultvalue"><formula>SIGC_NomItem_4</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="42" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_4 = ""</formula></code></pardef>
+<par def="42"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_4"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_4</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="43" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_4 = ""</formula></code></pardef>
+<par def="43"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_4"><code event="defaultvalue"><formula>SIGC_ValeurConflit_4</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="44" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_4 = "" | Edition = 0</formula></code></pardef>
+<par def="44"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_4"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_4</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="45" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_5 = "" &amp; SIGC_NbPages = 1</formula></code></pardef>
+<par def="45"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="46" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_5 = ""</formula></code></pardef>
+<par def="46"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_5"><code event="defaultvalue"><formula>SIGC_NomItem_5</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="47" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_5 = ""</formula></code></pardef>
+<par def="47"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_5"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_5</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="48" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_5 = ""</formula></code></pardef>
+<par def="48"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_5"><code event="defaultvalue"><formula>SIGC_ValeurConflit_5</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="49" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_5 = "" | Edition = 0</formula></code></pardef>
+<par def="49"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_5"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_5</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="50" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_6 = "" &amp; SIGC_NbPages = 1</formula></code></pardef>
+<par def="50"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="51" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_6 = ""</formula></code></pardef>
+<par def="51"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_6"><code event="defaultvalue"><formula>SIGC_NomItem_6</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="52" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_6 = ""</formula></code></pardef>
+<par def="52"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_6"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_6</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="53" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_6 = ""</formula></code></pardef>
+<par def="53"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_6"><code event="defaultvalue"><formula>SIGC_ValeurConflit_6</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="54" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_6 = "" | Edition = 0</formula></code></pardef>
+<par def="54"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_6"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_6</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="55" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_7 = "" &amp; SIGC_NbPages = 1</formula></code></pardef>
+<par def="55"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="56" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_7 = ""</formula></code></pardef>
+<par def="56"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_7"><code event="defaultvalue"><formula>SIGC_NomItem_7</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="57" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_7 = ""</formula></code></pardef>
+<par def="57"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_7"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_7</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="58" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_7 = ""</formula></code></pardef>
+<par def="58"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_7"><code event="defaultvalue"><formula>SIGC_ValeurConflit_7</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="59" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_7 = "" | Edition = 0</formula></code></pardef>
+<par def="59"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_7"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_7</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="60" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_8 = "" &amp; SIGC_NbPages = 1</formula></code></pardef>
+<par def="60"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="61" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_8 = ""</formula></code></pardef>
+<par def="61"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_8"><code event="defaultvalue"><formula>SIGC_NomItem_8</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="62" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_8 = ""</formula></code></pardef>
+<par def="62"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_8"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_8</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="63" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_8 = ""</formula></code></pardef>
+<par def="63"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_8"><code event="defaultvalue"><formula>SIGC_ValeurConflit_8</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="64" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_8 = "" | Edition = 0</formula></code></pardef>
+<par def="64"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_8"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_8</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="65" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_9 = "" &amp; SIGC_NbPages = 1</formula></code></pardef>
+<par def="65"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="66" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_9 = ""</formula></code></pardef>
+<par def="66"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_9"><code event="defaultvalue"><formula>SIGC_NomItem_9</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="67" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_9 = ""</formula></code></pardef>
+<par def="67"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_9"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_9</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="68" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_9 = ""</formula></code></pardef>
+<par def="68"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_9"><code event="defaultvalue"><formula>SIGC_ValeurConflit_9</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="69" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_9 = "" | Edition = 0</formula></code></pardef>
+<par def="69"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_9"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_9</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="70" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_0 = "" &amp; SIGC_NbPages = 1</formula></code></pardef>
+<par def="70"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="71" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_0 = ""</formula></code></pardef>
+<par def="71"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SIGC_NomItem_0"><code event="defaultvalue"><formula>SIGC_NomItem_0</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="27"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="72" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_0 = ""</formula></code></pardef>
+<par def="72"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurOriginale_0"><code event="defaultvalue"><formula>SIGC_ValeurOriginale_0</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="28"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="73" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_0 = ""</formula></code></pardef>
+<par def="73"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computedfordisplay" name="SIGC_ValeurConflit_0"><code event="defaultvalue"><formula>SIGC_ValeurConflit_0</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="74" leftmargin="0.0236in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SIGC_NomItem_0 = "" | Edition = 0</formula></code></pardef>
+<par def="74"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="SIGC_GarderValeur_0"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>VO | 0</text><text>VC | 1</text></textlist></keywords><code event="defaultvalue"><formula>SIGC_GarderValeur_0</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="75" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Edition = 0</formula></code></pardef>
+<par def="75"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="76" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Edition = 0</formula></code></pardef>
+<par def="76"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="77" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Edition = 0</formula></code></pardef>
+<par def="77"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="78" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Edition = 0</formula></code></pardef>
+<par def="78"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="79" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Edition = 0</formula></code></pardef>
+<par def="79"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="80" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Edition = 0</formula></code></pardef>
+<par def="80"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="75"><run><font size="9pt"/></run></par></tablecell>
+<tablecell columnspan="6" borderwidth="0px" bgcolor="#e6eff4">
+<pardef id="85" leftmargin="0.0396in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Edition = 0</formula></code></pardef>
+<par def="85"><run><font size="9pt"/>Note: Une valeur à conserver doit être sélectionnée pour chaque item ayant un conflit.  En appuyant sur OK le conflit sera résolu.</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="8"><run><font size="9pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="1"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par></richtext></body>
+<item name="AdmC_Page" summary="false" sign="true"><number>0</number></item>
+<item name="AdmC_NbPages" summary="false" sign="true"><number>0</number></item>
+<item name="OriginalModTime" sign="true"><datetime>20061215T104059,84-05</datetime></item>
+<item name="DateModifOriginale" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="DateModifConflit" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Edition" summary="false"><number>0</number></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>DB_SIGC</text></item></form>
+
+</database>

@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="DB_SIGC" hide="v3 v4strict" designerversion="8.5.3" comment="1.1">
+<noteinfo noteid="55569a" unid="EFEBFD65D396149F852586B40011FB40" sequence="76">
+<created><datetime dst="true">20210410T231624,32-04</datetime></created>
+<modified><datetime>20260105T014836,95-05</datetime></modified>
+<revised><datetime>20250319T073636,44-05</datetime></revised>
+<lastaccessed><datetime>20260105T014836,94-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014836,94-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_GestionErreurs"
+Use "SL_SendKeys"
+
+'	Les fonctions définies dans cette bibliothèque de script permettent la gestion de tous les
+'	opérations reliés au formulaire Admin\Conflit | DB_SIGC.
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SIGC As NotesSession
+Dim gndb_SIGC As NotesDatabase
+
+Dim gnuiws_SIGC As NotesUIWorkspace
+Dim gnuid_SIGC As NotesUIDocument
+Dim gnd_SIGC As NotesDocument
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SIGC = "SL"
+Const gc_Element_SIGC = "SI_GestionConflits"
+
+</lotusscript></code><code event="DBSIGC_hsColonneGarderValeur"><lotusscript>Sub DBSIGC_hsColonneGarderValeur(p_Valeur As String)
+	' ----------------------------------------------------------------------------------
+	' Le script initialise tous les items "GarderValeur" à la valeur reçue en paramètre.
+	' ----------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim i As Long
+	
+	' Initialisation des valeurs cachées
+	' ----------------------------------
+	For i = 1 To xVar(gnd_SIGC, "SIGC_NbItems", 0)
+		Call gnd_SIGC.Replaceitemvalue("SIGC_GarderValeur" &amp; Cstr(i), p_Valeur)
+	Next
+	
+	' Initialisation des valeurs affichées
+	' ------------------------------------
+	For i = 1 To 10
+		If xVar(gnd_SIGC, "SIGC_NomItem_" &amp; Cstr(i Mod 10), "") &lt;&gt; "" Then
+			Call gnd_SIGC.Replaceitemvalue("SIGC_GarderValeur_" &amp; Cstr(i Mod 10), p_Valeur)
+		End If
+	Next
+	
+	If p_Valeur = "1" Then
+		Call PushShiftKey(Chr(&amp;H9))
+	End If
+	If xVar(gnd_SIGC, "SIGC_Page", 0) &gt; 1 Then
+		Call PushShiftKey(Chr(&amp;H9))
+	End If
+	If xVar(gnd_SIGC, "SIGC_Page", 0) &lt; xVar(gnd_SIGC, "SIGC_NbPages", 1) Then
+		Call PushShiftKey(Chr(&amp;H9))
+	End If
+	Call PushShiftKey(Chr(&amp;H9))
+	Call PushShiftKey(Chr(&amp;H9))
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBSIGC_Postopen"><lotusscript>Sub DBSIGC_Postopen(p_Source As Notesuidocument)
+	' -----------------------------------------------
+	' Le script initialise à première page à afficher
+	' -----------------------------------------------
+	On Error Goto GererErreur
+	
+	Set gnuid_SIGC = p_Source
+	Set gnd_SIGC = p_Source.Document
+	
+	Call DBSIGC_InitialiserPage(0)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBSIGC_InitialiserPage"><lotusscript>Sub DBSIGC_InitialiserPage(p_Page As Integer)
+	' -------------------------------------------------------------------------
+	' Le script permet d'initialiser les champs d'affichage du masque "F_SIGC".
+	' Paramètre : Page à initialiser		-1 = Page précédente
+	'											0 = Première page
+	'											1 = Page suivante
+	' -------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_Page As Long
+	Dim v_PremierItem As Long
+	Dim v_DernierItem As Long
+	Dim i As Long
+	Dim ni As Notesitem
+	
+	' Première page
+	' -------------
+	If p_Page = 0 Then
+		v_Page = 1
+		Call gnd_SIGC.Replaceitemvalue("SIGC_NbPages", ((xVar(gnd_SIGC, "SIGC_NbItems", 1) - 1) \ 10) + 1)
+	' Changement de page
+	' ------------------
+	Else
+		' Sauvegarde des valeurs courantes
+		' --------------------------------
+		v_Page = xVar(gnd_SIGC, "SIGC_Page", 1)
+		v_PremierItem = ((v_Page - 1) * 10) + 1
+		v_DernierItem = xVar(gnd_SIGC, "SIGC_DernierItem_", 1)
+		For i = v_PremierItem To v_DernierItem
+			Call gnd_SIGC.Replaceitemvalue("SIGC_GarderValeur" &amp; Cstr(i), _
+			xVar(gnd_SIGC, "SIGC_GarderValeur_" &amp; Cstr(i Mod 10), ""))
+		Next
+		
+		' Changer de page
+		v_Page = v_Page + p_Page
+	End If
+	
+	Call gnd_SIGC.Replaceitemvalue("SIGC_Page", v_Page)
+	
+	' Initialisation des valeurs de la nouvelle page
+	' ----------------------------------------------
+	v_PremierItem = ((v_Page - 1) * 10) + 1
+	v_DernierItem = v_PremierItem + 9
+	If v_DernierItem &gt; xVar(gnd_SIGC, "SIGC_NbItems", 0) Then
+		v_DernierItem = xVar(gnd_SIGC, "SIGC_NbItems", 0)
+	End If
+	
+	For i = v_PremierItem To v_DernierItem
+		Call gnd_SIGC.Replaceitemvalue("SIGC_NomItem_" &amp; Cstr(i Mod 10), xVar(gnd_SIGC, "SIGC_NomItem" &amp; Cstr(i), ""))
+		Set ni = gnd_SIGC.Getfirstitem("SIGC_ValeurOriginale" &amp; Cstr(i))
+		Call gnd_SIGC.Replaceitemvalue("SIGC_ValeurOriginale_" &amp; Cstr(i Mod 10), ni.Text)
+		Call gnd_SIGC.Replaceitemvalue("SIGC_GarderValeur_" &amp; Cstr(i Mod 10), xVar(gnd_SIGC, "SIGC_GarderValeur" &amp; Cstr(i), ""))
+		Set ni = gnd_SIGC.Getfirstitem("SIGC_ValeurConflit" &amp; Cstr(i))
+		Call gnd_SIGC.Replaceitemvalue("SIGC_ValeurConflit_" &amp; Cstr(i Mod 10), ni.Text)
+	Next
+	
+	For i = v_DernierItem - v_PremierItem + 2 To 10
+		Call gnd_SIGC.Replaceitemvalue("SIGC_NomItem_" &amp; Cstr(i Mod 10), "")
+		Call gnd_SIGC.Replaceitemvalue("SIGC_ValeurOriginale_" &amp; Cstr(i Mod 10), "")
+		Call gnd_SIGC.Replaceitemvalue("SIGC_GarderValeur_" &amp; Cstr(i Mod 10), "")
+		Call gnd_SIGC.Replaceitemvalue("SIGC_ValeurConflit_" &amp; Cstr(i Mod 10), "")
+	Next
+	
+	Call gnd_SIGC.Replaceitemvalue("SIGC_DernierItem_", v_DernierItem)
+	Call gnuid_SIGC.RefreshHideFormulas
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBSIGC_Initialisations"><lotusscript>Sub DBSIGC_Initialisations
+	If gns_SIGC Is Nothing Then
+		Set gns_SIGC = New NotesSession
+		Set gndb_SIGC = gns_SIGC.Currentdatabase
+		
+		Set gnuiws_SIGC = New NotesUIWorkspace
+	End If
+End Sub
+
+</lotusscript></code><code event="DBSIGC_Queryclose"><lotusscript>Sub DBSIGC_Queryclose(p_Source As Notesuidocument, p_Continue As Variant)
+	' -------------------------------------------------------------
+	' Le script met à jour les champs de la dernière page affichée.
+	' -------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_Page As Long
+	Dim v_PremierItem As Long
+	Dim v_DernierItem As Long
+	Dim i As Long
+	
+	Set gnuid_SIGC = p_Source
+	Set gnd_SIGC = p_Source.Document
+	
+	' Sauvegarde des valeurs courantes
+	' --------------------------------
+	v_Page = xVar(gnd_SIGC, "SIGC_Page", 1)
+	v_PremierItem = ((v_Page - 1) * 10) + 1
+	v_DernierItem = xVar(gnd_SIGC, "SIGC_DernierItem_", 1)
+	For i = v_PremierItem To v_DernierItem
+		Call gnd_SIGC.Replaceitemvalue("SIGC_GarderValeur" &amp; Cstr(i), _
+		xVar(gnd_SIGC, "SIGC_GarderValeur_" &amp; CStr(i Mod 10), ""))
+	Next
+	
+	p_Continue = True
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGC, gc_Element_SIGC, GetThreadInfo(1), "", False)
+	p_Continue = False
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073636,44-05</datetime></item></scriptlibrary>
+
+</database>

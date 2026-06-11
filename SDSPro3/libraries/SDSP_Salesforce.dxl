@@ -1,0 +1,1014 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Salesforce" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="5559b6" unid="FA8D73DDA9BC084C85258CA6006AA694" sequence="8">
+<created><datetime dst="true">20250611T152454,60-04</datetime></created>
+<modified><datetime>20260319T102025,12-05</datetime></modified>
+<revised><datetime>20260319T101931,00-05</datetime></revised>
+<lastaccessed><datetime>20260319T102025,11-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,57-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_CalculsProp" 
+Use "SL_SalesforceAPI"
+Use "x_SDSBB"
+Use "x_SDSP3"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SDSPSf As NotesSession
+Dim gndb_SDSPSf As NotesDatabase
+Dim gnv_Prod12_SDSPSf As NotesView
+Dim g_DossierTemp_SDSPSf As String
+Dim g_NomProfilSalesforceAPI_SDSPSf As String
+Dim g_IdPricebookSF_SDSPSf As String
+
+' Traitement des erreurs
+Const gc_TypeElement_SDSPSf = "SL"
+Const gc_Element_SDSPSf = "SDSP_Salesforce"
+
+
+'===================================================================================================================================================
+Class SDSPSf_clOpportunityLineItem
+	Public IdProduitSF As String
+	Public Quantite As Integer
+	Public PrixUnitaire As Double
+	Public PrixMensuel As Boolean
+	Public Devise As String
+	
+	Sub New(p_IdProduitSF As String)
+		Me.IdProduitSF = p_IdProduitSF
+	End Sub
+End Class
+
+'===================================================================================================================================================
+Class SDSPSf_clSync
+	Public CleProposition As String
+
+	Public cl_ConnexionAPI As SLSf_clConnexionAPI
+	Public OpportunityId As String
+	Public cl_Opportunity As SLSf_clObject
+	
+	Public ndc_Prod As NotesDocumentCollection
+	Public NbLineItems As Integer
+	Public l_LineItems As Variant
+	Public l_LineItemsByXId List As String
+	
+	Public l_SertiProductsById List As String
+	Public l_SertiProductsByXId List As String
+
+	Public AccountId As String
+	Public cl_Account As SLSf_clObject
+End Class
+</lotusscript></code><code event="SDSPSf_ExtrairePDF"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_ExtrairePDF(pnd_Prop As NotesDocument, pnd_Temp As NotesDocument ) As String
+	On Error GoTo GererErreur	
+	On Error 75 Resume Next
+
+	Dim v_attachments As Variant
+	Dim x As Integer
+	Dim v_embedObj As NotesEmbeddedObject
+	Dim v_filepath As String 
+	Dim v_fileName As String 
+	
+	v_fileName = pnd_Prop.UniversalID + ".PDF"
+	v_attachments = Evaluate("@AttachmentNames", pnd_Temp) 
+	
+	If v_attachments(0) = "" Then
+		Exit Function		
+	Else		
+		v_fileName = v_attachments(0)
+		Set v_embedObj = pnd_Temp.GetAttachment(v_fileName)		
+		Call SDSPSf_CreerDossier
+		
+		v_filepath = g_DossierTemp_SDSPSf + "\" + v_fileName
+		Kill v_filepath
+		Call v_embedObj.Extractfile(v_filepath)			
+	End If 			
+
+	SDSPSf_ExtrairePDF = v_filepath 	
+	Exit Function	
+	
+GererErreur:
+	SDSPSf_ExtrairePDF = "-9"
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), v_filepath, False)
+	Exit Function	
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_Initialisations"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_Initialisations(p_Source As String, pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_Resultat As Integer
+	
+	SDSPSf_Initialisations = 0
+	
+	If gns_SDSPSf Is Nothing Then
+		Set gns_SDSPSf = New NotesSession
+		Set gndb_SDSPSf = gns_SDSPSf.CurrentDatabase
+		
+		SDSPSf_Initialisations = SDSPSf_InitialiserConnexionAPI(pcl_Sync)
+		If v_Resultat &lt; 0 Then
+			SDSPSf_Initialisations = v_Resultat
+			Exit Function
+		End If
+		
+		g_IdPricebookSF_SDSPSf = xVarProf("Prof_IdPricebookSF", "")
+		SDSPSf_Initialisations = 1
+	End If
+	
+	Select Case p_Source
+		Case "ACC":
+		Case "OPP":
+			SDSPSf_Initialisations = v_Resultat
+			v_Resultat = SDSPSf_InitialiserTableauProduits(pcl_Sync)
+	End Select
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_MajItemsLineItem"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_MajItemsLineItem(pcl_OpportunityLineItem As SDSPSf_clOpportunityLineItem, pcl_LineItem As SLSf_clObject, pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur	
+	
+	Dim v_Maj As Boolean
+	Dim d As Variant
+	
+	SDSPSf_MajItemsLineItem = 0
+	v_Maj = False
+
+	If pcl_OpportunityLineItem.PrixMensuel Then
+		pcl_LineItem.Contenu("UnitPrice") = Round(pcl_LineItem.Contenu("UnitPrice") / 12, 0)
+	End If
+	
+	v_Maj = pcl_LineItem.AssignerValeur("Quantity", pcl_OpportunityLineItem.Quantite, "N") Or v_Maj
+	v_Maj = pcl_LineItem.AssignerValeur("UnitPrice", pcl_OpportunityLineItem.PrixUnitaire, "N") Or v_Maj
+	v_Maj = pcl_LineItem.AssignerValeur("CurrencyIsoCode", pcl_OpportunityLineItem.Devise, "") Or v_Maj
+		
+	If v_Maj Then
+		SDSPSf_MajItemsLineItem = 1
+	End If
+	Exit Function	
+	
+GererErreur:
+	SDSPSf_MajItemsLineItem = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), pcl_Sync.CleProposition, False)
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="SDSPSf_MajAccount"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_MajAccount(pnd_Prop As NotesDocument, pcl_ConnexionAPI As SLSf_clConnexionAPI) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_NoOpportunite As String
+	Dim cl_Sync As New SDSPSf_clSync
+	Dim v_NoClientSF As String
+	Dim v_NoClient As String
+	Dim v_ClientNomLegal As String
+	Dim v_Resultat As Integer
+	Dim v_Maj As Boolean
+	
+	SDSPSf_MajAccount = 0
+	
+	v_NoClient = xVar(pnd_Prop, "Prop_ClientNoFmt", "")
+	If v_NoClient = "" Then
+		SDSPSf_MajAccount = -8
+		Exit Function
+	End If
+	
+	' Ne pas maj s'il n'y a pas de no d'opportunité
+	v_NoOpportunite = xVar(pnd_Prop, "Prop_NoOpportuniteSF", "")
+	If v_NoOpportunite = "" Then
+		Exit Function
+	End If
+	
+	If pcl_ConnexionAPI Is Nothing Then
+		Set cl_Sync.cl_ConnexionAPI = New SLSf_clConnexionAPI(SDSPSf_NomProfilSalesforceAPI)
+	Else
+		Set cl_Sync.cl_ConnexionAPI = pcl_ConnexionAPI
+	End If
+	
+	' Initialisations
+	v_Resultat = SDSPSf_Initialisations("ACC", cl_Sync)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_MajAccount = v_Resultat
+		Exit Function
+	End If
+	
+	' Extraire le compte de Salesforce
+	v_Resultat = SDSPSf_ExtraireAccount(v_NoOpportunite, cl_Sync)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_MajAccount = -4
+		Exit Function
+	End If
+	
+	v_NoClientSF = cl_Sync.cl_Account.ExtraireValeur("SERTI_ID__c", "")
+	If v_NoClientSF &lt;&gt; "" And v_NoClient &lt;&gt; v_NoClientSF Then
+		SDSPSf_MajAccount = -8
+		Exit Function
+	End If
+	
+	v_Maj = cl_Sync.cl_Account.AssignerValeur("SERTI_ID__c", v_NoClient, "S") Or v_Maj
+	pnd_Prop.Prop_ClientNoSF = cl_Sync.cl_Account.ExtraireValeur("Id", "")
+	
+	v_ClientNomLegal = xVar(pnd_Prop, "Prop_ClientNomLegal", "")
+	If v_ClientNomLegal &lt;&gt; "" then
+		v_Maj = cl_Sync.cl_Account.AssignerValeur("SERTI_Legal_Name__c", v_ClientNomLegal, "S") Or v_Maj
+	End If
+	
+	If v_Maj Then
+		v_Resultat = cl_Sync.cl_Account.SauvegarderObjet
+		If v_Resultat &lt; 0 Then
+			SDSPSf_MajAccount = -3
+		Else
+			SDSPSf_MajAccount = 1
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	SDSPSf_MajAccount = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPSf_MajProduits"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_MajProduits(pnd_Prop As NotesDocument, pl_Commissions As Variant, pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_NoProposition As String
+	Dim v_TypeProposition As String
+	Dim ndc_Prod As NotesDocumentCollection
+	Dim nd_Prod As NotesDocument
+	Dim lcl_OpportunityLineItem List As SDSPSf_clOpportunityLineItem
+	Dim v_IdProduit_TpPp As String
+	Dim v_IdProduit As String
+	Dim v_CleSite As String
+	Dim v_Quantite As Integer
+	Dim v_PrixTotal As Double
+	Dim v_CategorieProduit As String
+	Dim v_CleProduit As String
+	Dim v_LineItemId As String
+	Dim v_Resultat As Integer
+	Dim v_NbProduits As Integer 
+	Dim v_NbMaj As Integer
+	
+	SDSPSf_MajProduits = 0
+	
+	v_Resultat = SDSPSf_ExtraireOpportunityLineItems(pcl_Sync)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_MajProduits = v_Resultat
+		Exit Function
+	End If
+
+	' Ajouter le produit et les escomptes en fonction du type de proposition
+	v_TypeProposition = xVar(pnd_Prop, "Prop_TypeProposition", "")
+	v_IdProduit_TpPp = xSDSBB_xVarTpPp(v_TypeProposition, "TpPp_IdProduitSF", "", True)
+	If v_IdProduit_TpPp &lt;&gt; "" And pl_Commissions("PaiementMensuel") &gt; 0 Then
+		Set lcl_OpportunityLineItem(v_IdProduit_TpPp) = New SDSPSf_clOpportunityLineItem(v_IdProduit_TpPp)
+		lcl_OpportunityLineItem(v_IdProduit_TpPp).Quantite = 1
+		lcl_OpportunityLineItem(v_IdProduit_TpPp).PrixUnitaire = pl_Commissions("PaiementMensuel")
+		lcl_OpportunityLineItem(v_IdProduit_TpPp).PrixMensuel = True
+		lcl_OpportunityLineItem(v_IdProduit_TpPp).Devise = xVar(pnd_Prop, "Prop_Devise", "")
+	End If
+	
+	' Boucler sur les produits de la proposition - Logiciels
+	If v_TypeProposition = "2" Then			' Client existant
+		If gnv_Prod12_SDSPSf Is Nothing Then
+			Set gnv_Prod12_SDSPSf = gndb_SDSPSf.GetView("V_Prod12")
+			Call gnv_Prod12_SDSPSf.Refresh
+		End If
+		v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+		Set ndc_Prod = gnv_Prod12_SDSPSf.GetAllDocumentsByKey(v_NoProposition, True)
+		Set nd_Prod = ndc_Prod.getFirstDocument
+		Do Until nd_Prod Is Nothing
+			v_Quantite = xVar(nd_Prod, "Prod_Quantite", 0)
+			If v_Quantite &gt; 0 And xVar(nd_Prod, "Prod_NoContratFmt_CS", "") = "" then
+				' Extraire le code du produit Salesforce à utiliser
+				v_CategorieProduit = xVar(nd_Prod, "Prod_CategorieProduit", "")
+				v_IdProduit = xSDSBB_xVarCate(v_CategorieProduit, "Cate_IdProduitSF", "", True)
+				If v_IdProduit = "" Then
+					v_CleProduit = xVar(nd_Prod, "Prod_CleProduit", "")
+					v_IdProduit = xSDSBB_xVarProd(v_CleProduit, "Prod_IdProduitSF", "", True)
+				End If
+				
+				If v_IdProduit &lt;&gt; "" Then
+					If Not IsElement(lcl_OpportunityLineItem(v_IdProduit)) Then
+						Set lcl_OpportunityLineItem(v_IdProduit) = New SDSPSf_clOpportunityLineItem(v_IdProduit) 
+						lcl_OpportunityLineItem(v_IdProduit).Quantite = 1
+						lcl_OpportunityLineItem(v_IdProduit).PrixUnitaire = 0
+						lcl_OpportunityLineItem(v_IdProduit).PrixMensuel = True
+						lcl_OpportunityLineItem(v_IdProduit).Devise = xVar(pnd_Prop, "Prop_Devise", "")
+						v_NbProduits = v_NbProduits + 1
+					End If
+					v_PrixTotal = v_Quantite * xVar(nd_Prod, "Prod_FraisEntretienMensuels", 0)
+					lcl_OpportunityLineItem(v_IdProduit).PrixUnitaire = lcl_OpportunityLineItem(v_IdProduit).PrixUnitaire + v_PrixTotal
+					
+					If IsElement(lcl_OpportunityLineItem(v_IdProduit_TpPp)) Then
+						lcl_OpportunityLineItem(v_IdProduit_TpPp).PrixUnitaire = lcl_OpportunityLineItem(v_IdProduit_TpPp).PrixUnitaire - v_PrixTotal
+					End If
+				End If
+			End If
+			Set nd_Prod = ndc_Prod.GetNextDocument(nd_Prod)
+		Loop
+	End If
+	
+	' Ajouter les frais pour les équipements
+	If pl_Commissions("PrixTotalEQ_Brut") &lt;&gt; 0 Then
+		v_IdProduit = xSDSBB_xComplTabl("EQ", "Prod_Classe_FR", "2", True)
+		If v_IdProduit &lt;&gt; "" And v_IdProduit &lt;&gt; "." Then
+			Set lcl_OpportunityLineItem(v_IdProduit) = New SDSPSf_clOpportunityLineItem(v_IdProduit) 
+			lcl_OpportunityLineItem(v_IdProduit).Quantite = 1
+			lcl_OpportunityLineItem(v_IdProduit).PrixUnitaire = pl_Commissions("PrixTotalEQ_Brut")
+			lcl_OpportunityLineItem(v_IdProduit).PrixMensuel = False
+			lcl_OpportunityLineItem(v_IdProduit).Devise = xVar(pnd_Prop, "Prop_Devise", "")
+			v_NbProduits = v_NbProduits + 1
+		End If
+	End If
+
+	' Ajouter les frais pour les services
+	If pl_Commissions("PrixTotalSV_Brut") &lt;&gt; 0 Then
+		v_IdProduit = xSDSBB_xComplTabl("SV", "Prod_Classe_FR", "2", True)
+		If v_IdProduit &lt;&gt; "" Then
+			Set lcl_OpportunityLineItem(v_IdProduit) = New SDSPSf_clOpportunityLineItem(v_IdProduit) 
+			lcl_OpportunityLineItem(v_IdProduit).Quantite = 1
+			lcl_OpportunityLineItem(v_IdProduit).PrixUnitaire = pl_Commissions("PrixTotalSV_Brut")
+			lcl_OpportunityLineItem(v_IdProduit).PrixMensuel = False
+			lcl_OpportunityLineItem(v_IdProduit).Devise = xVar(pnd_Prop, "Prop_Devise", "")
+			v_NbProduits = v_NbProduits + 1
+		End If
+	End If
+	
+	If IsElement(lcl_OpportunityLineItem(v_IdProduit_TpPp)) Then
+		If lcl_OpportunityLineItem(v_IdProduit_TpPp).PrixUnitaire = 0 And v_NbProduits &gt; 0 Then
+			Erase lcl_OpportunityLineItem(v_IdProduit_TpPp)
+		End If
+	End If
+	
+	' Ajouter les line items à l'opportunité
+	ForAll e_LineItem In lcl_OpportunityLineItem
+		If IsElement(pcl_Sync.l_LineItemsByXId(ListTag(e_LineItem))) Then
+			v_LineItemId = pcl_Sync.l_LineItemsByXId(ListTag(e_LineItem))
+		Else
+			v_LineItemId = "*"
+		End If
+		
+		If v_LineItemId = "*" Then
+			v_Resultat = SDSPSf_CreerLineItem(e_LineItem, pcl_Sync)
+			If v_Resultat &lt; 0 Then
+				SDSPSf_MajProduits = -5
+				Exit Function
+			End If
+		Else
+			v_Resultat = SDSPSf_MajLineItem(e_LineItem, v_LineItemId, pcl_Sync)
+			If v_Resultat &lt; 0 Then
+				SDSPSf_MajProduits = -5
+				Exit Function
+			ElseIf v_Resultat = 0 Then
+				Erase pcl_Sync.l_LineItemsByXId(e_LineItem.IdProduitSF)
+			End If
+		End If
+		
+		If v_Resultat &gt; 0 Then
+			v_NbMaj = v_NbMaj + 1
+		End If
+	End ForAll
+	
+	' Supprimer les line items des produits retirés
+	ForAll v_Element In pcl_Sync.l_LineItemsByXId
+		v_Resultat = pcl_Sync.l_LineItems(v_Element).SupprimerObjet
+		If v_Resultat = 1 Then
+			v_NbMaj = v_NbMaj + 1
+		End If
+	End ForAll	
+	Exit Function
+		
+GererErreur:
+	SDSPSf_MajProduits = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), pcl_Sync.CleProposition, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_CreerLineItem"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_CreerLineItem(pcl_OpportunityLineItem As SDSPSf_clOpportunityLineItem, pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur	
+	
+	Dim cl_LineItem As SLSf_clObject
+	Dim v_Maj As Boolean
+	Dim v_NoContratFmt As String
+	Dim s As String
+	Dim v_Resultat As Integer
+	Dim l_LineItems List As Variant
+	
+	SDSPSf_CreerLineItem = 0
+	v_Maj = False
+	
+	Set cl_LineItem = New SLSf_clObject(pcl_Sync.cl_ConnexionAPI, "OpportunityLineItem", "*")
+	v_Maj = cl_LineItem.AssignerValeur("OpportunityId", pcl_Sync.cl_Opportunity.Cle, "") Or v_Maj
+	v_Maj = cl_LineItem.AssignerValeur("PricebookEntryId", pcl_OpportunityLineItem.IdProduitSF, "") Or v_Maj
+
+	v_Resultat = SDSPSf_MajItemsLineItem(pcl_OpportunityLineItem, cl_LineItem, pcl_Sync)
+	If v_Resultat = 1 Then
+		v_Maj = True
+	ElseIf v_Resultat &lt; 0 Then
+		SDSPSf_CreerLineItem = -1
+	End If
+	
+	If v_Maj Then
+		v_Resultat = cl_LineItem.SauvegarderObjet
+		If v_Resultat &gt; 0 Then
+			If IsList(pcl_Sync.l_LineItems) Then
+				Set pcl_Sync.l_LineItems(cl_LineItem.Cle) = cl_LineItem
+			Else
+				Set l_LineItems(cl_LineItem.Cle) = cl_LineItem
+				pcl_Sync.l_LineItems = l_LineItems
+			End If
+			pcl_Sync.NbLineItems = pcl_Sync.NbLineItems + 1
+			SDSPSf_CreerLineItem = 1
+		End If
+	End If
+	Exit Function	
+	
+GererErreur:
+	SDSPSf_CreerLineItem = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), pcl_Sync.CleProposition, False)
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="SDSPSf_ExtraireAccount"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_ExtraireAccount(p_NoOpportunite As String, pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur	
+
+	Dim v_Resultat As Integer
+	Dim v_AccountId As String
+	
+	SDSPSf_ExtraireAccount = 0
+
+	If p_NoOpportunite = "" Then
+		SDSPSf_ExtraireAccount = -1
+		Exit Function
+	End If
+
+	' Extraire l'opportunité de Salesforce
+	v_Resultat = SDSPSf_ExtraireOpportunity(p_NoOpportunite, pcl_Sync)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_ExtraireAccount = -4
+		Exit Function
+	End If
+	
+	If pcl_Sync.cl_Account Is Nothing Then
+		v_AccountId = pcl_Sync.cl_Opportunity.ExtraireValeur("AccountId", "")
+		Set pcl_Sync.cl_Account = New SLSf_clObject(pcl_Sync.cl_ConnexionAPI, "Account", v_AccountId)
+		If pcl_Sync.cl_Account.Resultat &lt; 0 Then
+			SDSPSf_ExtraireAccount = -3
+			Exit Function
+		End If
+		
+		pcl_Sync.AccountId = v_AccountId
+		SDSPSf_ExtraireAccount = 1
+	End If
+	
+	Exit Function	
+	
+GererErreur:
+	SDSPSf_ExtraireAccount = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), p_NoOpportunite, False)
+	Exit Function	
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_InitialiserTableauProduits"><lotusscript>'=================================================================================================================================================
+Function SDSPSf_InitialiserTableauProduits(pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_URL As String
+	Dim v_Resultat As Integer
+	Dim v_ReponseJSON As String
+	Dim njsonn As NotesJSONNavigator
+	Dim njsone As NotesJSONElement
+	Dim njsona As NotesJSONArray
+	Dim njsono As NotesJSONObject
+	Dim v_IdProduitSF As String
+	Dim v_IdPricebookSF As String
+	Dim v_NbProduits As Integer
+	Dim l_Liste List As Variant
+	
+	SDSPSf_InitialiserTableauProduits = 0
+	
+	' Extraire le tableau des produits SERTI
+	v_URL = pcl_Sync.cl_ConnexionAPI.URL_API &amp; "query/?q=SELECT+Id,SERTI_Product_ID__c+from+Product2+WHERE+SERTI_Product_ID__c+!=+null"
+	v_Resultat = SLSf_ExecuteGET(v_URL, pcl_Sync.cl_ConnexionAPI.CleAcces, v_ReponseJSON)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_InitialiserTableauProduits = -3
+		Exit Function
+	End If
+	
+	Set njsonn = gns_SDSPSf.Createjsonnavigator(v_ReponseJSON)
+	Set njsone = njsonn.GetElementByPointer("/records")
+	Set njsona = njsone.Value
+	Set njsone = njsona.Getfirstelement
+	Do Until njsone Is Nothing
+		v_NbProduits = v_NbProduits + 1
+		
+		Set njsono = njsone.Value
+		If SLJS_ExtraireListe_Objet(njsono, "", l_Liste) = 1 Then
+			v_IdProduitSF = CStr(l_Liste("Id"))
+			v_IdPricebookSF = SDSPSf_ExtraireProductPricebookEntryId(CStr(l_Liste("Id")), pcl_Sync) 
+			If v_IdProduitSF = "" Then
+				SDSPSf_InitialiserTableauProduits = -4
+				Exit Function
+			End If
+			
+			pcl_Sync.l_SertiProductsById(v_IdProduitSF) = v_IdPricebookSF
+			pcl_Sync.l_SertiProductsByXId(v_IdPricebookSF) = v_IdProduitSF
+		End If
+
+		Set njsone = njsona.Getnextelement
+	Loop
+	
+	If v_NbProduits &gt; 0 Then
+		SDSPSf_InitialiserTableauProduits = v_NbProduits
+	End If
+	
+	SDSPSf_InitialiserTableauProduits = 1
+	Exit Function
+	
+GererErreur:
+	SDSPSf_InitialiserTableauProduits = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_MajLineItem"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_MajLineItem(pcl_OpportunityLineItem As SDSPSf_clOpportunityLineItem, p_LineItemId As String, pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur	
+	
+	Dim v_Maj As Boolean
+	Dim v_Resultat As Integer
+	
+	SDSPSf_MajLineItem = 0
+	v_Maj = False
+	
+	v_Resultat = SDSPSf_MajItemsLineItem(pcl_OpportunityLineItem, pcl_Sync.l_LineItems(p_LineItemId), pcl_Sync)
+	If v_Resultat = 1 Then
+		v_Maj = True
+	ElseIf v_Resultat &lt; 0 Then
+		SDSPSf_MajLineItem = -1
+	End If
+	
+	If v_Maj Then
+		' Ajouter une nouvelle line item
+		v_Resultat = SDSPSf_CreerLineItem(pcl_OpportunityLineItem, pcl_Sync)
+		If v_Resultat &lt; 0 Then
+			SDSPSf_MajLineItem = -6
+			Exit Function
+		End If
+
+		SDSPSf_MajLineItem = 1
+	End If
+	Exit Function	
+	
+GererErreur:
+	SDSPSf_MajLineItem = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), pcl_Sync.CleProposition, False)
+	Exit Function	
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_ExtraireOpportunityLineItems"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_ExtraireOpportunityLineItems(pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur	
+	
+	Dim v_Resultat As Integer
+	Dim v_ProductId As String
+	Dim v_Unique_Id As String
+	Dim l_List As Variant 
+	
+	SDSPSf_ExtraireOpportunityLineItems = 0
+	pcl_Sync.NbLineItems = 0
+
+	If pcl_Sync.OpportunityId = "" Then
+		SDSPSf_ExtraireOpportunityLineItems = -4
+		Exit Function
+	End If
+	
+	' Extraire les LineItems de Salesforce
+	v_Resultat = pcl_Sync.cl_Opportunity.ExtraireEnfants("OpportunityLineItems", "")
+	If v_Resultat &lt; 0 Then
+		SDSPSf_ExtraireOpportunityLineItems = -4
+		Exit Function
+	End If	
+	
+	pcl_Sync.NbLineItems = pcl_Sync.cl_Opportunity.NbEnfants("OpportunityLineItems")
+	If pcl_Sync.NbLineItems &gt; 0 Then
+		pcl_Sync.l_LineItems = pcl_Sync.cl_Opportunity.Enfants("OpportunityLineItems")
+		
+		ForAll v_Element In pcl_Sync.cl_Opportunity.Enfants("OpportunityLineItems")
+			v_Unique_Id = v_Element.ExtraireValeur("PricebookEntryId", "")
+			If Not IsElement(pcl_Sync.l_LineItemsByXId(v_Unique_Id)) Then
+				pcl_Sync.l_LineItemsByXId(v_Unique_Id) = ListTag(v_Element)
+			End If
+		End ForAll
+	End If
+	
+	SDSPSf_ExtraireOpportunityLineItems = v_Resultat
+	Exit Function	
+	
+GererErreur:
+	SDSPSf_ExtraireOpportunityLineItems = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), v_ProductId, False)
+	Exit Function	
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_NomsClientSites"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_NomsClientSites(pnd_Prop As NotesDocument) As String
+	On Error GoTo GererErreur
+	
+	Dim a_NoSites As Variant
+	Dim v_PosSite As Integer
+	Dim v_NbSites As Integer
+	Dim nd_Site As NotesDocument
+	Dim v_NomSite As String
+	Dim v_NomsSites As String
+	
+	a_NoSites = xVarArray(pnd_Prop, "Prop_NoSites")
+	If IsArray(a_NoSites) then
+		For v_PosSite = LBound(a_NoSites) To UBound(a_NoSites)
+			v_NbSites = v_NbSites + 1
+			
+			Set nd_Site = xSDSP3_xndSite(a_NoSites(v_PosSite), True)
+			If nd_Site Is Nothing Then
+				v_NomSite = "Site " &amp; CStr(v_NbSites) &amp; ": &lt;Site is missing&gt;"
+			Else
+				v_NomSite = "Site " &amp; CStr(v_NbSites) &amp; ": " &amp; xVar(nd_Site, "Site_ClientNomInterne", "&lt;Name is missing&gt;")
+			End If
+			
+			If SDSPSf_NomsClientSites = "" Then
+				SDSPSf_NomsClientSites = v_NomSite
+			Else
+				SDSPSf_NomsClientSites = SDSPSf_NomsClientSites &amp; " / " &amp; v_NomSite
+			End If
+		Next
+	End If
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), "" , False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_MajOpportunite"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_MajOpportunite(pnd_Prop As NotesDocument, pcl_ConnexionAPI As SLSf_clConnexionAPI) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_NoOpportunite As String
+	Dim cl_Sync As New SDSPSf_clSync
+	Dim v_Resultat As Integer
+	Dim l_Commissions As Variant
+	Dim l_Montants List As Double
+	Dim l_Types List As String
+	Dim v_Maj As Boolean
+	
+	SDSPSf_MajOpportunite = 0
+	Call SIGE_OuvrirLog(gc_TypeElement_SDSPSf, gc_Element_SDSPSf)		'***********************************
+	g_LogAPI_SLSf = 2		'***********************************
+	
+	' Ne pas maj s'il n'y a pas de no d'opportunité
+	v_NoOpportunite = xVar(pnd_Prop, "Prop_NoOpportuniteSF", "")
+	If v_NoOpportunite = "" Then
+		Exit Function
+	End If
+	
+	If pcl_ConnexionAPI Is Nothing Then
+		Set cl_Sync.cl_ConnexionAPI = New SLSf_clConnexionAPI(SDSPSf_NomProfilSalesforceAPI)
+	Else
+		Set cl_Sync.cl_ConnexionAPI = pcl_ConnexionAPI
+	End If
+	
+	' Initialisations
+	v_Resultat = SDSPSf_Initialisations("OPP", cl_Sync)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_MajOpportunite = v_Resultat
+		Exit Function
+	End If
+	
+	' Calculer les totaux de la proposition
+	l_Commissions = SDSPCP_CalculerCommissions(pnd_Prop)
+	
+	' Extraire les items de Salesforce
+	v_Resultat = SDSPSf_ExtraireOpportunity(v_NoOpportunite, cl_Sync)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_MajOpportunite = -4
+		Exit Function
+	End If
+	
+	If cl_Sync.cl_Opportunity.ExtraireValeur("IsClosed", False) = False Then
+		cl_Sync.CleProposition = "SDSP3;" &amp; xVar(pnd_Prop, "Prop_NoProposition", "") &amp; ";" &amp; CStr(xVar(pnd_Prop, "Prop_NbProposition", ""))
+		v_Maj = cl_Sync.cl_Opportunity.AssignerValeur("SERTI_Proposal_ID__c", cl_Sync.CleProposition, "S") Or v_Maj
+		v_Maj = cl_Sync.cl_Opportunity.AssignerValeur("Name", xVar(pnd_Prop, "Prop_DescProposition", ""), "S") Or v_Maj
+		v_Maj = cl_Sync.cl_Opportunity.AssignerValeur("SERTI_Proposal_Status__c", xVar(pnd_Prop, "Prop_StatutDescEN", ""), "S") Or v_Maj
+		v_Maj = cl_Sync.cl_Opportunity.AssignerValeur("SERTI_Discount_on_Monthly__c", l_Commissions("EscompteMensualite"), "N") Or v_Maj
+		v_Maj = cl_Sync.cl_Opportunity.AssignerValeur("SERTI_Discount_on_One_Time__c", l_Commissions("EscompteMontant"), "N") Or v_Maj
+		v_Maj = cl_Sync.cl_Opportunity.AssignerValeur("Description", SDSPSf_NomsClientSites(pnd_Prop), "S") Or v_Maj
+		If g_IdPricebookSF_SDSPSf &lt;&gt; "" Then
+			v_Maj = cl_Sync.cl_Opportunity.AssignerValeur("Pricebook2Id", g_IdPricebookSF_SDSPSf, "S") Or v_Maj
+		End If
+		
+		If v_Maj Then
+			v_Resultat = cl_Sync.cl_Opportunity.SauvegarderObjet
+			If v_Resultat &gt; 0 Then
+				SDSPSf_MajOpportunite = 1
+			ElseIf v_Resultat &lt; 0 Then
+				SDSPSf_MajOpportunite = -3
+				Exit Function
+			End If
+		End If	
+
+		' Maj les produits
+		v_Resultat = SDSPSf_MajProduits(pnd_Prop, l_Commissions, cl_Sync)
+		If v_Resultat &gt; 0 Then
+			SDSPSf_MajOpportunite = 1
+		ElseIf v_Resultat &lt; 0 And SDSPSf_MajOpportunite = 0 Then
+			SDSPSf_MajOpportunite = -4
+		End If
+	End If
+	
+	If SDSPSf_MajOpportunite = 1 Then
+		pnd_Prop.Prop_DateMajOppSF = Now
+		Call pnd_Prop.Save(True, False)
+		Call SIGE_AjouterLog("Opportunité " &amp; v_NoOpportunite &amp; " maj. PP:" &amp; CStr(xVar(pnd_Prop, "Prop_NbProposition", "")), 0, 0, True)	'********************************************
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	SDSPSf_MajOpportunite = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), cl_Sync.CleProposition, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPSf_NomProfilSalesforceAPI"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_NomProfilSalesforceAPI As String
+	On Error GoTo GererErreur	
+	
+	If g_NomProfilSalesforceAPI_SDSPSf &lt;&gt; "" Then
+		SDSPSf_NomProfilSalesforceAPI = g_NomProfilSalesforceAPI_SDSPSf
+	Else
+		SDSPSf_NomProfilSalesforceAPI = xVarProf("Prof_NomProfilSalesforceAPI", "")
+		If SDSPSf_NomProfilSalesforceAPI = "" Then
+			If xGDK_TypeNDBCourante = "P" Then
+				SDSPSf_NomProfilSalesforceAPI = "RapidRTC"
+			End If
+		End If
+		g_NomProfilSalesforceAPI_SDSPSf = SDSPSf_NomProfilSalesforceAPI
+	End If
+	
+	Exit Function	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), "", False)
+	Exit Function	
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_ExtraireOpportunity"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_ExtraireOpportunity(p_NoOpportunite As String, pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur	
+	
+	Dim v_Resultat As Integer
+	
+	SDSPSf_ExtraireOpportunity = 0
+	pcl_Sync.NbLineItems = 0
+
+	If p_NoOpportunite = "" Then
+		SDSPSf_ExtraireOpportunity = -1
+		Exit Function
+	End If
+
+	If p_NoOpportunite &lt;&gt; pcl_Sync.OpportunityId then
+		Set pcl_Sync.cl_Opportunity = New SLSf_clObject(pcl_Sync.cl_ConnexionAPI, "Opportunity", p_NoOpportunite)
+		If pcl_Sync.cl_Opportunity.Resultat &lt; 0 Then
+			SDSPSf_ExtraireOpportunity = -3
+			Exit Function
+		End If
+		
+		pcl_Sync.OpportunityId = p_NoOpportunite
+		SDSPSf_ExtraireOpportunity = 1
+	End If
+	Exit Function	
+	
+GererErreur:
+	SDSPSf_ExtraireOpportunity = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), p_NoOpportunite, False)
+	Exit Function	
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_EnvoyerPDF"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_EnvoyerPDF(pnd_Prop As NotesDocument, pnd_Docu As NotesDocument, pcl_ConnexionAPI As SLSf_clConnexionAPI, p_IdFichier As String) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_NoOpportunite As String
+	Dim cl_Sync As New SDSPSf_clSync
+	Dim v_NoClientSF As String
+	Dim v_NoClient As String
+	Dim v_Resultat As Integer
+	Dim v_CheminAcces As String
+	Dim v_NomFichier As String
+	
+	SDSPSf_EnvoyerPDF = 0
+	
+	' Ne pas maj s'il n'y a pas de no d'opportunité
+	v_NoOpportunite = xVar(pnd_Prop, "Prop_NoOpportuniteSF", "")
+	If v_NoOpportunite = "" Then
+		Exit Function
+	End If
+	
+	If pcl_ConnexionAPI Is Nothing Then
+		Set cl_Sync.cl_ConnexionAPI = New SLSf_clConnexionAPI(SDSPSf_NomProfilSalesforceAPI)
+	Else
+		Set cl_Sync.cl_ConnexionAPI = pcl_ConnexionAPI
+	End If
+	
+	' Initialisations
+	v_Resultat = SDSPSf_Initialisations("OPP", cl_Sync)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_EnvoyerPDF = v_Resultat
+		Exit Function
+	End If
+	
+	' Extraire l'opportunité de Salesforce
+	v_Resultat = SDSPSf_ExtraireOpportunity(v_NoOpportunite, cl_Sync)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_EnvoyerPDF = -4
+		Exit Function
+	End If
+	
+	' Copier le document sur le disque (temp)	
+	v_CheminAcces = SDSPSf_ExtrairePDF(pnd_Prop, pnd_Docu )
+	
+	v_Resultat = cl_Sync.cl_Opportunity.AttacherFichier(v_CheminAcces, StrRightBack(v_CheminAcces, "\"), p_IdFichier )
+	
+	If v_Resultat &lt; 0 Then
+		SDSPSf_EnvoyerPDF = -5
+		Exit Function
+	End If
+
+	Kill v_CheminAcces
+	Exit Function
+	
+GererErreur:
+	SDSPSf_EnvoyerPDF = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPSF_CreerDossier"><lotusscript>'===================================================================================================================================================
+Function SDSPSF_CreerDossier As Integer
+
+	On Error GoTo GererErreur
+	On Error 75 Resume Next
+	
+	Dim v_Unique As Variant
+	
+	' Initialisations
+	SDSPSF_CreerDossier = -1
+	
+	g_DossierTemp_SDSPSf = Environ("Temp") &amp; "\SDSPSF"
+	MkDir g_DossierTemp_SDSPSf
+	
+	SDSPSF_CreerDossier = 1
+	Exit Function
+	
+GererErreur:
+	SDSPSF_CreerDossier = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_ExtraireProductPricebookEntryId"><lotusscript>'=================================================================================================================================================
+Function SDSPSf_ExtraireProductPricebookEntryId(p_IdProduitSF As String, pcl_Sync As SDSPSf_clSync) As String
+	On Error GoTo GererErreur
+	
+	Dim v_URL As String
+	Dim v_Resultat As Integer
+	Dim v_ReponseJSON As String
+	Dim njsonn As NotesJSONNavigator
+	Dim njsone As NotesJSONElement
+	Dim njsona As NotesJSONArray
+	Dim njsono As NotesJSONObject
+	Dim v_NbProduits As Integer
+	Dim l_Liste List As Variant
+	
+	SDSPSf_ExtraireProductPricebookEntryId = ""
+	
+	' Extraire le tableau des produits SERTI
+	v_URL = pcl_Sync.cl_ConnexionAPI.URL_API &amp; "query/?q=SELECT+Id,Product2Id,Pricebook2Id+from+PricebookEntry+WHERE+Product2Id+='" &amp; _
+	p_IdProduitSF &amp; "'+AND+Pricebook2Id+='" &amp; g_IdPricebookSF_SDSPSf &amp; "'" 
+	v_Resultat = SLSf_ExecuteGET(v_URL, pcl_Sync.cl_ConnexionAPI.CleAcces, v_ReponseJSON)
+	If v_Resultat &lt; 0 Then
+		SDSPSf_ExtraireProductPricebookEntryId = -3
+		Exit Function
+	End If
+	
+	Set njsonn = gns_SDSPSf.Createjsonnavigator(v_ReponseJSON)
+	Set njsone = njsonn.GetElementByPointer("/records")
+	Set njsona = njsone.Value
+	Set njsone = njsona.Getfirstelement
+	Do Until njsone Is Nothing
+		v_NbProduits = v_NbProduits + 1
+		
+		Set njsono = njsone.Value
+		If SLJS_ExtraireListe_Objet(njsono, "", l_Liste) = 1 Then
+			SDSPSf_ExtraireProductPricebookEntryId = l_Liste("Id")
+			If SDSPSf_ExtraireProductPricebookEntryId &lt;&gt; "" Then
+				Exit Function
+			End If
+		End If
+
+		Set njsone = njsona.Getnextelement
+	Loop
+	Exit Function
+	
+GererErreur:
+	SDSPSf_ExtraireProductPricebookEntryId = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSPSf_InitialiserConnexionAPI"><lotusscript>'===================================================================================================================================================
+Function SDSPSf_InitialiserConnexionAPI(pcl_Sync As SDSPSf_clSync) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_NomProfilSalesforceAPI As String
+	
+	SDSPSf_InitialiserConnexionAPI = 0
+	
+	If pcl_Sync.cl_ConnexionAPI Is Nothing Then
+		v_NomProfilSalesforceAPI = SDSPSf_NomProfilSalesforceAPI
+		If v_NomProfilSalesforceAPI = "" Then
+			SDSPSf_InitialiserConnexionAPI = -2
+			Exit Function
+		End If
+		
+		Set pcl_Sync.cl_ConnexionAPI = New SLSf_clConnexionAPI(v_NomProfilSalesforceAPI)
+		If pcl_Sync.cl_ConnexionAPI.Resultat &lt; 0 Then
+			SDSPSf_InitialiserConnexionAPI = -2
+			Exit Function
+		End If
+	End If
+	
+	SDSPSf_InitialiserConnexionAPI = 1
+	Exit Function
+	
+GererErreur:
+	SDSPSf_InitialiserConnexionAPI = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPSf, gc_Element_SDSPSf, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</lotusscript></code>
+<item name="$POID"><datetime>20260319T101931,00-05</datetime></item></scriptlibrary>
+
+</database>

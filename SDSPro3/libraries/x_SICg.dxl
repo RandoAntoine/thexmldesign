@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_SICg" hide="v3 v4strict" designerversion="8" comment="2.2 SI Congés">
+<noteinfo noteid="55578e" unid="8677BE41348DD6E4852586B40011FBB1" sequence="76">
+<created><datetime dst="true">20210410T231625,45-04</datetime></created>
+<modified><datetime>20260105T014837,54-05</datetime></modified>
+<revised><datetime>20250319T073638,94-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,53-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,53-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "x_GDK"
+'
+' Cette bibliothèque de script permet d'extraire un document ou un item d'un document.  Les documents
+' à extraire ne se trouvent pas dans la base de documents courante.  Il faut rechercher la base de documents
+' à utiliser dans le GDK.
+'
+' Instructions
+'	1.	Renommer le script library.  Le nouveau nom devrait être "x_SICg" ou "SICg" est 
+'		l'identifiant de la base de documents.
+'	2.	Inscrire le nom usuel de la base de documents de recherche, le nom de l'item qui contient
+'		la clé et le nom de la vue de recherche dans la section (Declarations).
+'	3.	Remplacer toutes les occurences de "SICg" par l'identifiant de la base de documents.  
+'		Les subs seront automatiquement renommés.
+'	4.	Remplacer toutes les occurences de "Cong" par l'identifiant du type de document.  
+'		Les subs seront automatiquement renommés.
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_xELrod
+Dim gndb_xSICg As Notesdatabase
+
+' Section 2 - Définition des valeurs conservées dans la cache
+Dim gnd_Prof_SICg As NotesDocument
+Dim gnvTabl_xSICg As Notesview
+Dim gndTabl_xSICg As Notesdocument
+Dim gnv_Cong_xSICg As Notesview					' La vue d'ou est extrait le document
+Dim gnd_Cong_xSICg As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_JFer_xSICg As Notesview					' La vue d'ou est extrait le document
+Dim gnd_JFer_xSICg As Notesdocument			' Le document qui contient les informations recherchées
+
+' Section 3 - Les constantes à définir
+Const gc_NomBD_xSICg = "SICg"		' Inscrire le nom usuel de la base de documents
+																' de recherche, tel que déclaré dans le GDK.
+Const gc_NomItemCleCong_xSICg = "Cong_NoDemande"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueCong_xSICg = "V_Cong20"		' Le nom de la vue de recherche
+Const gc_NomItemCleJFer_xSICg = "JFer_Date"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueJFer_xSICg = "V_JFer20"		' Le nom de la vue de recherche
+</lotusscript></code><code event="xSICg_Initialisation"><lotusscript>Sub xSICg_Initialisation
+	' Initialisation des variables globales
+	If gndb_xSICg Is Nothing Then
+		Set gndb_xSICg = xGDK_xndbNDB(gc_NomBD_xSICg)
+	End If
+End Sub
+</lotusscript></code><code event="xSICg_xVarProf"><lotusscript>Function xSICg_xVarProf(Byval p_NomVar As String, Byval p_ValeurNulle As Variant) As Variant
+	' Cette fonction retourne la valeur d'une variable du profil de la base de documents.
+	
+	' Initialisation des variables globales
+	Call xSICg_Initialisation
+	
+	' Extraire le document de profil
+	If gnd_Prof_SICg Is Nothing Then
+		Set gnd_Prof_SICg = gndb_xSICg.Getprofiledocument("F_Prof")
+	End If
+	
+	If gnd_Prof_SICg Is Nothing Then
+		xSICg_xVarProf = p_ValeurNulle
+	Else
+		xSICg_xVarProf = xVar(gnd_Prof_SICg, p_NomVar, p_ValeurNulle)		
+	End If
+End Function
+</lotusscript></code><code event="xSICg_xndTabl"><lotusscript>Function xSICg_xndTabl(Byval pCle As Variant, Byval pCache As Integer) As Notesdocument
+	' Cette fonction retourne un document de type F_Tabl.
+	
+	' Initialisation des variables globales
+	Call xSICg_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("Tabl_Nom", pCle, pCache, gndb_xSICg, "V_Tabl20", gnvTabl_xSICg, gndTabl_xSICg)
+	'	Paramètres:		1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xSICg_xndTabl = gndTabl_xSICg
+End Function
+</lotusscript></code><code event="xSICg_xVarTabl"><lotusscript>Function xSICg_xVarTabl(Byval pCle As Variant, Byval pNomVar As String, Byval pValeurNulle As Variant, _
+Byval pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_Tabl.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xSICg_xVarTabl = xVar(xSICg_xndTabl(pCle, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function
+</lotusscript></code><code event="xSICg_xDescTabl"><lotusscript>Function xSICg_xDescTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_Cache As Integer) As String	
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Descriptions As Variant
+	Dim i As Long
+	
+	xSICg_xDescTabl = ""
+	
+	' Extraire les valeurs et les descriptions
+	v_Valeurs = xSICg_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Descriptions = xSICg_xVarTabl(p_Table, "Tabl_Descriptions", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Descriptions) Then
+					If i &gt;= Lbound(v_Descriptions) And i &lt;= Ubound(v_Descriptions) Then
+						xSICg_xDescTabl = v_Descriptions(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Descriptions) Then
+				xSICg_xDescTabl = v_Descriptions(0)
+			Else
+				xSICg_xDescTabl = v_Descriptions
+			End If
+		End If
+	End If
+End Function
+</lotusscript></code><code event="xSICg_xIcnTabl"><lotusscript>Function xSICg_xIcnTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_Cache As Integer) As Integer	
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Icones As Variant
+	Dim i As Long
+	
+	xSICg_xIcnTabl = 0
+	
+	' Extraire les valeurs et les Icones
+	v_Valeurs = xSICg_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Icones = xSICg_xVarTabl(p_Table, "Tabl_Icones", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Icones) Then
+					If i &gt;= Lbound(v_Icones) And i &lt;= Ubound(v_Icones) Then
+						xSICg_xIcnTabl = v_Icones(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Icones) Then
+				xSICg_xIcnTabl = v_Icones(0)
+			Else
+				xSICg_xIcnTabl = v_Icones
+			End If
+		End If
+	End If
+End Function
+</lotusscript></code><code event="xSICg_xValeurExisteTabl"><lotusscript>Function xSICg_xValeurExisteTabl(Byval p_Cle As Variant, p_Valeur As Variant, _
+Byval p_Cache As Integer) As Integer
+	Dim ni As NotesItem
+	
+	xSICg_xValeurExisteTabl = False
+	
+	If Not (xSICg_xndTabl(p_Cle, True) Is Nothing) Then
+		Set ni = gndTabl_xSICg.GetFirstItem("Tabl_Valeurs")
+		If ni.Contains(p_Valeur) Then
+			xSICg_xValeurExisteTabl = True
+		End If
+	End If	
+End Function
+</lotusscript></code><code event="xSICg_xndCong"><lotusscript>Function xSICg_xndCong(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSICg_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleCong_xSICg, p_Cle, p_Cache, gndb_xSICg, gc_NomVueCong_xSICg, gnv_Cong_xSICg, gnd_Cong_xSICg)
+	
+	' Retourne le document défini en variable globale
+	Set xSICg_xndCong = gnd_Cong_xSICg
+End Function
+</lotusscript></code><code event="xSICg_xVarCong"><lotusscript>Function xSICg_xVarCong(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSICg_xVarCong = xVar(xSICg_xndCong(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+</lotusscript></code><code event="xSICg_xndJFer"><lotusscript>Function xSICg_xndJFer(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSICg_Initialisation
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleJFer_xSICg, p_Cle, p_Cache, gndb_xSICg, gc_NomVueJFer_xSICg, gnv_JFer_xSICg, gnd_JFer_xSICg)
+	
+	' Retourne le document défini en variable globale
+	Set xSICg_xndJFer = gnd_JFer_xSICg
+End Function
+</lotusscript></code><code event="xSICg_xVarJFer"><lotusscript>Function xSICg_xVarJFer(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSICg_xVarJFer = xVar(xSICg_xndJFer(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073638,94-05</datetime></item></scriptlibrary>
+
+</database>

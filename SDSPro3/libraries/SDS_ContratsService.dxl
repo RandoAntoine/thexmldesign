@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDS_ContratsService" hide="v3 v4strict" designerversion="8.5.3" comment="2.8">
+<noteinfo noteid="5558ba" unid="67B8B349466E670C8525891A0064011A" sequence="26">
+<created><datetime>20221216T131218,82-05</datetime></created>
+<modified><datetime>20260105T014838,08-05</datetime></modified>
+<revised><datetime>20250319T073637,91-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,07-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,07-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "x_SDSBB"
+Use "x_SDSCS"
+Use "x_SDSCSL"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSCS As NotesSession
+Dim gndb_SDSCS As NotesDatabase
+Dim gndb_Base_SDSCS As NotesDatabase
+Dim g_NomServeur_SDSCS As String
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSCS = "SL"
+Const gc_Element_SDSCS = "SDS_ContratsService"
+
+
+</lotusscript></code><code event="SDSCS_ClientsModule_Code"><lotusscript>Sub SDSCS_ClientsModule_Code(p_CodeProduit As String, pa_ClientNoFmt As Variant)
+	' Retourne la liste des clients qui ont un module dans leur CS
+	' Paramètres
+	'	p_CodeProduit	I	Le code du produit à chercher dans les contrats de service
+	'	pa_ClientNoFmt	O	Un array des numéros des clients qui opnt le module dans leur CS
+	On Error Goto GererErreur
+	
+	Call SDSCS_ClientsModule(xSDSBB_xVarProd_Code(p_CodeProduit, "Prod_CleProduit", "", True), pa_ClientNoFmt)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSCS, gc_Element_SDSCS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSCS_PrixModule_Cle"><lotusscript>Function SDSCS_PrixModule_Cle(p_ClientNoFmt As String, p_CleProduit As String, p_PrixProduit As Double, p_NoContrat As String) As Boolean
+	' Retourne le prix unitaire d'un service
+	' Paramètres
+	'	p_ClientNoFmt		I	Le numéro du client
+	'	p_CleProduit		I	La clé du produit à chercher dans les contrats de service
+	'	p_PrixProduit		O	Le prix du produit
+	'	p_NoContrat			O	Le no du contrat sur lequel le produit se trouve
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim nv_Prod As NotesView
+	Dim nd_Prod As NotesDocument
+	Dim v_Prix As Double
+	Dim v_CodeProduit As String	
+		
+	SDSCS_PrixModule_Cle = False
+	p_PrixProduit = 0
+	
+	' Rechercher le produit dans le CS
+	If g_NomServeur_SDSCS = "" Then
+		Set nd = xSDSCSL_xndCSCo_Client(p_ClientNoFmt, True)
+	Else
+		Set nd = xSDSCS_xndCSCo_Client(p_ClientNoFmt, True)
+	End If
+	
+	If Not (nd Is Nothing) Then
+		p_NoContrat = xVar(nd, "CSCO_NoContrat", "")
+		If xVar(nd, "CSCo_TypeInstallation","")="1" Then
+			v_CodeProduit=xSDSBB_xVarProd(p_CleProduit, "Prod_CleProduitAH", "", True)
+		Else
+			v_CodeProduit=xSDSBB_xVarProd(p_CleProduit, "Prod_CleProduitCS", "", True)
+		End If	
+		
+		If g_NomServeur_SDSCS = "" Then
+			v_Prix = xSDSCSL_xVarCSPr_Cle(xVar(nd, "CSCO_NoContratFmt",""), v_CodeProduit, "CSPr_PrixUnitaire", -1)
+					Else
+			v_Prix = xSDSCS_xVarCSPr_Cle(xVar(nd, "CSCO_NoContratFmt",""), v_CodeProduit, "CSPr_PrixUnitaire", -1)
+					End If
+		If v_Prix &gt;= 0 Then
+			p_PrixProduit = v_Prix
+			SDSCS_PrixModule_Cle = True
+			Exit Function
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSCS, gc_Element_SDSCS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSCS_ClientsModule"><lotusscript>Sub SDSCS_ClientsModule(p_CleProduit As String, pa_ClientNoFmt As Variant)
+	' Retourne la liste des clients qui ont un module dans leur CS
+	' Paramètres
+	'	p_CleProduit	I	La cle du produit à chercher dans les contrats de service
+	'	pa_ClientNoFmt	O	Un array des numéros des clients qui opnt le module dans leur CS
+	On Error Goto GererErreur
+	
+	Dim nv_Prod32 As NotesView
+	Dim nd_Prod As NotesDocument
+	Dim nd_Prod_AH As NotesDocument
+	Dim nd_Prod_CS As NotesDocument
+	
+	Dim v_Formule As String
+	Dim a As Variant
+	
+	' Validation des paramètres
+	pa_ClientNoFmt = ""
+	If p_CleProduit = "" Then
+		Exit Sub
+	End If
+	
+	' Initialisations
+	Call xSDSBB_Initialisations
+	
+	' Liste des codes de produit à vérifier (Sur site + Hébergé)
+	Set nd_Prod = xSDSBB_xndProd(p_CleProduit, True)
+	If nd_Prod Is Nothing Then
+		Exit Sub
+	End If
+	
+	Set nv_Prod32 = gndb_xSDSBB.getView("V_Prod32")
+	Call nv_Prod32.Refresh
+	Select Case xvar(nd_Prod, "Prod_ClasseProduit", "")
+	Case "AH" :
+		Set nd_Prod_AH = nd_Prod
+		Set nd_Prod = nv_Prod32.GetDocumentByKey(xVar(nd_Prod, "Prod_CleProduit", ""), True)
+		Set nd_Prod_CS = xSDSBB_xndProd(xVar(nd_Prod, "Prod_CleProduitCS", ""), True)
+	Case "CS" :
+		Set nd_Prod_CS = nd_Prod
+		Set nd_Prod = nv_Prod32.GetDocumentByKey(xVar(nd_Prod, "Prod_CleProduit", ""), True)
+		Set nd_Prod_AH = xSDSBB_xndProd(xVar(nd_Prod, "Prod_CleProduitAH", ""), True)
+	Case Else :
+		Set nd_Prod_AH = xSDSBB_xndProd(xVar(nd_Prod, "Prod_CleProduitAH", ""), True)
+		Set nd_Prod_CS = xSDSBB_xndProd(xVar(nd_Prod, "Prod_CleProduitCS", ""), True)
+	End Select
+	
+	If g_NomServeur_SDSCS = "" Then
+		Call xSDSCSL_Initialisations
+	Else
+		Call xSDSCS_Initialisations
+	End If
+	
+	
+	' Liste des clients AH dans les CS
+	If Not (nd_Prod_AH Is Nothing) Then
+		If g_NomServeur_SDSCS = "" Then
+			v_Formule = |@DbLookup(""; "| &amp; gndb_xSDSCSL.Server &amp; |" : "| &amp; Replace(gndb_xSDSCSL.FilePath, "\", "\\") &amp; _
+			|"; "V_CSPr27"; "| &amp; xVar(nd_Prod_AH, "Prod_CleProduit", "") &amp; |"; 3; [FailSilent])|
+			Else
+			v_Formule = |@DbLookup(""; "| &amp; gndb_xSDSCS.Server &amp; |" : "| &amp; Replace(gndb_xSDSCS.FilePath, "\", "\\") &amp; _
+			|"; "V_CSPr27"; "| &amp; xVar(nd_Prod_AH, "Prod_CleProduit", "") &amp; |"; 3; [FailSilent])|
+		End If
+		a = Evaluate(v_Formule)
+		If a(0) &lt;&gt; "" Then
+			pa_ClientNoFmt = Evaluate(|@Unique("| &amp; Implode(a, |":"|) &amp; |")|)
+		End If
+	End If
+	
+	' Liste des clients CS dans les CS
+	If Not (nd_Prod_CS Is Nothing) Then
+		If g_NomServeur_SDSCS = "" Then
+			v_Formule = |@DbLookup(""; "| &amp; gndb_xSDSCSL.Server &amp; |" : "| &amp; Replace(gndb_xSDSCSL.FilePath, "\", "\\") &amp; _
+			|"; "V_CSPr27"; "| &amp; xVar(nd_Prod_CS, "Prod_CleProduit", "") &amp; |"; 3; [FailSilent])|
+		Else
+			v_Formule = |@DbLookup(""; "| &amp; gndb_xSDSCS.Server &amp; |" : "| &amp; Replace(gndb_xSDSCS.FilePath, "\", "\\") &amp; _
+			|"; "V_CSPr27"; "| &amp; xVar(nd_Prod_CS, "Prod_CleProduit", "") &amp; |"; 3; [FailSilent])|
+		End If
+		
+		a = Evaluate(v_Formule)
+		If a(0) &lt;&gt; "" Then
+			If Isarray(pa_ClientNoFmt) Then
+				pa_ClientNoFmt = Evaluate(|@Unique("| &amp; Implode(pa_ClientNoFmt, |":"|) &amp; |":"| &amp; Implode(a, |":"|) &amp; |")|)
+			Else
+				pa_ClientNoFmt = Evaluate(|@Unique("| &amp; Implode(a, |":"|) &amp; |")|)
+			End If
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSCS, gc_Element_SDSCS, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSCS_PrixModule_Code"><lotusscript>Function SDSCS_PrixModule_Code(p_ClientNoFmt As String, p_CodeProduit As String, p_PrixProduit As Double, p_NoContrat As String) As Boolean
+	' Retourne le prix unitaire d'un service
+	' Paramètres
+	'	p_ClientNoFmt		I	Le numéro du client
+	'	p_CodeProduit		I	Le code du produit à chercher dans les contrats de service
+	'	p_PrixProduit		O	Le prix du produit
+	'	p_NoContrat			O	Le no du contrat sur lequel le produit se trouve
+	On Error Goto GererErreur
+	
+	SDSCS_PrixModule_Code = SDSCS_PrixModule_Cle(p_ClientNoFmt, xSDSBB_xVarProd_Code(p_CodeProduit, "Prod_CleProduit", "", True), p_PrixProduit, p_NoContrat)
+	
+	Exit Function
+	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSCS, gc_Element_SDSCS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SDSCS_ExtraireContratService"><lotusscript>Function SDSCS_ExtraireContratService(p_ClientNoFmt As String, pl_ValeursContrat List As Variant) As Boolean	
+	On Error Goto GererErreur
+	
+	Dim v_Statut As String
+	Dim v_NoContratFmt As string
+	Dim a_ClesModules As Variant
+	Dim a_CodesModules As Variant
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim v_Formule As String
+	Dim v_TypeInstallation As String
+	Dim v_Pos0 As Variant
+	Dim v_Pos1 As Variant
+	Dim v_Date As Variant
+	
+	SDSCS_ExtraireContratService = False
+	
+	' -A- Initialisation de la liste des données du contrat
+	pl_ValeursContrat("NoContrats") = ""			' Numéros de contrats, séparés par ; 
+	pl_ValeursContrat("Statut") = ""				' 30=Prêt, 50=En vigueur
+	pl_ValeursContrat("Suspendu") = ""				' 1=oui, ""=non
+	pl_ValeursContrat("SDSWin") = ""				' 0=SDSBase, 1=SDSWIN, ""=aucun
+	pl_ValeursContrat("TypeContratSDS") = ""		' 1=hébergé, 0=sur site
+	pl_ValeursContrat("TypeServeurSDS") = ""		' 1=hébergé, 0=sur site
+	pl_ValeursContrat("SDSMerlin") = ""				' 0=Light, 1=Full, ""=aucun
+	pl_ValeursContrat("TypeContratSDSMerlin") = ""	' 1=hébergé, 0=sur site
+	pl_ValeursContrat("TypeServeurSDSMerlin") = ""	' 1=hébergé, 0=sur site
+	pl_ValeursContrat("ClesModules") = ""			' Liste des clés des modules (array)
+	pl_ValeursContrat("Modules") = ""				' Liste des codes des modules (array)
+	pl_ValeursContrat("ClientFactNoFmt") = ""
+	pl_ValeursContrat("Devise") = ""				' CAD ou USD
+	pl_ValeursContrat("DateFinSDS") = ""	
+	pl_ValeursContrat("DateFinSDSMerlin") = ""
+	pl_ValeursContrat("DateFinContratAH") = ""	
+	pl_ValeursContrat("DateFinContratSS") = ""
+	pl_ValeursContrat("DateEngagementInitial") = ""
+	
+	' Extraire le contrat de service
+	If g_NomServeur_SDSCS = "" Then
+		Set ndc = xSDSCSL_xndcCSCo_Client(p_ClientNoFmt)
+	Else
+		Set ndc = xSDSCS_xndcCSCo_Client(p_ClientNoFmt)
+	End If
+	If ndc.Count = 0 Then
+		Exit Function
+	End If
+	
+	Set nd = ndc.GetFirstDocument
+	Do Until nd Is Nothing
+		v_Statut = xVar(nd, "CSCo_StatutContrat", "00")
+		If v_Statut &gt; pl_ValeursContrat("Statut") Then
+			pl_ValeursContrat("Statut") = v_Statut
+		End If
+		
+		If v_Statut &gt;= "50" Then
+			v_NoContratFmt = xVar(nd, "CSCo_NoContratFmt", "")
+			If pl_ValeursContrat("NoContrats") = "" Then
+				pl_ValeursContrat("NoContrats") = v_NoContratFmt
+			Else
+				pl_ValeursContrat("NoContrats") = pl_ValeursContrat("NoContrats") &amp; ";" &amp; v_NoContratFmt
+			End If
+			
+			' Liste des modules du CS
+			If g_NomServeur_SDSCS = "" Then
+				v_Formule = |@UpperCase(@DbLookup(""; "| &amp; gndb_xSDSCSL.Server &amp; |" : "| &amp; Replace(gndb_xSDSCSL.FilePath, "\", "\\") &amp; _
+				|"; "V_CSPr30"; "| &amp; v_NoContratFmt &amp; |"; 2; [FailSilent]))|
+			Else
+				v_Formule = |@UpperCase(@DbLookup(""; "| &amp; gndb_xSDSCS.Server &amp; |" : "| &amp; Replace(gndb_xSDSCS.FilePath, "\", "\\") &amp; _
+				|"; "V_CSPr30"; "| &amp; v_NoContratFmt &amp; |"; 2; [FailSilent]))|
+			End If
+			a_ClesModules = Evaluate(v_Formule)
+			If a_ClesModules(0) &lt;&gt; "" Then
+				If g_NomServeur_SDSCS = "" Then
+					v_Formule = |@UpperCase(@DbLookup(""; "| &amp; gndb_xSDSCSL.Server &amp; |" : "| &amp; Replace(gndb_xSDSCSL.FilePath, "\", "\\") &amp; _
+					|"; "V_CSPr30"; "| &amp; v_NoContratFmt &amp; |"; 3; [FailSilent]))|
+				Else
+					v_Formule = |@UpperCase(@DbLookup(""; "| &amp; gndb_xSDSCS.Server &amp; |" : "| &amp; Replace(gndb_xSDSCS.FilePath, "\", "\\") &amp; _
+					|"; "V_CSPr30"; "| &amp; v_NoContratFmt &amp; |"; 3; [FailSilent]))|
+				End If
+				a_CodesModules = Evaluate(v_Formule)
+				
+				' Cumuler les modules des CS
+				If Isarray(pl_ValeursContrat("ClesModules")) Then
+					pl_ValeursContrat("ClesModules") = Arrayunique(Arrayappend(pl_ValeursContrat("ClesModules"), a_ClesModules), 1)
+					pl_ValeursContrat("Modules") = Arrayunique(Arrayappend(pl_ValeursContrat("Modules"), a_CodesModules), 1)
+				Else
+					pl_ValeursContrat("ClesModules") = a_ClesModules
+					pl_ValeursContrat("Modules") = a_CodesModules
+				End If
+				
+				v_TypeInstallation = xVar(nd,"CSCo_TypeInstallation","")
+				
+				' Verifier les modules pour SDSWin
+				If pl_ValeursContrat("TypeServeurSDS") = "" then
+					pl_ValeursContrat("TypeServeurSDS") = "0"
+				End if
+				If v_TypeInstallation = "1" Then
+					v_Pos1 = Arraygetindex(a_ClesModules, "0008697")				' C-SDSWIN
+					v_Pos0 = Arraygetindex(a_ClesModules, "0008661")				' C-SDSBASE
+					
+					If Not Isnull(Arraygetindex(a_ClesModules, "0008816")) Then		' C-SDSMSERV
+						pl_ValeursContrat("TypeServeurSDS") = "1"
+					End If
+				Else
+					v_Pos1 = Arraygetindex(a_ClesModules, "9KLNLT")					' S-SDSWIN
+					v_Pos0 = Arraygetindex(a_ClesModules, "0006122")				' S-SDSBASE
+				End If
+				
+				If (Not Isnull(v_Pos1)) Or (Not Isnull(v_Pos0)) Then
+					If Not Isnull(v_Pos1) Then
+						pl_ValeursContrat("SDSWin") = "1"
+					Elseif Not Isnull(v_Pos0) Then
+						pl_ValeursContrat("SDSWin") = "0"
+					End If
+					
+					pl_ValeursContrat("ClientFactNoFmt") = xvar(nd, "CSCo_ClientFactNoFmt", "")
+					pl_ValeursContrat("Devise") = xvar(nd, "CSCo_Devise", "CAD")
+					pl_ValeursContrat("TypeContratSDS") = v_TypeInstallation
+					pl_ValeursContrat("DateFinSDS") = xvar(nd, "CSCo_DateFin", "")
+					If v_TypeInstallation = "1" Then
+						pl_ValeursContrat("DateFinContratAH") = xvar(nd, "CSCo_DateFin", "")
+					Else
+						pl_ValeursContrat("DateFinContratSS") = xvar(nd, "CSCo_DateFin", "")
+					End If
+				Else
+					If v_TypeInstallation = "1" Then
+						If pl_ValeursContrat("DateFinContratAH") = "" Then
+							pl_ValeursContrat("DateFinContratAH") = xvar(nd, "CSCo_DateFin", "")
+						End If
+					Else
+						If pl_ValeursContrat("DateFinContratAH") = "" Then
+							pl_ValeursContrat("DateFinContratSS") = xvar(nd, "CSCo_DateFin", "")
+						End If
+					End If
+				End If
+
+				' Verifier les modules pour SDS Merlin
+				pl_ValeursContrat("TypeServeurSDSMerlin") = "0"
+				If v_TypeInstallation = "1" Then	
+					v_Pos1 = Arraygetindex(a_ClesModules, "0008663")				' C-SDSF&amp;IFULL
+					v_Pos0 = Arraygetindex(a_ClesModules, "0008665")				' C-SDSF&amp;ILITE
+					
+					If Not Isnull(Arraygetindex(a_ClesModules, "0008817")) Then		'C-SLSMSERV
+						pl_ValeursContrat("TypeServeurSDSMerlin") = "1"
+					End If
+				Else
+					v_Pos1 = Arraygetindex(a_ClesModules, "9KLNPW")			' S-SDSF&amp;IFULL
+					v_Pos0 = Arraygetindex(a_ClesModules, "9KLNPY")				' S-SDSF&amp;ILITE
+				End If
+				
+				If (Not Isnull(v_Pos1)) Or (Not Isnull(v_Pos0)) Then
+					If Not Isnull(v_Pos1) Then
+						pl_ValeursContrat("SDSMerlin") = "1"
+					Elseif Not Isnull(v_Pos0) Then
+						pl_ValeursContrat("SDSMerlin") = "0"
+					End If
+					
+					If pl_ValeursContrat("SDSWin") = "" Then
+						pl_ValeursContrat("ClientFactNoFmt") = xvar(nd, "CSCo_ClientFactNoFmt", "")
+						pl_ValeursContrat("Devise") = xvar(nd, "CSCo_Devise", "CAD")
+					End If
+					pl_ValeursContrat("TypeContratSDSMerlin") = v_TypeInstallation
+					pl_ValeursContrat("DateFinSDSMerlin") = xvar(nd, "CSCo_DateFin", "CAD")
+				End If
+			End If	
+			
+			If pl_ValeursContrat("SDSWin") = "" And pl_ValeursContrat("SDSMerlin") = "" Then
+				pl_ValeursContrat("ClientFactNoFmt") = xvar(nd, "CSCo_ClientFactNoFmt", "")
+				pl_ValeursContrat("Devise") = xvar(nd, "CSCo_Devise", "CAD")
+			End If
+			
+			v_Date = xvar(nd, "CSCo_DateEngagementInitial", "")
+			If pl_ValeursContrat("DateEngagementInitial") = "" Then
+				pl_ValeursContrat("DateEngagementInitial") = v_Date
+			ElseIf pl_ValeursContrat("DateEngagementInitial") &gt; v_Date Then
+				pl_ValeursContrat("DateEngagementInitial") = v_Date
+			End If
+			
+			' Vérifier si le contrat est suspendu
+			If xVar(nd, "CSCo_SoutienActif", "") = "" Then
+				pl_ValeursContrat("Suspendu") = "1"
+			End If	
+		End If
+		
+		Set nd = ndc.Getnextdocument(nd)		
+	Loop	
+	
+	SDSCS_ExtraireContratService = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSCS, gc_Element_SDSCS, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSCS_Initialisations"><lotusscript>Sub SDSCS_Initialisations
+	Dim nd_Prof As NotesDocument
+	
+	If gns_SDSCS Is Nothing Then
+		Set gns_SDSCS = New Notessession
+		Set gndb_SDSCS = gns_SDSCS.Currentdatabase
+		g_NomServeur_SDSCS = gndb_SDSCS.Server
+	End If
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073637,91-05</datetime></item></scriptlibrary>
+
+</database>

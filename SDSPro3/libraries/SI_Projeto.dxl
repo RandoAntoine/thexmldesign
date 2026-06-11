@@ -1,0 +1,825 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Projeto" hide="v3 v4strict" designerversion="8.5.3" comment="1.8">
+<noteinfo noteid="55580e" unid="5A792FA9FB5B23FC8525882B00747BFC" sequence="29">
+<created><datetime dst="true">20220421T171219,16-04</datetime></created>
+<modified><datetime>20260105T014837,79-05</datetime></modified>
+<revised><datetime>20250319T073639,14-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,78-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,78-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+Use "SI_Extractions"
+Use "SI_Selection"
+Use "SI_Insertions"
+Use "SI_tDate"
+Use "x_PJ"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' ----------------------------------
+Dim gns_SIPJ As Notessession
+Dim gndb_SIPJ As Notesdatabase
+Dim g_NomDB_SIPJ As String
+
+Dim gnv_Clie_SIPJ As NotesView
+Dim gnv_Cont11_SIPJ As NotesView   'tous les contacts du clients
+Dim gnv_Cont12_SIPJ As NotesView  'décideurs du client seulement
+Dim gnv_Cont14_SIPJ As NotesView ' tous les contact duquel le client est membre d'un groupe
+
+Dim ga_ItemsRecherche_SIPJ As Variant
+
+Const gc_DebutSemaine = 2  'Lundi
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIPJ = "SL"
+Const gc_Element_SIPJ = "SI_Projeto"
+
+
+</lotusscript></code><code event="SIPJ_Initialisations"><lotusscript>Function SIPJ_Initialisations(p_NomDB As String) As Boolean
+	SIPJ_Initialisations = False
+	
+	If gns_SIPJ Is Nothing Or p_NomDB &lt;&gt; g_NomDB_SiPJ Then
+		Set gns_SIPJ = New Notessession	
+		Set gndb_SIPJ = gns_SIPJ.Currentdatabase
+		
+		' Extraire la base de documents Projeto
+		' -------------------------------------------------------
+		Call xPJ_Initialisations(p_NomDB)
+		If gndb_xPJ Is Nothing Then			
+			' 48 - La base de documents &amp; est introuvable.
+			Messagebox xGDK_xMessage("SI", 48, "", p_NomDB), 16, xGDK_xMessage("SI", 1, "", "")			
+			Exit Function
+		Elseif Not gndb_xPJ.IsOpen Then
+			' 48 - La base de documents &amp; est introuvable.
+			Messagebox xGDK_xMessage("SI", 48, "", p_NomDB), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+		
+		g_NomDB_SIPJ = p_NomDB
+	End If	
+	
+	' Initialisation du tableau des items du client
+	ga_ItemsRecherche_SIPJ = Evaluate({"Clie_Nom" : "Clie_Division"})
+	
+	SIPJ_Initialisations = True
+End Function
+
+</lotusscript></code><code event="SIPJ_PeutOuvrirClient"><lotusscript>Function SIPJ_PeutOuvrirClient(p_NomDB As String, p_NomUtilisateur As String) As Boolean
+	'----------------------------------------------------------------------------------
+	' Le script permet de valider si l'utilisateur peut ouvrir le client
+	'----------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	On Error 4060 GoTo ErreurAccess
+	
+	Dim v_PJRoles As Variant
+	Dim v_PJAcces As Integer
+	
+	'Initialisations
+	Call xPJ_Initialisations(p_NomDB)	
+	SIPJ_PeutOuvrirClient = True
+
+	'Vérifie si peut ouvir le client
+	v_PJRoles = gndb_xPJ.QueryAccessRoles(p_NomUtilisateur)	
+	v_PJAcces = gndb_xPJ.QueryAccess(p_NomUtilisateur)	
+	
+	If IsArray(v_PJRoles) Then
+		ForAll role In v_PJRoles 
+			If role = "[SRS]" Then
+				If  v_PJAcces &lt; 3 Then 'Auteur
+					MessageBox xGDK_xMessage("SI", 183, "", p_NomDB), 16, xGDK_xMessage("SI", 1, "", "")
+					' 183: Vous n'avez pas access à la base de documents &amp;
+					SIPJ_PeutOuvrirClient = False
+					Exit Function
+				End If	
+			End If
+		End ForAll
+	End If
+	
+	Exit Function
+	
+ErreurAccess:
+	MessageBox xGDK_xMessage("SI", 183, "",  gndb_xPJ.Title), 16, xGDK_xMessage("SI", 1, "", "")
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), "", False)	
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SIPJ_NomDB"><lotusscript>Function SIPJ_NomDB(p_Departement As String) As String
+	On Error GoTo GererErreur
+	
+	Select Case p_Departement
+		Case "60"
+			SIPJ_NomDB = "PJSDS"
+		Case "62"
+			SIPJ_NomDB = "PJUSA"   
+		Case Else
+			SIPJ_NomDB = "PJDIV"
+	End Select
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), p_Departement, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIPJ_ndSelectionnerClient"><lotusscript>Function SIPJ_ndSelectionnerClient(p_NomDB As String, p_Titre As String, p_RechApprox As Boolean) As Notesdocument
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sélectionner un client.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	
+	Set SIPJ_ndSelectionnerClient = Nothing
+	
+	' Initialisations
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function
+	End If
+	
+	If gnv_Clie_SIPJ Is Nothing Then
+		Set gnv_Clie_SIPJ = gndb_xPJ.Getview("V_Clie10")
+	End If
+	
+	' Sélectionner un client
+	' -------------------------------
+	Set nd = SISe_ndSelectionnerDocument("", ga_ItemsRecherche_SIPJ, SISe_PROMPT, gnv_Clie_SIPJ, _
+	|Clie_Nom + @If(@IsNull(Clie_Division); ""; " " + Clie_Division) + @If(@IsNull(Clie_ClientNomInterne); ""; " (" + Clie_ClientNomInterne + ")") + @If(Clie_Inactif = "1";| &amp; |+" - | &amp; xGDK_xMessage("SI", 214, "", "") &amp;  |"| &amp; |; "")| , _
+	p_Titre, "", p_RechApprox)
+	
+	If xVar(nd, "Clie_Inactif", "") = "1" Then
+		Messagebox xGDK_xMessage("SI", 210, "", xVar(nd, "Clie_Nom" ,"")), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	Set SIPJ_ndSelectionnerClient = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SiPJ, gc_Element_SIPJ, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIPJ_ndSelectionnerTousContacts"><lotusscript>Function SIPJ_ndSelectionnerTousContacts(p_NomDB As String) As NotesDocument
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Permet de sélectionner un document contact de Projeto
+	'	Le nom du contact est saisi dans une boîte de dialogue
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	
+	Dim nd_Contacts As NotesDocument
+	Dim ndc_Cont As NotesDocumentCollection
+	Dim nuiws As New NotesUIWorkspace
+	Dim nv_Contacts As NotesView
+	Dim a_ItemsRecherche As Variant
+	
+	'Initialisations
+	Call SIPJ_Initialisations(p_NomDB)
+	Call xPJ_Initialisations(p_NomDB)
+	
+	Set nv_Contacts =  gndb_xPJ.GetView("V_Cont21") ' Vue des contacts actifs
+	
+	Set SIPJ_ndSelectionnerTousContacts = Nothing
+	
+	'Vérifie si l'utilisateur peut ouvir le client
+	If Not  SIPJ_PeutOuvrirClient(p_NomDB, gns_SIPJ.UserName)	Then
+		Exit Function
+	End If
+	
+	a_ItemsRecherche = Evaluate({"Cont_Contact"})	
+	
+	Set nd_Contacts = SISe_ndSelectionnerDocument("", a_ItemsRecherche,SISe_PROMPT, _
+	nv_Contacts, |@If(@IsNull(Cont_Prenom); Cont_Nom ; Cont_Prenom + " " + Cont_Nom) + 
+	 "  /  " + Clie_Nom + @if(@isnull(Clie_Division); ""; " - " + Clie_Division)|, xGDK_xMessage("SI", 86, "", ""),"", False)
+	' 86: Sélectionnez un contact dans la liste ci-dessous.
+	
+	' Si pas de contact choisi, annuler le sélection
+	If Not nd_Contacts Is Nothing Then
+		Set  SIPJ_ndSelectionnerTousContacts = nd_Contacts
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), "", False)	
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SIPJ_CreerLiaison"><lotusscript>Sub SIPJ_CreerLiaison(pnd_Parent As notesdocument, pnd_Note As notesdocument)
+	On Error Goto GererErreur
+	
+	Dim ni As NotesItem
+	pnd_Note.Clie_NoClient = xVar(pnd_Parent, "Clie_NoClient", "")
+	pnd_Note.Cont_NoContact = xVar(pnd_Parent, "Cont_NoContact", "")
+	pnd_Note.Proj_NoProjet = xVar(pnd_Parent, "Proj_NoProjet", "")
+	pnd_Note.Requ_NoRequ = xVar(pnd_Parent, "Requ_NoRequ", "")
+	pnd_Note.CleClient = xVar(pnd_Parent, "CleClient", "")
+	pnd_Note.CleContact = xVar(pnd_Parent, "CleContact", "")
+	pnd_Note.CleProjet = xVar(pnd_Parent, "CleProjet", "")
+	pnd_Note.CleRequisition = xVar(pnd_Parent, "CleRequisition", "")
+	
+	pnd_Note.Clie_Nom = xVar(pnd_Parent, "Clie_Nom", "")
+	pnd_Note.Clie_Division = xVar(pnd_Parent, "Clie_Division", "")
+	pnd_Note.Cont_Contact = xVar(pnd_Parent, "Cont_Contact ", "")
+	pnd_Note.Proj_Somm = xVar(pnd_Parent, "Proj_Somm", "")
+	pnd_Note.Requ_NoRequisition = xVar(pnd_Parent, "Requ_NoRequisition", "")
+	pnd_Note.Requ_Description = xVar(pnd_Parent, "Requ_Description", "")
+	
+	
+	
+	Set ni = New NotesItem(pnd_Note, "Lecteurs", xVarArray(pnd_Parent, "Lecteurs"), READERS)
+	Set ni = New NotesItem(pnd_Note, "Auteurs", xVarArray(pnd_Parent, "Auteurs"), AUTHORS)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIPJ_ndSelectionnerContact"><lotusscript>Function SIPJ_ndSelectionnerContact(p_NomDB As String, p_NoClient As String) As NotesDocument
+	%REM
+	Remplacée par SIPJ_ndSelectionnerContact_Onglets Req#55273
+------------------------------------------------------------------------------------------------------------------------------	
+	Ouvrir le contact dans SI Contacts.
+	Paramètres:	p_NomDB			String.  Le nom / alias de la base de documents Projeto.
+				p_NoClient	String.  La cle de client duquel il faut 
+	sélectionner un contact.
+	Valeur retournée:	Notesdocument.  Le contact sélectionné.
+------------------------------------------------------------------------------------------------------------------------------	
+	%ENDREM
+	On Error GoTo GererErreur
+	
+	Dim nd As NotesDocument
+	Dim ndc_decideur As NotesDocumentCollection
+	
+	Set SIPJ_ndSelectionnerContact = Nothing
+	
+	' Initialisations
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function
+	End If
+	
+	
+	'---- Req: 39088 (mise a jour)
+	'-----afficher tous les contacts (et les decideurs) ---- 
+	
+	If gnv_Cont11_SIPJ Is Nothing Then
+		Set gnv_Cont11_SIPJ = gndb_xPJ.Getview("V_Cont11")
+	End If
+	Call gnv_Cont11_SIPJ.Refresh
+	
+	Set nd = SISe_ndPickList(gnv_Cont11_SIPJ, xGDK_xMessage("SI", 198, "", ""), p_NoClient)
+	
+	'------------------------------------------------
+	
+	Set SIPJ_ndSelectionnerContact = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+
+</lotusscript></code><code event="SIPJ_ndSelectionnerTous"><lotusscript>Function SIPJ_ndSelectionnerTous(p_NomDB As String, p_Titre As String, p_RechApprox As Boolean) As NotesDocument
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sélectionner un client ou prospect.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim v_Parametres(1) As String
+	
+	Set SIPJ_ndSelectionnerTous = Nothing
+	
+	' Initialisations
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function
+	End If
+	
+	If gnv_Clie_SIPJ Is Nothing Then
+		Set gnv_Clie_SIPJ = gndb_xPJ.Getview("V_Clie")
+	End If
+	
+	' Sélectionner lun client
+	' -------------------------------
+	Set nd = SISe_ndSelectionnerDocument("", ga_ItemsRecherche_SIPJ, SISe_PROMPT, gnv_Clie_SIPJ, _
+	|Clie_Nom + @If(@IsNull(Clie_Division); ""; " " + Clie_Division) + @If(@IsNull(Clie_ClientNomInterne); ""; " (" + Clie_ClientNomInterne + ")") + @If(Clie_Inactif = "1";| &amp; |+" - | &amp; xGDK_xMessage("SI", 214, "", "") &amp;  |"| &amp; |; "")| , _
+	p_Titre, "", p_RechApprox)
+	
+	If xVar(nd, "Clie_Inactif", "") = "1" Then
+		Messagebox xGDK_xMessage("SI", 210, "", xVar(nd, "Clie_Nom" ,"")), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	Set SIPJ_ndSelectionnerTous = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIPJ_AjouterNote"><lotusscript>Function SIPJ_AjouterNote(p_NomDB As String, pnd_Parent As notesdocument, p_Type As String, p_Description As String, p_Date As Variant, _
+	p_Utilisateur As String) As Boolean
+	%REM
+------------------------------------------------------------------------------------------------------------------------------	
+Le script permet de créer une note dans la base de documents du document parent
+	Paramètres:
+		pnd_Parent	 NotesDocument.  Obligatoire. Le document parent. La note est créer dans la base de documents du document parent.                               
+		p_Type			 String.  Le type de note (Interne ou Externe).  Initialisé à Interne si null.
+		p_Description String.  Obligatoire. La description sommaire du note.
+		p_Date			  Variant.  La date pour l'historique. Initialisé à Now si null.
+		p_Utilisateur	  String.  Le ID du représantant pour l'historique. Initialisé à NotesSession.Username si null.
+	------------------------------------------------------------------------------------------------------------------------------	
+	%END REM
+	On Error Goto GererErreur
+	
+	Dim nd_Note As NotesDocument	
+	Dim v_Date As Variant
+	
+	' Validations
+	SIPJ_AjouterNote = False
+	If pnd_Parent Is Nothing Or p_Description = "" Then
+		Exit Function
+	End If
+	
+	' Initialisations		
+	Call SIPJ_Initialisations(p_NomDB)
+	
+	' Créer le nouveau document
+	Set nd_Note = New NotesDocument(pnd_Parent.ParentDatabase)
+	nd_Note.Form = "F_Note"
+	
+	' Copier l'information du parent
+	Call SIPJ_CreerLiaison(pnd_Parent, nd_Note)
+	
+	' Ajouter l'information spécifique	
+	nd_Note.Note_Desc = p_Description 
+	nd_Note.Description = p_Description 
+	If Len(p_Type) = 0 Then
+		nd_Note.Note_Type = "Interne"
+	Else
+		nd_Note.Note_Type = p_Type
+	End If
+	If Len(p_Date) = 0 Then
+		nd_Note.HistoDC = Now
+	Else
+		nd_Note.HistoDC = p_Date
+	End If
+	If Len(p_Utilisateur) = 0 Then
+		nd_Note.HistoUC =  gns_SIPJ.Username
+	Else
+		nd_Note.HistoUC = p_Utilisateur
+	End If
+	
+	'	Call SIIx_AssignerDate(nd_Note, "Liai_Date", xVar(nd_Note, "HistoDC", nd_Note.Created))
+
+	'--------Req# 54796
+	
+	v_Date =  Evaluate(|@If(!@IsNull(HistoDC); HistoDC; @Created)|, nd_Note)	
+	Call SIPJ_AjusterDateDebutSemaine(v_Date)
+	
+	Call SIIx_AssignerDate(nd_Note, "Liai_Date", v_Date(0))
+	
+	
+	' Sauvegarder le document
+	Call nd_Note.MakeResponse(pnd_Parent)
+	Call nd_Note.Save(True, False)
+	
+	SIPJ_AjouterNote = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIPJ_ndcSelectionnerContactGroupe"><lotusscript>Function SIPJ_ndcSelectionnerContactGroupe(p_NomDB As String, pnd_CliePJ As NotesDocument) As NotesDocumentCollection
+	On Error GoTo GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	
+	'Dim v_ClientNoFmt As String
+	Dim v_NomGoupeClient As String
+	
+	
+	' Initialisations
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function
+	End If
+	
+	Call SISe_Initialisations
+	
+	If gnv_Cont14_SIPJ Is Nothing Then
+		Set gnv_Cont14_SIPJ = gndb_xPJ.Getview("V_Cont14")
+	End If
+	Call gnv_Cont14_SIPJ.Refresh
+	
+	'v_ClientNoFmt = xVar(pnd_CliePJ, "Clie_NoClientFmt", "")
+	v_NomGoupeClient = xVar(pnd_CliePJ, "Clie_NomGroupeClient", "")
+	
+	Set ndc = gndb_xPJ.CreateDocumentCollection()	
+	
+	'If v_ClientNoFmt &lt;&gt; "" And v_NomGoupeClient &lt;&gt; "" Then
+	If v_NomGoupeClient &lt;&gt; "" Then
+		Set ndc = SISe_ndcPickList(gnv_Cont14_SIPJ, xGDK_xMessage("SI", 198, "", ""), v_NomGoupeClient)		
+	End If
+	
+	Set SIPJ_ndcSelectionnerContactGroupe = ndc
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIPJ_ndSelectionnerProspect"><lotusscript>Function SIPJ_ndSelectionnerProspect(p_NomDB As String, p_Titre As String, p_RechApprox As Boolean) As NotesDocument
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sélectionner un prospect.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	
+	Set SIPJ_ndSelectionnerProspect = Nothing
+	
+	' Initialisations
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function
+	End If
+	
+	If gnv_Clie_SIPJ Is Nothing Then
+		Set gnv_Clie_SIPJ = gndb_xPJ.Getview("V_Clie11")
+	End If
+	' Sélectionner lun client
+	' -------------------------------
+	Set nd = SISe_ndSelectionnerDocument("", ga_ItemsRecherche_SIPJ, SISe_PROMPT, gnv_Clie_SIPJ, _
+	|Clie_Nom + @If(@IsNull(Clie_Division); ""; " " + Clie_Division) + @If(@IsNull(Clie_ClientNomInterne); ""; " (" + Clie_ClientNomInterne + ")") + @If(Clie_Inactif = "1";| &amp; |+" - | &amp; xGDK_xMessage("SI", 214, "", "") &amp;  |"| &amp; |; "")| , _
+	p_Titre, "", p_RechApprox)
+	
+	If xVar(nd, "Clie_Inactif", "") = "1" Then
+		Messagebox xGDK_xMessage("SI", 210, "", xVar(nd, "Clie_Nom" ,"")), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	Set SIPJ_ndSelectionnerProspect = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIPJ_OuvrirContact"><lotusscript>Sub SIPJ_OuvrirContact(p_NomDB As String, p_NoContact As String)
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' permet d'ouvir le document contact de projeto
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	On Error 4060 GoTo ErreurAccess
+	
+	Dim nd_PJ As NotesDocument
+	Dim nuiws As New NotesUIWorkspace
+	
+	Dim nd_Cont As NotesDocument
+	
+	'Initialisations
+	Call SIPJ_Initialisations(p_NomDB)
+	Call xPJ_Initialisations(p_NomDB)
+	
+	' Validation
+	If Not SIPJ_PeutOuvrirClient(p_NomDB, gns_SIPJ.UserName) Then 
+		Exit Sub
+	End If
+	
+	If Not gndb_xPJ Is Nothing Then
+		
+		Set nd_Cont = xPJ_xndCont(p_NomDB, p_NoContact, True)
+		
+		If Not nd_Cont Is Nothing Then
+			Call nuiws.Editdocument(False, nd_Cont, False)
+			Exit Sub
+		Else
+			MessageBox xGDK_xMessage("SIPJ", 14, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		End If	
+	End If
+	
+	Exit Sub
+	
+ErreurAccess:
+	MessageBox xGDK_xMessage("SI", 183, "",  gndb_xPJ.Title), 16, xGDK_xMessage("SI", 1, "", "")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), "", False)	
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SIPJ_AjusterDateDebutSemaine"><lotusscript>Sub SIPJ_AjusterDateDebutSemaine(p_Date As Variant)
+	'--------Req# 54796
+	'Ajustement de la date de Laison
+	
+	On Error GoTo GererErreur
+	
+	Dim v_jourSemaine As Integer
+	Dim v_Ajustement As Integer
+	
+	
+	v_jourSemaine = Weekday (p_Date (0))
+	
+	
+	If v_jourSemaine = gc_DebutSemaine Then
+		v_Ajustement = 0
+		
+	ElseIf  v_jourSemaine &gt; gc_DebutSemaine Then
+		
+		v_Ajustement = gc_DebutSemaine - v_jourSemaine
+	Else
+		v_Ajustement = gc_DebutSemaine - v_jourSemaine - 7
+	End If				
+	
+	
+	Call SItD_AjusterDate(p_Date (0), CLng(v_Ajustement), "W")
+	
+
+	Exit Sub
+	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), "", False)
+	Exit Sub
+	
+	
+End Sub
+
+</lotusscript></code><code event="SIPJ_OuvirClient"><lotusscript>Sub SIPJ_OuvirClient(p_NomDB As String, p_ClientNoFmt As String)
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Permet d'ouvir le document Projeto du client
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	On Error 4060 Goto ErreurAccess
+	
+	Dim nd_PJ As NotesDocument
+	Dim nuiws As New NotesUIWorkspace
+	
+	Set nd_PJ = xPJ_xndClieSI(p_NomDB, p_ClientNoFmt, False)
+	If nd_PJ Is Nothing Then
+		Messagebox xGDK_xMessage("SI", 78, "", p_ClientNoFmt), 16, xGDK_xMessage("SI", 1, "", "")
+	Else
+		Call nuiws.EditDocument(False,nd_PJ)
+	End If		
+	
+	Exit Sub
+	
+ErreurAccess:
+	Messagebox xGDK_xMessage("SI", 183, "",  gndb_xPJ.Title), 16, xGDK_xMessage("SI", 1, "", "")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, Getthreadinfo(1), "", False)	
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIPJ_AssignerEtape"><lotusscript>Function SIPJ_AssignerEtape(p_NomDB As String, pnd_Proj As NotesDocument, p_Etape As String) As Boolean
+	'================================================================================	
+	'	Fonction qui gére tout les calculs et les modifications relatifs à l'étape sélectionnée
+	'================================================================================	
+	On Error Goto GererErreur	
+	
+	Dim v_EtapeNum As Integer
+	Dim v_DescEtapeFR As String
+	Dim v_DescEtapeEN As String
+	Dim a_Evolution As Variant
+	Dim a_EvolutionFR As Variant
+	Dim a_EvolutionEN As Variant
+	Dim ni As NotesItem
+	Dim v_Ponderation As Double
+	' Initialisations
+	SIPJ_AssignerEtape = False
+	
+	' Initialisations
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function
+	End If
+	
+	' Vérification de l'étape sélectionnée
+	'--------------------------------------------------------
+	If p_Etape &lt;&gt; xVar(pnd_Proj, "Proj_DerniereEtape", "") Then
+		v_EtapeNum = Cint(p_Etape)
+		v_DescEtapeFR = xPJ_xDescTabl(p_NomDB, p_Etape, "ÉtapesFR", True)
+		v_DescEtapeEN = xPJ_xDescTabl(p_NomDB, p_Etape, "ÉtapesEN", True)
+		
+		'Changement d'étape
+		pnd_Proj.Proj_Etape = p_Etape
+		pnd_Proj.Proj_DerniereEtape = p_Etape
+		pnd_Proj.Proj_DerniereEtapeFR = v_DescEtapeFR
+		pnd_Proj.Proj_DerniereEtapeEN = v_DescEtapeEN
+		pnd_Proj.Proj_Pourcent = v_EtapeNum
+		
+		'Évolution du projet
+		a_Evolution = xVarArray(pnd_Proj, "Proj_Status_Choix")
+		a_EvolutionFR = xVarArray(pnd_Proj, "Proj_Status_ChoixFR")
+		a_EvolutionEN = xVarArray(pnd_Proj, "Proj_Status_ChoixEN")
+		
+		Call pnd_Proj.ReplaceItemValue("Proj_Status_Choix", p_Etape)
+		Call pnd_Proj.ReplaceItemValue("Proj_Status_ChoixFR", v_DescEtapeFR)
+		Call pnd_Proj.ReplaceItemValue("Proj_Status_ChoixEN", v_DescEtapeEN)
+		If Isarray(a_Evolution) Then
+			Set ni = pnd_Proj.GetFirstItem("Proj_Status_Choix")
+			Call ni.AppendToTextList(a_Evolution)
+			If Isarray(a_EvolutionFR) Then
+				Set ni = pnd_Proj.GetFirstItem("Proj_Status_ChoixFR")
+				Call ni.AppendToTextList(a_EvolutionFR)
+			End If
+			If Isarray(a_EvolutionEN) Then
+				Set ni = pnd_Proj.GetFirstItem("Proj_Status_ChoixEN")
+				Call ni.AppendToTextList(a_EvolutionEN)
+			End If
+		End If
+		
+		'Calcul des montants pondérés
+		If v_EtapeNum &lt; 50 Then
+			v_Ponderation = 0
+		Elseif v_EtapeNum &lt; 75 Then
+			v_Ponderation = .25
+		Elseif v_EtapeNum &lt; 90 Then
+			v_Ponderation = .5
+		Elseif v_EtapeNum &lt; 100 Then
+			v_Ponderation = .75
+		Else
+			v_Ponderation = 1
+		End If
+		
+		pnd_Proj.Proj_TotalPond = xVar(pnd_Proj, "Proj_Total", 0) * v_Ponderation
+		pnd_Proj.Proj_ProfitPond = xVar(pnd_Proj, "Proj_Montant_4", 0) * v_Ponderation
+		
+		SIPJ_AssignerEtape = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, Getthreadinfo(1), "", False)
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="SIPJ_ndcSelectionnerContact"><lotusscript>Function SIPJ_ndcSelectionnerContact(p_NomDB As String, p_NoClient As String) As NotesDocumentCollection
+	%REM
+------------------------------------------------------------------------------------------------------------------------------	
+	Ouvrir le contact dans SI Contacts.
+	Paramètres:	p_NomDB			String.  Le nom / alias de la base de documents Projeto.
+				p_ClientNo	String.  La clé de client duquel il faut 
+	sélectionner le(s) contact(s).
+	Valeur retournée:	NotesdocumentCollection.  Les contact sélectionnés.
+------------------------------------------------------------------------------------------------------------------------------	
+	%ENDREM
+	On Error GoTo GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim ndc_decideur As NotesDocumentCollection
+	
+	Set SIPJ_ndcSelectionnerContact = Nothing
+	
+	' Initialisations
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function
+	End If
+	
+	If gnv_Cont11_SIPJ Is Nothing Then
+		Set gnv_Cont11_SIPJ = gndb_xPJ.Getview("V_Cont11")
+	End If
+	Call gnv_Cont11_SIPJ.Refresh
+	
+	Set ndc = SISe_ndcPickList(gnv_Cont11_SIPJ, xGDK_xMessage("SI", 198, "", ""), p_NoClient)
+	
+	'------------------------------------------------
+	
+	Set SIPJ_ndcSelectionnerContact = ndc
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIPJ_ndSelectionnerContactGroupe"><lotusscript>Function SIPJ_ndSelectionnerContactGroupe(p_NomDB As String, pnd_CliePJ As NotesDocument) As NotesDocument
+	On Error GoTo GererErreur
+	
+	Dim nd As NotesDocument
+	
+	'Dim v_ClientNoFmt As String
+	Dim v_NomGoupeClient As String
+	
+	
+	' Initialisations
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function
+	End If
+	
+	Call SISe_Initialisations
+	
+	If gnv_Cont14_SIPJ Is Nothing Then
+		Set gnv_Cont14_SIPJ = gndb_xPJ.Getview("V_Cont14")
+	End If
+	Call gnv_Cont14_SIPJ.Refresh
+	
+	'v_ClientNoFmt = xVar(pnd_CliePJ, "Clie_NoClientFmt", "")
+	v_NomGoupeClient = xVar(pnd_CliePJ, "Clie_NomGroupeClient", "")
+	
+	'If v_ClientNoFmt &lt;&gt; "" And v_NomGoupeClient &lt;&gt; "" Then	
+	If v_NomGoupeClient &lt;&gt; "" Then		
+		Set nd = SISe_ndPickList(gnv_Cont14_SIPJ, xGDK_xMessage("SI", 198, "", ""), v_NomGoupeClient)	
+	End If
+	
+	Set SIPJ_ndSelectionnerContactGroupe = nd
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIPJ_ndSelectionnerContact_Onglets"><lotusscript>Function SIPJ_ndSelectionnerContact_Onglets(p_NomDB As String, p_NoClient As String, p_NomGroupeClient As String) As NotesDocument
+	%REM
+------------------------------------------------------------------------------------------------------------------------------	
+	Ouvrir le contact dans SI Contacts.
+	Paramètres:	p_NomDB			String.  Le nom / alias de la base de documents Projeto.
+				p_NoClient	String.  La cle de client duquel il faut 
+	sélectionner un contact.
+	Valeur retournée:	Notesdocument.  Le contact sélectionné.
+------------------------------------------------------------------------------------------------------------------------------	
+	%ENDREM
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New Notesuiworkspace
+	Dim nd As NotesDocument
+	Dim nd_Box As NotesDocument
+	
+	Dim v_UNIDCont As String
+	
+	Set SIPJ_ndSelectionnerContact_Onglets = Nothing
+	
+	' Initialisations
+	If Not SIPJ_Initialisations(p_NomDB) Then
+		Exit Function 
+	End If
+	
+	'EV refresh
+	If gnv_Cont14_SIPJ Is Nothing Then
+		Set gnv_Cont14_SIPJ = gndb_xPJ.Getview("V_Cont14")
+	End If
+	Call gnv_Cont14_SIPJ.Refresh
+	
+	If gnv_Cont11_SIPJ Is Nothing Then
+		Set gnv_Cont11_SIPJ = gndb_xPJ.Getview("V_Cont11")
+	End If
+	Call gnv_Cont11_SIPJ.Refresh
+	
+	
+	Set nd_Box = New NotesDocument(gndb_xPJ) 
+	nd_Box.Form = "Temp"
+	nd_Box.Clie_NoClientFmt = CStr(p_NoClient)	
+	nd_Box.Clie_NomGroupeClient = p_NomGroupeClient	
+	'nd_Box.DB_Origine = p_NomDB	
+	
+	
+	' Sortir le DialogBox avec EVs selon p_NomDB'		
+	
+	If nuiws.DialogBox("DB_Cont" &amp; p_NomDB, True,True,False,False,True,False, xGDK_xMessage("SI", 198, "", ""), nd_Box,True,False,True) = False Then
+		Exit Function
+	End If
+	
+	v_UNIDCont = gns_SIPJ.GetEnvironmentString ("PJ_ContactUNID")
+	
+	'Print "v_UNIDCont " &amp; v_UNIDCont
+	
+	
+	If v_UNIDCont &lt;&gt; "0" And v_UNIDCont &lt;&gt; "" Then		
+		Set nd = gndb_xPJ.GetDocumentByID (v_UNIDCont )		
+		Set SIPJ_ndSelectionnerContact_Onglets = nd
+	End If
+	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIPJ, gc_Element_SIPJ, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073639,14-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Base\Courriel type" alias="F_SICT" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" comment="5.0" conflictaction="mergeconflicts">
+<noteinfo noteid="3577d2" unid="C8711941C7B7A55385258877005FA8CD" sequence="149">
+<created><datetime dst="true">20220706T132451,33-04</datetime></created>
+<modified><datetime>20250319T074050,91-05</datetime></modified>
+<revised><datetime>20250319T073750,97-05</datetime></revised>
+<lastaccessed><datetime>20250319T074050,90-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20220707T224010,42-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SL_SecuriteMasque"
+</lotusscript></code></globals><code event="windowtitle"><formula>@If(@IsNewDoc; "Nouveau courriel"; SICT_Nom + " - Courriel")</formula></code><code event="queryopen"><lotusscript>Sub Queryopen(Source As Notesuidocument, Mode As Integer, Isnewdoc As Variant, Continue As Variant)
+	Call SLSM_QueryOpen(Source, Mode, Isnewdoc, Continue)
+End Sub
+</lotusscript></code><code event="querymodechange"><lotusscript>Sub Querymodechange(Source As Notesuidocument, Continue As Variant)
+	Call SLSM_Querymodechange(Source, Continue)
+End Sub</lotusscript></code>
+<actionbar borderstyle="none" bgcolor="silver" bordercolor="#2f2f2f"><actionbarstyle height="31px" repeat="tile"><imageref><code event="value"><formula>"bg_Actions"</formula></code></imageref></actionbarstyle>
+<actionbuttonstyle bgcolor="none"/><font size="8pt" style="bold"/><border/>
+<action title="Envoyer un test"><imageref name="act_Envoyer"/><code event="options"><lotusscript>Use "SI_CourrielsTypes"
+</lotusscript></code><code event="click"><lotusscript>Sub Click(Source As Button)
+	Dim nuiws As New NotesUIWorkspace
+	Dim nd As NotesDocument
+	Dim nd_Nothing As NotesDocument
+	
+	Set nd_Nothing = Nothing
+	Set nd = nuiws.CurrentDocument.Document
+	
+	Call SICT_EnvoyerCourriel(nd_Nothing, xVar(nd, "SICT_Nom", ""), "FR", "", "", "", "", False, "")
+End Sub</lotusscript></code><code event="hidewhen"><formula>@IsNotMember("[Serti]"; @UserRoles)</formula></code></action></actionbar>
+<background allowoverride="false"/>
+<body><richtext>
+<pardef id="1" leftmargin="1in" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/>Identificateurs : </run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Form"><code event="defaultvalue"><formula>"F_SICT"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" style="bold underline" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>SICT_Nom</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="19" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>SICT_Description</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="28" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt"/></run><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Titre"><code event="defaultvalue"><formula>@If(@IsNewDoc; "Nouveau courriel"; "Courriel - " + SICT_Nom)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="34" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="$PublicAccess"><code event="defaultvalue"><formula>"1"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="40" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run></par>
+<par def="1"><run><font size="8pt" color="red"/>Sécurité : </run><run><font size="8pt" color="red"/><field type="authors" kind="computedwhencomposed" name="Auteurs"><code event="defaultvalue"><formula>"[Base]"</formula></code></field></run><run><font size="8pt" color="red"/></run></par>
+<pardef id="2" leftmargin="1in" rightmargin="100%" hide="notes web mobile"/><subformref name="Entete | SF_Ente"/>
+<pardef id="3" leftmargin="1in"/>
+<par def="3"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" rightmargin="100%" refwidth="11.3646in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="5" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font size="9pt"/>Nom :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="6" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/></run><popup hotspotstyle="none"><popuptext>Champ obligatoire</popuptext><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></popup><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="7" leftmargin="0" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="2.3625in" borderstyle="single" type="text" kind="editable" name="SICT_Nom"><code event="inputvalidation"><formula>v_Cle := SICT_Nom;
+v_NomVue := "V_SICT20";
+
+@If(v_Cle = NULL; @Return(@Failure("Le nom est obligatoire.")); "");
+v_Lookup := @DbLookup("" : "NoCache"; ""; v_NomVue; v_Cle; 1; [ReturnDocumentUniqueID]);
+@If(@IsError(v_Lookup); @Success; @Elements(v_Lookup) = 1 &amp; v_Lookup = @Text(@DocumentUniqueID); @Success; @Failure("Le courriel est déjà défini."))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Description :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="4.7243in" borderstyle="single" type="text" kind="editable" name="SICT_Description"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Catégorie(s) :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="8" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field type="keyword" allowmultivalues="true" kind="editable" name="SICT_Categorie" listinputseparators="comma" listdisplayseparator="comma"><keywords ui="dialoglist" allownew="true"><formula>@DbColumn("":"NoCache";"";"V_SICT10";1)</formula></keywords></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="10" firstlineleftmargin="1in"/>
+<par def="10"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="11.3542in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="11" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="11"><run><font size="8pt" style="bold" color="maroon"/>Destinataires</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="12" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<pardef id="13"/>
+<par def="13"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" rightmargin="100%" refwidth="11.3646in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>De :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="editable" name="SICT_Expediteur"><keywords columns="1" ui="dialoglist" allownew="true"/></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<pardef id="14" leftmargin="0.2500in" hide="read print preview embedded" list="bullet" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="9pt" color="maroon"/>Utilisateur courant: laisser vide</run></par>
+<par def="14"><run><font size="9pt" color="maroon"/>Toujours le même utilisateur: Inscrire son nom long (ex.: </run><run><font size="9pt" color="maroon"/>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique)</run></par>
+<par def="14"><run><font size="9pt" color="maroon"/>Mail-in database: "Serti Informatique" &lt;recrutement@serti.com@NotesDomain&gt;</run></par>
+<pardef id="15" leftmargin="0" hide="read print preview embedded" keepwithnext="true" keeptogether="true"/>
+<par def="15"><run><font size="3pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>À :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field choicesdialog="addressbook" lookupeachchar="true" lookupaddressonrefresh="true" type="names" allowmultivalues="true" kind="editable" name="SICT_Destinataires" listinputseparators="comma semicolon" listdisplayseparator="comma"><keywords columns="1" ui="dialoglist" allownew="true"/></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>cc :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field choicesdialog="addressbook" lookupeachchar="true" lookupaddressonrefresh="true" type="names" allowmultivalues="true" kind="editable" name="SICT_CC" listinputseparators="comma semicolon" listdisplayseparator="comma"><keywords columns="1" ui="dialoglist" allownew="true"/></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>ccc :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field choicesdialog="addressbook" lookupeachchar="true" lookupaddressonrefresh="true" type="names" allowmultivalues="true" kind="editable" name="SICT_BCC" listinputseparators="comma semicolon" listdisplayseparator="comma"><keywords columns="1" ui="dialoglist" allownew="true"/></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Répondre à :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/><field choicesdialog="addressbook" lookupeachchar="false" lookupaddressonrefresh="false" type="names" kind="editable" name="SICT_RepondreA"><keywords columns="1" ui="dialoglist" allownew="true"/></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="10"><run><font size="9pt"/></run></par>
+<pardef id="16" leftmargin="1.0785in" hide="read print preview embedded"/>
+<par def="16"><run><font size="9pt" color="red"/>Attention: Les signets doivent être en minuscules seulement.  ex.: </run><run><font size="9pt" color="red"/>[form_nodocument]</run></par>
+<pardef id="17" leftmargin="1in" hide="read print preview embedded"/>
+<par def="17"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="11.3542in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="11"><run><font size="8pt" style="bold" color="maroon"/>Français</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="12"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="13"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" rightmargin="100%" refwidth="11.3646in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Objet :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/></run><popup hotspotstyle="none"><popuptext>Champ obligatoire</popuptext><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></popup><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="4.7243in" borderstyle="single" type="text" kind="editable" name="SICT_ObjetFR"><code event="inputvalidation"><formula>@If(SICT_ObjetFR = ""; @Failure("L'objet du message est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Message :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field type="richtext" kind="editable" name="SICT_MessageFR"/></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="10"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="11.3542in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="11"><run><font size="8pt" style="bold" color="maroon"/>Anglais</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="12"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="13"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" rightmargin="100%" refwidth="11.3646in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Objet :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/></run><popup hotspotstyle="none"><popuptext>Champ obligatoire</popuptext><run><font size="9pt"/></run></popup><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="4.7243in" borderstyle="single" type="text" kind="editable" name="SICT_ObjetEN"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Message :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field type="richtext" kind="editable" name="SICT_MessageEN"/></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="4" leftmargin="1in" rightmargin="100%"/>
+<par def="4"><run><font size="9pt"/></run></par>
+<pardef id="18" leftmargin="1.0785in" hide="print"/>
+<par def="18"><run><font size="9pt"/>Notes :</run></par>
+<par def="18"><run><font size="9pt"/></run><run><font size="9pt"/><field type="richtext" kind="editable" name="SICT_Notes"/></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="18"><run><font size="9pt"/></run></par>
+<pardef id="19" leftmargin="1in" rightmargin="100%" hide="notes web"/><subformref name="Historique | SF_Histo"/>
+<par def="4"><run><font size="9pt"/></run></par></richtext></body>
+<item name="HistoDC_1" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Tabl_Icones" summary="false" sign="true"><number>0</number></item>
+<item name="OriginalModTime" sign="true"><datetime dst="true">20070416T164832,95-04</datetime></item>
+<item name="$FormUsers"><text>[Base]</text></item>
+<item name="$SubForm_RepIDs" sign="true"><textlist><text>0000000000000000</text><text>0000000000000000</text></textlist></item>
+<item name="HistoDC" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="HistoDM" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>F_SICT</text></item></form>
+
+</database>

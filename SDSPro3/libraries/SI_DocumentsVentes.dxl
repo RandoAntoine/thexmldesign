@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_DocumentsVentes" hide="v3 v4strict" designerversion="8.5.3" comment="1.3e">
+<noteinfo noteid="555822" unid="C0F7B1E68617DC158525884C00620B7C" sequence="26">
+<created><datetime dst="true">20220524T135054,68-04</datetime></created>
+<modified><datetime>20260105T014837,84-05</datetime></modified>
+<revised><datetime>20250319T073640,06-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,83-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,83-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SI_DatabaseScript"
+Use "x_SIDocV"
+Use "x_SICl"
+Use "x_SDSP3"
+Use "x_SDSPP"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>
+Dim gns_SIDocV As NotesSession
+Dim gndb_SIDocV As NotesDatabase
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SIDocV = "SL"
+Const gc_Element_SIDocV = "SI_DocumentsVentes"
+
+
+</lotusscript></code><code event="SIDocV_AttacherContratSigne"><lotusscript>Function SIDocV_AttacherContratSigne(p_Origine As String, p_CleParent As String, p_UNID As String, p_DescParent As String, _
+p_NoSite As String, p_TypeDocument As String, p_TypeTable As String, p_FormatTable As String, ByVal p_ClientNoFmt As String, _
+p_NomClient As String, p_NoBC As String, p_Format As String, p_CheminAcces As String, p_Description As String, p_UserName As String) As NotesDocument
+	
+%REM
+Function SIDocV_CreerDocument(p_Origine As String, p_CleParent As String, p_DescParent As String, _
+p_NoSite As String, p_TypeDocument As String, p_TypeTable As String, p_FormatTable As String, Byval p_ClientNoFmt As String, _
+p_NomClient As String, p_NoBC As String, p_Format As String, p_CheminAcces As String, p_Description As String, p_UserName As String) As NotesDocument
+	
+%END REM
+	
+	' ----------------------------------------------
+	' Le script permet de créer un nouveau document.
+	' ----------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd_Docu As NotesDocument
+	Dim ndb_Temp_SITp As NotesDatabase
+	Dim nd_Temp As NotesDocument
+	Dim nd2 As NotesDocument
+	Dim nd_Prop As NotesDocument
+	Dim nrti_Document As NotesRichTextItem
+	Dim nrti_ContratSigne As NotesRichTextItem
+	Dim v_NoDocument As String
+	
+	Set SIDocV_AttacherContratSigne = Nothing
+	
+	' Initialisations
+	Call SIDocV_Initialisations
+	Call xSIDocV_Initialisations
+	
+	If p_UserName = "" Then
+		p_UserName = gns_SIDocV.UserName
+	End If
+	
+	If p_Origine = "SDSPP" Then
+		Set nd_Prop = xSDSPP_xndProp(p_CleParent, False)
+	ElseIf p_Origine = "SDSP3" Then
+		Set nd_Prop = xSDSP3_xndProp(p_CleParent, False)
+	End If
+	
+	Set nd_Docu = New NotesDocument(gndb_xSIDocV)
+	
+	nd_Docu.Form = "F_Docu"
+	
+	' Champs de la section parent
+	nd_Docu.Docu_OrigineParent = p_Origine
+	nd_Docu.Docu_CleParent = p_CleParent
+	nd_Docu.Docu_DescParent = p_DescParent
+	
+	' Champs de la section client
+	If Len(p_ClientNoFmt) &gt; 0 Then
+		nd_Docu.Docu_ClientNoFmt = p_ClientNoFmt
+		nd_Docu.Docu_ClientNomInterne =  xSICl_xVarClie(p_ClientNoFmt, "Clie_ClientNomInterne", "", True)
+		nd_Docu.Docu_ClientNom1 = xSICl_xVarClie(p_ClientNoFmt, "Clie_ClientNom1", "", True)
+		nd_Docu.Docu_ClientNom2 = xSICl_xVarClie(p_ClientNoFmt, "Clie_ClientNom2", "", True)
+	Else
+		nd_Docu.Docu_ClientNom = p_NomClient
+	End If
+	
+	' Champs de la section Documents
+	nd_Docu.Docu_NoSite = p_NoSite
+	nd_Docu.Docu_TypeDocument = p_TypeDocument
+	nd_Docu.Docu_TypeDocumentDescFR = xSIDocV_xDescTabl(p_TypeDocument, p_TypeTable  &amp; "FR", True)  ' 1=Bon de commande, 2=Contrat, 3=Image, 4=Signature)
+	nd_Docu.Docu_TypeDocumentDesceN = xSIDocV_xDescTabl(p_TypeDocument, p_TypeTable  &amp; "EN", True)  ' 1=Bon de commande, 2=Contrat, 3=Image, 4=Signature)
+	nd_Docu.Docu_TypeDocumentIcone = xSIDocV_xIcnTabl(p_TypeDocument, p_TypeTable  &amp; "FR", True)
+	nd_Docu.Docu_AfficherBC = xSIDocV_xComplTabl(p_TypeDocument, p_TypeTable  &amp; "FR", "2", True)
+	nd_Docu.Docu_Format = p_Format
+	nd_Docu.Docu_FormatDescFR = xSIDocV_xDescTabl(p_Format, p_FormatTable &amp; "FR", True)
+	nd_Docu.Docu_FormatDescEN = xSIDocV_xDescTabl(p_Format, p_FormatTable &amp; "EN", True) 'Document, Len, URL ''nd.Docu_FormatDesc = xDescTabl(p_Format, "Docu_Format", True)
+	nd_Docu.Docu_FormatIcone = xSIDocV_xIcnTabl(p_Format, p_FormatTable &amp; "FR", True)
+	nd_Docu.Docu_Description = p_Description
+	
+	nd_Docu.Docu_NoBonCommande = p_NoBC
+	
+	' Champs pour le fichier attaché
+	nd_Docu.Docu_Lien = p_CheminAcces
+	
+	If InStr(p_CheminAcces, "\") &gt; 0 Then
+		nd_Docu.Docu_NomFichier = StrRightBack(p_CheminAcces, "\")
+	Else
+		nd_Docu.Docu_NomFichier = p_CheminAcces
+	End If
+	
+	Set ndb_Temp_SITp = xGDK_xndbNDB("SITp")
+	If ndb_Temp_SITp Is Nothing Then
+		Exit Function
+	ElseIf Not ndb_Temp_SITp.IsOpen Then
+		Exit Function
+	End If
+	
+	If p_UNID = "" Then
+		Exit Function
+	End If
+	
+	Set nd_Temp = ndb_Temp_SITp.GetDocumentByUNID(p_UNID)
+	
+	If nd_Temp  Is Nothing Then
+		Exit Function
+	End If
+	
+	Set nrti_ContratSigne = nd_Temp.GetFirstItem("DB_ContratSigne")
+	Set nrti_Document= New NotesRichTextItem(nd_Docu, "Docu_Document")
+	Call nrti_Document.AppendRTItem(nrti_ContratSigne)
+	nd_Docu.Description = p_CheminAcces
+	
+	Do
+		v_NoDocument = xUnique("")
+		Set nd2 = xSIDocV_xndDocu(v_NoDocument, False)
+	Loop Until nd2 Is Nothing
+	
+	nd_Docu.Docu_NoDocument = v_NoDocument
+	nd_Docu.Cle = v_NoDocument
+	
+	nd_Docu.HistoDC = Now
+	nd_Docu.HistoUC = p_UserName
+	Call nd_Docu.Save(True, False)
+	
+	Set SIDocV_AttacherContratSigne = nd_Docu
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDocV, gc_Element_SIDocV, Getthreadinfo(1), p_CheminAcces, False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SIDocV_Initialisations"><lotusscript>Sub SIDocV_Initialisations
+	
+	Call xSIDocV_Initialisations
+	
+	If gns_SIDocV Is Nothing Then
+		Set gns_SIDocV = New NotesSession
+		Set gndb_SIDocV = gndb_xSIDocV
+	End If
+End Sub
+
+
+</lotusscript></code><code event="SIDocV_CreerDocument"><lotusscript>Function SIDocV_CreerDocument(p_Origine As String, p_CleParent As String, p_DescParent As String, _
+p_NoBC As String, Byval p_ClientNoFmt As String, p_NomClient As String, _
+p_TypeDocument As String, p_Format As String, p_Document As Variant, p_Description As String, _
+p_UserName As String) As NotesDocument
+	' ----------------------------------------------
+	' Le script permet de créer un nouveau document.
+	' p_Document : chemin d'accès (string) ou NRTI
+	' ----------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Docu As NotesDocument
+	Dim nd2 As NotesDocument
+	Dim nrti_Document As NotesRichTextItem
+	Dim ni_lecteursAdmin As NotesItem
+	Dim ni_auteurs As NotesItem
+	
+	Dim v_NoDocument As String
+	
+	Set SIDocV_CreerDocument = Nothing
+	
+	' Initialisations
+	Call SIDocV_Initialisations
+	Call xSIDocV_Initialisations
+	
+	If p_UserName = "" Then
+		p_UserName = gns_SIDocV.UserName
+	End If
+	
+	Set nd_Docu = New Notesdocument(gndb_xSIDocV)
+	
+	nd_Docu.Form = "F_Docu"
+	
+	' Champs de la section parent
+	nd_Docu.Docu_OrigineParent = p_Origine
+	nd_Docu.Docu_CleParent = p_CleParent
+	nd_Docu.Docu_DescParent = p_DescParent
+	nd_Docu.Docu_NoProposition = p_CleParent
+	
+	' Champs de la section client
+	If Len(p_ClientNoFmt) &gt; 0 Then
+		nd_Docu.Docu_ClientNoFmt = p_ClientNoFmt
+		nd_Docu.Docu_ClientNomInterne = xSICl_xVarClie(p_ClientNoFmt, "Clie_ClientNomInterne", "", True)
+		nd_Docu.Docu_ClientNom1 = xSICl_xVarClie(p_ClientNoFmt, "Clie_ClientNom1", "", True)
+		nd_Docu.Docu_ClientNom2 = xSICl_xVarClie(p_ClientNoFmt, "Clie_ClientNom2", "", True)
+	Else
+		nd_Docu.Docu_ClientNom = p_NomClient
+	End If
+	
+	' Champs de la section Documents
+	nd_Docu.Docu_TypeDocument = p_TypeDocument
+	nd_Docu.Docu_TypeDocumentDescFR = xSIDocV_xDescTabl(p_TypeDocument, "Docu_Type_FR", True)  ' 1=Bon de commande, 2=Contrat, 3=Image, 4=Signature)
+	nd_Docu.Docu_TypeDocumentDesceN = xSIDocV_xDescTabl(p_TypeDocument, "Docu_Type_EN", True)  ' 1=Bon de commande, 2=Contrat, 3=Image, 4=Signature)
+	nd_Docu.Docu_TypeDocumentIcone = xSIDocV_xIcnTabl(p_TypeDocument, "Docu_Type_FR", True)
+	nd_Docu.Docu_AfficherBC = xSIDocV_xComplTabl(p_TypeDocument, "Docu_Type_FR", "2", True)
+	nd_Docu.Docu_Format = p_Format
+	nd_Docu.Docu_FormatDescFR = xSIDocV_xDescTabl(p_Format, "Docu_Format_FR", True)
+	nd_Docu.Docu_FormatDescEN = xSIDocV_xDescTabl(p_Format, "Docu_Format_EN", True) 'Document, Len, URL
+	nd_Docu.Docu_FormatIcone = xSIDocV_xIcnTabl(p_Format, "Docu_Format_FR", True)
+	nd_Docu.Docu_Description = p_Description
+	
+	nd_Docu.Docu_NoParentFmt = p_NoBC
+	
+	Set nrti_Document = New NotesRichTextItem(nd_Docu, "Docu_Document")
+	
+	' Si p_Document est un NRTI, faire appendrichtextitem (pour contrat signé)
+	If LCase(TypeName(p_Document)) = "notesrichtextitem" Then			' p_Document contient un NRTI
+		Call nrti_Document.AppendRTItem(p_Document)  ' Propriétés de l'EO dans le NRTI
+		
+		' p_Document contient le chemin d'accès
+		If IsArray(p_Document.Embeddedobjects) Then
+			nd_Docu.Docu_NomFichier = p_Document.Embeddedobjects(0).Source
+		Else
+			nd_Docu.Docu_NomFichier = ""
+		End If
+		
+	Else
+		
+	' Champs pour le fichier attaché
+		nd_Docu.Docu_Lien = p_Document
+	
+		If Instr(p_Document, "\") &gt; 0 Then
+			nd_Docu.Docu_NomFichier = Strrightback(p_Document, "\")
+	Else
+			nd_Docu.Docu_NomFichier = p_Document
+	End If
+	
+		Call nrti_Document.EmbedObject(EMBED_ATTACHMENT, "", p_Document)
+	End If
+	
+	Do
+		v_NoDocument = xUnique("")
+		Set nd2 = xSIDocV_xndDocu(v_NoDocument, False)
+	Loop Until nd2 Is Nothing
+	
+	nd_Docu.Docu_NoDocument = v_NoDocument
+	nd_Docu.Cle = v_NoDocument
+	
+	' Les droits, rôles	
+	Set ni_auteurs = New NotesItem(nd_Docu, "AuteursAdmin", "[Admin]", AUTHORS)
+	
+	nd_Docu.HistoDC = Now
+	nd_Docu.HistoUC = p_UserName
+	Call nd_Docu.Save(True, False)
+	
+	Set SIDocV_CreerDocument = nd_Docu
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIDocV, gc_Element_SIDocV, Getthreadinfo(1), "", False )
+	Exit Function
+	
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073640,06-05</datetime></item></scriptlibrary>
+
+</database>

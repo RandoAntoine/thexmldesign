@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Base\Table" alias="F_Tabl" hide="web mobile" nocompose="true" noquery="true" publicaccess="true" designerversion="8" comment="4.2b" conflictaction="mergeconflicts">
+<noteinfo noteid="16ee" unid="642A60B97E7672EE85257EC80065D58A" sequence="1098">
+<created><datetime dst="true">20150922T143218,02-04</datetime></created>
+<modified><datetime>20260105T014845,69-05</datetime></modified>
+<revised><datetime>20250319T073751,54-05</datetime></revised>
+<lastaccessed><datetime>20260105T014845,68-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205708,09-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "F_Tabl"
+
+</lotusscript></code></globals><code event="windowtitle"><formula>@If(@IsNewDoc; "Nouvelle table"; Tabl_Nom + " - Table")</formula></code><code event="querysave"><lotusscript>Sub Querysave(Source As Notesuidocument, Continue As Variant)
+	Call FTabl_Querysave(Source, Continue)
+End Sub</lotusscript></code>
+<actionbar borderstyle="none" bgcolor="silver" bordercolor="#2f2f2f"><actionbarstyle height="31px" repeat="tile"><imageref name="bg_Actions"/></actionbarstyle>
+<actionbuttonstyle bgcolor="none"/><font size="8pt" style="bold"/><border/>
+<action title="Trier les valeurs" hide="preview read previewedit"><imageref name="act_Trier"/><code event="options"><lotusscript>Option Explicit
+
+</lotusscript></code><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FTabl_acTrierLesValeurs
+End Sub</lotusscript></code></action></actionbar>
+<background allowoverride="false"/>
+<body><richtext>
+<pardef id="1" leftmargin="1in" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/>Identificateurs : </run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Form"><code event="defaultvalue"><formula>"F_Tabl"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" style="bold underline" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>Tabl_Nom</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="19" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>Tabl_Description</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="28" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt"/></run><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Titre"><code event="defaultvalue"><formula>@If(@IsNewDoc; "Nouvelle table"; "Table - " + Tabl_Nom)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="34" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="$PublicAccess"><code event="defaultvalue"><formula>"1"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="40" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run></par>
+<par def="1"><run><font size="8pt" color="red"/>Sécurité : </run><run><font size="8pt" color="red"/><field type="authors" kind="computedwhencomposed" name="Auteurs"><code event="defaultvalue"><formula>"[Base]"</formula></code></field></run><run><font size="8pt" style="bold" color="red"/></run></par>
+<par def="1"><run><font size="8pt" color="red"/>Autres champs cachés: </run><run><font size="8pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="Tabl_ValeursAlias" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="defaultvalue"><formula>Tabl_ValeursAlias</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt"/></run><run><font size="8pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="Tabl_ValeursDesc" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="defaultvalue"><formula>Tabl_ValeursDesc</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="17" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt"/></run><run><font size="8pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="Tabl_ValeursDescAlias" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="defaultvalue"><formula>Tabl_ValeursDescAlias</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="24" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="Tabl_ValeursComp1" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="defaultvalue"><formula>Tabl_ValeursComp1</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="34" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="Tabl_ValeursComp2" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="defaultvalue"><formula>Tabl_ValeursComp2</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="44" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" style="bold" color="red"/></run></par>
+<pardef id="2" leftmargin="1in" rightmargin="100%" hide="notes web mobile"/><subformref name="Entete | SF_Ente"/>
+<pardef id="3" leftmargin="1in"/>
+<par def="3"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" rightmargin="100%" refwidth="7.7500in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="5" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font size="9pt"/>Nom :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="6" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/></run><popup hotspotstyle="none"><popuptext>Champ obligatoire</popuptext><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></popup><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="7" leftmargin="0" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.1813in" borderstyle="single" type="text" kind="editable" name="Tabl_Nom"><code event="inputvalidation"><formula>REM {Il faut utiliser une vue dans laquelle une colonne contient les UNIDs};
+v_Cle :=Tabl_Nom;
+v_NomVue := "V_Tabl20";
+v_NoColonneUNID := 9;
+
+@If(v_Cle = NULL; @Return(@Failure("Le nom est obligatoire.")); "");
+v_Lookup := @DbLookup("" : "NoCache"; ""; v_NomVue; v_Cle; v_NoColonneUNID);
+@If(@IsError(v_Lookup); @Success; @Elements(v_Lookup) = 1 &amp; v_Lookup = @Text(@DocumentUniqueID); @Success; @Failure("La table est déjà définie."))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Description :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="4.7243in" borderstyle="single" type="text" kind="editable" name="Tabl_Description"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Catégorie(s) :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="8" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field type="keyword" allowmultivalues="true" kind="editable" name="Tabl_Categorie" listinputseparators="comma" listdisplayseparator="comma"><keywords ui="dialoglist" allownew="true"><formula>@DbColumn("":"NoCache";"";"V_Tabl";1)</formula></keywords></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="10" firstlineleftmargin="1in"/>
+<par def="10"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="7.7493in"><tablecolumn width="0.1771in"/><tablecolumn width="1.5750in"/><tablecolumn width="3.1493in"/><tablecolumn width="1.1813in"/><tablecolumn width="25%"/><tablecolumn width="25%"/><tablecolumn width="25%"/><tablecolumn width="25%"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<pardef id="11" keepwithnext="true" keeptogether="true"/>
+<par def="11"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="12" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="8pt" style="bold" color="maroon"/>Valeurs</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="13" keepwithnext="true" keeptogether="true"/>
+<par def="13"><run><font size="8pt" color="maroon"/></run><run><font size="8pt" color="maroon" style="bold"/><field showdelimiters="false" type="text" kind="editable" name="Tabl_LibDescriptions"><code event="defaultvalue"><formula>"Descriptions"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="11" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="14" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="8pt" style="bold" color="maroon"/>Icônes</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="15" keepwithnext="true" keeptogether="true"/>
+<par def="15"><run><font size="8pt" color="maroon"/></run><run><font size="8pt" color="maroon" style="bold"/><field showdelimiters="false" type="text" kind="editable" name="Tabl_LibComplement1"><code event="defaultvalue"><formula>"Complement 1"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="11" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="16" keepwithnext="true" keeptogether="true"/>
+<par def="16"><run><font size="8pt" color="maroon"/></run><run><font size="8pt" color="maroon" style="bold"/><field showdelimiters="false" type="text" kind="editable" name="Tabl_LibComplement2"><code event="defaultvalue"><formula>"Complement 2"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="11" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="17" keepwithnext="true" keeptogether="true"/>
+<par def="17"><run><font size="8pt" color="maroon"/></run><run><font size="8pt" color="maroon" style="bold"/><field showdelimiters="false" type="text" kind="editable" name="Tabl_LibComplement3"><code event="defaultvalue"><formula>"Complement 3"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="11" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="18" keepwithnext="true" keeptogether="true"/>
+<par def="18"><run><font size="8pt" color="maroon"/></run><run><font size="8pt" color="maroon" style="bold"/><field showdelimiters="false" type="text" kind="editable" name="Tabl_LibComplement4"><code event="defaultvalue"><formula>"Complement 4"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="11" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="19" keepwithnext="true" keeptogether="true"/>
+<par def="19"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="12"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="13"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="14"><run><font size="1pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="15"><run><font size="1pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="16"><run><font size="1pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="17"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="18"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="10"><run><font size="3pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="7.7493in"><tablecolumn width="0.1771in"/><tablecolumn width="1.5750in"/><tablecolumn width="3.1493in"/><tablecolumn width="1.1813in"/><tablecolumn width="25%"/><tablecolumn width="25%"/><tablecolumn width="25%"/><tablecolumn width="25%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="20" align="right" leftmargin="0" keepwithnext="true" keeptogether="true"/>
+<par def="20"><run><font size="9pt"/></run><popup hotspotstyle="none"><popuptext>Champ obligatoire</popuptext><run><font size="9pt"/></run><picture width="12px" height="16px"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></popup><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="21" leftmargin="0" keepwithnext="true" keeptogether="true"/>
+<par def="21"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="editable" name="Tabl_Valeurs" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="inputvalidation"><formula>@If(Tabl_Valeurs = "" ; @Failure("La table doit contenir des valeurs."); @Success)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="13"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="editable" name="Tabl_Descriptions" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="inputvalidation"><formula>@If(@ThisValue != "" &amp; @Elements(Tabl_Valeurs) != @Elements(@ThisValue);  @Failure("Le nombre de descriptions doit correspondre au nombre de valeurs."); @Success)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="14"><run><font size="9pt"/><field type="number" allowmultivalues="true" kind="editable" name="Tabl_Icones" listinputseparators="newline blankline" listdisplayseparator="newline"><numberformat format="fixed" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(@ThisValue != "" &amp; @Elements(Tabl_Valeurs) != @Elements(@ThisValue); @Failure("Le nombre d'icôners doit correspondre au nombre de valeurs."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="15"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="editable" name="Tabl_Complement1" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="inputvalidation"><formula>@If(@ThisValue != "" &amp; @Elements(Tabl_Valeurs) != @Elements(@ThisValue); @Failure("Le nombre de complements doit correspondre au nombre de valeurs."); @Success)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="16"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="editable" name="Tabl_Complement2" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="inputvalidation"><formula>@If(@ThisValue != "" &amp; @Elements(Tabl_Valeurs) != @Elements(@ThisValue); @Failure("Le nombre de complements doit correspondre au nombre de valeurs."); @Success)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="17"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="editable" name="Tabl_Complement3" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="inputvalidation"><formula>@If(@ThisValue != "" &amp; @Elements(Tabl_Valeurs) != @Elements(@ThisValue); @Failure("Le nombre de complements doit correspondre au nombre de valeurs."); @Success)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="18"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="editable" name="Tabl_Complement4" listinputseparators="newline blankline" listdisplayseparator="newline"><code event="inputvalidation"><formula>@If(@ThisValue != "" &amp; @Elements(Tabl_Valeurs) != @Elements(@ThisValue); @Failure("Le nombre de complements doit correspondre au nombre de valeurs."); @Success)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="22" leftmargin="1.0785in" rightmargin="100%"/>
+<par def="22"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" rightmargin="100%" refwidth="7.7500in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Valeur par défaut :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="23" keepwithnext="true" keeptogether="true"/>
+<par def="23"><run><font size="9pt"/></run><run><font size="9pt"/><field lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="Tabl_ValeurDefaut"><keywords recalcchoices="true" columns="1" ui="dialoglist"><formula>Tabl_Valeurs</formula></keywords><code event="inputvalidation"><formula>@If(Tabl_ValeurDefaut = ""; @Success; @IsMember(Tabl_ValeurDefaut; Tabl_Valeurs); @Success; @Failure("La valeur par défaut doit contenir une valeur déclarée."))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="5"><run><font size="9pt"/>Trier les descriptions :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="Tabl_TrierDescriptions"><keywords helperbutton="false" columns="2" ui="radiobutton"><textlist><text>Oui|1</text><text>Non|0</text></textlist></keywords><code event="defaultvalue"><formula>"1"</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="4" leftmargin="1in" rightmargin="100%"/>
+<par def="4"><run><font size="9pt"/></run></par>
+<pardef id="24" leftmargin="1.0785in" hide="print"/>
+<par def="24"><run><font size="9pt"/>Notes :</run></par>
+<par def="24"><run><font size="9pt"/></run><run><font size="9pt"/><field type="richtext" kind="editable" name="Tabl_Notes"/></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="24"><run><font size="9pt"/></run></par>
+<pardef id="25" leftmargin="1in" rightmargin="100%" hide="notes web"/><subformref name="Historique | SF_Histo"/>
+<par def="4"><run><font size="9pt"/></run></par></richtext></body>
+<item name="HistoDC_1" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="OriginalModTime"><datetime>20070117T152305,35-05</datetime></item>
+<item name="$FormUsers"><text>[Base]</text></item>
+<item name="$SubForm_RepIDs" sign="true"><textlist><text>0000000000000000</text><text>0000000000000000</text></textlist></item>
+<item name="Tabl_Icones" summary="false"><number>0</number></item>
+<item name="HistoDC" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="HistoDM" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>F_Tabl</text></item></form>
+
+</database>

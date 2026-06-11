@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Proposition\Modifier ClientNoFmt" alias="DB_PropCl" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" bgcolor="system" inherit="true">
+<noteinfo noteid="397baa" unid="7FA32FC7538B81CF8525890A0068CE54" sequence="29">
+<created><datetime>20221130T140445,64-05</datetime></created>
+<modified><datetime>20250319T074100,72-05</datetime></modified>
+<revised><datetime>20250319T073924,71-05</datetime></revised>
+<lastaccessed><datetime>20250319T074100,71-05</datetime></lastaccessed>
+<addedtofile><datetime>20221130T141357,92-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Use "DB_PropCl"
+</lotusscript></code></globals><code event="postopen"><lotusscript>Sub Postopen(Source As Notesuidocument)
+	Call DBPropCl_PostOpen(Source)
+End Sub
+</lotusscript></code><code event="queryopen"><lotusscript>Sub Queryopen(Source As Notesuidocument, Mode As Integer, Isnewdoc As Variant, Continue As Variant)
+	
+End Sub
+</lotusscript></code><code event="queryclose"><lotusscript>Sub Queryclose(Source As Notesuidocument, Continue As Variant)
+	Continue = DBPropCl_Queryclose(Source)
+End Sub</lotusscript></code>
+<actionbar bgcolor="#ece9d8" bordercolor="black">
+<actionbuttonstyle bgcolor="#ece9d8"/><font color="system"/><border style="solid" width="0px 0px 1px"/></actionbar>
+<body><richtext>
+<pardef id="1" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/><field type="number" kind="computed" name="Prop_ClientNoFmt"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="8pt" color="red"/><field type="number" kind="computed" name="Prop_ClientNomInterne"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="8pt"/><sharedfieldref name="SF_ServeurSICl"/></run><run><font size="8pt"/></run><run><font size="8pt"/><sharedfieldref name="SF_FichierSICl"/></run><run><font size="8pt"/></run></par>
+<table widthtype="fixedleft" colorstyle="solid" bgcolor="white" rowspacing="0.0396in" refwidth="6.9090in"><tablecolumn width="0.1375in"/><tablecolumn width="1.7715in"/><tablecolumn width="0.1771in"/><tablecolumn width="4.6854in"/><tablecolumn width="0.1375in"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="3" keepwithnext="true" keeptogether="true"/>
+<par def="3"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="4" keepwithnext="true" keeptogether="true"/>
+<par def="4"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="5" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="6" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="7" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="8" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/>Client :</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="9" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@GetProfileField("F_Prof"; "Prof_SyncNomClient") != ""</formula></code></pardef>
+<par def="9"/></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="10" leftmargin="0.0104in" keepwithnext="true" keeptogether="true"/>
+<par def="10"><run><font size="9pt" color="maroon"/><field type="text" kind="computedfordisplay" name="DB_Client_1"><code event="defaultvalue"><formula>Prop_ClientNoFmt +  "    " + Prop_ClientNomInterne</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<par def="10"><run><font size="5pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"/></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="8"><run><font size="9pt"/>Nouveau client :</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="11" leftmargin="0.0104in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="11"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table leftmargin="0.0104in" widthtype="fixedleft" refwidth="4.6854in"><tablecolumn width="1.5750in"/><tablecolumn width="3.1104in"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="12" keepwithnext="true" keeptogether="true"><code event="hidewhen" enabled="false"><formula>@IsNull(DB_ClientRequis)</formula></code></pardef>
+<par def="12"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.4722in" multiline="true" borderstyle="single" type="number" kind="editable" name="DB_ClientNo1"><numberformat format="fixed" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If( !@IsNull(@ThisValue) &amp; @ThisValue &lt; 0; @Failure("La première partie du numéro de client est invalide."); @Success)</formula></code><code event="entering"><lotusscript>Sub Entering(Source As Field)
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nuid As NotesUIDocument
+	
+	Set nuid = nuiws.CurrentDocument
+	Call nuid.SelectAll
+	
+End Sub</lotusscript></code></field></run><run><font size="9pt"/> </run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.2757in" borderstyle="single" type="text" kind="editable" name="DB_ClientNo2"><code event="inputtranslation"><formula>@If(DB_ClientNo1= ""; ""; @Length(DB_ClientNo2) != 3; @Right("000" + DB_ClientNo2; 3); DB_ClientNo2)</formula></code><code event="inputvalidation"><formula>REM {***** Validations de base};
+@If(DB_ClientNo1 = ""; @Return(@Success); !@Matches(DB_ClientNo2; "{0123456789}{0123456789}{0123456789}"); @Return(@Failure("La deuxième partie du numéro de client est invalide.")); "");
+
+v_VueSICl := "V_Clie20";
+v_CleSICl := @Text(DB_ClientNo1) + "-" + DB_ClientNo2;
+
+REM {***** Vérifier l'existence du document};
+@If(@IsError(@DbLookup("" : "NoCache"; SF_ServeurSICl : SF_FichierSICl; v_VueSICl; v_CleSICl; 1)); @Return(@Failure("Le client est inexistant.")); @Success)</formula></code><code event="entering"><lotusscript>Sub Entering(Source As Field)
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nuid As NotesUIDocument
+	
+	Set nuid = nuiws.CurrentDocument
+	Call nuid.SelectAll
+	
+End Sub</lotusscript></code></field></run><run><font size="9pt"/>  </run><actionhotspot hotspotstyle="none"><run><font size="9pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Loupe"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call  DBPropCl_hsSelectionClient
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/> </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@Command([ViewRefreshFields])</formula></code><picture width="20px" height="20px" align="top"><imageref name="hs_Rafraîchir.gif|hs_Rafraichir"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="13" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="13"><run><font size="9pt"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="DB_ClientNoFmt"><code event="defaultvalue"><formula>@If(DB_ClientNo1 = ""; ""; DB_ClientNo1&gt; 0; @Text(DB_ClientNo1) + "-" + DB_ClientNo2; "")</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="14" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="9pt"/></run><run><font size="9pt" color="maroon"/><field type="text" kind="computed" name="DB_ClientNomInterne"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSICl : SF_FichierSICl; "V_Clie20"; @Text(DB_ClientNoFmt); 19); "")</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="10"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"/></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell columnspan="3" borderwidth="0px" bgcolor="#f1f1b4">
+<pardef id="16" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="16"><run><font size="9pt"/>Note: En appuyant sur OK le numéro du client sera automatiquement sauvegardé.  Ces changements se répercuteront sur tous les documents reliés.</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"/></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell></tablerow></table>
+<pardef id="17" leftmargin="1in" hide="notes web"/>
+<par def="17"><run><font size="9pt"/>																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				</run></par></richtext></body>
+<item name="OriginalModTime" sign="true"><datetime>20051207T110208,20-05</datetime></item>
+<item name="Clie_NoClient" summary="false" sign="true"><number>0</number></item>
+<item name="DB_ClientNo1_1" summary="false" sign="true"><number>0</number></item>
+<item name="Prop_ClientNoFmt" summary="false"><number>0</number></item>
+<item name="Prop_ClientNomInterne" summary="false"><number>0</number></item>
+<item name="DB_ClientNo1" summary="false"><number>0</number></item>
+<item name="$DB_ClientNo1_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEQBLAAQAAADwAzACAAAAAAQAFALwAgAAAAAwAMAAJAAAAFwBHAFg
+AAAAAAAAAAIAAAAYAGwBAAAAAAAAAAAAAAAAbAFsAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAMAAADMAPAC8ALwAswAzAAgAiACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAASwAAAAAAAADwAwAAMAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAUAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwA0AgAAAABEAA4AJAAkAEQAQgBfAEMATABJAEUATgBUAE4ATwAxAAAAAAB4AAMATgBFAFcA
+AACMAAYARABFAEwARQBUAEUAAAAAANABCgBJAE4ASQBUAEkAQQBMAEkAWgBFAAAAAAD//wkAVABF
+AFIATQBJAE4AQQBUAEUAAACUAAYATwBCAEoARQBDAFQAAAAAAOwAAAAAAAAArAESACgARwBMAE8A
+QgBBAEwAUwApAEQAQgBfAFAAUgBPAFAAQwBMAAAAAAAAARIAKABHAGwAbwBiAGEAbABzACkARABC
+AF8AUAByAG8AcABDAGwAAAAAADgBBgBTAE8AVQBSAEMARQAAAAAASAEKAEIASQBOAEQARQBWAEUA
+TgBUAFMAAAAAAHQBCwBPAEIASgBFAEMAVABOAEEATQBFAF8AAAAYAgUARgBJAEUATABEAAAA//8G
+ACUATABTAEkARABFAAAAAAD//wgARQBOAFQARQBSAEkATgBHAAAAAACEAQUATgBVAEkAVwBTAAAA
+9AEQAE4ATwBUAEUAUwBVAEkAVwBPAFIASwBTAFAAQQBDAEUAAAAAAMABBgAlAEwAUwBYAFUASQAA
+AAAA//8EAE4AVQBJAEQAAAAAAP//DwBOAE8AVABFAFMAVQBJAEQATwBDAFUATQBFAE4AVAAAAP//
+DwBDAFUAUgBSAEUATgBUAEQATwBDAFUATQBFAE4AVAAAAP//CQBTAEUATABFAEMAVABBAEwATAAA
+AAUA9AMAAAAAMRd6LBgAAAAAAJgAuJRVIOCExB0EAAAACAAAAGwBAAAEAQAAAAAAAAIAAACwAFwB
+AAAAAAAAAAAAAAAAAAAAALAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwBXAEAAAAAAAAAAAEAAAAC
+AAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAADAAEAXAEAACABBggAAAAAGgAAAEwB//8AAAAAEAAAACACAAA8AQAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAMWEyntLmkQv10A3QERhrcAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAIAwAAA
+AJADAAAAAFwEAQD//wAAAwAgAAAAAADwAAkCAADMAAgAAAAAAAAAYAEAAAAAAAADAAAABAKAA+AC
+4AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIADgAMEAgQCAAAAAAAAAAABAAAACgAA
+ACQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAwABAOACAADwAAkCAADMABoAwACwAf//AAAAABAAAADwAgAAiAEAAAAAAAAB
+AAAAoAOgAwAAAACgA6ADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAACFRMp7S5pEL9dAN0BEYa3AAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAACABQCsAIA
+AMwAAAAKAAEA//8AABIAFAAAAAAA//8JAgAAAAAABgAAAAAgAhQC//8AAAAABAABAAAACQIgAgkC
+IAIZAAMAAgCAAwAAeAEJAgAAIAIQAAAAAAAAANQBAAAAAAAAAQAAAMQDxAMAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMQDxAMAAAAABBUTKe0uaRC/XQDdARGGtwAA
+AAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAAAAAAAAgAUAgAAAAAgAgAACgABAP//AAADAAIAAAAA
+AMQBCQIEAPACEwAAAGABAADWAAAAAAAAABEAEAUAAAAA+AEJAuIFAAAAAAAAAAAAAAAAAAAAAAAA
+AADwAhIAFAAAAAAAHAIKAAAAAADvBgAAAADwAhQC//8AAAAAAwABAAAACgAJAvACBABPAAAAAADS
+xAAdAAAaCwBbXAFJsADKzACmGgwAR1wBy9YAAABsARoNAB0aEgBe4AIrIAIkphoVAF6AA0vgAi2g
+AyOmGhYAS4ADLMQDIxoYAB0CAAAAEQAYAAAAAAD//wEAAwADAAAABgAEAQgAYAEPAAoAAAAA
+</rawitemdata></item>
+<item name="$DB_ClientNo2_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEQBLAAQAAADwAzACAAAAAAQAFALwAgAAAAAwAMAAAABEAFwBHAFg
+AAAAAAAAAAIAAAAYAGwBAAAAAAAAAAAAAAAAbAFsAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAMAAADMAPAC8ALwAswAzAAgAiACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAASwAAAAAAAADwAwAAMAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAUAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwA0AgAAAAAkAA4AJAAkAEQAQgBfAEMATABJAEUATgBUAE4ATwAyAAAAAAB4AAMATgBFAFcA
+AACMAAYARABFAEwARQBUAEUAAAAAANABCgBJAE4ASQBUAEkAQQBMAEkAWgBFAAAAAAD//wkAVABF
+AFIATQBJAE4AQQBUAEUAAACUAAYATwBCAEoARQBDAFQAAAAAAOwAAAAAAAAArAESACgARwBMAE8A
+QgBBAEwAUwApAEQAQgBfAFAAUgBPAFAAQwBMAAAAAAAAARIAKABHAGwAbwBiAGEAbABzACkARABC
+AF8AUAByAG8AcABDAGwAAAAAADgBBgBTAE8AVQBSAEMARQAAAAAASAEKAEIASQBOAEQARQBWAEUA
+TgBUAFMAAAAAAHQBCwBPAEIASgBFAEMAVABOAEEATQBFAF8AAAAYAgUARgBJAEUATABEAAAA//8G
+ACUATABTAEkARABFAAAAAAD//wgARQBOAFQARQBSAEkATgBHAAAAAACEAQUATgBVAEkAVwBTAAAA
+9AEQAE4ATwBUAEUAUwBVAEkAVwBPAFIASwBTAFAAQQBDAEUAAAAAAMABBgAlAEwAUwBYAFUASQAA
+AAAA//8EAE4AVQBJAEQAAAAAAP//DwBOAE8AVABFAFMAVQBJAEQATwBDAFUATQBFAE4AVAAAAP//
+DwBDAFUAUgBSAEUATgBUAEQATwBDAFUATQBFAE4AVAAAAP//CQBTAEUATABFAEMAVABBAEwATAAA
+AAUA9AMAAAAA1OH5khgAAAAAAJgAuJRVIOCExB0EAAAACAAAAGwBAAAEAQAAAAAAAAIAAACwAFwB
+AAAAAAAAAAAAAAAAAAAAALAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwBXAEAAAAAAAAAAAEAAAAC
+AAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAADAAEAXAEAACABBggAAAAAGgAAAEwB//8AAAAAEAAAACACAAA8AQAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAMWEyntLmkQv10A3QERhrcAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAIAwAAA
+AJADAAAAAFwEAQD//wAAAwAgAAAAAADwAAkCAADMAAgAAAAAAAAAYAEAAAAAAAADAAAABAKAA+AC
+4AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIADgAMEAgQCAAAAAAAAAAABAAAACgAA
+ACQAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAwABAOACAADwAAkCAADMABoAwACwAf//AAAAABAAAADwAgAAiAEAAAAAAAAB
+AAAAoAOgAwAAAACgA6ADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAACFRMp7S5pEL9dAN0BEYa3AAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAACABQCsAIA
+AMwAAAAKAAEA//8AABIAFAAAAAAA//8JAgAAAAAABgAAAAAgAhQC//8AAAAABAABAAAACQIgAgkC
+IAIZAAMAAgCAAwAAeAEJAgAAIAIQAAAAAAAAANQBAAAAAAAAAQAAAMQDxAMAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMQDxAMAAAAABBUTKe0uaRC/XQDdARGGtwAA
+AAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAAAAAAAAgAUAgAAAAAgAgAACgABAP//AAADAAIAAAAA
+AMQBCQIEAPACEwAAAGABAADWAAAAAAAAABEAEAUAAAAA+AEJAuIFAAAAAAAAAAAAAAAAAAAAAAAA
+AADwAhIAFAAAAAAAHAIKAAAAAADvBgAAAADwAhQC//8AAAAAAwABAAAACgAJAvACBABPAAAAAADS
+xAAdAAAaCwBbXAFJsADKzACmGgwAR1wBy9YAAABsARoNAB0aEgBe4AIrIAIkphoVAF6AA0vgAi2g
+AyOmGhYAS4ADLMQDIxoYAB0CAAAAEQAYAAAAAAD//wEAAwADAAAABgAEAQgAYAEPAAoAAAAA
+</rawitemdata></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>DB_PropCl</text></item></form>
+
+</database>

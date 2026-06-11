@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="rb_blank.gif" alias="rb_Blank" noquery="true" publicaccess="false" designerversion="8">
+<noteinfo noteid="181e" unid="C7E64A68241C27D185257DEB006AB2FB" sequence="13">
+<created><datetime>20150213T142526,35-05</datetime></created>
+<modified><datetime dst="true">20180910T205709,60-04</datetime></modified>
+<revised><datetime dst="true">20180718T105547,45-04</datetime></revised>
+<lastaccessed><datetime dst="true">20180910T205709,59-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205709,59-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhDAAMAKIAAAAAAP///8DAwKKiok9PT////wAAAAAAACH5BAEAAAUALAAAAAAMAAwAAAMq
+WDoEQENJMIINA0xxr9BD1V0hMI7O2aWqxbaUeIYFwI3fJGOaVDAOiCQBADs=
+</gif>
+<item name="$FileSize" sign="true"><number>101</number></item>
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20110517T145750,65-04</datetime></item></imageresource>
+
+</database>

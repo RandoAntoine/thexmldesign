@@ -1,0 +1,831 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Extractions" hide="v3 v4strict" designerversion="8.5.3" comment="4.4">
+<noteinfo noteid="55595a" unid="26E20F7269778C2A85258BF5007559D2" sequence="6">
+<created><datetime>20241216T162147,06-05</datetime></created>
+<modified><datetime>20260105T014838,39-05</datetime></modified>
+<revised><datetime>20250319T073631,94-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,38-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,38-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+' *********************************************************************************************
+' *****  Les fonctions qui mettent à jour les items ont été déplacées dans SI_Insertions  *****
+' *********************************************************************************************
+'
+'	Les fonctions définies dans cette bibliothèque de script permettent d'extraire un document ou une valeur 
+'	d'un document.  Ces fonctions sont utilisées par les bibliothèques de script d'extraction (xAAA).
+'
+'	Routines disponibles
+'
+'	=============
+'	xnd
+'	=============
+'	Extrait un document.
+'	Syntaxe:				call xnd(NomCle , Cle , Cache , BaseDeDocuments , NomVue , Vue,  Document)
+'	Paramètres:			NomCle			String.  Le nom du champs servant de clé dans le document recherché.
+'							Cle				Variant.  La valeur de la clé recherchée.
+'							Cache			Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il
+'												correspond au document recherché.  Si vous indiquez False, le
+'												document est relu même s'il est déjà en mémoire.
+'							BaseDeDocuments	Notesdatabase. La base de documents dans laquelle le document
+'												sera recherché.
+'							NomVue			String.  Le nom de la vue de recherche.
+'							Vue				Notesview.  La vue de recherche.
+'							Document		Notesdocument.  Le document recherché.  S'il est déjà en mémoire et 
+'												que Cache contient True, le document entrant sera retourné.
+'	Valeurs retournées:	Les paramètres suivants peuvent être modifiés par la routine: Vue et Document.
+'
+'	=============
+'	xVar
+'	=============
+'	Extrait la valeur d'un document
+'	Syntaxe:				flag = xVar(Document , NomVar , ValeurNulle)
+'	Paramètres:			Document		Notesdocument.  Le document contenant la valeur recherchée.
+'							NomVar			String.  Le nom de la variable contenant la valeur recherchée.
+'							ValeurNulle		Variant.  La valeur à retourner si la variable recherchée n'existe pas
+'												dans le document recherché.
+'	Valeur retournée:	La valeur de la variable recherchée.  Si la variable recherchée n'existe pas dans le
+'							document, retourne la valeur du paramètre ValeurNulle.
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_X As NotesSession
+Dim gndb_X As NotesDatabase
+Dim gnd_Prof_X As NotesDocument
+Dim gnd_Pers_X As NotesDocument
+Dim g_InitUnique_X As String
+
+
+</lotusscript></code><code event="xVar2"><lotusscript>Function xVar2(pnd As NotesDocument, Byval p_NomVar As String, p_NomVarValeurNulle As String, p_ValeurNulle As Variant) As Variant
+	' p_NomVarValeurNulle contient le nom d'un item
+	' Permet d'éviter l'imbrication des xVar donc un gain de performance
+	' Ex.: xVar(nd_Empl, "Empl_LangueAffichage", "Empl_LangueLecture", "FR")
+	Dim v_ValeurItem As Variant
+	Dim v_ValeurNulle As Boolean
+	
+	v_ValeurNulle = False
+	
+	' Extraire l'item recherché
+	v_ValeurItem = xVarArray(pnd, p_NomVar)
+	
+	' Si l'item contient un tableau, c'est qu'il est défini
+	If Isarray(v_ValeurItem) Then
+		' Si le tableau contient plusieurs éléments, retourner le tableau
+		If Ubound(v_ValeurItem) &gt; 0 Then
+			xVar2 = v_ValeurItem
+			' Si l'item ne contient qu'un élément, retourner l'élément
+		Else
+			If Isnumeric(v_ValeurItem(0)) Then
+				xVar2 = v_ValeurItem(0)
+			Elseif v_ValeurItem(0) = "" Then
+				v_ValeurNulle = True
+			Else
+				xVar2 = v_ValeurItem(0)
+			End If
+		End If
+		' Si l'item ne contient pas un tableau, retourne la valeur nulle
+	Else
+		v_ValeurNulle = True
+	End If
+	
+	If v_ValeurNulle Then
+		If p_NomVarValeurNulle &lt;&gt; "" Then
+			xVar2 = xVar(pnd, p_NomVarValeurNulle, p_ValeurNulle)
+		Else
+			xVar2 = p_ValeurNulle
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xVarCollectionImplode"><lotusscript>Function xVarCollectionImplode(pndc As NotesDocumentCollection, p_NomItem As String, p_Separateur As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de retourner la valeur d'un champ de chaque document de la collection.  
+	' Valeur retournée: Valeurs concaténées, séparées par le séparateur.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim s As String
+	
+	xVarCollectionImplode = ""
+	If pndc.Count = 0 Then
+		Exit Function
+	End If
+	
+	' Boucler sur tous les documents de la collection
+	Set nd_Suivant = pndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = pndc.GetNextDocument(nd_Suivant)
+		
+		s = xVarImplode(nd, p_NomItem, p_Separateur)
+		If xVarCollectionImplode = "" then
+			xVarCollectionImplode = s
+		Else
+			xVarCollectionImplode = xVarCollectionImplode &amp; p_Separateur &amp; s
+		End If
+	Loop
+End Function
+
+</lotusscript></code><code event="xnv"><lotusscript>Sub xnv(pndb As Notesdatabase, Byval p_NomVue As String, p_nv As Notesview)
+	Dim ns As NotesSession
+	
+	' Si la vue est déjà définie, vérifier qu'il s'agit de la bonne vue
+	If Not (p_nv Is Nothing) Then
+		If Isarray(p_nv.Aliases) Then
+			If p_nv.Name &lt;&gt; p_NomVue And p_nv.Aliases(0) &lt;&gt; p_NomVue Then
+				Set p_nv = Nothing
+			End If
+		Else
+			If p_nv.Name &lt;&gt; p_NomVue And Cstr(p_nv.Aliases) &lt;&gt; p_NomVue Then
+				Set p_nv = Nothing
+			End If
+		End If
+	End If
+	
+	' Si la vue n'est pas définie, initialiser la vue
+	If p_nv Is Nothing Then
+		If pndb Is Nothing Then 
+			Set ns = New NotesSession
+			Set pndb = ns.CurrentDatabase
+			Set p_nv = pndb.Getview(p_NomVue)
+		Elseif pndb.Isopen Then 
+			Set p_nv = pndb.Getview(p_NomVue)
+		End If
+	End If
+End Sub
+
+</lotusscript></code><code event="xndPers"><lotusscript>Function xndPers As NotesDocument
+	On Error Goto GererErreur
+	
+	Dim v_Privileges As Variant
+	Dim ni As NotesItem
+	
+	' Initialisations
+	If gns_X Is Nothing Then
+		Set gns_X = New NotesSession
+		Set gndb_X = gns_X.CurrentDatabase
+	End If
+	Set xndPers = Nothing	
+	' Extraire le document de profil de la base courante
+	v_Privileges = Evaluate(|@UserAccess(@DbName; [AccessLevel])|)
+	If v_Privileges(0) =&gt; "3" Then		
+		v_Privileges = Evaluate(|@UserAccess(@DbName; [CREATEDOCUMENTS])|)
+		If  v_Privileges(0) =  "1" Then	
+			Set xndPers = gndb_X.getProfileDocument("F_Pers", gns_X.UserName)
+			If Not xndPers.HasItem("Form") Then
+				xndPers.Form = "F_Pers"
+				Set ni = New NotesItem(xndPers, "Auteurs", gns_X.UserName, AUTHORS)
+				Call ni.AppendToTextList("[Admin]")
+				Call xndPers.Save(True, False)
+			End If
+		End If
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Set xndPers = Nothing
+	If Cstr(Err()) = "4005" Then
+		If xLangue = "EN" Then
+			Print "Error 4005 - The version of Notes you are using is not compatible with Windows 10.  Please ask technical support to update your workstation."
+		Else
+			Print "Erreur 4005 - La version de Notes utilisée n'est pas compatible avec Windows 10.  Demandez au soutien technique de mettre à jour votre poste de travail."
+		End If
+	End If
+	Exit Function
+End Function
+
+</lotusscript></code><code event="xVersionNotes"><lotusscript>Function xVersionNotes As Variant
+	' Cette fonction retourne la version de HCL Notes 
+
+	Dim l_VersionNotes List As String
+	Dim v_VersionNotes As String
+	Dim v_FP As String
+
+	If gns_X Is Nothing Then
+		Set gns_X = New NotesSession
+		Set gndb_X = gns_X.CurrentDatabase
+	End If
+
+	v_VersionNotes = UCase(StrRight(gns_X.NotesVersion, " "))
+	
+	If InStr(v_VersionNotes, "|") &gt; 0 Then
+		l_VersionNotes("D") = StrRight(v_VersionNotes, "|")
+		v_VersionNotes = StrLeft(v_VersionNotes, "|")
+	End If
+		
+	If InStr(v_VersionNotes, "FP") &gt; 0 Then
+		l_VersionNotes("V") = StrLeft(v_VersionNotes, "FP")
+		l_VersionNotes("FP") = Right("00" &amp; StrRight(v_VersionNotes, "FP"), 2)
+	Else
+		l_VersionNotes("V") = v_VersionNotes
+		l_VersionNotes("FP") = "00"
+	End If
+	
+	xVersionNotes = l_VersionNotes
+End Function
+
+</lotusscript></code><code event="xVarArray"><lotusscript>Function xVarArray(pnd As Notesdocument, Byval p_NomVar As String) As Variant
+	Dim ni As Notesitem
+	Dim v_ValeurItem As Variant
+	
+	xVarArray = ""
+	' Si le document existe
+	If Not (pnd Is Nothing) Then
+		' Si un l'item existe
+		If pnd.HasItem(p_NomVar) Then
+			' Extraire l'item recherché
+			v_ValeurItem = pnd.GetItemValue(p_NomVar)
+			' Si l'item contient un tableau
+			If Isarray(v_ValeurItem) Then
+				' Si le tableau n'est pas vide, retourne le tableau
+				If Ubound(v_ValeurItem) &gt; Lbound(v_ValeurItem) _
+				Or Cstr(v_ValeurItem(Lbound(v_ValeurItem))) &lt;&gt; "" Then
+					xVarArray = v_ValeurItem
+				End If
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xndc"><lotusscript>Function xndc(p_Cle As Variant, pndb As Notesdatabase, Byval p_NomVue As String, p_nv As Notesview) As NotesDocumentCollection
+
+	' Initialiser la vue
+	Call xnv(pndb, p_NomVue, p_nv)
+	If Not (p_nv Is Nothing) Then
+		Call p_nv.Refresh
+		
+		' Extraire les documents correspondant à la clé
+		Set xndc = p_nv.Getalldocumentsbykey(p_Cle, True)
+	Else
+		Set xndc = pndb.CreateDocumentCollection
+	End If
+End Function
+
+</lotusscript></code><code event="xndcTrie"><lotusscript>Function xndcTrie(pndb As Notesdatabase, Byval p_NomVue As String, pnv As Notesview, p_Cle As Variant,p_NomItemCle As String) As NotesDocumentCollection
+	' Retourne une collection des documents dans l'ordre de la vue (trié)
+	' pndb optionnel, current database si Nothing
+	' p_NomVue requis si pnv is nothing
+	' pnv requis si p_NomVue est null
+	' p_Cle valeur unique seulement
+	
+	Dim nd As NotesDocument
+	
+	' Initialiser la vue au besoin
+	If p_NomVue &lt;&gt; "" Then
+		Call xnv(pndb, p_NomVue, pnv)
+	End If
+	
+	If Not (pnv Is Nothing) Then
+		Call pnv.Refresh
+		
+		Set xndcTrie = pnv.GetAllDocumentsByKey("**BiDoN**", True)
+		
+		Set nd = pnv.GetDocumentByKey(p_Cle, True)
+		Do Until nd Is Nothing
+			Call xndcTrie.AddDocument(nd)
+			Set nd = pnv.GetNextDocument(nd)
+			If xVar(nd, p_NomItemCle, "") &lt;&gt; p_Cle Then
+				Set nd = Nothing
+			End If
+		Loop
+	End If
+End Function
+
+</lotusscript></code><code event="xVarImplode"><lotusscript>Function xVarImplode(pnd As NotesDocument, ByVal p_NomVar As String, ByVal p_Separateur As String) As String
+	'	Retourne la valeur d'un item sous forme de string.  Si l'item contient plusieurs valeurs, celles-ci
+	'	sont mises bout à bout séparées par le séparateur spécifié.
+	On Error GoTo GererErreur
+
+	Dim v_Valeur As Variant
+	Dim i As Integer
+	
+	v_Valeur = xVar(pnd, p_NomVar, "")
+	If IsArray(v_Valeur) Then
+		ReDim a(UBound(v_Valeur)) As String
+		For i = 0 To UBound(v_Valeur)
+			a(i) = CStr(v_Valeur(i))
+		Next
+		xVarImplode = Implode(a, p_Separateur)
+	Else
+		xVarImplode = CStr(v_Valeur)
+	End If
+	Exit Function
+	
+GererErreur:
+	Print Error$
+	xVarImplode = ""
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="xAssignerDate"><lotusscript>Sub xAssignerDate(pnd As NotesDocument, Byval p_NomItem As String, Byval p_Date As Variant)
+	Dim ndt As New NotesDateTime("")
+	Dim ni As NotesItem
+	
+	If pnd Is Nothing Or p_NomItem = "" Then
+		Exit Sub
+	End If
+	
+	If Not Isdate(p_Date) Then
+		Call pnd.ReplaceItemValue(p_NomItem, "")
+		Exit Sub
+	End If
+	
+	' Initialiser le notesdatetime
+	ndt.LSLocalTime = p_Date
+	Call ndt.Setanytime
+	
+	' Supprimer les items ayant déjà une valeur
+	Call pnd.Removeitem(p_NomItem)
+	
+	' Assigner la nouvelle valeur
+	Set ni = New NotesItem(pnd, p_NomItem, "")
+	ni.IsSummary = True
+	Set ni.DateTimeValue = ndt
+End Sub
+
+
+</lotusscript></code><code event="xParamQueryStringOpt"><lotusscript>Function xParamQueryStringOpt(pnd As NotesDocument, p_Param As String, p_Decoded As Boolean) As String
+	
+	Dim value As String
+	
+	If p_Decoded Then
+		value = xVar(pnd,"QUERY_STRING_DECODED","")
+	Else
+		value = xVar(pnd,"query_String","")
+	End If
+	
+	xParamQueryStringOpt = xParamQueryStringQS(value, p_Param)
+End Function
+
+
+</lotusscript></code><code event="xndListElem"><lotusscript>Function xndListElem(p_Liste As Variant, p_NomElement As String) As NotesDocument
+	Set xndListElem = Nothing
+	
+	If Iselement(p_Liste(p_NomElement)) Then
+		Set xndListElem = p_Liste(p_NomElement)
+	End If
+End Function
+
+</lotusscript></code><code event="xUnique"><lotusscript>Function xUnique(p_UserName As String) As String
+	On Error GoTo GererErreur
+	
+	' 2021-03-02 PBE - Ajouté les initiales de l'utilisateur
+	' 2021-04-20 PJU - Remplacer les caractères accentués 
+	
+	Dim a_Unique As Variant
+	Dim a_NomUtilisateur As Variant
+	Dim v_User As String
+	Dim v_Unique As string
+	
+	Const ACC_CHARS = "Š,Ž,Ÿ,À,Á,Â,Ã,Ä,Å,Ç,È,É,Ê,Ë,Ì,Í,Î,Ï,Ð,Ñ,Ò,Ó,Ô,Õ,Ö,Ù,Ú,Û,Ü,Ý"
+	Const REG_CHARS = "S,Z,Y,A,A,A,A,A,A,C,E,E,E,E,I,I,I,I,D,N,O,O,O,O,O,U,U,U,U,Y"
+
+	a_Unique = Evaluate(|@Right(@Unique; 6)|)
+	
+	If g_InitUnique_X = "" Then
+		If p_UserName = "" Then
+			a_NomUtilisateur = Evaluate(|@Explode(@Name([CN]; @UserName); " ")|)
+		Else
+			a_NomUtilisateur = Evaluate(|@Explode(@Name([CN]; "| &amp; p_UserName &amp; |"); " ")|)
+		End If
+		g_InitUnique_X = UCase(Left(a_NomUtilisateur(LBound(a_NomUtilisateur)), 1) &amp; Left(a_NomUtilisateur(uBound(a_NomUtilisateur)), 2))
+	End If
+	
+	v_Unique = 	a_Unique(0) &amp; Replace(g_InitUnique_X, Split(ACC_CHARS, ","), Split(REG_CHARS, ",")) 
+	xUnique = v_Unique  
+	Exit Function
+	
+GererErreur:
+	xUnique = a_Unique(0)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="xVarProf"><lotusscript>Function xVarProf(Byval p_NomVar As String, Byval p_ValeurNulle As Variant) As Variant
+	On Error GoTo GererErreur
+	
+	Dim v_ValeurItem As Variant
+	
+	' Initialisations
+	Call xndProf
+	
+	' Extraire l'item recherché
+	v_ValeurItem = xVarArray(gnd_Prof_X, p_NomVar)
+	
+	' Si l'item contient un tableau, c'est qu'il est défini
+	If Isarray(v_ValeurItem) Then
+		' Si le tableau contient plusieurs éléments, retourner le tableau
+		If Ubound(v_ValeurItem) &gt; 0 Then
+			xVarProf = v_ValeurItem
+		' Si l'item ne contient qu'un élément, retourner l'élément
+		Else
+			If Isnumeric(v_ValeurItem(0)) Then
+				xVarProf = v_ValeurItem(0)
+			Elseif v_ValeurItem(0) = "" Then
+				xVarProf = p_ValeurNulle
+			Else
+				xVarProf = v_ValeurItem(0)
+			End If
+		End If
+	' Si l'item ne contient pas un tableau, retourne la valeur nulle
+	Else
+		xVarProf = p_ValeurNulle
+	End If
+	Exit Function
+	
+GererErreur:
+	xVarProf = p_ValeurNulle
+	Print "***** Erreur xVarProf --&gt; p_ValeurNulle"
+	Evaluate(|@MailSend("SI Registre"; ""; ""; "***** Erreur xVarProf"; "";  "")|) 
+	Exit Function
+End Function
+
+</lotusscript></code><code event="xParamQueryString"><lotusscript>Function xParamQueryString(pnd As NotesDocument, p_Param As String) As String
+	
+	Dim value As String
+	
+	value = xVar(pnd,"query_String","")
+
+	xParamQueryString = xParamQueryStringQS(value, p_Param)	
+End Function 
+
+</lotusscript></code><code event="xEvalSearch"><lotusscript>Function xEvalSearch(pndb As NotesDatabase, p_fxSearch As String, p_fxValeur As String) As Variant
+'	Retourne la valeur d'un item sous forme de string.  Si l'item contient plusieurs valeurs, celles-çi
+'	son mises bout à bout séparées par le séparateur spécifié.
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim i As Long
+	Dim v As Variant
+	
+	xEvalSearch = ""
+	
+	Set ndc = pndb.Search(p_fxSearch, Nothing, 0)
+	If ndc.Count &gt; 0 Then
+		Redim a(ndc.Count - 1) As Variant
+		i = -1
+		
+		Set nd = ndc.GetFirstDocument
+		Do Until nd Is Nothing
+			v = Evaluate(p_fxValeur, nd)
+			i = i + 1
+			If Ubound(v) &gt; 0 Then
+				a(i) = v
+			Else
+				a(i) = v(0)
+			End If
+			
+			Set nd = ndc.GetNextDocument(nd)
+		Loop
+		
+		xEvalSearch = a
+	End If
+	Exit Function
+	
+GererErreur:
+	Exit Function
+End Function
+
+</lotusscript></code><code event="xEvaluate"><lotusscript>Function xEvaluate(p_Formule As Variant, pnd As NotesDocument) As Variant
+	' VOIR aussi SINF_Evaluate dans le script library SL_NotesFormula
+	Dim v_valeur As Variant
+	
+	If pnd Is Nothing Then
+		v_valeur = Evaluate(p_Formule)
+	Else
+		v_valeur = Evaluate(p_Formule, pnd)
+	End If
+	
+	If Isarray(v_valeur) Then
+		xEvaluate =  v_valeur(0)
+	Else
+		xEvaluate = ""
+	End If
+End Function
+
+</lotusscript></code><code event="xVarCollection"><lotusscript>Function xVarCollection(pndc As NotesDocumentCollection, p_NomItem As String) As Variant
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de retourner la valeur d'un champ de chaque document de la collection.  
+	' Valeur retournée: Array des valeurs
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Redim a(99) As String
+	Dim i As Integer
+	Dim s As String
+	
+	If pndc.Count = 0 Then
+		xVarCollection = ""
+		Exit Function
+	End If
+	i = -1
+	
+	' Boucler sur tous les documents de la collection
+	Set nd_Suivant = pndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = pndc.GetNextDocument(nd_Suivant)
+		
+		s = CStr(xVarElem(nd, p_NomItem, 0, ""))
+		If s &lt;&gt; "" Then
+			i = i + 1
+			If i &gt; UBound(a) Then
+				ReDim Preserve a(i + 100) As String
+			End If 
+			
+			a(i) = s
+		End If
+	Loop
+
+	If i &gt;= 0 Then
+		ReDim Preserve a(i) As String
+		xVarCollection = a
+	Else
+		xVarCollection = ""
+	End If		
+End Function
+
+</lotusscript></code><code event="xniElem"><lotusscript>Function xniElem(pni As Notesitem, Byval p_Elem As Long, _
+Byval p_ValeurNulle As Variant) As Variant
+	' Permet d'extraire un élément d'un NotesItem
+	
+	If pni Is Nothing Then
+		xniElem = p_ValeurNulle
+	Elseif p_Elem &lt; Lbound(pni.Values) Or p_Elem &gt; Ubound(pni.Values) Then
+		xniElem = p_ValeurNulle
+	Elseif Isnumeric(pni.Values(p_Elem)) Then
+		xniElem = pni.Values(p_Elem)
+	Elseif pni.Values(p_Elem) = "" Then
+		xniElem = p_ValeurNulle
+	Else
+		xniElem = pni.Values(p_Elem)
+	End If
+End Function
+
+</lotusscript></code><code event="xndUNID"><lotusscript>Sub xndUNID(p_Cle As Variant, Byval p_Cache As Integer, pndb As Notesdatabase, pnd As Notesdocument)
+	On Error 4091 Goto GererErreur
+	
+	Dim v_Relire As Integer
+	
+	' Si on n'utilise pas la cache, il faut lire le document
+	If p_Cache = False Then
+		v_Relire = True
+	' Si on la cache ne contient pas de document, il faut lire le document
+	Elseif pnd Is Nothing Then
+		v_Relire = True
+	' Si le document en cache n'est pas le document recherché, il faut lire le document
+	Elseif Cstr(p_Cle) &lt;&gt; Cstr(pnd.UniversalID) Then
+		v_Relire = True
+	End If
+	
+	' Chargement du document dans la cache
+	If v_Relire Then
+		Set pnd = Nothing
+		
+		' Extraire le document correspondant à la clé
+		Set pnd = pndb.GetdocumentbyUNID(p_Cle)		
+	End If
+	
+	Exit Sub
+GererErreur:
+	Set pnd = Nothing
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="xVarElem"><lotusscript>Function xVarElem(pnd As Notesdocument, Byval p_NomVar As String, _
+Byval p_Elem As Long, Byval p_ValeurNulle As Variant) As Variant
+	Dim v_ValeurItem As Variant
+	
+	' Extraire l'item recherché
+	v_ValeurItem = xVarArray(pnd, p_NomVar)
+	
+	' Si l'item contient un tableau, c'est qu'il est défini
+	If Isarray(v_ValeurItem) Then
+		' Si le tableau contient l'élément recherché, retourner l'élément
+		If p_Elem &gt;= Lbound(v_ValeurItem) And p_Elem &lt;= Ubound(v_ValeurItem) Then
+			If Isnumeric(v_ValeurItem(p_Elem)) Then
+				xVarElem = v_ValeurItem(p_Elem)
+			Elseif v_ValeurItem(p_Elem) = "" Then
+				xVarElem = p_ValeurNulle
+			Else
+				xVarElem = v_ValeurItem(p_Elem)
+			End If
+		Else
+			xVarElem = p_ValeurNulle
+		End If
+	' Si l'item ne contient pas un tableau, retourne la valeur nulle
+	Else
+		xVarElem = p_ValeurNulle
+	End If
+End Function
+
+</lotusscript></code><code event="xndProf"><lotusscript>Function xndProf As NotesDocument
+	On Error GoTo GererErreur
+	
+	If gnd_Prof_X Is Nothing Then
+		If gns_X Is Nothing Then
+			Set gns_X = New NotesSession
+			Set gndb_X = gns_X.CurrentDatabase
+		End If
+		
+		' Extraire le document de profil de la base courante
+		Set gnd_Prof_X = gndb_X.getProfileDocument("F_Prof")
+	End If
+	
+	Set xndProf = gnd_Prof_X
+	Exit Function
+
+GererErreur:
+	Set xndProf = Nothing
+	Print "***** Erreur xndProf --&gt; Nothing"
+	Evaluate(|@MailSend("SI Registre"; ""; ""; "***** Erreur xndProf"; "| &amp; gndb_X.Title &amp; | (| &amp; gndb_X.Server &amp; " | " &amp; gndb_X.FilePath &amp; |";  "")|)
+End Function
+
+
+</lotusscript></code><code event="xnd"><lotusscript>Sub xnd(Byval p_NomCle As String, p_Cle As Variant, Byval p_Cache As Integer, pndb As Notesdatabase, _
+Byval p_NomVue As String, p_nv As Notesview, pnd As Notesdocument)
+	Dim v_Relire As Integer
+	Dim v_ValeurItem As Variant
+	
+	' Si on n'utilise pas la cache, il faut lire le document
+	If p_Cache = False Then
+		v_Relire = True
+	' Si on la cache ne contient pas de document, il faut lire le document
+	Elseif pnd Is Nothing Then
+		v_Relire = True
+	' Si le nom de la clé n'est pas spécifié, il faut lire le document
+	Elseif p_NomCle = "" Then
+		v_Relire = True
+	' Si le document en cache ne contient pas la clé, il faut lire le document
+	Elseif Not pnd.Hasitem(p_NomCle) Then
+		v_Relire = True
+	Else
+		' Si le document en cache contient une clé invalide, il faut lire le document
+		v_ValeurItem = pnd.Getitemvalue(p_NomCle)
+		If Not Isarray(v_ValeurItem) Then
+			v_Relire = True	
+		' Si la clé du document en cache n'est pas la clé recherchée, il faut lire le document
+		Elseif Cstr(p_Cle) &lt;&gt; Cstr(v_ValeurItem(0)) Then
+			v_Relire = True
+		' Dans les autres cas, on peut réutiliser le document de la cache
+		Else
+			v_Relire = False
+		End If
+	End If
+	
+	' Chargement du document dans la cache
+	If v_Relire Then
+		Set pnd = Nothing
+		
+		' Initialiser la vue
+		Call xnv(pndb, p_NomVue, p_nv)
+		If Not (p_nv Is Nothing) Then
+			Call p_nv.Refresh
+			
+			' Extraire le document correspondant à la clé
+			Set pnd = p_nv.Getdocumentbykey(p_Cle, True)		
+		End If
+	End If
+End Sub
+
+</lotusscript></code><code event="xLangue"><lotusscript>Function xLangue As String
+	' Cette fonction retourne la langue de l'utilisateur
+	Dim v_Langue As Variant
+	
+	xLangue = "FR"
+	
+	v_Langue = Evaluate("@UpperCase(@Left(@LanguagePreference([CONTENT]); 2))")
+	If Isarray(v_Langue) Then
+		If v_Langue(0) = "EN" Then
+			xLangue = "EN"
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xVarContient"><lotusscript>Function xVarContient(pnd As Notesdocument, Byval p_NomVar As String, p_Valeur As Variant) As Boolean
+	Dim ni As Notesitem
+	Dim v_ValeurItem As Variant
+	' Permet de savoir si un item contient la valeur recherchée
+	
+	xVarContient = False
+	' Si le document existe
+	If Not (pnd Is Nothing) Then
+		' Si un l'item existe
+		If pnd.HasItem(p_NomVar) Then
+			' Extraire l'item recherché
+			Set ni = pnd.GetFirstItem(p_NomVar)
+			' Si l'item contient la valeur recherchée
+			If ni.Contains(p_Valeur) Then
+				xVarContient = True
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xVarPers"><lotusscript>Function xVarPers(Byval p_NomVar As String, Byval p_ValeurNulle As Variant) As Variant
+	
+	Dim nd As NotesDocument
+	Dim v_ValeurItem As Variant
+	
+	xVarPers = p_ValeurNulle
+	
+	Set nd = xndPers
+	If nd Is Nothing Then
+		Exit Function
+	End If
+	
+	' Extraire l'item recherché
+	v_ValeurItem = xVarArray(nd, p_NomVar)
+	
+	' Si l'item contient un tableau, c'est qu'il est défini
+	If Isarray(v_ValeurItem) Then
+	' Si le tableau contient plusieurs éléments, retourner le tableau
+		If Ubound(v_ValeurItem) &gt; 0 Then
+			xVarPers = v_ValeurItem
+		' Si l'item ne contient qu'un élément, retourner l'élément
+		Else
+			If Isnumeric(v_ValeurItem(0)) Then
+				xVarPers = v_ValeurItem(0)
+			Elseif v_ValeurItem(0) &lt;&gt; "" Then
+				xVarPers = p_ValeurNulle
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xni"><lotusscript>Function xni(pnd As Notesdocument, Byval p_NomVar As String, Byval p_ValeurDefaut As Variant) As NotesItem
+	' Si le document existe
+	If Not (pnd Is Nothing) Then
+		' Si l'item existe
+		If pnd.HasItem(p_NomVar) Then
+			Set xni = pnd.GetFirstItem(p_NomVar)
+		' Si l'item n'existe pas, le créer
+		Else
+			Set xni = New NotesItem(pnd, p_NomVar, p_ValeurDefaut)
+			xni.IsSummary = True
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xVar"><lotusscript>Function xVar(pnd As Notesdocument, Byval p_NomVar As String, p_ValeurNulle As Variant) As Variant
+	Dim v_ValeurItem As Variant
+	
+	' Extraire l'item recherché
+	v_ValeurItem = xVarArray(pnd, p_NomVar)
+	
+	' Si l'item contient un tableau, c'est qu'il est défini
+	If Isarray(v_ValeurItem) Then
+		' Si le tableau contient plusieurs éléments, retourner le tableau
+		If Ubound(v_ValeurItem) &gt; 0 Then
+			xVar = v_ValeurItem
+		' Si l'item ne contient qu'un élément, retourner l'élément
+		Else
+			If Isnumeric(v_ValeurItem(0)) Then
+				xVar = v_ValeurItem(0)
+			Elseif v_ValeurItem(0) = "" Then
+				xVar = p_ValeurNulle
+			Else
+				xVar = v_ValeurItem(0)
+			End If
+		End If
+	' Si l'item ne contient pas un tableau, retourne la valeur nulle
+	Else
+		xVar = p_ValeurNulle
+	End If
+End Function
+
+</lotusscript></code><code event="xListElem"><lotusscript>Function xListElem(p_Liste As Variant, p_NomElement As String, p_ValeurNulle As Variant) As Variant
+	
+	xListElem = ""
+	
+	If Iselement(p_Liste(p_NomElement)) Then
+		xListElem = p_Liste(p_NomElement)
+	End If
+End Function
+
+</lotusscript></code><code event="xParamQueryStringQS"><lotusscript>Function xParamQueryStringQS(p_QueryString As String, p_Param As String) As String
+	
+	Dim value As String
+	Dim index As Integer
+	
+	value = p_QueryString
+	index = InStr(1, value, "&amp;" + p_Param + "=", 1)
+	
+	If index = 0 Then
+		value = "" 
+	Else
+		value = Mid$(value, index + Len(p_Param) + 2)
+		index = InStr(value, "&amp;")
+		If index &gt; 0 Then
+			value = Left$(value, index - 1)
+		End If
+	End If
+	
+	xParamQueryStringQS = value	
+End Function </lotusscript></code>
+<item name="$POID"><datetime>20250319T073631,94-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Suppr Doc Temporaire" alias="A_SuppDoc" hide="web v3" publicaccess="false" designerversion="8.5.3" restrictions="unrestricted" activatable="false" enabled="false">
+<noteinfo noteid="555662" unid="D718E772A23EF3F6852585E00060F99A" sequence="200">
+<created><datetime dst="true">20200911T133913,54-04</datetime></created>
+<modified><datetime>20260105T014836,83-05</datetime></modified>
+<revised><datetime>20250319T073749,56-05</datetime></revised>
+<lastaccessed><datetime>20260105T014836,82-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014836,82-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073749,10-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="byminutes" hours="1" minutes="0" runlocation="specific" runserver="CN=Zulu/O=Serti Informatique"/></trigger>
+<documentset type="modified"/><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_SuppDoc"
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	' ---------------------------------------------------
+	' Cet agent supprime les documents temporaire
+	' ---------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection 
+	Dim a_NomFormulaires As Variant
+	Dim i As Integer
+	Dim l_NbFormulairesSupr List As Integer
+	Dim v_Log As String
+	Dim v_NomFormulaire As String
+			
+	Call A_Initialisations
+
+	Print "Début agent A_SuppDoc"
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)
+	
+	a_NomFormulaires = Evaluate(|"F_PNav" : "F_PNav0.00" : "Memo" : "HTMLForm" : "DB_PropSg" : "DB_SIHi"|)
+	
+	For i = LBound(a_NomFormulaires) To UBound(a_NomFormulaires)
+		v_NomFormulaire = a_NomFormulaires(i)
+		
+		If v_NomFormulaire = "Memo" Then
+			Set ndc = gndb_A.Search(|Form = "| &amp; v_NomFormulaire &amp; |" &amp; @IsNull(Memo_EnvoyerCourriel)|, Nothing, 0)
+		Else
+			Set ndc = gndb_A.Search(|Form = "| &amp; v_NomFormulaire &amp; |"|, Nothing, 0)
+		End If
+				
+		If ndc.Count &gt; 0 Then			
+		ndc.RemoveAll(True)
+						
+			If Not IsElement(l_NbFormulairesSupr(v_NomFormulaire)) Then
+				l_NbFormulairesSupr(v_NomFormulaire) = ndc.Count				
+			End If			
+		End If
+			
+	Next
+					
+		ForAll Form In l_NbFormulairesSupr
+			If v_Log = "" Then				
+				If CInt(Form) &gt; 0 Then
+					v_Log =  CStr(Form) &amp; "..." &amp; ListTag(Form)			
+				End If
+			Else
+				If CInt(Form) &gt; 0 Then
+					v_Log = v_Log &amp; " / " &amp; CStr(Form) &amp; "..." &amp; ListTag(Form)			
+				End If				
+			End If				
+		End ForAll
+		
+	If v_Log = "" Then	
+		Call SIGE_AjouterLog("Fin agent A_SuppDoc - 0 documents supprimés.", 0, 0, False)
+		Call SIGE_EnregistrerLog
+		Print "Fin agent A_SuppDoc - 0 documents supprimés."
+	Else
+		Call SIGE_AjouterLog("Fin agent A_SuppDoc - documents supprimés: " &amp; v_log, 0, 0, False)
+		Call SIGE_EnregistrerLog
+		Print "Fin agent A_SuppDoc - documents supprimés: " &amp; v_log
+	End If	
+	
+				
+	Exit Sub
+	
+GererErreur:
+	Print "Agent A_SuppDoc - Erreur " &amp; CStr(Err()) &amp; " à la ligne " &amp; CStr(Erl()) &amp; ": " &amp; Error()
+	Call SIGE_AjouterLog("Agent A_SuppDoc - Erreur " &amp; CStr(Err()) &amp; " à la ligne " &amp; CStr(Erl()) &amp; ": " &amp; Error(), Err, 115, False)
+	Call SIGE_EnregistrerLog
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.CurrentDatabase
+	End If
+End Sub
+</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="780B4E610AFE602285258D84003A07B3">
+<agentmodified><datetime>20260105T014836,83-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260407T053555,87-04</datetime></agentrun>
+<runlog>Started running agent 'Suppr Doc Temporaire|A_SuppDoc' on 2026-04-07 05:34:13 AM
+Running on new or modified documents: 1059268 total
+Found 1059268 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Suppr Doc Temporaire|A_SuppDoc' on 2026-04-07 05:35:55 AM
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073749,56-05</datetime></item></agent>
+
+</database>

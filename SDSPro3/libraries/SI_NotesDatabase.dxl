@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_NotesDatabase" hide="v3 v4strict" designerversion="8.5.3" comment="1.5">
+<noteinfo noteid="5558be" unid="520A6F9AB68CC71F852589210071F7CB" sequence="20">
+<created><datetime>20221223T154450,03-05</datetime></created>
+<modified><datetime>20260105T014838,09-05</datetime></modified>
+<revised><datetime>20250319T073634,58-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,08-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,08-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_NotesAPI"
+Use "SI_GestionErreurs"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Const NSF_INFO_SIZE = 128
+Const INFOPARSE_DESIGN = 3
+Const NOTE_ID_ICON = &amp;HFFFF0010
+
+' Traitement des erreurs
+Const gc_TypeElement_SINDB = "SL"
+Const gc_Element_SINDB = "SI_NotesDatabase"
+
+</lotusscript></code><code event="SINDB_ViderHistoriqueReplication"><lotusscript>Function SINDB_ViderHistoriqueReplication(pndb As NotesDatabase) As Boolean
+	On Error GoTo GererErreur
+		
+	Dim dp As String
+	Dim s%
+	Dim rc%
+	Dim hDB As Long		
+	Dim dbserver$
+	Dim dbfilepath$
+	Dim nri As SINAPI_DBREPLICAINFO	
+	
+	SINDB_ViderHistoriqueReplication = False
+	
+	dbserver$ = pndb.Server
+	dbfilepath$ = pndb.Filepath
+	
+	dp$ = String(1024, " ")
+	SINAPI_OSPathNetConstruct 0, dbserver$, dbfilepath$, dp$
+			
+	s% = SINAPI_NSFDbOpen(dp$, hDB)
+	
+	If hDB = 0 Then Exit Function
+			
+	If dbserver$ = "" Then
+		rc% = SINAPI_NSFDbOpen(dbfilepath$, hDb)
+	Else
+		rc% = SINAPI_NSFDbOpen(dbserver$ &amp; "!!" &amp; dbfilepath$, hDb)
+	End If
+	
+	If rc% &lt;&gt; 0 Then
+		Print "E: Base de documents introuvable : " &amp; pndb.Title
+		Exit Function
+	End If
+	
+	' Droits Admin requis pour executer, sinon erreur
+	'Set nr = pndb.ReplicationInfo	
+	'Call nr.ClearHistory()	
+	'Call nr.Save()
+	
+	' Vider historique de réplication
+	rc% = SINAPI_NSFDbReplicaInfoGet(hDB, nri)
+	rc% = SINAPI_NSFDbClearReplHistory( hDB ,0 )	
+	rc% = SINAPI_NSFDbReplicaInfoSet(hDB, nri)
+		
+	If rc% &lt;&gt; 0 Then
+		Print "E: Impossible de vider l'historique de réplication : " &amp; pndb.Title
+		Exit Function
+	End If
+		
+	rc% = SINAPI_NSFDbClose(hDB)
+	
+	SINDB_ViderHistoriqueReplication = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINDB, gc_Element_SINDB, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINDB_RefreshDesign"><lotusscript>Sub SINDB_RefreshDesign(templateserver$, dbserver$, dbfilepath$)
+	Dim dp As String
+	dp$ = String(1024, " ")
+	SINAPI_OSPathNetConstruct 0, dbserver$, dbfilepath$, dp$
+	
+	Dim s As Integer
+	Dim hDB As Long
+	s% = SINAPI_NSFDbOpen(dp$, hDB)
+	If hDB = 0 Then Exit Sub
+	
+	SINAPI_DesignRefresh templateserver$, hDB, 1, 0, 0
+	
+	SINAPI_NSFDbClose hDB
+End Sub
+
+</lotusscript></code><code event="SINDB_SetDesignTemplate"><lotusscript>Sub SINDB_SetDesignTemplate(templatename$, dbserver$, dbfilepath$)
+	Dim dp As String	
+	dp$ = String(1024, " ")
+	SINAPI_OSPathNetConstruct 0, dbserver$, dbfilepath$, dp$
+	
+	Dim hDB As Long
+	SINAPI_NSFDbOpen dp$, hDB
+	If hDB = 0 Then Exit Sub
+	
+	Dim d As String
+	d$ = Space(NSF_INFO_SIZE)
+	SINAPI_NSFDbInfoGet hDB, d$
+	SINAPI_NSFDbInfoModify d$, INFOPARSE_DESIGN, templatename$
+	SINAPI_NSFDbInfoSet hDB, d$
+	
+	SINAPI_NSFDbClose hDB
+End Sub
+
+</lotusscript></code><code event="SINDB_ndGetDesignElement"><lotusscript>Function SINDB_ndGetDesignElement(pndb As NotesDatabase, p_TypeElement As String, p_NomElement As String) As NotesDocument
+	' PAS TESTÉ **************************************
+	On Error Goto GererErreur
+	
+	Dim ns As New NotesSession
+	Dim ndb As NotesDatabase
+	Dim nnc As NotesNoteCollection
+	Dim s As String
+	Dim nd As NotesDocument
+	Dim ni As NotesItem
+	
+	Set ndb = ns.CurrentDatabase
+	Set nnc = pndb.CreateNoteCollection(False)
+	Select Case p_TypeElement
+	Case "F":
+		nnc.SelectForms = True		
+	Case "V":
+		nnc.SelectViews = True
+	Case Else
+		Call nnc.SelectAllDesignElements(True)
+	End Select
+	'	nnc.SelectionFormula = |@IsMember("F_Tabl"; @GetField("$Title"))|
+	Call nnc.BuildCollection
+	
+	s = nnc.Getfirstnoteid
+	Do Until s = ""
+		Set nd = ndb.GetDocumentById(s)
+		Set ni = nd.Getfirstitem("$TITLE")
+		If ni.Contains(p_NomElement) Then
+			Set SINDB_ndGetDesignElement = nd
+			Exit Do
+		End If
+		s = nnc.Getnextnoteid(s)
+	Loop
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINDB, gc_Element_SINDB, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINDB_ChangerIDReplique"><lotusscript>Function SINDB_ChangerIDReplique(pndb As NotesDatabase) As Boolean
+	On Error Goto GererErreur
+	
+	Dim Server As String
+	Dim FileName As String
+	Dim Rep As String
+	Dim ndb As NotesDatabase
+	Dim hDb As Long
+	Dim rc%
+	Dim RepInfo As SINAPI_DBREPLICAINFO     
+	Dim var As Variant
+	
+	SINDB_ChangerIDReplique = False
+	server$ = pndb.Server
+	filename$ = pndb.FilePath
+	Do
+		Set ndb = New NotesDatabase("", "")
+		rep$ = Right("00000000" &amp; Cstr(Clng(Today)), 8) &amp; Right("00000000" &amp; Cstr(Int((Now - Today) * 100000000)), 8)
+	Loop Until Not ndb.OpenByReplicaID(server$, rep$)
+	
+	If Server$ = "" Then
+		rc% = SINAPI_NSFDbOpen(FileName$, hDb)
+	Else
+		rc% = SINAPI_NSFDbOpen(Server$ &amp; "!!" &amp; FileName$, hDb)
+	End If	
+	
+	If rc% &lt;&gt; 0 Then
+		Print "E: Base de documents introuvable : " &amp; pndb.Title
+		Exit Function
+	End If
+	rc% = SINAPI_NSFDbReplicaInfoGet(hDb, RepInfo)
+	
+	If rc% &lt;&gt; 0 Then
+		Print "E: L'information de la réplique n'est pas disponible : " &amp; pndb.Title
+		Exit Function
+	End If
+	
+	RepInfo.ID.Innards(1) = Val( "&amp;H"+Left$( rep$, 8 ) )
+	RepInfo.ID.Innards(0) = Val( "&amp;H"+Right$( rep$, 8 ) )
+	
+	rc% = SINAPI_NSFDbReplicaInfoSet(hDb, RepInfo)    ' take a deep breath...   :-)
+	
+	rc% = SINAPI_NSFDbReplicaInfoGet(hDb, RepInfo)
+	If rc% &lt;&gt; 0 Then
+		Print "*** Impossible de vérifier si le nouvel ID de réplique a été modifié correctement : " &amp; pndb.Title
+	Else
+		Print "Le nouvel ID de  réplique de la base de documents « " &amp; pndb.Title &amp; " » est " &amp; Right("0000000" + Hex(RepInfo.ID.Innards(1)), 8) + ":" + Right("0000000" + Hex(RepInfo.ID.Innards(0)), 8)
+	End If
+	
+	rc% = SINAPI_NSFDbClose(hDb)
+	SINDB_ChangerIDReplique = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINDB, gc_Element_SINDB, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINDB_ReplaceDesign"><lotusscript>Sub SINDB_ReplaceDesign(templateserver$, templatename$, dbserver$, dbfilepath$)
+	Dim dp As String	
+	dp$ = String(1024, " ")
+	SINAPI_OSPathNetConstruct 0, dbserver$, dbfilepath$, dp$
+	
+	Dim hDB As Long
+	SINAPI_NSFDbOpen dp$, hDB
+	If hDB = 0 Then Exit Sub
+	
+	Dim d As String
+	d$ = Space(NSF_INFO_SIZE)
+	SINAPI_NSFDbInfoGet hDB, d$
+	SINAPI_NSFDbInfoModify d$, INFOPARSE_DESIGN, templatename$
+	SINAPI_NSFDbInfoSet hDB, d$
+	
+	Dim hNT As Long
+	SINAPI_NSFNoteOpen hDB, NOTE_ID_ICON, 0, hNT
+	SINAPI_NSFItemSetText hNT, "$TITLE", d$, Instr(d$, Chr$(0))
+	SINAPI_NSFNoteUpdate hNT, 0
+	SINAPI_NSFNoteClose hNT
+	
+	SINAPI_DesignRefresh templateserver$, hDB, 1, 0, 0
+	
+	SINAPI_NSFDbClose hDB
+End Sub
+
+</lotusscript></code><code event="SINDB_NotesURL"><lotusscript>Function SINDB_NotesURL(pndb As NotesDatabase) As String
+	' Retourne l'URL permettant d'ouvrir un document dans Notes.
+	' Format: Notes://DbReplicaId/ViewNoteUNID/DocUNID
+	On Error GoTo GererErreur
+	
+	Dim v_Serveur As String
+	Dim v_URL As String
+	
+	If pndb Is Nothing Then
+		Exit Function
+	End If
+	
+	v_Serveur = pndb.Server
+	If v_Serveur = "" Then
+		Exit Function
+	End If
+	
+	v_URL = "Notes://" &amp; StrRight(StrLeft(v_Serveur, "/"), "=") &amp; "/" &amp; pndb.Replicaid
+	SINDB_NotesURL = v_URL
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINDB, gc_Element_SINDB, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,58-05</datetime></item></scriptlibrary>
+
+</database>

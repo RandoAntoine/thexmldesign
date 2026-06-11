@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_SIRR" hide="v3 v4strict" designerversion="8.5.3" comment="2.0 SI Représentants II">
+<noteinfo noteid="55585a" unid="404A34DEBC1BED28852588AF00690B35" sequence="22">
+<created><datetime dst="true">20220831T150721,49-04</datetime></created>
+<modified><datetime>20260105T014837,94-05</datetime></modified>
+<revised><datetime>20250319T073640,86-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,93-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,93-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "x_GDK"
+'
+' Cette bibliothèque de script permet d'extraire un document ou un item d'un document.  Les documents
+' à extraire ne se trouvent pas dans la base de documents "SI Représentants".  Il faut rechercher la base 
+' de documents à utiliser dans le GDK.
+'
+' Instructions
+'	1.	Renommer le script library.  Le nouveau nom devrait être "x_SIR" ou "SIR" est 
+'		l'identifiant de la base de documents.
+'	2.	Inscrire le nom usuel de la base de documents de recherche, le nom de l'item qui contient
+'		la clé et le nom de la vue de recherche dans la section (Declarations).
+'	3.	Remplacer toutes les occurences de "SIR" par l'identifiant de la base de documents.  
+'		Les subs seront automatiquement renommés.
+'	4.	Remplacer toutes les occurences de "Rep" par l'identifiant du type de document.  
+'		Les subs seront automatiquement renommés.
+
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_xELrod
+Dim gndb_xSIRR As Notesdatabase
+
+' Section 2 - Définition des valeurs conservées dans la cache
+Dim gnd_Prof_SIRR As NotesDocument
+Dim gnvTabl_xSIRR As NotesView
+Dim gndTabl_xSIRR As NotesDocument
+Dim gnv_Repr_xSIRR As Notesview					' La vue d'ou est extrait le document
+Dim gnd_Repr_xSIRR As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_ReprId_xSIRR As Notesview					' La vue d'ou est extrait le document
+Dim gnd_ReprId_xSIRR As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_Equi_xSIRR As Notesview					' La vue d'ou est extrait le document
+Dim gnd_Equi_xSIRR As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_Depa_xSIRR As Notesview					' La vue d'ou est extrait le document
+Dim gnd_Depa_xSIRR As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_Comm23_xSIRR As Notesview					' La vue d'ou est extrait le document
+Dim gnv_Comm24_xSIRR As NotesView					' La vue d'ou est extrait le document
+
+' Section 3 - Les constantes à définir
+Const gc_NomBD_xSIRR = "SIRR"		' Inscrire le nom usuel de la base de documents
+																' de recherche, tel que déclaré dans le GDK.
+Const gc_NomItemCleRepr_xSIRR = "Repr_NoRepresentant"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueRepr_xSIRR = "V_Repr20"		' Le nom de la vue de recherche
+'Const gc_NomItemCleRepr_Id_xSIRR = "Repr_NotesId"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueRepr_Id_xSIRR = "V_Repr35"		' Le nom de la vue de recherche
+Const gc_NomItemCleEqui_xSIRR = "Equi_NoEquipe"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueEqui_xSIRR = "V_Equi20"		' Le nom de la vue de recherche
+Const gc_NomItemCleDepa_xSIRR = "Depa_NoDepartement"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueDepa_xSIRR = "V_Depa20"		' Le nom de la vue de recherche
+Const gc_NomVueComm23_xSIRR = "V_Comm23"		' Le nom de la vue de recherche
+Const gc_NomVueComm24_xSIRR = "V_Comm24"		' Le nom de la vue de recherche
+
+</lotusscript></code><code event="xSIRR_xndComm_Repr"><lotusscript>Function xSIRR_xndComm_Repr(ByVal p_NoRepresentant As String, ByVal p_TypePersonne As String, ByVal p_TypeDirecteur As String, ByVal p_Pays As String, ByVal p_Province As String) As NotesDocument	
+	Dim a_Cle(4) As String
+	Dim nd_Comm As NotesDocument
+	
+	' Initialisation des variables globales
+	Call xSIRR_Initialisations
+
+	If p_TypePersonne = "" Then
+		p_TypePersonne = "1"
+	ElseIf p_TypePersonne &lt;&gt; "0" Then
+		p_TypeDirecteur = ""
+	End If
+	
+	' Rechercher le document de commissions correspondant aux paramètres
+	a_Cle(0) = p_NoRepresentant
+	a_Cle(1) = p_TypePersonne
+	a_Cle(2) = p_TypeDirecteur
+	a_Cle(3) = p_Pays
+	a_Cle(4) = p_Province
+	Call xnd("", a_Cle, False, gndb_xSIRR, gc_NomVueComm24_xSIRR, gnv_Comm24_xSIRR, nd_Comm)
+	
+	If nd_Comm Is Nothing Then
+		If a_Cle(4) &lt;&gt; "" Then
+			a_Cle(4) = ""
+			Call xnd("", a_Cle, False, gndb_xSIRR, gc_NomVueComm24_xSIRR, gnv_Comm24_xSIRR, nd_Comm)
+		End If
+		
+		If nd_Comm Is Nothing Then
+			If a_Cle(3) &lt;&gt; "" Then
+				a_Cle(3) = ""
+				Call xnd("", a_Cle, False, gndb_xSIRR, gc_NomVueComm24_xSIRR, gnv_Comm24_xSIRR, nd_Comm)
+			End If
+		End If
+	End If
+	
+	Set  xSIRR_xndComm_Repr = nd_Comm
+End Function
+
+</lotusscript></code><code event="xSIRR_aSuperviseursEqui"><lotusscript>Function xSIRR_aSuperviseursEqui(Byval p_Cle As Variant, Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne le ou les superviseurs d'une équipe.
+	Dim a_Superviseurs As Variant
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	a_Superviseurs = xVar(xSIRR_xndEqui(p_Cle, p_Cache), "Equi_NoSuperviseur", "")
+	If Not Isarray(a_Superviseurs) Then
+		If a_Superviseurs &lt;&gt; "" Then
+			a_Superviseurs = Evaluate(|"| &amp; a_Superviseurs &amp; |"|)
+		End If
+	End If
+	xSIRR_aSuperviseursEqui = a_Superviseurs
+End Function
+
+</lotusscript></code><code event="xSIRR_xVarProf"><lotusscript>Function xSIRR_xVarProf(ByVal p_NomVar As String, ByVal p_ValeurNulle As Variant) As Variant
+	' Cette fonction retourne la valeur d'une variable du profil de la base de documents.
+	
+	' Initialisation des variables globales
+	Call xSIRR_Initialisations
+	
+	' Extraire le document de profil
+	If gnd_Prof_SIRR Is Nothing Then
+		Set gnd_Prof_SIRR = gndb_xSIRR.Getprofiledocument("F_Prof")
+	End If
+	
+	If gnd_Prof_SIRR Is Nothing Then
+		xSIRR_xVarProf = p_ValeurNulle
+	Else
+		xSIRR_xVarProf = xVar(gnd_Prof_SIRR, p_NomVar, p_ValeurNulle)		
+	End If
+End Function
+
+</lotusscript></code><code event="xSIRR_xValeurExisteTabl"><lotusscript>Function xSIRR_xValeurExisteTabl(ByVal p_Cle As Variant, p_Valeur As Variant, _
+ByVal p_Cache As Integer) As Integer
+	Dim ni As NotesItem
+	
+	xSIRR_xValeurExisteTabl = False
+	
+	If Not (xSIRR_xndTabl(p_Cle, True) Is Nothing) Then
+		Set ni = gndTabl_xSIRR.GetFirstItem("Tabl_Valeurs")
+		If ni.Contains(p_Valeur) Then
+			xSIRR_xValeurExisteTabl = True
+		End If
+	End If	
+End Function
+
+</lotusscript></code><code event="xSIRR_xndRepr_Id"><lotusscript>Function xSIRR_xndRepr_Id(ByVal p_NotesId As String, ByVal p_Projeto As String) As NotesDocument
+	' p_Projeto 0/60/62 optionnel
+	' Cette fonction retourne un document du type approprié.
+	
+	Dim v_Cle As Variant
+	
+	' Initialisation des variables globales
+	Call xSIRR_Initialisations
+	Set gnd_Repr_xSIRR = Nothing
+	
+	' Initialiser la vue
+	Call xnv(gndb_xSIRR, gc_NomVueRepr_Id_xSIRR, gnv_ReprId_xSIRR)
+	If Not (gnv_ReprId_xSIRR Is Nothing) Then
+		Call gnv_ReprId_xSIRR.Refresh
+		
+		If p_Projeto = "" Then
+			Set gnd_Repr_xSIRR = gnv_ReprId_xSIRR.Getdocumentbykey(p_NotesId &amp; ";", False)
+		Else
+			Set gnd_Repr_xSIRR = gnv_ReprId_xSIRR.Getdocumentbykey(p_NotesId &amp; ";" &amp; p_Projeto, True)
+		End If
+	End If
+	
+	' Retourne le document défini en variable globale
+	Set xSIRR_xndRepr_Id = gnd_Repr_xSIRR
+End Function
+
+</lotusscript></code><code event="xSIRR_xndTabl"><lotusscript>Function xSIRR_xndTabl(ByVal pCle As Variant, ByVal pCache As Integer) As NotesDocument
+	' Cette fonction retourne un document de type F_Tabl.
+	
+	' Initialisation des variables globales
+	Call xSIRR_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("Tabl_Nom", pCle, pCache, gndb_xSIRR, "V_Tabl20", gnvTabl_xSIRR, gndTabl_xSIRR)
+	'	Paramètres:		1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xSIRR_xndTabl = gndTabl_xSIRR
+End Function
+
+</lotusscript></code><code event="xSIRR_xndRepr"><lotusscript>Function xSIRR_xndRepr(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	' p_Cle = Numéro du représentant
+	
+	' Initialisation des variables globales
+	Call xSIRR_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleRepr_xSIRR, CStr(p_Cle), p_Cache, gndb_xSIRR, gc_NomVueRepr_xSIRR, gnv_Repr_xSIRR, gnd_Repr_xSIRR)
+	
+	' Retourne le document défini en variable globale
+	Set xSIRR_xndRepr = gnd_Repr_xSIRR
+End Function
+
+</lotusscript></code><code event="xSIRR_xDescTabl"><lotusscript>Function xSIRR_xDescTabl(ByVal p_Cle As String, ByVal p_Table As String, ByVal p_Cache As Integer) As String	
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Descriptions As Variant
+	Dim i As Long
+	
+	xSIRR_xDescTabl = ""
+	
+	' Extraire les valeurs et les descriptions
+	v_Valeurs = xSIRR_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Descriptions = xSIRR_xVarTabl(p_Table, "Tabl_Descriptions", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If IsArray(v_Valeurs) Then
+		For i = LBound(v_Valeurs) To UBound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If IsArray(v_Descriptions) Then
+					If i &gt;= LBound(v_Descriptions) And i &lt;= UBound(v_Descriptions) Then
+						xSIRR_xDescTabl = v_Descriptions(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If IsArray(v_Descriptions) Then
+				xSIRR_xDescTabl = v_Descriptions(0)
+			Else
+				xSIRR_xDescTabl = v_Descriptions
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xSIRR_xVarEqui"><lotusscript>Function xSIRR_xVarEqui(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSIRR_xVarEqui = xVar(xSIRR_xndEqui(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSIRR_xndComm_Equi"><lotusscript>Function xSIRR_xndComm_Equi(Byval p_NoEquipe As String, Byval p_TypePersonne As String, ByVal p_TypeDirecteur As String, Byval p_Pays As String, Byval p_Province As String) As Notesdocument	
+	Dim a_Cle(4) As String
+	Dim nd_Comm As NotesDocument
+	
+	' Initialisation des variables globales
+	Call xSIRR_Initialisations
+	
+	If p_TypePersonne = "" Then
+		p_TypePersonne = "1"
+	ElseIf p_TypePersonne &lt;&gt; "0" Then
+		p_TypeDirecteur = ""
+	End If
+	
+	' Rechercher le document de commissions correspondant aux paramètres
+	a_Cle(0) = p_NoEquipe
+	a_Cle(1) = p_TypePersonne
+	a_Cle(2) = p_TypeDirecteur
+	a_Cle(3) = p_Pays
+	a_Cle(4) = p_Province
+	Call xnd("", a_Cle, False, gndb_xSIRR, gc_NomVueComm23_xSIRR, gnv_Comm23_xSIRR, nd_Comm)
+	
+	If nd_Comm Is Nothing Then
+		If a_Cle(4) &lt;&gt; "" Then
+			a_Cle(4) = ""
+			Call xnd("", a_Cle, False, gndb_xSIRR, gc_NomVueComm23_xSIRR, gnv_Comm23_xSIRR, nd_Comm)
+		End If
+		
+		If nd_Comm Is Nothing Then
+			If a_Cle(3) &lt;&gt; "" Then
+				a_Cle(3) = ""
+				Call xnd("", a_Cle, False, gndb_xSIRR, gc_NomVueComm23_xSIRR, gnv_Comm23_xSIRR, nd_Comm)
+			End If
+		End If
+	End If
+	
+	Set  xSIRR_xndComm_Equi = nd_Comm
+End Function
+
+</lotusscript></code><code event="xSIRR_xndEqui"><lotusscript>Function xSIRR_xndEqui(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSIRR_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleEqui_xSIRR, CStr(p_Cle), p_Cache, gndb_xSIRR, gc_NomVueEqui_xSIRR, gnv_Equi_xSIRR, gnd_Equi_xSIRR)
+	
+	' Retourne le document défini en variable globale
+	Set xSIRR_xndEqui = gnd_Equi_xSIRR
+End Function
+
+</lotusscript></code><code event="xSIRR_xVarTabl"><lotusscript>Function xSIRR_xVarTabl(ByVal pCle As Variant, ByVal pNomVar As String, ByVal pValeurNulle As Variant, _
+ByVal pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_Tabl.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xSIRR_xVarTabl = xVar(xSIRR_xndTabl(pCle, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function
+
+</lotusscript></code><code event="xSIRR_xVarDepa"><lotusscript>Function xSIRR_xVarDepa(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSIRR_xVarDepa = xVar(xSIRR_xndDepa(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSIRR_xVarRepr"><lotusscript>Function xSIRR_xVarRepr(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	' p_Cle = Numéro du représentant
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSIRR_xVarRepr = xVar(xSIRR_xndRepr(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSIRR_xndDepa"><lotusscript>Function xSIRR_xndDepa(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSIRR_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleDepa_xSIRR, p_Cle, p_Cache, gndb_xSIRR, gc_NomVueDepa_xSIRR, gnv_Depa_xSIRR, gnd_Depa_xSIRR)
+	
+	' Retourne le document défini en variable globale
+	Set xSIRR_xndDepa = gnd_Depa_xSIRR
+End Function
+
+</lotusscript></code><code event="xSIRR_xVarRepr_Id"><lotusscript>Function xSIRR_xVarRepr_Id(ByVal p_NotesId As String, ByVal p_Projeto As String, _
+	ByVal p_NomVar As String, ByVal p_ValeurNulle As Variant) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	Dim nd As NotesDocument
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Set nd = xSIRR_xndRepr_Id(p_NotesId, p_Projeto)
+	xSIRR_xVarRepr_Id = xVar(nd, p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSIRR_Initialisations"><lotusscript>Sub xSIRR_Initialisations
+	' Initialisation des variables globales
+	If gndb_xSIRR Is Nothing Then
+		Set gndb_xSIRR = xGDK_xndbNDB(gc_NomBD_xSIRR)
+	End If
+End Sub
+
+</lotusscript></code><code event="xSIRR_xVarComm_Repr"><lotusscript>Function xSIRR_xVarComm_Repr(ByVal p_NoRepresentant As String, ByVal p_TypePersonne As String, ByVal p_TypeDirecteur As String, ByVal p_Pays As String, _
+ByVal p_Province As String, ByVal p_NomVar As String, ByVal p_ValeurNulle As Variant) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSIRR_xVarComm_Repr = xVar(xSIRR_xndComm_Repr(p_NoRepresentant, p_TypePersonne, p_TypeDirecteur, p_Pays, p_Province), p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSIRR_xIcnTabl"><lotusscript>Function xSIRR_xIcnTabl(ByVal p_Cle As String, ByVal p_Table As String, ByVal p_Cache As Integer) As Integer	
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Icones As Variant
+	Dim i As Long
+	
+	xSIRR_xIcnTabl = 0
+	
+	' Extraire les valeurs et les Icones
+	v_Valeurs = xSIRR_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Icones = xSIRR_xVarTabl(p_Table, "Tabl_Icones", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If IsArray(v_Valeurs) Then
+		For i = LBound(v_Valeurs) To UBound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If IsArray(v_Icones) Then
+					If i &gt;= LBound(v_Icones) And i &lt;= UBound(v_Icones) Then
+						xSIRR_xIcnTabl = v_Icones(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If IsArray(v_Icones) Then
+				xSIRR_xIcnTabl = v_Icones(0)
+			Else
+				xSIRR_xIcnTabl = v_Icones
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xSIRR_aSuperviseursRepr"><lotusscript>Function xSIRR_aSuperviseursRepr(Byval p_Cle As Variant, Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne le ou les superviseurs d'une équipe.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSIRR_aSuperviseursRepr = xSIRR_aSuperviseursEqui(xSIRR_xVarRepr(p_Cle, "Repr_NoEquipe", "", True), p_Cache)
+End Function
+
+</lotusscript></code><code event="xSIRR_xVarComm_Equi"><lotusscript>Function xSIRR_xVarComm_Equi(Byval p_NoEquipe As String, ByVal p_TypePersonne As String, ByVal p_TypeDirecteur As String, Byval p_Pays As String, _
+Byval p_Province As String, Byval p_NomVar As String, Byval p_ValeurNulle As Variant) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSIRR_xVarComm_Equi = xVar(xSIRR_xndComm_Equi(p_NoEquipe, p_TypePersonne, p_TypeDirecteur, p_Pays, p_Province), p_NomVar, p_ValeurNulle)
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073640,86-05</datetime></item></scriptlibrary>
+
+</database>

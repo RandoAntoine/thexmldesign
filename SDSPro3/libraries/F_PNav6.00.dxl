@@ -1,0 +1,871 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_PNav6.00" hide="v3 v4strict" designerversion="8">
+<noteinfo noteid="555942" unid="6980A506FC6F125F85258B7A005E67ED" sequence="6">
+<created><datetime dst="true">20240815T131109,89-04</datetime></created>
+<modified><datetime>20260105T014838,33-05</datetime></modified>
+<revised><datetime>20250319T073709,99-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,32-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,32-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>' Serveurs
+Option Public
+Option Declare
+Use "wsc_SDSP3"
+Use "SDSP_MasquePNav"
+Use "SDSP_Navigation"
+Use "SL_ClipBoard"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_FPNav As NotesSession
+Dim gndb_FPNav As NotesDatabase
+
+Dim gnuiws_FPNav As NotesUIWorkspace
+Dim gnuid_FPNav As NotesUIDocument
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_FPNav = "SL"
+Const gc_Element_FPNav = "F_PNav6.00"
+
+
+
+</lotusscript></code><code event="FPNav_AjouterParagraphe"><lotusscript>Sub FPNav_AjouterParagraphe(pnuid As NotesUIDocument)
+' ------------------------------------------------------------------------------
+' Le script ajoute un paragraphe (défini dans Paragraphes types de SDS Bases II)
+'  là où se trouve le curseur
+'
+' Paramètre:
+' 	p_nuid :	Document courant
+' ------------------------------------------------------------------------------
+	
+	On Error Goto GererErreur
+	
+	Dim nd_Paragraphe As NotesDocument
+	Dim nd As NotesDocument
+	
+	' Vérifier que le curseur est placé dans un champ qui peut recevoir un paragraphe
+	If pnuid.CurrentField = "Prop_NotesContrat" Then
+		' Sélectionner le paragraphe
+		Set nd_Paragraphe = FPNav_ndSelectionnerParagraphe
+	Else
+		Messagebox xGDK_xMessage("SDSPP", 118, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		' 118: Impossible d'ajouter un paragraphe à ce champ.
+		'   1: Opération annulée
+		Exit Sub
+	End If
+	
+	' Insérer le paragraphe
+	If Not (nd_Paragraphe Is Nothing) Then
+		Call pnuid.InsertText(xVar(nd_Paragraphe, "Para_Paragraphe", ""))
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_DocumentValide"><lotusscript>Function FPNav_DocumentValide(p_AfficherErreur As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	FPNav_DocumentValide = False
+	
+	If xVar(gnd_SDSPM, "Prop_DescProposition", "") = "" Then
+		If p_AfficherErreur Then
+			MessageBox xGDK_xMessage("SI", 23, "", ""), 16, xGDK_xMessage("SI", 0, "", "")
+			Call gnuid_SDSPN.GotoField("Prop_DescProposition")
+		End If
+		Exit Function
+	End If
+	
+	FPNav_DocumentValide = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_acImage"><lotusscript>Sub FPNav_acImage
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument("") Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImage(gnd_Prop_SDSPM)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsAnnuler"><lotusscript>Sub FPNav_hsAnnuler
+	On Error Goto GererErreur
+	
+	gnd_SDSPM.SaveOptions = "0"
+	Call gnuid_SDSPN.Close
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_QuerySave"><lotusscript>Sub FPNav_QuerySave(pnuid_Source As Notesuidocument, p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	p_Continue = FPNav_SauvegarderDocument("")
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acGenererCommande"><lotusscript>Sub FPNav_acGenererCommande
+	On Error GoTo GererErreur
+	
+	Call SDSPUI_acGenererCommande(gnd_Prop_SDSPM)
+	
+	Call gnuid_SDSPM.Refreshhideformulas
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsCopierItemContrat"><lotusscript>Sub FPNav_hsCopierItemContrat (p_NomItem As String)
+	' Le script permet de copier le champ Prop_DescProposition dans le clipboard de windows
+	
+	On Error GoTo GererErreur
+	
+	Dim v_ValeurItem As String
+	Dim v_noMsg As Integer
+	
+	Select Case p_NomItem
+		Case "Prop_DescProposition"  'Description
+			v_noMsg = 187		
+		Case "Prop_NotesContrat"  'Contract Notes
+			v_noMsg = 189		
+	End Select
+	
+		
+	v_ValeurItem = xVar(gnd_SDSPM, p_NomItem, "")
+	
+
+	If v_ValeurItem &lt;&gt; "" Then
+		Call SLCl_AssignerTexteClipBoard(v_ValeurItem)
+		MessageBox xGDK_xMessage("SDSPP", v_noMsg + 1, "", v_ValeurItem), 64, xGDK_xMessage("SI", 10, xLangue, "")
+	Else
+		MessageBox xGDK_xMessage("SDSPP", v_noMsg , "", v_ValeurItem), 64, xGDK_xMessage("SI", 10, xLangue, "")
+	End If
+	
+	Exit Sub
+	
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsSuivant"><lotusscript>Sub FPNav_hsSuivant
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(True) Then
+		' Ouvrir le masque suivant
+		Call SDSPN_OuvrirMasqueSuivant
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acImprimerPropositionSommaire"><lotusscript>Sub FPNav_acImprimerPropositionSommaire
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument(True) Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImprimerPropositionSommaire
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acDupliquerProposition"><lotusscript>Sub FPNav_acDupliquerProposition
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim nd_Duplicata As NotesDocument
+	Dim nd_DB As NotesDocument
+	
+	Dim v_UserName As String
+	Dim v_Description As Variant
+	Dim v_ID As String
+	Dim v_DB_ID As String
+	Dim v_EditMode As String
+	Dim v_Commentaire As String
+	Dim v_DBRecalcTous As Boolean
+	Dim v_RecalcListe As Boolean
+	
+	On Error 4411 GoTo FinSub
+	Call gnuid_SDSPM.Save
+	
+	' Demander la nouvelle description à l'utilisateur
+	v_Description = gnuiws_SDSPM.Prompt(PROMPT_OKCANCELEDIT, _
+	xGDK_xMessage("SDSPP", 46, "", ""), xGDK_xMessage("SDSPP", 47, "", ""), CStr(Today()))
+	If v_Description = "" Then
+		Exit Sub
+	Else
+		If v_Description = xVar(gnd_SDSPM,"Prop_DescProposition","") Then
+			MessageBox xGDK_xMessage("SDSPP", 48, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+	End If
+	
+	Set nd_DB = New NotesDocument(gndb_SDSPM)
+	nd_DB.Form = "DB_SIHi"	
+	nd_DB.SIHi_Obligatoire = True	' Image "&gt;" pour Commentaire obligatoire
+	
+	If Not gnuiws_SDSPN.DialogBox("DB_SIHi", True, True, False, False, False, False, _
+	xGDK_xMessage("SI", 49, "", ""), nd_DB, True, False, False) Then
+		Exit Sub
+	End If
+	
+	v_Commentaire = xVar(nd_DB, "SIHi_Commentaire", "")
+	v_UserName = gns_SDSPM.UserName
+	v_EditMode = xVar(gnd_SDSPM, "PNav_EditMode", "")
+	
+	Call SDSPDp_DupliquerProposition(gnd_Prop_SDSPM,CStr(v_Description), nd_Duplicata, nd_DB, v_UserName)
+	
+	If Not nd_Duplicata Is Nothing Then
+		Call SDSPM_acRecalculerCouts(nd_Duplicata, False, False)
+		
+		' Fermer la proposition
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPM.Close
+		Call gnuiws_SDSPM.ViewRefresh
+	Else
+		Call gnuid_SDSPM.Refresh
+	End If
+	
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+	
+
+</lotusscript></code><code event="FPNav_acImprimerProposition"><lotusscript>Sub FPNav_acImprimerProposition
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument(True) Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acImprimerProposition
+	
+	Exit Sub
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acOuvrirBonTravail"><lotusscript>Sub FPNav_acOuvrirBonTravail
+	On Error GoTo GererErreur
+	
+	Dim nd_BTra As NotesDocument
+	Dim ndc_BTra As NotesDocumentCollection
+	Dim nuid As NotesUIDocument
+	Dim nv_BTra As NotesView	
+	Dim v_NoProp As String
+	Dim a_NoBCSites As Variant	
+	Dim v_NbPropositionFmt As String
+	
+	'Initialisations
+	Call xSIBDT_Initialisations
+	
+	Set nv_BTra = gndb_xSIBDT.GetView("v_BTra73")
+	Call nv_BTra.Refresh
+	
+	
+	'Verifier si Bon de commande existe	
+	v_NoProp = xVar(gnd_SDSPM, "Prop_NoProposition", "")	
+	a_NoBCSites = Evaluate(|@DbLookup("" : "NoCache"; ""; "V_Site21"; "| &amp; v_NoProp &amp; |"; 10;[FailSilent])|)
+	
+	If IsArray(a_NoBCSites) Then		
+		
+		v_NbPropositionFmt = xVar(gnd_SDSPM, "Prop_NbPropositionFmt", "")
+		Set ndc_BTra = nv_BTra.GetAllDocumentsByKey(v_NbPropositionFmt, True)
+		
+		If ndc_Btra.Count = 0 Then
+			MessageBox xGDK_xMessage("SI", 70, "", ""), 16, xGDK_xMessage("SI", 1, "", "")				
+			Exit Sub
+			
+		ElseIf ndc_BTra.count = 1 Then
+			
+			Set nd_BTra = ndc_BTra.getfirstDocument
+			
+		Else 
+			' Sélectionner un bon de travail
+			Set nd_Btra = SISe_ndPickList(nv_BTra, xGDK_xMessage("SIBDT", 40, "", ""), v_NbPropositionFmt)				
+			
+		End If
+		
+		' Ouvrir le bon de travail		
+		If Not nd_Btra Is Nothing Then
+			Set nuid = gnuiws_SDSPN.EditDocument( False , nd_Btra)	
+		End If		
+		
+		
+	Else
+
+		MessageBox xGDK_xMessage("SI", 70, "", ""), 16, xGDK_xMessage("SI", 1, "", "")				
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_SauvegarderDocument"><lotusscript>Function FPNav_SauvegarderDocument(p_ValiderDocument As Variant) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_NoOptionCourante As String
+	Dim v_NoOptionMax As String
+	Dim v_DocumentValide As Boolean
+	Dim v_MajNotesContrat As Boolean
+	
+	If xVar(gnd_SDSPM, "PNav_EditMode", False) Then
+		FPNav_SauvegarderDocument = False
+	Else
+		FPNav_SauvegarderDocument = True
+		Exit Function
+	End If
+	
+	' Calculer les champs automatiques
+	On Error 4412 GoTo FinSub
+	Call gnuid_SDSPN.Refresh
+	On Error 4412 GoTo GererErreur
+	
+	' Valider le document courant
+	v_NoOptionCourante = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "0.00")
+	v_NoOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00")
+	If p_ValiderDocument = "" Then
+		v_DocumentValide = FPNav_DocumentValide(CInt(v_NoOptionCourante &lt; v_NoOptionMax))
+	Else
+		v_DocumentValide = FPNav_DocumentValide(CInt(p_ValiderDocument))
+	End If
+	If v_DocumentValide = False Then
+		If p_ValiderDocument = True Then
+			Call gnuid_SDSPN.RefreshHideFormulas
+			Exit Function
+		End If
+		
+		gnd_SDSPM.PNav_MenuOptionMax = xVar(gnd_SDSPM, "PNav_MenuOptionCourante", "")
+	End If
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp("") Then
+		Exit Function
+	End If
+	
+	' Mettre à jour la proposition
+	
+	v_MajNotesContrat = SDSPM_MajItem(gnd_Prop_SDSPM, "Prop_NotesContrat", "")
+	FPNav_SauvegarderDocument = v_MajNotesContrat Or FPNav_SauvegarderDocument	
+	FPNav_SauvegarderDocument = SDSPm_MajItem(gnd_Prop_SDSPM, "Prop_DescProposition", "") Or FPNav_SauvegarderDocument
+	FPNav_SauvegarderDocument = SDSPM_MajItem(gnd_Prop_SDSPM, "PNav_MenuOptionMax", "") Or FPNav_SauvegarderDocument
+		
+	If v_MajNotesContrat Then		
+		If  xVar(gnd_SDSPM, "Prop_NotesContrat", "") = "" Then			
+			Call gnd_SDSPM.ReplaceItemValue("PNav_MenuHide" &amp; xVar(gnd_SDSPM, "PNav_MenuItemCourant", ""), "2")			
+		Else
+			Call gnd_SDSPM.ReplaceItemValue("PNav_MenuHide" &amp; xVar(gnd_SDSPM, "PNav_MenuItemCourant", ""), "3")			
+		End If
+		'Mettre à jour le document de navigation
+		'Call SDSPN_MajSitesNav(gnd_SDSPM)
+		'Call SDSPN_ConstruireMenu(gnd_SDSPM)
+		Call gnuid_SDSPN.Refresh
+	End If
+		
+	If FPNav_SauvegarderDocument Then
+		gnd_Prop_SDSPM.HistoDM = Now
+		gnd_Prop_SDSPM.HistoUM = gns_SDSPM.UserName
+		Call gnd_Prop_SDSPM.Save(True, False)
+	End If
+	
+	FPNav_SauvegarderDocument = True
+FinSub:	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_acCreerBonDeCommande"><lotusscript>Sub FPNav_acCreerBonDeCommande
+	On Error GoTo GererErreur
+	
+	Dim a_NoSites As String
+	
+	a_NoSites = xVarImplode(gnd_Prop_SDSPM, "Prop_NoSites", ";")
+		
+	If Not SDSPUI_acCreerBonDeCommande(gnd_Prop_SDSPM, a_NoSites, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		Exit Sub
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="FPNav_hsFermer"><lotusscript>Sub FPNav_hsFermer
+	On Error Goto GererErreur
+	
+	' Sauvegarder l'étape courante
+	If FPNav_SauvegarderDocument("") Then
+		' Fermer le masque courant
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNAv_ndSelectionnerParagraphe"><lotusscript>Function FPNAv_ndSelectionnerParagraphe As NotesDocument
+' ------------------------------------------------------------------------------
+' Le script permet de sélectionner un paragraphe type (défini dans SDS Base II).
+' ------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim ndc As NotesDocumentCollection
+	Dim nv_Para21 As NotesView
+	
+	' Initialisations
+	Set FPNAv_ndSelectionnerParagraphe = Nothing
+	
+	Call xSDSBB_Initialisations
+	
+	If gnuiws_FPNAv Is Nothing Then
+		Set gnuiws_FPNav = New NotesUIWorkspace
+	End If
+	
+	' Vérifier qu'il existe des paragraphes types
+	Set nv_Para21 = gndb_xSDSBB.Getview("V_Para21")
+	Call nv_Para21.Refresh
+	Set nd = nv_Para21.Getfirstdocument
+	If nd Is Nothing Then
+		MessageBox xGDK_xMessage("SDSPP", 119, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		' 119: Aucun paragraphe type trouvé dans SDS Base II.
+		'   1: Opération annulée
+		Exit Function
+	End If
+	
+	' Sélectionner un paragraphe type
+	Set ndc = gnuiws_FPNav.Picklistcollection(PICKLIST_CUSTOM, False, gndb_xSDSBB.Server, gndb_xSDSBB.Filepath, _
+	"V_Para21", "Paragraphes", "Sélectionner un paragraphe")
+	
+	If ndc.Count &gt; 0 Then
+		Set FPNAv_ndSelectionnerParagraphe = ndc.GetFirstDocument
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="FPNav_PostOpen"><lotusscript>Sub FPNav_PostOpen(pnuid_Source As Notesuidocument)
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call SDSPN_Initialisations
+	Call SDSPM_Initialisations
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_Initialisations"><lotusscript>Sub FPNav_Initialisations
+	If gns_FPNav Is Nothing Then
+		Set gns_FPNav = New NotesSession
+		Set gndb_FPNav = gns_FPNav.CurrentDatabase
+		
+		Set gnuiws_FPNav = New NotesUIWorkspace
+		Set gnuid_FPNav = gnuiws_FPNav.CurrentDocument
+	End If
+End Sub
+
+</lotusscript></code><code event="FPNav_acWorkflow"><lotusscript>Sub FPNav_acWorkflow(p_Statut As String)
+	On Error GoTo GererErreur
+		
+	If SDSPM_acWorkflow(p_Statut) Then
+		
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		' Ouvrir le masque	
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		
+		gnd_SDSPM.PNav_Titre =  Trim("C" &amp; CStr(xVar(gnd_Prop_SDSPM, "Prop_NbProposition", "- -")) &amp; " " &amp; xVar(gnd_Prop_SDSPM, "Prop_ClientNomInterne", xVar(gnd_Prop_SDSPM, "Prop_ClientNom", "")))
+		gnd_SDSPM.Titre =  Trim(xVar(gnd_SDSPM, "PNav_Titre", "") &amp; " - " &amp; xVar(gnd_SDSPM, "PNav_MenuDesc000", ""))
+				
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbProposition", xVar(gnd_Prop_SDSPM, "Prop_NbProposition", 0))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionFmt", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionFmt", ""))
+		Call SDSPM_MajItemValeur(gnd_SDSPM, "Prop_NbPropositionPrefixe", xVar(gnd_Prop_SDSPM, "Prop_NbPropositionPrefixe", ""))		
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+		
+		Call gnuid_SDSPN.Refresh
+	End If
+		
+	Exit Sub
+		
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acSignerProposition"><lotusscript>Sub FPNav_acSignerProposition
+	On Error Goto GererErreur
+	
+	If SDSPUI_acSignerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acRecalculerCouts"><lotusscript>Sub FPNav_acRecalculerCouts
+' -------------------------------------------------
+' Le script permet au directeur de modifier le prix
+' -------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If Not FPNav_SauvegarderDocument("") Then
+		Exit Sub
+	End If
+	
+	Call SDSPM_acRecalculerCouts(gnd_Prop_SDSPM, False, False)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsOuvrirMasque"><lotusscript>Sub FPNav_hsOuvrirMasque(p_NoItem As String)
+	On Error Goto GererErreur
+	
+	Dim v_MenuItemCourant As String
+	Dim v_ValiderDocument As Boolean
+	Dim a_MenuItems As Variant
+	Dim v_NoItem As String
+	Dim i As Variant
+	
+	v_MenuItemCourant =  xVar(gnd_SDSPM, "PNav_MenuItemCourant", "")
+	a_MenuItems = xVarArray(gnd_SDSPM, "PNav_MenuItems")
+	
+	v_ValiderDocument = False
+	
+	' Si clique sur menu item qui est lui même, ne rien faire
+	If v_MenuItemCourant = p_NoItem Then
+		Exit Sub
+	End If
+	
+	If p_NoItem = "**" Then
+		v_NoItem = xVar(gnd_SDSPM, "PNav_MenuOptionMax", "")
+		If a_MenuItems(Cint(v_MenuItemCourant)) = v_NoItem Then
+			Exit Sub
+		End If	
+		i = Arraygetindex(a_MenuItems, xVar(gnd_SDSPM, "PNav_MenuOptionMax", "0.00"))
+		If Not Isnull(i) Then
+			v_NoItem = Cstr(i)
+		End If
+		
+	Else
+		v_NoItem = p_NoItem
+	End If
+	
+	If Not Isnull(i) Then
+		v_ValiderDocument = (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1" And Cint(v_NoItem) &gt; Cint(v_MenuItemCourant))
+	End If
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(v_ValiderDocument) Then
+		
+		' Construire le menu
+		If Not Isnull(i) Then
+			If (xVar(gnd_SDSPM, "PNav_MenuProc" &amp; v_MenuItemCourant, "") = "1"  And Cint(v_NoItem) &lt; Cint(v_MenuItemCourant)) Then
+				Call SDSPN_ConstruireMenu(gnd_SDSPM)
+				Call gnuid_SDSPM.Refresh
+			End If
+		Else
+			Call SDSPN_ConstruireMenu(gnd_SDSPM)
+			Call gnuid_SDSPM.Refresh
+		End If
+		
+		' Ouvrir le masque suivant
+		Call SDSPN_OuvrirMasqueMenu(p_NoItem)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acAjouterParagraphe"><lotusscript>Sub FPNav_acAjouterParagraphe
+	
+	On Error Goto GererErreur
+	
+	Call FPNav_Initialisations
+	Call FPNav_AjouterParagraphe(gnuid_FPNav)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_hsPrecedent"><lotusscript>Sub FPNav_hsPrecedent
+	On Error Goto GererErreur
+	
+	' Sauvegarder le document courante
+	If FPNav_SauvegarderDocument(False) Then
+		' Ouvrir le masque précédent
+		Call SDSPN_OuvrirMasquePrecedent
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, Getthreadinfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acOuvrirBonCommande"><lotusscript>Sub FPNav_acOuvrirBonCommande
+	On Error GoTo GererErreur
+	
+	Dim nd_BCom As NotesDocument
+	Dim ndc_BCom As NotesDocumentCollection
+	Dim nuid As NotesUIDocument
+	Dim nv_BCom As NotesView	
+	Dim v_Query As String		
+	Dim v_Cle As String
+	
+	'Initialisations
+	Call xSIBDC2_Initialisations
+	
+	v_Cle = xVar(gnd_SDSPM, "Prop_NoProposition", 0)
+	
+	' Sélectionner le bon de commande
+	' -------------------------------	
+	Set ndc_BCom = xSIBDC2_xndcBCom(v_Cle)
+	
+	If ndc_BCom.Count = 0 Then
+		
+		MessageBox xGDK_xMessage("SI", 70, "", ""), 16, xGDK_xMessage("SI", 1, "", "")		
+		Exit Sub
+	ElseIf ndc_BCom.count = 1 Then
+		
+		Set nd_BCom = ndc_BCom.getfirstDocument
+		
+	Else		
+		'Count plus que 1 afficher prompt
+		Set nv_BCom = gndb_xSIBDC2.GetView("V_BCom20")	
+		
+		' 181: Sélectionnez un bon de commande dans la liste ci-dessous.
+		v_Query = |FIELD BCom_OrigineCle CONTAINS "| &amp; v_Cle &amp; |"|
+		Set nd_BCom = SISe_ndSelectionnerDocument(v_Query, "", SISe_NOPROMPT, nv_BCom, |BCom_NoBonCommandeFmt + 
+	"  /  " + BCom_ClientNoFmt + " - " + @if(BCom_SaisirAdresse = "L";BCom_LivrNom1;BCom_ClientNomInterne)|, xGDK_xMessage("SDSPP", 181, "", ""), "", False)
+				
+	End If
+	
+	
+	' Ouvrir le bon de commande
+	If Not nd_BCom Is Nothing Then		
+		Set nuid = gnuiws_SDSPN.EditDocument( False , nd_BCom)		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acPayerProposition"><lotusscript>Sub FPNav_acPayerProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acPayerProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_acReouvrirProposition"><lotusscript>Sub FPNav_acReouvrirProposition
+	On Error GoTo GererErreur
+	
+	If SDSPUI_acReOuvrirProposition(gnd_Prop_SDSPM, xVar(gnd_SDSPM, "PNav_EditMode", "") &lt;&gt; "1") Then
+		gnd_SDSPM.SaveOptions = "0"
+		Call gnuid_SDSPN.Close
+		
+		Call gnuiws_SDSPM.ViewRefresh
+		
+		If SDSPWF_EditMode(gnd_Prop_SDSPM) Then
+			gnd_SDSPM.PNav_EditMode = 1
+		Else
+			gnd_SDSPM.PNav_EditMode = 0
+			gnd_SDSPM.SaveOptions = "0"
+		End If
+		Call SDSPN_OuvrirMasque(Format(CInt(xVar(gnd_SDSPM, "PNav_MenuItemCourant", "000")), "000"), False)
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_QueryOpen"><lotusscript>Sub FPNav_QueryOpen(pnuid_Source As Notesuidocument, p_Mode As Integer, p_Isnewdoc As Variant, _
+p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	Dim nd_PNav As NotesDocument
+	
+	' Initialisations
+	p_Continue = False
+	If p_Mode &lt;&gt; 1 Then
+		Exit Sub
+	End If
+	
+	Set nd_PNav = pnuid_Source.Document
+	
+	' Initialiser les champs du document de navigation
+	If FPNav_DocumentExistant(nd_PNav) Then
+		p_Continue = True
+	End If	
+	
+	' Effacer les champs RT des autres écrans
+	If nd_PNav.Hasitem("Prop_DescDetaillee") Then
+		Call nd_PNav.Removeitem("Prop_DescDetaillee")
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(gnd_SDSPM, "Cle", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FPNav_DocumentExistant"><lotusscript>Function FPNav_DocumentExistant(pnd_PNav As NotesDocument) As Boolean
+	On Error Goto GererErreur
+	
+	FPNav_DocumentExistant = False
+	
+	' Extraire la proposition
+	If Not SDSPM_InitProp(xVar(pnd_PNav, "Prop_NoProposition", "")) Then
+		Exit Function
+	End If
+	
+	pnd_PNav.Prop_Statut = xVar(gnd_Prop_SDSPM, "Prop_Statut", "10")
+	Call pnd_PNav.ReplaceItemValue("Prop_StatutDesc" &amp; xLangue, _
+	xVar(gnd_Prop_SDSPM, "Prop_StatutDesc" &amp; xLangue, ""))
+	
+	Call pnd_PNav.ReplaceItemValue("Prop_Langue", xVar(gnd_Prop_SDSPM, "Prop_Langue", ""))
+	
+	' Mettre à jour le document de navigation	
+	Call pnd_PNav.ReplaceItemValue("Prop_PropositionImprimee", xVar(gnd_Prop_SDSPM, "Prop_PropositionImprimee", ""))
+	pnd_PNav.Prop_NotesContrat = xVar(gnd_Prop_SDSPM, "Prop_NotesContrat", "")
+	
+	'Call pnd_PNav.ReplaceItemValue("PNav_MenuOptionMax ","9")
+	pnd_PNav.PNav_MenuOptionMax = "9"
+	
+	FPNav_DocumentExistant = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FPNav, gc_Element_FPNav, GetThreadInfo(1), xVar(pnd_PNav, "Cle", ""), False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073709,99-05</datetime></item></scriptlibrary>
+
+</database>

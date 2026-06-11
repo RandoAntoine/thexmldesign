@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_FichierWIN" hide="v3 v4strict" designerversion="8.5.3" comment="1.7">
+<noteinfo noteid="555912" unid="4B4EC47D5E3D09E785258AE4005529BD" sequence="10">
+<created><datetime>20240318T103012,45-05</datetime></created>
+<modified><datetime>20260105T014838,25-05</datetime></modified>
+<revised><datetime>20250319T073635,25-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,24-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,24-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SLFWIN= "SL"
+Const gc_Element_SLFWIN = "SL_FichierWIN"
+
+Const FILE_SHARE_READ = &amp;H1
+Const OPEN_EXISTING = 3
+Const FILE_ATTRIBUTE_ARCHIVE = &amp;H20
+Const GENERIC_READ = &amp;H80000000
+
+Declare Function CreateFile Lib "kernel32.dll" Alias "CreateFileA" (Byval lpFileName As String, Byval dwDesiredAccess As Long, Byval dwShareMode As Long, lpSecurityAttributes As Any, Byval dwCreationDisposition As Long, Byval dwFlagsAndAttributes As Long, Byval hTemplateFile As Long) As Long
+Declare Function CloseHandle Lib "kernel32.dll" (Byval hObject As Long) As Long
+
+Type FILETIME
+	dwLowDateTime As Long
+	dwHighDateTime As Long
+End Type
+
+Type SYSTEMTIME
+	wYear As Integer
+	wMonth As Integer
+	wDayOfWeek As Integer
+	wDay As Integer
+	wHour As Integer
+	wMinute As Integer
+	wSecond As Integer
+	wMilliseconds As Integer
+End Type
+
+Declare Function FileTimeToLocalFileTime Lib "kernel32.dll" (lpFileTime As FILETIME, lpLocalFileTime As FILETIME) As Long
+Declare Function GetFileTime&amp; Lib "kernel32" (Byval hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME)
+Declare Function FileTimeToSystemTime&amp; Lib "kernel32" (lpFileTime As FILETIME, lpSystemTime As SYSTEMTIME)
+
+
+</lotusscript></code><code event="SLFWIN_NomFichierUnique"><lotusscript>Function SLFWIN_NomFichierUnique(p_NomFichier As String) As String     ' RQ51336 PBE
+	' Retourne un nom de fichier unique en ajoutent "(n)" au nom du fichier au besoin
+	'	Fichier ABC.PDF --&gt; Fichier ABC (2).pdf
+	' p_NomFichier : Le nom du fichier doit inclure le chemin d'accès
+	On Error GoTo GererErreur
+	
+	Dim v_Continuer As Boolean
+	Dim v_Dossier As String
+	Dim v_NomFichier As String
+	Dim v_Suffixe As String
+	Dim i As integer
+	Dim v_NomFichierUnique As String
+	Dim s As string
+	
+	SLFWIN_NomFichierUnique = p_NomFichier
+	v_Continuer = False
+	
+	If p_NomFichier &lt;&gt; "" Then
+		If InStr(p_NomFichier, "\") &gt; 0 Then
+			s = Dir$(p_NomFichier, 0)
+			If s &lt;&gt; "" Then
+				v_Continuer = True
+			End If
+		End If
+	End If
+	
+	If v_Continuer then
+		v_Dossier = StrLeftBack(p_NomFichier, "\") &amp; "\"
+		v_NomFichier = StrRightBack(p_NomFichier, "\")
+		
+		If InStr(v_NomFichier, ".") &gt; 0 Then
+			v_Suffixe = "." &amp; StrRightBack(v_NomFichier, ".")
+			v_NomFichier = StrLeftBack(v_NomFichier, ".")
+		Else
+			v_Suffixe = ""
+		End If
+		
+		i = 1
+		Do
+			i = i + 1
+			v_NomFichierUnique = v_Dossier &amp; v_NomFichier &amp; " (" &amp; CStr(i) &amp; ")" &amp; v_Suffixe
+			s = Dir$(v_NomFichierUnique)
+		Loop Until s = ""
+		
+		SLFWIN_NomFichierUnique = v_NomFichierUnique
+	End if
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLFWIN, gc_Element_SLFWIN, GetThreadInfo(1), p_NomFichier, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLFWIN_DateFichier"><lotusscript>Function SLFWIN_DateFichier(p_CheminFichier As String, p_TypeInfo As String) As Variant
+	'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de retourne les date de création, modif ou consutation d'un fichier windows.
+	' Paramètres :	p_TypeInfo  ---&gt;  Le type info fichier a retourner ( C = date création, M = date modification, A = date dern. accès)
+	'------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	On Error 76 Goto FichierInexistant
+	
+	Dim v_ValRetour As Long  ' valeur de retour
+	Dim v_Date As Variant
+	Dim v_Fichier As Long  ' handle du fichier ouvert
+	Dim v_DateCreation As FILETIME  ' variable pour date et heure de création
+	Dim v_DateDernAcces As FILETIME  ' variable pour date et heure dernière consultation
+	Dim v_DateModif As FILETIME  ' varible pour date et heure de dernière modification
+	Dim v_DateFichier As SYSTEMTIME  ' variable pour manipuler l'heure et date de FILETIME
+	
+	' Initialisations
+	SLFWIN_DateFichier = ""
+	
+	If Dir$(p_CheminFichier) = "" Then
+		Goto FichierInexistant
+	End If
+	
+	v_Fichier = CreateFile(p_CheminFichier, GENERIC_READ, FILE_SHARE_READ, Byval Clng(0), OPEN_EXISTING, FILE_ATTRIBUTE_ARCHIVE, 0)
+	If v_Fichier = -1 Then
+		Exit Function
+	End If
+	
+	' Retourne heures...creation, dern-accès, and dern-modification.
+	v_ValRetour = GetFileTime(v_Fichier, v_DateCreation, v_DateDernAcces, v_DateModif)
+	
+	' Fermer la connection au fichier.
+	v_ValRetour = CloseHandle(v_Fichier)
+	If v_ValRetour = 0 Then
+		Print "ERREUR - Le fichier " &amp; p_CheminFichier &amp; " n'a pas été fermé normalement. (" &amp; Cstr(v_ValRetour) &amp; ")"
+	End If
+	
+	' Convertir la zone pour l'heure et Convertir le format FILETIME en format SYSTEMTIME
+	Select Case p_TypeInfo		
+	Case "C"		
+		v_ValRetour = FileTimeToLocalFileTime(v_DateCreation, v_DateCreation)
+		v_ValRetour = FileTimeToSystemTime(v_DateCreation, v_DateFichier)
+	Case "M"
+		v_ValRetour = FileTimeToLocalFileTime(v_DateModif, v_DateModif)
+		v_ValRetour = FileTimeToSystemTime(v_DateModif, v_DateFichier)		
+	Case "A"
+		v_ValRetour = FileTimeToLocalFileTime(v_DateDernAcces, v_DateDernAcces)
+		v_ValRetour = FileTimeToSystemTime(v_DateDernAcces, v_DateFichier)
+	End Select
+	
+	v_Date = Evaluate(| @Date(| &amp; v_DateFichier.wYear &amp; |;| &amp; v_DateFichier.wMonth &amp; |;| &amp; v_DateFichier.wDay  &amp; _
+	|;| &amp; v_DateFichier.wHour &amp; |;| &amp; v_DateFichier.wMinute &amp;  |;| &amp; v_DateFichier.wSecond &amp; |) |)		
+	
+	If Isarray(v_Date) Then
+		SLFWIN_DateFichier = v_Date(0)		
+	End If
+	Exit Function
+	
+FichierInexistant:
+	Print "Fichier " &amp; p_CheminFichier &amp; " introuvable."
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLFWIN, gc_Element_SLFWIN, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLFWIN_EncoderFichierBase64"><lotusscript>Function SLFWIN_EncoderFichierBase64(p_CheminFichierOrigine As String, p_CheminFichierDestination As String, p_Remplacer As Boolean) As Boolean
+	'-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de convertir un fichier en base 64.
+	'------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_FichierTempOrigine As Boolean
+	Dim v_CheminFichierOrigine As String
+	Dim v_CheminFichierTempDestination As String
+	Dim a_Commande(1) As String
+	Dim v_Commande As String
+	Dim i As integer
+	Dim v_Resultat As Integer
+	
+	' Initialisations
+	SLFWIN_EncoderFichierBase64 = False
+	
+	' Validation des paramètres
+	If p_CheminFichierOrigine = "" Then
+		Exit function
+	End If
+	If Dir$(p_CheminFichierOrigine, 0) = "" Then
+		Exit function
+	End If
+
+	v_CheminFichierOrigine = p_CheminFichierOrigine
+	p_CheminFichierDestination = Replace(p_CheminFichierDestination, |’|, |-|)
+	
+	v_FichierTempOrigine = False
+	If InStr(v_CheminFichierOrigine, |’|) &gt; 0 Then
+		v_CheminFichierOrigine = p_CheminFichierDestination &amp; ".si.tmp1"
+		If Dir$(v_CheminFichierOrigine, 0) &lt;&gt; "" Then
+			Kill v_CheminFichierOrigine
+		End If
+		FileCopy p_CheminFichierOrigine, v_CheminFichierOrigine
+		v_FichierTempOrigine = True
+	End If
+	
+	If Dir$(p_CheminFichierDestination, 0) &lt;&gt; "" Then
+		If p_Remplacer then
+			Kill p_CheminFichierDestination
+		Else
+			p_CheminFichierDestination = SLFWIN_NomFichierUnique(p_CheminFichierDestination)
+		End if
+	End If
+	
+	' Suppression du fichier temporaire
+	v_CheminFichierTempDestination = p_CheminFichierDestination &amp; ".si.tmp2"
+	If Dir$(v_CheminFichierTempDestination, 0) &lt;&gt; "" Then
+		Kill v_CheminFichierTempDestination
+	End If
+	
+	' ===== Encodage du fichier =====
+	'	certutil -encode [Origine] [Temporaire] &amp;&amp; findstr /v /c:- [Temp] &gt; [Destination] &amp;&amp; del [Temp]
+	%rem
+	a_Commande(0) = |/c certutil -encode "| &amp; p_CheminFichierOrigine &amp; |" "| &amp; v_CheminFichierTemp &amp; |"|
+	a_Commande(1) = |/c findstr /v /c:- "| &amp; v_CheminFichierTemp &amp; |" &gt; "| &amp; p_CheminFichierDestination &amp; |"|
+	a_Commande(2) = |/c del "| &amp; v_CheminFichierTemp &amp; |"|
+	%end rem
+	
+	a_Commande(0) = |certutil -encode "| &amp; v_CheminFichierOrigine &amp; |" "| &amp; v_CheminFichierTempDestination &amp; |"|
+	a_Commande(1) = |findstr /v /c:- "| &amp; v_CheminFichierTempDestination &amp; |" &gt; "| &amp; p_CheminFichierDestination &amp; |"|
+	v_Commande = |/c | &amp; Implode(a_Commande, |&amp;&amp;|)
+	v_Resultat = ShellExecute(0&amp;, "open", "cmd", v_Commande, "", SW_HIDE)
+	If v_Resultat &lt; 32 Then
+		Exit Function
+	End If
+
+	' Attendre jusqu'à ce que le fichier encodé soit créé
+	Do
+		If Dir$(p_CheminFichierDestination, 0) &lt;&gt; "" Then
+			Exit Do
+		End If
+		Sleep 1
+		i = i + 1
+	Loop Until i &gt; 10		' Maximum 10 secondes
+	
+	' Supprimer les fichier temporaires
+	On Error 75 Resume next
+	If v_FichierTempOrigine Then
+		If Dir$(v_CheminFichierOrigine, 0) &lt;&gt; "" Then
+			Kill v_CheminFichierOrigine
+		End if
+	End If
+	If Dir$(v_CheminFichierTempDestination, 0) &lt;&gt; "" Then
+		Kill v_CheminFichierTempDestination
+	End If
+	
+	If Dir$(p_CheminFichierDestination, 0) &lt;&gt; "" Then
+		SLFWIN_EncoderFichierBase64 = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLFWIN, gc_Element_SLFWIN, GetThreadInfo(1), p_CheminFichierOrigine &amp; " --&gt; " &amp; p_CheminFichierDestination, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLFWIN_LireFichierBinary"><lotusscript>Function SLFWIN_LireFichierBinary(p_CheminFichierOrigine As String) As String
+	On Error GoTo GererErreur
+	
+	Dim s As String
+	Dim v_NoFichier As Integer
+	Dim v_Texte As String*10
+	
+	SLFWIN_LireFichierBinary = ""
+	
+	v_NoFichier = FreeFile
+	Open p_CheminFichierOrigine For Binary Access Read As #v_NoFichier
+	Do Until EOF(v_NoFichier)
+		Get #v_NoFichier, , s
+		v_Texte = v_Texte &amp; s
+	Loop
+	Close #v_NoFichier
+
+	SLFWIN_LireFichierBinary = v_Texte
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLFWIN, gc_Element_SLFWIN, GetThreadInfo(1), p_CheminFichierOrigine, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLFWIN_LireFichierString"><lotusscript>Function SLFWIN_LireFichierString(p_CheminFichierOrigine As String) As String
+	On Error GoTo GererErreur
+	
+	Dim s As String
+	Dim v_NoFichier As Integer
+	Dim v_Texte As String
+	
+	SLFWIN_LireFichierString = ""
+	
+	v_NoFichier = FreeFile
+	Open p_CheminFichierOrigine For Input As #v_NoFichier
+	Do Until EOF(v_NoFichier)
+		Line Input #v_NoFichier, s
+		v_Texte = v_Texte &amp; s
+	Loop
+	Close #v_NoFichier
+
+	SLFWIN_LireFichierString = v_Texte
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLFWIN, gc_Element_SLFWIN, GetThreadInfo(1), p_CheminFichierOrigine, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLFWIN_SauvegarderFichierString"><lotusscript>Function SLFWIN_SauvegarderFichierString(p_Data As String, p_CheminFichier As String) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim s As String
+	Dim v_NoFichier As Integer
+	Dim v_Texte As String
+	
+	SLFWIN_SauvegarderFichierString = False
+	
+	On Error 75 Resume next
+	Kill p_CheminFichier
+	
+	v_NoFichier = FreeFile
+	Open p_CheminFichier For Output As #v_NoFichier
+	Write #p_Data
+	Close #v_NoFichier
+
+	SLFWIN_SauvegarderFichierString = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLFWIN, gc_Element_SLFWIN, GetThreadInfo(1), p_CheminFichier, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SLFWIN_NomFichierValide"><lotusscript>Function SLFWIN_NomFichierValide(p_NomFichier As String) As String
+	' Retourne un nom de fichier valide en retirant les charactères réservés
+	' &lt; (less than)
+	' &gt; (greater than)
+	' : (colon)
+	' " (double quote)
+	' / (forward slash)
+	' \ (backslash)
+	' | (vertical bar or pipe)
+	' ? (question mark)
+	' * (asterisk) en ajoutent "(n)" au nom du fichier au besoin
+	On Error GoTo GererErreur
+	
+	Dim s As String
+	Dim a_CharacteresReserves As Variant 
+	Dim v_NomFichier As String
+
+	'"""" : 
+
+	s = {"&lt;" : "&gt;" : ":" : "\"" : "/" : "\\" : "|" : "?" : "*"}
+	a_CharacteresReserves = Evaluate(s) 
+	v_NomFichier = FullTrim(Replace(p_NomFichier, a_CharacteresReserves, " "))
+	If v_NomFichier = "" Then
+		SLFWIN_NomFichierValide = xUnique("")
+	Else
+		SLFWIN_NomFichierValide = v_NomFichier
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLFWIN, gc_Element_SLFWIN, GetThreadInfo(1), p_NomFichier, False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,25-05</datetime></item></scriptlibrary>
+
+</database>

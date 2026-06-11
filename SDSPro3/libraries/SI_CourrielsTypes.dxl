@@ -1,0 +1,1437 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_CourrielsTypes" hide="v3 v4strict" designerversion="8.5.3" comment="6.3a">
+<noteinfo noteid="5558ae" unid="B0E54958D7A52C36852588F300709DEE" sequence="21">
+<created><datetime>20221107T153004,62-05</datetime></created>
+<modified><datetime>20260105T014838,05-05</datetime></modified>
+<revised><datetime>20250319T073639,89-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,04-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,04-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Arrays"
+Use "SI_NotesDocument"
+Use "SI_NotesMail"
+Use "SI_Temp"
+Use "SI_tRichText"
+Use "x_SICT"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SICT As Notessession
+Dim gndb_SICT As Notesdatabase
+Dim gnuiws_SICT As NotesUIWorkspace
+Dim gndb_Courriel_SICT As NotesDatabase
+
+Dim gnv_SICT10_SICT As Notesview
+Dim gnv_SICT20_SICT As Notesview
+
+Dim gnd_SICT As Notesdocument
+
+Dim gnco_Fond_SICT As NotesColorObject
+Dim gnco_FondAlt_SICT As NotesColorObject
+Dim g_TexteErreur_SICT As String
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SICT = "SL"
+Const gc_Element_SICT = "SI_CourrielsTypes"
+
+
+
+</lotusscript></code><code event="SICT_RemplacerSignets"><lotusscript>Function SICT_RemplacerSignets(pnd As Notesdocument, pnd_Courriel As NotesDocument, p_Parametres As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	SICT_RemplacerSignets = SICT_RemplacerSignetsCT(pnd , pnd_Courriel, "Body", "Subject", _
+	"SendTo", "CopyTo", "BlindCopyTo", "ReplyTo", p_Parametres)
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), xVar(pnd_Courriel, "SICT_Nom", "") &amp; " (" &amp; xVar(pnd_Courriel, "Form", "") &amp; " / " &amp; xVar(pnd_Courriel, "Cle", "") &amp; ")", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICT_RemplacerSignetsCT"><lotusscript>Function SICT_RemplacerSignetsCT(pnd As NotesDocument, pnd_Courriel As NotesDocument, p_MSG_RText As String, p_Titre As String, _
+p_EnvoyerA As String, p_CC As String, p_BCC As String, p_RepondreA As String, p_Parametres As Variant) As Boolean
+%REM
+-----------------------------------------------------------------------------------------------------
+ Construire le document du courriel à partir du courriel type.  Le document n'est pas envoyé.
+	Paramètres:
+		pnd				NotesDocument.  Le document qui contient les données qui seront
+							substituées aux signets.  Si nothing alors il n'y a pas de substitutions.
+		pnd_Courriel	NotesDocument.  Le document du courriel.
+
+	Variables du doc Courrant (nuid)
+		p_MSG_RText		Nom du champ RicheText qui contient le message (ie : "Body")
+		p_Titre			Nom du champ du titre du message (ie : objet, sujet)
+		p_EnvoyerA		Nom du champ à qui s'adresse le message (ie: To:) Empl_NotesID
+		p_CC , p_BCC	Nom du champ des personnes en copie (CC:, BCC:)
+		p_RepondreA		Nom du champ "faire suivre à" (ReplyTo:)
+		
+		p_Parametres	Paramètres établies par l'utilisateurs.  Vide si aucun paramètre
+-----------------------------------------------------------------------------------------------------
+%END REM
+	On Error Goto GererErreur
+	
+	Dim nrti_Body As NotesRichTextItem
+	Dim nn As NotesName
+	
+	Dim i As Integer
+	Dim v_BlindListe As String
+	Dim v_CopieListe As String
+	Dim v_DestListe As String
+	Dim v_NotesURL As String
+	Dim v_Objet As String
+	Dim v_ReplyListe As String
+	Dim v_Signet As String
+	Dim v_Valeurs As Variant
+	Dim v_ValeurItem As String
+	
+	' Initialisations
+	SICT_RemplacerSignetsCT = False
+	Call SICT_Initialisations
+	
+	Set nrti_Body = pnd_Courriel.GetFirstItem(p_MSG_RText)
+	v_Objet = xVar(pnd_Courriel, p_Titre, "")
+	v_DestListe = xVarImplode(pnd_Courriel, p_EnvoyerA, ";")
+	v_CopieListe = xVarImplode(pnd_Courriel, p_CC, ";")
+	v_BlindListe = xVarImplode(pnd_Courriel, p_BCC, ";")
+	v_ReplyListe = xVarImplode(pnd_Courriel, p_RepondreA, ";")
+	
+	' Remplacer les signets
+	If Not (pnd Is Nothing) Then
+		
+		v_NotesURL = SIND_NotesURL(pnd)		' lien URL du document
+		Forall ni In pnd.Items
+			If Left(ni.Name, 1) &lt;&gt; "$" Then
+				If ni.IsNames Then
+					Set nn = New NotesName(ni.Text)
+					v_ValeurItem = nn.Abbreviated
+				Else
+					v_Valeurs = xVar(pnd, ni.Name, "")
+					If Isarray(v_Valeurs) Then
+						v_ValeurItem = Implode(v_Valeurs, ", ")
+					Else
+						v_ValeurItem = Cstr(v_Valeurs)
+					End If
+				End If
+				
+				If v_ValeurItem = "" Then
+					v_ValeurItem = " "
+				End If
+				
+				v_Signet = "[" &amp; Lcase(ni.Name) &amp; "]"
+				v_DestListe = Replace(v_DestListe, v_Signet, v_ValeurItem, , , 1)
+				v_CopieListe = Replace(v_CopieListe, v_Signet, v_ValeurItem, , , 1)
+				v_BlindListe = Replace(v_BlindListe, v_Signet, v_ValeurItem, , , 1)
+				v_ReplyListe = Replace(v_ReplyListe, v_Signet, v_ValeurItem, , , 1)
+				v_Objet = Replace(v_Objet, v_Signet, v_ValeurItem, , , 1)
+				Call SItRT_Remplacer(nrti_Body, v_Signet, v_ValeurItem)
+			End If
+		End Forall
+		
+		Call SItRT_RemplacerDocLink(nrti_Body, "[#doclink]", pnd)
+		Call SItRT_RemplacerDocLink(nrti_Body, "[#databaselink]", pnd.ParentDatabase)
+		Call SItRT_Remplacer(nrti_Body, "[#noteslink]", v_NotesURL)								' Ouvrir le lien en mode lecture
+		Call SItRT_Remplacer(nrti_Body, "[#editlink]", v_NotesURL &amp; "?EditDocument")		' Ouvrir le lien en mode écriture
+	End If
+	
+	If Isarray(p_Parametres) Then
+		For i = Lbound(p_Parametres) To Ubound(p_Parametres)
+			v_Objet = Replace(v_Objet, "[#parametre" &amp; Cstr(i) &amp; "]", Cstr(p_Parametres(i)), , , 1)
+			Call SItRT_Remplacer(nrti_Body, "[#parametre" &amp; Cstr(i) &amp; "]", Cstr(p_Parametres(i)))
+		Next
+	Elseif p_Parametres &lt;&gt; "" Then
+		v_Objet = Replace(v_Objet, "[#parametre]", Cstr(p_Parametres), , , 1)
+		Call SItRT_Remplacer(nrti_Body, "[#parametre]", Cstr(p_Parametres))
+	End If
+	
+	' Remplacer les signets standards 4.0
+	' -----------------------------------
+	v_ValeurItem = Format(Today, "Short Date")
+	v_Objet = Replace(v_Objet, "[#date]", v_ValeurItem, , , 1)
+	Call SItRT_Remplacer(nrti_Body, "[#date]", v_ValeurItem)
+	v_ValeurItem = Format(Time, "Short Time")
+	v_Objet = Replace(v_Objet, "[#heure]", v_ValeurItem, , , 1)
+	Call SItRT_Remplacer(nrti_Body, "[#heure]", v_ValeurItem)
+	v_Objet = Replace(v_Objet, "[#utilisateur]", gns_SICT.CommonUserName, , , 1)
+	Call SItRT_Remplacer(nrti_Body, "[#utilisateur]", gns_SICT.CommonUserName)
+	
+	
+	' MAJ du courriel en cours
+	If p_EnvoyerA &lt;&gt; "" Then
+		Call pnd_Courriel.Replaceitemvalue(p_EnvoyerA, Split(v_DestListe, ";"))
+	End If
+	If p_CC &lt;&gt; "" Then
+		Call pnd_Courriel.Replaceitemvalue(p_CC, Split(v_CopieListe, ";"))
+	End If
+	If p_BCC &lt;&gt; "" Then
+		Call pnd_Courriel.Replaceitemvalue(p_BCC, Split(v_BlindListe, ";"))
+	End If
+	If p_RepondreA &lt;&gt; "" Then
+		Call pnd_Courriel.Replaceitemvalue(p_RepondreA, Split(v_ReplyListe, ";"))
+	End If	
+	Call pnd_Courriel.Replaceitemvalue(p_Titre, v_Objet)
+	
+	SICT_RemplacerSignetsCT = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), xVar(pnd_Courriel, "SICT_Nom", "") &amp; " (" &amp; xVar(pnd, "Form", "") &amp; " / " &amp; xVar(pnd, "Cle", "") &amp; ")", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICT_ConstruireMessage"><lotusscript>Function SICT_ConstruireMessage(pnd As NotesDocument, ByVal p_Courriel As String, ByVal p_Langue As String, _
+	p_Destinataires As Variant, p_CC As Variant, p_CCC As Variant, p_ndbDestinataire As Integer, p_Parametres As Variant) _
+	As NotesDocument
+	%REM
+------------------------------------------------------------------------------------------------------------------------------
+ Construire le document du courriel.  Le document n'est pas envoyé.
+	Paramètres:
+		pnd					NotesDocument.  Le document qui contient les données qui seront
+								substituées aux signets.  Si nothing alors il n'y a pas de substitutions.
+		p_Courriel			String.  Le nom du courriel type à utiliser pour construire le message.
+		p_Langue			String.  Le code de la langue du message à envoyer.
+		p_Destinataires		Variant. Les destinataires du message.  Ils s'ajouterons aux destinataires définis
+									 dans le courriel type.  Optionnel
+		p_cc				Variant.  Les destinataires en copie conforme du message.
+								Ils s'ajouterons aux destinataires définis dans le courriel type.  Optionnel
+		p_ccc				Variant.  Les destinataires en copie conforme cachée du message.
+								Ils s'ajouterons aux destinataires définis dans le courriel type.  Optionnel
+		p_ndbDestinataire	La base dans laquelle il faut créer le courriel:				
+								Si 2 utiliser la base de courriel SI_Temp
+								Sinon, utiliser la base de courante
+								
+		p_Parametres	String or string array.  Des valeurs qui seront insérées dans le courriel.
+								Le signet à utiser est [#parametre] pour un string, [#parametre0] pour un array.
+	Valeur retournée
+		NotesDocument.  Le document du courriel qui a été construit.
+------------------------------------------------------------------------------------------------------------------------------
+	%ENDREM
+	On Error GoTo GererErreur
+	
+	Dim v_ndbCourriels As Variant
+	Dim v_Expediteur As String
+	Dim ndb_Courriel As NotesDatabase
+	Dim nd As NotesDocument
+	Dim nrti_Message As NotesRichTextItem
+	Dim nrti_Body As NotesRichTextItem
+	Dim ni_Destinataires As NotesItem
+	Dim ni_DestinatairesCCC As NotesItem
+	Dim nrtps As NotesRichTextParagraphStyle
+	
+	' Initialisations
+	Set SICT_ConstruireMessage = Nothing
+	Call SICT_Initialisations
+	
+	' Valider les paramètres
+	' -------------------------------
+	If p_Langue = "" Then
+		p_Langue = "FR"
+	End If
+	
+	' Extraire le courriel à envoyer
+	' ---------------------------------------
+	If Not SICT_ExtraireCourrielType(p_Courriel) Then
+		Exit Function
+	End If
+	
+	v_Expediteur = xVar(gnd_SICT, "SICT_Expediteur", "")
+	
+	' Extraire la base de courriels à utiliser
+	' ----------------------------------------------------------
+	
+	Set gndb_Courriel_SICT = gndb_SICT	' Créer le courriel dans la base courante
+	Set ndb_Courriel = Nothing
+	
+	If p_ndbDestinataire = 2 Then		' Créer le courriel dans la base temporaire SI_Temp (il n'est pas conservé)
+		Set ndb_Courriel = xGDK_xndbNDB("SITp")				
+		If Not (ndb_Courriel Is Nothing) Then
+			If ndb_Courriel.isopen Then
+				Set gndb_Courriel_SICT = ndb_Courriel
+			End If
+		End If
+	End If
+	
+	' Créer le document à envoyer
+	' ---------------------------------------
+	Set nd = New NotesDocument(gndb_Courriel_SICT)
+	nd.Form = "Memo"
+	nd.SICT_Nom = p_Courriel
+	
+	' Ajouter l'expéditeur
+	'-----------------------------------------------------------
+	If v_Expediteur &lt;&gt; "" Then
+		nd.Principal = v_Expediteur
+	End If
+	If xVar(gnd_SICT, "SICT_RepondreA", "") &lt;&gt; "" Then
+		nd.ReplyTo = xVar(gnd_SICT, "SICT_RepondreA", "")
+	End If
+	
+	' Ajouter les destinataires
+	'-----------------------------------------------------------
+	Set ni_Destinataires = New NotesItem(nd, "SendTo", xVarArray(gnd_SICT, "SICT_Destinataires"))
+	Call ni_Destinataires.AppendToTextList(p_Destinataires)
+	nd.SendTo = Evaluate(|@Unique("| &amp; Join(ni_Destinataires.Values, |":"|) &amp; |")|)
+	
+	' Ajouter les copies conformes
+	'-----------------------------------------------------------
+	Set ni_Destinataires = New NotesItem(nd,"CopyTo", xVarArray(gnd_SICT, "SICT_CC"))
+	Call ni_Destinataires.AppendToTextList(p_CC)
+	nd.CopyTo = Evaluate(|@Unique("| &amp; Join(ni_Destinataires.Values, |":"|) &amp; |")|)
+	
+	' Ajouter les copies conformes cachées
+	'-----------------------------------------------------------
+	Set ni_DestinatairesCCC = New NotesItem(nd,"BlindCopyTo", xVarArray(gnd_SICT, "SICT_BCC"))
+	Call ni_DestinatairesCCC.AppendToTextList(p_CCC)
+	nd.BlindCopyTo = Evaluate(|@Unique("| &amp; Join(ni_DestinatairesCCC.Values, |":"|) &amp; |")|)
+	
+	' Vérifier l'objet du message
+	' -------------------------------------
+	nd.Subject = xVar(gnd_SICT, "SICT_Objet" &amp; p_Langue, "")
+	If xVar(nd, "Subject", "") = "" Then
+		p_Langue = "FR"
+		nd.Subject = xVar(gnd_SICT, "SICT_Objet" &amp; p_Langue, "")
+	End If
+	
+	' Construire le corps du message
+	' --------------------------------------------
+	Set nrti_Message = gnd_SICT.GetFirstItem("SICT_Message" &amp; p_Langue)
+	Call nrti_Message.Copyitemtodocument(nd, "Body")
+	Set nrti_Body = nd.GetFirstItem("Body")
+	
+	' Remplacer les signets
+	' -------------------------------
+	Call SICT_RemplacerSignets(pnd, nd, p_Parametres)
+	
+	' ZULU - Remplacer les destinataires
+	' -------------------------------
+	If xGDK_TypeNDBCourante = "T" Then
+		'	If InStr(LCase(gndb_SICT.Server), "zulu") &gt; 0 Then
+		Set nrtps = gns_SICT.Createrichtextparagraphstyle()
+		nrtps.LeftMargin = RULER_ONE_INCH * 5
+		Call nrti_Body.AppendParagraphStyle(nrtps)
+		
+		Call nrti_Body.AddNewLine(2)
+		Call nrti_Body.AppendText("-------- DESTINATAIRES ORIGINAUX --------")
+		Call nrti_Body.AddNewLine(1)
+		Call nrti_Body.AppendText("SENDTO : " &amp; xvarimplode(nd, "SendTo", ","))
+		Call nrti_Body.AddNewLine(1)
+		Call nrti_Body.AppendText("COPYTO : " &amp; xvarimplode(nd, "CopyTo", ","))
+		Call nrti_Body.AddNewLine(1)
+		Call nrti_Body.AppendText("BLINDCOPYTO : " &amp; xvarimplode(nd, "BlindCopyTo", ","))
+		Call nrti_Body.AddNewLine(1)
+		Call nrti_Body.AppendText("-----------------------------------------")
+		Call nd.ReplaceItemValue("SendTo", gns_SICT.UserName)
+		Call nd.ReplaceItemValue("CopyTo", "")
+		Call nd.ReplaceItemValue("BlindCopyTo", "")
+	End If 
+	
+	' Enregistrer une copie du courriel dans le registre
+	Call ni_DestinatairesCCC.AppendToTextList("SI Registre")
+	nd.Memo_Serveur = gndb_SICT.Server
+	nd.Memo_Fichier = gndb_SICT.Filepath
+	nd.Memo_Database = gndb_SICT.Title
+	nd.HistoDC = Now
+	nd.HistoUC = gns_SICT.Commonusername
+	
+	Set SICT_ConstruireMessage = nd
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, GetThreadInfo(1), p_Courriel &amp; " (" &amp; xVar(pnd, "Form", "") &amp; " / " &amp; xVar(pnd, "Cle", "") &amp; ")", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SICT_ExtraireCourrielType"><lotusscript>Function SICT_ExtraireCourrielType(Byval p_Courriel As String) As Integer
+%REM
+--------------------------------------------------------------------
+ Extraire le document de couttiel type.
+	Paramètres:
+		p_Courriel		String.  Le nom du courriel type à extraire.
+	Valeur retournée
+		NotesDocument.  Le document du courriel type demandé.
+--------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	SICT_ExtraireCourrielType = False
+	
+	If p_Courriel &lt;&gt; xVar(gnd_SICT, "SICT_Nom", "") Then
+		' Extraire le courriel type
+		' -------------------------
+		Set gnd_SICT = xndSICT(p_Courriel, True)
+	End If
+	
+	If Not (gnd_SICT Is Nothing) Then
+		SICT_ExtraireCourrielType = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICT_EnvoyerCourriel"><lotusscript>Function SICT_EnvoyerCourriel(pnd As NotesDocument, Byval p_Courriel As String, Byval p_Langue As String, _
+p_Destinataires As Variant, p_CC As Variant, p_CCC As Variant, p_Principal As String, _
+p_ndbDestinataire As Integer, p_Parametres As Variant) As Boolean
+%REM
+------------------------------------------------------------------------------------------------------------------------------	
+ Envoyer le courriel après avoir construit le document, puis remplacé les signets.
+	Paramètres:
+		pnd					NotesDocument.  Le document qui contient les données qui seront
+								substituées aux signets.  Si nothing alors il n'y a pas de substitutions.
+		p_Courriel			String.  Le nom du courriel type à utiliser pour construire le message.
+		p_Langue			String.  Le code de la langue du message à envoyer.
+		p_Destinataires		Variant.  Les destinataires du message.  Ils s'ajouterons aux
+								destinataires définis dans le courriel type.  Optionnel
+		p_cc				Variant.  Les destinataires en copie conforme du message.  Ils 
+								s'ajouterons aux destinataires définis dans le courriel type.  Optionnel
+		p_ccc				Variant.  Les destinataires en copie conforme cachée du message.  Ils 
+								s'ajouterons aux destinataires définis dans le courriel type.  Optionnel
+		p_Principal			String.  Le code de l'utilisateur envoyant le message.
+		p_ndbUtilisateur (replacer par p_ndbDestinataire   La base dans laquelle il faut créer le courriel.
+								si 0 ou False, utiliser la base de courante
+								Si 1 ou True, utiliser la base de courriel de l'utilisateur.
+								si 2 utiliser la base de courriel SI_Temp
+		p_Parametres		String or string array.  Des valeurs qui seront insérées dans le courriel.
+								Le signet à utiser est [#parametre] pour un string, [#parametre0] pour un array.
+------------------------------------------------------------------------------------------------------------------------------	
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	
+	SICT_EnvoyerCourriel = False
+	
+	' Construire le message
+	Set nd = SICT_ConstruireMessage(pnd, p_Courriel, p_Langue, p_Destinataires, p_CC, p_CCC, p_ndbDestinataire, p_Parametres)
+	
+	If p_Principal &lt;&gt; "" Then
+		nd.Principal = p_Principal
+	End If
+	
+	' Envoyer le message
+	If Not (nd Is Nothing) Then
+		Call nd.Send(False)
+		SICT_EnvoyerCourriel = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), p_Courriel &amp; " --&gt; " &amp; xVarImplode(nd, "SendTo", ", ") &amp; _
+	"(" &amp; xVar(pnd, "Form", "") &amp; "/" &amp; xVar(pnd, "Cle", "") &amp; ")", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICT_ContientDestinataire"><lotusscript>Function SICT_ContientDestinataire(pnd As NotesDocument) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Retoure TRUE si le courriel contient au moins un destinataire
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error GoTo GererErreur
+	
+	Dim v As Variant
+	
+	SICT_ContientDestinataire = IsArray(xVarArray(pnd, "SendTo")) Or IsArray(xVarArray(pnd, "CopyTo"))
+	If SICT_ContientDestinataire = False then
+		v = xVar(pnd, "BlindCopyTo", "")
+		If IsArray(v) Then
+			SICT_ContientDestinataire = True
+		ElseIf v &lt;&gt; "SI Registre" Then
+			SICT_ContientDestinataire = True
+		End If
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICT_AjouterEntetes"><lotusscript>Sub SICT_AjouterEntetes(p_Entetes As Variant, pnrts As NotesRichTextStyle, pnrti As NotesRichTextItem, pnrtn As NotesRichTextNavigator, _
+p_NbColonnes As Integer, p_Cellule As Long)
+%REM
+-------------------------------------------------------------------------------------------------------------------
+ Ajoute les entêtes des colonnes sur la première ligne du tableau
+	Paramètres:
+		p_Entetes		Variant.  Doit contenir un array de string.  Permet de mettre des entêtes de colonne sur la
+							première ligne du tableau.  Les entêtes sont en gras.  Initialiser
+							à null s'il ne faut pas mettre d'entêtes.
+		panrts			NotesRichTextStyle.  Le format du texts à insérer dans le tableau.
+		panrti			NotesRichTextItem.  L'item qui contient le tableau (body).
+		panrtn			NotesRichTextNavigator.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		p_Cellule		Long.  Compteur du nombre de cellules d'un courriel.
+-------------------------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim i As Integer
+	Dim j As Integer
+	
+	pnrts.Bold = True ' Les entêtes sont en Bold
+	i = 0
+	If Isarray(p_Entetes) Then
+		For j = Lbound(p_Entetes) To Ubound(p_Entetes)
+			p_Cellule = p_Cellule + 1
+			Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+			Call pnrti.BeginInsert(pnrtn)
+			Call pnrti.AppendStyle(pnrts)
+			Call pnrti.AppendText(Cstr(p_Entetes(i)))
+			Call pnrti.EndInsert
+			i = i + 1
+			If i &gt;= p_NbColonnes Then
+				Exit For
+			End If
+		Next
+	Elseif p_Entetes &lt;&gt; "" Then
+		Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+		Call pnrti.BeginInsert(pnrtn)
+		Call pnrti.AppendStyle(pnrts)
+		Call pnrti.AppendText(Cstr(p_Entetes))
+		Call pnrti.EndInsert
+		i = i + 1
+	End If
+	
+	p_Cellule = p_Cellule + (p_NbColonnes - i)
+	pnrts.Bold = False
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_AjouterDonnees_a"><lotusscript>Sub SICT_AjouterDonnees_a(p_Valeurs As Variant, pnrts As NotesRichTextStyle, pnrti As NotesRichTextItem, _
+pnrtn As NotesRichTextNavigator, p_NbColonnes As Integer, p_Cellule As Long)
+%REM
+------------------------------------------------------------------------------------------
+ Ajoute les données dans le tableau - source = array de données.
+	Paramètres:
+		p_Valeurs		Variant.  Les valeurs qui doivent être ajoutées dans le tableau.
+		panrts			NotesRichTextStyle.  Le format du texts à insérer dans le tableau.
+		panrti			NotesRichTextItem.  L'item qui contient le tableau (body).
+		panrtn			NotesRichTextNavigator.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		p_Cellule		Long.  Compteur du nombre de cellules d'un courriel.
+------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim v_NbLignes As Integer
+	Dim v_Valeur As String
+	
+	Dim i As Integer
+	Dim k As Integer
+	
+	For k = Lbound(p_Valeurs, 1) To Ubound(p_Valeurs, 1)
+		' Max 250 lignes par tableau
+		v_NbLignes = v_NbLignes + 1
+		If v_NbLignes &gt; 250 Then
+			' Ligne 251 = "+ + +"
+			Call SICT_AjouterLigne251(pnrts, pnrti, pnrtn, p_NbColonnes, p_Cellule)
+			Exit Sub
+		End If
+		
+		For i = 0 To p_NbColonnes - 1
+			p_Cellule = p_Cellule + 1
+			
+			If p_NbColonnes = 1 Then
+				v_Valeur = Cstr(p_Valeurs(k))
+			Else
+				v_Valeur = Cstr(p_Valeurs(k, i))
+			End If
+			
+			If v_Valeur &lt;&gt; "" Then
+				Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+				Call pnrti.BeginInsert(pnrtn)
+				Call pnrti.AppendStyle(pnrts)
+				Call pnrti.AppendText(v_Valeur)
+				Call pnrti.EndInsert
+			End If
+		Next
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_DefinirCouleursFond"><lotusscript>Sub SICT_DefinirCouleursFond(p_Couleurs As Variant)
+%REM
+-------------------------------------------------------------------------------------------
+ Initialise les variables globales qui gère les couleurs du fond du tableau.
+	Paramètres:
+		p_Couleurs	Array de variant.  Le premier élément (0) représente la couleur du fond
+						des lignes du tableau.  Le deuxième élément (1) représente la
+						couleur des lignes Alt.  Chaque couleur peut être soit un nombre
+						représentant une couleur Notes ou au array de nombre identifiant
+						une couleur par son code RGB.
+
+ Les couleurs habituellement utilisées sont:
+	Fond blanc :	COLOR_WHITE (1)
+	Fond beige :	Evaluate("236:231:213")
+	Fong bleu :		Evaluate("230:239:244")
+-------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	If Isarray(p_Couleurs) Then
+		If Ubound(p_Couleurs) &gt; 0 Then
+			Call SICT_DefinirCouleurFond(0, p_Couleurs(0))
+			Call SICT_DefinirCouleurFond(1, p_Couleurs(1))
+		Else
+			Call SICT_DefinirCouleurFond(0, p_Couleurs(0))
+			Call SICT_DefinirCouleurFond(1, p_Couleurs(0))
+		End If
+	Elseif Isnumeric(p_Couleurs) Then
+		Call SICT_DefinirCouleurFond(0, p_Couleurs)
+		Call SICT_DefinirCouleurFond(1, p_Couleurs)
+	Else
+		Call SICT_DefinirCouleurFond(0, COLOR_WHITE)
+		Call SICT_DefinirCouleurFond(1, Evaluate("230:239:244"))
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_DefinirNDB"><lotusscript>Function SICT_DefinirNDB(pndb As Notesdatabase) As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de définir la base de documents qui contient les compteurs
+	' séquentiels.  A utiliser seulement lorsque la base de documents à utiliser n'est
+	' pas la base de documents courante.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	SICT_DefinirNDB = False
+	
+	Set gndb_SICT = pndb
+	
+	If Not (pndb Is Nothing) Then
+		SICT_DefinirNDB = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICT_AjouterTableau"><lotusscript>Function SICT_AjouterTableau(pnd_Courriel As NotesDocument, p_Signet As String, p_Valeurs As Variant, p_Formules As Variant, _
+p_CouleursFond As Variant, p_LargeurColonnes As Variant, p_Entetes As Variant, p_Cellule As Long) As Boolean
+%REM
+-----------------------------------------------------------------------------------------------------------------------
+ Ajouter un tableau dans un item rich text.  L'information de chaque ligne provient d'un
+ array de documents - une ligne par document.
+	Paramètres:
+		pnd_Courriel		NotesDocument.  Le document dans lequel il faut ajouter le tableau.
+		p_Signet			String.  Le nom du signet qui indique l'emplacement ou il faut
+								insérer le tableau.  Si le signet est nul, le tableau est ajouté à la
+								fin du message.
+		p_Valeurs			Variant.  Les valeurs qui doivent être ajoutées dans le tableau.  Le 
+								paramètre peut recevoir une collection de documents (NotesDocumentCollection),
+								un array de documents ou un array de string (deux dimensions).
+								Si un array de string est  reçu, le format de cet array détermine
+								le nombre de colonnes du tableau.
+		p_Formules		Variant.  Doit contenir un array de string.  Pour chaque colonne, la 
+								formule permettant de calculer la valeur à mettre dans la case du 
+								tableau.  Ce paramètre est utilisé seulement lorsque p_Valeurs 
+								contient une collection ou un array de documents.  Le nombre de valeurs 
+								de cet array détermine le nombre de colonnes du tableau.
+		p_CouleursFond	Variant.  Les couleurs à utiliser pour le fond des lignes
+								du tableau.  Peut contenir une couleur (0-15) ou un array de couleurs.
+								Si nul, utilise les couleurs par défaut (blanc et bleu).  Chaque couleur 
+								peut être soit un nombre représentant une couleur Notes ou au array de
+								nombre identifiant une couleur par son code RGB.
+		p_LargeurColonnes	Varient.  Doit contenir un array de Double. Chaque élément contient 
+								la largeur de la colonne correspondante, en cm.  Si absent, chaque colonne
+								est de 2 cm.
+		p_Entetes			Variant.  Doit contenir un array de string.  Permet de mettre des entêtes de colonne sur la
+								première ligne du tableau.  Les entêtes sont en gras.  Initialiser
+								à null s'il ne faut pas mettre d'entêtes.
+		p_Cellule			Long.  Compteur du nombre de cellules d'un courriel.  Initialiser à
+								0 lors du premier appel et faire suivre la valeur retournée lors des
+								appels subséquents.  Est important s'il y a plusieurs tableaux dans le
+								même courriel.
+
+Note: Les tableaux doivent toujours être ajoutés dans le message dans l'ordre ou ils apparaissent.
+-----------------------------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nrti As NotesRichTextItem
+	Dim v_NbLignes As Integer
+	Dim v_NbColonnes As Integer
+	Dim v_TypeDonnees As String
+	Dim a_LargeurColonnes() As Double
+	Dim anrtps() As NotesRichTextParagraphStyle
+	Dim nrts As NotesRichTextStyle
+	Dim nrtn As NotesRichTextNavigator
+	Dim v_Entetes As Boolean
+	
+	Const c_LargeurColonneDefaut = 2
+	
+	' Initialisations
+	SICT_AjouterTableau = False
+	Call SICT_Initialisations
+	Call SICT_DefinirCouleursFond(p_CouleursFond)
+	Set nrti = pnd_Courriel.GetFirstItem("Body")
+	
+	' Déterminer les dimensions du tableau
+	' ------------------------------------
+	If Isarray(p_Entetes) Then
+		v_Entetes = True
+	Elseif p_Entetes &lt;&gt; "" Then
+		v_Entetes = True
+	Else
+		v_Entetes = False
+	End If
+	Call SICT_DimensionsTableau(p_Valeurs, p_Formules, v_Entetes, v_NbLignes, v_NbColonnes, v_TypeDonnees)
+	If v_NbLignes = 0 Then 'Or v_NbLignes &gt; 251 Then
+		' Il n'y a pas de données à afficher.
+		Exit Function
+	End If
+	
+	' Définir le format du tableau dans un array de NotesRichTextParagraphStyle
+	' -------------------------------------------------------------------------
+	Call SICT_FormatTableau(p_LargeurColonnes, v_NbColonnes, anrtps)
+	
+	' Définir le format du texte dans un NotesRichTextStyle
+	' -----------------------------------------------------
+	Set nrts = gns_SICT.CreateRichTextStyle
+	nrts.NotesFont = nrti.GetNotesFont("Default Sans Serif", True)
+	nrts.FontSize = 8
+	
+	' Créer le tableau d'affichage
+	' ----------------------------
+	Call SICT_CreerTableau(nrti, nrtn, p_Signet, v_NbLignes, v_NbColonnes, anrtps)
+	
+	' Ajouter les entêtes de colonne
+	' ------------------------------
+	If v_Entetes Then
+		Call SICT_AjouterEntetes(p_Entetes, nrts, nrti, nrtn, v_NbColonnes, p_Cellule)
+		v_NbLignes = v_NbLignes - 1
+	End If
+	
+	' Ajouter les données du tableau
+	' ------------------------------
+	If Not Isarray(p_Formules) Then
+		p_Formules = Evaluate(|"| &amp; p_Formules &amp; |"|)
+	End If
+	Select Case v_TypeDonnees
+	Case "a" :
+		Call SICT_AjouterDonnees_a(p_Valeurs, nrts, nrti, nrtn, v_NbColonnes, p_Cellule)
+	Case "and" :
+		Call SICT_AjouterDonnees_and(p_Valeurs, p_Formules, nrts, nrti, nrtn, v_NbColonnes, p_Cellule)
+	Case "ndc" :
+		Call SICT_AjouterDonnees_ndc(p_Valeurs, p_Formules, nrts, nrti, nrtn, v_NbColonnes, p_Cellule)
+	End Select
+	
+	SICT_AjouterTableau = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), xVar(pnd_Courriel, "SICT_Nom", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICT_Initialisations"><lotusscript>Sub SICT_Initialisations
+	If gns_SICT Is Nothing Then
+		Set gns_SICT = New Notessession
+		Set gndb_SICT = gns_SICT.Currentdatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="SICT_AjouterDonnees_ndc"><lotusscript>Sub SICT_AjouterDonnees_ndc(p_Valeurs As Variant, p_Formules As Variant, pnrts As NotesRichTextStyle, pnrti As NotesRichTextItem, _
+	pnrtn As NotesRichTextNavigator, p_NbColonnes As Integer, p_Cellule As Long)
+	%REM
+--------------------------------------------------------------------------------------------------
+ Ajoute les données dans le tableau - source = collection de documents.
+	Paramètres:
+		p_Valeurs		Variant.  Les valeurs qui doivent être ajoutées dans le tableau.
+		p_Formules		Variant.  Pour chaque colonne, la formule permettant de calculer la valeur
+							à mettre dans la case du tableau.
+		panrts			NotesRichTextStyle.  Le format du texts à insérer dans le tableau.
+		panrti			NotesRichTextItem.  L'item qui contient le tableau (body).
+		panrtn			NotesRichTextNavigator.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		p_Cellule		Long.  Compteur du nombre de cellules d'un courriel.
+--------------------------------------------------------------------------------------------------
+	%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim v_NbLignes As Integer
+	Dim a_Valeur As Variant
+	
+	Dim i As Integer
+	Dim j As Integer
+	Dim v_NotesURL As String
+	
+	Set nd_Suivant = p_Valeurs.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = p_Valeurs.GetNextDocument(nd_Suivant)
+		
+		' Max 250 lignes par tableau
+		v_NbLignes = v_NbLignes + 1
+		If v_NbLignes &gt; 250 Then
+			' Ligne 251 = "+ + +"
+			Call SICT_AjouterLigne251(pnrts, pnrti, pnrtn, p_NbColonnes, p_Cellule)
+			Exit Sub
+		End If
+		
+		j = Lbound(p_Formules)
+		
+		For i = 1 To p_NbColonnes
+			p_Cellule = p_Cellule + 1
+			
+			If j &lt;= Ubound(p_Formules) Then
+				'				g_TexteErreur_SICT = p_Formules(j)
+				a_Valeur = Evaluate(p_Formules(j), nd)
+				If Isarray(a_Valeur) Then
+					Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+					Call pnrti.BeginInsert(pnrtn)
+					Call pnrti.AppendStyle(pnrts)
+					Call pnrti.AppendText(Cstr(a_Valeur(0)))
+					Call pnrti.EndInsert
+				End If
+			End If
+			
+			j = j + 1
+		Next
+		
+		v_NotesURL = SIND_NotesURL(nd)		' lien URL du document
+		
+		Call SItRT_RemplacerDocLink(pnrti, "[#doclink]", nd)
+		Call SItRT_RemplacerDocLink(pnrti, "[#databaselink]", nd.ParentDatabase)
+		Call SItRT_Remplacer(pnrti, "[#noteslink]", v_NotesURL)								' Ouvrir le lien en mode lecture
+		Call SItRT_Remplacer(pnrti, "[#editlink]", v_NotesURL &amp; "?EditDocument")		' Ouvrir le lien en mode écriture
+
+	Loop
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), g_TexteErreur_SICT, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_AjouterLigne251"><lotusscript>Sub SICT_AjouterLigne251(pnrts As NotesRichTextStyle, pnrti As NotesRichTextItem, pnrtn As NotesRichTextNavigator, p_NbColonnes As Integer, p_Cellule As Long)
+%REM
+------------------------------
+	Max 250 lignes par tableau
+	Ligne 251 = "+ + +"
+------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim i As Integer
+	
+	For i = 0 To p_NbColonnes - 1
+		p_Cellule = p_Cellule + 1
+		
+		Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+		Call pnrti.BeginInsert(pnrtn)
+		Call pnrti.AppendStyle(pnrts)
+		Call pnrti.AppendText("+")
+		Call pnrti.EndInsert
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_SelectionnerCourriel"><lotusscript>Function SICT_SelectionnerCourriel(Byval p_Categorie As String, p_Muet As Boolean) As String
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sélectionner le courriel à envoyer.
+	' 2017-07-24 - p_Muet - Inscrire False par défaut
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim v_Courriel As Variant
+	
+	' Initialisations
+	SICT_SelectionnerCourriel = ""
+	Call SICT_Initialisations
+	If gnuiws_SICT Is Nothing Then
+		Set gnuiws_SICT = New NotesUIWorkspace
+	End If
+	
+	' Si une catégorie est spécifiée, vérifie si des courriels existent dans cette cette catégorie
+	' ------------------------------------------------------------------------------------------------------------------
+	If p_Categorie = "" Then
+		If gnv_SICT20_SICT Is Nothing Then
+			Set gnv_SICT20_SICT = gndb_SICT.Getview("V_SICT20")
+		End If
+		
+		Call gnv_SICT20_SICT.Refresh
+		Set nd = gnv_SICT20_SICT.Getfirstdocument
+		If nd Is Nothing Then
+			If Not p_Muet Then
+				Messagebox xGDK_xMessage("SI", 156, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			End If
+			Exit Function
+		End If
+		
+		' Permet à l'utilisateur de sélectionner une lettre
+		v_Courriel = gnuiws_SICT.Pickliststrings(PICKLIST_CUSTOM, False, gndb_SICT.Server, gndb_SICT.Filepath, _
+		"V_SICT10", xGDK_xMessage("SI", 158, "", ""), 	xGDK_xMessage("SI", 159, "", ""), 2)
+		
+	' Si une catégorie est spécifiée, vérifie si des courriels existent dans cette cette catégorie
+	' --------------------------------------------------------------------------------------------------------------------------------------
+	Else
+		If gnv_SICT10_SICT Is Nothing Then
+			Set gnv_SICT10_SICT = gndb_SICT.Getview("V_SICT10")
+		End If
+		
+		Call gnv_SICT10_SICT.Refresh
+		Set nd = gnv_SICT10_SICT.Getdocumentbykey(p_Categorie, True)
+		If nd Is Nothing Then
+			If Not p_Muet Then
+				Messagebox xGDK_xMessage("SI", 157, "", p_Categorie), 16, xGDK_xMessage("SI", 1, "", "")
+			End If
+			Exit Function
+		End If
+		
+		' Permet à l'utilisateur de sélectionner une lettre
+		v_Courriel = gnuiws_SICT.Pickliststrings(PICKLIST_CUSTOM, False, gndb_SICT.Server, gndb_SICT.Filepath, _
+		"V_SICT10", xGDK_xMessage("SI", 158, "", ""), xGDK_xMessage("SI", 159, "", ""), 2, p_Categorie)
+	End If
+	
+	If Isarray(v_Courriel) Then
+		SICT_SelectionnerCourriel = v_Courriel(Lbound(v_Courriel))
+	Else
+		SICT_SelectionnerCourriel = Cstr(v_Courriel)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICT_AjouterFichierAttache"><lotusscript>Function SICT_AjouterFichierAttache(pnd_Courriel As NotesDocument, p_NomSignet As String, p_CheminFichier As String) As Boolean
+	'-------------------------------------------------------------------------------------------------------------------------
+	'	 Ce script remplace le signet par un fichier.
+	'
+	'	Paramètres:
+	'		pnd_Courriel			: document du courriel type
+	'		p_NomSignet		: nom du signet qui recevra le fichier (ex: [description])
+	'		p_CheminFichier	: chemin du fichier qui sera ajouté (C:\Temp\test.xls)
+	'-------------------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nrtn As NotesRichTextNavigator
+	Dim nrtr As NotesRichTextRange
+	Dim nrti As NotesRichTextItem
+	Dim i As Integer
+	
+	SICT_AjouterFichierAttache = False
+	
+	Set nrti = pnd_Courriel.GetFirstItem("Body")
+	
+	SICT_AjouterFichierAttache = SItRT_RemplacerFichierAttach(nrti, p_NomSignet, p_CheminFichier)
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SICT_CreerTableau"><lotusscript>Sub SICT_CreerTableau(pnrti As NotesRichTextItem, pnrtn As NotesRichTextNavigator, p_Signet As String, p_NbLignes As Integer, _
+p_NbColonnes As Integer, panrtps() As NotesRichTextParagraphStyle)
+%REM
+--------------------------------------------------------------------------------------------------
+ Créé le tableau dans le mesage (rich text).
+	Paramètres:
+		panrti			NotesRichTextItem.  L'item dans lequel on ajoute le tableau.
+		p_Signet		String.  Le nom du signet qui indique l'emplacement ou il faut
+							insérer le tableau.  Si le signet est nul, le tableau est ajouté à la
+							fin du message.
+		p_NbLignes		Integer.  Le nombre de lignes du tableau.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		panrtps			Array de NotesRichTextParagraphStyles.  Le format des colonnes tu tableau.
+--------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim v_NbLignes As Integer 
+	Dim nrtr As NotesRichTextRange
+	Dim nrtt As NotesRichTextTable
+	
+	Set pnrtn = pnrti.CreateNavigator
+	If p_Signet = "" Then
+		Call pnrti.AppendTable(p_NbLignes, p_NbColonnes, "", 2.54 * RULER_ONE_CENTIMETER, panrtps)
+	Else
+		Set nrtr = pnrti.CreateRange
+		Call pnrtn.FindFirstString(p_Signet)
+		Call nrtr.SetBegin(pnrtn)
+		Call pnrti.BeginInsert(pnrtn, False)
+		Call pnrti.AppendTable(p_NbLignes, p_NbColonnes, "", 2.54 * RULER_ONE_CENTIMETER, panrtps)
+		Call pnrti.EndInsert
+		Call SItRT_Remplacer(pnrti, p_Signet, " ")
+	End If
+	Call pnrtn.FindLastElement(RTELEM_TYPE_TABLE)
+	Set nrtt = pnrtn.GetElement
+	nrtt.Style = TABLESTYLE_ALTERNATINGROWS
+	Call nrtt.SetColor(gnco_Fond_SICT)
+	Call nrtt.SetAlternateColor(gnco_FondAlt_SICT)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_DimensionsTableau"><lotusscript>Sub SICT_DimensionsTableau(p_Valeurs As Variant, p_Formules As Variant, p_Entetes As Boolean, _
+p_NbLignes As Integer, p_NbColonnes As Integer, p_TypeDonnees As String)
+%REM
+-------------------------------------------------------------------------------------------------------------------
+ Calcule le nombre de lignes et de colonnes du tableau.
+	Paramètres:
+		p_Valeurs		Variant.  Les valeurs qui doivent être ajoutées dans le tableau.  Le 
+							paramètre peut recevoir une collection de documents (NotesDocumentCollection),
+							un array de documents ou un array de string (deux dimensions).
+							Si un array de string est  reçu, le format de cet array détermine
+							le nombre de colonnes du tableau.
+		p_Formules		Variant.  Doit contenir un array de string.  Pour chaque colonne, la 
+							formule permettant de calculer la valeur à mettre dans la case du 
+							tableau.  Ce paramètre est utilisé seulement lorsque p_Valeurs 
+							contient une collection ou un array de documents.  Le nombre de valeurs 
+							de cet array détermine le nombre de colonnes du tableau.
+		p_Entetes		Variant.  Doit contenir un array de string.  Permet de mettre des entêtes de colonne sur la
+							première ligne du tableau.  Les entêtes sont en gras.  Initialiser
+							à null s'il ne faut pas mettre d'entêtes.
+		p_NbLignes		Integer.  Le nombre de lignes du tableau.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		p_TypeDonnees	String.  Le type de données de p_Valeurs.  Contient "a" si p_Valeurs contient
+							un array de données, "and" si un array de documents ou "ndc" si une
+							collection de documents.
+-------------------------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	p_NbLignes = 0
+	p_NbColonnes = 1
+	If Isarray(p_Valeurs) Then
+		If DimensionsArray(p_Valeurs) &gt; 1 Then
+			p_NbLignes = Ubound(p_Valeurs, 1) - Lbound(p_Valeurs, 1) + 1
+			p_NbColonnes = Ubound(p_Valeurs, 2) - Lbound(p_Valeurs, 2) + 1
+			p_TypeDonnees = "a"
+		Else
+			If p_Valeurs(Lbound(p_Valeurs)) Isa "NotesDocument" Then
+				If Isarray(p_Formules) Then
+					p_NbLignes = Ubound(p_Valeurs) - Lbound(p_Valeurs) + 1
+					p_NbColonnes = Ubound(p_Formules) - Lbound(p_Formules) + 1
+					p_TypeDonnees = "and"
+				End If
+			Else
+				p_TypeDonnees = "a"
+			End If
+		End If
+	Else
+		If p_Valeurs Isa "NotesDocumentCollection" Then
+			p_NbLignes = p_Valeurs.Count
+			p_NbColonnes = Ubound(p_Formules) - Lbound(p_Formules) + 1
+			p_TypeDonnees = "ndc"
+		Else
+			Exit Sub
+		End If
+	End If
+	
+	' Max 250 lignes de données par tableau
+	' Ligne 251 = "+ + +"
+	If p_NbLignes &gt; 250 Then
+		p_NbLignes = 251
+	End If
+	
+	If p_Entetes Then
+		p_NbLignes = p_NbLignes + 1
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_AjouterMessage"><lotusscript>Sub SICT_AjouterMessage(pnd As Notesdocument, Byval p_Courriel As String, Byval p_Langue As String)
+%REM
+------------------------------------------------------------------------------------------------------------
+ Ajoute le contenu du courriel type (message) à la suite du message du courriel en cous de construction.
+	Paramètres:
+		pnd					NotesDocument.  Le document du courriel auquel il faut ajouter le courriel type.
+		p_Courriel			String.  Le nom du courriel type à utiliser pour construire le message.
+		p_Langue			String.  Le code de la langue du message à envoyer.
+------------------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nrti_Message As NotesRichTextItem
+	Dim nrti_Body As NotesRichTextItem
+	
+	' Initialisations
+	Call SICT_Initialisations
+	
+	' Valider les paramètres
+	' ----------------------
+	If p_Langue = "" Then
+		p_Langue = "FR"
+	End If
+	
+	' Extraire le courriel à envoyer
+	' ------------------------------
+	If Not SICT_ExtraireCourrielType(p_Courriel) Then
+		Exit Sub
+	End If
+	
+	' Construire le corps du message
+	' ------------------------------
+	Set nrti_Message = gnd_SICT.GetFirstItem("SICT_Message" &amp; p_Langue)
+	Set nrti_Body = pnd.GetFirstItem("Body")
+	Call nrti_Body.AppendRTItem(nrti_Message)
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_DefinirCouleurFond"><lotusscript>Sub SICT_DefinirCouleurFond(p_nco As Integer, p_Couleur As Variant)
+%REM
+-------------------------------------------------------------------------------------------------
+ Initialise la variable qui gère la couleur du fond du tableau.
+	Paramètres:
+		p_nco			Integer.  Le type de fond auquel il faut affecter la couleur.
+								0 = Ligne primaire
+								1 = Ligne Alt
+		p_Couleur		Variant.  La couleur du fond des lignes du tableau.  La couleur peut être
+							soit un nombre représentant une couleur Notes ou au array de nombres
+							identifiant une couleur par son code RGB.
+
+ Les couleurs habituellement utilisées sont:
+	Fond blanc :		COLOR_WHITE (1)
+	Fond beige :		Evaluate("236:231:213")
+	Fong bleu :			Evaluate("230:239:244")
+-------------------------------------------------------------------------------------------------
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nco As NotesColorObject
+	
+	Set nco = gns_SICT.CreateColorObject
+	nco.NotesColor = COLOR_WHITE
+	If Isarray(p_Couleur) Then
+		If Ubound(p_Couleur) = 2 Then
+			Call nco.SetRGB(p_Couleur(0), p_Couleur(1), p_Couleur(2))
+		End If
+	Else
+		If Datatype(p_Couleur) = 2 Then
+			nco.NotesColor = p_Couleur
+		End If
+	End If
+	
+	If p_nco = 1 Then	' Alt
+		Set gnco_FondAlt_SICT = nco
+	Else
+		Set gnco_Fond_SICT = nco
+	End If
+	Exit Sub
+	
+GererErreur:
+	If p_nco = 1 Then	' Alt
+		Set gnco_FondAlt_SICT = nco
+	Else
+		Set gnco_Fond_SICT = nco
+	End If
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_InsererCourrielType"><lotusscript>Function SICT_InsererCourrielType(pnuid As NotesUIDocument, pnd As NotesDocument, pl_NomsItems List As String, p_CourrielType As String, p_Langue As String, _
+pnd_Temp As NotesDocument) As Boolean
+	On Error Goto GererErreur
+%REM
+---------------------------------------------------------------------------------
+Insérer un courriel type dans un champ Rich Text (interactif)
+	Paramètres:
+		pnui: 			Document UI dans lequil il faut insérer le courriel type
+		pnd:			Document contenant les données
+		pl_NomsItems : 	Liste des noms d'item de remplacement
+						SendTo, CopyTo, BlindCopyTo, Subject, Body, ReplyTo
+		p_CourrielType:	Nom du courriel type à insérer
+		p_Langue:		Langue du courriel
+		pnd_Temp:		Courriel type après les remplacements de signets (OUTPUT)
+---------------------------------------------------------------------------------
+%ENDREM
+	Dim nd_Temp As NotesDocument
+	Dim v_Sujet As String ' Nom du champ contenant le sujet du courriel type
+	Dim v_Message As String ' Nom du champ contenant le corps du message du courriel type
+	Dim nrti As NotesRichTextItem
+	
+	' Nom des champs du courriel type standard
+	Const c_EnvoyerA = "SICT_Destinataires"
+	Const c_CC = "SICT_CC"
+	Const c_BCC = "SICT_BCC"
+	Const c_RepondreA = "SICT_RepondreA"
+	
+	SICT_InsererCourrielType = False
+	
+	Set gnd_SICT = xndSICT(p_CourrielType, True)
+	
+	Set nd_Temp = SITp_ndTemp(p_CourrielType)  ' Courriel type temporaire
+	If nd_Temp Is Nothing Then
+		Msgbox "Impossible de créer le document temporaire.", 16, "ERREUR"
+		Exit Function
+	End If
+	Call gnd_SICT.Copyallitems(nd_Temp, True)
+'	Call nd_Temp.Save(True, False)
+	
+	If p_Langue = "EN" Then
+		If xVar(nd_Temp, "SICT_ObjetEN", "") = "" Then
+			nd_Temp.SICT_ObjetEN = xVar(nd_Temp, "SICT_ObjetFR", "")
+			Call nd_Temp.RemoveItem("SICT_MessageEN")
+			Set nrti = nd_Temp.GetFirstItem("SICT_MessageFR")
+			Call nd_Temp.CopyItem(nrti, "SICT_MessageEN")
+		End If
+	Elseif p_Langue &lt;&gt; "FR" Then
+		p_Langue = "FR"
+	End If
+	
+	v_Sujet = "SICT_Objet" &amp; p_Langue  ' Nom du champ objet
+	v_Message = "SICT_Message" &amp; p_Langue
+	If SICT_RemplacerSignetsCT(pnd, nd_Temp, v_Message, v_Sujet, c_EnvoyerA, c_CC, c_BCC, c_RepondreA, "" ) Then
+		Call nd_Temp.Save(True,False)
+		
+		If Iselement(pl_NomsItems("SendTo")) Then
+			Call SIIx_AppendItemValue(pnuid.Document, "SendTo", xVar(nd_Temp, c_EnvoyerA, ""))
+		End If
+		If Iselement(pl_NomsItems("CopyTo")) Then
+			Call SIIx_AppendItemValue(pnuid.Document, "CopyTo", xVar(nd_Temp, c_EnvoyerA, ""))
+		End If
+		If Iselement(pl_NomsItems("BlindCopyTo")) Then
+			Call SIIx_AppendItemValue(pnuid.Document, "BlindCopyTo", xVar(nd_Temp, c_EnvoyerA, ""))
+		End If
+		If Iselement(pl_NomsItems("ReplyTo")) Then
+			Call SIIx_AppendItemValue(pnuid.Document, "ReplyTo", xVar(nd_Temp, c_EnvoyerA, ""))
+		End If
+		
+		' MAJ des champs du courriel Type
+		If Iselement(pl_NomsItems("Subject")) Then
+			Call pnuid.Document.ReplaceItemValue(pl_NomsItems("Subject"), xVar(nd_Temp, v_Sujet, ""))
+'			Call pnuid.FieldSetText(p_SujetUI, xVar(nd_Temp, v_Sujet, ""))
+		End If
+		
+		' MAJ du champ RichText
+		If Iselement(pl_NomsItems("Body")) Then
+			If SItRT_InsererRichTextUI(pnuid, pl_NomsItems("Body"), "", nd_Temp.Parentdatabase.Server, _
+			nd_Temp.Parentdatabase.Replicaid, nd_Temp.Universalid, "SICT_Message" &amp; p_Langue) Then
+'			Print "Message ajouté au 'Richtext'."
+			Else
+				Msgbox "Impossible d'ajouter le message du courriel type au champ RichText.", 16, "ERREUR"
+			End If
+		End If
+		
+		Set pnd_Temp = nd_Temp
+		SICT_InsererCourrielType = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), p_CourrielType &amp; " (" &amp; xVar(pnd, "Form", "") &amp; " / " &amp; xVar(pnd, "Cle", "") &amp; ")", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICT_AjouterDonnees_and"><lotusscript>Sub SICT_AjouterDonnees_and(p_Valeurs As Variant, p_Formules As Variant, pnrts As NotesRichTextStyle, pnrti As NotesRichTextItem, _
+	pnrtn As NotesRichTextNavigator, p_NbColonnes As Integer, p_Cellule As Long)
+	%REM
+--------------------------------------------------------------------------------------------------
+ Ajoute les données dans le tableau - source = array de documents.
+	Paramètres:
+		p_Valeurs		Variant.  Les valeurs qui doivent être ajoutées dans le tableau.
+		p_Formules		Variant.  Pour chaque colonne, la formule permettant de calculer la valeur
+							à mettre dans la case du tableau.
+		panrts			NotesRichTextStyle.  Le format du texts à insérer dans le tableau.
+		panrti			NotesRichTextItem.  L'item qui contient le tableau (body).
+		panrtn			NotesRichTextNavigator.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		p_Cellule		Long.  Compteur du nombre de cellules d'un courriel.
+--------------------------------------------------------------------------------------------------
+	%ENDREM
+	On Error Goto GererErreur
+	
+	Dim v_NbLignes As Integer
+	Dim nd As Notesdocument
+	Dim a_Valeur As Variant
+	
+	Dim i As Integer
+	Dim j As Integer
+	Dim k As Integer
+	Dim v_NotesURL As String
+	
+	For k = Lbound(p_Valeurs) To Ubound(p_Valeurs)
+		' Max 250 lignes par tableau
+		v_NbLignes = v_NbLignes + 1
+		If v_NbLignes &gt; 250 Then
+			' Ligne 251 = "+ + +"
+			Call SICT_AjouterLigne251(pnrts, pnrti, pnrtn, p_NbColonnes, p_Cellule)
+			Exit Sub
+		End If
+		
+		If p_Valeurs(k) Isa "NotesDocument" Then
+			Set nd = p_Valeurs(k)
+			j = Lbound(p_Formules)
+			
+			For i = 1 To p_NbColonnes
+				p_Cellule = p_Cellule + 1
+				
+				If j &lt;= Ubound(p_Formules) Then
+					a_Valeur = Evaluate(p_Formules(j), nd)
+					If Isarray(a_Valeur) Then
+						Call pnrtn.FindNthElement(RTELEM_TYPE_TABLECELL, p_Cellule)
+						Call pnrti.BeginInsert(pnrtn)
+						Call pnrti.AppendStyle(pnrts)
+						Call pnrti.AppendText(Cstr(a_Valeur(0)))
+						Call pnrti.EndInsert
+					End If
+				End If
+				
+				j = j + 1
+			Next
+			
+			v_NotesURL = SIND_NotesURL(nd)		' lien URL du document
+			
+			Call SItRT_RemplacerDocLink(pnrti, "[#doclink]", nd)
+			Call SItRT_RemplacerDocLink(pnrti, "[#databaselink]", nd.ParentDatabase)
+			Call SItRT_Remplacer(pnrti, "[#noteslink]", v_NotesURL)								' Ouvrir le lien en mode lecture
+			Call SItRT_Remplacer(pnrti, "[#editlink]", v_NotesURL &amp; "?EditDocument")		' Ouvrir le lien en mode écriture
+			
+		Else
+			p_Cellule = p_Cellule + p_NbColonnes
+		End If
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICT_FormatTableau"><lotusscript>Sub SICT_FormatTableau(p_LargeurColonnes As Variant, p_NbColonnes As Integer, panrtps() As NotesRichTextParagraphStyle)
+%REM
+------------------------------------------------------------------------------------------------------------------------------	
+ Créé le tableau qui contient le format de chaque colonne (NotesRichTextParagraphStyle).
+	Paramètres:
+		p_LargeurColonnes	Varient.  Doit contenir un array de Double. Chaque élément contient 
+								la largeur de la colonne correspondante, en cm.
+		p_NbColonnes	Integer.  Le nombre de colonnes du tableau.
+		panrtps				Array de NotesRichTextParagraphStyles.  Le format des colonnes tu tableau.
+------------------------------------------------------------------------------------------------------------------------------	
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim a_LargeurColonnes() As Double
+	Dim v_LargeurTableau As Double
+	Dim v_LargeurCOlonnes As Double
+	Dim i As Integer
+	Dim j As Integer
+	
+	Const c_LargeurColonneMinimum = 2
+	v_LargeurTableau = 24
+	
+	' Construit l'array de toutes les largeurs de colonne
+	Redim a_LargeurColonnes(1 To p_NbColonnes) As Double
+	
+	i = 1
+	If Isarray(p_LargeurColonnes) Then
+		For j = LBound(p_LargeurColonnes) To LBound(p_LargeurColonnes) + p_NbColonnes - 1
+
+			a_LargeurColonnes(i) = p_LargeurColonnes(j)
+			i = i + 1
+			v_LargeurTableau = v_LargeurTableau - p_LargeurColonnes(j)
+		Next
+	Else
+		If p_LargeurColonnes &lt;&gt; "" Then
+			If Isnumeric(p_LargeurColonnes) Then
+				a_LargeurColonnes(i) = Cdbl(p_LargeurColonnes)
+				i = i + 1
+				v_LargeurTableau = v_LargeurTableau - Cdbl(p_LargeurColonnes)
+			End If
+		End If
+	End If
+	
+	If i &lt;= p_NbColonnes Then
+		v_LargeurColonnes = Round(v_LargeurTableau / (p_NbColonnes - i + 1), 1)
+		If v_LargeurColonnes &lt; c_LargeurColonneMinimum Then
+			v_LargeurColonnes = c_LargeurColonneMinimum
+		End If
+		For j = i To p_NbColonnes
+			a_LargeurColonnes(i) = v_LargeurColonnes
+		Next
+	End If
+	
+	' Copnstruit l'array de NotesRichTextParagraphStyles
+	Redim panrtps(1 To p_NbColonnes) As NotesRichTextParagraphStyle
+	For i = 1 To p_NbColonnes
+		Set panrtps(i) = gns_SICT.CreateRichTextParagraphStyle
+		panrtps(i).LeftMargin = 0.199 * RULER_ONE_CENTIMETER
+		panrtps(i).FirstLineLeftMargin = 0.199 * RULER_ONE_CENTIMETER
+		panrtps(i).RightMargin = a_LargeurColonnes(i) * RULER_ONE_CENTIMETER
+	Next
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), "", False)
+	Exit Sub	
+End Sub
+
+</lotusscript></code><code event="SICT_RemplacerSignetCT"><lotusscript>Function SICT_RemplacerSignetCT(pnd_Courriel As NotesDocument, p_MSG_RText As String, p_Signet As String, p_Valeur As String) As Boolean
+%REM
+---------------------------------------------------------------------------------------------------------
+ Construire le document du courriel à partir du courriel type.  Le document n'est pas envoyé.
+	Paramètres:
+		pnd					NotesDocument.  Le document qui contient les données qui seront
+								substituées aux signets.  Si nothing alors il n'y a pas de substitutions.
+		p_MSG_RText	Nom du champ RicheText qui contient le message (ie : "Body")
+		p_Signet			String.  Le nom du signet qui indique l'emplacement ou il faut
+								insérer la valeur.
+		p_Valeur			La valeur qui sera insérée à la place du signet.
+---------------------------------------------------------------------------------------------------------
+%END REM
+	On Error Goto GererErreur
+	
+	Dim nrti_Body As NotesRichTextItem
+	
+	' Initialisations
+	SICT_RemplacerSignetCT = False
+	Call SICT_Initialisations
+	
+	Set nrti_Body = pnd_Courriel.GetFirstItem(p_MSG_RText)
+	Call SItRT_Remplacer(nrti_Body, p_Signet, p_Valeur)
+	
+	SICT_RemplacerSignetCT = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICT, gc_Element_SICT, Getthreadinfo(1), xVar(pnd_Courriel, "SICT_Nom", "") &amp; " S:" &amp; p_Signet, False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073639,89-05</datetime></item></scriptlibrary>
+
+</database>

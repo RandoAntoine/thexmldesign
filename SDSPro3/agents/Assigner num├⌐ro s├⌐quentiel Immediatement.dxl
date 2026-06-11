@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Assigner numéro séquentiel Immediatement" alias="A_ANSImed" hide="v3" publicaccess="false" designerversion="8.5.3" comment="** TOUJOURS ACTIVER **" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" restrictions="unrestricted" activatable="false">
+<noteinfo noteid="55582e" unid="D17255B977F57AA38525884E005F3E30" sequence="26">
+<created><datetime dst="true">20220526T132018,40-04</datetime></created>
+<modified><datetime>20260116T124207,18-05</datetime></modified>
+<revised><datetime>20260116T124207,17-05</datetime></revised>
+<lastaccessed><datetime>20260116T124207,17-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,85-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Kilo/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Kilo/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073737,37-05</datetime></designchange>
+<trigger type="docupdate">
+<schedule type="automatic" runlocation="specific" runserver="CN=Kilo/O=Serti Informatique"/></trigger><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "SDSP_Proposition"
+Use "SI_CompteurSequentiel"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_A As NotesSession
+Dim gndb_A As NotesDatabase
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_ANSImed"
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	'==============================================================================
+	' Le script assign le numéro séquentiel au propositions
+	'==============================================================================
+	On Error GoTo GererErreur
+	
+	Dim na As NotesAgent
+		
+	' Initialisations
+	Print "Début - A_ANSImed"
+	Call A_Initialisations
+	
+	Set na = gndb_A.GetAgent("A_ANSeq")	
+	
+	Call na.Runonserver
+	
+	Print "Fin - A_ANSImed"
+		
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Sub	
+End Sub
+
+</lotusscript></code><code event="A_Initialisations"><lotusscript>Sub A_Initialisations
+	If gns_A Is Nothing Then
+		Set gns_A = New NotesSession
+		Set gndb_A = gns_A.Currentdatabase
+	End If
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0" agentdata="88A4C34D8F956F6885258D810061C377">
+<agentmodified><datetime>20260116T124207,18-05</datetime></agentmodified>
+<agentrun><datetime dst="true">20260407T151401,81-04</datetime></agentrun>
+<runlog>Started running agent 'Assigner numéro séquentiel Immediatement|A_ANSImed' on 2026-04-07 03:12:25 PM
+Running on new or modified documents: 1059259 total
+Found 1059259 document(s) that match search criteria
+Ran LotusScript code
+Done running agent 'Assigner numéro séquentiel Immediatement|A_ANSImed' on 2026-04-07 03:14:01 PM
+</runlog></rundata>
+<item name="$POID"><datetime>20250319T073737,82-05</datetime></item></agent>
+
+</database>

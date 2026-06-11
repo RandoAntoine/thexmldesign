@@ -1,0 +1,933 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Admin\Profil" alias="F_Prof" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" comment="4.0c" conflictaction="mergeconflicts">
+<noteinfo noteid="51548a" unid="2E8724D0408A424685258C9F004DB4BA" sequence="743">
+<created><datetime dst="true">20250604T100845,38-04</datetime></created>
+<modified><datetime dst="true">20250604T100907,44-04</datetime></modified>
+<revised><datetime dst="true">20250604T100845,81-04</datetime></revised>
+<lastaccessed><datetime dst="true">20250604T100907,43-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20250604T100907,43-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Explicit
+</lotusscript></code></globals><code event="windowtitle"><formula>"Paramètres"</formula></code>
+<actionbar borderstyle="none" useappletinbrowser="true" bgcolor="silver" bordercolor="#2f2f2f"><actionbarstyle height="31px" repeat="resize"><imageref name="bg_Actions"/></actionbarstyle>
+<actionbuttonstyle bgcolor="none"/><font size="8pt"/><border/></actionbar>
+<background allowoverride="false"/>
+<body><richtext>
+<pardef id="1" leftmargin="1in" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_ServeurSDSBB"/></run><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_FichierSDSBB"/></run><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_ServeurSIRR"/></run><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_FichierSIRR"/></run><run><font size="8pt" color="red"/></run></par>
+<par def="1"><run><font size="8pt" color="red"/>Identificateurs : </run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Form"><code event="defaultvalue"><formula>"F_Prof"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" style="bold underline" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>""</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="18" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>""</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="27" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Titre"><code event="defaultvalue"><formula>"Paramètres de l'application"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="36" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run></par>
+<pardef id="2" leftmargin="1in" rightmargin="100%" hide="notes web mobile"/><subformref name="Entete | SF_Ente"/>
+<pardef id="3" leftmargin="1in" rightmargin="100%"/>
+<par def="3"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" rightmargin="100%" refwidth="10.6875in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="4" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="4"><run><font size="9pt"/>Application :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="5" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>!@IsNewDoc</formula></code></pardef>
+<par def="5"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="6" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/></run><run><font size="9pt"/><computedtext><code event="value"><formula>@DbTitle</formula></code></computedtext></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="7" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="9pt"/>Serveur principal :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="8" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/></run><run><font size="9pt"/><field choicesdialog="addressbook" lookupeachchar="false" lookupaddressonrefresh="false" type="names" kind="editable" name="Prof_Serveur" description="Serveur sur lequel les agents sont exécutés."/></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="10" hide="notes web mobile"/>
+<par def="10"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" refwidth="10.6875in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Sécurité :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="12" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="Prof_RepliqueLocale" description="Serveur sur lequel les agents sont exécutés." listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" columns="1" ui="checkbox"><textlist><text>Autoriser les répliques locales|1</text></textlist></keywords></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="13" keepwithnext="true" keeptogether="true"/>
+<par def="13"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="14" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="9pt"/>Champ maj (réplication) :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="15" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="15"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="16" keepwithnext="true" keeptogether="true"/>
+<par def="16"><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="1.9688in" alignwithparagraph="true" multiline="true" borderstyle="single" type="text" kind="editable" name="Prof_ChampMaj"/></run></par></tablecell></tablerow></table>
+<pardef id="17"/>
+<par def="17"><run><font size="9pt"/></run></par>
+<table widthtype="fitwindow" minrowheight="0.0396in" rowdisplay="tabs" firsttabindent="25px" leftmargin="0.7500in" rightmargin="100%" refwidth="11.1861in"><tablerowstyle><font size="8pt" style="bold" color="#104160"/></tablerowstyle><tablecolumn width="100%"/>
+<tablerow tablabel="Général">
+<tablecell>
+<pardef id="19" leftmargin="0.2500in" keepwithnext="true" keeptogether="true"/>
+<par def="19"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<pardef id="21" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="21"><run><font size="8pt" style="bold" color="maroon"/>Directeurs</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="22" align="right" rightmargin="0.1500in" keepwithnext="true" keeptogether="true"/>
+<par def="22"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="23" leftmargin="0.0785in" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="23"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="24" keepwithnext="true" keeptogether="true"/>
+<par def="24"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="25" keepwithnext="true" keeptogether="true"/>
+<par def="25"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="26" keepwithnext="true" keeptogether="true"/>
+<par def="26"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6014in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="27" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="27"><run><font size="9pt"/>Directeur mondial :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="28" keepwithnext="true" keeptogether="true"/>
+<par def="28"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="29" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="29"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" cellbordercolor="gray" leftmargin="0" refwidth="3.4736in"><tablecolumn width="0.5903in"/><tablecolumn width="0.9840in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="31" keepwithnext="true" keeptogether="true"/>
+<par def="31"><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="Profi_NoDirecteur_M"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="32" hide="read print preview" keepwithnext="true" keeptogether="true"/>
+<par def="32"><run><font size="9pt"/></run><actionhotspot hotspotstyle="none"><code event="click"><formula>v_Code := @PickList( [Custom] : [Single] ; "" ; "V_Repr18"; "Directeurs"; "Veuillez sélectionner la directeur mondial à utiliser."; 3; "60");
+@If(@IsError(v_Code) ; @Return(""); "");
+@SetField("Prof_NoDirecteur_M"; v_Code);
+@Command([ViewRefreshFields])</formula></code><run><font size="9pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Loupe"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/> </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_NoDirecteur_M"; "");
+@Command([ViewRefreshFields])</formula></code><run><font size="9pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="hs_Croix"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="33" keepwithnext="true" keeptogether="true"/>
+<par def="33"><run><font size="9pt" color="maroon"/><field showdelimiters="false" type="text" kind="computed" name="Comm_NomDirecteur_M"><code event="defaultvalue"><formula>@DbLookup(""; SF_ServeurSIRR : SF_FichierSIRR; "V_Repr20"; Prof_NoDirecteur_M; 2; [FailSilent])</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="34" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prop_ClientNom = Clie_ClientNom</formula></code></pardef>
+<par def="34"><run><font size="1pt"/></run></par>
+<par def="29"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="35" keepwithnext="true" keeptogether="true"/>
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="36" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="37" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="37"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="38" keepwithnext="true" keeptogether="true"/>
+<par def="38"><run><font size="3pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Destinataire courriels :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="39" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="39"><run><font size="9pt"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="40" keepwithnext="true" keeptogether="true"/>
+<par def="40"><run><font size="9pt"/></run><run><font size="9pt"/><field choicesdialog="addressbook" lookupeachchar="true" lookupaddressonrefresh="false" type="names" allowmultivalues="true" kind="editable" name="Prof_DirecteurDestinataire" listinputseparators="comma newline" listdisplayseparator="newline"><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue); @Failure("Le destinataire est obligatoire.");@Success)</formula></code></field></run><run><font size="9pt"/></run></par>
+<par def="40"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt" color="fuchsia"/>Commissions directeur :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt" color="fuchsia"/></run><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture><run><font size="9pt" color="fuchsia"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt" color="fuchsia"/></run><run><font size="9pt" color="fuchsia"/><field usenotesstyle="false" height="0.2340in" width="1in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="Prof_DirCommissionsDir"><keywords helperbutton="false" recalcchoices="true" columns="2" ui="combobox"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Comm22"; "0"; 2); "")</formula></keywords><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue); @Failure("La table des commissions du directeur est obligatoire."); @Success)</formula></code></field></run><run><font size="9pt" color="fuchsia"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<par def="21"><run><font size="8pt" style="bold" color="maroon"/>Modification</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<par def="22"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<par def="23"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="24"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="25"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="26"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6014in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Ecart de valeur toléré :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="39"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" usenotesstyle="false" height="0.2028in" width="1in" multiline="true" borderstyle="single" type="number" kind="editable" name="Prof_EcartTolere"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>0</formula></code><code event="inputtranslation"><formula>@If(Prof_EcartTolere = ""; 0; @Abs(Prof_EcartTolere))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Ecart de valeur toléré mensuel LG :</run></par>
+<par def="7"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field showdelimiters="false" usenotesstyle="false" height="0.2028in" width="1in" multiline="true" borderstyle="single" type="number" kind="editable" name="Prof_EcartTolereMensuelLG"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>0</formula></code><code event="inputtranslation"><formula>@If(@ThisValue = ""; 0; @Abs(@ThisValue))</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="41" keepwithnext="true" keeptogether="true"/>
+<par def="41"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="42" keepwithnext="true" keeptogether="true"/>
+<par def="42"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Purge des propositions :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" alignwithparagraph="true" multiline="true" borderstyle="single" type="number" kind="editable" name="Prof_PurgerPropositions"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>12</formula></code></field></run><run><font size="9pt"/> mois</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="41"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="42"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="19"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="43" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="43"><run><font size="8pt" style="bold" color="maroon"/>Importation CS</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="44" keepwithnext="true" keeptogether="true"/>
+<par def="44"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6007in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Ne pas importer </run><run><font size="9pt"/>de SDS Contrats de service :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="45" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="45"><run><font size="9pt" color="red"/>&lt;Ca</run><run><font size="9pt" color="red"/>c</run><run><font size="9pt" color="red"/>hé</run><run><font size="9pt" color="red"/>&gt;</run></par>
+<table widthtype="fitmargins" leftmargin="0" refwidth="8.8486in"><tablecolumn width="1.6139in"/><tablecolumn width="7.2347in" sizetofit="true"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="47" keepwithnext="true" keeptogether="true"/>
+<par def="47"><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="editable" name="Prof_CleProduit_NePasImporter" listinputseparators="newline" listdisplayseparator="newline"/></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata>  </par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="48" keepwithnext="true" keeptogether="true"/>
+<par def="48"><run><font size="9pt"/></run><run><font size="9pt" color="maroon"/><computedtext><code event="value"><formula>v_Cle := Prof_CleProduit_NePasImporter;
+
+@Implode(
+@If(@IsNull(v_Cle); "";  @Replace(v_Cle; v_Cle;@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB;"V_Prod20"; v_Cle; 4;[FailSilent]) + " (" +  @Replace(v_Cle; v_Cle;@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB;"V_Prod20"; v_Cle; 3;[FailSilent])) + ")"))
+;@NewLine)</formula></code></computedtext></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="45"><run><font size="9pt" color="red"/>&lt;Cac</run><run><font size="9pt" color="red"/>hé&gt;</run></par></tablecell></tablerow></table>
+<par def="19"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="43"><run><font size="8pt" style="bold" color="maroon"/>Génération commande</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="44"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6007in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Escompte :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="45"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" leftmargin="0" refwidth="8.8486in"><tablecolumn width="1.6139in"/><tablecolumn width="7.2347in" sizetofit="true"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="47"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.5750in" multiline="true" borderstyle="single" type="text" kind="editable" name="Prof_CleProduit_Escompte"/></run>  </par></tablecell>
+<tablecell borderwidth="0px">
+<par def="48"><run><font size="9pt"/></run><run><font size="9pt" color="maroon"/><computedtext><code event="value"><formula>v_Cle := Prof_CleProduit_Escompte;
+
+@Implode(
+@If(@IsNull(v_Cle); "";  @Replace(v_Cle; v_Cle;@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB;"V_Prod20"; v_Cle; 4;[FailSilent]) + " (" +  @Replace(v_Cle; v_Cle;@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB;"V_Prod20"; v_Cle; 3;[FailSilent])) + ")"))
+;@NewLine)</formula></code></computedtext></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="45"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par></tablecell></tablerow></table>
+<par def="19"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="43"><run><font size="8pt" style="bold" color="maroon"/>Bon de Travail</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="44"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6007in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Crée BT installation à venir si date installation &gt; :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="50" keepwithnext="true" keeptogether="true"/>
+<par def="50"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" alignwithparagraph="true" multiline="true" borderstyle="single" type="number" kind="editable" name="Prof_NbSemaineInstallationBT"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/></field></run><run><font size="9pt"/> semaines</run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="43"><run><font size="8pt" style="bold" color="maroon"/>Impression</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="44"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6014in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Signataire :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field choicesdialog="addressbook" lookupeachchar="true" lookupaddressonrefresh="false" type="names" allowmultivalues="true" kind="editable" name="Prof_Signataire" listinputseparators="comma newline" listdisplayseparator="newline"><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue); @Failure("Le destinataire est obligatoire.");@Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/>l</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="42"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Titre signataire français :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="2.3625in" multiline="true" borderstyle="single" type="text" kind="editable" name="Prof_TitreSignataireFR"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="41"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="42"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Titre signataire anglais :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="2.3625in" multiline="true" borderstyle="single" type="text" kind="editable" name="Prof_TitreSignataireEN"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="41"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="42"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Contrat requis si valeur &gt;=</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="39"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field showdelimiters="false" usenotesstyle="false" height="0.2028in" width="1in" multiline="true" borderstyle="single" type="number" kind="editable" name="Prof_ContratValeur"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"/></tablecell></tablerow></table>
+<par def="19"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="1.5750in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<par def="7"><run><font size="8pt" style="bold" color="maroon"/>Financement</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<par def="8"><run><font size="9pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="51" leftmargin="0" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="51"><run><font size="9pt" color="maroon"/>Borne supérieure</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="52" leftmargin="0" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="52"><run><font size="9pt" color="maroon"/>Facteur de crédit-bail</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="53" keepwithnext="true" keeptogether="true"/>
+<par def="53"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="8"><run><font size="1pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="54" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="54"><run><font size="1pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="55" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="55"><run><font size="1pt" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table minrowheight="0.2361in" leftmargin="0.2500in" widthtype="fixedleft" refwidth="5.4139in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="1.5750in"/><tablecolumn width="2.0868in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="56" leftmargin="0.0785in" tabs="L3.1493in" keepwithnext="true" keeptogether="true"/>
+<par def="56"><run><font size="9pt"/>Taux de financement :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="57" keepwithnext="true" keeptogether="true"/>
+<par def="57"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" allowmultivalues="true" kind="editable" name="Prof_BorneTaux" listinputseparators="newline" listdisplayseparator="newline"><numberformat format="fixed" punctuated="false" parens="false" percent="false" bytes="false"/></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="58" keepwithnext="true" keeptogether="true"/>
+<par def="58"><run><font size="9pt"/></run><run><font size="9pt"/><field type="number" allowmultivalues="true" kind="editable" name="Prof_ListeTaux" listinputseparators="newline" listdisplayseparator="newline"><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(Prof_BorneTaux != "" &amp; @Elements(Prof_ListeTaux) != @Elements(Prof_BorneTaux); @Failure("Le nombre de bornes doit correspondre au nombre de facteurs de crédit-bail."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="1.5750in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<par def="7"><run><font size="8pt" style="bold" color="maroon"/>Résumé</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="59" leftmargin="0" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="59"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="60" leftmargin="0" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="60"><run><font size="8pt" style="bold" color="maroon"/>Trimestriel</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="61" leftmargin="0" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="61"><run><font size="8pt" style="bold" color="maroon"/>Mensuel</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="62" leftmargin="0" rightmargin="100%" keepwithnext="true" keeptogether="true"/>
+<par def="62"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="53"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="63" keepwithnext="true" keeptogether="true"/>
+<par def="63"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="64" keepwithnext="true" keeptogether="true"/>
+<par def="64"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="65" keepwithnext="true" keeptogether="true"/>
+<par def="65"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="66" keepwithnext="true" keeptogether="true"/>
+<par def="66"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2563in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6007in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="1.5750in"/><tablecolumn width="1.5750in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Taux de majoration EQ :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="67" keepwithnext="true" keeptogether="true"/>
+<par def="67"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="0.4722in" borderstyle="single" type="number" kind="editable" name="Prof_EQMajoTrim"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputtranslation"><formula>@If(@IsNull(@ThisValue); 1; @ThisValue)</formula></code><code event="inputvalidation"><formula>@If(@ThisValue &lt; 1 | @ThisValue &gt; 2; @Failure("Le taus de majoration est invalide."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="68" keepwithnext="true" keeptogether="true"/>
+<par def="68"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="0.4722in" borderstyle="single" type="number" kind="editable" name="Prof_EQMajoMens"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputtranslation"><formula>@If(@IsNull(@ThisValue); 1; @ThisValue)</formula></code><code event="inputvalidation"><formula>@If(@ThisValue &lt; 1 | @ThisValue &gt; 2; @Failure("Le taus de majoration est invalide."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="69" keepwithnext="true" keeptogether="true"/>
+<par def="69"><run><font size="9pt" color="maroon"/>1.15 = 15%</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Taux de majoration LG :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="39"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="67"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="0.4722in" borderstyle="single" type="number" kind="editable" name="Prof_LGMajoTrim"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputtranslation"><formula>@If(@IsNull(@ThisValue); 1; @ThisValue)</formula></code><code event="inputvalidation"><formula>@If(@ThisValue &lt; 1 | @ThisValue &gt; 2; @Failure("Le taus de majoration est invalide."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="68"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="0.4722in" borderstyle="single" type="number" kind="editable" name="Prof_LGMajoMens"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputtranslation"><formula>@If(@IsNull(@ThisValue); 1; @ThisValue)</formula></code><code event="inputvalidation"><formula>@If(@ThisValue &lt; 1 | @ThisValue &gt; 2; @Failure("Le taus de majoration est invalide."); @Success)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="69"><run><font size="9pt" color="maroon"/>1.15 = 15%</run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="43"><run><font size="8pt" style="bold" color="maroon"/>Escompte</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="44"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6014in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Escompte logiciels :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="39"><picture width="12px" height="16px" scaledheight="0.1667in" scaledwidth="0.1250in"><imageref name="img_Obligatoire"/></picture></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field showdelimiters="false" usenotesstyle="false" height="0.2028in" width="0.4722in" alignwithparagraph="true" multiline="true" borderstyle="single" type="number" kind="editable" name="Prof_PourcentEscompteLG"><numberformat format="fixed" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputvalidation"><formula>@If(@ThisValue = "" | @ThisValue &lt; 1 | @ThisValue &gt; 100; @Failure("Le pourcent d'escompte des logiciels est invalide."); @Success)</formula></code></field></run><run><font size="9pt"/> %</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"/></tablecell></tablerow></table>
+<par def="19"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="70" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="70"><run><font size="8pt" style="bold" color="maroon"/>Log</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="44"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6014in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Mail-in database :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="1.9688in" alignwithparagraph="true" multiline="true" borderstyle="single" type="text" kind="editable" name="Prof_MiLogSDSP3"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="42"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Log des produits :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="Prof_LogProduits"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"><textlist><text>Oui | 1</text><text>Non | 0</text></textlist></keywords><code event="defaultvalue"><formula>"0"</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="42"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<par def="21"><run><font size="8pt" style="bold" color="maroon"/>Bon de commande</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<par def="22"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<par def="23"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="24"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="25"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="26"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6014in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Type document signé :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="39"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" usenotesstyle="false" height="0.2028in" width="0.3938in" multiline="true" borderstyle="single" type="text" kind="editable" name="Prof_TypeDocumentSigne"/></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="19"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<par def="21"><run><font size="8pt" style="bold" color="maroon"/>Contrat</run></par></tablecell>
+<tablecell borderwidth="1px 0px 0px" bgcolor="#e6eff4">
+<par def="22"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<par def="23"><run><font size="8pt" style="bold" color="maroon"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="24"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="25"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="26"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6014in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Taux contrat :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="39"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="40"><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="0.4722in" borderstyle="single" type="number" kind="editable" name="Prof_TauxContrat"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputtranslation"><formula>@If(@IsNull(@ThisValue); 5; @ThisValue)</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="35"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/>Durée contrat :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1.8889in" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="Prop_ContratDuree"><keywords helperbutton="false" recalconchange="true" columns="1" ui="combobox"><formula>@DbLookup("":"";SF_ServeurSDSBB : SF_FichierSDSBB;"V_Tabl20";"Prop_ContDuree_FR"; 6;[FailSilent])</formula></keywords></field></run></par></tablecell></tablerow></table>
+<par def="19"/>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<par def="43"><run><font size="8pt" style="bold" color="maroon"/>Salesforce</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<par def="44"><run><font size="1pt" style="bold" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6007in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Profil de connexion :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="39"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="50"><run><font size="9pt"/><field type="text" kind="editable" name="Prof_NomProfilSalesforceAPI"/></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Url pour lien Salesforce :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="71" rightmargin="6.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="71"><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="100%" alignwithparagraph="true" borderstyle="single" type="text" kind="editable" name="Prof_KLSFUrl"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Priscebook Id :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="50"><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="1.9688in" alignwithparagraph="true" borderstyle="single" type="text" kind="editable" name="Prof_IdPricebookSF"/></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Soutien:</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="50"><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="Prof_DesactiverSalesforceAPI" listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" recalconchange="true" columns="2" ui="checkbox"><textlist><text>Désactiver l'API|1</text></textlist></keywords><code event="defaultvalue"><formula>"0"</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow tablabel="Thème">
+<tablecell>
+<par def="19"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" rightmargin="97%" refwidth="10.5903in"><tablecolumn width="1.7521in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 0px 0px 1px" bgcolor="#e6eff4">
+<pardef id="72" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="72"><run><font size="8pt" style="bold" color="maroon"/>Thème</run></par></tablecell>
+<tablecell borderwidth="1px 1px 0px 0px" bgcolor="#e6eff4">
+<pardef id="73" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="73"><run><font size="8pt" color="maroon"/>Defaut = Bleu, Ventes = Turquoise, SDS = Jaune, SRS = Bourgogne, SSI = Vert , Test = Rose</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="74" keepwithnext="true" keeptogether="true"/>
+<par def="74"><run><font size="1pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="75" keepwithnext="true" keeptogether="true"/>
+<par def="75"><run><font size="1pt" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="19"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6007in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="4"><run><font size="9pt"/>Couleur bannière :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="76" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="76"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="77" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="77"><run><font size="9pt" color="red"/><field defaultfocus="true" usenotesstyle="false" height="0.2340in" width="1in" multiline="true" borderstyle="single" type="text" allowmultivalues="true" kind="computedfordisplay" name="Prof_ThemeCouleurs_1" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>"Bleu|BL":"Bourgogne|BG":"Jaune|JN":"Noir|NR":"Orange CPA|OCPA":"Turquoise|TQ":"Vert|VT":"Bleu CPA|BCPA"</formula></code></field></run></par>
+<pardef id="78" keepwithnext="true" keeptogether="true"/>
+<par def="78"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="Prof_ThemeCouleurBanniere"><keywords helperbutton="false" recalconchange="true" columns="5" ui="combobox" allownew="true"><formula>Prof_ThemeCouleurs_1</formula></keywords></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="79" keepwithnext="true" keeptogether="true"/>
+<par def="79"><run><font size="9pt"/></run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurBanniere"; "BL")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px"><imageref name="Couleur_Bleu|cl_BL"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurBanniere"; "BG")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="Couleur_Bourgogne|cl_BG"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurBanniere"; "JN")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px"><imageref name="Couleur_Jaune|cl_JN"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurBanniere"; "TQ")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px"><imageref name="Couleur_Turquoise|cl_TQ"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurBanniere"; "VT")</formula></code><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="Couleur_Vert|cl_VT"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurBanniere"; "OCPA")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="cl_OCPA"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurBanniere"; "BCPA")</formula></code><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="Couleur_BleuCPA|cl_BCPA"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurBanniere"; "RS")</formula></code><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="Couleur_Rose|cl_RS"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Couleur accent :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="80" keepwithnext="true" keeptogether="true"/>
+<par def="80"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="1in" multiline="true" borderstyle="single" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" kind="editable" name="Prof_ThemeCouleurAccent"><keywords helperbutton="false" recalconchange="true" columns="5" ui="combobox" allownew="true"><formula>Prof_ThemeCouleurs_1</formula></keywords></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="79"><run><font size="9pt"/></run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurAccent"; "BL")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="Couleur_Bleu|cl_BL"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurAccent"; "BG")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="Couleur_Bourgogne|cl_BG"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurAccent"; "JN")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="Couleur_Jaune|cl_JN"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurAccent"; "TQ")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="Couleur_Turquoise|cl_TQ"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurAccent"; "VT")</formula></code><picture width="10px" height="10px"><imageref name="Couleur_Vert|cl_VT"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurAccent"; "OCPA")</formula></code><run><font size="9pt"/></run><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="cl_OCPA"/></picture></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurAccent"; "BCPA")</formula></code><picture width="10px" height="10px"><imageref name="Couleur_BleuCPA|cl_BCPA"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurAccent"; "NR")</formula></code><picture width="10px" height="10px" scaledheight="0.1042in" scaledwidth="0.1042in"><imageref name="Couleur_Noir|cl_NR"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/>   </run><actionhotspot hotspotstyle="none"><code event="click"><formula>@SetField("Prof_ThemeCouleurAccent"; "RS")</formula></code><picture width="10px" height="10px"><imageref name="Couleur_Rose|cl_RS"/></picture><run><font size="9pt"/></run></actionhotspot><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="81" leftmargin="0.2500in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="81"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.2951in" leftmargin="0.2500in" rightmargin="97%" refwidth="10.6007in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/>Logo :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="50"><run><font size="9pt"/><field usenotesstyle="false" height="0.2028in" width="1in" alignwithparagraph="true" borderstyle="single" type="text" kind="editable" name="Prof_Logo"><keywords helperbutton="false" recalconchange="true" columns="5" ui="radiobutton"/></field></run><run><font size="9pt"/>    ( La taille du logo doit être 160x80 )     </run><run><font size="9pt"/><field borderstyle="none" lookupeachchar="false" lookupaddressonrefresh="false" type="keyword" allowmultivalues="true" kind="editable" name="Prof_LogoFond" description="Serveur sur lequel les agents sont exécutés." listinputseparators="comma" listdisplayseparator="comma"><keywords helperbutton="false" columns="1" ui="checkbox"><textlist><text>Fond blanc|BC</text></textlist></keywords></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt" color="maroon"/>Champ maj :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt" color="maroon"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="50"><run><font color="maroon"/></run><run><font size="9pt" color="maroon"/><field usenotesstyle="false" height="0.2028in" width="1in" alignwithparagraph="true" borderstyle="single" type="text" kind="editable" name="Prof_ForceMaj"><keywords helperbutton="false" recalconchange="true" columns="5" ui="radiobutton"/></field></run><run><font color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="81"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="83" leftmargin="0.7708in" rightmargin="100%"/>
+<par def="83"><run><font size="9pt"/></run></par>
+<pardef id="84" leftmargin="1in" rightmargin="100%" hide="notes web"/><subformref name="Historique | SF_Histo"/>
+<par def="84"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par></richtext></body>
+<item name="$$Tabl_Valeurs" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Dim nuiws As New Notesuiworkspace
+	Dim nuid As Notesuidocument
+	Set nuid = nuiws.Currentdocument
+	Call nuid.Refresh
+End Sub<break/></text></item>
+<item name="$Tabl_Valeurs_O" sign="true">
+<rawitemdata type="14">
+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
+</rawitemdata></item>
+<item name="HistoDC_1" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Tabl_ValeurDefaut" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$$Pret_Contenu" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Dim nuiws As New Notesuiworkspace
+	Dim nuid As Notesuidocument
+	Set nuid = nuiws.Currentdocument
+	Call nuid.Refresh
+End Sub<break/></text></item>
+<item name="$Pret_Contenu_O" sign="true">
+<rawitemdata type="14">
+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
+</rawitemdata></item>
+<item name="PRET_Quand" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="PRET_Retour" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="PRET_QUAND30" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Prof_HrsMaxParJour" summary="false"><number>0</number></item>
+<item name="OriginalModTime"><datetime>20070122T163037,94-05</datetime></item>
+<item name="Prof_ReallocationMoisCSA" summary="false"><number>0</number></item>
+<item name="HISTODP" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Prof_EcartTolereMensuel" summary="false"><number>0</number></item>
+<item name="$FormUsers"><textlist><text>[Admin]</text><text>[Base]</text></textlist></item>
+<item name="$SubForm_RepIDs" sign="true"><textlist><text>0000000000000000</text><text>0000000000000000</text></textlist></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>F_Prof</text></item>
+<item name="Prof_EcartTolere" summary="false"><number>0</number></item>
+<item name="Prof_EcartTolereMensuelLG" summary="false"><number>0</number></item>
+<item name="Prof_PurgerPropositions" summary="false"><number>0</number></item>
+<item name="Prof_NbSemaineInstallationBT" summary="false"><number>0</number></item>
+<item name="Prof_ContratValeur" summary="false"><number>0</number></item>
+<item name="Prof_BorneTaux" summary="false"><number>0</number></item>
+<item name="Prof_ListeTaux" summary="false"><number>0</number></item>
+<item name="Prof_EQMajoTrim" summary="false"><number>0</number></item>
+<item name="Prof_EQMajoMens" summary="false"><number>0</number></item>
+<item name="Prof_LGMajoTrim" summary="false"><number>0</number></item>
+<item name="Prof_LGMajoMens" summary="false"><number>0</number></item>
+<item name="Prof_PourcentEscompteLG" summary="false"><number>0</number></item>
+<item name="Prof_TauxContrat" summary="false"><number>0</number></item>
+<item name="HistoDC" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="HistoDM" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item></form>
+
+</database>

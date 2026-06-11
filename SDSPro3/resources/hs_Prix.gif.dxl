@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="hs_Prix.gif" alias="hs_Prix" publicaccess="false" designerversion="8.5.3" imagename="hs_Document24D.gif">
+<noteinfo noteid="1a251a" unid="C94A1A45A2C834AB8525849E0045B035" sequence="5">
+<created><datetime dst="true">20191025T084110,93-04</datetime></created>
+<modified><datetime>20191105T131834,04-05</datetime></modified>
+<revised><datetime dst="true">20191025T085432,55-04</datetime></revised>
+<lastaccessed><datetime>20191105T131834,03-05</datetime></lastaccessed>
+<addedtofile><datetime>20191105T131834,03-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhFAAUAPcAAAAAACBQaSFRaiJSaiRTayVUbCZVbShWbipYcDJedTVhdzljejxmfD9ofkBp
+fktyhk50iFJ3i1d7jlt+kV2Akl+Ck4CcqZiuupqwu52yvaG1wKK2wKS4wqe6xKu9xqy+x7TEzLXF
+zbbGzr3L0r/M1MHO1cXR2MrV28vW3M/Y3tLc4eLo7OXq7env8Ozw8u7x8/H09vT29/b4+ff5+vj6
++vr7/P39/f7+/v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAAAUABQA
+AAjIAP8JHCgQBwwYOAgqJFjjQwUEAQIgmNBhxsKBKBxE3LiRgYmLIApwHBlggAeFJ0RGxEEy4oAS
+A2s04IijZssFMgR6GFmzJ8kNAinQtJnC58YI/24cGLqxqM2IBGq84JkigIWqRiOycDG0qtOsAVjY
+MLCxpoymT13S+CehbM+qAdIGgCBQw0qbKlrc5YhBoIwFcWvCDVCUYwIYA0kICIwDq1wRCjksFvx1
+44WLIxTcfZogxEWBMTJAGBBRwIMLiD8TpLFiRc6LAQEAOw==
+</gif>
+<item name="$FileSize" sign="true"><number>1003</number></item>
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime dst="true">20191024T132934,36-04</datetime></item></imageresource>
+
+</database>

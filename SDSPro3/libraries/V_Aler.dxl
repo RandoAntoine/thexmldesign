@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="V_Aler" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="5557fe" unid="520EA2CA283BA64F852587F1007DAEA6" sequence="30">
+<created><datetime>20220222T175247,10-05</datetime></created>
+<modified><datetime>20260105T014837,76-05</datetime></modified>
+<revised><datetime>20250319T073655,50-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,75-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,75-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_Commissions"
+Use "SDSP_PropositionUI"
+Use "SDSP_Alertes"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>
+Dim gns_VAler As NotesSession
+Dim gndb_VAler As NotesDatabase
+
+Dim gnuiws_VAler As NotesUIWorkspace
+
+'Const c_ndbAlias_SDSPP = "SDSP3"
+'Const c_ndbAliasMSG_SDSPP = "SDSPP"
+
+' Traitement des erreurs
+Const gc_TypeElement_VAler = "SL"
+Const gc_Element_VAler = "V_Aler"
+
+
+
+
+</lotusscript></code><code event="VAler_acAnnulerAlerte"><lotusscript>Sub VAler_acAnnulerAlerte	
+'---------------------------------------------------------------------	
+'changer le statut de l"Alerte a 99.
+'---------------------------------------------------------------------
+
+	On Error GoTo GererErreur
+	
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Aler As NotesDocument	
+	Dim nd_AlerSuivant As NotesDocument
+	Dim nd_DB As NotesDocument			
+
+	Dim v_NoAlerte As String
+	Dim v_StatutAnnulee As String
+	Dim v_Commentaire As String
+	Dim v_StatutDesc As String
+	
+	Dim v_NbLus As Integer
+	Dim v_NbMaj As Integer
+	
+	
+	' Initialisations
+	Call VAler_Initialisations
+	
+	Set ndc = gndb_VAler.UnprocessedDocuments
+	
+	If ndc.Count = 0 Then
+		MessageBox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+	End If
+	
+	
+	Set nd_DB = New NotesDocument(gndb_VAler)
+	nd_DB.DB_CommentaireRequis = "1"  'Commentaire obligatoire
+	
+	v_StatutAnnulee = "99"
+	v_StatutDesc = xDescTabl(v_StatutAnnulee, "Aler_Statut_FR", True)
+	nd_DB.DB_NouveauStatut = v_StatutAnnulee 'Alerte Annulée
+	
+	If Not gnuiws_VAler.DialogBox("DB_Comm", True, True, False, False, False, False,_
+	xGDK_xMessage("SI", 97, xLangue, ""), nd_DB, True, False, False) Then
+		Print xGDK_xMessage("SI", 1, xLangue, "")
+		Exit Sub
+	End If
+	
+	v_Commentaire = xVar(nd_DB, "DB_Commentaire", "")
+	'v_UserName =  gns_VAler.UserName
+	
+	'---------------
+	Set nd_AlerSuivant = ndc.GetFirstDocument 
+	Do Until nd_AlerSuivant Is Nothing
+		
+		Set nd_Aler = nd_AlerSuivant
+		Set nd_AlerSuivant = ndc.Getnextdocument(nd_AlerSuivant)
+		
+		v_NbLus = v_NbLus + 1
+		
+		' Mettre à jour statut et l'historique de l'alerte
+		if SDSPAl_AssignerStatut (nd_Aler, v_StatutAnnulee, v_Commentaire) then					
+			v_NbMaj = v_NbMaj + 1
+		End if
+		
+	Loop
+	
+	MessageBox CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus) &amp; " Alertes annulées",64, "Changement de statut"
+	
+	'Print "Fin maj. Alertes - " &amp; CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus)
+	
+		
+	Call gnuiws_VAler.CurrentView.DeselectAll
+	Call gnuiws_VAler.ViewRefresh
+	
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VAler, gc_Element_VAler, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="VAler_Initialisations"><lotusscript>Sub VAler_Initialisations
+
+	Set gns_VAler = New NotesSession
+	Set gndb_VAler = gns_VAler.CurrentDatabase
+	Set gnuiws_VAler = New NotesUIWorkspace
+
+	
+End Sub
+
+</lotusscript></code><code event="VAler_acClientPayerPartiellement"><lotusscript>Sub VAler_acClientPayerPartiellement
+	'-----------------------------------------------------------------------------------------	
+	'changer le statut de la prop a 84: Payé partiellement, selon le statut actuel de la prop.
+	'-----------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_AlerSuivant As NotesDocument
+	Dim nd_Aler As NotesDocument
+	Dim nd_DB As NotesDocument			
+	Dim v_StatutPayee As String
+	Dim v_Resultat As Integer
+	Dim v_NbLus As Integer
+	Dim v_NbMaj As Integer
+	Dim v_NbAnn As Integer
+	
+	' Initialisations
+	Call VAler_Initialisations
+	
+	Set ndc = gndb_VAler.UnprocessedDocuments
+	If ndc.Count = 0 Then
+		MessageBox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub	
+	End If
+	
+	v_StatutPayee = "84" 
+	
+	' Demander le commentaire
+	Set nd_DB = SITp_ndTemp("SDSP3.acAlerteClientPayer")	
+	nd_DB.Form = "DB_Comm"	
+	nd_DB.DB_CommentaireRequis = "1"  'Commentaire obligatoire
+	nd_DB.DB_NouveauStatut = v_StatutPayee 'Payé partiellement
+	
+	
+	If Not gnuiws_VAler.DialogBox("DB_Comm", True, True, False, False, False, False,_
+	xGDK_xMessage("SI", 97, xLangue, ""), nd_DB, True, False, False) Then
+		Print xGDK_xMessage("SI", 1, xLangue, "")
+		Exit Sub
+	End If
+	Call nd_DB.save(True, False)
+	
+	Set nd_AlerSuivant = ndc.GetFirstDocument 
+	Do Until nd_AlerSuivant Is Nothing
+		
+		Set nd_Aler = nd_AlerSuivant
+		Set nd_AlerSuivant = ndc.Getnextdocument(nd_AlerSuivant)
+		
+		v_NbLus = v_NbLus + 1
+		
+		v_Resultat = SDSPAl_acChangerStatutProposition(nd_Aler, nd_DB, v_StatutPayee)
+		Select Case v_Resultat
+		Case 1:
+			v_NbMaj = v_NbMaj + 1
+		Case 2:
+			v_NbAnn = v_NbAnn + 1
+		End Select
+		
+	Loop
+	
+	MessageBox CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus) &amp; " Alertes traitées" &amp; Chr(13) &amp; _
+	CStr(v_NbAnn) &amp; "/" &amp; CStr(v_NbLus) &amp; " Alertes annulées",64 , "Changement de statut"
+	
+	
+	Call gnuiws_VAler.CurrentView.DeselectAll
+	Call gnuiws_VAler.ViewRefresh
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VAler, gc_Element_VAler, GetThreadInfo(1), "", False)
+	Exit Sub
+	
+End Sub
+
+</lotusscript></code><code event="VAler_acClientPayer"><lotusscript>Sub VAler_acClientPayer
+	'---------------------------------------------------------------------	
+	'changer le statut de la prop a 94, selon le statut actuel de la prop.
+	'---------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_AlerSuivant As NotesDocument
+	Dim nd_Aler As NotesDocument
+	Dim nd_DB As NotesDocument			
+	Dim v_StatutPayee As String
+	Dim v_Resultat As Integer
+	Dim v_NbLus As Integer
+	Dim v_NbMaj As Integer
+	Dim v_NbAnn As Integer
+	
+	' Initialisations
+	Call VAler_Initialisations
+	
+	Set ndc = gndb_VAler.UnprocessedDocuments
+	If ndc.Count = 0 Then
+		Messagebox xGDK_xMessage("SI", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub	
+	End If
+	
+	v_StatutPayee = "94" 
+	
+	' Demander le commentaire
+	Set nd_DB = SITp_ndTemp("SDSP3.acAlerteClientPayer")	
+	nd_DB.Form = "DB_Comm"	
+	nd_DB.DB_CommentaireRequis = "1"  'Commentaire obligatoire	
+	nd_DB.DB_NouveauStatut = v_StatutPayee 'Payé par client
+	
+	If Not gnuiws_VAler.DialogBox("DB_Comm", True, True, False, False, False, False,_
+	xGDK_xMessage("SI", 97, xLangue, ""), nd_DB, True, False, False) Then
+		Print xGDK_xMessage("SI", 1, xLangue, "")
+		Exit Sub
+	End If
+	
+	Call nd_DB.save(True, False)
+	
+	Set nd_AlerSuivant = ndc.GetFirstDocument 
+	Do Until nd_AlerSuivant Is Nothing
+		Set nd_Aler = nd_AlerSuivant
+		Set nd_AlerSuivant = ndc.Getnextdocument(nd_AlerSuivant)
+		
+		v_NbLus = v_NbLus + 1
+		
+		v_Resultat = SDSPAl_acChangerStatutProposition(nd_Aler, nd_DB, v_StatutPayee)
+		Select Case v_Resultat
+		Case 1:
+			v_NbMaj = v_NbMaj + 1
+		Case 2:
+			v_NbAnn = v_NbAnn + 1
+		End Select
+		
+	Loop
+	
+	MessageBox CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus) &amp; " Alertes traitées" &amp; Chr(13) &amp; _
+	CStr(v_NbAnn) &amp; "/" &amp; CStr(v_NbLus) &amp; " Alertes annulées",64 , "Changement de statut"
+	
+	Call gnuiws_VAler.CurrentView.DeselectAll
+	Call gnuiws_VAler.ViewRefresh
+		
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_VAler, gc_Element_VAler, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073655,50-05</datetime></item></scriptlibrary>
+
+</database>

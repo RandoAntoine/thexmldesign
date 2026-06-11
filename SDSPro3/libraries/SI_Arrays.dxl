@@ -1,0 +1,504 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Arrays" hide="v3 v4strict" designerversion="8.5.3" comment="3.6">
+<noteinfo noteid="5556ee" unid="A643863F3541E6FA852586B40011FB71" sequence="76">
+<created><datetime dst="true">20210410T231624,81-04</datetime></created>
+<modified><datetime>20260105T014837,16-05</datetime></modified>
+<revised><datetime>20250319T073635,81-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,15-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,15-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+'
+'	Les fonctions définies dans cette bibliothèque permettent de manipuler des tableaux de valeurs.
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SIAr As NotesSession
+Dim gndb_SIAr As NotesDatabase
+Dim gnd_SIAr As NotesDocument
+Dim gni_SIAr As NotesItem
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SIA = "SL"
+Const gc_Element_SIA = "SI_Arrays"
+
+</lotusscript></code><code event="TrierArray"><lotusscript>Function TrierArray(pa As Variant) As Boolean
+' -----------------------------------
+' Le script permet de trier un array.
+' -----------------------------------
+	On Error Goto GererErreur
+	
+	TrierArray = False
+	If IsArray(pa) Then
+		TrierArray = Trier2Arrays_(pa, "")
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIa, gc_Element_SIa, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="RetirerArray"><lotusscript>Function RetirerArray(pArray As Variant, p_Valeur As Variant) As Variant
+' -------------------------------------------------------
+' Le script permet de retirer une des valeurs de l'array.
+' -------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_Maj As Integer
+	Dim v_aArray() As Variant
+	Dim i As Long
+	Dim j As Long
+	
+	RetirerArray = Null
+	
+	If IsArray(pArray) Then
+		If Not Isnull(ArrayGetIndex(pArray, p_Valeur)) Then
+			j = -1
+			For i = LBound(pArray) To UBound(pArray)
+				If pArray(i) &lt;&gt; p_Valeur Then
+					j = j + 1
+					ReDim Preserve v_aArray(j) As Variant
+					v_aArray(j) = pArray(i)
+					v_Maj = True
+				End If
+			Next
+		End If
+		
+		If v_Maj Then
+			RetirerArray = v_aArray
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIA, gc_Element_SIA, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="PositionArraySuperieur"><lotusscript>Function PositionArraySuperieur(pArray As Variant, p_Valeur As Variant) As Integer
+' ---------------------------------------------------------------------------
+' Le script permet de trouver une valeur dans une liste de bornes supérieures
+' ---------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim i As Long
+	
+	PositionArraySuperieur = -1
+	
+	If IsArray(pArray) Then
+		If p_Valeur &gt; pArray(UBound(pArray)) Then
+			PositionArraySuperieur = UBound(pArray)
+		Else
+			For i = LBound(pArray) To UBound(pArray)
+				If p_Valeur &lt;= pArray(i) Then
+					PositionArraySuperieur = i
+					Exit Function
+				End If
+			Next
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIA, gc_Element_SIA, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="Trier2Arrays_"><lotusscript>Function Trier2Arrays_(pa_1 As Variant, pa_2 As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_aElem As Long
+	Dim a_lBound() As Long
+	Dim a_uBound() As Long
+	Dim x As Long
+	Dim r As Long
+	Dim m As Variant
+	Dim i As Long
+	Dim t As Variant
+	Dim k As Long
+	
+	Trier2Arrays_ = False
+	v_aElem = 0
+	ReDim a_lBound(v_aElem) As Long
+	ReDim a_uBound(v_aElem) As Long
+	a_lBound(v_aElem) = LBound(pa_1)
+	a_uBound(v_aElem) = UBound(pa_1)
+	
+	Do Until v_aElem &lt; 0
+		x = a_lBound(v_aElem)
+		r = a_uBound(v_aElem)
+		
+		If r &gt; x Then
+			m = pa_1(x)
+			k = r
+			i = x
+			
+			While (i &lt; k)
+				While (pa_1(i) &lt;= m And i &lt; r)
+					i = i + 1
+				Wend
+				While (pa_1(k) &gt; m)
+					k = k - 1
+				Wend
+				If i &lt; k Then
+					Call SIAr_EchangerValeurs(pa_1, i, k)
+					If Isarray(pa_2) Then
+						Call SIAr_EchangerValeurs(pa_2, i, k)
+					End If
+				End If
+			Wend
+			
+			Call SIAr_EchangerValeurs(pa_1, x, k)
+			If Isarray(pa_2) Then
+				Call SIAr_EchangerValeurs(pa_2, x, k)
+			End If
+			
+			' Trier l'array de gauche
+			a_lBound(v_aElem) = x
+			a_uBound(v_aElem) = k - 1
+			
+			' Trier l'array de droite
+			v_aElem = v_aElem + 1
+			ReDim Preserve a_lBound(v_aElem) As Long
+			ReDim Preserve a_uBound(v_aElem) As Long
+			a_lBound(v_aElem) = k + 1
+			a_uBound(v_aElem) = r
+		Else
+			v_aElem = v_aElem - 1
+		End If
+	Loop
+	
+	Trier2Arrays_ = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIa, gc_Element_SIa, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="DimensionsArray"><lotusscript>Function DimensionsArray(pa As Variant) As Integer
+' --------------------------------------------------------------
+' Le script permet de savoir le nombre de dimensions d'un array.
+' --------------------------------------------------------------
+	On Error Goto GererErreur
+	On Error 9 Goto FinSub
+	
+	Dim v As Integer
+	
+	DimensionsArray = 0
+	
+	If Isarray(pa) Then
+		Do
+			DimensionsArray = DimensionsArray + 1
+			v = LBound(pa, DimensionsArray + 1)
+		Loop
+	End If
+	
+FinSub:
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIA, gc_Element_SIA, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="ArrayContient"><lotusscript>Function ArrayContient(pArray As Variant, p_Valeur As Variant) As Boolean
+	' -----------------------------------------------------------
+	' Le script permet de savoir si un array contient une valeur.
+	' -----------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	Call SIAr_Initialisations
+	
+	gni_SIAr.Values = pArray
+	ArrayContient = gni_SIAr.Contains(p_Valeur)
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIA, gc_Element_SIA, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SommeArray"><lotusscript>Function SommeArray(pArray As Variant) As Variant
+'---------------------------------------------------------------
+' Le script permet de calculer la somme des éléments d'un array.
+'---------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim i As Long
+	
+	SommeArray = 0
+	For i = LBound(pArray) To UBound(pArray)
+		SommeArray = SommeArray + pArray(i)
+	Next
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIA, gc_Element_SIA, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAr_ValeursManquantes"><lotusscript>Function SIAr_ValeursManquantes(p_Liste_1 As Variant, p_Liste_2 As Variant) As Variant
+	'SIAr_ValeursManquantes
+	On Error Goto GererErreur
+' =================================================================================================
+' Cette function compare 2 listes de string et retourne les valeurs manquantes de la premiere liste
+' 	p_Liste_1: Liste où on recherche les valeurs
+' 	p_Liste_2: Liste des valeurs recherchées
+' 	retourne une string des valeurs séparées par c_Separateur
+' =================================================================================================
+	
+	Dim v_Valeurs As String
+	Dim v_isVide As Boolean
+	Const c_Seperateur = "/*/"
+	
+	v_isVide = True
+	
+	If Not IsArray(p_Liste_1) Then
+'		Print "Not Array p_Liste_1: " &amp; p_Liste_1
+		p_Liste_1 = Evaluate(p_Liste_1)
+		
+	End If
+	
+	If Not IsArray(p_Liste_2) Then
+'		Print "Not Array p_Liste_2: " &amp; p_Liste_2
+		p_Liste_2 = Evaluate(p_Liste_2)
+	End If
+	
+	
+	If IsArray(p_Liste_1) And IsArray(p_Liste_2) Then
+		ForAll value2 In p_Liste_2
+			
+			If IsNull(Arraygetindex(p_Liste_1, value2)) Then ' valeur non trouvé
+				
+				If v_isVide Then
+					v_Valeurs = value2
+					v_isVide = False
+				Else
+					v_Valeurs = v_Valeurs &amp; c_Seperateur &amp; value2
+				End If
+				
+			End If
+		End ForAll
+		
+	End If
+	
+	'	Print "SIAr_ValeursManquantes p_Liste_1 : " &amp; Join(p_Liste_1, ",")
+	'	Print "SIAr_ValeursManquantes p_Liste_2 : " &amp; Join(p_Liste_2, ",")
+	'	Print "SIAr_ValeursManquantes v_Valeurs: " &amp; v_Valeurs
+	
+	If v_Valeurs = "" Then
+		SIAr_ValeursManquantes = ""
+	Else
+		SIAr_ValeursManquantes = Split(v_Valeurs, c_Seperateur)
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIa, gc_Element_SIa, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="Trier2Arrays"><lotusscript>Function Trier2Arrays(pa_1 As Variant, pa_2 As Variant) As Boolean
+' --------------------------------------------------------------------------------------
+' Le script permet de trier un array et les valeurs correspondantes d'un deuxième array.
+' 	Ex. :	2 - C					1 - D
+'			4 - A		--------&gt;	2 - C
+'			1 - D					3 - B
+'			3 - B					4 - A
+' --------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Trier2Arrays = False
+	If IsArray(pa_1) And IsArray(pa_2) Then
+		If LBound(pa_1) = LBound(pa_2) And UBound(pa_1) = UBound(pa_2) Then
+			Trier2Arrays = Trier2Arrays_(pa_1, pa_2)
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIa, gc_Element_SIa, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAr_Initialisations"><lotusscript>Sub SIAr_Initialisations
+	If gns_SIAr Is Nothing Then
+		Set gns_SIAr = New NotesSession
+		Set gndb_SIAr = gns_SIAr.CurrentDatabase
+		Set gnd_SIAr = New NotesDocument(gndb_SIAr)
+		Set gni_SIAr = New NotesItem(gnd_SIAr, "SIAr_Valeurs", "")
+	End If
+End Sub
+
+</lotusscript></code><code event="PositionArrayInferieur"><lotusscript>Function PositionArrayInferieur(pArray As Variant, p_Valeur As Variant) As Integer
+' ---------------------------------------------------------------------------
+' Le script permet de trouver une valeur dans une liste de bornes inférieures
+' ---------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim i As Long
+	
+	PositionArrayInferieur = -1
+	
+	If IsArray(pArray) Then
+		For i = UBound(pArray) To LBound(pArray) Step -1
+			If p_Valeur &gt;= pArray(i) Then
+				PositionArrayInferieur = i
+				Exit Function
+			End If
+		Next
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIA, gc_Element_SIA, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAr_DifferenceEntreDeuxListes"><lotusscript>Function SIAr_DifferenceEntreDeuxListes(p_Liste1 As Variant, p_Liste2 As Variant) As Variant
+	' =============================================================================
+	' Cette fonction retourne les éléments différents entre 2 listes
+	' EX: 	p_List1 = {[Québec], [Montréal], [Joliette], [Gaspé], [Trois-Rivères]}.
+	' 		p_List2 = {[Montréal], [Rimouski], [Trois-Rivères], [Québec]}.
+	' 
+	' 		Valeure retournée : {[Joliette], [Gaspé], [Rimouski]}.
+	' =============================================================================
+	On Error GoTo GererErreur
+	
+	Dim v_ListDiff As Variant
+	Dim v_Formule As String
+	
+	Dim txtList1 As String
+	Dim txtList2 As String
+	
+	txtList1 = |"| &amp; Join(p_Liste1, |":"|) &amp; |"| 
+	txtList2 = |"| &amp; Join(p_Liste2, |":"|) &amp; |"|
+	
+	v_Formule = |@Explode(@Implode(@Replace(| &amp; txtList1 &amp; |;| &amp; txtList2 &amp; |;"")) + @Implode(@Replace(| &amp; txtList2 &amp; |;| &amp; txtList1 &amp; |;"")))|
+	v_ListDiff = Evaluate(v_Formule)
+	
+	If Trim(Join(v_ListDiff)) = "" Then
+		SIAr_DifferenceEntreDeuxListes = ""
+	Else
+		SIAr_DifferenceEntreDeuxListes = v_ListDiff
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIA, gc_Element_SIA, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="TrierArrayDocs"><lotusscript>Function TrierArrayDocs(pand As Variant, p_fxTri As String, p_ValeurNulle As Variant) As Boolean
+' --------------------------------------------------------------------------------------------
+' Le script permet de trier un array de documents.
+' pand = Array de NotesDocument
+' p_fxTri = Formule pour déterminer la valeur utilisée pour le tri. Peut êre un nom de champ.
+' --------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v As Variant
+	Dim i As Long
+	
+	TrierArrayDocs = False
+	If Isarray(pand) Then
+		ReDim a_Valeurs(LBound(pand) To UBound(pand)) As Variant
+		For i = LBound(pand) To UBound(pand)
+			v = Evaluate(p_fxTri, pand(i))
+			If UBound(v) &gt; 0 Then
+				a_Valeurs(i) = Implode(v, ";")
+			ElseIf v(0) = "" Then
+				a_Valeurs(i) = p_ValeurNulle
+			Else
+				a_Valeurs(i) = v(0)	
+			End If
+		Next
+		
+		TrierArrayDocs = Trier2Arrays(a_Valeurs, pand)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIa, gc_Element_SIa, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIAr_EchangerValeurs"><lotusscript>Sub SIAr_EchangerValeurs(pa As Variant, p_PosValeur1 As Long, p_PosValeur2 As Long)
+	On Error Goto GererErreur
+	
+	Dim v As Variant
+	
+	If DataType(pa(p_PosValeur1)) = 35 Then
+		Set v = pa(p_PosValeur1)
+		Set pa(p_PosValeur1) = pa(p_PosValeur2)
+		Set pa(p_PosValeur2) = v
+	Else
+		v = pa(p_PosValeur1)
+		pa(p_PosValeur1) = pa(p_PosValeur2)
+		pa(p_PosValeur2) = v
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIa, gc_Element_SIa, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SIAr_ComparerArrays"><lotusscript>Function SIAr_ComparerArrays(array1 As Variant, array2 As Variant) As Boolean
+	Dim i As Integer
+	Dim key As String
+	Dim tempList List As Integer
+	
+	If Not IsArray(array1) Or Not IsArray(array2) Then
+		SIAr_ComparerArrays = False
+		Exit Function
+	End If
+	
+	If UBound(array1) - LBound(array1) &lt;&gt; UBound(array2) - LBound(array2) Then
+		SIAr_ComparerArrays = False
+		Exit Function
+	End If
+	
+	For i = LBound(array1) To UBound(array1)
+		key = TypeName(array1(i)) &amp; "~" &amp; CStr(array1(i))
+		
+		If IsElement(tempList(key)) Then ' Déjà dans la liste - incremente le compteur
+			tempList(key) = tempList(key) + 1
+		Else ' pas un élément - ajouter à la liste
+			tempList(key) = 1
+		End If
+	Next
+	
+	For i = LBound(array2) To UBound(array2)
+		key = TypeName(array2(i)) &amp; "~" &amp; CStr(array2(i))
+		If Not IsElement(tempList(key)) Then
+			SIAr_ComparerArrays = False
+			Exit Function
+		End If
+		
+		tempList(key) = tempList(key) - 1
+		If tempList(key) = 0 Then Erase tempList(key)
+	Next
+	
+	ForAll indElement In tempList
+		SIAr_ComparerArrays = False
+		Exit Function
+	End ForAll
+	
+	SIAr_ComparerArrays = True
+End Function
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,81-05</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><note class="form">
+<noteinfo noteid="18b6" unid="F4DC18EC0957524C852579890070F772" sequence="201">
+<created><datetime>20120118T153353,78-05</datetime></created>
+<modified><datetime>20260105T014845,12-05</datetime></modified>
+<revised><datetime dst="true">20190410T103352,46-04</datetime></revised>
+<lastaccessed><datetime>20260105T014845,11-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205710,20-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<item name="$Flags"><text>~C4g</text></item>
+<item name="$TITLE"><text>.settings/org.eclipse.wst.jsdt.ui.superType.container</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$FileSize" sign="true"><number>49</number></item>
+<item name="$FileData" sign="true">
+<rawitemdata type="1">
+YQAYAAAAAAAxAAAAAQAAAAAAAAAAAAAAYABDAAAAMQAyAAAAAAAAAAAAb3JnLmVjbGlwc2Uud3N0
+LmpzZHQubGF1bmNoaW5nLmJhc2VCcm93c2VyTGlicmFyefY=
+</rawitemdata></item>
+<item name="$FileNames" sign="true"><text>.settings/org.eclipse.wst.jsdt.ui.superType.container</text></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>.settings/org.eclipse.wst.jsdt.ui.superType.container</text></item></note>
+
+</database>

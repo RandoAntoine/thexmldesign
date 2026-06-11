@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><view name="Z\Produits 42" alias="V_Prod42" hide="web mobile" showinmenu="false" publicaccess="false" designerversion="8.5.3" comment="K:NoProp;NoSite;CleParent;cleProduit" unreadmarks="none" onopengoto="lastopened" onrefresh="displayindicator" headers="simple" opencollapsed="false" showresponsehierarchy="false" showmargin="true" shrinkrows="true" extendlastcolumn="true" showhierarchies="false" unreadcolor="black" rowlinecount="3" headerlinecount="1" rowspacing="1" bgcolor="white" altrowcolor="#e6eff4" totalscolor="gray" headerbgcolor="white" boldunreadrows="false" evaluateactions="false" allownewdocuments="false" allowcustomizations="true" hidemarginborder="false" marginwidth="0px" marginbgcolor="white" uniquekeys="false" formatnoteid="039219DE43DBB9D385256FD20077BA23">
+<noteinfo noteid="555afe" unid="9AA0DD246A4D0ED385258B8F0047B6EC" sequence="6">
+<created><datetime dst="true">20240905T090318,84-04</datetime></created>
+<modified><datetime>20260105T014844,78-05</datetime></modified>
+<revised><datetime>20250319T074011,63-05</datetime></revised>
+<lastaccessed><datetime>20260105T014844,77-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014844,77-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="selection"><formula>SELECT Form = "F_Prod" &amp; !@IsAvailable($Conflict)</formula></code><code event="querypaste"><lotusscript>Sub Querypaste(Source As Notesuiview, Continue As Variant)
+	Continue = False
+End Sub</lotusscript></code>
+<actionbar borderstyle="none" linestyle="double" bgcolor="silver" bordercolor="#2f2f2f">
+<actionbuttonstyle bgcolor="silver"/><font size="8pt" style="bold"/><border width="0px 0px 1px"/></actionbar>
+<column sort="ascending" hidedetailrows="false" itemname="$26" width="49" resizable="true" separatemultiplevalues="false" sortnoaccent="true" sortnocase="true" showaslinks="false"><font size="9pt"/><columnheader title="NoProp;NoSite;CleParent;CleProduit"><font size="8pt" style="bold"/></columnheader><code event="value"><formula>Prod_NoProposition + ";" + Prod_NoSite + ";" + Prod_CleParent + ";" + Prod_CleProduit</formula></code></column>
+<item name="TmpViewDesignCollation" sign="true"><text>fr</text></item></view>
+
+</database>

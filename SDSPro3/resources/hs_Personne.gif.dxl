@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="hs_Personne.gif" alias="hs_Personne" noquery="true" publicaccess="false" designerversion="8.5.3">
+<noteinfo noteid="1d1082" unid="D6B8E028D2932BDC852585120058B122" sequence="7">
+<created><datetime>20200218T110845,14-05</datetime></created>
+<modified><datetime>20260105T014846,05-05</datetime></modified>
+<revised><datetime dst="true">20230501T180309,99-04</datetime></revised>
+<lastaccessed><datetime>20260105T014846,04-05</datetime></lastaccessed>
+<addedtofile><datetime>20200219T221309,13-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhFAAUAHAAACH5BAEAAP8ALAAAAAAUABQAhwAAACBQaSFRaiJSaiRTayVUbCZVbShWbipY
+cDBddDJedTVhdzdieDljejxmfD5ofT9ofkBpfktyhk50iFJ3i1Z6jVd7jlt+kV2Akl+Ck2WGmHWT
+opCotJasuJiuupqwu52yvaG1wKK2wKO2waS4wqe6xKm7xau9xqy+x7PDzLTEzLXFzbbGzrrJ0b3L
+0r/M1MHO1cXR2MrV28vW3Nbf49jg5dzj5+Hn6+Lo6+Lo7OXq7ebr7ufs7+jt7+nt8Ozw8u7x8/H0
+9vT29/b4+ff5+vj6+vr7/P39/f7+/v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAjcAP8JHCgwSZAgSQgqJGgERQYEAQIguFCCyMKBMyJE3LjRQYyLKgpsrHDDhoSNA04olCFy44wk
+SVpwHABjoBEIHAOkgDkiZ4MhAk/kDJCgAweIOUUIxJCTQQgTJkAkyEnhH5IDHB/ogAkTxwOOBIwA
+yfmAB9ckOb5y1PGDrFmuaXPqOGIg5wauSDTkHFDkn4WhPmDWGDpBYIihPQQP/SBwSIOciZMM5qgg
+yMAXAjjugEkjJwuFJDJHXPDggQKOHi66WDA0ooIVFwUKATFhQEQBEjxYjk2wSI4cQC8GBAA7
+</gif>
+<item name="$FileSize" sign="true"><number>1023</number></item>
+<item name="$MimeType" sign="true"><text>image/gif</text></item>
+<item name="$FileModDT" sign="true"><datetime>20200213T135735,92-05</datetime></item>
+<item name="$EditFilePath"><text>C:\Users\mknollin\AppData\Local\Temp\notes95E17C\~hs_Personne5.gif</text></item></imageresource>
+
+</database>

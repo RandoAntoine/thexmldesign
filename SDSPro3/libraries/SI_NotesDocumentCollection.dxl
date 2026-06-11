@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_NotesDocumentCollection" hide="v3 v4strict" designerversion="8.5.3" comment="1.0a">
+<noteinfo noteid="555716" unid="E7C6E84FDF36B2A7852586B40011FB88" sequence="76">
+<created><datetime dst="true">20210410T231625,04-04</datetime></created>
+<modified><datetime>20260105T014837,26-05</datetime></modified>
+<revised><datetime>20250319T073635,97-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,25-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,25-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Arrays"
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SINDC = "SL"
+Const gc_Element_SINDC = "SI_NotesDocumentCollection"
+
+
+</lotusscript></code><code event="SINDC_TrierCollectionArray"><lotusscript>Function SINDC_TrierCollectionArray(pndc As NotesDocumentCollection, p_fxTri As String, p_ValeurNulle As Variant, pand As Variant) As Boolean
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de trier une collection de documents.
+	' pndc = NotesDocumentCollection
+	' p_fxTri = Formule pour déterminer la valeur utilisée pour le tri.  Peut êre un nom de champ.
+	' pa = Array des documents trriés
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim ndc As NotesDocumentCollection
+	Dim i As Long
+	Dim vand As variant
+	
+	SINDC_TrierCollectionArray = False
+	pand = ""
+	If pndc.Count = 0 Then
+		Exit Function
+	End If
+	
+	' Transférer la collection dans un array de documents
+	Redim and_(pndc.Count - 1) As NotesDocument
+	Set nd = pndc.GetFirstDocument
+	Do Until nd Is Nothing
+		Set and_(i) = nd
+		i = i + 1
+		Set nd = pndc.GetNextDocument(nd)
+	Loop
+	
+	' Trier l'array de documents
+	vand = and_
+	If TrierArrayDocs(vand, p_fxTri, p_ValeurNulle) Then
+		pand = vand
+		SINDC_TrierCollectionArray = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINDC, gc_Element_SINDC, Getthreadinfo(1), "", False)		
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SINDC_TrierCollection"><lotusscript>Function SINDC_TrierCollection(pndc As NotesDocumentCollection, p_fxTri As String, p_ValeurNulle As Variant) As Boolean
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de trier une collection de documents.
+	' pndc = NotesDocumentCollection
+	' p_fxTri = Formule pour déterminer la valeur utilisée pour le tri.  Peut êre un nom de champ.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim ndc As NotesDocumentCollection
+	Dim i As Long
+	Dim and_ As Variant
+	
+	SINDC_TrierCollection = False
+	If pndc.Count = 0 Then
+		Exit Function
+	End If
+	
+	' Transférer la collection dans un array de documents et trier
+	If SINDC_TrierCollectionArray(pndc, p_fxTri, p_ValeurNulle, and_) Then
+		' Retransférer l'array dans une collection
+		Set ndc = pndc.Parent.CreateDocumentCollection
+		For i = Lbound(and_) To Ubound(and_)
+			Call ndc.Adddocument(and_(i))
+		Next
+		Set pndc = ndc
+		SINDC_TrierCollection = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SINDC, gc_Element_SINDC, Getthreadinfo(1), "", False)		
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,97-05</datetime></item></scriptlibrary>
+
+</database>

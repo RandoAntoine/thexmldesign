@@ -1,0 +1,604 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Google" hide="v3 v4strict" designerversion="8.5.3" comment="1.8e Key+SSL">
+<noteinfo noteid="55581a" unid="510ADB372F79B7CF8525884C0061F660" sequence="26">
+<created><datetime dst="true">20220524T135000,64-04</datetime></created>
+<modified><datetime>20260105T014837,82-05</datetime></modified>
+<revised><datetime>20250319T073635,11-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,81-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,81-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "SI_tNombre"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SIGg As NotesSession
+Dim gndb_SIGg As Notesdatabase
+
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIGg = "SL"
+Const gc_Element_SIGg = "SI_Google"
+
+Public Class clSite_SIGg
+	Public Libelle As String
+	Public Icone As String
+	Public Latitude As Double
+	Public Longitude As Double
+End Class
+</lotusscript></code><code event="SIGg_Distance"><lotusscript>Function SIGg_Distance(p_AdresseGoogleOrigine As String, p_AdresseGoogleDestination As String, _
+	p_Distance As Double, p_Temps As Long, p_APIKey As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script retourne la distance (km) entre les deux points et le temps de conduite (sec.)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_CheminFichier As String
+	Dim v_AdresseGoogleSerti As String
+	Dim v_Url As String
+	Dim nd As NotesDocument
+	Dim neo As NotesEmbeddedObject
+	Dim v_NoFichier As Integer
+	Dim v_Json As String
+	Dim i As Integer
+	Dim j As Integer
+	Dim k As Integer
+	Dim s As String
+	
+	' Initialisations
+	SIGg_Distance = "UNKNOWN_ERROR"
+	p_Distance = 0
+	p_Temps = 0
+	Call SIGg_Initialisations
+	v_CheminFichier = Environ$("Temp") &amp; "\SIGg_geocode.json"
+	On Error 75 Resume Next
+	Kill v_CheminFichier
+	On Error 75 Goto GererErreur
+	
+	If p_AdresseGoogleOrigine = "" Then
+		p_AdresseGoogleOrigine = "45.6098642,-73.584266"		' Serti Informatique
+	End If
+	
+	v_Url = |https://maps.googleapis.com/maps/api/distancematrix/json?origins=| &amp; _
+	p_AdresseGoogleOrigine &amp; |&amp;destinations=| &amp; p_AdresseGoogleDestination &amp; |&amp;units=metric&amp;sensor=false|
+	If p_APIKey &lt;&gt; "" Then
+		v_Url = v_Url &amp; "&amp;key=" &amp; p_APIKey
+	End If
+		
+	Set nd = gndb_SIGg.GetDocumentByUrl(v_Url, True)
+	Set neo = nd.GetAttachment("json")
+	If neo Is Nothing Then
+		Exit Function
+	End If
+	Call neo.ExtractFile(v_CheminFichier)
+	v_NoFichier = Freefile()
+	Open v_CheminFichier For Input As v_NoFichier
+	Do Until Eof(v_NoFichier)
+		On Error 62 Goto ErreurInput
+		s = Input$(1, v_NoFichier)
+		v_Json = v_Json &amp; s
+	Loop
+ErreurInput:	
+	Close v_NoFichier
+	If  gndb_SIGg.QueryAccess(gns_SIGg.UserName) &gt; 3 Then
+		Call nd.Remove(True)
+	End If	
+	v_Json = Replace(v_Json, " : ", ":")
+	
+	' Vérifier le statut
+	i = Instr(v_Json, |"status":|)
+	If i = 0 Then
+		Exit Function
+	Else
+		i = Instr(i + 9, v_Json, |"|)
+		j = Instr(i + 1, v_Json, |"|)
+		s = Trim(Mid(v_Json, i + 1, j - i - 1))
+		If s &lt;&gt; "OK" Then
+			SIGg_Distance = s
+			Exit Function
+		End If
+	End If
+	
+	' Trouver les coordonnées
+	i = Instr(v_Json, |"rows":|)
+	If i = 0 Then
+		Exit Function
+	End If
+	
+	' Trouver la distance
+	j = Instr(i, v_Json, |"distance":|)
+	j = Instr(j, v_Json, |"value":|) + 8
+	k = Instr(j, v_Json, |}|)
+	s = Trim(Mid(v_Json, j, k - j))
+	p_Distance = SItN_cdbl(s) / 1000
+	
+	' Trouver le temps de voyage (secondes)
+	j = Instr(i, v_Json, |"duration":|)
+	j = Instr(j, v_Json, |"value":|) + 8
+	k = Instr(j, v_Json, |}|)
+	s = Trim(Mid(v_Json, j, k - j))
+	p_Temps = SItN_cdbl(s)
+	
+	SIGg_Distance = ""
+%REM
+{
+  "status": "OK",
+  "origin_addresses": [ "Vancouver, BC, Canada", "Seattle, État de Washington, États-Unis" ],
+  "destination_addresses": [ "San Francisco, Californie, États-Unis", "Victoria, BC, Canada" ],
+  "rows": [ {
+    "elements": [ {
+      "status": "OK",
+      "duration": {
+        "value": 340110,
+        "text": "3 jours 22 heures"
+      },
+      "distance": {
+        "value": 1734542,
+        "text": "1 735 km"
+      }
+    }, {
+      "status": "OK",
+      "duration": {
+        "value": 24487,
+        "text": "6 heures 48 minutes"
+      },
+      "distance": {
+        "value": 129324,
+        "text": "129 km"
+      }
+    } ]
+  }, {
+    "elements": [ {
+      "status": "OK",
+      "duration": {
+        "value": 288834,
+        "text": "3 jours 8 heures"
+      },
+      "distance": {
+        "value": 1489604,
+        "text": "1 490 km"
+      }
+    }, {
+      "status": "OK",
+      "duration": {
+        "value": 14388,
+        "text": "4 heures 0 minutes"
+      },
+      "distance": {
+        "value": 135822,
+        "text": "136 km"
+      }
+    } ]
+  } ]
+}
+%END REM
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGg, gc_Element_SIGg, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGg_CoordonneesGeo"><lotusscript>Function SIGg_CoordonneesGeo(p_AdresseGoogle As String, p_Latitude As Double, p_Longitude As Double, p_APIKey As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script retourne la longitude et la latitude de l'adresse au format Google (paramètres).
+	' La fonction retourne "" si aucune erreur n'est rencontrée, sinon le message d'erreuré
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_CheminFichier As String
+	Dim v_Url As String
+	Dim nd As NotesDocument
+	Dim neo As NotesEmbeddedObject
+	Dim v_NoFichier As Integer
+	Dim v_Json As String
+	Dim i As Long
+	Dim j As Long
+	Dim s As String
+	
+	' Initialisations
+	SIGg_CoordonneesGeo = "UNKNOWN_ERROR_9"
+	p_Latitude = 0
+	p_Longitude = 0
+	Call SIGg_Initialisations
+	v_CheminFichier = Environ$("Temp") &amp; "\SIGg_geocode.json"
+	On Error 75 Resume Next
+	Kill v_CheminFichier
+	On Error 75 Goto GererErreur
+	
+	v_Url = |https://maps.googleapis.com/maps/api/geocode/json?address=| &amp; p_AdresseGoogle &amp; |&amp;sensor=false|
+	If p_APIKey &lt;&gt; "" Then
+		v_Url = v_Url &amp; "&amp;key=" &amp; p_APIKey
+	End If
+	Set nd = gndb_SIGg.GetDocumentByUrl(v_Url, True)
+	Set neo = nd.GetAttachment("json")
+	If neo Is Nothing Then
+		SIGg_CoordonneesGeo = "UNKNOWN_ERROR_1"
+		Call SIGe_AjouterLog("ERR: UNKNOWN_ERROR_1 URL: " &amp; v_Url, 0, 0, False)
+		Exit Function
+	End If
+	Call neo.ExtractFile(v_CheminFichier)
+	v_NoFichier = Freefile()
+	Open v_CheminFichier For Input As v_NoFichier
+	Do Until Eof(v_NoFichier)
+		On Error 62 Goto ErreurInput
+		s = Input$(1, v_NoFichier)
+		v_Json = v_Json &amp; s
+	Loop
+ErreurInput:	
+	Close v_NoFichier
+	If  gndb_SIGg.QueryAccess(gns_SIGg.UserName) &gt; 3 Then
+		Call nd.Remove(True)
+	End If
+	
+	v_Json = Replace(v_Json, " : ", ":")
+	
+	' Vérifier le statut
+	i = Instr(v_Json, |"status":|)
+	If i = 0 Then
+		SIGg_CoordonneesGeo = "UNKNOWN_ERROR_2"
+		Call SIGe_AjouterLog("ERR: UNKNOWN_ERROR_2 URL: " &amp; v_Url, 0, 0, False)
+		Exit Function
+	Else
+		i = Instr(i + 9, v_Json, |"|)
+		j = Instr(i + 1, v_Json, |"|)
+		s = Trim(Mid(v_Json, i + 1, j - i - 1))
+		If s &lt;&gt; "OK" Then
+			SIGg_CoordonneesGeo = s
+			Call SIGe_AjouterLog("ERR: " &amp; s &amp; " URL: " &amp; v_Url, 0, 0, False)
+			Exit Function
+		End If
+	End If
+	
+	' Trouver la les coordonnées
+	i = Instr(v_Json, |"geometry":|)
+	If i = 0 Then
+		SIGg_CoordonneesGeo = "UNKNOWN_ERROR_3"
+		Call SIGe_AjouterLog("ERR: UNKNOWN_ERROR_3 URL: " &amp; v_Url, 0, 0, False)
+		Exit Function
+	End If
+	
+	' Trouver la latitude
+	j = Instr(i, v_Json, |"lat":|)
+	s = Trim(Mid(v_Json, j + 6, 11))
+	Do Until Instr("0123456789.-", Right(s, 1)) &gt; 0
+		s = Left(s, Len(s) - 1)
+	Loop
+	p_Latitude = SItN_cdbl(s)
+	
+	' Trouver la longitude
+	j = Instr(i, v_Json, |"lng":|)
+	s = Trim(Mid(v_Json, j + 6, 11))
+	Do Until Instr("0123456789.-", Right(s, 1)) &gt; 0
+		s = Left(s, Len(s) - 1)
+	Loop
+	p_Longitude = SItN_cdbl(s)
+	
+	SIGg_CoordonneesGeo = ""
+%REM
+{
+  "status": "OK",
+  "results": [ {
+    "types": [ "street_address" ],
+    "formatted_address": "759 Wonderland Rd N, London, ON N6H, Canada",
+    "address_components": [ {
+      "long_name": "759",
+      "short_name": "759",
+      "types": [ "street_number" ]
+    }, {
+      "long_name": "Wonderland Rd N",
+      "short_name": "Wonderland Rd N",
+      "types": [ "route" ]
+    }, {
+      "long_name": "London",
+      "short_name": "London",
+      "types": [ "locality", "political" ]
+    }, {
+      "long_name": "Middlesex County",
+      "short_name": "Middlesex County",
+      "types": [ "administrative_area_level_2", "political" ]
+    }, {
+      "long_name": "Ontario",
+      "short_name": "ON",
+      "types": [ "administrative_area_level_1", "political" ]
+    }, {
+      "long_name": "Canada",
+      "short_name": "CA",
+      "types": [ "country", "political" ]
+    }, {
+      "long_name": "N6H",
+      "short_name": "N6H",
+      "types": [ "postal_code_prefix", "postal_code" ]
+    } ],
+    "geometry": {
+      "location": {
+        "lat": 42.9900125,
+        "lng": -81.2956854
+      },
+      "location_type": "RANGE_INTERPOLATED",
+      "viewport": {
+        "southwest": {
+          "lat": 42.9868618,
+          "lng": -81.2988440
+        },
+        "northeast": {
+          "lat": 42.9931570,
+          "lng": -81.2925487
+        }
+      },
+      "bounds": {
+        "southwest": {
+          "lat": 42.9900063,
+          "lng": -81.2957073
+        },
+        "northeast": {
+          "lat": 42.9900125,
+          "lng": -81.2956854
+        }
+      }
+    }
+  } ]
+}
+%END REM
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGg, gc_Element_SIGg, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGg_GenererItinieraireOptimap"><lotusscript>Function SIGg_GenererItinieraireOptimap(paclSite As Variant, p_URL As String) As Integer
+	' Créé une carte Optimap
+	' Résultat: 0 = OK, n = Limite atteinte, -1 = Erreur
+	' http://gebweb.net/optimap/index.php?loc0=start&amp;loc1=dest1&amp;loc2=dest2
+	On Error Goto GererErreur
+	
+	Dim a_CarSpec As Variant
+	Dim i As Integer
+	
+	a_CarSpec = Evaluate(|"'" : "," : "&amp;" : @Char(10) : @Char(13)|)
+	If Not Isarray(paclSite) Then
+		Exit Function
+	End If
+	
+	p_URL = "http://gebweb.net/optimap/index.php?"
+	
+	i = 0
+	On Error 4000 Goto Erreur4000
+	Do Until i &gt; Ubound(paclSite)
+		If i &gt; 0 Then
+			p_URL = p_URL &amp; "&amp;"
+		End If
+		p_URL = p_URL &amp; "loc" &amp; Cstr(i) &amp; "=" &amp; Replace(Cstr(paclSite(i).Latitude), ",", ".") &amp; "," &amp; Replace(Cstr(paclSite(i).Longitude), ",", ".")
+		i = i + 1
+	Loop
+	
+	SIGg_GenererItinieraireOptimap = 0
+	Exit Function
+	
+Erreur4000:
+	SIGg_GenererItinieraireOptimap = i + 1
+	On Error 4000 Goto GererErreur
+	Exit Function
+	
+GererErreur:
+	SIGg_GenererItinieraireOptimap = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGg, gc_Element_SIGg, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGg_AdresseGoogle_"><lotusscript>Sub SIGg_AdresseGoogle_(p_AdresseGoogle As String, Byval p_Bloc As String)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script ajoute un bloc à une adresse Google
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	p_Bloc = Fulltrim(Replace(p_Bloc, Evaluate(|@Char(10) : @Char(13)|), " "))
+	If p_Bloc = "" Then
+		Exit Sub
+	End If
+	
+	If p_AdresseGoogle &lt;&gt; "" Then
+		p_AdresseGoogle = p_AdresseGoogle &amp; ", "
+	End If
+	
+	p_AdresseGoogle = p_AdresseGoogle &amp; p_Bloc
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGg, gc_Element_SIGg, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIGg_Initialisations"><lotusscript>Sub SIGg_Initialisations
+	If gns_SIGg Is Nothing Then
+		Set gns_SIGg = New Notessession
+		Set gndb_SIGg = gns_SIGg.Currentdatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="SIGg_GenererItinieraireGoogle"><lotusscript>Function SIGg_GenererItinieraireGoogle(paclSite As Variant, p_URL As String) As Integer
+	' Créé une carte Google avec un itinéraire (URL)
+	' Résultat: 0 = OK, n = Limite atteinte, -1 = Erreur
+	On Error Goto GererErreur
+	
+	Dim a_CarSpec As Variant
+	Dim i As Integer
+	
+	a_CarSpec = Evaluate(|"'" : "," : "&amp;" : @Char(10) : @Char(13)|)
+	If Not Isarray(paclSite) Then
+		Exit Function
+	End If
+	
+	p_URL = "http://maps.google.ca/maps?t=m&amp;saddr=" &amp; Replace(paclSite(0).Libelle, a_CarSpec, "") &amp; "@" &amp; Replace(Cstr(paclSite(0).Latitude), ",", ".") &amp; "," &amp; Replace(Cstr(paclSite(0).Longitude), ",", ".") &amp; "&amp;daddr="
+	
+	i = 1
+	On Error 4000 Goto Erreur4000
+	Do Until i &gt; Ubound(paclSite)
+		If i &gt; 1 Then
+			p_URL = p_URL &amp; "+to:"
+		End If
+		p_URL = p_URL &amp; Replace(paclSite(i).Libelle, a_CarSpec, "") &amp; "@" &amp; Replace(Cstr(paclSite(i).Latitude), ",", ".") &amp; "," &amp; Replace(Cstr(paclSite(i).Longitude), ",", ".")
+		i = i + 1
+	Loop
+	
+	SIGg_GenererItinieraireGoogle = 0
+	Exit Function
+	
+Erreur4000:
+	SIGg_GenererItinieraireGoogle = i + 1
+	On Error 4000 Goto GererErreur
+	Exit Function
+	
+GererErreur:
+	SIGg_GenererItinieraireGoogle = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGg, gc_Element_SIGg, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGg_AdresseGoogle"><lotusscript>Function SIGg_AdresseGoogle(p_Adresse1 As String, p_Adresse2 As String, p_Ville As String, p_Province As String, _
+p_CodePostal As String) As String
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script covertit une adresse au format Google
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Construire l'adresse
+	Call SIGg_AdresseGoogle_(SIGg_AdresseGoogle, Replace(p_Adresse1, ",", " "))
+	Call SIGg_AdresseGoogle_(SIGg_AdresseGoogle, p_Adresse2)
+	Call SIGg_AdresseGoogle_(SIGg_AdresseGoogle, p_Ville)
+	Call SIGg_AdresseGoogle_(SIGg_AdresseGoogle, p_Province)
+	Call SIGg_AdresseGoogle_(SIGg_AdresseGoogle, Replace(p_CodePostal, " ", ""))
+	
+	' Nettoyer l'adresse
+	SIGg_AdresseGoogle = Replace(SIGg_AdresseGoogle, Evaluate(|"#" : "&amp;"|), " ")
+	SIGg_AdresseGoogle = Replace(SIGg_AdresseGoogle, Evaluate(|"à" : "â" : "À" : "Â"|), _
+	Evaluate(|"a" : "a" :  "A" : "A"|), , , 0)
+	SIGg_AdresseGoogle = Replace(SIGg_AdresseGoogle, Evaluate(|"é" : "è" : "ê" : "ë" : "É" : "È" : "Ê" : "Ë"|), _
+	Evaluate(|"e" : "e" : "e" : "e" : "E" : "E" : "E" : "E"|), , , 0)
+	SIGg_AdresseGoogle = Replace(SIGg_AdresseGoogle, Evaluate(|"î" : "Î"|), Evaluate(|"i" : "I"|), , , 0)
+	SIGg_AdresseGoogle = Replace(SIGg_AdresseGoogle, Evaluate(|"ô" : "ö" : "Ô" : "Ö"|), Evaluate(|"o" : "o" : "O" : "O"|), , , 0)
+	SIGg_AdresseGoogle = Replace(SIGg_AdresseGoogle, Evaluate(|"ç" : "Ç"|), Evaluate(| "c" : "C"|), , , 0)
+	SIGg_AdresseGoogle = Replace(Fulltrim(SIGg_AdresseGoogle), " ", "+")
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGg, gc_Element_SIGg, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIGg_GenererCarteGoogle"><lotusscript>Function SIGg_GenererCarteGoogle(pa_Libelle As Variant, pa_Icone As Variant, pa_Latitude As Variant, _
+pa_Longitude As Variant, p_Titre As String, p_APIKey As String, p_URL As String) As Integer
+	' Créé une carte Google et retourne l'URL pour y accéder
+	' Résultat: 0 = OK, n = Limite atteinte, -1 = Erreur
+	On Error Goto GererErreur
+	
+	Dim ndb_SIWb As NotesDatabase
+	Dim nd_PWeb As NotesDocument
+	Dim v_NoPage As String
+	Dim nrti_Libelle As NotesItem
+	Dim nrti_Icone As NotesItem
+	Dim nrti_Latitude As NotesItem
+	Dim nrti_Longitude As NotesItem
+	Dim v_SommeLatitudes As Double
+	Dim v_SommeLongitudes As Double
+	Dim v_MinLatitude As Double
+	Dim v_MinLongitude As Double
+	Dim v_MaxLatitude As Double
+	Dim v_MaxLongitude As Double
+	Dim i As Integer
+	Dim a_CarSpec As Variant
+	
+	a_CarSpec = Evaluate(|"'" : "," : @Char(10) : @Char(13)|)
+	If Not Isarray(pa_Libelle) Or Not Isarray(pa_Icone) Or Not Isarray(pa_Latitude) Or Not Isarray(pa_Longitude) Then
+		Exit Function
+	End If
+	If Ubound(pa_Libelle) &lt;&gt; Ubound(pa_Icone) Or Ubound(pa_Libelle) &lt;&gt; Ubound(pa_Latitude) Or Ubound(pa_Libelle) &lt;&gt; Ubound(pa_Longitude) Then
+		Exit Function
+	End If
+	
+	' Créer la page web pour afficher la carte
+	Set ndb_SIWb = xGDK_xndbNDB("SIWb")
+	Set nd_PWeb = New NotesDocument(ndb_SIWb)
+	nd_PWeb.Form = "F_GMap"
+	Call nd_PWeb.ReplaceItemValue("$PublicAccess", "1")
+	v_NoPage = xUnique("")
+	nd_PWeb.Cle = v_NoPage
+	nd_PWeb.Description = "Google Maps"
+	nd_PWeb.PWeb_Titre = p_Titre
+	nd_PWeb.PWeb_NoPage = v_NoPage
+	nd_PWeb.PWeb_APIKey = p_APIKey
+	
+	Set nrti_Libelle = New NotesItem(nd_PWeb, "GMap_NomClient", Replace(pa_Libelle(0), a_CarSpec, ""))
+	Set nrti_Icone = New NotesItem(nd_PWeb, "GMap_Icone", pa_Icone(0))
+	Set nrti_Latitude = New NotesItem(nd_PWeb, "GMap_Latitude", Replace(Cstr(pa_Latitude(0)), ",", "."))
+	Set nrti_Longitude = New NotesItem(nd_PWeb, "GMap_Longitude", Replace(Cstr(pa_Longitude(0)), ",", "."))
+	v_SommeLatitudes = pa_Latitude(0)
+	v_SommeLongitudes = pa_Longitude(0)
+	v_MinLatitude = pa_Latitude(i) - (Abs(pa_Latitude(i)) * .0001)
+	v_MinLongitude = pa_Longitude(i) - (Abs(pa_Longitude(i)) * .0001)
+	v_MaxLatitude = pa_Latitude(i) + (Abs(pa_Latitude(i)) * .0001)
+	v_MaxLongitude = pa_Longitude(i) + (Abs(pa_Longitude(i)) * .0001)
+	
+	i = 1
+	On Error 4000 Goto Erreur4000
+	Do Until i &gt; Ubound(pa_Libelle)
+		Call nrti_Libelle.AppendToTextList(Replace(pa_Libelle(i), a_CarSpec, ""))
+		Call nrti_Icone.AppendToTextList(pa_Icone(i))
+		Call nrti_Latitude.AppendToTextList(Replace(Cstr(pa_Latitude(i)), ",", "."))
+		Call nrti_Longitude.AppendToTextList(Replace(Cstr(pa_Longitude(i)), ",", "."))
+		v_SommeLatitudes = v_SommeLatitudes + pa_Latitude(i)
+		v_SommeLongitudes = v_SommeLongitudes + pa_Longitude(i)
+		If pa_Latitude(i) &lt; v_MinLatitude Then
+			v_MinLatitude = pa_Latitude(i)
+		End If
+		If pa_Longitude(i) &lt; v_MinLongitude Then
+			v_MinLongitude = pa_Longitude(i)
+		End If
+		If pa_Latitude(i) &gt; v_MaxLatitude Then
+			v_MaxLatitude = pa_Latitude(i)
+		End If
+		If pa_Longitude(i) &gt; v_MaxLongitude Then
+			v_MaxLongitude = pa_Longitude(i)
+		End If
+		i = i + 1
+	Loop
+	SIGg_GenererCarteGoogle = 0
+	
+Continue:
+	' Sauvegarder la page web
+	nd_PWeb.GMap_PositionLat = Replace(Cstr(v_SommeLatitudes / (Ubound(pa_Libelle) + 1)), ",", ".")
+	nd_PWeb.GMap_PositionLong = Replace(Cstr(v_SommeLongitudes / (Ubound(pa_Libelle) + 1)), ",", ".")
+	nd_PWeb.GMap_MinLatitude =  Replace(Cstr(v_MinLatitude), ",", ".")
+	nd_PWeb.GMap_MinLongitude =  Replace(Cstr(v_MinLongitude), ",", ".")
+	nd_PWeb.GMap_MaxLatitude =  Replace(Cstr(v_MaxLatitude), ",", ".")
+	nd_PWeb.GMap_MaxLongitude =  Replace(Cstr(v_MaxLongitude), ",", ".")
+	Call nd_PWeb.Save(True, False)
+	
+	p_URL = "/" &amp; Replace(ndb_SIWb.FilePath, "\", "/") &amp; "/V_PWeb/" &amp; v_NoPage &amp; "?Opendocument"
+	Exit Function
+	
+Erreur4000:
+	SIGg_GenererCarteGoogle = i + 1
+	On Error 4000 Goto GererErreur
+	Goto Continue
+	
+GererErreur:
+	SIGg_GenererCarteGoogle = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SIGg, gc_Element_SIGg, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+
+
+
+
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,11-05</datetime></item></scriptlibrary>
+
+</database>

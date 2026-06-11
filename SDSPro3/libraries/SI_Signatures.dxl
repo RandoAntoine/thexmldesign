@@ -1,0 +1,425 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Signatures" hide="v3 v4strict" designerversion="8.5.3" comment="2.1c">
+<noteinfo noteid="555722" unid="50C8CCB41625FEC7852586B40011FB8D" sequence="76">
+<created><datetime dst="true">20210410T231625,09-04</datetime></created>
+<modified><datetime>20260105T014837,29-05</datetime></modified>
+<revised><datetime>20250319T073641,00-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,28-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,28-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "SI_tRichText"
+Use "x_SIEm"
+Use "x_SIRR"
+'
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SISg As NotesSession
+Dim gndb_SISg As NotesDatabase
+
+Const gc_Signet_SISg = "[Signature]"
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SISg = "SL"
+Const gc_Element_SISg = "SI_Signatures"
+
+</lotusscript></code><code event="SISg_hsInsererImageSignature"><lotusscript>Sub SISg_hsInsererImageSignature(p_NomItem As String)
+	On Error Goto GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nuid As Notesuidocument
+	Dim ndc As NotesDocumentCollection
+	Dim nd_SIDo As NotesDocument
+	Dim v_NomImage As String
+	Dim v_TypeImage As String
+	Dim nrti As NotesRichTextItem
+	Dim neo As NotesEmbeddedObject
+	Dim v_CheminFichier As String
+	
+	' Initialisations
+	Call SISg_Initialisations
+	Call xSIEm_Initialisation
+	
+	' Sélectionner l'image
+	Set ndc = nuiws.PickListCollection(PICKLIST_CUSTOM, False, gndb_xSIEm.Server, gndb_xSIEm.FilePath, "V_SIDo20", _
+	"Insertion d'une image", "Sélectionnez l'image à insérer.")
+	If ndc.Count = 0 Then
+		Exit Sub
+	End If
+	Set nd_SIDo = ndc.GetFirstDocument
+	v_TypeImage = xVar(nd_SIDo, "SIDo_TypeNotes", "")
+	If v_TypeImage &lt;&gt; "GIF Image" And v_TypeImage &lt;&gt; "JPEG Image" Then
+		Messagebox "Le document sélectionné n'est pas d'un type permis.", 16, "Opération annulée"
+		Exit Sub
+	End If
+	
+	' Extraire l'image
+	If nd_SIDo.HasItem("SIDo_Document") Then
+		Set nrti = nd_SIDo.GetFirstItem("SIDo_Document")
+		If Isarray(nrti.EmbeddedObjects) Then
+			Set neo = nrti.EmbeddedObjects(0)
+			v_NomImage = neo.Name
+			v_CheminFichier = Environ("Temp") &amp; "\" &amp; v_NomImage
+			On Error 75 Resume Next
+			Kill v_CheminFichier
+			Call neo.ExtractFile(v_CheminFichier)
+		Else
+			Messagebox "L'image " &amp; v_NomImage &amp; " n'est pas disponible. (2)", 16, "Opération annulée"
+			Exit Sub
+		End If
+	Else
+		Messagebox "L'image " &amp; v_NomImage &amp; " n'est pas disponible. (3)", 16, "Opération annulée"
+		Exit Sub
+	End If
+	
+	' Ajouter l'image au document
+	Set nuid = nuiws.currentDocument
+	Call nuid.GotoField(p_NomItem)
+	Call nuid.Import(v_TypeImage, v_CheminFichier)
+	Kill v_CheminFichier
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISg, gc_Element_SISg, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SISg_ExtraireSignatureRep"><lotusscript>Function SISg_ExtraireSignatureRep(p_NoEmploye As Variant, p_Projeto As String, pnd_SIRR As NotesDocument, p_NomItemSignature As string) As Boolean
+	'------------------------------------------------------------------------------------------
+	' Le script permet d'extraire la signature du document de l'employée.
+	'Paramètre: 
+	'			pnd_NoEmploye :  Variant. Le numéro de l'employé. 
+	'									Si null, on utilise le numéro de l'utilisateur courant.
+	'------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nrti_Rep As NotesRichTextItem
+	
+	' Initialisation
+	SISg_ExtraireSignatureRep = False
+	p_NomItemSignature = "Repr_SignatureExterne"
+
+	' Extraire le fiche du représentant
+	If p_NoEmploye = "" Then
+		Set pnd_SIRR = xSIRR_xndRepr_Id(gns_SISg.Username, p_Projeto)
+	Else
+		Set pnd_SIRR = xSIRR_xndRepr(p_NoEmploye, True)
+	End If 
+	If pnd_SIRR Is Nothing Then
+		Exit Function
+	End If
+	
+	If pnd_SIRR.HasItem(p_NomItemSignature) Then
+		Set nrti_Rep = pnd_SIRR.GetFirstItem(p_NomItemSignature)
+		If nrti_Rep.GetUnformattedText &lt;&gt; "" Then
+			If p_NoEmploye = "" Then
+				p_NoEmploye = xVar(pnd_SIRR, "Repr_NoRepresentant", "")
+			End If
+			SISg_ExtraireSignatureRep = True
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISg, gc_Element_SISg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISg_EffacerSignet"><lotusscript>Function SISg_EffacerSignet(pnuid As NotesuiDocument, p_Body As String) As Boolean
+	'-----------------------------------------------------------------------------
+	' Le script permet d'effacer le signet.
+	' Paramètre: 
+	'			p_Body : String. Le nom du champ richtext ou ajouter la signature.
+	'-----------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisation
+	SISg_EffacerSignet = False
+	Call SISg_Initialisations
+	
+	If Instr(pnuid.FieldGetText(p_Body), gc_Signet_SISg) &gt; 0 Then
+		Call pnuid.GotoField(p_Body)
+		Call pnuid.FindString(gc_Signet_SISg)
+		Call pnuid.InsertText(" ")
+	End If
+	
+	SISg_EffacerSignet = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISg, gc_Element_SISg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISg_InsererSignatureExterne_SIRR"><lotusscript>Function SISg_InsererSignatureExterne_SIRR(pnuid_Source As NotesUIDocument, p_NoRepresentant As String, p_Body As String) As Boolean
+	' p_Signature : I = Interne, E=Externe
+	On Error Goto GererErreur
+	
+	Dim script As String
+	
+	SISg_InsererSignatureExterne_SIRR = False
+	
+	script = |
+				Dim s As New NotesSession
+				Dim db As NotesDatabase
+				Dim nv as NotesView
+				Dim nd As NotesDocument
+				Dim wksp As New NotesUIWorkspace
+				Dim uiDoc As NotesUIDocument
+	
+				Set db = s.GetDatabase("| &amp; gndb_xSIRR.Server &amp; |", "| &amp; gndb_xSIRR.FilePath &amp; |", False)
+				Set nv = db.GetView("V_Repr20")
+				Set nd = nv.GetDocumentByKey("| &amp; p_NoRepresentant &amp; |", true)
+				Set uiDoc = wksp.CurrentDocument
+				If nd.HasItem("Repr_SignatureExterne") Then
+					Call uiDoc.ImportItem(nd, "Repr_SignatureExterne")
+				End If
+			|
+	
+	' Insérer la signature dans le message
+	If Instr(pnuid_Source.FieldGetText(p_Body), gc_Signet_SISg) = 0 Then
+		Call pnuid_Source.FieldAppendText(p_Body, gc_Signet_SISg)
+	End If
+	Call pnuid_Source.GotoField(p_Body)
+	Call pnuid_Source.FindString(gc_Signet_SISg)
+	
+	Execute(script)
+	
+	pnuid_Source.Document.SI_Signature = "1"
+	SISg_InsererSignatureExterne_SIRR = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISg, gc_Element_SISg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISg_Initialisations"><lotusscript>Sub SISg_Initialisations
+	If gns_SISg Is Nothing Then
+		Set gns_SISg = New NotesSession
+		Set gndb_SISg = gns_SISg.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="SISg_ExtraireSignature"><lotusscript>Function SISg_ExtraireSignature(p_NoEmploye As Variant, pnd_Empl As NotesDocument, p_NomItemSignature As string) As String
+	'--------------------------------------------------------------------------------------
+	' Le script permet d'extraire la signature du document de l'employée.
+	' Paramètre: 
+	'			p_NoEmploye :  Variant. Le numéro de l'employé. 
+	'								Si null, on utilise le numéro de l'utilisateur courant.
+	'--------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisation
+	SISg_ExtraireSignature = ""
+	Call SISg_Initialisations
+
+	' Extraire le document de l'employé dans SI Employées
+	If SISg_ExtraireSignatureEmpl(p_NoEmploye, pnd_Empl, p_NomItemSignature) Then
+		SISg_ExtraireSignature = "E"
+		Exit Function
+	End If
+	' Si pas trouvé dans SI Employés, vérifie dans SI Représentants
+	If SISg_ExtraireSignatureRep(p_NoEmploye, "0", pnd_Empl, p_NomItemSignature) Then
+		SISg_ExtraireSignature = "R"
+		Exit Function
+	End If
+	' Si pas trouvé dans SI Employés, vérifie dans SI Représentants
+	If SISg_ExtraireSignatureRep(p_NoEmploye, "60", pnd_Empl, p_NomItemSignature) Then
+		SISg_ExtraireSignature = "R"
+		Exit Function
+	End If
+	' Si pas trouvé dans SI Employés, vérifie dans SI Représentants
+	If SISg_ExtraireSignatureRep(p_NoEmploye, "62", pnd_Empl, p_NomItemSignature) Then
+		SISg_ExtraireSignature = "R"
+		Exit Function
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISg, gc_Element_SISg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISg_AjouterSignature"><lotusscript>Function SISg_AjouterSignature(pnuid_Source As NotesUIDocument, p_NoEmploye As Variant, p_Body As String) As Boolean
+	' ------------------------------------------------------------------------------------------------------------
+	' Le script permet d'ajouter une signature au message. La signature provient du document de l'employée.
+	' Paramètre:
+	' 		pnuid_Source : NotesUIDocument. Le document courant dans laquelle on insert le signet.
+	' 		p_NoEmploye : Variant. Le numéro de l'employé. Si null, on utilise le numéro de l'utilisateur courant.
+	' 		p_Body : String. Le nom du champ richtext où ajouter la signature.
+	' ------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nd_Empl As NotesDocument
+	
+	Dim v_NomItemSignature As String
+	Dim v_Type As String
+	
+	' Initialisation
+	SISg_AjouterSignature = False
+	Call SISg_Initialisations
+	' Vérifier que l'indicateur de signature est présent
+	If Instr(pnuid_Source.FieldGetText(p_Body), gc_Signet_SISg) = 0 Then
+		If pnuid_Source.CurrentField = p_Body Then
+			If nuiws.Prompt(PROMPT_YESNO, "Signature", xGDK_xMessage("SI", 177, "", "")) Then
+				Call pnuid_Source.InsertText(gc_Signet_SISg)
+			Else
+				Exit Function
+			End If
+		Else
+			Messagebox xGDK_xMessage("SI", 178, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+	End If
+	
+	' Insérer la signature dans le message
+	v_Type = SISg_ExtraireSignature(p_NoEmploye, nd_Empl, v_NomItemSignature)
+	If v_Type = "E" Then
+		If Not SISg_InsererSignatureExterne_SIEm(pnuid_Source, Cstr(p_NoEmploye), p_Body) Then
+		' Erreur lors de l'insertion de la signature - Voulez-vous envoyer le courriel quand même ?
+			If nuiws.Prompt(PROMPT_YESNO, "Signature", xGDK_xMessage("SI", 179, "", "")) &lt;&gt; 1 Then
+				Exit Function
+			End If
+		End If
+	ElseIf v_Type = "R" Then
+		If Not SISg_InsererSignatureExterne_SIRR(pnuid_Source, Cstr(p_NoEmploye), p_Body) Then
+		' Erreur lors de l'insertion de la signature - Voulez-vous envoyer le courriel quand même ?
+			If nuiws.Prompt(PROMPT_YESNO, "Signature", xGDK_xMessage("SI", 179, "", "")) &lt;&gt; 1 Then
+				Exit Function
+			End If
+		End If
+	Else
+		' Impossible de générer la signature - Voulez-vous envoyer le courriel quand même ?
+		If nuiws.Prompt(PROMPT_YESNO, "Signature", xGDK_xMessage("SI", 180, "", "")) &lt;&gt; 1 Then
+			Exit Function
+		End If
+	End If
+	
+	' Effacer le signet
+	SISg_AjouterSignature = SISg_EffacerSignet(pnuid_Source, p_Body)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISg, gc_Element_SISg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISg_ExtraireSignatureEmpl"><lotusscript>Function SISg_ExtraireSignatureEmpl(p_NoEmploye As Variant, pnd_Empl As NotesDocument, p_NomItemSignature As string) As Boolean
+	'--------------------------------------------------------------------------------------
+	' Le script permet d'extraire la signature du document de l'employée.
+	'Paramètre: 
+	'			pnd_NoEmploye :  Variant. Le numéro de l'employé.
+	'								Si null, on utilise le numéro de l'utilisateur courant.
+	'--------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nrti_Empl As NotesRichTextItem
+	
+	' Initialisation
+	SISg_ExtraireSignatureEmpl = False
+	p_NomItemSignature = "Empl_SignatureExterne"
+	
+	' Extraire le document de l'employé
+	If p_NoEmploye = "" Then
+		Set pnd_Empl = xSIEm_xndEmpl_Id(gns_SISg.Username, True)
+	Else
+		Set pnd_Empl = xSIEm_xndEmpl(p_NoEmploye , True)
+	End If
+	If pnd_Empl Is Nothing Then
+		Exit Function
+	End If
+	
+	If pnd_Empl.HasItem(p_NomItemSignature) Then
+		Set nrti_Empl = pnd_Empl.GetFirstItem(p_NomItemSignature)
+		If nrti_Empl.GetUnformattedText &lt;&gt; "" Then
+			If p_NoEmploye = "" Then
+				p_NoEmploye = xVar(pnd_Empl, "Empl_NoEmploye", "")
+			End If
+			SISg_ExtraireSignatureEmpl = True
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISg, gc_Element_SISg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISg_InsererSignatureExterne_SIEm"><lotusscript>Function SISg_InsererSignatureExterne_SIEm(pnuid_Source As NotesUIDocument, p_NoEmploye As String, p_Body As String) As Boolean
+	' p_Signature : I = Interne, E=Externe
+	On Error Goto GererErreur
+	
+	Dim script As String
+	
+	SISg_InsererSignatureExterne_SIEm = False
+	
+	script = |
+				Dim s As New NotesSession
+				Dim db As NotesDatabase
+				Dim nv as NotesView
+				Dim nd As NotesDocument
+				Dim wksp As New NotesUIWorkspace
+				Dim uiDoc As NotesUIDocument
+	
+				Set db = s.GetDatabase("| &amp; gndb_xSIEm.Server &amp; |", "| &amp; gndb_xSIEm.FilePath &amp; |", False)
+				Set nv = db.GetView("V_Empl20")
+				Set nd = nv.GetDocumentByKey("| &amp; p_NoEmploye &amp; |", true)
+				Set uiDoc = wksp.CurrentDocument
+				If nd.HasItem("Empl_SignatureExterne") Then
+					Call uiDoc.ImportItem(nd, "Empl_SignatureExterne")
+				End If
+			|
+	
+	' Insérer la signature dans le message
+	If Instr(pnuid_Source.FieldGetText(p_Body), gc_Signet_SISg) = 0 Then
+		Call pnuid_Source.FieldAppendText(p_Body, gc_Signet_SISg)
+	End If
+	Call pnuid_Source.GotoField(p_Body)
+	Call pnuid_Source.FindString(gc_Signet_SISg)
+	
+	Execute(script)
+	
+	pnuid_Source.Document.SI_Signature = "1"
+	SISg_InsererSignatureExterne_SIEm = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISg, gc_Element_SISg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISg_InsererSignet"><lotusscript>Function SISg_InsererSignet(pnuid As NotesUIDocument, p_Body As String) As Boolean
+	'-----------------------------------------------------------------------------
+	' Le script permet d'insérer le signet dans le message.
+	' Paramètre: 
+	'			p_Body : String. Le nom du champ richtext ou ajouter la signature.
+	'-----------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisation
+	SISg_InsererSignet = False
+	Call SISg_Initialisations
+	
+	' Insérer le signet dans le message
+	Call pnuid.GotoField(p_Body)
+	Call pnuid.inserttext(Chr(10) &amp; Chr(10) &amp; gc_Signet_SISg &amp; Chr(10))
+	Call pnuid.GotoField(p_Body)
+	
+	SISg_InsererSignet = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISg, gc_Element_SISg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073641,00-05</datetime></item></scriptlibrary>
+
+</database>

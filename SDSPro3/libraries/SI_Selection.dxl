@@ -1,0 +1,521 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Selection" hide="v3 v4strict" designerversion="8.5.3" comment="1.7a">
+<noteinfo noteid="55594a" unid="C0397B6A38BD861185258B7A005F1776" sequence="6">
+<created><datetime dst="true">20240815T131839,26-04</datetime></created>
+<modified><datetime>20260105T014838,35-05</datetime></modified>
+<revised><datetime>20250319T073634,33-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,34-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,34-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SISe As NotesSession
+Dim gndb_SISe As NotesDatabase
+
+Dim gnuiws_SISe As NotesUIWorkspace
+
+' Numero pour decider la limite des résultats
+Const g_LimiteResultats = 100
+
+' Constantes pourvante être utilisées pour le paramètre P_Null
+Const SISe_PROMPT = 0
+Const SISe_PICKLIST = 1
+Const SISe_NOPROMPT = 2
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SISe = "SL"
+Const gc_Element_SISe = "SI_Selection"
+
+</lotusscript></code><code event="SISe_ndSelectionnerDocument"><lotusscript>Function SISe_ndSelectionnerDocument(Byval p_Query As String,  p_Champs As Variant, Byval p_Null As Integer, _
+pnv As NotesView, Byval p_fDescription As String, Byval p_Titre As String, p_Categorie As String,p_RechApprox As Boolean) As NotesDocument
+	' Fonction permettant de sélectionne un document après une recherche FT
+	'	Paramètres:	p_Query			String.  Le mot clé à rechercher dans la vue.
+	'				p_Champs		Variant.  Liste de champs à ajouter dans le Query.
+	'				p_Null			Boolean.  L'action à effectuer su le query est vide.
+	'											SISe_PROMPT (0) = Demande la requête à l'utilisateur (Prompt)
+	'											SISe_PICKLIST (1) = Demande à l'utilisateur de choisir dans un picklist
+	'											SISe_NOPROMPT (2) = Ne pas demander à l'utilisateur
+	'				pnv				NotesView.  La vue dans laquelle il faut chercher le document.
+	'				p_fDescription	String.  Une formule permettant de construire la description de chaque document.
+	'										C'est cette description qui sera affichée dans le dialog box.
+	'				p_RechApprox	Boolean. Permet d'executer une recherche aproximative (fuzzy) en ajoutant
+	'												une astérix (*) devant et après p_Query.
+	'	Valeurs retournées:		NotesDocument.	Le document sélectionné.
+	
+	On Error Goto GererErreur
+	
+	Dim v_NbResultats As Long
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument
+	Dim v_Description As Variant
+	Dim ndb As NotesDatabase
+	Dim x As Long
+	Dim v_Query As Variant
+	
+	' Initialisations
+	' ---------------
+	Set SISe_ndSelectionnerDocument = Nothing
+	
+	' Validation des paramètres
+	' -------------------------
+	If pnv Is Nothing Or p_fDescription = "" Then
+		Exit Function
+	End If
+	Call SISe_Initialisations
+	If p_Titre = "" Then
+		p_Titre = "SI Sélection"
+	End If
+	
+	' Si le query est vide, effectuer l'action selon le paramètre P_Null
+	' ------------------------------------------------------------------
+	If p_Query = "" Then
+		If p_Null = SISe_PICKLIST Or p_Null = SISe_NOPROMPT Then
+			Set SISe_ndSelectionnerDocument = SISe_ndPickList(pnv, p_Titre, p_Categorie)
+			Exit Function
+		End If
+		
+		' Permettre à l'utilisateur de saisir le query à l'aide d'un prompt
+		' -----------------------------------------------------------------
+		
+		If p_Null = SISe_PROMPT Then
+			v_Query = gnuiws_SISe.Prompt(PROMPT_OKCANCELEDIT, p_Titre, xGDK_xMessage("SI", 69, "", ""))
+		End If
+		
+		If Isempty(v_Query) Then
+			Exit Function
+		Elseif v_Query = "" Then
+			Set SISe_ndSelectionnerDocument = SISe_ndPickList(pnv, p_Titre,p_Categorie)
+			Exit Function
+		Else
+			If p_RechApprox Then
+				p_Query = "*" &amp; v_Query &amp; "*"
+			Else
+				p_Query = v_Query
+			End If
+		End If
+	End If
+	
+	' Ajouter les p_Champs au "p_Query", si necessaire
+	If Isarray(p_Champs) Then
+		Dim v_QueryTmp As String
+		Forall p In p_Champs
+			v_QueryTmp = v_QueryTmp &amp; "FIELD " &amp; p &amp; " contains (" &amp; p_Query &amp; ") OR "
+		End Forall
+		p_Query = Left$(v_QueryTmp, Len(v_QueryTmp) - 4)
+	Elseif Not p_Champs = "" Then
+		p_Query = "FIELD " &amp; p_Champs &amp; " contains (" &amp; p_Query &amp; ")"
+	End If
+	
+	' Si aucun résultat, afficher un message d'erreur et sortir
+	' ---------------------------------------------------------
+	v_NbResultats = pnv.FTSearch(p_Query)
+	If v_NbResultats = 0 Then
+		Msgbox(xGDK_xMessage("SI", 70, "", ""))
+		Exit Function
+	End If
+	
+	' Créer le tableau à partir des résultats obtenu
+	' ----------------------------------------------
+	If v_NbResultats &gt; g_LimiteResultats Then
+		Redim a_Resultats(g_LimiteResultats - 1)
+	Else
+		Redim a_Resultats(v_NbResultats - 1)
+	End If	
+	x = 0
+	Set nd_Suivant = pnv.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = pnv.GetNextDocument(nd_Suivant)
+		v_Description = Evaluate(p_fDescription, nd)
+		a_Resultats(x) = v_Description(0) + "|" + Cstr(nd.UniversalID)
+		x = x + 1
+		'If x = g_LimiteResultats - 1 Then
+		If x = g_LimiteResultats Then
+			Exit Do
+		End If
+	Loop
+	
+	' Permettre à l'utilisateur de sélectionner une valeur dans un dialogbox
+	' ----------------------------------------------------------------------
+	Set nd_DB = New notesdocument(gndb_SISe)
+	nd_DB.SISe_NbResultats = v_NbResultats
+	nd_DB.SISe_NbLimite = g_LimiteResultats
+	nd_DB.SISe_Liste = a_Resultats
+	nd_DB.SISe_Type = "0"
+	If gnuiws_SISe.DialogBox( "DB_SISe" , True , True , False , False , False ,False , p_Titre, nd_DB , True , False , False ) Then
+		' Assigner le document choisi par l'utilisateur
+		' ---------------------------------------------
+		Set ndb = pnv.Parent
+		Set SISe_ndSelectionnerDocument = _
+		ndb.GetDocumentByUNID(Cstr(xVar(nd_DB, "SISe_Choix", "")))
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISe, gc_Element_SISe, Getthreadinfo(1), p_Query, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISe_ndSelectionnerDocumentCollection"><lotusscript>Function SISe_ndSelectionnerDocumentCollection(pndc As NotesDocumentCollection, _
+ByVal p_fDescription As String, ByVal p_Titre As String, p_Categorie As String) As NotesDocument
+	' Fonction permettant de sélectionne un document après une recherche FT
+	'	Paramètres:	p_Query			String.  Le mot clé à rechercher dans la vue.
+	'				p_Champs		Variant.  Liste de champs à ajouter dans le Query.
+	'				p_Null			Boolean.  L'action à effectuer su le query est vide.
+	'											SISe_PROMPT (0) = Demande la requête à l'utilisateur (Prompt)
+	'											SISe_PICKLIST (1) = Demande à l'utilisateur de choisir dans un picklist
+	'											SISe_NOPROMPT (2) = Ne pas demander à l'utilisateur
+	'				pnv				NotesView.  La vue dans laquelle il faut chercher le document.
+	'				p_fDescription	String.  Une formule permettant de construire la description de chaque document.
+	'										C'est cette description qui sera affichée dans le dialog box.
+	'				p_RechApprox	Boolean. Permet d'executer une recherche aproximative (fuzzy) en ajoutant
+	'												une astérix (*) devant et après p_Query.
+	'	Valeurs retournées:		NotesDocument.	Le document sélectionné.
+	
+	On Error GoTo GererErreur
+	
+	Dim v_NbResultats As Long
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument
+	Dim v_Description As Variant
+	Dim ndb As NotesDatabase
+	Dim x As Long
+	Dim v_Query As Variant
+	
+	' Initialisations
+	' ---------------
+	Set SISe_ndSelectionnerDocumentCollection = Nothing
+	
+	' Validation des paramètres
+	' -------------------------
+	If p_fDescription = "" Then
+		Exit Function
+	End If
+	Call SISe_Initialisations
+	If p_Titre = "" Then
+		p_Titre = "SI Sélection"
+	End If
+	v_NbResultats = pndc.Count
+	
+	' Créer le tableau à partir des résultats obtenu
+	' ----------------------------------------------
+	If v_NbResultats &gt; g_LimiteResultats Then
+		ReDim a_Resultats(g_LimiteResultats - 1)
+	Else
+		ReDim a_Resultats(v_NbResultats - 1)
+	End If	
+	x = 0
+	Set nd_Suivant = pndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = pndc.GetNextDocument(nd_Suivant)
+		v_Description = Evaluate(p_fDescription, nd)
+		a_Resultats(x) = v_Description(0) + "|" + CStr(nd.UniversalID)
+		x = x + 1
+		If x = g_LimiteResultats Then
+			Exit Do
+		End If
+	Loop
+	
+	' Permettre à l'utilisateur de sélectionner une valeur dans un dialogbox
+	' ----------------------------------------------------------------------
+	Set nd_DB = New NotesDocument(gndb_SISe)
+	nd_DB.SISe_NbResultats = v_NbResultats
+	nd_DB.SISe_NbLimite = g_LimiteResultats
+	nd_DB.SISe_Liste = a_Resultats
+	nd_DB.SISe_Type = "0"
+	If gnuiws_SISe.DialogBox( "DB_SISe" , True , True , False , False , False ,False , p_Titre, nd_DB , True , False , False ) Then
+		' Assigner le document choisi par l'utilisateur
+		' ---------------------------------------------
+		Set ndb = nd.ParentDatabase
+		Set SISe_ndSelectionnerDocumentCollection = ndb.GetDocumentByUNID(CStr(xVar(nd_DB, "SISe_Choix", "")))
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISe, gc_Element_SISe, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISe_ndPickList"><lotusscript>Function SISe_ndPickList(pnv As NotesView, Byval p_Titre As String, p_Categorie As String) As NotesDocument
+	' Fonction permettant de sélectionne un document après une recherche FT
+	'	Paramètres:		pnv			NotesView.		La vue dans laquelle il faut chercher le document.
+	'	Valeurs retournées:			NotesDocument	Le document sélectionné.
+	On Error GoTo GererErreur
+	
+	Dim a_Aliases As Variant
+	Dim v_NomVue As String
+	Dim ndb As NotesDatabase
+	Dim ndc As NotesDocumentCollection
+	
+	' Initialisations
+	' ------------------
+	Call SISe_Initialisations
+	
+	Set SISe_ndPickList = Nothing
+	a_Aliases = pnv.Aliases
+	If IsArray(a_Aliases) Then
+		v_NomVue = a_Aliases(0)
+	Else
+		v_NomVue = pnv.Name
+	End If
+	
+	' Afficher la liste des documents à l'aide d'un picklist
+	' ------------------------------------------------------
+	Set ndb = pnv.Parent
+	Set ndc = gnuiws_SISe.PicklistCollection(PICKLIST_CUSTOM, False, ndb.Server, ndb.FilePath, v_NomVue, p_Titre,_
+	xGDK_xMessage("SI", 71, "", ""),p_Categorie)
+	If ndc.Count = 1 Then
+		Set SISe_ndPickList = ndc.GetFirstDocument
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISe, gc_Element_SISe, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISe_SelectionnerDocument"><lotusscript>Function SISe_SelectionnerDocument(Byval p_Query As String, p_Champs As Variant, Byval p_Null As Integer, _
+pnv As NotesView, Byval p_fDescription As String, Byval p_fValeurRetournee As String, _
+Byval p_Titre As String,p_Categorie As String, p_RechApprox As Boolean) As Variant
+	' Fonction permettant de sélectionne un document après une recherche FT
+	'	Paramètres:		p_Query			String.  Le mot clé à rechercher dans la vue.
+	'					p_Champs		Variant.  Liste de champs à ajouter dans le Query.
+	'					p_Null			Boolean.  L'action à effectuer su le query est vide.
+	'											SISe_PROMPT (0) = Demande la requête à l'utilisateur (Prompt)
+	'											SISe_PICKLIST (1) = Demande à l'utilisateur de choisir dans un picklist
+	'					pnv				NotesView.  La vue dans laquelle il faut chercher le document.
+	'					p_fDescription	String.  Une formule permettant de construire la description de chaque document.
+	'											C'est cette description qui sera affichée dans le dialog box.
+	'					p_fValeurRetournee	String. Une formule permettant de calculer la valeur à retourner.
+	'					p_RechApprox	Boolean. Permet d'executer une recherche aproximative (fuzzy) en ajoutant
+	'												une astérix (*) devant et après p_Query.
+	'	Valeurs retournées:	Variant.	Le résultat de la formule p_fValeurRetournee.
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim v_Valeur As Variant
+	
+	' Initialisations
+	' ---------------
+	SISe_SelectionnerDocument = ""
+	
+	' Validation des paramètres
+	' -------------------------
+	If pnv Is Nothing Or p_fDescription = "" Or p_fValeurRetournee = "" Then
+		Exit Function
+	End If
+	
+	Call SISe_Initialisations
+	
+	' Recherche du document selon le mot-clé
+	' --------------------------------------
+	Set nd = SISe_ndSelectionnerDocument(p_Query, p_Champs, p_Null, pnv, p_fDescription, p_Titre,p_Categorie,p_RechApprox)
+	If nd Is Nothing Then
+		Exit Function
+	End If
+	
+	' Calculer la valeur à retourner
+	' ------------------------------
+	v_Valeur = Evaluate(p_fValeurRetournee, nd)
+	If Isarray(v_Valeur) Then
+		SISe_SelectionnerDocument = v_Valeur(0)
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISe, gc_Element_SISe, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISe_ndcPickList"><lotusscript>Function SISe_ndcPickList(pnv As Notesview, Byval p_Titre As String, p_Categorie As String) As NotesDocumentCollection
+	' Fonction permettant de sélectionne un document après une recherche FT
+	' Paramètres:		pnv		NotesView.					La vue dans laquelle il faut chercher le document.
+	' Valeurs retournées:		NotesDocumentCollection.	Liste des documents sélectionnés.
+	On Error GoTo GererErreur
+	
+	Dim a_Aliases As Variant
+	Dim v_NomVue As String
+	Dim ndb As NotesDatabase
+	Dim ndc As NotesDocumentCollection
+	
+	' Initialisations
+	Call SISe_Initialisations
+	Set SISe_ndcPickList = pnv.GetAllDocumentsByKey("**** BiDoN ****", True)
+	
+	a_Aliases = pnv.Aliases
+	If Isarray(a_Aliases) Then
+		v_NomVue = a_Aliases(0)
+	Else
+		v_NomVue = pnv.Name
+	End If
+	Set ndb = pnv.Parent
+	
+	' Afficher la liste des documents à l'aide d'un picklist
+	' ------------------------------------------------------
+	Set SISe_ndcPickList = gnuiws_SISe.PicklistCollection(PICKLIST_CUSTOM, True, ndb.Server, ndb.FilePath, v_NomVue, p_Titre, _
+	xGDK_xMessage("SI", 71, "", ""),p_Categorie)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISe, gc_Element_SISe, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SISe_Initialisations"><lotusscript>Sub SISe_Initialisations
+	If gns_SISe Is Nothing Then
+		Set gns_SISe = New NotesSession
+		Set gndb_SISe = gns_SISe.CurrentDatabase
+		Set gnuiws_SISe = New NotesUIWorkspace
+	End If
+End Sub
+
+</lotusscript></code><code event="SISe_ndcSelectionnerDocuments"><lotusscript>Function SISe_ndcSelectionnerDocuments(Byval p_Query As String,  p_Champs As Variant, Byval p_Null As Integer, _
+pnv As NotesView, Byval p_fDescription As String, Byval p_Titre As String, p_Categorie As String, p_TypeSelection As String, _
+p_LimiteTypeSelection As Integer, p_RechApprox As Boolean) As NotesDocumentCollection
+	' Fonction permettant de sélectionne un document après une recherche FT
+	'	Paramètres:		p_Query			String.  Le mot clé à rechercher dans la vue.
+	'							p_Champs		Variant.  Liste de champs à ajouter dans le Query.
+	'							p_Null				Boolean.  L'action à effectuer su le query est vide.
+	'															SISe_PROMPT (0) = Demande la requête à l'utilisateur (Prompt)
+	'															SISe_PICKLIST (1) = Demande à l'utilisateur de choisir dans un picklist
+	'							pnv					NotesView.  La vue dans laquelle il faut chercher le document.
+	'							p_fDescription	String.  Une formule permettant de construire la description de chaque document.
+	'													C'est cette description qui sera affichée dans le dialog box.
+	'							p_TypeSelection	String.  Le type de liste de sélection à afficher ( 1= CheckBox, 0=Radio)
+	'							p_LimiteTypeSelection    Integer.  Si p_TypeSelection=1 (Checkbox) , le nombre maximum de documents
+	'																		l'utilisateur peut sélectionner. Une valeur de 0 = pas de limite.
+	'							p_RechApprox	Boolean. Permet d'executer une recherche aproximative (fuzzy) en ajoutant 
+	'															une astérix (*) devant et après p_Query.	
+	'	Valeurs retournées:		NotesDocumentCollection. Collection des documents sélectionnés
+	On Error GoTo GererErreur
+	
+	Dim v_NbResultats As Long
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument
+	Dim v_Description As Variant
+	Dim ndb As NotesDatabase
+	Dim x As Long
+	Dim v_Query As Variant
+	Dim a As Variant
+	Dim nd2 As NotesDocument
+	
+	' Initialisations
+	' ---------------
+	Set SISe_ndcSelectionnerDocuments = pnv.GetAllDocumentsByKey("**** BiDoN ****", True)
+	
+	' Validation des paramètres
+	' -------------------------
+	If pnv Is Nothing Or p_fDescription = "" Then
+		Exit Function
+	End If
+	Call SISe_Initialisations
+	If p_Titre = "" Then
+		p_Titre = "SI Sélection"
+	End If
+	
+	' Si le query est vide, effectuer l'action selon le paramètre P_Null
+	' ------------------------------------------------------------------
+	If p_Query = "" Then
+		If p_Null = SISe_PICKLIST Then
+			Set SISe_ndcSelectionnerDocuments = SISe_ndcPickList(pnv, p_Titre, p_Categorie)
+			Exit Function
+		End If
+		
+		' Permettre à l'utilisateur de saisir le query à l'aide d'un prompt
+		' -----------------------------------------------------------------
+		v_Query = gnuiws_SISe.Prompt(PROMPT_OKCANCELEDIT, p_Titre, xGDK_xMessage("SI", 69, "", ""))
+		If IsEmpty(v_Query) Then
+			Exit Function
+		ElseIf v_Query = "" Then
+			Set SISe_ndcSelectionnerDocuments = SISe_ndcPickList(pnv, p_Titre,p_Categorie)
+			Exit Function
+		Else
+			If p_RechApprox Then
+				p_Query = "*" &amp; v_Query &amp; "*"
+			Else
+				p_Query = v_Query
+			End If
+		End If
+	End If
+	
+	' Ajouter les p_Champs au "p_Query", si necessaire
+	If IsArray(p_Champs) Then
+		Dim v_QueryTmp As String
+		ForAll p In p_Champs
+			v_QueryTmp = v_QueryTmp &amp; "FIELD " &amp; p &amp; " contains (" &amp; p_Query &amp; ") OR "
+		End ForAll
+		p_Query = Left$(v_QueryTmp, Len(v_QueryTmp) - 4)
+	ElseIf Not p_Champs = "" Then
+		p_Query = "FIELD " &amp; p_Champs &amp; " contains (" &amp; p_Query &amp; ")"
+	End If
+	
+	' Si aucun résultat, afficher un message d'erreur et sortir
+	' ---------------------------------------------------------
+	v_NbResultats = pnv.FTSearch(p_Query)
+	If v_NbResultats = 0 Then
+		MsgBox(xGDK_xMessage("SI", 70, "", ""))
+		Exit Function
+	End If
+	
+	' Créer le tableau à partir des résultats obtenu
+	' ----------------------------------------------
+	If v_NbResultats &gt; g_LimiteResultats Then
+		Redim a_Resultats(g_LimiteResultats - 1)
+	Else
+		Redim a_Resultats(v_NbResultats - 1)
+	End If	
+	x = 0
+	Set nd_Suivant = pnv.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = pnv.GetNextDocument(nd_Suivant)
+		v_Description = Evaluate(p_fDescription, nd)
+		a_Resultats(x) = v_Description(0) + "|" + CStr(nd.UniversalID)
+		x = x + 1
+		' If x = g_LimiteResultats -1 Then
+		If x = g_LimiteResultats Then
+			Exit Do
+		End If
+	Loop
+	
+	' Permettre à l'utilisateur de sélectionner une valeur dans un dialogbox
+	' ----------------------------------------------------------------------
+	Set nd_DB = New notesdocument(gndb_SISe)
+	nd_DB.SISe_NbResultats = v_NbResultats
+	nd_DB.SISe_NbLimite = g_LimiteResultats
+	nd_DB.SISe_Liste = a_Resultats
+	nd_DB.SISe_Type = p_TypeSelection
+	nd_DB.SISe_CheckBoxLimite = p_LimiteTypeSelection
+	If gnuiws_SISe.DialogBox( "DB_SISe", True, True, False, False, False ,False, p_Titre, nd_DB, True, False, False ) Then
+		' Assigner le document choisi par l'utilisateur
+		' ---------------------------------------------
+		Set ndb = pnv.Parent
+		a = xVarArray(nd_DB, "SISe_Choix")
+		ForAll v_UNID In a
+			Set nd = ndb.GetDocumentByUNID(v_UNID)
+			If Not (nd Is Nothing) Then
+				Set nd2 = SISe_ndcSelectionnerDocuments.GetDocument(nd)
+				If nd2 Is Nothing Then
+					Call SISe_ndcSelectionnerDocuments.AddDocument(nd)
+				End If
+			End If
+		End ForAll
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SISe, gc_Element_SISe, GetThreadInfo(1), p_Query, False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073634,33-05</datetime></item></scriptlibrary>
+
+</database>

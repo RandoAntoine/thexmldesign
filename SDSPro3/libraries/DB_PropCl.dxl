@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="DB_PropCl" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="397b96" unid="AFF85034F0CFBDEC8525890A006917E6" sequence="28">
+<created><datetime>20221130T140753,98-05</datetime></created>
+<modified><datetime>20250319T074051,74-05</datetime></modified>
+<revised><datetime>20250319T073640,59-05</datetime></revised>
+<lastaccessed><datetime>20250319T074051,73-05</datetime></lastaccessed>
+<addedtofile><datetime>20221130T141357,19-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Clients"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_DBPropCl As NotesSession
+Dim gndb_DBPropCl As NotesDatabase
+
+Dim gnuiws_DBPropCl As NotesUIWorkspace
+Dim gnuid_DBPropCl As NotesUIDocument
+Dim gnd_DBPropCl As NotesDocument
+Dim gnd_Prop_DBPropCl As NotesDocument
+
+Dim g_Origine_DBPropCl As String
+
+' Traitement des erreurs
+Const gc_TypeElement_DBPropCl = "SL"
+Const gc_Element_DBPropCl = "DBPropCl"
+
+
+
+
+</lotusscript></code><code event="DBPropCl_hsSelectionnerClientSite"><lotusscript>Sub DBPropCl_hsSelectionnerClientSite(p_PosSite As String)
+' --------------------------------------------
+' Sélection d'un client à partir de SI Clients
+' --------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Client As NotesDocument	
+	
+	' Initialisations
+	Call DBPropCl_Initialisations
+	
+	' Sélectionner un client
+	' ----------------------
+	Set nd_Client = SICl_ndSelectionnerClient("")
+	If Not (nd_Client Is Nothing) Then	
+		Call gnd_DBPropCl.ReplaceItemValue("DB_ClientNoFmt" &amp; p_PosSite, xVar(nd_Client, "Clie_ClientNoFmt", ""))
+		Call gnd_DBPropCl.ReplaceItemValue("DB_ClientNo1_" &amp; p_PosSite, xVar(nd_Client, "Clie_ClientNo1", ""))
+		Call gnd_DBPropCl.ReplaceItemValue("DB_ClientNo2_" &amp; p_PosSite,  Right("000" &amp; Cstr(xVar(nd_Client, "Clie_ClientNo2", "")), 3))
+		
+		On Error 4412 Goto FinSub
+		Call gnuid_DBPropCl.Refresh
+		On Error 4412 Goto GererErreur
+	End If
+	
+FinSub :
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropCl, gc_Element_DBPropCl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBPropCl_Initialisations"><lotusscript>Sub DBPropCl_Initialisations
+	On Error Goto GererErreur
+	
+	If gns_DBPropCl Is Nothing Then
+		Set gns_DBPropCl = New NotesSession
+		Set gndb_DBPropCl = gns_DBPropCl.CurrentDatabase		
+		Set gnuiws_DBPropCl = New NotesUIWorkspace		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropCl, gc_Element_DBPropCl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBPropCl_PostOpen"><lotusscript>Sub DBPropCl_PostOpen(p_Source As NotesUIDocument)
+	On Error GoTo GererErreur
+	
+	Dim a_NomSites As Variant
+	Dim v_NomSiteDefaut As String
+	
+	' Initialisations
+	Set gnuid_DBPropCl = p_Source
+	Set gnd_DBPropCl = p_Source.Document
+	
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropCl, gc_Element_DBPropCl, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="DBPropCl_hsSelectionClient"><lotusscript>Sub DBPropCl_hsSelectionClient
+	' --------------------------------------------
+	' Sélection d'un client à partir de SI Clients
+	' --------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Client As NotesDocument
+	Dim v_Origine As String
+	
+	'Initialisations
+	Call DBPropCl_Initialisations
+	
+	' Sélectionner un client
+	' ----------------------
+	Set nd_Client = SICl_ndSelectionnerClient("")
+	If Not (nd_Client Is Nothing) Then
+		gnd_DBPropCl.DB_ClientNo1 = xVar(nd_Client, "Clie_ClientNo1", "")
+		gnd_DBPropCl.DB_ClientNo2 = Right("000" &amp; Cstr(xVar(nd_Client, "Clie_ClientNo2", "")), 3)
+			
+		On Error 4412 Goto FinSub
+		Call gnuid_DBPropCl.Refresh
+		On Error 4412 Goto GererErreur
+		
+	End If
+	
+FinSub :
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropCl, gc_Element_DBPropCl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBPropCl_Queryclose"><lotusscript>Function DBPropCl_Queryclose(p_Source As NotesUIDocument) As Boolean
+	On Error GoTo GererErreur
+	
+	
+	' Initialisations
+	DBPropCl_Queryclose = False
+
+	'v_ClientNoFmt = xVar(gnd_DBPropCl, "DB_ClientNoFmt", "")
+	
+	
+	If p_Source.DialogBoxCanceled = False Then
+		' Validation
+		If xVar(gnd_DBPropCl, "DB_ClientNo1", "") = "" Then
+				
+			' Le Numéro de client est obligatoire
+			MessageBox xGDK_xMessage("SI", 131, "", "" ) , 16, xGDK_xMessage("SI", 1, "", "")
+			DBPropCl_Queryclose = False
+			Exit Function
+			
+		End If
+				
+	End If
+	
+	
+	DBPropCl_Queryclose = True
+	Exit Function
+	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropCl, gc_Element_DBPropCl, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073640,59-05</datetime></item></scriptlibrary>
+
+</database>

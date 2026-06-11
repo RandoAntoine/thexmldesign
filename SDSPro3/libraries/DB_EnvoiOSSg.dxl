@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="DB_EnvoiOSSg" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="55567a" unid="AE3154E15CFB40FD852586B40011FB38" sequence="76">
+<created><datetime dst="true">20210410T231624,24-04</datetime></created>
+<modified><datetime>20260105T014836,87-05</datetime></modified>
+<revised><datetime>20250319T073734,75-05</datetime></revised>
+<lastaccessed><datetime>20260105T014836,86-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014836,86-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_Impression"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_DBImpEnvOSSg As NotesSession
+Dim gndb_DBImpEnvOSSg As NotesDatabase
+
+Dim gnuiws_DBImpEnvOSSg As NotesUIWorkspace
+Dim gnuid_DBImpEnvOSSg As NotesUIDocument
+Dim gnd_DBImpEnvOSSg As NotesDocument
+
+' Traitement des erreurs
+Const gc_TypeElement_DBImpEnvOSSg = "SL"
+Const gc_Element_DBImpEnvOSSg = "DB_Envoie_OSSg"
+
+
+
+</lotusscript></code><code event="DBEnvOSSg_Valider"><lotusscript>Function DBEnvOSSg_Valider As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_NomItem As String
+	Dim v_Langue As String
+	Dim v_ChampValide As Variant
+	Dim v_Sujet As String
+	Dim v_NoRep As String
+	
+	DBEnvOSSg_Valider = False
+	
+	Call DBEnvOSSg_Initialisations
+	v_Langue = xLangue
+	v_NoRep = SDSI_NoRepresentantSIRR
+	
+	v_Sujet = xVar(gnd_DBImpEnvOSSg, "Subject", "") 
+		
+	If v_Sujet = "" Then
+		MessageBox xGDK_xMessage("SI", 141, "", "") , 16, xGDK_xMessage("SI", 1, "", "")
+		Call gnuid_DBImpEnvOSSg.GotoField("Subject")
+		Exit Function
+		
+	ElseIf Len(v_Sujet)  &gt; 80 And xVar(gnd_DBImpEnvOSSg, "Cour_Type", "") = "OSS" Then
+		MessageBox xGDK_xMessage("SDSPP", 171, "", "") , 16, xGDK_xMessage("SI", 1, "", "")
+		Call gnuid_DBImpEnvOSSg.GotoField("Subject")
+		gnuid_DBImpEnvOSSg.Refresh
+		Exit Function	
+		
+	ElseIf Len(v_Sujet)  &gt; 80 And xVar(gnd_DBImpEnvOSSg, "Cour_Type", "") = "DS" Then
+		MessageBox xGDK_xMessage("SDSPP", 171, "", "") , 16, xGDK_xMessage("SI", 1, "", "")
+		Call gnuid_DBImpEnvOSSg.GotoField("Subject")
+		gnuid_DBImpEnvOSSg.Refresh
+		Exit Function	
+	End If
+		
+	If v_NoRep &gt; 0 Then	
+		v_ChampValide = xVarArray(gnd_DBImpEnvOSSg, "Principal")
+		If IsArray(v_ChampValide) Then
+			v_ChampValide = v_ChampValide(0)
+		End If
+		If v_ChampValide = "" Then
+			If v_Langue = "FR" Then
+				v_NomItem = "Envoyer par"
+			Else
+				v_NomItem = "Sent By"
+			End If
+			MessageBox xGDK_xMessage("SI", 190, "", v_NomItem) , 16, xGDK_xMessage("SI", 1, "", "")
+			Call gnuid_DBImpEnvOSSg.GotoField("Principal")
+			Exit Function
+		End If
+	End if
+	
+	v_ChampValide = xVarArray(gnd_DBImpEnvOSSg, "SendTo")
+	If IsArray(v_ChampValide) Then
+		v_ChampValide = v_ChampValide(0)
+	End If
+	If v_ChampValide = "" Then
+		If v_Langue = "FR" Then
+			v_NomItem = "Destinataire"
+		Else
+			v_NomItem = "Send To"
+		End If
+		MessageBox xGDK_xMessage("SI", 190, "", v_NomItem) , 16, xGDK_xMessage("SI", 1, "", "")
+		Call gnuid_DBImpEnvOSSg.GotoField("SendTo")
+		Exit Function
+	End If
+	
+	
+	DBEnvOSSg_Valider = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBImpEnvOSSg, gc_Element_DBImpEnvOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="DBEnvOSSg_acEnvoyer"><lotusscript>Sub DBEnvOSSg_acEnvoyer
+	On Error GoTo GererErreur
+	
+	Call DBEnvOSSg_Initialisations
+	
+	If DBEnvOSSg_Valider Then
+		Call gnuid_DBImpEnvOSSg.Save()
+		Call gnuiws_DBImpEnvOSSg.RefreshParentNote		
+		Call gnuiws_DBImpEnvOSSg.CurrentDocument.Close
+	Else
+		Call gnuiws_DBImpEnvOSSg.CurrentDocument.RefreshHideFormulas
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBImpEnvOSSg, gc_Element_DBImpEnvOSSg, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBEnvOSSg_Initialisations"><lotusscript>Sub DBEnvOSSg_Initialisations
+	On Error Goto GererErreur
+	
+	If gns_DBImpEnvOSSg Is Nothing Then
+		Set gns_DBImpEnvOSSg = New NotesSession
+		Set gndb_DBImpEnvOSSg = gns_DBImpEnvOSSg.CurrentDatabase
+		
+		Set gnuiws_DBImpEnvOSSg = New NotesUIWorkspace
+		Set gnuid_DBImpEnvOSSg = gnuiws_DBImpEnvOSSg.CurrentDocument
+		Set gnd_DBImpEnvOSSg = gnuid_DBImpEnvOSSg.Document
+	End If
+	
+	Exit Sub
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBImpEnvOSSg, gc_Element_DBImpEnvOSSg, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBEnvOSSg_acAnnuler"><lotusscript>Sub DBEnvOSSg_acAnnuler
+	On Error GoTo GererErreur
+	
+	Call DBEnvOSSg_Initialisations
+	
+	Call gnuid_DBImpEnvOSSg.Close
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBImpEnvOSSg, gc_Element_DBImpEnvOSSg, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBEnvOSSg_Queryclose"><lotusscript>Function DBEnvOSSg_Queryclose(p_Source As NotesUIDocument) As Boolean
+	On Error GoTo GererErreur
+		
+	Dim nd As NotesDocument	
+	Dim i As Integer
+	Dim v_ValeurItem As String
+	Dim v_SendTo As String
+	
+	Set nd = p_Source.document
+	
+	' Initialisations
+	DBEnvOSSg_Queryclose = False
+		
+	Call DBEnvOSSg_Initialisations
+		
+	v_SendTo = xVarElem(nd, "SendTo", 0, "")
+						
+	If p_Source.DialogBoxCanceled = False Then		                 
+		If v_SendTo &lt;&gt; "" Then
+			Exit Function
+		End If	
+	End If
+	
+	DBEnvOSSg_Queryclose = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBImpEnvOSSg, gc_Element_DBImpEnvOSSg, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073734,75-05</datetime></item></scriptlibrary>
+
+</database>

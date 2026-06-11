@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Produits\Recalculer couts" alias="DB_RCou" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8" language="fr" bgcolor="system" inherit="true">
+<noteinfo noteid="174a" unid="78DF7437CD3CE29185257EC80065D59B" sequence="1098">
+<created><datetime dst="true">20150922T143218,19-04</datetime></created>
+<modified><datetime>20260105T014845,70-05</datetime></modified>
+<revised><datetime>20250319T073757,72-05</datetime></revised>
+<lastaccessed><datetime>20260105T014845,69-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205708,45-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Use "DB_RCou"
+</lotusscript></code></globals><code event="queryclose"><lotusscript>Sub Queryclose(Source As Notesuidocument, Continue As Variant)
+	Continue =  DBRCou_Queryclose(Source)	
+End Sub</lotusscript></code>
+<body><richtext>
+<pardef id="1" hide="notes web mobile"/>
+<par def="1"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="DB_RecalcTous"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/><field type="number" kind="computed" name="DB_ChoixObligatoire"><numberformat format="general" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/></run></par>
+<table widthtype="fixedleft" colorstyle="solid" bgcolor="white" rowspacing="0.0396in" refwidth="6.4167in"><tablecolumn width="0.1375in"/><tablecolumn width="1.3583in"/><tablecolumn width="0.1771in"/><tablecolumn width="4.6063in"/><tablecolumn width="0.1375in"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="3" keepwithnext="true" keeptogether="true"/>
+<par def="3"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="4" keepwithnext="true" keeptogether="true"/>
+<par def="4"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="5" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="6" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="7" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell columnspan="3" borderwidth="0px" bgcolor="system">
+<pardef id="9" leftmargin="0.0104in" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/>Cet outil sert à mettre à jour le coût et le prix de l’ensemble de la proposition.</run></par>
+<par def="9"><run><font size="9pt"/></run></par>
+<par def="9"><run><font size="9pt"/>Voulez-vous que les items ayant été modifiés manuellement soit également mis à jour?</run></par>
+<par def="9"><run><font size="9pt"/></run></par>
+<pardef id="10" leftmargin="0.0104in" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="10"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table leftmargin="0.0104in" widthtype="fixedleft" refwidth="2.7590in"><tablecolumn width="0.8104in"/><tablecolumn width="0.1771in"/><tablecolumn width="0.7972in"/><tablecolumn width="0.1771in"/><tablecolumn width="0.7972in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="11" keepwithnext="true" keeptogether="true"/>
+<par def="11"><run><font size="9pt" color="red"/></run><button width="0.7875in" widthtype="fixed" wraptext="true" bgcolor="system" type="ok"><font size="9pt"/>Oui<code event="click"><lotusscript>Sub Click(Source As Button)
+	Dim nuiws As New NotesUIWorkspace
+	
+	nuiws.CurrentDocument.Document.DB_RecalcTous = "1"
+	Call nuiws.RefreshParentNote
+	If DBRCou_Queryclose(nuiws.CurrentDocument) Then
+		Call nuiws.CurrentDocument.Close
+	End If
+End Sub</lotusscript></code></button><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="12" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="13" keepwithnext="true" keeptogether="true"/>
+<par def="13"><run><font size="9pt" color="red"/></run><button width="0.7875in" widthtype="fixed" wraptext="true" bgcolor="system" type="ok"><font size="9pt"/>Non<code event="click"><lotusscript>Sub Click(Source As Button)
+	Dim nuiws As New NotesUIWorkspace
+	
+	nuiws.CurrentDocument.Document.DB_RecalcTous = "0"
+	Call nuiws.RefreshParentNote
+	If DBRCou_Queryclose(nuiws.CurrentDocument) Then
+		Call nuiws.CurrentDocument.Close
+	End If
+End Sub</lotusscript></code></button><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="14" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="15" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_ChoixObligatoire = -1</formula></code></pardef>
+<par def="15"><run><font size="9pt" color="red"/></run><button width="0.7875in" widthtype="fixed" wraptext="true" bgcolor="system" type="cancel"><font size="9pt"/>Annuler</button><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="10"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"/></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell columnspan="3" borderwidth="0px" bgcolor="#e6eff4">
+<pardef id="16" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="16"><run><font size="9pt"/>Oui </run><run><font size="9pt"/>=       </run><run><font size="9pt"/>  Tous les coûts et les prix seront mis à jour, incluant les items ayant été modifiés manuellement.</run></par>
+<par def="16"><run><font size="9pt"/>No</run><run><font size="9pt"/>n  =       Tous les coûts et les prix seront mis à jour, mais pas les items ayant été modifiés manuellement.</run></par>
+<pardef id="17" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>DB_ChoixObligatoire = -1</formula></code></pardef>
+<par def="17"><run><font size="9pt"/>Annuler </run><run><font size="9pt"/>=  Aucun coût et aucun prix ne sera mis à jour.</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"/></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="18" keepwithnext="true" keeptogether="true"/>
+<par def="18"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell></tablerow></table>
+<pardef id="19" leftmargin="1in" rightmargin="100%"/>
+<par def="19"><run><font size="9pt"/></run></par>
+<pardef id="20" leftmargin="1.8861in" rightmargin="100%" firstlineleftmargin="1.4924in"/>
+<par def="20"><run><font size="9pt"/></run></par></richtext></body>
+<item name="OriginalModTime" sign="true"><datetime>20061215T104039,98-05</datetime></item>
+<item name="SISe_NbResultats" summary="false" sign="true"><number>0</number></item>
+<item name="SISe_NbLimite" summary="false" sign="true"><number>0</number></item>
+<item name="DB_ChoixObligatoire" summary="false"><number>0</number></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>DB_RCou</text></item></form>
+
+</database>

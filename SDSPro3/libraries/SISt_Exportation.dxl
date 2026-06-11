@@ -1,0 +1,613 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SISt_Exportation" hide="v3 v4strict" designerversion="8.5.3" comment="1.1">
+<noteinfo noteid="5559a6" unid="95E9819F5511ECEB85258C9D004DBA28" sequence="2">
+<created><datetime dst="true">20250602T100859,28-04</datetime></created>
+<modified><datetime>20260105T014838,55-05</datetime></modified>
+<revised><datetime dst="true">20250602T100900,31-04</datetime></revised>
+<lastaccessed><datetime>20260105T014838,54-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,54-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Arrays"
+Use "SI_Exportations"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SIStEx As NotesSession
+Dim gndb_SIStEx As NotesDatabase
+
+' Traitement des erreurs
+Const gc_TypeElement_SIStEx = "SL"
+Const gc_Element_SIStEx = "SISt_Exportation"
+'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Class cl_Exportation
+	Public NomExportation As String
+	Public ndb As NotesDatabase
+	Public nv As NotesView
+	Public Parametres As Variant
+	Public Selection As String
+	Public Variables As Variant
+	Public SelectionSupp As String
+	Public TriPrimaire As String
+	Public NbLignesMax As Long
+	Public DateDerniereExportation As Variant
+	Public DateExportation As Variant
+	Public Resultat As Integer
+	
+	Public Sub New(pnd_SIEx As NotesDocument, p_Parametres As Variant)
+		On Error GoTo GererErreur
+		
+		Dim v_Source_NomBase As String
+		Dim v_Source_NomVue As String
+		
+		Dim i As Integer
+		Dim v As Variant
+		
+		Me.NomExportation = xVar(pnd_SIEx, "SIEx_Nom", "")
+		
+		' Extraire les paramêtres
+		' ----------------------------------
+		If Not IsArray(p_Parametres) Then
+			If p_Parametres &lt;&gt; "" Then
+				Me.Parametres = Evaluate(|"| &amp; CStr(p_Parametres) &amp; |"|)
+			Else
+				Me.Parametres = xVarArray(pnd_SIEx, "SIEx_ParametresFormules")
+				If IsArray(Me.Parametres) Then
+					For i = LBound(Me.Parametres) To UBound(Me.Parametres)
+						v = Evaluate(Me.Parametres(i))
+						If IsArray(v) Then
+							Me.Parametres(i) = CStr(v(0))
+						Else
+							Me.Parametres(i) = ""
+						End If
+					Next
+				End If
+			End If
+		End If
+		
+		' Extraire la base de données Source (SIEx_Source_NomBase)
+		' --------------------------------------------------------
+		v_Source_NomBase = xVar(pnd_SIEx, "SIEx_Source_NomBase", "")
+		If v_Source_NomBase = "" Then
+			Set Me.ndb = gndb_SIStEx
+			v_Source_NomBase = gndb_SIStEx.Title
+		Else
+			Set Me.ndb = xGDK_xndbNDB(v_Source_NomBase)
+		End If
+		If Me.ndb Is Nothing Then
+			Call SIGE_AjouterLog("ERREUR 1: La base de documents " &amp; v_Source_NomBase &amp; " est introuvable. Exécution annulée...", 9, 0, False)
+			Me.Resultat = -1
+			Exit Sub
+		ElseIf Not Me.ndb.Isopen Then
+			Call SIGE_AjouterLog("ERREUR 2: La base de documents " &amp; v_Source_NomBase &amp; " n'est pas ouverte. Exécution annulée...", 9, 0, False)
+			Me.Resultat = -1
+			Exit Sub
+		End If
+		
+		' Extraire la vue source (SIEx_Source_NomVue)
+		' -------------------------------------------
+		Me.Selection = xVar(pnd_SIEx, "SIEx_Source_Select", "")
+		If Me.Selection = "" Then
+			v_Source_NomVue = xVar(pnd_SIEx, "SIEx_Source_NomVue", "")
+			If v_Source_NomVue = "" Then
+				Call SIGE_AjouterLog("ERREUR 3: Il n'y a pas de sélection source définie pour l'exportation. Exécution annulée...", 9, 0, False)
+				Me.Resultat = -1
+				Exit Sub
+			Else  
+				Set Me.nv = Me.ndb.GetView(v_Source_NomVue) 
+				If Me.nv Is Nothing Then
+					Call SIGE_AjouterLog("ERREUR 4: La vue source " &amp; v_Source_NomVue &amp; " est inexistante. Exécution annulée...", 9, 0, False)
+					Me.Resultat = -1
+					Exit Sub
+				End If
+				Call Me.nv.Refresh
+			End If
+		Else
+			' Ajouter le paramètre ($PARM) à la formule de sélection (SIEx_Source_Select)
+			If IsArray(Me.Parametres) Then
+				Me.Selection = SIStEx_InsererValeursFormule(Me.Selection, "$PARM", Me.Parametres) 
+			End If
+		End If
+		
+		' Extraire les formules des variables 
+		' -----------------------------------
+		Me.Variables = xVarArray(pnd_SIEx, "SIEx_Variables")
+		If IsArray(Me.Variables) Then
+			If IsArray(Me.Parametres) Then
+				For i = LBound(Me.Variables) To UBound(Me.Variables)
+					Me.Variables(i) = SIStEx_InsererValeursFormule(Me.Variables(i), "$PARM", Me.Parametres) 
+				Next
+			End If
+		End If
+
+		' Extraire la valeur de sélection supplémentaire
+		' -----------------------------------------------
+		Me.SelectionSupp = xVar(pnd_SIEx, "SIEx_SelectionSupp", "")
+		
+		' Extraire la valeur du tri primaire
+		' ----------------------------------
+		Me.TriPrimaire = xVar(pnd_SIEx, "SIEx_TriValeur", "")
+		Me.TriPrimaire = SIStEx_InsererValeursFormule(Me.TriPrimaire, "$PARM", Me.Parametres)
+		
+		Me.NbLignesMax = xVar(pnd_SIEx, "SIEx_NbLignesMax", 0)
+		
+		
+		Me.DateExportation = Now
+		Exit Sub
+		
+GererErreur:
+		Call SIGE_TraiterErreur(gc_TypeElement_SIStEx, gc_Element_SIStEx, GetThreadInfo(1), Me.NomExportation, False)
+		Me.Resultat = -9
+		Exit Sub
+	End Sub
+End Class
+</lotusscript></code><code event="SIStEx_InsererValeursFormule"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIStEx_InsererValeursFormule(p_Formule As String, p_Signet As String, p_Tableau As Variant) As String
+	On Error GoTo GererErreur
+	
+	Dim v_Formule As String
+	Dim i As Integer
+	
+	SIStEx_InsererValeursFormule = p_Formule
+	
+	If IsArray(p_Tableau) Then
+		v_Formule = p_Formule
+		
+		For i = LBound(p_Tableau) To UBound(p_Tableau)
+			v_Formule = Replace(v_Formule, p_Signet &amp; CStr(i + 1), p_Tableau(i))
+		Next
+		v_Formule = Replace(v_Formule, p_Signet, p_Tableau(0))
+		
+		SIStEx_InsererValeursFormule = v_Formule
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIStEx, gc_Element_SIStEx, GetThreadInfo(1), p_Formule, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIStEx_AjouterDocDansTableaux"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIStEx_AjouterDocDansTableaux(pcl_SIEx As cl_Exportation, pnd As NotesDocument, p_NbDocuments As Long, pa_ValeursATrier() As Variant, _
+	pand_DocumentsATrier() As NotesDocument) As Boolean
+	'----------------------------------------------------------------------------------------------
+	' Ce script ajoute le champ à trier et le document dans 2 tableaux séparés
+	'
+	' Paramètres:
+	' 	pnd:					Document à ajouter dans le tableau pour être trié
+	'	p_NbDocuments:			Index des tableaux
+	'	pa_ValeursATrier(): 	Tableau qui contient les valeurs à trier
+	'	pand_DocumentsATrier():	Tableau des documents triés qui seront exportés vers Excel
+	'
+	' Valeurs retournées:
+	'	 True	- L'ajout dans les tableaux a été faite
+	'	 False	- Erreur de traitement
+	'----------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim a_VariablesValeurs As Variant
+	Dim i As Integer
+	Dim v As Variant
+	Dim v_TriPrimaire As String
+	Dim a_ValeurTriPrimaire As Variant
+	
+	' Initialisations
+	SIStEx_AjouterDocDansTableaux = True
+	
+	' Initialisation des variables
+	If IsArray(pcl_SIEx.Variables) Then
+		ReDim a_VariablesValeurs(UBound(pcl_SIEx.Variables)) As String
+		For i = LBound(pcl_SIEx.Variables) To UBound(pcl_SIEx.Variables)
+			v = Evaluate(pcl_SIEx.Variables(i), pnd)
+			a_VariablesValeurs(i) = CStr(v(0))
+		Next
+		
+		v_TriPrimaire = SIStEx_InsererValeursFormule(pcl_SIEx.TriPrimaire, "$VAR", a_VariablesValeurs)
+	Else
+		v_TriPrimaire = pcl_SIEx.TriPrimaire
+	End If
+	
+	' Lire le champ à trier
+	a_ValeurTriPrimaire = Evaluate(v_TriPrimaire, pnd)
+	
+	If p_NbDocuments &gt; UBound(pa_ValeursATrier) Then
+		ReDim Preserve pa_ValeursATrier(UBound(pa_ValeursATrier) + 100) As Variant
+		ReDim Preserve pand_DocumentsATrier(UBound(pa_ValeursATrier) + 100) As NotesDocument
+	End If
+	
+	' Mettre le champ à trier et le document dans 2 tableaux séparés
+	pa_ValeursATrier(p_NbDocuments) = a_ValeurTriPrimaire(0)
+	Set pand_DocumentsATrier(p_NbDocuments) = pnd
+	
+	Exit Function
+	
+GererErreur:
+	SIStEx_AjouterDocDansTableaux = False
+	Call SIGE_TraiterErreur(gc_TypeElement_SIStEx, gc_Element_SIStEx, GetThreadInfo(1), "SIStEx_AjouterDocDansTableaux", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIStEx_Initialisations"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Sub SIStEx_Initialisations
+	On Error GoTo GererErreur
+	
+	If gns_SIStEx Is Nothing Then
+		Set gns_SIStEx = New NotesSession
+		Set gndb_SIStEx = gns_SIStEx.CurrentDatabase
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIStEx, gc_Element_SIStEx, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SIStEx_ExecuterExportation"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIStEx_ExecuterExportation(pnd_SIEx As NotesDocument, p_Parametres As Variant, p_SauvegarderExportation As Boolean, p_AfficherDB As Integer) As Long
+	'----------------------------------------------------------------------------------------------
+	' Ce script exporte des statistiques vers Excel.
+	' Les statistiques sont le résultat d'une formule de sélection ou d'une vue
+	'
+	' Paramètres:
+	'	pnd_SIEx								: Document des paramètres d'exportation (F_SIEx)
+	'	p_Parametre							: Paramètre ($PARM) à ajouter à la formule de sélection (SIEx_Source_Select)
+	'	p_SauvegarderExportation		: True pour sauvegarder l'exportation
+	'	p_AfficherDB							: Permettre à l'utilisateur de saisir le nom du fichier à sauvegarder.
+	'
+	' Valeurs retournées:
+	'	1	- L'exportation s'est bien passée - avec modifications
+	'	&lt;0	- Erreur de traitement
+	'----------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim vcl_SIEx As cl_Exportation
+	
+	Dim v_Source_NomBase As String
+	Dim v_Source_NomVue As String
+	Dim v_TriPrimaire As String
+	Dim v_Maj As Long
+	Dim v_FichierXL As String
+	Dim i As Integer
+	Dim v As Variant
+	
+	' Initialisations
+	' -------------------
+	SIStEx_ExecuterExportation = 0
+	Call SIStEx_Initialisations
+	
+	Set vcl_SIEx = New cl_Exportation(pnd_SIEx, p_Parametres)
+	Call SIGE_AjouterLog("Exportation " &amp; vcl_SIEx.NomExportation &amp; " : Début", 0, 0, True)
+		
+	' Validations en mode batch
+	' -------------------------
+	%REM ********MZE Execution manuelle ************************************
+		
+	If p_AfficherDB = False Then
+		v_FichierXL = xVar(pnd_SIEx, "SIEx_CheminDefaut", "")
+		
+		' Si l'action Enregistrer est cochée, vérifer le chemin d'accès
+		If InStr(Implode(xVarArray(pnd_SIEx, "SIEx_CeduleAction")), "1") &gt; 0 Then
+			If v_FichierXL = "" Then
+				Call SIGE_AjouterLog("ERREUR 5: Le chemin d'accès de l'exportation est invalide. Exécution annulée...", 9, 0, False)
+				Exit Function
+			Else
+				On Error 75 Resume Next
+				Kill v_FichierXL
+			End If
+		End If
+	End If
+	%END REM
+				
+	' Vérifier la source (formule ou vue?)
+	' ------------------------------------
+	If vcl_SIEx.Selection &lt;&gt; "" Then		' La source est une formule de sélection (SIEx_Source_Select)
+		v_Maj = SIStEx_TraiterFormule(vcl_SIEx, p_SauvegarderExportation, p_AfficherDB)
+	Else										' La source est une vue (SIEx_Source_NomVue)
+		v_Maj = SIStEx_TraiterVue(vcl_SIEx, p_SauvegarderExportation, p_AfficherDB)
+	End If
+	
+	If v_Maj &gt;= 0 Then
+		SIStEx_ExecuterExportation = v_Maj
+		pnd_SIEx.SIEx_DateDerniereExportation = vcl_SIEx.DateExportation
+		Call pnd_SIEx.Save(True, False)
+	ElseIf v_Maj &lt; 0 Then
+		SIStEx_ExecuterExportation = -2
+		Call SIGE_EnregistrerLog
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIStEx, gc_Element_SIStEx, GetThreadInfo(1), vcl_SIEx.NomExportation, False)
+	SIStEx_ExecuterExportation = -9
+	Call SIGE_EnregistrerLog
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIStEx_ExporterTri"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIStEx_ExporterTri(pcl_SIEx As cl_Exportation, pa_ValeursATrier() As Variant, pand_DocumentsATrier() As NotesDocument,_
+p_NbDocuments As Long, p_SauvegarderExportation As Boolean, p_AfficherDB As Integer) As Boolean
+	'----------------------------------------------------------------------------------------------
+	' Ce script trie et exporte les documents vers Excel.
+	'
+	' Paramètres:
+	'	pcl_SIEx								: Liste des classes qui contiennent les informations Source 
+	'													(base de données, vue et formule de sélection)
+	' 	pa_ValeursATrier					: Tableau qui contient les valeurs à trier
+	'	pand_DocumentsATrier			: Tableau des documents à trier
+	'	p_NbDocuments					: Index des tableaux
+	'	p_SauvegarderExportation		: True pour sauvegarder l'exportation
+	'	p_AfficherDB							: Permettre à l'utilisateur de saisir le nom du fichier à sauvegarder.
+	'
+	' Valeurs retournées:
+	'	 True	- L'exportation du tableau de documents triés a été faite
+	'	 False	- Erreur de traitement
+	'----------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	' Initialisations
+	SIStEx_ExporterTri = True  
+	
+	' Trier les 2 tableaux par ordre de SIEx_TriValeur
+	ReDim Preserve pa_ValeursATrier(p_NbDocuments) As Variant
+	ReDim Preserve pand_DocumentsATrier(p_NbDocuments) As NotesDocument
+	
+	If Not Trier2Arrays(pa_ValeursATrier, pand_DocumentsATrier) Then
+		' Erreur de traitement
+		SIStEx_ExporterTri = False
+		Exit Function
+	End If
+	
+	' Exporter le tableau de documents triés vers Excel
+	If SIEx_ExporterTableauDocuments(pand_DocumentsATrier, pcl_SIEx.NomExportation, "", "", "", p_SauvegarderExportation, "", p_AfficherDB) &lt; 0 Then
+		' Erreur de traitement
+		SIStEx_ExporterTri = False
+		Exit Function
+	End If	
+	
+	Exit Function
+	
+GererErreur:
+	SIStEx_ExporterTri = False
+	Call SIGE_TraiterErreur(gc_TypeElement_SIStEx, gc_Element_SIStEx, GetThreadInfo(1), pcl_SIEx.NomExportation, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIStEx_TraiterFormule"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIStEx_TraiterFormule(pcl_SIEx As cl_Exportation, p_SauvegarderExportation As Boolean, p_AfficherDB As Integer) As Long
+	'----------------------------------------------------------------------------------------------
+	' Traiter l'exportation: la source est une formule.
+	'
+	' Paramètres:
+	'	pcl_SIEx:		Liste des classes qui contiennent les informations Source 
+	'						(base de données, vue et formule de sélection)
+	'	p_SauvegarderExportation		: True pour sauvegarder l'exportation
+	'	p_AfficherDB							: Permettre à l'utilisateur de saisir le nom du fichier à sauvegarder.
+	'
+	' Valeurs retournées:
+	'	 True	- L'exportation a été traitée
+	'	 False	- Erreur de traitement
+	'----------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim ndc_Source As NotesDocumentCollection
+	Dim nd_Source_Suivant As NotesDocument
+	Dim nd_Source As NotesDocument
+	Dim ndc_Exportation As NotesDocumentCollection
+	
+	Dim v_Formule As String
+	Dim v_NbLus As Long
+	Dim v_NbDoc As Long
+	Dim j As Integer
+	
+	' Initialisations
+	SIStEx_TraiterFormule = 0
+	v_NbDoc = 0
+	
+	If pcl_SIEx.TriPrimaire &lt;&gt; ""  Then
+		ReDim a_ValeursATrier(99) As Variant			' Tableau qui contiendra les valeurs à trier
+		ReDim and_DocumentsATrier(99) As NotesDocument	' Tableau des documents triés qui seront exportés vers Excel
+	End If
+
+	' Extraire les documents Source selon la formule ("SIEx_Source_Select")
+	v_Formule = |(| &amp; pcl_SIEx.Selection &amp; |) &amp; !@IsAvailable($Conflict)|
+	Call SIGE_AjouterLog("Formule de sélection = " &amp; v_Formule, 0, 0, False)
+	Set ndc_Source = pcl_SIEx.ndb.Search(v_Formule, Nothing, pcl_SIEx.NbLignesMax)
+	Call SIGE_AjouterLog(CStr(ndc_Source.Count) &amp; " documents sélectionnés", 0, 0, False)
+	Set ndc_Exportation = pcl_SIEx.ndb.CreateDocumentCollection
+	
+	' Boucler sur tous les documents de la vue Source
+	Set nd_Source_Suivant = ndc_Source.Getfirstdocument
+	Do Until nd_Source_Suivant Is Nothing
+		Set nd_Source = nd_Source_Suivant
+		Set nd_Source_Suivant = ndc_Source.Getnextdocument(nd_Source_Suivant)
+		v_NbLus = v_NbLus + 1
+
+		' Vérifier si le document rencontre les conditions de la sélection supplémentaire
+		If SIStEx_SelectionSupplementaire(pcl_SIEx, nd_Source) Then
+
+			If pcl_SIEx.TriPrimaire &lt;&gt; ""  Then
+				' Exporter les documents triés vers Excel
+				Call SIStEx_AjouterDocDansTableaux(pcl_SIEx, nd_Source, v_NbDoc, a_ValeursATrier, and_DocumentsATrier)
+				v_NbDoc = v_NbDoc + 1
+			Else
+				Call ndc_Exportation.AddDocument(nd_Source)
+			End If
+		End If
+
+		If v_NbLus Mod 1000 = 0 Then
+			Print pcl_SIEx.NomExportation &amp; " (F) - " CStr(v_NbLus)
+		End If
+
+		If pcl_SIEx.NbLignesMax &gt; 0 And v_NbDoc &gt;= pcl_SIEx.NbLignesMax Then
+			Set nd_Source_Suivant = Nothing
+		End If 
+	Loop
+
+	' Si Tri Primaire
+	If pcl_SIEx.TriPrimaire &lt;&gt; ""  Then
+		SIStEx_TraiterFormule = SIStEx_ExporterTri(pcl_SIEx, a_ValeursATrier, and_DocumentsATrier, v_NbDoc - 1, p_SauvegarderExportation, p_AfficherDB)
+	Else
+		SIStEx_TraiterFormule = SIEx_ExporterCollection(ndc_Exportation, CStr(pcl_SIEx.NomExportation), "", "", "", p_SauvegarderExportation, "", p_AfficherDB)
+		v_NbDoc = ndc_Exportation.Count
+	End If
+	
+	'#59560 Assigner la date correspondante avec la date/heure du jour lors du transfert.
+	If SIStEx_TraiterFormule = True Then
+		'check if pcl_SIEx.NomExportation contains ouvert ou ferme
+		If pcl_SIEx.NomExportation = "A_Bill.Fermes" Then
+			Call ndc_Exportation.StampAll ("Bill_KL_DateTransfertFerme", Now)
+		ElseIf pcl_SIEx.NomExportation = "A_Bill.Ouverts" Then
+			'Call ndc_Exportation.StampAll ("Bill_KL_DateTransfertOuvert", Now)	
+		End If
+						
+	End If
+
+	Call SIGE_AjouterLog(pcl_SIEx.NomExportation &amp; " (F) - Fin " &amp; CStr(v_NbDoc) &amp; " documents exportés", 0, 0, True)
+	Exit Function
+	
+GererErreur:
+	SIStEx_TraiterFormule = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SIStEx, gc_Element_SIStEx, GetThreadInfo(1), pcl_SIEx.NomExportation, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIStEx_SelectionSupplementaire"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIStEx_SelectionSupplementaire(pcl_SIEx As cl_Exportation, pnd As NotesDocument) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim v_SelectionSupp As String
+	Dim a_VariablesValeurs As Variant
+	Dim i As Integer
+	Dim v As Variant
+	Dim v_Selection As Variant
+	
+	SIStEx_SelectionSupplementaire = True
+	
+	' Initialisation des variables
+	If IsArray(pcl_SIEx.Variables) Then
+		ReDim a_VariablesValeurs(UBound(pcl_SIEx.Variables)) As String
+		For i = LBound(pcl_SIEx.Variables) To UBound(pcl_SIEx.Variables)
+			v = Evaluate(pcl_SIEx.Variables(i), pnd)
+			a_VariablesValeurs(i) = CStr(v(0))
+		Next
+		
+		v_SelectionSupp = SIStEx_InsererValeursFormule(pcl_SIEx.SelectionSupp, "$VAR", a_VariablesValeurs)
+	Else
+		v_SelectionSupp = pcl_SIEx.SelectionSupp
+	End If
+	
+	If v_SelectionSupp &lt;&gt; "" Then
+		v_Selection = Evaluate(v_SelectionSupp, pnd)
+		If IsArray(v_Selection) Then
+			If v_Selection(0) &lt;&gt; 1 Then
+				SIStEx_SelectionSupplementaire = False
+			End If
+		Else
+			SIStEx_SelectionSupplementaire = False
+		End If
+	End If
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIStEx, gc_Element_SIStEx, GetThreadInfo(1), pcl_SIEx.NomExportation, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SIStEx_TraiterVue"><lotusscript>'++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SIStEx_TraiterVue(pcl_SIEx As cl_Exportation, p_SauvegarderExportation As Boolean, p_AfficherDB As Integer) As Long
+	'----------------------------------------------------------------------------------------------
+	' Traiter l'exportation: la source est une vue.
+	'
+	' Paramètres:
+	'	pcl_SIEx:		Liste des classes qui contiennent les informations Source
+	'						(base de données, vue et formule de sélection)
+	'	p_SauvegarderExportation		: True pour sauvegarder l'exportation
+	'	p_AfficherDB							: Permettre à l'utilisateur de saisir le nom du fichier à sauvegarder.
+	'
+	' Valeurs retournées:
+	'	 True	- L'exportation a été traitée
+	'	 False	- Erreur de traitement
+	'----------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd_Source_Suivant As NotesDocument
+	Dim nd_Source As NotesDocument
+	Dim ndc_Exportation As NotesDocumentCollection
+		
+	Dim v_NbLus As Long
+	Dim v_NbDoc As Long
+	
+	' Initialisations
+	SIStEx_TraiterVue = 0
+	
+	If pcl_SIEx.TriPrimaire &lt;&gt; ""  Then
+		ReDim a_ValeursATrier(99) As Variant			' Tableau qui contiendra les valeurs à trier
+	ReDim and_DocumentsATrier(99) As NotesDocument	' Tableau des documents triés qui seront exportés vers Excel
+	End If
+	
+	Set ndc_Exportation = pcl_SIEx.ndb.CreateDocumentCollection
+	
+	' Boucler sur tous les documents de la vue Source
+	Set nd_Source_Suivant = pcl_SIEx.nv.Getfirstdocument
+	Do Until nd_Source_Suivant Is Nothing
+		Set nd_Source = nd_Source_Suivant
+		Set nd_Source_Suivant = pcl_SIEx.nv.Getnextdocument(nd_Source_Suivant)
+		v_NbLus = v_NbLus + 1
+		
+		If Not nd_Source.HasItem("$Conflict") Then
+			' Vérifier si le document rencontre les conditions de la sélection supplémentaire
+			If SIStEx_SelectionSupplementaire(pcl_SIEx, nd_Source) Then
+				v_NbDoc = v_NbDoc + 1
+				
+				' Si Tri Primaire
+				If pcl_SIEx.TriPrimaire &lt;&gt; ""  Then
+					' Ajouter le document dans les tableaux de tri
+					v_NbDoc = v_NbDoc + 1
+					Call SIStEx_AjouterDocDansTableaux(pcl_SIEx, nd_Source, v_NbDoc, a_ValeursATrier, and_DocumentsATrier)	
+				Else
+					Call ndc_Exportation.AddDocument(nd_Source)
+				End If
+			End If
+		End If
+		 
+		If v_NbLus Mod 1000 = 0 Then
+			Print pcl_SIEx.NomExportation &amp; " (V) - " CStr(v_NbLus)
+		End If
+
+		If pcl_SIEx.NbLignesMax &gt; 0 And v_NbDoc &gt;= pcl_SIEx.NbLignesMax Then
+			Set nd_Source_Suivant = Nothing
+		End If
+	Loop
+	
+	' Si Tri Primaire
+	If pcl_SIEx.TriPrimaire &lt;&gt; ""  Then
+		SIStEx_TraiterVue = SIStEx_ExporterTri(pcl_SIEx, a_ValeursATrier, and_DocumentsATrier, v_NbDoc, p_SauvegarderExportation, p_AfficherDB)
+	Else
+		SIStEx_TraiterVue = SIEx_ExporterCollection(ndc_Exportation, pcl_SIEx.NomExportation, "", "", "", p_SauvegarderExportation, "", p_AfficherDB)
+		v_NbDoc = ndc_Exportation.Count
+	End If
+
+	Call SIGE_AjouterLog(pcl_SIEx.NomExportation &amp; " (V) - Fin " &amp; CStr(v_NbDoc) &amp; " documents exportés", 0, 0, True)
+	Exit Function
+	
+GererErreur:
+	SIStEx_TraiterVue = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SIStEx, gc_Element_SIStEx, GetThreadInfo(1), pcl_SIEx.NomExportation, False)
+	Exit Function
+End Function
+
+
+
+
+
+
+
+
+
+</lotusscript></code>
+<item name="$POID"><datetime dst="true">20250602T100900,31-04</datetime></item></scriptlibrary>
+
+</database>

@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Historique" hide="v3 v4strict" designerversion="8" comment="6.1a">
+<noteinfo noteid="5556fe" unid="5CF9BE642D421FFA852586B40011FB7F" sequence="76">
+<created><datetime dst="true">20210410T231624,95-04</datetime></created>
+<modified><datetime>20260105T014837,20-05</datetime></modified>
+<revised><datetime>20250319T073635,01-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,19-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,19-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SIHi As NotesSession
+Dim gnuiws_SIHi As NotesUIWorkspace
+
+' Nom des variables
+' --------------------------
+Const gc_NomItemDate_SIHi = "SIHi_Date"
+Const gc_NomItemUser_SIHi = "SIHi_User"
+Const gc_NomItemStatut_SIHi = "SIHi_Statut"
+Const gc_NomItemComm_SIHi = "SIHi_Commentaire"
+Const gc_NomItemRT_SIHi = "SIHi_Historique"
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIHi = "SL"
+Const gc_Element_SIHi = "SI_Historique"
+
+</lotusscript></code><code event="SIHi_Initialisations"><lotusscript>Sub SIHi_Initialisations
+	If gns_SIHi Is Nothing Then
+		Set gns_SIHi = New NotesSession
+	End If
+End Sub
+
+</lotusscript></code><code event="SIHi_DemanderCommentaire"><lotusscript>Function SIHi_DemanderCommentaire(p_Commentaire As String, Byval p_Titre As String, Byval p_Message As String, _
+Byval p_NoCancel As Boolean, Byval p_Obligatoire As Boolean) As Boolean
+'------------------------------------------------------------------------------------------------------------------------------	
+' Demander le commentaire à créer/modifier
+'	Paramètres:		p_Commentaire  String.  Le commentaire à modifier.  Pour un
+'												nouveau commentaire passer à nul. (E/S)
+'							p_Titre			String.  Le titre de la fenêtre du commentaire.
+'							p_Message	String.  Le message à afficher dans la fenêtre du 
+'												commentaire.
+'							p_NoCancel	Boolean.  Indique si l'utilisateur peut annuler la 
+'												saisie du commentaire.
+'							p_Obligatoire		Boolean.  Indique si le commentaire est obligatoire
+'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim s As String
+	Dim v_Commentaire As String
+	
+	SIHi_DemanderCommentaire = False
+	
+	' Initialisations
+	' ------------------
+	Call SIHi_Initialisations
+	Call SIHi_InitialisationsUI
+	
+	' Demander le commentaire
+	' -------------------------------------
+	Set nd = New NotesDocument(gns_SIHi.CurrentDatabase)
+	nd.Form = "DB_SIHi"
+	nd.SIHi_Commentaire = p_Commentaire
+	nd.SIHi_Obligatoire = Cint(p_Obligatoire)
+	nd.SIHi_Message = p_Message
+	If gnuiws_SIHi.Dialogbox("DB_SIHi", True, True, p_NoCancel, False, False, False, p_Titre, nd, True, False, False) Then
+		v_Commentaire = xVar(nd, "SIHi_Commentaire", "")
+		
+		' Supprimer les lignes blanches
+		' ------------------------------------------
+		Do While v_Commentaire &lt;&gt; "" And (Left(v_Commentaire, 1) = " " Or _
+		Left(v_Commentaire, 1) = Chr$(10) Or Left(v_Commentaire, 1) = Chr$(13))
+			v_Commentaire = Right(v_Commentaire, Len(v_Commentaire) - 1)
+		Loop
+		Do While v_Commentaire &lt;&gt; "" And (Right(v_Commentaire, 1) = " " Or _
+		Right(v_Commentaire, 1) = Chr$(10) Or Right(v_Commentaire, 1) = Chr$(13) _
+		Or Right(v_Commentaire, 1) = Chr$(9))
+			v_Commentaire = Left(v_Commentaire, Len(v_Commentaire) - 1)
+		Loop
+		
+		p_Commentaire = v_Commentaire
+		SIHi_DemanderCommentaire = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIHi, gc_Element_SIHi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIHi_RemplacerHistorique"><lotusscript>Function SIHi_RemplacerHistorique(pnd As NotesDocument, pnd_Destination As NotesDocument, _
+Byval p_Rebatir As Boolean) As Integer
+'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script copie l'historique du document source au document destination.
+	
+'	Paramètres:		pnd				NotesDocument.  Le document dans lequel il faut
+'												copier l'historique.	
+'							pnd_Destination	NotesDocument.  Le document dans lequel il faut
+'												remplacer l'historique avec celui de pnd.		
+'							p_Rebatir		Boolean.  Rebâtir le tableau de l'historique après
+'												avoir ajouté la ligne.	
+	
+'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim v_NoDerniereLigne As Long
+	Dim i As Long
+	
+	SIHi_RemplacerHistorique = False
+	
+	' Initialisations
+	' ------------------
+	Call SIHi_Initialisations
+	
+	' Retourne dernière ligne de l'historique
+	' -----------------------------------------------------------------------
+	v_NoDerniereLigne = SIHi_NoDerniereLigne(pnd)
+	
+	' Copier les champs de l'historique
+	' ------------------------------------------------------	
+	For i = 0 To v_NoDerniereLigne		
+		If pnd.HasItem(gc_NomItemStatut_SIHi &amp; Cstr(i)) Then
+			Call pnd_Destination.ReplaceItemValue(gc_NomItemStatut_SIHi &amp; Cstr(i), xVar(pnd, gc_NomItemStatut_SIHi &amp; Cstr(i), ""))
+		End If		
+		If pnd.HasItem(gc_NomItemDate_SIHi &amp; Cstr(i)) Then
+			Call pnd_Destination.ReplaceItemValue(gc_NomItemDate_SIHi &amp; Cstr(i), xVar(pnd, gc_NomItemDate_SIHi &amp; Cstr(i), ""))
+		End If		
+		If pnd.HasItem(gc_NomItemUser_SIHi &amp; Cstr(i)) Then
+			Call pnd_Destination.ReplaceItemValue(gc_NomItemUser_SIHi &amp; Cstr(i), xVar(pnd, gc_NomItemUser_SIHi &amp; Cstr(i), ""))
+		End If		
+		If pnd.HasItem(gc_NomItemComm_SIHi &amp; Cstr(i)) Then
+			Call pnd_Destination.ReplaceItemValue(gc_NomItemComm_SIHi &amp; Cstr(i), xVar(pnd, gc_NomItemComm_SIHi &amp; Cstr(i), ""))
+		End If		
+	Next
+	
+	' Rebâtir le tableau de l'historique
+	' --------------------------------------------
+	If p_Rebatir Then
+		Call SIHi_BatirHistorique(pnd)
+	End If
+	
+	SIHi_RemplacerHistorique = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIHi, gc_Element_SIHi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIHi_EffacerHistorique"><lotusscript>Function SIHi_EffacerHistorique(pnd As NotesDocument)
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script détruit les zones d'affichage de l'historique.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	Dim i As Long
+	Dim v_NoDerniereLigne As Long
+	
+	SIHi_EffacerHistorique = False
+	
+	v_NoDerniereLigne = SIHi_NoDerniereLigne(pnd)
+	
+	' Si le document contient un historique, le supprimer ainsi que les références aux
+	' champs qui ont servi à le construire
+	' ----------------------------------------------------------------------
+	Call pnd.ReplaceItemValue(gc_NomItemRT_SIHi,"")
+	
+	For i = 0 To v_NoDerniereLigne
+		
+		If pnd.Hasitem(gc_NomItemDate_SIHi &amp; Cstr(i)) Then
+			Call pnd.RemoveItem(gc_NomItemDate_SIHi &amp; Cstr(i))
+		End If
+		
+		If pnd.Hasitem(gc_NomItemUser_SIHi  &amp; Cstr(i)) Then		
+			Call pnd.RemoveItem(gc_NomItemUser_SIHi  &amp; Cstr(i))
+		End If
+		
+		If pnd.Hasitem(gc_NomItemStatut_SIHi &amp; Cstr(i)) Then		
+			Call pnd.RemoveItem(gc_NomItemStatut_SIHi &amp; Cstr(i))
+		End If
+		
+		If pnd.Hasitem(gc_NomItemComm_SIHi &amp; Cstr(i)) Then		
+			Call pnd.RemoveItem(gc_NomItemComm_SIHi &amp; Cstr(i))
+		End If
+		
+	Next
+	
+	Call pnd.Save(True, False)
+	
+	SIHi_EffacerHistorique = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIHi, gc_Element_SIHi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIHi_Ajouter"><lotusscript>Function SIHi_Ajouter(pnd As NotesDocument, Byval p_Statut As String, Byval p_Commentaire As String, _
+Byval p_Username As String, Byval p_Rebatir As Boolean) As Boolean
+'------------------------------------------------------------------------------------------------------------------------------	
+' Le script permet d'ajouter une ligne à l'historique du document.
+'	Paramètres:		pnd				NotesDocument.  Le document dans lequel il faut
+'												ajouter la ligne d'historique.
+'							p_Statut		String.  Première ligne de l'historique.  Sera 
+'												affichée en rouge.
+'							p_Commentaire  String.  Le commentaire (optionnel).
+'							p_Rebatir		Boolean.  Rebâtir le tableau de l'historique après
+'												avoir ajouté la ligne.	
+'------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim v_Suffixe As String
+	
+	SIHi_Ajouter = False
+	
+	' Validations
+	' ---------------
+	If p_Statut = "" And p_Commentaire = "" Then
+		Exit Function
+	End If
+	
+	' Initialisations
+	' ------------------
+	Call SIHi_Initialisations
+	If p_Username = "" Then
+		p_Username = gns_SIHi.Username
+	End If
+	
+	' Si le document ne contient pas d'historique, le créer
+	' -----------------------------------------------------------------------
+	v_Suffixe = Cstr(SIHi_NoDerniereLigne(pnd) + 1)
+	
+	' Mettre à jour les champs de l'historique
+	' ------------------------------------------------------
+	Call pnd.ReplaceItemValue(gc_NomItemDate_SIHi &amp; v_Suffixe, Now)
+	Call pnd.ReplaceItemValue(gc_NomItemUser_SIHi &amp; v_Suffixe, p_Username)
+	If p_Statut &lt;&gt; "" Then
+		Call pnd.ReplaceItemValue(gc_NomItemStatut_SIHi &amp; v_Suffixe, p_Statut)
+	End If
+	If p_Commentaire &lt;&gt; "" Then
+		Call pnd.ReplaceItemValue(gc_NomItemComm_SIHi &amp; v_Suffixe, p_Commentaire)
+	End If
+	
+	' Rebâtir le tableau de l'historique
+	' --------------------------------------------
+	If p_Rebatir Then
+		SIHi_Ajouter = SIHi_BatirHistorique(pnd)
+	Else
+		SIHi_Ajouter = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIHi, gc_Element_SIHi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIHi_AjouterCommentaire"><lotusscript>Function SIHi_AjouterCommentaire(pnd As NotesDocument, Byval p_Statut As String, Byval p_Username As String, _
+Byval p_Rebatir As Boolean, Byval p_Message As String, Byval p_NoCancel As Boolean, _
+Byval p_Obligatoire As Boolean, p_Commentaire As String) As Boolean
+'------------------------------------------------------------------------------------------------------------------------------	
+' Le script permet de demander un commentaire à l'utilisateur avant d'ajouter une 
+' ligne à l'historique du document.
+'	Paramètres:		pnd				NotesDocument.  Le document dans lequel il faut
+'												ajouter le commentaire.
+'							p_Statut		String.  Première ligne de l'historique.  Sera 
+'												affichée en rouge.
+'							p_Rebatir		Boolean.  Rebâtir le tableau de l'historique après
+'												avoir ajouté la ligne.
+'							p_Message	String.  Le message à afficher dans la fenêtre du 
+'												commentaire.
+'							p_NoCancel	Boolean.  Indique si l'utilisateur peut annuler la 
+'												saisie du commentaire.
+'							p_Obligatoire		Boolean.  Indique si le commentaire est obligatoire.
+'							p_Commentaire		String.  Le commentaire saisi par l'utilisateur.
+'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim v_Commentaire As String
+	Dim v_Titre As String
+	
+	SIHi_AjouterCommentaire = False
+	If p_Statut = "" Then
+		v_Titre = xGDK_xMessage("SI", 49, "", "")
+	Else
+		v_Titre = p_Statut
+	End If
+	
+	' Demander le commentaire à l'utilisateur
+	' -------------------------------------------------------
+	If SIHi_DemanderCommentaire(v_Commentaire, v_Titre, 	p_Message, p_NoCancel, p_Obligatoire) Then
+		
+		' Ajouter la ligne à l'historique
+		' ---------------------------------------
+		If SIHi_Ajouter(pnd, p_Statut, v_Commentaire, p_Username, p_Rebatir) Then
+			p_Commentaire = v_Commentaire
+			SIHi_AjouterCommentaire = True
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIHi, gc_Element_SIHi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIHi___Fonctions_à_utiliser___"><lotusscript>Sub SIHi___Fonctions_à_utiliser___
+End Sub
+
+</lotusscript></code><code event="SIHi_BatirHistorique"><lotusscript>Function SIHi_BatirHistorique(pnd As NotesDocument) As Integer
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script ajoute une ligne à l'historique du document.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim nd As NotesDocument
+	Dim nrti As NotesRichTextItem
+	Dim v As Variant
+	
+	Dim v_NoDerniereLigne As Long
+	Dim ni As NotesItem
+	Dim i As Long
+	Dim j As Long
+	Dim v_NomItemUser As Variant
+	
+	SIHi_BatirHistorique = False
+	
+	' Initialisations
+	' ------------------
+	Call SIHi_Initialisations
+	Set ndb = gns_SIHi.CurrentDatabase
+	Set nd = New NotesDocument(ndb)
+	nd.Form = "F_SIHi"
+	' Si le document contient un historique, le supprimer
+	' ----------------------------------------------------------------------
+	Call pnd.RemoveItem(gc_NomItemRT_SIHi)
+	Call pnd.Save(True, False)
+	
+	' Créer le nouvel item de l'historique
+	' -----------------------------------------------
+	Set nrti = New NotesRichTextItem(pnd, gc_NomItemRT_SIHi)
+	
+	' Boucler sur toutes les lignes d'historique à afficher
+	' ---------------------------------------------------------------------
+	i = 0
+	Do While pnd.HasItem(gc_NomItemDate_SIHi &amp; Cstr(i))
+		nd.Date = xVar(pnd, gc_NomItemDate_SIHi &amp; Cstr(i), "")
+		v = Evaluate( { @Name([CN]; "} &amp; xVar(pnd, gc_NomItemUser_SIHi &amp; Cstr(i), "") &amp; {")})
+		nd.Utilisateur = v(0)
+		v = xVar(pnd, gc_NomItemStatut_SIHi &amp; Cstr(i), "")
+		If v &lt;&gt; "" Then
+			nd.Statut = xGDK_xMessage("SI", 57, "", "") &amp; " : " &amp; v
+		Else
+			nd.Statut = ""
+		End If
+		nd.Commentaire = xVar(pnd, gc_NomItemComm_SIHi &amp; Cstr(i), "")
+		Call nd.RenderToRTItem(nrti)
+		
+		i = i + 1
+	Loop
+	
+	Call pnd.Save(True, False)
+	SIHi_BatirHistorique = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIHi, gc_Element_SIHi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIHi_NoDerniereLigne"><lotusscript>Function SIHi_NoDerniereLigne(pnd As NotesDocument) As Long
+'------------------------------------------------------------------------------------------------------------------------------	
+' Le script permet de calculer le numéro de la dernière ligne de l'historique.
+'	Paramètres:		pnd				NotesDocument.  Le document dans lequel il faut
+'												ajouter la ligne d'historique.
+'------------------------------------------------------------------------------------------------------------------------------		On Error Goto GererErreur
+	On Error Goto GererErreur
+	
+	Dim v_NoCommentaire As Long
+	
+	v_NoCommentaire = 0
+	
+	Do While pnd.HasItem(gc_NomItemDate_SIHi &amp; Cstr(v_NoCommentaire))
+		v_NoCommentaire = v_NoCommentaire + 1
+	Loop
+	
+	SIHi_NoDerniereLigne = v_NoCommentaire - 1
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIHi, gc_Element_SIHi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIHi_InsertLigne"><lotusscript>Function SIHi_InsertLigne(pnd As NotesDocument, Byval p_Statut As String, Byval p_Commentaire As String, _
+Byval p_Rebatir As Boolean, p_Pos As Long, p_Utilisateur As String, p_Date As Variant) As Boolean
+'------------------------------------------------------------------------------------------------------------------------------	
+' Le script permet d'inserer une ligne à l'historique du document.
+'	Paramètres:		pnd				NotesDocument.  Le document dans lequel il faut
+'												ajouter la ligne d'historique.
+'							p_Statut		String.  Première ligne de l'historique.  Sera 
+'												affichée en rouge.
+'							p_Commentaire  String.  Le commentaire (optionnel).
+'							p_Rebatir		Boolean.  Rebâtir le tableau de l'historique après
+'												avoir ajouté la ligne.
+'							p_Pos		Long.  La position ou on veut insérer une ligne dans l'historique
+'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim v_NouvelleLigne As Long
+	Dim v_Pos As Long
+	Dim v_Suffixe As String
+	Dim v_Max As Long	
+	Dim i As Long
+	
+	Dim a_SIHi_Date() As Variant
+	Dim a_SIHi_Statut() As String
+	Dim a_SIHi_User() As String
+	Dim a_SIHi_Commentaire() As String
+	
+	If p_Utilisateur = "" Then
+		p_Utilisateur = gns_SIHi.Username
+	End If
+	
+	If p_Date = "" Then
+		p_Date = Now
+	End If
+	
+	SIHi_InsertLigne = False
+	
+	' Validations
+	' ---------------
+	If p_Statut = "" And p_Commentaire = "" Then
+		Exit Function
+	End If
+	
+	If p_Pos &lt; 0 Then
+		Exit Function
+	End If
+	
+	' Initialisations
+	' ------------------
+	Call SIHi_Initialisations
+	
+	v_NouvelleLigne = SIHi_NoDerniereLigne(pnd) + 1	
+	
+	'Si insert dans historique mais l'historique n'existe pas
+	' -----------------------------------------------------------------------
+	If v_NouvelleLigne = 0 Then
+		Call pnd.ReplaceItemValue(gc_NomItemDate_SIHi &amp; Cstr(v_NouvelleLigne), p_Date)
+		Call pnd.ReplaceItemValue(gc_NomItemStatut_SIHi &amp; Cstr(v_NouvelleLigne), p_Statut)
+		Call pnd.ReplaceItemValue(gc_NomItemUser_SIHi  &amp; Cstr(v_NouvelleLigne), p_Utilisateur)
+		
+		If  p_Commentaire &lt;&gt; "" Then
+			Call pnd.ReplaceItemValue(gc_NomItemComm_SIHi &amp; Cstr(v_NouvelleLigne),  p_Commentaire)
+		End If
+		
+		SIHi_InsertLigne = True
+		Exit Function
+	End If
+	
+	' Si le document ne contient pas d'historique, le créer
+	' -----------------------------------------------------------------------
+	v_Suffixe = Cstr(v_NouvelleLigne)
+	
+	' Si position demandé plus grand que dernière line, ajouter la nouvelle ligne à la fin de l'historique
+	If p_Pos &gt; v_NouvelleLigne Then
+		v_Pos = v_NouvelleLigne
+	Else
+		v_Pos = p_Pos
+	End If
+	
+	v_Max = v_NouvelleLigne
+	
+	' Mettre à jour les champs de l'historique
+	' ------------------------------------------------------	
+	Redim a_SIHi_Date(v_Max) 
+	Redim a_SIHi_Statut(v_Max)
+	Redim a_SIHi_User(v_Max)
+	Redim a_SIHi_Commentaire(v_Max)
+	
+	' Récupérer les valeurs des champs de l'historique
+	' -------------------------------------------------------------------
+	For  i = 0 To v_Max -1
+		If pnd.HasItem(gc_NomItemDate_SIHi &amp; Cstr(i)) Then
+			a_SIHi_Date(i) = xVar(pnd, gc_NomItemDate_SIHi &amp; Cstr(i), "")
+		End If
+		If pnd.HasItem(gc_NomItemStatut_SIHi &amp; Cstr(i)) Then
+			a_SIHi_Statut(i) = xVar(pnd, gc_NomItemStatut_SIHi &amp; Cstr(i), "")
+		End If
+		If pnd.HasItem(gc_NomItemUser_SIHi &amp; Cstr(i)) Then
+			a_SIHi_User(i) = xVar(pnd, gc_NomItemUser_SIHi &amp; Cstr(i), "")
+		End If	
+		If pnd.HasItem(gc_NomItemComm_SIHi &amp; Cstr(i)) Then
+			a_SIHi_Commentaire(i) = xVar(pnd, gc_NomItemComm_SIHi &amp; Cstr(i), "")
+		End If	
+	Next
+	
+	' Insert les nouvelles valeurs dans le array à la position demandé (p_Pos)
+	' ------------------------------------------------------------------------------------------------		
+	If v_Pos &gt; v_Max  Then
+		a_SIHi_Date(v_Max) = p_Date
+		a_SIHi_Statut(v_Max) = p_Statut
+		a_SIHi_User(v_Max) = p_Utilisateur
+		a_SIHi_Commentaire(v_Max) = p_Commentaire
+	Else
+		For i = v_Max To (v_Pos) Step -1
+			a_SIHi_Date(i) = a_SIHi_Date(i -1) 
+			a_SIHi_Statut(i) = a_SIHi_Statut(i -1) 
+			a_SIHi_User(i) = a_SIHi_User(i -1) 
+			a_SIHi_Commentaire(i) = a_SIHi_Commentaire(i -1) 
+		Next
+	End If
+	
+	a_SIHi_Date(i) = p_Date
+	a_SIHi_Statut(i) = p_Statut
+	a_SIHi_User(i) = p_Utilisateur
+	a_SIHi_Commentaire(i) = p_Commentaire
+	
+	' Mettre à jour les champs de l'historique
+	' ------------------------------------------------------
+	For i = 0 To v_Max
+		Call pnd.ReplaceItemValue(gc_NomItemDate_SIHi &amp; Cstr(i), a_SIHi_Date(i))
+		Call pnd.ReplaceItemValue(gc_NomItemStatut_SIHi &amp; Cstr(i), a_SIHi_Statut(i))
+		Call pnd.ReplaceItemValue(gc_NomItemUser_SIHi &amp; Cstr(i), a_SIHi_User(i))
+		Call pnd.ReplaceItemValue(gc_NomItemComm_SIHi &amp; Cstr(i), a_SIHi_Commentaire(i))
+	Next
+	
+	' Rebâtir le tableau de l'historique
+	' --------------------------------------------
+	If p_Rebatir Then
+		Call SIHi_BatirHistorique(pnd)
+	End If
+	
+	SIHi_InsertLigne = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIHi, gc_Element_SIHi, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIHi_InitialisationsUI"><lotusscript>Sub SIHi_InitialisationsUI
+	If gnuiws_SIHi Is Nothing Then
+		Set gnuiws_SIHi = New NotesUIWorkspace
+	End If
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,01-05</datetime></item></scriptlibrary>
+
+</database>

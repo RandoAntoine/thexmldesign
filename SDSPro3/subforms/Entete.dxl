@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><subform name="Entete" alias="SF_Ente" designerversion="8.5.3" comment="5.0c*">
+<noteinfo noteid="3d8286" unid="0DC88FB972229A6B8525897A0055E319" sequence="723">
+<created><datetime>20230322T103806,97-05</datetime></created>
+<modified><datetime>20250319T074051,91-05</datetime></modified>
+<revised><datetime>20250319T073754,78-05</datetime></revised>
+<lastaccessed><datetime>20250319T074051,90-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20230403T043122,19-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="declarations"><lotusscript>Dim g_Isnewdoc As Integer
+
+</lotusscript></code><code event="postopen"><lotusscript>Sub Postopen(Source As Notesuidocument)
+	g_Isnewdoc = Source.Isnewdoc
+End Sub
+</lotusscript></code><code event="postsave"><lotusscript>Sub Postsave(Source As Notesuidocument)
+	' Rafraichir le titre lorsqu'un document est sauvegardé pour la première fois.
+	If g_Isnewdoc Then
+		Call Source.Refresh
+		g_Isnewdoc = False
+	End If
+End Sub</lotusscript></code>
+<actionbar bgcolor="#ece9d8" bordercolor="black">
+<actionbuttonstyle bgcolor="#ece9d8"/><font color="system"/><border style="solid" width="0px 0px 1px"/>
+<action title="Espacement" showinmenu="false" align="right"><code event="label"><formula>""</formula></code></action></actionbar>
+<body><richtext>
+<pardef id="1" leftmargin="1in" rightmargin="100%" hide="notes web mobile"/>
+<par def="1"><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Theme"><code event="defaultvalue"><formula>v_Theme := @GetProfileField("F_Prof"; "Prof_ThemeCouleurAccent");
+@If(@IsNull(v_Theme); "SI"; v_Theme)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="ThemeCouleurBanniere_1"><code event="defaultvalue"><formula>v_Theme := @GetProfileField("F_Prof"; "Prof_ThemeCouleurBanniere");
+@If(@IsNull(v_Theme); "SI"; v_Theme)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="13" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run></par>
+<table widthtype="fitwindow" cellbordercolor="#2f2f2f" leftmargin="0.7500in" rightmargin="100%" refwidth="10.5104in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="black">
+<cellbackground repeat="tile"/>
+<pardef id="3" leftmargin="0.2500in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); PNav_EditMode != 1; !@IsDocBeingEdited)</formula></code></pardef>
+<par def="3"><run><font size="3pt" color="red"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" refwidth="10.2604in"><tablecolumn width="100%"/><tablecolumn width="1.9688in"/><tablecolumn width="0.2361in"/><tablecolumn width="0.2361in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<cellbackground repeat="once"/>
+<pardef id="5" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); PNav_EditMode != 1; !@IsDocBeingEdited)</formula></code></pardef>
+<par def="5"><run><font size="22pt"/></run><run><font size="22pt" color="white" name="Haettenschweiler" pitch="variable" truetype="true" familyid="20"/><field type="text" kind="computedfordisplay" name="Titre_1"><code event="defaultvalue"><formula>Titre</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="22pt" color="white"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="6" align="right" rightmargin="1.8896in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); PNav_EditMode != 1; !@IsDocBeingEdited)</formula></code></pardef>
+<par def="6"><run><font size="9pt" style="bold italic" color="white"/></run><run><font size="9pt" color="white"/><computedtext><code event="value"><formula>v_Serveur := @Subset(@DbName; 1);
+@DbTitle  + " | " + @If(@IsNull(v_Serveur); "Local"; @Name([CN]; v_Serveur))</formula></code></computedtext></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="7" align="center" spacebefore="1.5" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); PNav_EditMode != 1; !@IsDocBeingEdited)</formula></code></pardef>
+<par def="7"><actionhotspot hotspotstyle="none"><code event="click"><formula>@Command([FileSave])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Disquette.gif|act_Disquette"/></picture></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="8" align="center" spacebefore="1.5" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); PNav_EditMode != 1; !@IsDocBeingEdited)</formula></code></pardef>
+<par def="8"><actionhotspot hotspotstyle="none"><code event="click"><formula>@Command([FileCloseWindow])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture></actionhotspot></par></tablecell></tablerow></table>
+<par def="3"><run><font size="3pt" color="red"/></run></par></tablecell></tablerow></table>
+<par def="1"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitwindow" cellbordercolor="#2f2f2f" leftmargin="0.7500in" rightmargin="100%" refwidth="10.5104in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#82823f">
+<cellbackground repeat="tile"><imageref><code event="value"><formula>"cl_" + ThemeCouleurBanniere_1</formula></code></imageref></cellbackground>
+<pardef id="9" leftmargin="0.2500in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); PNav_EditMode = 1; @IsDocBeingEdited)</formula></code></pardef>
+<par def="9"><run><font size="3pt" color="red"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" leftmargin="0.2500in" refwidth="10.2604in"><tablecolumn width="100%"/><tablecolumn width="1.9688in"/><tablecolumn width="0.2361in"/><tablecolumn width="0.2361in"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<cellbackground repeat="once"/>
+<pardef id="10" leftmargin="0" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); PNav_EditMode = 1; @IsDocBeingEdited)</formula></code></pardef>
+<par def="10"><run><font size="22pt" name="Haettenschweiler" pitch="variable" truetype="true" familyid="20"/></run><run><font size="22pt" name="Haettenschweiler" pitch="variable" truetype="true" familyid="20"/><field type="text" kind="computedfordisplay" name="Titre_3"><code event="defaultvalue"><formula>Titre</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="22pt"/></run></par></tablecell>
+<tablecell valign="center" borderwidth="0px">
+<pardef id="11" align="right" rightmargin="1.8896in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); PNav_EditMode = 1; @IsDocBeingEdited)</formula></code></pardef>
+<par def="11"><run><font size="9pt" style="bold italic"/></run><run><font size="9pt"/><computedtext><code event="value"><formula>v_Serveur := @Subset(@DbName; 1);
+@DbTitle  + " | " + @If(@IsNull(v_Serveur); "Local"; @Name([CN]; v_Serveur))</formula></code></computedtext></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="12" align="center" spacebefore="1.5" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); @True; @IsDocBeingEdited)</formula></code></pardef>
+<par def="12"><actionhotspot hotspotstyle="none"><code event="click"><formula>@If(@IsAvailable(PNav_EditMode); ""; @Command([EditDocument]))</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture></actionhotspot></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="13" align="center" spacebefore="1.5" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@If(@IsAvailable(PNav_EditMode); PNav_EditMode = 1; @IsDocBeingEdited)</formula></code></pardef>
+<par def="13"><actionhotspot hotspotstyle="none"><code event="click"><formula>@Command([FileCloseWindow])</formula></code><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture></actionhotspot></par></tablecell></tablerow></table>
+<par def="9"><run><font size="3pt" color="red"/></run></par></tablecell></tablerow></table>
+<pardef id="14" leftmargin="1in" rightmargin="3in" hide="notes web mobile"/>
+<par def="14"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par></richtext></body>
+<item name="OriginalModTime" sign="true"><datetime dst="true">20070416T140647,38-04</datetime></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>SF_Ente</text></item></subform>
+
+</database>

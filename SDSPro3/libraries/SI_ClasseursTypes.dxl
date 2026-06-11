@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_ClasseursTypes" hide="v3 v4strict" designerversion="8.5.3" comment="1.3b">
+<noteinfo noteid="555826" unid="91AE47911DFC4DD58525884C00622975" sequence="26">
+<created><datetime dst="true">20220524T135211,41-04</datetime></created>
+<modified><datetime>20260105T014837,85-05</datetime></modified>
+<revised><datetime>20250319T073641,26-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,84-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,84-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+Use "SI_FichierWIN"
+Use "SI_GestionErreurs"
+Use "x_GDK"
+Use "x_SIXT"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+'Dim gns_SIXT As Notessession
+'Dim gndb_SIXT As Notesdatabase
+
+Dim gnuiws_SIXT As Notesuiworkspace
+
+Dim gnv_SIXT20_SIXT As Notesview
+Dim gnv_SIXT10_SIXT As Notesview
+
+' Déclarations 
+' ----------------------------------------------------------
+Dim g_ClasseurCourant_SIXT As String
+Dim g_LangueCourante_SIXT As String
+Dim g_DossierTemp_SIXT As String
+Dim g_CheminAccesClasseurExcel_SIXT As String
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SIXT = "SL"
+Const gc_Element_SIXT = "SI_ClasseursTypes"
+
+</lotusscript></code><code event="SIXT_SelectionnerClasseur"><lotusscript>Function SIXT_SelectionnerClasseur(Byval p_Categorie As String) As String
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sélectionner la classeur à imprimer.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim v_Classeur As Variant
+	
+	SIXT_SelectionnerClasseur = ""
+	Call SIXT_Initialisations
+	Call SIXT_InitialisationsUI	
+	Call Initialisation_xSIXT
+	
+	' Si une catégorie est spécifiée, vérifie si des classeurs existent dans cette cette catégorie
+	' ------------------------------------------------------------------------------------------------------------------
+	If p_Categorie = "" Then
+		If gnV_SIXT20_SIXT Is Nothing Then
+			Set gnV_SIXT20_SIXT = gndb_xSIXT.Getview("V_SIXT20")
+		End If
+		
+		Call gnV_SIXT20_SIXT.Refresh
+		Set nd = gnV_SIXT20_SIXT.Getfirstdocument
+		If nd Is Nothing Then
+			Messagebox xGDK_xMessage("SI", 151, "", ""), 16, xGDK_xMessage("SI", 6, "", "")
+			Exit Function
+		End If
+		
+		' Permet à l'utilisateur de sélectionner une classeur
+		v_Classeur = gnuiws_SIXT.Pickliststrings(PICKLIST_CUSTOM, False, gndb_xSIXT.Server, gndb_xSIXT.Filepath, _
+		"V_SIXT20", "Exportation", xGDK_xMessage("SI", 152, "", ""), 1)
+		
+	' Si une catégorie est spécifiée, vérifie si des classeurs existent dans cette cette catégorie
+	' --------------------------------------------------------------------------------------------------------------------------------------
+	Else
+		If gnV_SIXT10_SIXT Is Nothing Then
+			Set gnV_SIXT10_SIXT = gndb_xSIXT.Getview("V_SIXT10")
+		End If
+		
+		Call gnV_SIXT10_SIXT.Refresh
+		Set nd = gnV_SIXT10_SIXT.Getdocumentbykey(p_Categorie)
+		If nd Is Nothing Then
+			Messagebox xGDK_xMessage("SI", 35, "", p_Categorie), 16, xGDK_xMessage("SI", 6, "", "")
+			Exit Function
+		End If
+		
+		' Permet à l'utilisateur de sélectionner une classeur
+		v_Classeur = gnuiws_SIXT.Pickliststrings(PICKLIST_CUSTOM, False, gndb_xSIXT.Server, gndb_xSIXT.Filepath, _
+		"V_SIXT10", "Exportation", xGDK_xMessage("SI", 152, "", ""), 2, p_Categorie)
+	End If
+	
+	If Isarray(v_Classeur) Then
+		SIXT_SelectionnerClasseur = v_Classeur(Lbound(v_Classeur))
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIXT, gc_Element_SIXT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIXT_Initialisations"><lotusscript>Sub SIXT_Initialisations	
+	g_DossierTemp_SIXT = Environ("Temp") &amp; "\SIXT"		
+End Sub
+
+
+</lotusscript></code><code event="SIXT_ExtraireClasseurType"><lotusscript>Function SIXT_ExtraireClasseurType(Byval p_Classeur As String, p_Langue As String, p_NomFichier As string) As String
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'imprimer une classeur.
+	' p_Langue (IO) reçoit la langue à sélectionner et retourne la langue sélectionnée.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim nrti As Variant
+	Dim ni As Notesitem
+	Dim neo As Notesembeddedobject
+	
+	Dim v_aneo As Variant						' Array of NotesEmbeddedObjects
+	Dim v_Langues As Variant
+	Dim v_NomClasseurExcel As String
+	Dim v_Trouve As Integer
+	
+	SIXT_ExtraireClasseurType = ""
+	Call SIXT_Initialisations
+	g_CheminAccesClasseurExcel_SIXT = ""
+	
+	If p_Classeur &lt;&gt; g_ClasseurCourant_SIXT Or p_Langue &lt;&gt; g_LangueCourante_SIXT Then
+		
+		' Extraire la classeur type
+		' --------------------------------
+		Set nd = xndSIXT(p_Classeur, True)
+		If nd Is Nothing Then
+			Messagebox xGDK_xMessage("SI", 149, "", p_Classeur), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+		
+		' Extraire l'item contenant les classeurs types
+		' ---------------------------------------------------------------
+		Set nrti = nd.Getfirstitem("SIXT_Fichiers")
+		If nrti Is Nothing Then
+			Messagebox xGDK_xMessage("SI", 150, "", p_Classeur), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		Elseif nrti.Type &lt;&gt; RICHTEXT Then
+			Messagebox xGDK_xMessage("SI", 150, "", p_Classeur), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function			
+		Elseif Isarray(nrti.Embeddedobjects) = False Then
+			Messagebox xGDK_xMessage("SI", 150, "", p_Classeur), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function						
+		End If
+		
+		' Si la langue demandée n'est pas définie, vérifie la langue par défaut
+		' -----------------------------------------------------------------------------------------------------------
+		Set ni = nd.Getfirstitem("SIXT_Langues")
+		If Not ni.Contains(p_Langue) Then
+			p_Langue = xVar(nd, "SIXT_LangueDefaut", "")
+		End If
+		
+		If p_Langue &lt;&gt; "" Then
+			v_aneo = nrti.EmbeddedObjects
+			
+			' S'il y a plusieurs classeurs, vérifie si la langue recherchée y est
+			' ---------------------------------------------------------------------------------------------
+			v_Langues = xVar(nd, "SIXT_Langues", "")
+			If Isarray(v_Langues) Then
+				' Rechercher le document correspondant à la langue demandée
+				' ---------------------------------------------------------------------------------------------------
+				If p_Classeur &lt;&gt; g_ClasseurCourant_SIXT Or p_Langue &lt;&gt; g_LangueCourante_SIXT Then
+					v_NomClasseurExcel = SIXT_NomFichier(nd, p_Langue)
+					If v_NomClasseurExcel = "" Then
+						Messagebox xGDK_xMessage("SI", 38, "", Split(xVar(nd, "SIXT_Nom", "") &amp; ";" &amp; p_Langue, ";")), 16, _
+						xGDK_xMessage("SI", 1, "", "")
+						Exit Function
+					Else
+						v_Trouve = False
+						Forall neo2 In v_aneo
+							Set neo = neo2
+							If neo.Source = v_NomClasseurExcel Then
+								If Not SIXT_ExtraireClasseurExcel(neo, p_NomFichier) Then
+									Exit Function
+								End If
+								
+								g_ClasseurCourant_SIXT = p_Classeur
+								v_Trouve = True
+								Exit Forall
+							End If
+						End Forall
+						
+						If Not v_Trouve Then
+							Messagebox xGDK_xMessage("SI", 38, "", Split(xVar(nd, "SIXT_Nom", "") &amp; ";" &amp; p_Langue, ";")), 16, _
+							xGDK_xMessage("SI", 1, "", "")
+							Exit Function
+						End If
+					End If
+				End If
+				
+			' S'il n'y a qu'une seule classeur
+			' -------------------------------------------
+			Else
+				If Lbound(v_aneo) &lt;&gt; Ubound(v_aneo) Then
+					Messagebox xGDK_xMessage("SI", 39, "", p_Classeur), 16, xGDK_xMessage("SI", 1, "", "")
+					Exit Function						
+				Else
+					If p_Classeur &lt;&gt; g_ClasseurCourant_SIXT Then
+						If Not SIXT_ExtraireClasseurExcel(v_aneo(Lbound(v_aneo)), p_NomFichier) Then
+							Exit Function
+						End If
+					End If
+				End If
+			End If
+		End If
+	End If
+	
+	SIXT_ExtraireClasseurType = g_CheminAccesClasseurExcel_SIXT
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIXT, gc_Element_SIXT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIXT_ExtraireClasseurExcel"><lotusscript>Function SIXT_ExtraireClasseurExcel(pneo As NotesEmbeddedObject, p_NomFichier As string) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sauvegarder le document Excel dans le dossier temporaire.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	On Error 75 Resume Next		' Kill : Si le fichier n'existe pas --&gt; OK
+	
+	Dim v_NomFichier As String
+	
+	SIXT_ExtraireClasseurExcel = False
+	
+	' Détruire le document Excel précédent
+	' ------------------------------------------------------------
+	If g_CheminAccesClasseurExcel_SIXT &lt;&gt; "" Then
+		Kill g_CheminAccesClasseurExcel_SIXT
+	End If
+	
+	' Créer le dossier temporaire (au besoin)
+	' ------------------------------------------------------------
+	Mkdir g_DossierTemp_SIXT
+	
+	' Générer le nouveau document Excel
+	' ----------------------------------------------------------
+	If p_NomFichier &lt;&gt; "" Then
+		If InStr(p_NomFichier, "\") &gt; 0 then
+			g_CheminAccesClasseurExcel_SIXT = p_NomFichier
+		Else
+			g_CheminAccesClasseurExcel_SIXT = g_DossierTemp_SIXT &amp; "\" &amp; p_NomFichier
+		End if
+	Else
+		v_NomFichier = pneo.Source
+		If InStr(v_NomFichier, ".") &gt; 0 Then
+			v_NomFichier = StrLeftBack(v_NomFichier, ".") &amp; "_" &amp; xUnique("") &amp; "." &amp; StrRightBack(v_NomFichier, ".") 
+		Else
+			v_NomFichier = v_NomFichier &amp; "_" &amp; xUnique("") &amp; ".xlsx"
+		End If
+		g_CheminAccesClasseurExcel_SIXT = g_DossierTemp_SIXT &amp; "\" &amp; v_NomFichier
+	End If
+	g_CheminAccesClasseurExcel_SIXT = SLFWIN_NomFichierUnique(g_CheminAccesClasseurExcel_SIXT)
+	Call pneo.Extractfile(g_CheminAccesClasseurExcel_SIXT)
+	
+	SIXT_ExtraireClasseurExcel = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIXT, gc_Element_SIXT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIXT_NomFichier"><lotusscript>Function SIXT_NomFichier(pnd As Notesdocument, p_Langue As String) As String
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de trouver le nom du document Excel à utiliser.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim a_Langues As Variant
+	Dim i As Long
+	
+	SIXT_NomFichier = ""
+	
+	a_Langues = xVarArray(pnd, "SIXT_Langues")
+	For i = Lbound(a_Langues) To Ubound(a_Langues) 
+		If a_Langues(i) = p_Langue Then
+			SIXT_NomFichier = xVarElem(pnd, "SIXT_NomsFichiers", i, "")
+			Exit Function
+		End If
+	Next
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIXT, gc_Element_SIXT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SIXT_InitialisationsUI"><lotusscript>Sub SIXT_InitialisationsUI	
+	If gnuiws_SIXT Is Nothing Then
+		Set gnuiws_SIXT = New Notesuiworkspace		
+	End If
+End Sub
+
+</lotusscript></code><code event="SIXT_TerminerTraitement"><lotusscript>Function SIXT_TerminerTraitement As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de terminer le traitement proprement.
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	SIXT_TerminerTraitement = False
+	
+	' Détruire le document Excel
+	' -------------------------------------------
+	If g_CheminAccesClasseurExcel_SIXT &lt;&gt; "" Then
+		On Error 75 Resume Next
+		Kill g_CheminAccesClasseurExcel_SIXT
+		On Error 75 Goto GererErreur
+		g_CheminAccesClasseurExcel_SIXT = ""
+	End If
+	
+	SIXT_TerminerTraitement = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SIXT, gc_Element_SIXT, Getthreadinfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073641,26-05</datetime></item></scriptlibrary>
+
+</database>

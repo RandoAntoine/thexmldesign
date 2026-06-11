@@ -1,0 +1,2450 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Proposition" hide="v3 v4strict" designerversion="8">
+<noteinfo noteid="555952" unid="2DA456E4B4FFD89485258B8F004CF531" sequence="6">
+<created><datetime dst="true">20240905T100035,05-04</datetime></created>
+<modified><datetime>20260105T014838,37-05</datetime></modified>
+<revised><datetime>20250319T073646,08-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,36-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,36-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+
+Use "SDSP_Image"
+Use "SI_CompteurSequentiel"
+Use "SI_Representants"
+Use "SI_tDate"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSPP As NotesSession
+Dim gndb_SDSPP As NotesDatabase
+Dim gnv_Prod40_SDSPP As NotesView
+Dim gnv_Prod53B_SDSPP As NotesView
+Dim gnd_Site_SDSPP As NotesDocument
+
+Dim g_NoRep_SDSPP As String
+Dim g_NoProposition_SDSPP As String
+Dim g_NoSite_SDSPP As String
+
+Const c_ndbAlias_SDSPP = "SDSP3"
+Const c_ndbAliasMSG_SDSPP = "SDSPP"
+Const gc_NomVueProd_CS = "V_Prod22"
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPP = "SL"
+Const gc_Element_SDSPP = "SDSP_Proposition"
+
+
+</lotusscript></code><code event="SDSPP_NbSitesACommission"><lotusscript>Function SDSPP_NbSitesACommission(p_NoProposition As String) As Integer
+	' -------------------------------------------------------------------------
+	' 	Cette fonction compte les sites de la proposition qui sont à commission
+	' 
+	' 	Paramètres:
+	' 		p_NoProposition:	Numéro de la proposition à traiter
+	' 		p_NbSitesCommRequ:	Nombre de sites qui sont à commission
+	' -------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim ndc_SitesProp As NotesDocumentCollection
+	Dim nv_Site As NotesView
+	
+	Set nv_Site = gndb_SDSPP.Getview("V_Site22")				' Vue des sites triés par proposition
+	Call nv_Site.refresh
+	SDSPP_NbSitesACommission = 0
+	
+	' Extraire les sites de la proposition
+	Set ndc_SitesProp = nv_Site.GetAllDocumentsByKey(p_NoProposition, True)
+	
+	' Boucler sur tous les sites
+	If ndc_SitesProp.Count &gt; 0 Then
+		Set nd_Suivant = ndc_SitesProp.Getfirstdocument
+		Do Until nd_Suivant Is Nothing
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc_SitesProp.GetNextDocument(nd_Suivant)
+			
+			' Si le site est à commissiom , le compter
+			If SDSPS_SiteAvecCommission(nd) Then
+				SDSPP_NbSitesACommission = SDSPP_NbSitesACommission + 1
+			End If
+		Loop
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), xVar(nd,"Cle", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_AccepterProposition"><lotusscript>Function SDSPP_AccepterProposition(pnd_Prop As NotesDocument, p_Statut As String) As Boolean
+	' -------------------------------------------
+	' Le script permet d'accepter la proposition.
+	' -------------------------------------------
+	
+	On Error Goto GererErreur
+	
+	Dim nv_Site As NotesView
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Site As NotesDocument
+	Dim nv_Prod20 As NotesView
+	Dim nd_Equi As NotesDocument
+	Dim nd_Prod_SDSBB As NotesDocument
+	Dim ni_PropOptions As NotesItem	
+	
+	Dim v_NoProposition As String
+	'Dim v_Cle As String
+	Dim v_ValeurAcceptee As Double
+	Dim v_ValeurAccepteeMensLG As Double
+	Dim v_Roles As Variant
+	Dim v_VerificationTechnique As Variant
+	Dim v_Produits As Variant
+	Dim i As Integer
+	Dim v_Impression As Boolean
+	Dim v_Langue As String
+	Dim v_Origine As String
+	
+	' Initialisations
+	SDSPP_AccepterProposition = False
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	Set nv_Prod20 = gndb_SDSPP.GetView("V_Prod20")
+	Call nv_Prod20.Refresh
+	
+	v_Langue = xSIRR_xVarRepr(xVar(pnd_Prop, "Prop_NoRepresentant", ""), "Repr_Langue", "FR", True)
+	
+	'vérifier si il y a des produits(équipments)
+	'v_Cle = v_NoProposition &amp;";EQ."
+	'Set nd_Equi = nv_Prod20.GetDocumentByKey(Cstr(v_Cle), False)
+	
+	' Modifier le statut
+	' ------------------
+	If xVar(pnd_Prop, "Prop_Statut", "") = "30" Then
+		' Doit avoir le rôle Directeur pour utiliser cette action
+		v_Roles = Evaluate(|@IsMember("[Directeur]"; @UserRoles)|)
+		If v_Roles(0) &lt;&gt; 1 Then
+			Messagebox xGDK_xMessage("SI", 165, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+		If xVar(pnd_Prop, "Prop_Origine", "") &lt;&gt; "SICl" And xVar(pnd_Prop, "Prop_Origine", "") &lt;&gt; "SF" Then
+			pnd_Prop.Prop_PJCreerNote = "1"
+		End If
+		
+%REM Requête #34116
+		v_VerificationTechnique = False
+		If Not Isarray(v_Produits) Then
+			v_Produits =Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod20"; "| &amp; _
+			xVar(pnd_Prop, "Prop_NoProposition","") &amp; |"+ ";"; 2 ;[PartialMatch]); "")|)
+		End If
+		If Isarray(v_Produits) Then
+			For i = 0 To Ubound(v_Produits)
+				
+				Set nd_Prod_SDSBB = xSDSBB_xndProd(v_Produits(i), True)
+				If Not nd_Prod_SDSBB Is Nothing Then
+					Set ni_PropOptions = nd_Prod_SDSBB.GetFirstItem("Prod_PropOptions")
+					If ni_PropOptions.Contains("VT") Then
+						v_VerificationTechnique = True
+						Exit For
+					End If
+				End If
+				
+			Next
+		End If
+		
+		
+		If v_VerificationTechnique = True Or (SDSI_ContratRequis(pnd_Prop) And Not (nd_Equi Is Nothing)) Then
+			p_Statut = "40"
+			SDSPP_AccepterProposition = True
+			Exit Function
+		Else
+			p_Statut = "50"
+		End If
+		
+	Elseif xVar(pnd_Prop, "Prop_Statut", "") = "40" Then
+		' Doit avoir le rôle Technique pour utiliser cette action
+		v_Roles = Evaluate(|@IsMember("[Technique]"; @UserRoles)|)
+		If v_Roles(0) &lt;&gt; 1 Then
+			Messagebox xGDK_xMessage("SI", 165, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+	%END REM
+		
+	End If
+	
+	If p_Statut = "50" Then
+		
+		v_ValeurAcceptee = SDSI_PrixTotal(pnd_Prop, 0, 0, 0, False)
+		
+		Call SDSI_EntretienMensuelTotal(pnd_Prop, 0, v_ValeurAccepteeMensLG)
+		
+		pnd_Prop.Prop_PropositionAcceptee = "1"
+		pnd_Prop.Prop_ValeurAcceptee = v_ValeurAcceptee
+		pnd_Prop.Prop_ValeurAccepteeMensuelLG = v_ValeurAccepteeMensLG
+		
+		v_Origine = xVar(pnd_Prop, "Prop_Origine", "")
+		If Left(v_Origine, 2) = "PJ" Then
+			pnd_Prop.Prop_MajProjet = "1"
+		End If
+		
+	End If
+	
+	SDSPP_AccepterProposition = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, Getthreadinfo(1), "", False)
+	Exit Function
+	
+End Function
+
+</lotusscript></code><code event="SDSPP_SupprimerProduitsProgramme"><lotusscript>Function SDSPP_SupprimerProduitsProgramme(pnd_Prop As NotesDocument, p_NomItem As String, p_NoSite As String, p_NomProgramme As String, p_ProduitsDesc As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd As NotesDocument
+	Dim ni As NotesItem
+	
+	Dim v_CleParent As String
+	Dim v_Produit As String
+	Dim v_Langue As String
+	Dim a_ProduitsDesc As Variant
+	Dim x As Long
+	
+	SDSPP_SupprimerProduitsProgramme = False
+	
+	Call SDSPP_Initialisations
+	
+	If gnv_Prod40_SDSPP Is Nothing Then
+		Set gnv_Prod40_SDSPP = gndb_SDSPP.GetView("V_Prod40")
+		Call gnv_Prod40_SDSPP.Refresh
+	End If
+	
+	Call gnv_Prod40_SDSPP.Refresh
+	
+	If p_NoSite &lt;&gt; "" Then
+		g_NoSite_SDSPP = p_NoSite
+		Set gnd_Site_SDSPP = xSDSP3_xndSite(g_NoSite_SDSPP, True)
+		If gnd_Site_SDSPP Is Nothing Then
+			Messagebox xGDK_xMessage("SDSPP", 12, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+	End If
+	
+	
+	v_Langue = xLangue
+	v_CleParent = xVar(pnd_Prop, "Prop_NoProposition", "") &amp; ";" &amp; p_NoSite &amp; ";" &amp; p_NomItem
+	Set ndc = gnv_Prod40_SDSPP.GetAllDocumentsByKey(v_CleParent, True)
+	If ndc.Count &gt; 0 Then
+		x = 0
+		ReDim a_ProduitsDesc(ndc.Count)
+		Set nd_Suivant = ndc.GetFirstDocument
+		Do Until nd_Suivant Is Nothing
+			Set nd = nd_Suivant
+			Set nd_Suivant = ndc.GetNextDocument(nd_Suivant)
+			
+			If SDSPX_SupprimerProduit(nd, p_NomProgramme) Then
+				a_ProduitsDesc(x) = "(+) " &amp; xVar(nd, "Prod_DescProduit" &amp; v_Langue, "") &amp; " (" &amp; xvar(nd, "Prod_CodeProduit", "") &amp; ")"
+				x = x + 1
+			End If
+		Loop
+		ReDim Preserve a_ProduitsDesc(x-1)
+		SDSPP_SupprimerProduitsProgramme = True
+	End If
+	
+	If IsArray(a_ProduitsDesc) Then
+		If IsArray(p_ProduitsDesc) Then
+			p_ProduitsDesc = FullTrim(ArrayUnique(ArrayAppend(p_ProduitsDesc, a_ProduitsDesc)))
+		Else
+			p_ProduitsDesc = a_ProduitsDesc
+		End If
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), v_CleParent, False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_RecalculerCouts"><lotusscript>Function SDSPP_RecalculerCouts(pnd_Prop As NotesDocument, p_RecalcTousPrix As Boolean, p_RecalcListe As Boolean, p_UserName As String) As Boolean
+	On Error GoTo GererErreur
+	
+	' Initialisations
+	SDSPP_RecalculerCouts = False
+	
+	If SDSPX_RecalculerCoutsProduits(pnd_Prop, p_RecalcTousPrix, p_RecalcListe) Then
+		
+		SDSPP_RecalculerCouts = True
+		
+		pnd_Prop.Prop_DateMajCouts = Today
+		
+		' Mettre à jour l'historique de la proposition
+		' --------------------------------------------
+		Call SIHi_Ajouter(pnd_Prop, "", "Action : " &amp; "Proposition recalculée  /  Proposal recalculated", p_UserName, False)
+		
+		' Mettre à jour l'historique de la proposition
+		' --------------------------------------------
+		Call SIHi_BatirHistorique(pnd_Prop)
+		
+	End If
+	
+	SDSPP_RecalculerCouts = True
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_Initialisations"><lotusscript>Sub SDSPP_Initialisations
+	If gns_SDSPP Is Nothing Then
+		Set gns_SDSPP = New NotesSession
+		Set gndb_SDSPP = gns_SDSPP.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="SDSPP_SecCalculer"><lotusscript>Sub SDSPP_SecCalculer(pnd_Prop As NotesDocument, pa_Lecteur As Variant, pa_Auteur As Variant)
+	On Error GoTo GererErreur
+	
+	'	Dim nd_SICTStatut As NotesDocument
+	
+	Dim v_Statut As String
+	Dim v_Securite As String
+	Dim v_SecLecteurs As String
+	Dim v_SecAuteurs As String
+	Dim v_EnvNoRep As String
+	Dim a_IdCreateur As Variant
+	Dim a_IdRepresentant As Variant
+	Dim v_NoEquipe As String
+	Dim a_IdEquipeRepresentant As Variant
+	Dim v_ServeurSIRR As String
+	Dim a_IdSuperviseur As Variant
+	Dim a_IdVerificateur As Variant
+	Dim a_IdDirecteur As Variant
+	Dim a_IdDirNational As Variant
+	Dim a_IdDirMondial As Variant
+	Dim a_IdTechnique As Variant
+	Dim a_IdSuperviseursSDep As Variant
+	
+	Dim a_IdDirecteur2 As Variant
+	Dim v_Prop_TypeProposition As String
+	Dim v_Prof_DirecteurDestinataire As Variant
+	Dim v_TpPp_DirecteurDestinataire As Variant
+	
+	pa_Lecteur = ""
+	pa_Auteur = ""
+	v_Statut = xVar(pnd_Prop, "Prop_Statut", "")
+	v_ServeurSIRR = xGDK_xFormulaNDB("SIRR")
+		
+	' Déterminer les paramètres de sécurité
+	' -------------------------------------
+	v_Securite = xComplTabl(v_Statut, "Prop_Statut_FR", "3", True)
+	If InStr(v_Securite, ";") &gt; 0 Then
+		v_SecLecteurs = StrLeft(v_Securite, ";")
+		'v_SecAuteurs = Strright(v_Securite, ";")
+		v_SecAuteurs = StrLeft(StrRight(v_Securite, ";"), ";")
+	Else
+		v_SecLecteurs = v_Securite
+	End If
+	
+	a_IdCreateur = xVar(pnd_Prop, "HistoUC", "")
+	a_IdRepresentant = xVar(pnd_Prop, "Prop_IdRepresentant", "")
+	
+	If a_IdCreateur = a_IdRepresentant Then
+		a_IdCreateur = ""
+	End If
+	
+	' Superviseurs du créateur (HistoUC)
+	a_IdSuperviseursSDep = SDSPP_SuperviseursSDep(CStr(a_IdCreateur))
+	
+	' Equipe du représentant
+	v_NoEquipe = xSIRR_xVarRepr_Id(a_IdRepresentant,"", "Repr_NoEquipe", "0")
+	If v_NoEquipe &lt;&gt; "0" Then
+		a_IdEquipeRepresentant = Evaluate(|@IfError(@DbLookup("";| &amp; v_ServeurSIRR &amp; |; "V_Repr22"; "| &amp; v_NoEquipe &amp; |"; 3); "");|)
+	End If
+	
+	a_IdSuperviseur = xVar(pnd_Prop,"Prop_IdSuperviseur", "")
+	
+	' Vérificateur
+	a_IdVerificateur = xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_VerificateurDestinataire", "", True)
+	
+	' Directeur
+	' Si Prop_Directeur vide retourne TpPp_DirecteurDestinataire
+	' Si Prop_Directeur vide et TpPp_DirecteurDestinataire vide retourne Prof_DirecteurDestinataire
+	' PBE 2022-05-27 Correction Type Mismatch lorsque TpPp_DirecteurDestinataire contient un seul destinataire
+	a_IdDirecteur2 = xVarArray(pnd_Prop, "Prop_IdDirecteur")
+	If IsArray(a_IdDirecteur2) Then
+		a_IdDirecteur = a_IdDirecteur2
+	Else
+		v_Prop_TypeProposition = xVar(pnd_Prop,"Prop_TypeProposition", "")
+		v_TpPp_DirecteurDestinataire = xSDSBB_xVarTpPp(v_Prop_TypeProposition, "TpPp_DirecteurDestinataire", "", True)
+		If IsArray(v_TpPp_DirecteurDestinataire) Then
+			a_IdDirecteur = v_TpPp_DirecteurDestinataire
+		ElseIf v_TpPp_DirecteurDestinataire &lt;&gt; "" Then
+			a_IdDirecteur = Evaluate(|"| &amp; v_TpPp_DirecteurDestinataire &amp; |"|)
+		Else
+			v_Prof_DirecteurDestinataire = xVarProf("Prof_DirecteurDestinataire", "")
+			If IsArray(v_Prof_DirecteurDestinataire) Then
+				a_IdDirecteur = v_Prof_DirecteurDestinataire
+			ElseIf v_Prof_DirecteurDestinataire &lt;&gt; "" Then
+				a_IdDirecteur = Evaluate(|"| &amp; v_Prof_DirecteurDestinataire &amp; |"|)
+			End If
+		End If
+	End If
+	
+	a_IdDirNational =xVarArray(pnd_Prop, "Prop_IdDirNational") 
+	a_IdDirMondial =xVarArray(pnd_Prop, "Prop_IdDirMondial")
+		
+	%rem
+	a_IdDirecteur = xVar(pnd_Prop, "Prop_IdDirecteur", _
+	xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_DirecteurDestinataire", _
+	xVarProf("Prof_DirecteurDestinataire", ""), True))
+	%end rem
+
+	' Technique
+	a_IdTechnique = xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_TechniqueDestinataire", "", True)
+	
+	' Lecteurs
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "C", a_IdCreateur, pa_Lecteur)	
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "R", a_IdRepresentant, pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "E", a_IdEquipeRepresentant, pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "S", a_IdSuperviseur, pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "S", a_IdSuperviseursSDep, pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "V", a_IdVerificateur, pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "V", "[Verificateur]", pa_Lecteur)	
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "D", a_IdDirecteur , pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "D", "[Directeur]", pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "N", a_IdDirNational , pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "M", a_IdDirMondial , pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "T", a_IdTechnique, pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "T", "[Technique]", pa_Lecteur)
+	Call SDSPP_AjouterDestinataire(v_SecLecteurs, "L", "[Lecteur" &amp; v_Statut &amp; "]", pa_Lecteur)
+	If Not IsArray(pa_Lecteur) Then
+		pa_Lecteur = Evaluate(|""|)
+	Else
+		pa_Lecteur = ArrayUnique(pa_Lecteur)
+	End If
+	
+	' Auteurs
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "C", a_IdCreateur, pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "R", a_IdRepresentant, pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "E", a_IdEquipeRepresentant, pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "S", a_IdSuperviseur, pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "S", a_IdSuperviseursSDep, pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "V", a_IdVerificateur , pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "V", "[Verificateur]", pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "D", a_IdDirecteur , pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "D", "[Directeur]", pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "N", a_IdDirNational , pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "M", a_IdDirMondial , pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "T", a_IdTechnique , pa_Auteur)
+	Call SDSPP_AjouterDestinataire(v_SecAuteurs, "T", "[Technique]", pa_Auteur)
+	If Not IsArray(pa_Auteur) Then
+		pa_Auteur = Evaluate(|""|)
+	Else
+		pa_Auteur = ArrayUnique(pa_Auteur)
+	End If
+	
+	If xVar(pnd_Prop, "Prop_NePasPartager", "") = "1" And v_NoEquipe &lt;&gt; "0" Then
+		a_IdEquipeRepresentant = FullTrim(Replace(a_IdEquipeRepresentant, a_IdRepresentant, ""))
+		pa_Lecteur = FullTrim(Replace(pa_Lecteur, a_IdEquipeRepresentant, ""))
+		pa_Auteur = FullTrim(Replace(pa_Auteur, a_IdEquipeRepresentant, ""))
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPP_ProdAutoModifiee"><lotusscript>Function SDSPP_ProdAutoModifiee(pnd_Prop As NotesDocument, p_Statut As String) As Boolean
+	On Error GoTo GererErreur
+	' --------------------------------------------
+	' Le script permet de vérifier si les produits
+	' --------------------------------------------
+	Dim nuiws As New NotesUIWorkspace
+	Dim nd_DB As NotesDocument
+	Dim nd_Site As NotesDocument
+	
+	Dim a_NoSite As Variant
+	Dim v_NbSites As Integer
+	Dim v_PosSite As Integer
+	Dim a_ProduitsDesc As Variant
+	Dim v_Langue As String
+	
+	' Initialisations
+	SDSPP_ProdAutoModifiee = False
+	Call SDSPP_Initialisations
+	
+	a_NoSite = xVarArray(pnd_Prop, "Prop_NoSites")
+	v_NbSites = xVar(pnd_Prop, "Prop_NbSites", 0)
+	v_Langue = xLangue
+	If v_NbSites &gt; 0 Then
+		For v_PosSite = LBound(a_NoSite) To UBound(a_NoSite)
+			Set nd_Site = xSDSP3_xndSite(a_NoSite(v_PosSite), True)
+			
+			If Not nd_Site Is Nothing Then
+				
+				If xVar(nd_Site, "Site_AjouterSDS", "") = "1" Then
+					Call SDSPP_MajProduitsProgramme(pnd_Prop, "", "Site_AjouterSDS", "", 0, "", "", a_NoSite(v_PosSite), a_ProduitsDesc)
+				Else
+					Call SDSPP_SupprimerProduitsProgramme(pnd_Prop, "Site_AjouterSDS", a_NoSite(v_PosSite), GetThreadInfo(1), a_ProduitsDesc)
+				End If
+			End If
+		Next
+	End If
+	
+	If IsArray(a_ProduitsDesc) Then
+		' Demander une confirmation
+		Set nd_DB = New NotesDocument(gndb_SDSPP)
+		' Des produits automatiques ont été ajoutés ou retirés de la proposition.  Voulez-vous continuer quand même?
+		nd_DB.DB_Message = xGDK_xMessage("SDSPP", 90, v_Langue, "")
+		nd_DB.DB_ProdAuto = a_ProduitsDesc
+		If Not nuiws.DialogBox("DB_Aut", True, True, False, False, False, False, xGDK_xMessage("SI", 10, "", ""), nd_DB, True, False, False) Then
+			SDSPP_ProdAutoModifiee = False
+			Exit Function
+		End If
+	End If
+	
+	SDSPP_ProdAutoModifiee = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), xVar(pnd_Prop, "Prop_NoProposition",""), False)
+	Call SIGE_AjouterLog(GetThreadInfo(1), Err(), 119, False)
+	Call SIGE_EnregistrerLog
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_EditMode"><lotusscript>Function SDSPP_EditMode(pnd_Prop As NotesDocument) As Boolean
+	' ---------------------------------------------------------------------------------
+	' Le script permet de déterminer si la proposition devrait ouvrir en mode édition
+	' ---------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim a_IdCreateur As Variant
+	Dim a_IdDirecteur As Variant
+	Dim a_IdEquipeRepresentant As Variant
+	Dim a_IdRepresentant As Variant
+	Dim a_IdSuperviseur As Variant
+	Dim a_IdSuperviseursSDep As Variant
+	Dim a_IdTechnique As Variant
+	Dim a_IdVerificateur As Variant
+	Dim a_UserRoles As Variant
+	Dim i As Integer
+	Dim v_Editeur As String
+	Dim v_NoEquipe As String
+	Dim v_SecEditeurs As String
+	Dim v_Securite As String
+	Dim v_ServeurSIRR As String
+	Dim v_Statut As String
+	Dim v_UserName As String
+	
+	Dim a_IdDirecteur2 As Variant
+	Dim v_Prop_TypeProposition As String
+	Dim v_Prof_DirecteurDestinataire As Variant
+	Dim v_TpPp_DirecteurDestinataire As Variant
+	
+	SDSPP_EditMode = False
+	
+	v_UserName = gns_SDSPP.UserName
+	v_Statut = xVar(pnd_Prop, "Prop_Statut", "10")
+	v_ServeurSIRR = xGDK_xFormulaNDB("SIRR")
+	
+	a_UserRoles = Evaluate(|@UserRoles|)
+	
+	' Déterminer les paramètres de sécurité
+	' -------------------------------------
+	v_Securite = xComplTabl(v_Statut, "Prop_Statut_FR", "3", True)
+	
+	If InStr(v_Securite, ";") &gt; 0 Then
+		v_SecEditeurs =  StrRightBack(v_Securite, ";")	
+	Else
+		v_SecEditeurs = v_Securite
+	End If
+	
+	
+	a_IdCreateur = xVar(pnd_Prop, "HistoUC", "")
+	a_IdRepresentant = xVar(pnd_Prop, "Prop_IdRepresentant", "")
+	
+	If a_IdCreateur = a_IdRepresentant Then
+		a_IdCreateur = ""
+	End If
+	
+	' Superviseurs du créateur (HistoUC)
+	a_IdSuperviseursSDep = SDSPP_SuperviseursSDep(CStr(a_IdCreateur))
+	
+	' Equipe du représentant
+	v_NoEquipe = xSIRR_xVarRepr_Id(a_IdRepresentant,"", "Repr_NoEquipe", "0")
+	If v_NoEquipe &lt;&gt; "0" Then
+		a_IdEquipeRepresentant = Evaluate(|@IfError(@DbLookup("";| &amp; v_ServeurSIRR &amp; |; "V_Repr22"; "| &amp; v_NoEquipe &amp; |"; 3); "");|)
+	End If
+	
+	a_IdSuperviseur = xVar(pnd_Prop,"Prop_IdSuperviseur", "")
+	
+	' Vérificateur
+	a_IdVerificateur = xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_VerificateurDestinataire", "", True)
+	
+	' Directeur
+	' Si Prop_Directeur vide retourne TpPp_DirecteurDestinataire
+	' Si Prop_Directeur vide et TpPp_DirecteurDestinataire vide retourne Prof_DirecteurDestinataire
+	' PBE 2022-05-27 Correction Type Mismatch lorsque TpPp_DirecteurDestinataire contient un seul destinataire
+	a_IdDirecteur2 = xVarArray(pnd_Prop, "Prop_IdDirecteur")
+	If IsArray(a_IdDirecteur2) Then
+		a_IdDirecteur = a_IdDirecteur2
+	Else
+		v_Prop_TypeProposition = xVar(pnd_Prop,"Prop_TypeProposition", "")
+		v_TpPp_DirecteurDestinataire = xSDSBB_xVarTpPp(v_Prop_TypeProposition, "TpPp_DirecteurDestinataire", "", True)
+		If IsArray(v_TpPp_DirecteurDestinataire) Then
+			a_IdDirecteur = v_TpPp_DirecteurDestinataire
+		ElseIf v_TpPp_DirecteurDestinataire &lt;&gt; "" Then
+			a_IdDirecteur = Evaluate(|"| &amp; v_TpPp_DirecteurDestinataire &amp; |"|)
+		Else
+			v_Prof_DirecteurDestinataire = xVarProf("Prof_DirecteurDestinataire", "")
+			If IsArray(v_Prof_DirecteurDestinataire) Then
+				a_IdDirecteur = v_Prof_DirecteurDestinataire
+			ElseIf v_Prof_DirecteurDestinataire &lt;&gt; "" Then
+				a_IdDirecteur = Evaluate(|"| &amp; v_Prof_DirecteurDestinataire &amp; |"|)
+			End If
+		End If
+	End If
+	%REM
+	a_IdDirecteur = xVar(pnd_Prop, "Prop_IdDirecteur", _
+	xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_DirecteurDestinataire", _
+	xVarProf("Prof_DirecteurDestinataire", ""), True))
+	%END REM
+	
+	' Technique
+	a_IdTechnique = xSDSBB_xVarTpPp(xVar(pnd_Prop,"Prop_TypeProposition", ""), "TpPp_TechniqueDestinataire", "", True)
+	
+	
+	For i = 1 To Len(v_SecEditeurs)
+		
+		v_Editeur = Mid(v_SecEditeurs, i, 1)
+		
+		Select Case v_Editeur
+			
+		Case "C"
+			If v_UserName = a_IdCreateur Then
+				SDSPP_EditMode = True
+				Exit Function
+			End If
+			
+		Case "R"
+			If v_UserName = a_IdRepresentant Then
+				SDSPP_EditMode = True
+				Exit Function
+			End If
+			
+		Case "E"								
+			If IsArray(a_IdEquipeRepresentant) Then
+				If Not IsNull(ArrayGetIndex(a_IdEquipeRepresentant, v_UserName)) Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			Else
+				If v_UserName = a_IdEquipeRepresentant Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			End If
+			
+		Case "S"				
+			If IsArray(a_IdSuperviseur) Then
+				If Not IsNull(ArrayGetIndex(a_IdSuperviseur, v_UserName)) Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			ElseIf IsArray(a_IdSuperviseursSDep) Then
+				If Not IsNull(ArrayGetIndex(a_IdSuperviseursSDep, v_UserName)) Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			Else
+				If v_UserName = a_IdSuperviseur Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			End If
+			
+		Case "V"			
+			If IsArray(a_IdVerificateur) Then
+				If Not IsNull(ArrayGetIndex(a_IdVerificateur, v_UserName))  Or _
+				Not IsNull(ArrayGetIndex(a_UserRoles, "[Verificateur]")) Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			Else
+				If v_UserName = a_IdVerificateur Or _
+				Not IsNull(ArrayGetIndex(a_UserRoles, "[Verificateur]")) Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			End If
+			
+		Case "D"				
+			If IsArray(a_IdDirecteur) Then
+				If Not IsNull(ArrayGetIndex(a_IdDirecteur, v_UserName)) Or _
+				Not IsNull(ArrayGetIndex(a_UserRoles, "[Directeur]")) Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			Else
+				If v_UserName = a_IdDirecteur Or _
+				Not IsNull(ArrayGetIndex(a_UserRoles, "[Directeur]")) Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			End If			
+			
+		Case "T"					
+			If IsArray(a_IdTechnique) Then
+				If Not IsNull(ArrayGetIndex(a_IdTechnique, v_UserName)) Or _
+				Not IsNull(ArrayGetIndex(a_UserRoles, "[Technique]")) Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			Else
+				If v_UserName = a_IdTechnique Or _
+				Not IsNull(ArrayGetIndex(a_UserRoles, "[Technique]")) Then
+					SDSPP_EditMode = True
+					Exit Function
+				End If
+			End If
+			
+	End Select
+		
+	Next
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_ImporterContratsService"><lotusscript>Function SDSPP_ImporterContratsService(pnd_Prop As NotesDocument, pnd_Site As NotesDocument, p_ClientNoFmt As String, p_UserName As String) As Integer
+	' -------------------------------------------------------------------------------------
+	' Le script permet d'importer les contrats de service dans une proposition
+	' 
+	' 	Paramètres:
+	' 		pnd_Prop:	    NotesDocument.  Le document de la proposition
+	' 		pnd_Site:	    NotesDocument.  Le document du site de la proposition	
+	' -------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	
+	Dim a_Cles(1) As String		
+	Dim a_NoContratsSite_CSCo As Variant
+	Dim a_NoContratFmt_CSCo As Variant
+	Dim a_NoContrats_Site As Variant
+	Dim a_NoContratsFmt_Site As Variant
+	
+	Dim nd_CSCo As NotesDocument
+	Dim nd_Suivant_CSCo As NotesDocument
+	Dim ndc_CSCo As NotesDocumentCollection
+	Dim ndc_Prod_PP As NotesDocumentCollection
+	Dim nv_Prod As NotesView
+	Dim ndt_DateDebutContrat As NotesDateTime
+	
+	Dim i As Integer	
+	
+	Dim v_Formule As String
+	Dim v_Maj As Boolean	
+	Dim v_NoContratFmt_CSCo As String	
+	Dim v_NoContrat_Site As String	
+	Dim v_NoContrats_CSCo As String
+	Dim v_NoRevision_CSCo As String
+	Dim v_NouvImportation As Boolean
+	Dim v_Pos As Variant	
+	Dim v_ClientNoFmt As String	
+	Dim v_DateDebutContrat As Variant
+	Dim v_StatutContratCS As String
+	Dim v_StatutContratAH As String
+	Dim v_DateDebutContratCS As Variant
+	Dim v_DateDebutContratAH As Variant
+	Dim v_Parametres(1) As String
+	
+	' Initialisations
+	SDSPP_ImporterContratsService = 0
+	
+	Call SDSPP_Initialisations
+	'Call xSDSCS_Initialisations
+	Call xSDSCSL_Initialisations
+	
+	If p_UserName = "" Then
+		p_UserName = gns_SDSPP.UserName
+	End If
+	
+	If gnv_Prod40_SDSPX Is Nothing Then
+		Set gnv_Prod40_SDSPX = gndb_SDSPP.GetView("V_Prod40")
+		Call gnv_Prod40_SDSPX.Refresh
+	End If
+	
+	If p_ClientNoFmt &lt;&gt; "" Then
+		v_ClientNoFmt = p_ClientNoFmt
+	Else
+		v_ClientNoFmt = xVar(pnd_Site, "Site_ClientNoFmt", "")
+	End If
+		
+	v_NouvImportation = True
+	
+	' Construire la formule de recherche
+	'v_Formule = {Form = "F_CSCo" &amp; CSCo_StatutContrat &gt;= "30" &amp; CSCo_StatutContrat &lt;= "59" } &amp; _
+	'{&amp; CSCo_ClientNoFmt = "} &amp; v_ClientNoFmt &amp; {"} 
+	
+	v_Formule = {Form = "F_CSCo" &amp; CSCo_StatutContrat = "50" } &amp; _
+	{&amp; CSCo_ClientNoFmt = "} &amp; v_ClientNoFmt &amp; {"} 
+	
+	If gndb_xSDSCSL Is Nothing Then
+		SDSPP_ImporterContratsService = -3
+		Exit Function
+	End If
+	
+	' Recheche des contrats de service
+	Set ndc_CSCo = gndb_xSDSCSL.Search(v_Formule, Nothing, 0)
+	
+	v_Parametres(1) = CStr(ndc_CSCo.Count)
+	
+	a_NoContratsFmt_Site = xVarArray(pnd_Site, "Site_NoContratFmt_CS")
+	
+	If Not IsArray(a_NoContratsFmt_Site) Then
+		a_NoContratsFmt_Site = Split(a_NoContratsFmt_Site)
+	End If
+	
+	'Liste des no de contrats du site (partie gauche avant le "-"
+	a_NoContrats_Site = Evaluate(|@Left(@explode("| &amp; Implode(a_NoContratsFmt_Site,";") &amp; |";";");"-")|)
+	
+	ReDim a_NoContratFmt_CSCo(ndc_CSCo.Count-1) As String
+	
+	i = 0
+	
+	' Boucler les contrat de service	
+	'-------------------------------
+	Set nd_Suivant_CSCo = ndc_CSCo.GetFirstDocument
+	
+	v_Maj = False
+	
+	'v_DateDebutContrat = xVar(nd_Suivant_CSCo, "CSCo_DateDebut","")
+	
+	Do Until nd_Suivant_CSCo Is Nothing
+		
+		Set nd_CSCo = nd_Suivant_CSCo
+		Set nd_Suivant_CSCo = ndc_CSCo.GetNextDocument(nd_Suivant_CSCo)		
+		
+		v_NoContratFmt_CSCo = xVar(nd_CSCo,"CSCo_NoContratFmt" , "")			
+		v_NoContrat_Site = ""					
+		v_NoContrats_CSCo = StrLeft(v_NoContratFmt_CSCo, "-") 'Parti gauche
+		v_NoRevision_CSCo = StrRight(v_NoContratFmt_CSCo, "-") 'Parti droite	
+		
+		If xVar(nd_CSCo, "CSCo_TypeInstallation","") = "1" Then		
+			If v_StatutContratAH = "" Then	
+				v_DateDebutContratAH = xVar(nd_CSCo, "CSCo_DateDebut","")
+				v_StatutContratAH = xVar(nd_CSCo, "CSCo_StatutContrat","0")
+			Else
+				If xVar(nd_CSCo, "CSCo_StatutContrat","0") &gt; v_StatutContratAH Then
+					v_DateDebutContratAH = xVar(nd_CSCo, "CSCo_DateDebut","")
+					v_StatutContratAH = xVar(nd_CSCo, "CSCo_StatutContrat","0")
+				End If				
+			End If					
+		Else
+			If v_StatutContratCS = "" Then								
+				v_DateDebutContratCS = xVar(nd_CSCo, "CSCo_DateDebut","")
+				v_StatutContratCS = xVar(nd_CSCo, "CSCo_StatutContrat","0")
+			Else
+				If xVar(nd_CSCo, "CSCo_StatutContrat","0") &gt; v_StatutContratCS Then
+					v_DateDebutContratCS = xVar(nd_CSCo, "CSCo_DateDebut","")
+					v_StatutContratCS = xVar(nd_CSCo, "CSCo_StatutContrat","0")
+				End If
+			End If			
+		End If
+		
+	%REM				
+		If xVar(nd_CSCo, "CSCo_TypeInstallation","") = "1" Then	
+			v_DateDebutContrat = xVar(nd_CSCo, "CSCo_DateDebut","")
+			' SI date début contrat passé, ajouter un an à la date 		
+			If v_DateDebutContrat &lt; Today Then
+				Set ndt_DateDebutContrat = New NotesDateTime(v_DateDebutContrat)
+				Call ndt_DateDebutContrat.SetAnyTime					
+				Call ndt_DateDebutContrat.Adjustyear(1)	
+				v_DateDebutContrat = ndt_DateDebutContrat.LSLocalTime	
+			End If
+		Else
+			If v_DateDebutContrat = "" Then
+				v_DateDebutContrat = xVar(nd_CSCo, "CSCo_DateDebut","")
+			End If
+		End If
+	%END REM
+		
+		v_Pos = ArrayGetIndex(a_NoContrats_Site, v_NoContrats_CSCo)
+		
+		If Not IsNull(v_Pos) Then
+			' Si contrat est déja importé vérifie le no. de révision (parti droite du NoContratFmt)
+			''	If StrRight(a_NoContratsFmt_Site(v_Pos), "-") &lt;&gt; v_NoRevision_CSCo Then	
+			v_NoContrat_Site = StrLeft(a_NoContratsFmt_Site(v_Pos), "-") 'Parti gauche
+			v_NouvImportation = False
+			''	End If
+		End If
+		
+	%REM
+		
+		' Vérifie si le contrat est déja importé (parti gauche du NoContratFmt)
+		v_Pos = ArrayGetIndex(a_NoContrats_Site, v_NoContrats_CSCo)
+			
+
+		If Not IsNull(v_Pos) Then
+			' Si contrat est déja importé vérifie le no. de révision (parti droite du NoContratFmt)
+			If StrRight(a_NoContratsFmt_Site(v_Pos), "-") &lt;&gt; v_NoRevision_CSCo Then							
+				v_ImporterProduits = True
+				v_NoContrat_Site = StrLeft(a_NoContratsFmt_Site(v_Pos), "-") 'Parti gauche
+			Else
+				
+				' Le no de révision est le même, choix de proceder a l'importation ('Oui/Non')
+				
+				If nuiws.Prompt(PROMPT_YESNO, xGDK_xMessage("SI", 10, "", ""), xGDK_xMessage("SDSPP", 154, "", "")_
+				) &lt;&gt; 1 Then
+					SDSPP_ImporterContratsService = -2 'Le contract existant n'a pas été importé
+					Print SDSPP_ImporterContratsService 
+					Exit function
+				Else
+					v_ImporterProduits = True					
+				End If
+				
+			End If
+			
+		Else
+			' Le contrat n'a pas été importé
+			v_ImporterProduits = True
+		End If
+	%END REM
+		
+		' Importer les produits du contrat de sevice
+		'-------------------------------------------
+		
+		v_Parametres(0) = CStr(i+1)			
+		Print xGDK_xMessage("SDSPP", 147 ,"", v_Parametres)			
+		If SDSPP_ImporterProduitsContratsService(nd_CSCo, v_NoContratFmt_CSCo, v_NoContrat_Site, pnd_Prop, pnd_Site) Then
+			If Not IsNull(v_Pos) Then
+				a_NoContratsFmt_Site(v_Pos) = ""
+			End If						
+			v_Maj = True									
+		End If			
+		
+		a_NoContratFmt_CSCo(i) = v_NoContratFmt_CSCo			
+		i = i + 1
+		
+		SDSPP_ImporterContratsService = SDSPP_ImporterContratsService + 1	
+		
+	Loop
+	
+	If v_Maj Then	
+		
+		'Suppimer les produits des proposition qui ne sont
+		'plus dans la liste des contrats de service importés		
+		'----------------------------------------------------
+		For i = 0 To UBound(a_NoContratsFmt_Site)
+			If a_NoContratsFmt_Site(i) &lt;&gt; "" Then
+				
+				a_Cles(0) = xVar(pnd_Site, "Site_NoSite", "")	
+				a_Cles(1) = StrLeft(a_NoContratsFmt_Site(i), "-")
+				
+				Set ndc_Prod_PP = xndc(FullTrim(a_Cles), gndb_SDSPP , "V_Prod22", nv_Prod)				
+				Call SIDS_CorbeilleDocumentCollection(ndc_Prod_PP, "", GetThreadInfo(1), "")
+			End If
+		Next
+		
+		pnd_Site.Site_NoContratFmt_CS = a_NoContratFmt_CSCo
+		pnd_Site.HistoDM = Now
+		pnd_Site.HistoUM = p_UserName
+		Call pnd_Site.Save(True, False)
+		
+		' Contrat hébergé
+		If v_DateDebutContratAH &lt;&gt; "" Then
+			' SI date début contrat passé, ajouter un an à la date 		
+			If v_DateDebutContratAH &lt; Today Then
+				Set ndt_DateDebutContrat = New NotesDateTime(v_DateDebutContratAH)
+				Call ndt_DateDebutContrat.SetAnyTime					
+				Call ndt_DateDebutContrat.Adjustyear(1)	
+				v_DateDebutContrat = ndt_DateDebutContrat.LSLocalTime	
+			Else
+				v_DateDebutContrat = v_DateDebutContratAH
+			End If	
+			' Sur site	
+		Else
+			' SI date début contrat passé, ajouter un an à la date 		
+			If v_DateDebutContratCS &lt; Today Then
+				Set ndt_DateDebutContrat = New NotesDateTime(v_DateDebutContratCS)
+				Call ndt_DateDebutContrat.SetAnyTime					
+				Call ndt_DateDebutContrat.Adjustyear(1)	
+				v_DateDebutContrat = ndt_DateDebutContrat.LSLocalTime	
+			Else
+				v_DateDebutContrat = v_DateDebutContratCS
+			End If
+		End If
+		
+		Call SIIx_AssignerDate(pnd_Prop, "Prop_DateDebutContrat", v_DateDebutContrat)
+		
+		' Mettre à jour l'historique de la proposition
+		' --------------------------------------------	
+		
+		If v_NouvImportation Then
+			Call SIHi_Ajouter(pnd_Prop, "", "Action : " &amp; _
+			"Contrat(s) de service importé  /  Service contract(s) imported (" &amp; Implode(a_NoContratFmt_CSCo,", ") &amp; ")", p_UserName, True)
+		Else
+			Call SIHi_Ajouter(pnd_Prop, "", "Action : " &amp; _
+			"Contrat(s) de service ré-importé  /  Service contract(s) re-imported (" &amp; Implode(a_NoContratFmt_CSCo,", ") &amp; ")", p_UserName, True)
+		End If		
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	SDSPP_ImporterContratsService = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)	
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_SuperviseursSDep"><lotusscript>Function SDSPP_SuperviseursSDep(p_UserName As String) As Variant
+	' -------------------------------------------------------------------------
+	' 	Cette fonction retourne la liste des superviseurs d'un sous-département	
+	' -------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd_SDep As NotesDocument
+	
+	Dim v_ServeurSIEm As String
+	Dim v_NoSDep As Variant
+	Dim v_CleDep As String
+	Dim v_NoSuperviseurs As Variant
+	Dim v_idSuperviseurs As Variant
+	Dim a_idSuperviseurs As Variant
+	
+	Dim i As Integer
+	Dim j As Integer
+	
+	' Initialisations
+	
+	If p_UserName = "" Then
+		Exit Function
+	End If
+	
+	v_ServeurSIEm = xGDK_xFormulaNDB("SIEm")
+	
+	' Trouver le sous-departement de l'utilisateur
+	v_NoSDep = xSIEm_xVarEmpl_Id(p_UserName, "Empl_NoSousDepartement", "", True)	
+	
+	If Not IsArray(v_NoSDep) Then
+		v_NoSDep = Split(v_NoSDep)	
+	End If
+	
+	For i = 0 To UBound(v_NoSDep)
+		
+		v_CleDep = Left(CStr(v_NoSDep(i)),6)
+		
+		Set nd_SDep = xSIEm_xndSDep(v_CleDep &amp; "00.00", True)
+		
+		If Not nd_SDep Is Nothing Then
+			
+			'Tous les superviseurs
+			If xVar(nd_SDep, "SDep_TousSuperviseursSDSPP", "") = "1" Then		
+				
+				v_idSuperviseurs = Evaluate(|@DbLookup("";| &amp; v_ServeurSIEm &amp; |; "V_Empl32";  "| &amp; v_CleDep &amp; |"; 3; [PARTIALMATCH] : [FAILSILENT])|)
+				
+				If IsArray(a_idSuperviseurs) Then
+					a_idSuperviseurs = ArrayAppend(a_idSuperviseurs, v_idSuperviseurs)
+				Else					
+					a_idSuperviseurs = v_idSuperviseurs									
+				End If
+				
+			Else
+
+				v_NoSuperviseurs = xVarArray(nd_SDep, "SDep_NoSuperviseurSDSPP")	
+				
+				If IsArray(v_NoSuperviseurs) Then
+					
+					For j = 0 To UBound(v_NoSuperviseurs)
+						
+						If v_NoSuperviseurs(j) &lt;&gt; "" Then
+							
+							v_idSuperviseurs = xSIEm_xVarEmpl(v_NoSuperviseurs(j), "Empl_NotesID", "", False)
+							
+							If IsArray(a_idSuperviseurs) Then
+								a_idSuperviseurs = ArrayAppend(a_idSuperviseurs, v_idSuperviseurs)
+							Else					
+								a_idSuperviseurs = v_idSuperviseurs											
+							End If
+							
+						End If
+					Next
+					
+				Else			
+					If v_NoSuperviseurs &lt;&gt; "" Then
+						a_idSuperviseurs = xSIEm_xVarEmpl(v_NoSuperviseurs, "Empl_NotesID", "", False)	
+					End If
+					
+				End If
+				
+			End If	
+			
+		End If
+		
+	Next
+	
+	If IsArray(a_idSuperviseurs) Then
+		SDSPP_SuperviseursSDep = ArrayUnique(FullTrim(a_idSuperviseurs))
+	Else 
+		SDSPP_SuperviseursSDep = a_idSuperviseurs
+	End If
+	
+	Exit Function
+	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), "", False)
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="SDSPP_CreerNoteDsProjeto"><lotusscript>Sub SDSPP_CreerNoteDsProjeto(pnd_Prop As NotesDocument)
+	' ---------------------------------------------------------------------
+	' Le script permet de créer une note dans le document Projet de Projeto
+	' ---------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd_Projeto As NotesDocument	
+	Dim v_NbSites As Integer
+	Dim v_Description As String
+	Dim v_Parametres(1) As Variant
+	Dim v_Origine As String
+	
+	' Initialisations
+	Call SDSPP_Initialisations
+	
+	' Sélectionner le projet SDS
+	' --------------------------
+	v_Origine = xVar(pnd_Prop, "Prop_Origine", "")
+	If v_Origine = "SF" Then
+		Exit Sub
+	End If
+	
+	Set nd_Projeto = xPJ_xndProj(v_Origine, xVar(pnd_Prop, "Prop_NoProjet", ""), True)
+	If nd_Projeto Is Nothing Then
+		' Le projet n'existe pas
+		MessageBox xGDK_xMessage("SDSP", 94, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Sub
+	End If
+	
+	' Créer la note dans Projeto
+	'v_NbSites = Evaluate(|v_Succursales := @IfError(@DbLookup("" : "NoCache"; ""; "V_Succ2"; @Text(@DocumentUniqueID); 7); ""); @If(@IsNull(v_Succursales); 0; @Elements(v_Succursales))|, pnd_Prop)
+	'v_Parametres = Evaluate(|"| &amp; xVar(pnd_Prop, "Prop_Description", "") &amp; |":"| &amp; v_NbSuccursales(0) &amp; |"|)
+	
+	v_NbSites = xVar(pnd_Prop, "Prop_NbSites", 0)
+	
+	v_Parametres(0) = xVar(pnd_Prop, "Prop_DescProposition", "")
+	v_Parametres(1) = v_NbSites
+	
+	' Acepté
+	If xVar(pnd_Prop, "Prop_Statut", "") = "50" Then
+		v_Description = xGDK_xMessage("SDSPP", 54, xVar(pnd_Prop, "Prop_Langue", ""), v_Parametres)
+		' Signée
+		'Elseif xVar(pnd_Prop, "Prop_Statut", "") = "60" Then
+	ElseIf xVar(pnd_Prop, "Prop_Statut", "") &gt;= "60" And xVar(pnd_Prop, "Prop_Statut", "") &lt;= "95" Then
+		v_Description = xGDK_xMessage("SDSPP", 58, xVar(pnd_Prop, "Prop_Langue", ""), v_Parametres)
+		
+	ElseIf xVar(pnd_Prop, "Prop_Statut", "") = "96" Or xVar(pnd_Prop, "Prop_Statut", "") = "98" Then
+		v_Description = xGDK_xMessage("SDSPP", 186, xVar(pnd_Prop, "Prop_Langue", ""), v_Parametres)
+	End If
+	
+	If Not SIPJ_AjouterNote(v_Origine, nd_Projeto, "", v_Description, "", xVar(pnd_Prop, "Prop_IdRepresentant", "")) Then
+		MessageBox xGDK_xMessage("SDSP", 95, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+	End If
+	
+	pnd_Prop.Prop_PJCreerNote = ""
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPP_SecSuperviseur"><lotusscript>Function SDSPP_SecSuperviseur(pnd_Prop As Notesdocument) As Boolean
+	' Initialiser le superviseur de la proposition
+	On Error Goto GererErreur
+	
+	Dim ni As NotesItem
+	
+	Dim a_NoSuperviseur As Variant
+	Dim a_NoSuperviseurProp As Variant
+	Dim v_Maj As Boolean
+	Dim i As Integer
+	Dim v_IdSuperviseur As String
+	
+	SDSPP_SecSuperviseur = False
+	' Maj le superviseur
+	' ------------------
+	a_NoSuperviseur = xSIRR_aSuperviseursRepr(xVar(pnd_Prop, "Prop_NoRepresentant", ""), True)
+	a_NoSuperviseurProp = xVarArray(pnd_Prop, "Prop_NoSuperviseur")
+	v_Maj = False
+	If Isarray(a_NoSuperviseur) &lt;&gt; Isarray(a_NoSuperviseurProp) Then
+		v_Maj = True
+	Elseif Isarray(a_NoSuperviseur) Then
+		If Implode(a_NoSuperviseur, ";") &lt;&gt; Implode(a_NoSuperviseurProp, ";") Then
+			v_Maj = True
+		End If
+	End If
+	
+	If v_Maj Then
+		pnd_Prop.Prop_NoSuperviseur = a_NoSuperviseur
+		
+		If Isarray(a_NoSuperviseur) Then
+			For i = Lbound(a_NoSuperviseur) To Ubound(a_NoSuperviseur)
+				v_IdSuperviseur = xSIRR_xVarRepr(a_NoSuperviseur(i), "Repr_NotesId", "", True)
+				If i = Lbound(a_NoSuperviseur) Then
+					Call pnd_Prop.ReplaceItemValue("Prop_IdSuperviseur", v_IdSuperviseur)
+					Set ni = pnd_Prop.GetFirstItem("Prop_IdSuperviseur")
+				Else
+					Call ni.AppendToTextList(v_IdSuperviseur)
+				End If
+			Next
+		Else
+			Call pnd_Prop.ReplaceItemValue("Prop_IdSuperviseur", "")
+		End If
+	End If
+	
+	SDSPP_SecSuperviseur = v_Maj
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_MajProduitsProgramme"><lotusscript>Sub SDSPP_MajProduitsProgramme(pnd_Prop As NotesDocument, p_Departement As String, p_NomItem As String, pa_Bannieres As Variant, p_Quantite As Variant, _
+	p_QuantiteDefaut As Variant, p_PrixUnitaire As Variant, p_NoSite As String, p_ProduitsDesc As Variant)
+	' Met à jour tous les produits associés à un item
+	On Error Goto GererErreur
+	
+	Dim nd_ProdSDSBB As NotesDocument
+	Dim nd_Prod As NotesDocument
+	Dim ni_Retires As NotesItem
+	Dim nd_ProdAjouter As NotesDocument
+	
+	Dim a_Cle(1) As String
+	Dim a_CleProduitsProp As Variant
+	Dim a_CleProduits As Variant
+	Dim v_ClasseProduit As String
+	Dim v_NbProduitsSDSBB As Integer
+	Dim a_CleProduitsSDSBB As Variant
+	Dim v_Quantite As Variant
+	Dim v_AjouterProduit As Boolean
+	Dim v_ItemRetire As Boolean
+	Dim a_NomItemRetires As Variant
+	Dim v_NomItemRetires As String
+	Dim v_Pos As Variant
+	Dim a_ProduitsDesc() As Variant
+	Dim i As Integer
+	Dim j As Integer
+	Dim x As Integer
+	Dim v_Langue As String
+	Dim v_DescTemp As String
+	
+	Call SDSPP_Initialisations
+	
+	If gnv_Prod40_SDSPP Is Nothing Then
+		Set gnv_Prod40_SDSPP = gndb_SDSPP.GetView("V_Prod40")
+		Call gnv_Prod40_SDSPP.Refresh
+	End If
+	
+	g_NoProposition_SDSPP = xVar(pnd_Prop, "Prop_NoProposition", "")
+	
+	If p_NoSite &lt;&gt; "" Then
+		g_NoSite_SDSPP = p_NoSite
+		Set gnd_Site_SDSPP = xSDSP3_xndSite(g_NoSite_SDSPP, True)
+		If gnd_Site_SDSPP Is Nothing Then
+			MessageBox xGDK_xMessage("SDSPP", 12, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Sub
+		End If
+	End If
+	
+	v_Langue = xLangue
+	' Extraire les produits déjà sélectionnées
+	
+	a_Cle(0) = g_NoProposition_SDSPP &amp; ";"
+	a_CleProduitsProp = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2;[PartialMatch]); "")|)
+	
+	a_Cle(0) = g_NoProposition_SDSPP &amp; ";" &amp; g_NoSite_SDSPP &amp; ";" &amp; p_NomItem
+	a_CleProduits = Evaluate(|@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod40"; "| &amp; a_Cle(0) &amp; |"; 2); "")|)
+	
+	v_NbProduitsSDSBB = SDSPX_aProduitsProgramme(pnd_Prop, p_NomItem, pa_Bannieres, a_CleProduitsSDSBB)
+	
+	' Maj les documents associés à l'item
+	
+	If v_NbProduitsSDSBB &gt; 0 Then
+		v_Quantite = p_Quantite
+		x = 0
+		For i = LBound(a_CleProduitsSDSBB) To UBound(a_CleProduitsSDSBB)
+			Set nd_ProdSDSBB = xSDSBB_xndProd(a_CleProduitsSDSBB(i), True)
+			
+			v_ClasseProduit = xVar(nd_ProdSDSBB, "Prod_ClasseProduit", "")
+			
+			If v_Quantite = 0 Then
+				v_Quantite = SDSPX_xQuantiteDefaut(nd_ProdSDSBB, p_QuantiteDefaut)
+			End If
+			
+			a_Cle(1) = a_CleProduitsSDSBB(i)
+			
+			If v_ClasseProduit = "AH" Or v_ClasseProduit = "CS" Then
+				v_AjouterProduit = False
+			Else
+				If xVarContient(nd_ProdSDSBB, "Prod_ProgNomItem3", gc_NomProgrammeAutoSite_SDSPX) Then
+					If xVar(nd_ProdSDSBB, "Prod_Limiter", "") &lt;&gt; "" And xVarContient(nd_ProdSDSBB, "Prod_AjoutTypeProposition", xVar(pnd_Prop, "Prop_TypeProposition", "")) Then
+						v_AjouterProduit = True
+					Else
+						v_AjouterProduit = False
+					End If				
+				Else
+					v_AjouterProduit = True
+				End If
+			End if
+			
+			
+			' Si produit retiré manuellement
+			v_ItemRetire = False
+			
+			a_NomItemRetires = xVarArray(nd_ProdSDSBB, "Prod_CategorieProduit")
+			
+			If IsArray(a_NomItemRetires) Then
+				For j = 0 To UBound(a_NomItemRetires)
+					v_NomItemRetires = xSDSBB_xVarCate(xVarElem(nd_ProdSDSBB, "Prod_CategorieProduit", j, ""), "Cate_ProgNomItemRetires", "", True)
+					If v_NomItemRetires &lt;&gt; "" Then
+						If gnd_Site_SDSPP.HasItem(v_NomItemRetires) Then
+							Set ni_Retires = gnd_Site_SDSPP.GetFirstItem(v_NomItemRetires)
+							If ni_Retires.Contains(a_Cle(1)) Then
+								v_ItemRetire = True
+							End If
+						End If
+					End If
+				Next
+			Else
+				v_NomItemRetires = xSDSBB_xVarCate(xVar(nd_ProdSDSBB, "Prod_CategorieProduit", ""), "Cate_ProgNomItemRetires", "", True)
+				If v_NomItemRetires &lt;&gt; "" Then
+					If gnd_Site_SDSPP.HasItem(v_NomItemRetires) Then
+						Set ni_Retires = gnd_Site_SDSPP.GetFirstItem(v_NomItemRetires)
+						If ni_Retires.Contains(a_Cle(1)) Then
+							v_ItemRetire = True
+						End If
+					End If
+				End If
+			End If
+			
+			v_Pos = ArrayGetIndex(a_CleProduits, a_CleProduitsSDSBB(i))
+			If IsNull(v_Pos) Then
+				
+				If (xVar(nd_ProdSDSBB, "Prod_Limiter", "") = "3" Or _
+				xVar(nd_ProdSDSBB, "Prod_Limiter", "") = "2") Then
+					
+					If IsNull(ArrayGetIndex(a_CleProduitsProp, a_CleProduitsSDSBB(i))) And Not v_ItemRetire Then
+						If v_AjouterProduit Then
+							Set nd_ProdAjouter = SDSPX_AjouterProduit(pnd_Prop, gnd_Site_SDSPP, nd_ProdSDSBB, v_Quantite, p_PrixUnitaire, _
+							"", p_Departement, "", p_NomItem, True, True, gnd_Site_SDSPP)
+							
+							If Not nd_ProdAjouter Is Nothing Then
+								ReDim Preserve a_ProduitsDesc(x) As Variant
+								a_ProduitsDesc(x) = "(+) " &amp; xVar(nd_ProdAjouter, "Prod_DescProduit" &amp; v_Langue, "") &amp; " (" &amp; xvar(nd_ProdAjouter, "Prod_CodeProduit", "") &amp; ")"
+								x = x + 1
+							End If
+						End If
+						
+					End If
+				Else
+					If Not v_ItemRetire Then
+						If v_AjouterProduit Then
+							Set nd_ProdAjouter = SDSPX_AjouterProduit(pnd_Prop, gnd_Site_SDSPP, nd_ProdSDSBB, v_Quantite, p_PrixUnitaire, _
+							"", p_Departement, "", p_NomItem, True, True, gnd_Site_SDSPP)
+							
+							If Not nd_ProdAjouter Is Nothing Then
+								ReDim Preserve a_ProduitsDesc(x) As Variant
+								a_ProduitsDesc(x) = "(+) " &amp; xVar(nd_ProdAjouter, "Prod_DescProduit" &amp; v_Langue, "") &amp; " (" &amp; xvar(nd_ProdAjouter, "Prod_CodeProduit", "") &amp; ")"
+								x = x + 1
+							End If
+						End If
+						
+					End If
+					'Print "A** " &amp; a_CleProduitsSDSBB(i)
+				End If
+				
+				'Print "A** " &amp; a_CleProduitsSDSBB(i)
+			ElseIf v_Quantite &gt;= 0 Then
+				' Modifier le produit au besoin
+				If a_Cle(1) = "" Then
+					a_Cle(1) = a_CleProduitsSDSBB(i)
+				End If
+				Set nd_Prod = gnv_Prod40_SDSPP.GetDocumentByKey(a_Cle, True)
+				If Not (nd_Prod Is Nothing) Then
+					' Modifier le produit
+					If xVar(nd_Prod, "Prod_Quantite", 0) &lt;&gt; v_Quantite Or (p_PrixUnitaire &lt;&gt; "" And p_PrixUnitaire &lt;&gt; xVar(nd_Prod, "Prod_PrixUnitaire", 0)) Then
+						v_DescTemp = xVar(nd_Prod, "Prod_DescProduit" &amp; v_Langue, "") &amp; " (" &amp; xvar(nd_Prod, "Prod_CodeProduit", "") &amp; ")   (*)"
+						If SDSPX_ModifierProduit(pnd_Prop, gnd_Site_SDSPP, nd_Prod, v_Quantite, p_PrixUnitaire, "", "", True, nd_ProdSDSBB) Then
+							ReDim Preserve a_ProduitsDesc(x) As Variant
+							a_ProduitsDesc(x) = v_DescTemp
+							x = x + 1
+						End If
+					End If
+				End If
+				a_CleProduits(v_Pos) = ""
+			End If
+		Next
+		
+		' Supprimer les produits inactifs
+		For i = LBound(a_CleProduits) To UBound(a_CleProduits)
+			If a_CleProduits(i) &lt;&gt; "" Then
+				
+				a_Cle(1) = a_CleProduits(i)
+				
+				Set nd_Prod = gnv_Prod40_SDSPP.GetDocumentByKey(a_Cle, True)
+				If Not nd_Prod Is Nothing Then
+					v_DescTemp = "(-) " &amp; xVar(nd_Prod, "Prod_DescProduit" &amp; v_Langue, "") &amp; " (" &amp; xvar(nd_Prod, "Prod_CodeProduit", "") &amp; ")"
+					If SDSPX_SupprimerProduit(nd_Prod, GetThreadInfo(1)) Then
+						ReDim Preserve a_ProduitsDesc(x) As Variant
+						a_ProduitsDesc(x) = v_DescTemp
+						x = x + 1
+					End If
+				End If
+			End If
+		Next
+		
+	End If
+	
+	If IsArray(a_ProduitsDesc) And x &gt; 0 Then
+		If IsArray(p_ProduitsDesc) Then
+			If Trim(Join(p_ProduitsDesc)) = "" Then
+				ReDim p_ProduitsDesc(x) As Variant
+				p_ProduitsDesc = a_ProduitsDesc
+			Else
+				p_ProduitsDesc = FullTrim(ArrayUnique(ArrayAppend(p_ProduitsDesc, a_ProduitsDesc)))
+			End If
+		Else
+			p_ProduitsDesc = a_ProduitsDesc
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), p_NomItem, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPP_EstAuteur"><lotusscript>Function SDSPP_EstAuteur(pnd_Prop As NotesDocument) As Integer
+	'-------------------------------------
+	' Valeur retournée:`
+	'	0 = Lecteur, 1 = Auteur, 2 = Admin
+	'-------------------------------------
+	On Error Goto GererErreur
+	
+	Dim a_UserRoles As Variant
+	Dim a_Auteurs As Variant
+	
+	
+	' Initialisations
+	SDSPP_EstAuteur = 0
+	Call SDSPP_Initialisations
+	
+	a_UserRoles = Evaluate(|@UserRoles|)
+	If Not Isnull(Arraygetindex(a_UserRoles, "[Admin]")) Then
+		SDSPP_EstAuteur = 2
+		Exit Function
+	End If
+	
+	' Extrait la liste des auteurs
+	a_Auteurs = Evaluate(|@Unique(@Trim(AuteurAdmin : Auteur))|, pnd_Prop)
+	If Not Isnull(Arraygetindex(a_Auteurs, gns_SDSPP.UserName)) Then
+		SDSPP_EstAuteur = 1
+		Exit Function
+	End If
+	
+	Forall v_Auteur In a_Auteurs
+		' Rôle
+		If Left(v_Auteur, 1) = "[" Then
+			If Not Isnull(Arraygetindex(a_UserRoles, v_Auteur)) Then
+				SDSPP_EstAuteur = 1
+				Exit Function
+			End If
+		End If
+	End Forall
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	
+	Exit Function
+End Function
+
+
+
+</lotusscript></code><code event="SDSPP_DroitDesactiver"><lotusscript>
+Function SDSPP_DroitDesactiver(pnd_Prop As NotesDocument, p_Statut As String) As Boolean
+	'Le script permet de déterminer si l'utilisateur a le droit de désactiver une proposition
+	On Error GoTo GererErreur
+	
+	Dim a_IdEquipeRepresentant As Variant	
+	Dim v_IdCreateur As String
+	Dim v_IdRepresentant As Variant	
+	Dim v_NoEquipe As String
+	Dim v_Roles As Variant		
+	Dim v_UserName As String	
+	
+	' Initialisations	
+	Call SDSPP_Initialisations
+	
+	SDSPP_DroitDesactiver = False
+	
+	v_IdCreateur = xVar(pnd_Prop, "HistoUC", "")
+	v_UserName = gns_SDSPP.UserName	
+	v_IdRepresentant = xVar(pnd_Prop, "Prop_IdRepresentant", "")		
+	v_NoEquipe = xSIRR_xVarRepr_Id(v_IdRepresentant,"", "Repr_NoEquipe", "0")
+	v_Roles = Evaluate(|@UserRoles|)
+	
+	If v_NoEquipe &lt;&gt; "0" Then
+		a_IdEquipeRepresentant = Evaluate(|@IfError(@DbLookup("";| &amp; xGDK_xFormulaNDB("SIRR") &amp; |; "V_Repr22";  "| &amp; v_NoEquipe &amp; |"; 3); "");|)
+	End If
+	
+	' Vérifier droits de changer statut
+	If Not IsNull(ArrayGetIndex(v_Roles, "[Admin]")) Or Not IsNull(ArrayGetIndex(v_Roles, "[Directeur]")) Then
+		
+		SDSPP_DroitDesactiver = True
+		
+	ElseIf (p_Statut &lt; "20" Or p_Statut &gt; "40") Then
+		
+		If v_IdCreateur = v_UserName Then
+			SDSPP_DroitDesactiver = True
+		ElseIf v_IdRepresentant = v_UserName Then
+			SDSPP_DroitDesactiver = True
+		ElseIf Not IsNull(ArrayGetIndex(v_Roles, "[acSigne]")) Then
+			SDSPP_DroitDesactiver = True
+		ElseIf Not IsNull(ArrayGetIndex(v_Roles, "[acSigne_CE]")) And  xVar(pnd_Prop, "Prop_TypeProposition", "") = "2" Then
+			SDSPP_DroitDesactiver = True
+		ElseIf Not IsNull(ArrayGetIndex(v_Roles, "[acSigne_CP]")) And  xVar(pnd_Prop, "Prop_TypeProposition", "") = "4" Then
+			SDSPP_DroitDesactiver = True
+			
+		ElseIf IsArray(a_IdEquipeRepresentant) Then
+			If Not IsNull(ArrayGetIndex(a_IdEquipeRepresentant, v_UserName)) Then
+				SDSPP_DroitDesactiver = True
+			End If				
+		End If	
+		
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_AssignerCommissions"><lotusscript>'+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Function SDSPP_AssignerCommissions(pnd_Prop As NotesDocument) As Integer
+	On Error GoTo GererErreur
+
+	Dim v_NoRepresentant As String
+	Dim v_clCommissions As cl_Commissions_SIRR
+	Dim ni As NotesItem
+	Dim v_Maj As Boolean
+
+	' Initialisations
+	SDSPP_AssignerCommissions = 0
+	Call SDSPP_Initialisations
+	v_Maj = False
+	
+	v_NoRepresentant = xVar(pnd_Prop, "Prop_NoRepresentant", "")
+	If v_NoRepresentant &lt;&gt; "" then
+		Set v_clCommissions = New cl_Commissions_SIRR(v_NoRepresentant, xVar(pnd_Prop, "Prop_ClientPays", ""), xVar(pnd_Prop, "Prop_ClientProvince", ""))
+		If v_clCommissions.Resultat = 1 Then
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_DeviseRepresentant", xVar(v_clCommissions.nd_Repr, "Repr_DeviseCommissions", "CAD"), False) Or v_Maj
+
+			' Maj du directeur régional
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NoDirecteur", v_clCommissions.NoDirecteur_DR, False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NomDirecteur", xVar(v_clCommissions.nd_Repr_DR, "Repr_NomRepresentant", ""), False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_IdDirecteur", xVar(v_clCommissions.nd_Repr_DR, "Repr_NotesID", ""), False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_DeviseDirecteur", xVar(v_clCommissions.nd_Repr_DR, "Repr_DeviseCommissions", "CAD"), False) Or v_Maj
+			
+			' Maj du directeur national
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NoDirNational", v_clCommissions.NoDirecteur_DN, False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NomDirNational", xVar(v_clCommissions.nd_Repr_DN, "Repr_NomRepresentant", ""), False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_IdDirNational", xVar(v_clCommissions.nd_Repr_DN, "Repr_NotesID", ""), False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_DeviseDirNational", xVar(v_clCommissions.nd_Repr_DN, "Repr_DeviseCommissions", "CAD"), False) Or v_Maj
+			
+			' Maj du directeur mondial
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NoDirMondial", v_clCommissions.NoDirecteur_DM, False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NomDirMondial", xVar(v_clCommissions.nd_Repr_DM, "Repr_NomRepresentant", ""), False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_IdDirMondial", xVar(v_clCommissions.nd_Repr_DM, "Repr_NotesID", ""), False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_DeviseDirMondial", xVar(v_clCommissions.nd_Repr_DM, "Repr_DeviseCommissions", "CAD"), False) Or v_Maj
+		End If
+		
+		' Maj des codes de commissions
+		Set ni = xni(v_clCommissions.nd_Repr, "Repr_SDSPropositions", "")
+		If ni.Contains("XC") Then
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_CommissionsRepresentant", "", False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_CommissionsDirecteur", "", False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_CommissionsDirNational", "", False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_CommissionsDirMondial", "", False) Or v_Maj
+		Else
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_CommissionsRepresentant", v_clCommissions.Commissions_RP, False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_CommissionsDirecteur", v_clCommissions.Commissions_DR, False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_CommissionsDirNational", v_clCommissions.Commissions_DN, False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prop, "Prop_CommissionsDirMondial", v_clCommissions.Commissions_DM, False) Or v_Maj
+		End If
+		
+		If v_Maj Then
+			SDSPP_AssignerCommissions = 1
+		End If
+	End If
+	Exit Function
+	
+GererErreur:
+	SDSPP_AssignerCommissions = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_DroitReouvrir"><lotusscript>Function SDSPP_DroitReouvrir(pnd_Prop As NotesDocument, p_Statut As String) As Boolean
+	'Le script permet de déterminer si l'utilisateur a le droit de ré-ouvrir une proposition
+	On Error GoTo GererErreur
+	
+	Dim v_Roles As Variant	
+	
+	' Initialisations	
+	Call SDSPP_Initialisations
+	
+	SDSPP_DroitReouvrir = False
+	
+	v_Roles = Evaluate(|@UserRoles|)
+	
+	' Vérifier droits de changer statut
+	
+	If (p_Statut &gt;= "50" And p_Statut &lt; "60") Then
+		If Not IsNull(ArrayGetIndex(v_Roles, "[Admin]")) Or Not IsNull(ArrayGetIndex(v_Roles, "[SI_Commissions]")) Then		
+			SDSPP_DroitReouvrir = True	
+			Exit Function	
+		End If
+	End If	
+	
+	If p_Statut &gt; 55 Then	
+		If Not IsNull(ArrayGetIndex(v_Roles, "[Admin]")) Or Not IsNull(ArrayGetIndex(v_Roles, "[SignReouvrir]")) Then		
+			SDSPP_DroitReouvrir = True
+			Exit Function
+		End If
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_AssignerNbProposition"><lotusscript>Function SDSPP_AssignerNbProposition(pnd_Prop As NotesDocument) As Boolean
+	' -----------------------------------------------------------------------------------------------
+	' Le script permet de d'assigner les champs lié au numéro de proposition :
+	' Prop_NbPropositionTXT, Prop_NbProposition, Prop_NbPropositionPrefixe, Prop_NbPropositionPrefixe
+	' -----------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_NbProposition As Double
+	
+	' Initialisations
+	SDSPP_AssignerNbProposition = False
+	
+	Call SDSPP_Initialisations
+	
+	v_NbProposition = SICS_ValeurSuivante("Proposition")
+	If v_NbProposition &lt; 1000 Then
+		Call SIGE_EnregistrerErreurManuelle(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), 15, _
+		"Une erreur s'est produite lors de l'assignation du no de proposition.", xVar(pnd_Prop, "Prop_NoPropisition", ""))
+		Call SIGE_EnvoyerErreur("dpNotes", "", "SDSP3: Une erreur s'est produite lors de l'assignation du no de proposition: " &amp; xVar(pnd_Prop, "Prop_NoPropisition", ""))
+		Exit Function
+	End If
+	
+	If xVar(pnd_Prop, "Prop_NbFoisReOuvert", 0) &gt; 0 Then
+		pnd_Prop.Prop_NbPropositionTXT = Replace(CStr(xEvaluate(|@Text(|&amp; (v_NbProposition + (xVar(pnd_Prop, "Prop_NbFoisReOuvert", 0)/100)) &amp; |; "F2")|, pnd_Prop)), ",", ".")
+	Else
+		pnd_Prop.Prop_NbPropositionTXT = Replace(CStr(xEvaluate(|@Text(|&amp; v_NbProposition &amp; |; "F2")|, pnd_Prop)), ",", ".")
+	End If
+	
+	pnd_Prop.Prop_NbProposition = SItN_cdbl(xVar(pnd_Prop, "Prop_NbPropositionTXT", ""))
+	
+	Call SDSPP_MajPrefixProposition(pnd_Prop)
+	
+	SDSPP_AssignerNbProposition = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_AssignerSecurite"><lotusscript>Sub SDSPP_AssignerSecurite(pnd_Prop As Notesdocument, p_Reinitialiser As Boolean)
+	' p_Reinitialiser = Mettre à jour la sécurité même s'il n'y a aucun changement
+	On Error Goto GererErreur
+	
+	Dim ni As NotesItem
+	
+	Dim a_Lecteur As Variant
+	Dim a_Auteur As Variant
+	Dim v_Maj As Boolean
+	Dim a_Items(3) As Variant
+	Dim a_Valeurs(3) As Variant
+	Dim i As Integer
+	
+	' Maj le superviseur
+	' ------------------
+	v_Maj = SDSPP_SecSuperviseur(pnd_Prop)
+	
+	' Calculer la sécurité
+	' --------------------
+	Call SDSPP_SecCalculer(pnd_Prop, a_Lecteur, a_Auteur)
+	
+	If p_Reinitialiser Or xVarImplode(pnd_Prop, "Lecteur", ";") &lt;&gt; Implode(a_Lecteur, ";") Then
+		If pnd_Prop.Hasitem("Lecteur") Then
+			Call pnd_Prop.ReplaceItemValue("Lecteur", a_Lecteur)
+		Else
+			Set ni = New NotesItem(pnd_Prop, "Lecteur", a_Lecteur, READERS)
+		End If
+		
+		a_Items(i) = "Lecteur"
+		a_Valeurs(i) = a_Lecteur
+		i = i + 1
+		
+		v_Maj = True
+	End If
+	
+	If p_Reinitialiser Or xVarImplode(pnd_Prop, "Auteur", ";") &lt;&gt; Implode(a_Auteur, ";") Then
+		If pnd_Prop.Hasitem("Auteur") Then
+			Call pnd_Prop.ReplaceItemValue("Auteur", a_Auteur)
+		Else
+			Set ni = New NotesItem(pnd_Prop, "Auteur", a_Auteur, AUTHORS)
+		End If
+		
+		a_Items(i) = "Auteur"
+		a_Valeurs(i) = a_Auteur
+		i = i + 1
+		
+		v_Maj = True
+	End If
+	
+	' Securité Admin
+	a_Items(i) = "LecteurAdmin"
+	a_Valeurs(i) = xVarArray(pnd_Prop, "LecteurAdmin")
+	i = i + 1
+	
+	a_Items(i) = "AuteurAdmin"
+	a_Valeurs(i) = xVarArray(pnd_Prop, "AuteurAdmin")
+	i = i + 1
+	
+	' Assigner les changements à la proposition
+	' -----------------------------------------
+	If v_Maj Then
+		Call pnd_Prop.Save(True, False)
+		
+		' Maj. securité des sous documents de la proposition
+		Call SDSPP_AssignerSecuriteHr(pnd_Prop, a_Items, a_Valeurs)
+		
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPP_MajPrefixProposition"><lotusscript>Function SDSPP_MajPrefixProposition(pnd_Prop As NotesDocument) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim ndc_Docu As NotesDocumentCollection
+	Dim v_NbPropositionFmt As String
+	Dim v_Maj As Boolean
+	
+	SDSPP_MajPrefixProposition = False
+	
+	v_NbPropositionFmt = xVar(pnd_Prop, "Prop_NbPropositionPrefixe", "") &amp; Right("000000" &amp; CStr(Fix(xVar(pnd_Prop, "Prop_NbProposition",0))),6)
+	
+	If xVar(pnd_Prop, "Prop_NbPropositionPrefixe", "") = "" Then
+		v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NbPropositionPrefixe", "C", False) Or v_Maj
+	End If
+	
+	v_Maj = SIIx_MajItem(pnd_Prop, "Prop_NbPropositionFmt", v_NbPropositionFmt, False) Or v_Maj
+	
+	If v_Maj Then
+		Set ndc_Docu = xSIDocV_xndcDocu_CleParent(xVar(pnd_Prop, "Prop_NoProposition", ""))	
+		If ndc_Docu.Count &gt; 0 Then
+			Call ndc_Docu.Stampall("Docu_NoParentFmt", xVar(pnd_Prop,"Prop_NbPropositionFmt",""))
+		End If
+		
+		SDSPP_MajPrefixProposition = True
+	End If		
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_PropositionModifiee"><lotusscript>Function SDSPP_PropositionModifiee(pnd_Prop As NotesDocument, p_Maj As Boolean) As Boolean
+	On Error Goto GererErreur
+	
+	Dim v_Prop_EntretienMensuelLG_1 As Double
+	
+	' Initialisations
+	SDSPP_PropositionModifiee = False
+	
+	If Left(xVar(pnd_Prop, "Prop_Statut", ""), 1) = "5" Or _
+	xVar(pnd_Prop, "Prop_Statut", "") = "14" Then
+		
+		Call SDSI_EntretienMensuelTotal(pnd_Prop, 0, v_Prop_EntretienMensuelLG_1)
+		
+		' Si la modification de la valeur de la proposition n'a pas atteint le seuil
+		' --------------------------------------------------------------------------
+		If Abs(SDSI_PrixTotal(pnd_Prop, 0, 0, 0, False) - xVar(pnd_Prop, "Prop_ValeurAcceptee", 0)) &lt;= xVarProf("Prof_EcartTolere", 0) And _
+		Abs(v_Prop_EntretienMensuelLG_1 - xVar(pnd_Prop, "Prop_ValeurAccepteeMensuelLG", 0)) &lt;= xVarProf("Prof_EcartTolereMensuelLG", 0) Then
+			' Quitter la fonction
+			Exit Function
+		End If
+		
+		SDSPP_PropositionModifiee = True
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_AjouterDestinataire"><lotusscript>Function SDSPP_AjouterDestinataire(p_Destinataires As String, p_Dest As String, pa_Id As Variant, _
+	pa_xTo As Variant) As Boolean
+	On Error Goto GererErreur
+	
+	SDSPP_AjouterDestinataire = False
+	
+	If Instr(p_Destinataires, p_Dest) &gt; 0 Then
+		' S'assurer que la valeurs à ajouter est un array
+		If Not Isarray(pa_Id) Then
+			If pa_Id &lt;&gt; "" Then
+				pa_Id = Evaluate(|"| &amp; pa_Id &amp; |"|)
+			Else
+				Exit Function
+			End If
+		End If
+		
+		' Ajouter la valeur à l'array des destinataires
+		If Isarray(pa_xTo) Then
+			pa_xTo = Arrayappend(pa_xTo, pa_Id)
+		Else
+			pa_xTo = pa_Id
+		End If
+		SDSPP_AjouterDestinataire = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_AccesAuteur"><lotusscript>Function SDSPP_AccesAuteur(pnd As NotesDocument) As Boolean
+	On Error GoTo GererErreur
+	
+	Dim ndb As NotesDatabase
+	Dim v_AccessLevel As Integer
+	Dim a_UserNamesList As Variant
+	Dim a_Items As Variant
+	Dim ni As NotesItem
+	
+	Dim i As Integer
+	Dim j As Integer
+	
+	' Vérifier l'accès à la base de documents
+	Set ndb = pnd.ParentDatabase
+	v_AccessLevel = ndb.CurrentAccessLevel
+	
+	If v_AccessLevel &lt; ACLLEVEL_AUTHOR Then
+		SDSPP_AccesAuteur = False
+	ElseIf v_AccessLevel &gt; ACLLEVEL_AUTHOR Then
+		SDSPP_AccesAuteur = True
+	Else
+		' Vérifier l'accès au document
+		a_UserNamesList = Evaluate("@Usernameslist")
+		a_Items = pnd.Items
+		For i = 0 To UBound(a_Items)
+			Set ni = a_Items(i)
+			If ni.IsAuthors() Then
+				For j = 0 To UBound(a_UserNamesList)
+					If Not IsNull(ArrayGetIndex(ni.Values, a_UserNamesList(j))) Then
+						SDSPP_AccesAuteur = True
+						Exit Function
+					End If
+				Next
+			End If
+		Next
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), "", False)		
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_AssignerSecuriteHr"><lotusscript>Sub SDSPP_AssignerSecuriteHr(pnd_Prop As NotesDocument, p_Items As Variant, pa_Valeurs As Variant)
+	On Error Goto GererErreur
+	
+	Dim v_NoProposition As String
+	Dim ndc_Sites As NotesDocumentCollection
+	Dim nd_Site As NotesDocument
+	Dim nd_SiteSuivant As NotesDocument
+	Dim ndc_Prod As NotesDocumentCollection
+	Dim nd_Prod As notesdocument
+	Dim nd_ProdSuivant As Notesdocument
+	
+	Dim i As Integer
+	Dim v_Maj As Boolean
+	
+	If pnd_Prop Is Nothing Then
+		Exit Sub
+	End If
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	
+	Set ndc_Sites = xSDSP3_xndcSite(v_NoProposition)
+	
+	If ndc_Sites.Count &gt; 0 Then
+		
+		Set nd_SiteSuivant = ndc_Sites.GetFirstDocument
+		
+		Do Until nd_SiteSuivant Is Nothing
+			
+			Set nd_Site = nd_SiteSuivant
+			Set nd_SiteSuivant = ndc_Sites.Getnextdocument(nd_SiteSuivant)
+			
+			For i = 0 To Ubound(p_Items)
+				If p_Items(i) &lt;&gt; "" Then
+					v_Maj = SIIx_MajItem(nd_Site, Cstr(p_Items(i)) , pa_Valeurs(i) , False) Or v_Maj
+				End If
+			Next
+			
+			If v_Maj Then
+				Call nd_Site.Save(True, False)
+				v_Maj = False
+			End If
+			
+			' Retourne la liste des produits du site
+			Set ndc_Prod= SDSPS_ndcProduits(Cstr(xVar(pnd_Prop, "Prop_NoProposition", "") + ";" + xVar(nd_Site, "Site_NoSite", "")))
+			
+			If ndc_Prod.Count &gt; 0 Then
+				
+				Set nd_ProdSuivant = ndc_Prod.GetFirstDocument
+				
+				Do Until nd_ProdSuivant Is Nothing
+					
+					Set nd_Prod = nd_ProdSuivant
+					Set nd_ProdSuivant = ndc_Prod.Getnextdocument(nd_ProdSuivant)
+					
+					For i = 0 To Ubound(p_Items)
+						If p_Items(i) &lt;&gt; "" Then
+							v_Maj = SIIx_MajItem(nd_Prod, Cstr(p_Items(i)) , pa_Valeurs(i) , False) Or v_Maj
+						End If
+					Next
+					
+					If v_Maj Then
+						Call nd_Prod.Save(True, False)
+						v_Maj = False
+					End If
+					
+				Loop
+				
+			End If
+			
+		Loop
+		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, Getthreadinfo(1), v_NoProposition, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPP_CreerImageProposition"><lotusscript>Function SDSPP_CreerImageProposition(pnd_Prop As Notesdocument, p_Commentaire As Boolean, p_NouvStatut As String, p_Username As String) As Boolean
+	' ----------------------------------------------------------------------------------------------------------
+	' Le script permet de capturer une image de l'info suivant d'une proposition : Entête, Information et Résumé
+	' ----------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	' Initialisations
+	SDSPP_CreerImageProposition = False
+	
+	Call SDSPP_Initialisations
+	
+	If p_Username = "" Then
+		p_Username = gns_SDSPP.Username
+	End If
+	
+	' Générer image de la proposition
+	' -------------------------------
+	If Not SDSIM_ImageProposition(pnd_Prop, p_NouvStatut, p_Username) Then
+		Exit Function
+	End If
+	If p_Commentaire Then
+		' Mettre à jour l'historique de la proposition
+		' --------------------------------------------
+		Call SIHi_Ajouter(pnd_Prop, "", "Action : " &amp; "Image proposition  /  Proposal image", "", False)
+		
+		' Mettre à jour l'historique de la proposition
+		' --------------------------------------------
+		Call SIHi_BatirHistorique(pnd_Prop)
+		
+		' Sauvegarder le document
+		' -----------------------
+		Call pnd_Prop.Save(True, False)
+	End If
+	
+	SDSPP_CreerImageProposition = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, Getthreadinfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPP_ImporterProduitsContratsService"><lotusscript>Function SDSPP_ImporterProduitsContratsService(pnd_CSCo As NotesDocument, p_NoContratFmt_CSCo As String, _
+	p_NoContrat_Site As String, pnd_Prop As NotesDocument, pnd_Site As NotesDocument) As Boolean
+	' -------------------------------------------------------------------------------------------------------
+	' Le script permet d'importer les produits d'un contrat de service dans une proposition
+	' 
+	' 	Paramètres:
+	' 		pnd_CSCo:	    			NotesDocument.  Le document de contrat de service
+	'       p_NoContratFmt_CSCo:  		String.  Le no de contratFmt du CS à importer
+	'       p_NoContrat_Site:  			String.  Le no de contrat du site des produits déja importé
+	' 		pnd_Prop:	    			NotesDocument.  Le document de la proposition
+	' 		pnd_Site:	   				NotesDocument.  Le document du site de la proposition	
+	' ---------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim a_Cles(2) As String
+	Dim a_CleProduitsNePasImporter As Variant
+	Dim a_ProduitsCS() As String
+	Dim i As Integer
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nd As NotesDocument
+	Dim nd_DB As NotesDocument
+	Dim nd_Prod_PP As NotesDocument	
+	Dim nd_Prod_CSPr As NotesDocument		
+	Dim nd_Suivant_CSPr As NotesDocument
+	Dim nd_Prod_SDSBB As NotesDocument	
+	Dim ndc_Prod_CSPr As NotesDocumentCollection
+	Dim ndc_Prod_PP As NotesDocumentCollection	
+	Dim nv_Prod As NotesView
+	
+	Dim v_CleProduitCSPr As String	
+	Dim v_DateFin_CSCo As Variant
+	Dim v_Formule As String
+	Dim v_ImporterProduit As Boolean
+	Dim v_Maj As Boolean
+	Dim v_NomClient As String
+	Dim v_PrixUnitaire_CSPr As Double
+	Dim v_TypeInstallation_CSCo As String	
+	Dim v_Quantite_CSPr As Long
+	Dim v_Message As String
+	
+	' Initialisations
+	SDSPP_ImporterProduitsContratsService = False
+	
+	a_Cles(0) = xVar(pnd_Site, "Site_NoSite", "")	
+	a_CleProduitsNePasImporter = xVarProf("Prof_CleProduit_NePasImporter", "")
+	v_TypeInstallation_CSCo = xVar(pnd_CSCo, "CSCo_TypeInstallation","")
+	v_DateFin_CSCo = xVar(pnd_CSCo,"CSCo_DateFin" , "")	
+	v_NomClient = xVar(pnd_Site, "Site_ClientNomInterne", xVar(pnd_Site, "Site_ClientNom", ""))
+	
+	i = 0
+	
+	' Recherche les produits du CS à importer	
+	'----------------------------------------
+	
+	''v_Formule = {Form = "F_CSPr" &amp; CSPr_TypeProduit = "01" &amp; CSPr_StatutProduit &gt;= "30" &amp; CSPr_StatutProduit &lt;= "59" &amp; (@IsNull(CSPr_DateFin) | CSPr_DateFin &gt;= } &amp; _
+	''SItD_DateSearch(Today) &amp; {) &amp; CSPr_NoContratFmt = "} &amp; p_NoContratFmt_CSCo &amp; {"}
+	v_Formule = {Form = "F_CSPr" &amp; (@IsMember(CSPr_TypeProduit;"01":"80")|(CSPr_TypeProduit = "02" &amp; CSPr_CleProduit = "0000420")) &amp; CSPr_StatutProduit &gt;= "50" &amp; CSPr_StatutProduit &lt;= "59" &amp; (@IsNull(CSPr_DateFin) | CSPr_DateFin &gt;= } &amp; _
+	SItD_DateSearch(Today) &amp; {) &amp; CSPr_NoContratFmt = "} &amp; p_NoContratFmt_CSCo &amp; {"}
+	
+	''Select Form = "F_CSPr" &amp; (@IsMember(CSPr_TypeProduit;"01":"80")|(CSPr_TypeProduit = "02" &amp; CSPr_CleProduit = "0000420"))
+	
+	'v_DateFin_CSCo
+	'Set ndc_Prod_CSPr = gndb_xSDSCS.Search(v_Formule, Nothing, 0)
+	Set ndc_Prod_CSPr = gndb_xSDSCSL.Search(v_Formule, Nothing, 0)
+	
+	If ndc_Prod_CSPr.Count = 0 Then
+		ReDim a_ProduitsCS(ndc_Prod_CSPr.Count) As String
+	Else
+		ReDim a_ProduitsCS(ndc_Prod_CSPr.Count -1) As String
+	End If
+	
+	
+	' Boucler les produits du contrat de service
+	' ---------------------------------------------
+	
+	' Produits déja sur la proposition (pour fin de traitement)			
+	If p_NoContrat_Site &lt;&gt; "" Then
+		a_Cles(1) = p_NoContrat_Site
+		'Set ndc_Prod_PP = xndc(FullTrim(a_Cles), gndb_SDSPP , gc_NomVueProd_CS, nv_Prod)
+		Set ndc_Prod_PP = xndc(FullTrim(a_Cles), gndb_SDSPP , gc_NomVueProd_CS, nv_Prod)
+	Else
+		Set ndc_Prod_PP = gndb_SDSPP.CreateDocumentCollection
+	End If	
+	
+	' Boucler les produits du CS			
+	Set nd_Suivant_CSPr = ndc_Prod_CSPr.GetFirstDocument
+	
+	Do Until nd_Suivant_CSPr Is Nothing
+		
+		Set nd_Prod_CSPr = nd_Suivant_CSPr
+		Set nd_Suivant_CSPr = ndc_Prod_CSPr.GetNextDocument(nd_Suivant_CSPr)
+		
+		v_CleProduitCSPr = xVar(nd_Prod_CSPr, "CSPr_CleProduit", "")
+		
+		v_ImporterProduit = True
+		
+		' Vérifie si c'est un produit à ne pas importer
+		'----------------------------------------------
+		If IsArray(a_CleProduitsNePasImporter) Then
+			If Not IsNull(ArrayGetIndex(a_CleProduitsNePasImporter, v_CleProduitCSPr)) Then
+				v_ImporterProduit = False
+			End If
+		Else
+			If v_CleProduitCSPr = a_CleProduitsNePasImporter Then
+				v_ImporterProduit = False
+			End If
+		End If
+		
+		If v_ImporterProduit Then
+			
+			' Retourne le produit C-XXX
+			If v_TypeInstallation_CSCo = "1" Then  ' 1 = hébergé
+				Set nd_Prod_SDSBB = xSDSBB_xndProd_AH(v_CleProduitCSPr, True)				
+			Else													
+				Set nd_Prod_SDSBB = xSDSBB_xndProd_CS(v_CleProduitCSPr, True) 
+			End If	
+			
+			If nd_Prod_SDSBB Is Nothing Then
+				a_ProduitsCS(i) = xVar(nd_Prod_CSPr, "CSPr_DescProduit" &amp; xLangue, "") &amp; " ("  &amp; xVar(nd_Prod_CSPr, "CSPr_CodeProduit", "") &amp; ")"
+				i = i + 1
+			End If
+			
+			'Rechercher le produit dans la proposition
+			'S'il n'existe pas, ajouter le produit à la proposition, sinon maj le produit (prix)	
+			'-----------------------------------------------------------------------------------			
+			v_Quantite_CSPr = xVar(nd_Prod_CSPr, "CSPr_Quantite", 0)
+			
+			If xVar(nd_Prod_CSPr, "CSPr_ClasseProduit", "") = "AH" Then
+				'	v_PrixUnitaire_CSPr = SItN_Round((xVar(nd_Prod_CSPr, "CSPr_PrixUnitaire", 0) * 12) , 2)	
+				v_PrixUnitaire_CSPr = (xVar(nd_Prod_CSPr, "CSPr_PrixUnitaire", 0) * 12)			
+			Else
+				'	v_PrixUnitaire_CSPr = SItN_Round(xVar(nd_Prod_CSPr, "CSPr_PrixUnitaire", 0) , 2)	
+				v_PrixUnitaire_CSPr = xVar(nd_Prod_CSPr, "CSPr_PrixUnitaire", 0)
+			End If
+			
+			a_Cles(2) = xVar(nd_Prod_CSPr, "CSPr_NoProduitSeq", "")
+			
+			Call xnd("", FullTrim(a_Cles), False, gndb_SDSPP, gc_NomVueProd_CS, nv_Prod, nd_Prod_PP)
+			
+			If nd_Prod_PP Is Nothing Then
+				
+				'Ajouter le produit
+				
+				If Not nd_Prod_SDSBB Is Nothing Then
+					
+					Set nd_Prod_PP = SDSPX_AjouterProduit(pnd_Prop, pnd_Site, nd_Prod_SDSBB, v_Quantite_CSPr, _
+					0, "", "", "", "", True, False, pnd_Site)								
+					
+					If Not (nd_Prod_PP Is Nothing) Then
+						nd_Prod_PP.Prop_ExempterCommissions = "1"
+						nd_Prod_PP.Prod_NoContratFmt_CS = xVar(nd_Prod_CSPr, "CSPr_NoContratFmt","")
+						nd_Prod_PP.Prod_NoProduitSeq_CS = xVar(nd_Prod_CSPr, "CSPr_NoProduitSeq","")
+						nd_Prod_PP.Prod_TypeContratService_CS = v_TypeInstallation_CSCo												
+						nd_Prod_PP.Prod_FraisEntretienAnnuels = v_PrixUnitaire_CSPr
+						nd_Prod_PP.Prod_FraisEntretienMensuels = SItN_Round(v_PrixUnitaire_CSPr/12, 2)
+						nd_Prod_PP.Prod_FraisEntretienTotal = v_Quantite_CSPr * v_PrixUnitaire_CSPr
+						
+						' Historique						
+						nd_Prod_PP.HistoDC =  xVar(nd_Prod_CSPr, "HistoDC","")
+						nd_Prod_PP.HistoDM =  xVar(nd_Prod_CSPr, "HistoDM","")
+						nd_Prod_PP.HistoUC =  xVar(nd_Prod_CSPr, "HistoUC","")
+						nd_Prod_PP.HistoUM =  xVar(nd_Prod_CSPr, "HistoUM","")
+						nd_Prod_PP.HistoDP =  xVar(nd_Prod_CSPr, "HistoDP","")
+						nd_Prod_PP.HistoUP =  xVar(nd_Prod_CSPr, "HistoUP","")
+						
+						Call nd_Prod_PP.Save(True, False)
+						
+						'Print "AJOUT*** "  &amp; xvar(nd_Prod_PP, "Prod_CodeProduit", "")
+					End If
+					
+				End If
+				
+			Else
+
+				' Maj. le produit				
+				v_Maj = False		
+				
+				If Not nd_Prod_SDSBB Is Nothing Then
+					
+					If SDSPX_ModifierProduit(pnd_Prop, pnd_Site, nd_Prod_PP, v_Quantite_CSPr, _
+					v_PrixUnitaire_CSPr, "", "", False, nd_Prod_SDSBB) Then				
+						v_Maj = True							
+					End If
+					
+					v_Maj = SIIx_MajItem(nd_Prod_PP, "Prod_FraisEntretienAnnuels", v_PrixUnitaire_CSPr, False) Or V_Maj
+					v_Maj = SIIx_MajItem(nd_Prod_PP, "Prod_FraisEntretienMensuels", v_PrixUnitaire_CSPr / 12, False) Or V_Maj
+					v_Maj = SIIx_MajItem(nd_Prod_PP, "Prod_FraisEntretienTotal", v_Quantite_CSPr * v_PrixUnitaire_CSPr, False) Or V_Maj					
+					V_Maj = SIIx_MajItem(nd_Prod_PP, "Prop_ExempterCommissions", "1", False) Or V_Maj
+					
+					If v_Maj Then					
+						Call SIIx_MajItem(nd_Prod_PP, "Prod_NoContratFmt_CS", xVar(nd_Prod_CSPr, "CSPr_NoContratFmt",""), False)
+						Call  SIIx_MajItem(nd_Prod_PP, "Prod_NoProduitSeq_CS", xVar(nd_Prod_CSPr, "CSPr_NoProduitSeq",""), False)		
+						
+						nd_Prod_PP.HistoDM = Now
+						nd_Prod_PP.HistoUM = gns_SDSPP.UserName
+						Call nd_Prod_PP.Save(True, False)
+						'Print "MAJ*** "  &amp; xvar(nd_Prod_PP, "Prod_CodeProduit", "")
+						
+						v_Maj = False	
+					End If
+					
+				End If
+				
+			End If
+			
+			' Enlever le document de la collection des docs à supprimer
+			If Not nd_Prod_PP Is Nothing Then
+				Set nd = ndc_Prod_PP.GetDocument(nd_Prod_PP)
+			End If	
+			
+			If Not nd Is Nothing Then
+				If IsNull(ArrayGetIndex(a_CleProduitsNePasImporter, xVar(nd, "Prod_CleProduit",""))) Or _
+				xVar(nd, "Prod_NoContratFmt_CS","") = "" And Not IsNull(ArrayGetIndex(a_CleProduitsNePasImporter, xVar(nd, "Prod_CleProduit",""))) Then
+					If ndc_Prod_PP.contains(nd) Then						
+						Call ndc_Prod_PP.DeleteDocument(nd)
+					End If
+				End If				
+				'Call ndc_Prod_PP.DeleteDocument(nd)
+			End If
+			
+			' Ne pas importer de composants/dépendants
+			Call SDSPX_SupprimerComposants(nd_Prod_PP)
+			
+		End If
+		
+		SDSPP_ImporterProduitsContratsService = True			
+	Loop
+	
+	'Fin du traitement : envoyer les produits de la proposition non traités dans la corbeille.
+	If Not ndc_Prod_PP Is Nothing Then
+		If ndc_Prod_PP.Count &gt; 0 Then
+			Call SIDS_CorbeilleDocumentCollection(ndc_Prod_PP, "", GetThreadInfo(1), "")
+			'Print "SUPR*** "  &amp; CStr(ndc_Prod_PP.Count) &amp; " produits"
+		End If
+	End If
+	
+	If i &gt; 0 Then			
+		If a_ProduitsCS(LBound(a_ProduitsCS)) &lt;&gt; "" Then	
+			
+			ReDim Preserve a_ProduitsCS(i-1) As String
+			
+			' Afficher un avertissement
+			Set nd_DB = New NotesDocument(gndb_SDSPP)
+			
+			nd_DB.DB_ProdNomSite = v_NomClient
+			nd_DB.DB_ProdCS = a_ProduitsCS
+			
+			'Impossible d'importer les produits suivants car les produits liés sont introuvable.										
+			Call nuiws.Dialogbox("DB_AveICS", True, True, True, False, False, False, _
+			xGDK_xMessage("SI", 8, "", ""), nd_DB, True, False, False)					
+		End If		
+	End If	
+	
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	
+	Exit Function
+End Function
+
+</lotusscript></code><code event="DroitReouvrir"><lotusscript>
+Function DroitReouvrir
+	
+End Function
+
+</lotusscript></code><code event="SDSPP_MajProjet"><lotusscript>Function SDSPP_MajProjet(pnd_Prop As NotesDocument) As Boolean
+	' -----------------------------------------
+	' Le script permet de déterminer s'il faut.
+	' -----------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	Dim ns_Erreurs As NotesStream
+	
+	Dim a_ProjDealProg As Variant
+	Dim v_PrixEQ As Variant
+	Dim v_PrixSV As Variant
+	Dim v_Prop_PaiementNetMensuel As Double
+	Dim v_Prop_EntretienMensuelLG As Double
+	Dim v_Prop_EntretienAnnuelLG As Double
+	Dim v_TauxMaj As Double
+	Dim v_Maj As Boolean
+	Dim v_Origine As String
+	Dim v_NoProposition As String
+	
+	' Initialisations
+	Call SDSPP_Initialisations
+	
+	SDSPP_MajProjet = False
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	
+	' Extraire le projet
+	' ------------------
+	v_Origine = xVar(pnd_Prop, "Prop_Origine", "")
+	If v_Origine = "SF" Then
+		Exit Function
+	End If
+	
+	Set nd = xPJ_xndProj(v_Origine, xVar(pnd_Prop, "Prop_NoProjet", ""), True)
+	If nd Is Nothing Then
+		Set ns_Erreurs = gns_SDSPP.CreateStream
+		
+		Call ns_Erreurs.Writetext("NoProposition = " &amp; v_NoProposition, EOL_CR)
+		Call ns_Erreurs.Writetext("Description = " &amp; xVar(pnd_Prop, "Prop_DescProposition", ""), EOL_CR)
+		Call ns_Erreurs.Writetext("No projet = " &amp; xVar(pnd_Prop, "Prop_NoProjet", ""), EOL_CR)
+		Call ns_Erreurs.Writetext("Origine Projeto = " &amp; v_Origine, EOL_CR)
+
+		ns_Erreurs.Position = 0
+		Call SIGE_TraiterErreurManuelle(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), 0, xGDK_xMessage("SDSP", 56, "", ""), ns_Erreurs.Readtext, False)
+		pnd_Prop.Prop_MajProjet = ""
+		Exit function
+	End If
+
+	Set gndb_xPJ = nd.ParentDatabase
+	
+	v_PrixEQ =xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod23"; "| &amp; _
+	v_NoProposition &amp; |"+ ";EQ."; 5 ;[PartialMatch]); 0))|, Nothing)		
+	'v_PrixLG =xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod23"; "| &amp; _
+	'v_NoProposition &amp; |"+ ";LG."; 5 ;[PartialMatch]); 0))|, Nothing)
+	v_PrixSV =xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod23"; "| &amp; _
+	v_NoProposition &amp; |"+ ";SV."; 5 ;[PartialMatch]); 0))|, Nothing)
+	
+	%REM
+v_PrixEQ = Evaluate({@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Equi8"; "} &amp; _
+		Cstr(pnd_Prop.UniversalID) &amp; {"; 2); 0))})
+		v_PrixLG = Evaluate({@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Logi8"; "} &amp; _
+		Cstr(pnd_Prop.UniversalID) &amp; {;"; 2; [PartialMatch]); 0))})
+		v_PrixSV = Evaluate({@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Serv8"; "} &amp; _
+		Cstr(pnd_Prop.UniversalID) &amp; {"; 2); 0))})
+	%END REM
+	
+	' Mettre à progrès de l'offre (50 - proposition créer)
+	' ----------------------------------------------------
+	If Not xVarContient(nd, "Proj_DealProg", "50") Then
+		v_Maj = SIIx_AppendVar(nd, "Proj_DealProg", "50", False)
+	End If
+	
+	' Mettre à jour le forecast
+	' -------------------------
+	v_Maj = SIIx_MajItem(nd, "Proj_Montant_1", v_PrixEQ, False)
+	v_Maj = SIIx_MajItem(nd, "Proj_TypeEquipement", "0", False) Or v_Maj
+	
+	v_Prop_EntretienAnnuelLG	= xEvaluate( |@Sum(@IfError(@DbLookup("" : "NoCache"; ""; "V_Prod20"; "| &amp; _
+	Cstr(xVar(pnd_Prop, "Prop_NoProposition", "")) &amp; |"+ ";LG."; 8 ;[PartialMatch]); 0))|, Nothing)
+	
+	v_TauxMaj = xVar(gnd_Prof_SDSI,"Prof_LGMajoMens", 1)
+	v_Prop_EntretienMensuelLG = (v_Prop_EntretienAnnuelLG * v_TauxMaj) / 12
+	
+	v_Prop_PaiementNetMensuel = v_Prop_EntretienMensuelLG - xVar(pnd_Prop, "Prop_EscompteMensualite", 0)
+	v_Maj = SIIx_MajItem(nd, "Proj_Mensualite_1", v_Prop_PaiementNetMensuel, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "Proj_Montant_2", 0, False) Or v_Maj
+	
+	v_Maj = SIIx_MajItem(nd, "Proj_TypeLogiciel", "0", False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "Proj_Montant_3", v_PrixSV, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "Proj_TypeService", "0", False) Or v_Maj
+	'v_Maj = SIIx_MajItem(nd, "Proj_Total", v_PrixEQ + v_PrixLG + v_PrixSV, False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "Proj_Total", v_PrixEQ + v_PrixSV, False) Or v_Maj
+	'v_Maj = SIIx_MajItem(nd, "Proj_Montant_4", v_PrixEQ + v_PrixLG + v_PrixSV - _
+	'SDSI_CoutTotal(pnd_Prop), False) Or v_Maj
+	v_Maj = SIIx_MajItem(nd, "Proj_Montant_4", v_PrixEQ + v_PrixSV - _
+	SDSI_CoutTotal(pnd_Prop), False) Or v_Maj
+	
+	' Mettre à jour le forecast
+	' -------------------------
+	'If xVar(pnd_Prop, "Prop_Statut", "") = "60" Then
+	If xVar(pnd_Prop, "Prop_Statut", "") &gt;= "60" And xVar(pnd_Prop, "Prop_Statut", "") &lt;= "95" Then
+		If SIPJ_AssignerEtape(v_Origine, nd, "100") Then
+			' Mettre à progrès de l'offre (100 - signé)
+			If Not xVarContient(nd, "Proj_DealProg", "100") Then
+				Call SIIx_AppendVar(nd, "Proj_DealProg", "100", False)
+			End If
+			
+			v_Maj = True
+		End If
+	ElseIf xVar(pnd_Prop, "Prop_Statut", "") = "96" Or xVar(pnd_Prop, "Prop_Statut", "") = "98" Then 'requ.54738
+		If SIPJ_AssignerEtape(v_Origine, nd, "0") Then
+			' Retirer progrès de l'offre (100 - signé)
+			If xVarContient(nd, "Proj_DealProg", "100") Then				
+				a_ProjDealProg = xVarArray(nd, "Proj_DealProg")
+				a_ProjDealProg = RetirerArray(a_ProjDealProg, "100")
+				nd.Proj_DealProg = a_ProjDealProg				
+			End If
+			
+			v_Maj = True
+		End If
+	End If
+	
+	' Sauvegarder le document
+	' -----------------------
+	If v_Maj Then
+		Call nd.Save(True, False)
+	End If
+	SDSPP_MajProjet = True
+	
+	pnd_Prop.Prop_MajProjet = ""
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPP, gc_Element_SDSPP, GetThreadInfo(1), _
+	xVar(pnd_Prop, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073646,08-05</datetime></item></scriptlibrary>
+
+</database>

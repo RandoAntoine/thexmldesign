@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Salesforce\DeleteOpportunityLineItems" alias="A_SFDLI" hide="v3" publicaccess="false" designerversion="8.5.3" restrictions="unrestricted" activatable="false" enabled="false">
+<noteinfo noteid="3a7522" unid="07A3FCC7875E81E58525892F004CF47E" sequence="42">
+<created><datetime>20230106T090033,26-05</datetime></created>
+<modified><datetime>20250319T074101,05-05</datetime></modified>
+<revised><datetime>20250319T073749,37-05</datetime></revised>
+<lastaccessed><datetime>20250319T074101,04-05</datetime></lastaccessed>
+<addedtofile><datetime>20230112T233623,89-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073748,89-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="never" runlocation="specific" runserver="CN=Kilo/O=Serti Informatique"/></trigger><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SL_SalesforceAPI"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>
+' Traitement des erreurs
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_SFDLI"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+	
+	Dim v_NomProfilAPI As String
+	Dim cl_ConnexionAPI As SLSf_clConnexionAPI
+	Dim cl_Opportunity As SLSf_clObject
+	Dim v_Resultat As Integer
+	Dim ns As New NotesSession
+	Dim ndb As NotesDatabase
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Prop As NotesDocument
+	Dim v_NoProposition As String
+	Dim v_NoOpportunite As String
+	Dim v_IdEnfant As String
+	Dim cl_OpportunityLineItem As SLSf_clObject
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	Dim v_NbErr As Long
+	
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)
+	Print gc_Element_SLSf &amp; " - Début"
+
+	v_NomProfilAPI = xVarProf("Prof_NomProfilSalesforceAPI", "")
+	If v_NomProfilAPI = "" Then
+		Call SIGE_AjouterLog(|Erreur | &amp; CStr(v_Resultat) &amp; |: Le profil Salesforce n'est pas défini dans les paramètres de l'application."|, 1, 0, False)
+		GoTo FinSub
+	End If
+	
+	Set cl_ConnexionAPI = New SLSf_clConnexionAPI(v_NomProfilAPI)
+	If cl_ConnexionAPI.Resultat &lt;&gt; 1 Then
+		Call SIGE_AjouterLog(|Erreur | &amp; CStr(v_Resultat) &amp; |: Une erreur s'est produite lors de l'établissement de la connxion avec Salesforce.|, 1, 0, False)
+		GoTo FinSub
+	End If
+
+	' Extraire la liste des propositions actives avec un no d'opportunité
+	Set ndb = ns.CurrentDatabase
+	Set ndc = ndb.Search(|Form = "F_Prop" &amp; Prop_Statut &lt;= "50" &amp; Prop_Origine = "SF" &amp; !@IsAvailable($Conflict)|, Nothing, 0)
+	Set nd_Prop = ndc.Getfirstdocument
+	Do Until nd_Prop Is Nothing
+		v_NbLus = v_NbLus + 1
+		
+		' Vérifier s'il y a des doublons dans les no d'opportunité
+		v_NoProposition = xVar2(nd_Prop, "Prop_NbPropositionTXT", "Prop_NoProposition", "")
+		v_NoOpportunite = xVar(nd_Prop, "Prop_NoOpportuniteSF", "")
+
+		Set cl_Opportunity = New SLSf_clObject(cl_ConnexionAPI, "Opportunity", v_NoOpportunite)
+		If cl_Opportunity.Resultat &lt; 0 Then
+			Call SIGE_AjouterLog(|Erreur | &amp; CStr(v_Resultat) &amp; |: Opportunité | &amp; v_NoOpportunite &amp; | inexistante.|, 1, 0, False)
+			v_NbErr = v_NbErr + 1
+		Else
+			' Extraire les LineItems de Salesforce
+			v_Resultat = cl_Opportunity.ExtraireEnfants("OpportunityLineItems", "")
+			If v_Resultat &lt; 0 Then
+				Call SIGE_AjouterLog(|Erreur | &amp; CStr(v_Resultat) &amp; |: Erreur lors de l'extraction des produits de l'opportunité | &amp; v_NoOpportunite &amp; | inexistante.|, 1, 0, False)
+				v_NbErr = v_NbErr + 1
+			ElseIf cl_Opportunity.NbEnfants("OpportunityLineItems") &gt; 0 then
+				' Supprimer les line items des produits retirés
+				ForAll v_Element In cl_Opportunity.Enfants("OpportunityLineItems")
+					v_IdEnfant = v_Element.Cle
+					Set cl_OpportunityLineItem = New SLSf_clObject(cl_ConnexionAPI, "OpportunityLineItem", v_IdEnfant)
+					If cl_OpportunityLineItem.Resultat &lt; 0 Then
+						Call SIGE_AjouterLog(|Erreur | &amp; CStr(v_Resultat) &amp; |: Opportunité | &amp; v_NoOpportunite &amp; |, produit | &amp; v_IdEnfant &amp; | inexistant. |, 1, 0, False)
+						v_NbErr = v_NbErr + 1
+					Else
+						v_Resultat = cl_OpportunityLineItem.SupprimerObjet
+						If v_Resultat = 1 Then
+							v_NbMaj = v_NbMaj + 1
+						End If
+					End If
+				End ForAll
+			End If	
+		End If
+
+		If (v_NbLus Mod 1000) = 0 Then
+			Print gc_Element_SLSf &amp; " " &amp; CStr(v_NbMaj) &amp; |/| &amp; CStr(v_NbLus) &amp; | - Nb erreurs = | &amp; CStr(v_NbErr)
+		End If
+		
+		Set nd_Prop = ndc.GetNextDocument(nd_Prop)
+	Loop
+
+	Call SIGE_AjouterLog(gc_Element_SLSf &amp; " - Fin " &amp; CStr(v_NbMaj) &amp; |/| &amp; CStr(v_NbLus) &amp; | - Nb erreurs = | &amp; CStr(v_NbErr), 0, 0, True)
+	
+FinSub:
+	Call SIGE_EnregistrerLog
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLSf, gc_Element_SLSf, GetThreadInfo(1), "", False)
+	GoTo FinSub
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20250318T082119,75-05</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20250319T073749,37-05</datetime></item></agent>
+
+</database>

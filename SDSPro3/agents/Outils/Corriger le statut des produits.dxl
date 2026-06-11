@@ -1,0 +1,432 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Outils\Corriger le statut des produits" alias="A_OCSt" hide="v3" publicaccess="false" designerversion="8.5.3" runonbehalfof="CN=Developpement Serti/O=Serti Informatique" activatable="false" enabled="false">
+<noteinfo noteid="55590e" unid="DC709F08310E3D1385258AC30071089A" sequence="18">
+<created><datetime>20240214T153437,70-05</datetime></created>
+<modified><datetime>20260306T123539,27-05</datetime></modified>
+<revised><datetime>20260306T123539,26-05</datetime></revised>
+<lastaccessed><datetime>20260306T123539,26-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,23-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20260306T103658,56-05</datetime></designchange>
+<trigger type="scheduled">
+<schedule type="daily" runlocation="specific" runserver="CN=Kilo/O=Serti Informatique">
+<starttime><datetime>T010000,00</datetime></starttime></schedule></trigger><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Extractions"
+Use "SI_GestionErreurs"
+Use "SI_Insertions"
+Use "x_SDSBB"
+Use "x_SDSCS"
+Use "x_SDSP3"
+Use "x_SIBDC2"
+Use "x_SIBDT"
+Use "x_SICl"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>'Dim gns_A As Notessession
+'Dim gndb_A As Notesdatabase
+
+Dim gnv_Site21_A As NotesView
+Dim gnv_Prod20_A As NotesView
+Dim gnv_BTPr22_A As NotesView
+Dim gnv_CSPr36_A As NotesView
+
+' Traitement des erreurs
+Const gc_TypeElement_A = "A"
+Const gc_Element_A = "A_OCSt"		' Inscrire l'alias de l'agent
+
+
+'===================================================================================================================================================
+Class A_clProposition
+	Public nd As NotesDocument
+	Public NoProposition As String
+	Public NbPropositionTxt As String
+	Public ClientNoFmt As String
+	Public DateSignature As Variant
+	Public StatutProposition As String
+End Class
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error GoTo GererErreur
+	
+	Dim ns As NotesSession
+	Dim ndb As NotesDatabase
+	Dim nv As NotesView
+	Dim nd As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim cl_Proposition As A_clProposition
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	Print "Début"
+	Call SIGE_OuvrirLog(gc_TypeElement_A, gc_Element_A)
+	
+	Set ns = New NotesSession
+	Set ndb = ns.Currentdatabase
+	Set nv = ndb.Getview("V_Prop20")		' Inscrire le nom de la vue
+	Call nv.Refresh
+	Set gnv_Site21_A = ndb.Getview("V_Site21")		' Inscrire le nom de la vue
+	Call gnv_Site21_A.Refresh
+	Set gnv_Prod20_A = ndb.Getview("V_Prod20")		' Inscrire le nom de la vue
+	Call gnv_Prod20_A.Refresh
+	
+	Call xSIBDT_Initialisations
+	Set gnv_BTPr22_A = gndb_xSIBDT.GetView("V_BTPr22")
+	Call gnv_BTPr22_A.Refresh
+	
+	Call xSDSCS_Initialisations
+	Set gnv_CSPr36_A = gndb_xSDSCS.GetView("V_CSPr36")
+	Call gnv_CSPr36_A.Refresh
+	
+	Set nd_Suivant = nv.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd = nd_Suivant
+		Set nd_Suivant = nv.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		
+		'***** Insérer les instructions de correction ici *****
+		Set cl_Proposition = New A_clProposition
+		Set cl_Proposition.nd = nd
+		
+		cl_Proposition.NoProposition = xVar(nd, "Prop_NoProposition", "")
+		cl_Proposition.NbPropositionTxt = xVar(nd, "Prop_NbPropositionTxt", "")
+		cl_Proposition.ClientNoFmt = xVar(nd, "Prop_ClientNoFmt", "")
+		cl_Proposition.StatutProposition = xVar(nd, "Prop_Statut", "")
+		cl_Proposition.DateSignature = xVar(nd, "Prop_DateSignature", "")
+		
+		v_NbMaj = v_NbMaj + A_TraiterProposition(cl_Proposition)
+		v_NbMaj = v_NbMaj + A_TraiterSites(cl_Proposition)
+		v_NbMaj = v_NbMaj + A_TraiterProduits(cl_Proposition)
+				
+		If (v_NbLus Mod 1000) = 0 Then
+			Print CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus)
+		End If
+	Loop
+	
+	Call SIGE_AjouterLog("Fin " &amp; CStr(v_NbMaj) &amp; "/" &amp; CStr(v_NbLus), 0, 0, True)
+	Call SIGE_EnregistrerLog
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", True)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="A_TraiterProduits"><lotusscript>Function A_TraiterProduits(pcl_Proposition As A_clProposition) As Long
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Prod As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim v_Maj As Boolean
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	A_TraiterProduits = 0
+	
+	Set ndc = gnv_Prod20_A.GetAllDocumentsByKey(pcl_Proposition.NoProposition &amp; ";", False)
+	Set nd_Suivant = ndc.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd_Prod = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		v_Maj = False
+		
+		'***** Insérer le traitement ici *****
+		If SIIx_MajItem(nd_Prod, "Prod_NbPropositionTxt", pcl_Proposition.NbPropositionTxt, False) Then
+			v_Maj = True
+		End If
+		If SIIx_MajItem(nd_Prod, "Prod_StatutProposition", pcl_Proposition.StatutProposition, False) Then
+			v_Maj = True
+		End If
+		If SIIx_MajItem(nd_Prod, "Prod_DateSignature", pcl_Proposition.DateSignature, True) Then
+			v_Maj = True
+		End If
+		If A_MajInfoBT(pcl_Proposition, nd_Prod) Then
+			v_Maj = True
+		End If
+
+		If v_Maj Then			
+			Call nd_Prod.save(True, True)
+			v_NbMaj = v_NbMaj + 1
+		End If
+	Loop
+	
+	A_TraiterProduits = v_NbMaj
+	Exit Function
+	
+GererErreur:
+	A_TraiterProduits = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="A_MajInfoBT"><lotusscript>Function A_MajInfoBT(pcl_Proposition As A_clProposition, pnd_Prod As NotesDocument) As Long
+	On Error GoTo GererErreur
+	
+	Dim v_NoSite As String
+	Dim nd_Site As NotesDocument
+	Dim v_ClientNoFmt As String
+	Dim v_NoCommandeSIFc As String
+	Dim v_NoBonCommandeFmt As String
+	Dim nd_BCom As NotesDocument
+	Dim v_StatutBonCommande As String
+	Dim v_NoBonTravailFmt As String
+	Dim v_CleBonTravail As String
+	Dim nd_BTra As NotesDocument
+	Dim v_StatutBonTravail As String
+	Dim v_CleProduit As String
+	Dim ndc_BTPr As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument
+	Dim nd_BTPr As NotesDocument
+	Dim v_CleProduitAH As String
+	Dim nd_CSPr As NotesDocument
+	Dim v_Maj As Boolean
+	
+	A_MajInfoBT = 0
+	
+	%rem
+	Dim v_CodeProduit As String
+	v_CodeProduit = xVar(pnd_Prod, "Prod_CodeProduit", "")
+	If v_CodeProduit = "LDPACA" Then Stop '**************************
+	If pcl_Proposition.NbPropositionTxt = "10855.02" Then Stop	'***************
+	%end rem
+	
+	If pcl_Proposition.StatutProposition &gt;= "60" And pcl_Proposition.StatutProposition &lt;= "95" Then
+		v_NoSite = xVar(pnd_Prod, "Prod_NoSite", "")
+		Set nd_Site = xSDSP3_xndSite(v_NoSite, True)
+		v_ClientNoFmt = xVar(nd_Site, "Site_ClientNoFmt", "")
+		
+		v_NoBonCommandeFmt = xVar(nd_Site, "Site_NoBonCommandeFmtSIBDC", "")
+		If v_NoBonCommandeFmt = "" Then
+			GoTo SkipMaj
+		End If
+		Set nd_BCom = xSIBDC2_xndBCom(v_NoBonCommandeFmt, True)
+		If (nd_BCom Is Nothing) Then
+			GoTo SkipMaj
+		End If
+		v_StatutBonCommande = xVar(nd_BCom, "BCom_Statut", "")
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_NoBonCommande", v_NoBonCommandeFmt, False) Or v_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_StatutBonCommande", v_StatutBonCommande, False) Or v_Maj
+		
+		v_CleProduit = xVar(pnd_Prod, "Prod_CleProduit", "")
+		Set ndc_BTPr = gnv_BTPr22_A.GetAllDocumentsByKey(v_NoBonCommandeFmt &amp; ";" &amp; v_CleProduit, True)
+		If ndc_BTPr.Count &gt; 0 Then
+			Set nd_Suivant = ndc_BTPr.Getfirstdocument
+			Do Until nd_Suivant Is Nothing
+				Set nd_BTPr = nd_Suivant
+				Set nd_Suivant = ndc_BTPr.GetNextdocument(nd_Suivant)
+				
+				If xVar(nd_BTPr, "BTPr_Quantite", 0) = 0 Then
+					Call ndc_BTPr.Deletedocument(nd_BTPr)
+				Else
+					v_CleBonTravail = xVar(nd_BTPr, "BTPr_CleBonTravail", "")
+					Set nd_BTra = xSIBDT_xndBTra(v_CleBonTravail, True)
+					If xVar(nd_BTra, "BTra_Statut", "") = "99" Then
+						Call ndc_BTPr.Deletedocument(nd_BTPr)
+					End If
+				End If
+			Loop
+		End If
+		
+		Select Case ndc_BTPr.Count
+		Case 0:
+			v_Maj = SIIx_MajItem(pnd_Prod, "Prod_NoBonTravail", "", False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prod, "Prod_StatutBonTravail", "", False) Or v_Maj
+			
+			'Case 1:
+		Case Else:
+			Set nd_BTPr = ndc_BTPr.GetFirstDocument
+			v_NoBonTravailFmt = xVar(nd_BTPr, "BTPr_NoBonTravailFmt", "")
+			v_CleBonTravail = xVar(nd_BTPr, "BTPr_CleBonTravail", "")
+			Set nd_BTra = xSIBDT_xndBTra(v_CleBonTravail, True)
+			v_StatutBonTravail = xVar(nd_BTra, "BTra_Statut", "")
+			v_Maj = SIIx_MajItem(pnd_Prod, "Prod_NoBonTravail", v_NoBonTravailFmt, False) Or v_Maj
+			v_Maj = SIIx_MajItem(pnd_Prod, "Prod_StatutBonTravail", v_StatutBonTravail, False) Or v_Maj
+			
+			'Case Else:
+			'	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_NoBonTravail", "", False) Or v_Maj
+			'	v_Maj = SIIx_MajItem(pnd_Prod, "Prod_StatutBonTravail", "E2", False) Or v_Maj
+			'	Exit Function
+	End Select
+
+		If xVar(pnd_Prod, "Prod_ClasseProduit", "") = "LG" Then
+			v_CleProduitAH = xSDSBB_xVarProd(v_CleProduit, "Prod_CleProduitAH", "", True)
+			If v_CleProduitAH &lt;&gt; "" then
+				Set nd_CSPr = gnv_CSPr36_A.GetDocumentByKey(v_ClientNoFmt &amp; ";" &amp; v_CleProduitAH, True)
+				If nd_CSPr Is Nothing Then
+					v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CS_EstActif", "", False) Or v_Maj
+				Else
+					v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CS_EstActif", "1", False) Or v_Maj	
+				End If
+			End If
+		Else
+			v_NoCommandeSIFc = xVar(nd_Site, "Site_NoCommandeSIFc", "")
+			If v_NoCommandeSIFc &lt;&gt; "" Then
+				v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CS_EstActif", "2", False) Or v_Maj
+			Else
+				v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CS_EstActif", "", False) Or v_Maj
+			End If
+		End If
+		
+	Else
+SkipMaj:
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_NoBonCommande", "", False) Or v_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_StatutBonCommande", "", False) Or v_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_NoBonTravail", "", False) Or v_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_StatutBonTravail", "", False) Or v_Maj
+		v_Maj = SIIx_MajItem(pnd_Prod, "Prod_CS_EstActif", "", False) Or v_Maj
+	End If
+
+	If v_Maj Then	
+		A_MajInfoBT = 1
+	End If
+
+	Exit Function
+	
+GererErreur:
+	A_MajInfoBT = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="A_TraiterProposition"><lotusscript>Function A_TraiterProposition(pcl_Proposition As A_clProposition) As Long
+	On Error GoTo GererErreur
+	
+	Dim nd_Clie As NotesDocument
+	Dim v_NoAccountSF As String
+	Dim v_Maj As Boolean
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	A_TraiterProposition = 0
+	
+	If pcl_Proposition.ClientNoFmt &lt;&gt; "" Then
+		Set nd_Clie = xSICl_xndClie(pcl_Proposition.ClientNoFmt, True)									' SI Configurations
+		If Not (nd_Clie Is Nothing) Then
+			v_NoAccountSF = xVar(nd_Clie, "Clie_NoAccountSF", "")		
+			If SIIx_MajItem(pcl_Proposition.nd, "Prop_ClientNoSF", v_NoAccountSF, False) Then
+				v_Maj = True
+			End If
+			
+		End If
+	End If
+	
+	If v_Maj Then			
+		Call pcl_Proposition.nd.save(True, True)
+		A_TraiterProposition = 1
+	End If
+	
+	Exit Function
+	
+GererErreur:
+	A_TraiterProposition = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+
+
+
+
+
+
+
+</lotusscript></code><code event="A_TraiterSites"><lotusscript>Function A_TraiterSites(pcl_Proposition As A_clProposition) As Long
+	On Error GoTo GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	Dim nd_Site As NotesDocument
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Clie As NotesDocument
+	Dim v_Maj As Boolean
+	
+	Dim v_NbLus As Long
+	Dim v_NbMaj As Long
+	
+	A_TraiterSites = 0
+	
+	Set ndc = gnv_Site21_A.GetAllDocumentsByKey(pcl_Proposition.NoProposition, False)
+	Set nd_Suivant = ndc.Getfirstdocument
+	Do Until nd_Suivant Is Nothing
+		Set nd_Site = nd_Suivant
+		Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+		v_Maj = False
+		
+		'***** Insérer le traitement ici *****
+		If SIIx_MajItem(nd_Site, "Site_NbPropositionTxt", pcl_Proposition.NbPropositionTxt, False) Then
+			v_Maj = True
+		End If
+		If SIIx_MajItem(nd_Site, "Site_StatutProposition", pcl_Proposition.StatutProposition, False) Then
+			v_Maj = True
+		End If
+		If SIIx_MajItem(nd_Site, "Site_DateSignature", pcl_Proposition.DateSignature, True) Then
+			v_Maj = True
+		End If
+
+		If pcl_Proposition.StatutProposition &gt;= "60" And pcl_Proposition.StatutProposition &lt;= "89" Then
+			If xVar(nd_Site, "Site_ClientNoFmt", "") = "" And pcl_Proposition.ClientNoFmt &lt;&gt; "" then
+				If xVar(pcl_Proposition.nd, "Prop_NbSites", 0) = 1 Then
+					nd_Site.Site_ClientNoFmt = pcl_Proposition.ClientNoFmt
+					
+					' Maj site avec champs du client
+					Set nd_Clie = xSICl_xndClie(pcl_Proposition.ClientNoFmt, True)									' SI Configurations
+					If Not (nd_Clie Is Nothing) Then		
+						nd_Site.Site_OrigineCle = pcl_Proposition.ClientNoFmt
+						nd_Site.Site_ClientNom1 = xVar(nd_Clie, "Clie_ClientNom1", "")
+						nd_Site.Site_ClientNom2 = xVar(nd_Clie, "Clie_ClientNom2", "")	
+						nd_Site.Site_ClientNomLegal = xVar(nd_Clie, "Clie_NomLegal", "")
+						nd_Site.Site_ClientNom = xVar(nd_Clie, "Clie_ClientNomEntreprise", "")		
+						nd_Site.Site_Plateformes = xVarArray(nd_Clie, "Clie_Plateformes")
+						
+						nd_Site.Site_ClientAdresse1 = xVar(nd_Clie, "Clie_ClientAdresse1", "")
+						nd_Site.Site_ClientAdresse2 = xVar(nd_Clie, "Clie_ClientAdresse2", "")
+						nd_Site.Site_ClientVille = xVar(nd_Clie, "Clie_ClientVille", "")
+						nd_Site.Site_ClientProvince = xVar(nd_Clie, "Clie_ClientProvince", "")
+						nd_Site.Site_ClientPays = xVar(nd_Clie, "Clie_ClientPays", "")
+						nd_Site.Site_ClientCodePostal = xVar(nd_Clie, "Clie_ClientCodePostal", "")
+						nd_Site.Site_ClientLatitude = xVar(nd_Clie, "Clie_GeoLatitude", 0)
+						nd_Site.Site_ClientLongitude = xVar(nd_Clie, "Clie_GeoLongitude", 0)		
+					End If
+					
+					v_Maj = True
+				Else
+					Call SIGE_AjouterLog("ERREUR: Au moins un site de la PP " &amp; pcl_Proposition.NbPropositionTxt &amp; " n'a pas de no de client.", 1, 0, False)
+				End If
+			End If 
+		End If
+
+		If v_Maj Then			
+			Call nd_Site.save(True, True)
+			v_NbMaj = v_NbMaj + 1
+		End If
+	Loop
+	
+	A_TraiterSites = v_NbMaj
+	Exit Function
+	
+GererErreur:
+	A_TraiterSites = -9
+	Call SIGE_TraiterErreur(gc_TypeElement_A, gc_Element_A, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+
+
+
+
+
+
+</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20260306T123538,57-05</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20250319T073741,82-05</datetime></item></agent>
+
+</database>

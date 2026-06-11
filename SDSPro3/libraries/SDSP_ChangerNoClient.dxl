@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_ChangerNoClient" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="555932" unid="237E1A82CAA47B9C85258B6D00533EA0" sequence="7">
+<created><datetime dst="true">20240802T110915,20-04</datetime></created>
+<modified><datetime>20260105T014838,29-05</datetime></modified>
+<revised><datetime>20250319T073639,56-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,28-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,28-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Insertions"
+Use "SI_Historique"
+Use "x_SDSP3"
+Use "x_SIBDC2"
+Use "x_SDSC3"
+Use "x_SICl"
+Use "x_SIBDT"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_SDSPCNC As NotesSession
+Dim gndb_SDSPCNC As NotesDatabase
+
+Dim ga_Items_SDSPCNC As Variant
+
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPCNC = "SL"
+Const gc_Element_SDSPCNC = "A_MajClientNo"
+
+
+</lotusscript></code><code event="SDSPCNC_ModifierBTra"><lotusscript>
+Sub SDSPCNC_ModifierBTra (pnd_BCom As NotesDocument, p_ClientNoFmt As String, p_UserName As String)	
+	'------------------------------------------------------------------------
+	' Ce script permet de maj. le no de client des bons de travail	
+	'-------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	
+	Dim nd_BTra As NotesDocument
+	Dim ndc_BTra As NotesDocumentCollection
+	Dim nd_Suivant As NotesDocument	
+	Dim v_NoBonCommandeFmt As String
+	Dim v_Maj As Boolean
+	
+	'Initialisations
+	Call xSIBDT_Initialisations
+	
+	v_NoBonCommandeFmt = xVar(pnd_BCom, "BCom_NoBonCommandeFmt", "")	
+	If v_NoBonCommandeFmt &lt;&gt; "" Then
+		Set ndc_BTra = xSIBDT_xndcBTra(v_NoBonCommandeFmt)
+		If ndc_BTra.Count &gt; 0 Then
+			Set nd_Suivant = ndc_BTra.Getfirstdocument
+			Do Until nd_Suivant Is Nothing
+				Set nd_BTra = nd_Suivant
+				Set nd_Suivant = ndc_BTra.Getnextdocument(nd_Suivant)		
+				v_Maj = False
+				
+				If nd_BTra.LockHolders(0) = "" Then
+					v_Maj = SDSPCNC_ModifierInfoClient (nd_BTra, "BTra", p_ClientNoFmt, p_UserName)
+					If v_Maj Then	  
+						' Si le document n'est pas verrouillé on le traite
+						Call SIGE_AjouterLog("SIBDT Btra_ClientNoFmt modifié.  Clé: " &amp; xVar(nd_BTra, "Cle", ""), 0, 0, True)
+					Else
+						Call SIGE_AjouterLog("*ERREUR* Erreur maj du bon de travail - " &amp; xVar(nd_BTra, "Cle", ""), 1, 0, False)
+					End If	 
+				Else
+					Call SIGE_AjouterLog("*ERREUR* SIBDT Btra_ClientNoFmt est déjà verrouillé.  Clé: " &amp; xVar(nd_BTra, "Cle", ""), 1, 0, True)
+				End If
+			Loop
+		Else
+			Call SIGE_AjouterLog("Pas de Bon de travail. Clé: " &amp; v_NoBonCommandeFmt, 0, 0, False)		
+		End If
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPCNC, gc_Element_SDSPCNC, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPCNC_ModifierC3"><lotusscript>
+Sub SDSPCNC_ModifierC3 (pnd_Prop As NotesDocument, p_ClientNoFmt As String, p_UserName As String)
+	'------------------------------------------------------------------------
+	' Ce script permet de maj. le no de client des Propositions de SDSC3
+	'-------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	
+	Dim v_NoProposition As String
+	Dim nd_Prop As NotesDocument
+	Dim v_Maj As Boolean
+	
+	
+	' Initialisations
+	Call xSDSC3_Initialisation
+	'Call xSDSC_Initialisation 'SDS Pro II
+	
+	v_Maj = False
+	
+	v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+	
+	Set nd_Prop = xSDSC3_xndProp(v_NoProposition, True) 
+	If nd_Prop Is Nothing Then
+		Call SIGE_AjouterLog("Document SDSC3 proposition " &amp; xVar(pnd_Prop, "Prop_NoProposition", "") &amp; "introuvable dans C3", 0, 0, False)		
+		Exit Sub			
+	End If	
+	
+	v_Maj =SDSPCNC_ModifierInfoClient (nd_Prop, "Prop", p_ClientNoFmt, p_UserName)
+	If v_Maj Then
+		Call SIGE_AjouterLog("SDSC3 Prop_ClientNoFmt modifié.  Clé: " &amp; xVar(nd_Prop, "Prop_NoProposition", ""), 0, 0, True)		
+	Else
+		Call SIGE_AjouterLog("*ERREUR* Erreur maj de la proposition dans C3 - " &amp; xVar(pnd_Prop, "Prop_NbPropositionFmt", ""), 1, 0, False)
+	End If	
+	
+	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPCNC, gc_Element_SDSPCNC, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPCNC_Initialisations"><lotusscript>Sub SDSPCNC_Initialisations
+	
+	If gns_SDSPCNC Is Nothing then
+		Set gns_SDSPCNC = New NotesSession
+		Set gndb_SDSPCNC = gns_SDSPCNC.Currentdatabase		
+		
+		'Items du client a modifier
+		ga_Items_SDSPCNC = Split("_ClientNoFmt:_ClientNom:_ClientNom1:_ClientNom2:_ClientNomInterne:_ClientNomLegal:" &amp; _
+"_ClientAdresse1:_ClientAdresse2:_ClientVille:_ClientPays:_ClientProvince:_ClientCodePostal:_ClientTablePays:" &amp; _
+"_ClientTelephone1:_ClientTelephone2:_ClientTelecopieur:_ClientLangue", ":")
+	End If
+	
+	%REM
+		' Initialisation du tableau des items du client
+		ga_ItemsClie(0) = "_ClientNom"
+		ga_ItemsClie(1) = "_ClientNom1"
+		ga_ItemsClie(2) = "_ClientNom2"
+		ga_ItemsClie(3) = "_ClientCodeAct"
+		ga_ItemsClie(4) = "_ClientNomInterne"	
+		ga_ItemsClie(5) = "_ClientNomLegal"
+		ga_ItemsClie(6) = "_ClientAdresse1"		
+		ga_ItemsClie(7) = "_ClientAdresse2"
+		ga_ItemsClie(8) = "_ClientVille"
+		ga_ItemsClie(9) = "_ClientPays"
+		ga_ItemsClie(10) = "_ClientTablePays"
+		ga_ItemsClie(11) = "_ClientProvince"
+		ga_ItemsClie(12) = "_ClientCodePostal"
+		ga_ItemsClie(13) = "_ClientTelephone1"
+		ga_ItemsClie(14) = "_ClientTelephone2"
+		ga_ItemsClie(15) = "_ClientTelecopieur"
+		ga_ItemsClie(16) = "_ClientLangue"
+		ga_ItemsClie(17) = "_GeoInactif"
+		ga_ItemsClie(18) = "_GeoLatitude"
+		ga_ItemsClie(19) = "_GeoLongitude"
+		ga_ItemsClie(20) = "_GeoDate"		
+		'ga_ItemsClie(21) = "_TypeInstallationSDS"	
+		'ga_ItemsClie(22) = "_TypeInstallationSDSIcone"	
+		'ga_ItemsClie(23) = "_TypeContratServiceSDS"	
+		'ga_ItemsClie(24) = "_TypeContratServiceSDSIcone"	
+	%END REM
+End Sub
+
+</lotusscript></code><code event="SDSPCNC_ModifierInfoClient"><lotusscript>Function SDSPCNC_ModifierInfoClient(pnd_Dest As NotesDocument, p_ItemDest As String, ByVal p_ClientNoFmt As String, p_UserName As String) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------ 
+	' Le script permet d'initialiser les valeurs du client dans le document. 
+	' 
+	' Paramètres:
+	' pnd_Dest    Le document dans lequel il faut mettre à jour l'information.
+	'------------------------------------------------------------------------------------------------------------------------------ 
+	On Error GoTo GererErreur
+	
+	
+	Dim nd_SICl As NotesDocument
+	Dim v_ItemDest As String
+	Dim i As Long
+	
+	SDSPCNC_ModifierInfoClient = False
+		
+	' Extraire le document SI Clients
+	Set nd_SICl = xSICl_xndClie(p_ClientNoFmt, False)
+	
+	If nd_SICl Is Nothing Then
+		Call SIGE_AjouterLog("*ERREUR* Document client non trouvé - " &amp; p_ClientNoFmt, 1, 0, False)
+		Exit Function
+	End If
+		
+	For i = 0 To UBound(ga_Items_SDSPCNC)
+		' item du document de destination		
+		v_ItemDest = p_ItemDest &amp; ga_Items_SDSPCNC(i)
+		
+		' Mise à jours des informations du client	
+		If pnd_Dest.HasItem(v_ItemDest) Then
+			Call pnd_Dest.ReplaceItemValue(v_ItemDest, xVar(nd_SICl, "Clie" &amp; ga_Items_SDSPCNC(i), ""))
+			SDSPCNC_ModifierInfoClient = True
+		End If	
+	Next
+
+	pnd_Dest.Prop_ClientNoSF = xVar(nd_SICl, "Clie_NoAccountSF", "")
+	
+	pnd_Dest.HistoDM = Now
+	pnd_Dest.HistoUM = p_UserName
+	If SIHi_Ajouter(pnd_Dest, "", "Action : " &amp; "A_ModifierClientNoFmt " &amp; p_ClientNoFmt, p_UserName, True) Then
+		SDSPCNC_ModifierInfoClient = True
+	End If
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPCNC, gc_Element_SDSPCNC, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPCNC_ModifierBC2"><lotusscript>Sub SDSPCNC_ModifierBC2 (p_NoSite As String, p_ClientNoFmt As String, p_UserName As String)
+	'------------------------------------------------------------------------
+	' Ce script permet de maj. le no de client des bons de commande	
+	'-------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	
+	Dim v_NoBonCommandeFmt As String
+	Dim nd_BCom As NotesDocument
+	Dim v_Maj As Boolean
+	
+	
+	v_NoBonCommandeFmt = xSDSP3_xVarSite(p_NoSite, "Site_NoBonCommandeFmtSIBDC", "", False)
+	If v_NoBonCommandeFmt &lt;&gt; "" Then
+		Set nd_BCom = xSIBDC2_xndBCom(v_NoBonCommandeFmt, True)
+		If nd_BCom Is Nothing Then
+			Call SIGE_AjouterLog("Pas de Bon de commande. Clé: " &amp; v_NoBonCommandeFmt, 0, 0, False)
+		Else	
+			v_Maj =SDSPCNC_ModifierInfoClient (nd_BCom, "BCom", p_ClientNoFmt, p_UserName)
+			
+			If v_Maj Then
+				Call nd_BCom.ReplaceItemValue ("BCom_ClientNo1", CDbl(StrLeft(p_ClientNoFmt, "-")))
+				Call nd_BCom.ReplaceItemValue ("BCom_ClientNo2", StrRight(p_ClientNoFmt, "-"))
+				
+			'	Call nd_BCom.ReplaceItemValue ("BCom_ClientNom1", StrRight(p_ClientNoFmt, "-"))
+			'	Call nd_BCom.ReplaceItemValue ("BCom_ClientNom2", StrRight(p_ClientNoFmt, "-"))
+										
+				Call SIGE_AjouterLog("SIBDC BCom_ClientNoFmt modifié. Clé:" &amp; xVar(nd_BCom, "Cle", ""), 0, 0, False)							
+			Else
+				Call SIGE_AjouterLog("*ERREUR* Erreur maj du bon de commande - " &amp; xVar(nd_BCom, "Cle", ""), 1, 0, False)
+			End If
+			
+			Call SDSPCNC_ModifierBtra (nd_BCom, p_ClientNoFmt, p_UserName)
+		End If
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPCNC, gc_Element_SDSPCNC, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+
+</lotusscript></code><code event="SDSPCNC_MajSites"><lotusscript>Sub SDSPCNC_MajSites (pnd_Prop As NotesDocument, p_ClientNoFmt As String, p_UserName As String)
+	On Error GoTo GererErreur
+		
+	Dim a_NoSites As Variant
+	Dim i As Integer
+	Dim v_MajSite As Boolean
+	Dim nd_Site As NotesDocument
+	Dim v_ClientNoFmt As String
+	
+	
+	'Sites
+	a_NoSites = xVarArray(pnd_Prop, "Prop_NoSites")
+	
+	If IsArray(a_NoSites) Then
+		
+		For i = LBound(a_NoSites) To UBound(a_NoSites)
+			
+			Set nd_Site = xSDSP3_xndSite(a_NoSites(i), True)
+			
+			If nd_Site Is Nothing Then
+				Call SIGE_AjouterLog("* ERREUR * Document du site non trouvé - " &amp; a_NoSites(i), 1, 0, False)
+			Else
+				v_MajSite = SDSPCNC_ModifierInfoClient(nd_Site, "Site", p_ClientNoFmt, p_UserName)
+				If v_MajSite Then
+					Call SIGE_AjouterLog("SDSP3 Site_ClientNoFmt modifié.  Clé: " &amp; a_NoSites(i) , 0, 0, True)
+				Else
+					Call SIGE_AjouterLog("*ERREUR* Erreur maj du site - " &amp; a_NoSites(i), 1, 0, False)
+				End If		
+			
+				Call SDSPCNC_ModifierBC2 (a_NoSites(i), p_ClientNoFmt, p_UserName)
+			End If
+		Next
+	End If	
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPCNC, gc_Element_SDSPCNC, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SDSPCNC_ModifierProp"><lotusscript>Function SDSPCNC_ModifierProp (pnd_Prop As NotesDocument, p_ClientNoFmt As String, p_UserName As String) As Boolean
+	'------------------------------------------------------------------------
+	' Ce script permet de maj. le no de client des Propositions de SDSP3
+	'-------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim v_Maj As Boolean
+	
+	' Initialisations
+	SDSPCNC_ModifierProp = False
+	Call SIGE_OuvrirLog(gc_TypeElement_SDSPCNC, gc_Element_SDSPCNC)
+	Call SDSPCNC_Initialisations
+	
+	If pnd_Prop Is Nothing Then
+		Call SIGE_AjouterLog("*ERREUR* Document proposition manquant.", 1, 0, False)
+		GoTo EnregistrerLog
+	End If
+	
+	v_Maj = SDSPCNC_ModifierInfoClient(pnd_Prop, "Prop", p_ClientNoFmt, p_UserName)
+	If v_Maj Then
+		SDSPCNC_ModifierProp = True
+		Call SDSPCNC_MajSites (pnd_Prop, p_ClientNoFmt, p_UserName)  'Maj Sites
+		Call SDSPCNC_ModifierC3 (pnd_Prop, p_ClientNoFmt, p_UserName)  'Maj SDS Commissions 3
+	Else
+		Call SIGE_AjouterLog("*ERREUR* Erreur maj de la proposition - " &amp; xVar(pnd_Prop, "Prop_NbPropositionFmt", ""), 1, 0, False)
+	End If
+	
+EnregistrerLog:
+	Call SIGE_EnregistrerLog
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPCNC, gc_Element_SDSPCNC, GetThreadInfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073639,56-05</datetime></item></scriptlibrary>
+
+</database>

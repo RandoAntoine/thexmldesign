@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Outils\Profil personnel\Supprimer" alias="A_OSPers" hide="v3" publicaccess="false" designerversion="8.5.3" comment="1.1" restrictions="unrestricted" enabled="false">
+<noteinfo noteid="55587a" unid="F440C2E025C5859D852588AF006A719E" sequence="41">
+<created><datetime dst="true">20220831T152239,02-04</datetime></created>
+<modified><datetime>20260105T014837,98-05</datetime></modified>
+<revised><datetime>20230126T113009,92-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,97-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,97-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20230126T113009,75-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="runonce"/><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Arrays"
+Use "SI_Extractions"
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	Dim ns As New Notessession
+	Dim ndb As Notesdatabase
+	Dim nnc As NotesNoteCollection
+	
+	Dim v_Roles As Variant
+	Dim v_NotesID As String
+	Dim nd As Notesdocument
+	Dim v_NbProfil As Long
+	Dim v_aCle() As String
+	Dim v_Continue As Integer
+	
+	Dim v_Selection As Variant
+	Dim nuiws As New Notesuiworkspace
+	
+	' Doit avoir le rôle Admin pour utiliser cette action
+	v_Roles = Evaluate(|@IsMember("[Admin]"; @UserRoles)|)
+	If v_Roles(0) &lt;&gt; 1 Then
+		Messagebox "Vous n'êtes pas autorisé à utiliser cette action.", 16, "Opération annulée"
+		Exit Sub
+	End If
+	
+	' Extraire les documents de profil
+	Set ndb = ns.Currentdatabase
+	Set nnc = ndb.CreateNoteCollection(False)
+	nnc.SelectProfiles = True
+	Call nnc.BuildCollection
+	
+	' Bâtir la liste des documents de profil
+	v_NbProfil = -1
+	v_NotesID = nnc.GetFirstNoteId
+	Do Until v_NotesID = ""
+		Set nd = ndb.GetDocumentByID(v_NotesID)
+		v_NbProfil = v_NbProfil + 1
+		Redim Preserve v_aCle(v_NbProfil) As String
+		v_aCle(v_NbProfil) = xVar(nd, "$NAME", "") &amp; ":" &amp; v_NotesID
+		v_Continue = True
+		
+		v_NotesID = nnc.GetNextNoteId(v_NotesID)
+	Loop
+	
+	If v_Continue Then
+		Call TrierArray(v_aCle)
+		' Demander à l'utilisateur de sélectionner le profil à supprimer
+		v_Selection = nuiws.Prompt(PROMPT_OKCANCELLIST, "Suppression d'un profil", _
+		"Sélectionnez le document de profil à supprimer.", "", v_aCle)
+		If v_Selection &lt;&gt; "" Then
+			' Supprimer le document de profil
+			v_NotesID = Strrightback(v_Selection, ":")
+			Set nd = ndb.GetDocumentByID(v_NotesID)
+			Call nd.Remove(True)
+		End If
+	Else
+		Messagebox "Il n'y a aucun document de profil dans la base de documents.", 16, _
+		"Opération annulée"
+	End If
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20131028T122521,82-05</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20230126T113009,92-05</datetime></item></agent>
+
+</database>

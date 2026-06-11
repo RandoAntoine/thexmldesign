@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="act_Envoyer.gif" alias="act_Envoyer" publicaccess="false" designerversion="5" imagename="Envoyer.gif">
+<noteinfo noteid="1892" unid="ED0BA21F323AC61B852582660057DB74" sequence="5">
+<created><datetime dst="true">20180405T115938,12-04</datetime></created>
+<modified><datetime dst="true">20200418T100756,29-04</datetime></modified>
+<revised><datetime dst="true">20200417T095550,61-04</datetime></revised>
+<lastaccessed><datetime dst="true">20200418T100756,28-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205710,06-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby><gif>
+R0lGODlhFAAUAPcAAP////f39+/v7+Hh4dLS0sDAwLKysqKioo+Pj4CAgF9fX09PT8DAwC8vLwAg
+HwAAAAAABwCQsggAAAAAAIzmBgCIBgcAQOcGANuA+3fQmPh3/////1DnBgDsnPx36BIHAJiyCAAA
+AAAAAAAAAAAAAwDgxCMAAkAAgAIAAAAg5wYAVgyld6DxBgBgIKR34MQjAMCOBwDQ5AYAUDyyd1Dy
+BgBfk9R3MEvTd/////9U5wYAqhyldwgVpXdaFaV3IOcGAAAABwBU5wYARQAAANND+Xd4EwcAAAAH
+AEUAAADQIQcALOcGAAACAADk6AYA24D7dxhE+Xf/////9OgGABaY/Hd4EwcACgIAABoCAAAAAAAA
+mLIIABwcpXeYsggAZMQjAMjDIwBwv6d3rgAAAAMDAAAAAAAAwAAAAAAAAEZDADoAXABEAE8AQwBV
+AE0ARQBOAFQAUwAgAEEATgBEACAAUwBFAFQAVABJAE4ARwBTAFwAUABBAFQAUgBJAEMASwBCAFwA
+TQBFAFMAIABEAAE3+XdEAQAAAAAAAAAAAAAAAAAAHOgGACgACQAAAAAAAAAAAAAAAAAAAAAAAAAA
+ACQAAgAAAAAAAAAAAAAAAAB4lHQABgAIACyz+Hdw0fx3YE75d0ZO+XcIAgAAGgIAANAhBwAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAMAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEPoBgAs
+6QYABgAAAAAABwADAAAAAAAAAAYACAKIBgcABgAIAHiUdAAAmPh3QwAAAC7pBgAAAAAAAAAAAAYA
+AACA2AgAAAAAAAAAAAAA4P1/AOD9f4jrBgDbgPt3aE75d/////+Y6wYAGgIAAAgAAACY6wYALLP4
+d3DR/Hf4Qfh30EH4dwTvBgAAAAAAAAAAAAAAAADc6QYATwAAAAAABwACAAAAQwA6AFwAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAAUALAAAAAAUABQA
+AAitAAsIHNjAwYODDxw0GMiQYEIEBQQIKIDA4MKGBRw4MACgo8eOBjQ2VPixpMeCBB2YXAlAocAH
+HFmWNPCgQEGZKxU6QICwAMKfQCvW/JiwQICPAxIY9PnT54CMBwIIUGAQwAMAAg4K8HgVAIEFBRVs
+tYq1adeOBMZ27Opz51qcXSsWrAm0bleXMHF+pCnwpt6OLgWS1IuSocaYJkM6wGjzYcSJQi8ytmkQ
+YWCGAQEAOw==
+</gif></imageresource>
+
+</database>

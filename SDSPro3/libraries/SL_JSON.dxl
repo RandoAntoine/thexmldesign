@@ -1,0 +1,377 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SL_JSON" hide="v3 v4strict" designerversion="8.5.3" comment="1.2">
+<noteinfo noteid="555996" unid="D2DDEF45EEA1AD7185258C510047C13B" sequence="8">
+<created><datetime>20250318T080345,23-05</datetime></created>
+<modified><datetime>20260105T014838,51-05</datetime></modified>
+<revised><datetime>20250319T073633,75-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,50-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,50-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+'Use "SI_Extractions"
+Use "SI_GestionErreurs"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SLJS As NotesSession
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SLJS = "SL"
+Const gc_Element_SLJS = "SL_JSON"
+
+</lotusscript></code><code event="SLJS_RetirerPointeurs"><lotusscript>'===========================================================================================================================
+Function SLJS_RetirerPointeurs(p_JSON As String, pa_Pointeurs As Variant) As Integer
+	On Error GoTo GererErreur
+	
+	Dim i As Integer
+	
+	SLJS_RetirerPointeurs = 0
+	Call SLJS_Initialisations
+	
+	If Not IsArray(pa_Pointeurs) Then
+		Exit Function
+	End If
+	
+	For i = LBound(pa_Pointeurs) To UBound(pa_Pointeurs)
+		SLJS_RetirerPointeurs = SLJS_RetirerPointeurs + SLJS_RetirerPointeur(p_JSON, pa_Pointeurs(i))
+	Next
+	
+	Exit Function
+	
+GererErreur:
+	SLJS_RetirerPointeurs = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SLJS, gc_Element_SLJS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SLJS_RetirerPointeur"><lotusscript>'===========================================================================================================================
+Function SLJS_RetirerPointeur(p_JSON As String, p_Pointeur As String) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_JSON As String
+	Dim i As Integer
+	Dim v_Pos As Long
+	Dim v_Debut As Long
+	Dim v_Fin As Long
+	Dim v_Continue As Boolean
+	Dim xxx As String
+	
+	SLJS_RetirerPointeur = 0
+	Call SLJS_Initialisations
+	
+	If p_JSON = "" Or p_Pointeur = "" Then
+		Exit Function
+	End If
+	v_JSON = p_JSON
+	v_Debut = 1
+	
+	v_Pos = InStr(v_Debut, v_JSON, p_Pointeur)
+	Do While v_Pos &gt; 0
+		v_Continue = False
+		v_Debut = v_Pos - 1
+		v_Fin = v_Pos + 1
+		
+		' Trouver la fin du pointeur précédent (,)
+		If Mid(v_JSON, v_Debut, 1) = |"| Then
+			v_Debut = v_Debut - 1	
+			Do Until Mid(v_JSON, v_Debut, 1) &lt;&gt; " " 
+				v_Debut = v_Debut - 1
+			Loop
+			If Mid(v_JSON, v_Debut, 1) = |,| Then
+				v_Debut = v_Debut + 1
+				v_Continue = True
+			End If
+		End If
+		
+		If v_Continue Then
+			v_Continue = False
+			
+			' Trouver le séparateur (:)
+			v_Pos = v_Pos + Len(p_Pointeur)
+			If Mid(v_JSON, v_Pos, 1) = |"| Then
+				v_Pos = v_Pos + 1
+				Do Until Mid(v_JSON, v_Debut, 1) &lt;&gt; " " 
+					v_Pos = v_Pos - 1
+				Loop
+				If Mid(v_JSON, v_Pos, 1) = ":" Then
+					v_Pos = v_Pos + 1
+
+					' Trouver le début de la valeur du pointeur
+					Do Until Mid(v_JSON, v_Pos, 1) &lt;&gt; " " 
+						v_Pos = v_Pos + 1
+					Loop
+
+					v_Continue = True
+				End If
+			End If
+		End If
+		
+		If v_Continue Then 	
+			' Si une chaîne de caractères, trouver la fin de la chaîne
+			If Mid(v_JSON, v_Pos, 1) = |"| Then
+				v_Pos = InStr(v_Pos + 1, v_JSON, |"|)
+			End If
+			
+			' Trouver la fin du pointeur (,)
+			v_Fin = InStr(v_Pos + 1, v_JSON, |,|)
+			If v_Fin &gt; 0 Then
+				'Retirer le pointeur du JSON
+				v_JSON = Left(v_JSON, v_Debut - 1) &amp; Right(v_JSON, Len(v_JSON) - v_Fin)
+				SLJS_RetirerPointeur = SLJS_RetirerPointeur + 1
+			Else
+				v_Debut = v_Fin
+			End If
+		Else
+			v_Debut = v_Fin
+		End If
+		
+		v_Pos = InStr(v_Debut, v_JSON, p_Pointeur)
+	Loop
+	
+	p_JSON = v_JSON
+	Exit Function	
+	
+GererErreur:
+	SLJS_RetirerPointeur = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SLJS, gc_Element_SLJS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SLJS_ExtraireListe_Element"><lotusscript>'===========================================================================================================================
+Function SLJS_ExtraireListe_Element(pnjsone As NotesJSONElement, p_NomElement As String, pl_Liste List As Variant) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_NomElement As string
+	Dim njsona As NotesJSONArray
+	Dim njsono As NotesJSONObject
+	Dim l_Liste List As Variant
+	Dim v_Liste As Variant
+	Dim a_Liste() As Variant
+	
+	SLJS_ExtraireListe_Element = 0
+	If pnjsone.Name &lt;&gt; "" Then
+		v_NomElement = pnjsone.Name
+	ElseIf p_NomElement &lt;&gt; "" Then
+		v_NomElement = p_NomElement
+	Else
+		v_NomElement = xUnique("")
+	End If
+	
+	Select Case pnjsone.Type
+		Case 1:											' Object
+			Set njsono = pnjsone.Value
+			Call SLJS_ExtraireListe_Objet(njsono, v_NomElement, l_Liste)
+			v_Liste = l_Liste
+			pl_Liste(v_NomElement) = v_Liste
+		Case 2:											' Array
+			Set njsona = pnjsone.Value
+			Call SLJS_ExtraireListe_Array(njsona, v_NomElement, v_Liste)
+'			v_Liste = a_Liste
+			pl_Liste(v_NomElement) = v_Liste
+'			pl_Liste(v_NomElement) = ""
+		Case 3:											' String
+			pl_Liste(v_NomElement) = pnjsone.Value
+		Case 4:											' Number
+			pl_Liste(v_NomElement) = CDbl(pnjsone.Value)
+		Case 5:											' Boolean
+			pl_Liste(v_NomElement) = Cbool(pnjsone.Value)
+		Case 64:										' Empty
+			pl_Liste(v_NomElement) = ""
+		Case Else: 
+			Exit function
+	End Select
+	
+	SLJS_ExtraireListe_Element = 1
+	Exit Function	
+	
+GererErreur:
+	SLJS_ExtraireListe_Element = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SLJS, gc_Element_SLJS, GetThreadInfo(1), p_NomElement, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SLJS_ExtraireListe"><lotusscript>'===========================================================================================================================
+Function SLJS_ExtraireListe(p_JSON As String, pl_Liste List As Variant) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_JSON As string
+	Dim njsonn As NotesJSONNavigator
+	Dim njsone As NotesJSONElement
+	
+	SLJS_ExtraireListe = 0
+	Call SLJS_Initialisations
+	Erase pl_Liste
+	v_JSON = Replace(Replace(p_JSON, Chr(13), ""), Chr(10), "")
+	
+	Set njsonn = gns_SLJS.Createjsonnavigator(v_JSON)
+	Set njsone = njsonn.Getfirstelement
+	Do Until njsone Is Nothing
+		Select Case SLJS_ExtraireListe_Element(njsone, "", pl_Liste)
+		Case 1 :
+			SLJS_ExtraireListe = 1
+		Case 0 :
+		Case Else :
+			SLJS_ExtraireListe = -1
+			Exit Function
+	End Select
+
+		Set njsone = njsonn.Getnextelement
+	Loop
+	Exit Function	
+	
+GererErreur:
+	SLJS_ExtraireListe = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SLJS, gc_Element_SLJS, GetThreadInfo(1), "", False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SLJS_Initialisations"><lotusscript>'===========================================================================================================================
+Sub SLJS_Initialisations
+	If gns_SLJS Is Nothing Then
+		Set gns_SLJS = New NotesSession
+'		Set gndb_SLJS = gns_SLJS.CurrentDatabase
+	End If
+End Sub
+
+</lotusscript></code><code event="SLJS_ExtraireListe_Objet"><lotusscript>'===========================================================================================================================
+Function SLJS_ExtraireListe_Objet(pnjsono As NotesJSONObject, p_NomObjet As String, pl_Liste List As Variant) As Integer
+	On Error GoTo GererErreur
+	
+	Dim njsone As NotesJSONElement
+	
+	SLJS_ExtraireListe_Objet = 0
+	
+	Set njsone = pnjsono.GetFirstelement
+	Do Until njsone Is Nothing
+		Select Case SLJS_ExtraireListe_Element(njsone, p_NomObjet, pl_Liste)
+		Case 1 :
+			SLJS_ExtraireListe_Objet = 1
+		Case 0 :
+		Case else :
+			SLJS_ExtraireListe_Objet = -1
+			Exit function
+	End Select
+		
+		Set njsone = pnjsono.Getnextelement
+	Loop
+	Exit Function	
+	
+GererErreur:
+	SLJS_ExtraireListe_Objet = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SLJS, gc_Element_SLJS, GetThreadInfo(1), p_NomObjet, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SLJS_ExtraireListeParPointeur"><lotusscript>'===========================================================================================================================
+Function SLJS_ExtraireListeParPointeur(p_JSON As String, p_Pointeur As String, pl_Liste List As Variant) As Integer
+	On Error GoTo GererErreur
+	
+	Dim v_JSON As String
+	Dim njsonn As NotesJSONNavigator
+	Dim njsone As NotesJSONElement
+	
+	SLJS_ExtraireListeParPointeur = 0
+	Call SLJS_Initialisations
+	If p_Pointeur = "" Then
+		Exit function
+	End If
+	Erase pl_Liste
+	v_JSON = Replace(Replace(p_JSON, Chr(13), ""), Chr(10), "")
+
+	Set njsonn = gns_SLJS.Createjsonnavigator(v_JSON)
+	Set njsone = njsonn.Getelementbypointer(p_Pointeur)
+	SLJS_ExtraireListeParPointeur = SLJS_ExtraireListe_Element(njsone, "", pl_Liste)
+	Exit Function	
+	
+GererErreur:
+	SLJS_ExtraireListeParPointeur = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SLJS, gc_Element_SLJS, GetThreadInfo(1), p_Pointeur, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SLJS_ExtraireListe_Array"><lotusscript>'===========================================================================================================================
+Function SLJS_ExtraireListe_Array(pnjsona As NotesJSONArray, p_NomArray As String, pa_Liste As Variant) As Integer
+	' **********************  Cette fonction n'est pas entièrement fonctionnelle (!)
+	On Error GoTo GererErreur
+	
+	Dim i As integer
+	Dim njsone As NotesJSONElement
+	ReDim a_Liste(1000) As Variant
+	Dim l_Liste List As Variant
+	
+	SLJS_ExtraireListe_Array = 0
+	If p_NomArray = "" Then
+		p_NomArray = xUnique("")
+	End If
+	i = -1
+	
+	Set njsone = pnjsona.Getfirstelement
+	Do Until njsone Is Nothing
+
+		Select Case SLJS_ExtraireListe_Element(njsone, CStr(i + 1), l_Liste)
+		Case 1 :
+			i = i + 1
+			If i &gt; 0 And (i Mod 1000) = 0 Then
+				ReDim Preserve a_Liste(UBound(a_Liste) + 1000) As Variant
+			End If
+			
+			a_Liste(i) = l_Liste
+			SLJS_ExtraireListe_Array = 1
+		Case 0 :
+		Case Else :
+			SLJS_ExtraireListe_Array = -1
+			Exit Function
+	End Select
+
+		Set njsone = pnjsona.Getnextelement
+	Loop
+
+	If i &gt;= 0 then
+		ReDim Preserve a_Liste(i) As Variant
+		pa_Liste = a_Liste
+		SLJS_ExtraireListe_Array = i + 1
+	End If
+	Exit Function	
+	
+GererErreur:
+	SLJS_ExtraireListe_Array = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SLJS, gc_Element_SLJS, GetThreadInfo(1), p_NomArray, False)
+	Exit Function
+End Function
+
+
+</lotusscript></code><code event="SLJS_ExtraireValeur_Pointeur"><lotusscript>'===========================================================================================================================
+Function SLJS_ExtraireValeur_Pointeur(pnjsonn As NotesJSONNavigator, p_Pointer As String) As Variant
+	On Error GoTo GererErreur
+	
+	Dim njsone As NotesJSONElement
+		
+	SLJS_ExtraireValeur_Pointeur = ""
+	
+	Set njsone = pnjsonn.GetElementByPointer(p_Pointer)
+	If njsone.Type = 2 Then
+		Set SLJS_ExtraireValeur_Pointeur = njsone.Value
+		Else
+		SLJS_ExtraireValeur_Pointeur = njsone.Value
+	End If
+	
+	Exit Function	
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SLJS, gc_Element_SLJS, GetThreadInfo(1), p_Pointer, False)
+	Exit Function
+End Function
+</lotusscript></code>
+<item name="$POID"><datetime>20250319T073633,75-05</datetime></item></scriptlibrary>
+
+</database>

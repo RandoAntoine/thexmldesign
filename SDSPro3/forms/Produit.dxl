@@ -1,0 +1,1080 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Produit" alias="F_Prod" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8.5.3" language="fr" type="response" conflictaction="mergeconflicts">
+<noteinfo noteid="2710f6" unid="C47F93B1C9309EA88525868B00765047" sequence="726">
+<created><datetime>20210301T163217,99-05</datetime></created>
+<modified><datetime>20250319T074053,38-05</datetime></modified>
+<revised><datetime>20250319T073756,47-05</datetime></revised>
+<lastaccessed><datetime>20250319T074053,37-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20230626T201612,50-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "F_Prod"
+
+</lotusscript></code></globals><code event="windowtitle"><formula>@If(@IsNewDoc; "Nouveau produit"; "Produit - " + Prod_CodeProduit )</formula></code><code event="querysave"><lotusscript>Sub Querysave(Source As Notesuidocument, Continue As Variant)
+	Call FProd_QuerySave(Source, Continue)	
+End Sub
+</lotusscript></code><code event="postopen"><lotusscript>Sub Postopen(Source As Notesuidocument)
+	Call FProd_PostOpen(Source)
+End Sub
+</lotusscript></code><code event="postsave"><lotusscript>Sub Postsave(Source As Notesuidocument)
+	Call FProd_PostSave(Source)
+End Sub
+</lotusscript></code><code event="queryrecalc"><lotusscript>Sub Queryrecalc(Source As Notesuidocument, Continue As Variant)
+	Call FProd_QueryRecalc(Source)
+End Sub</lotusscript></code>
+<actionbar borderstyle="none" bgcolor="#d2b06a" bordercolor="#2f2f2f"><actionbarstyle repeat="resize"><imageref name="bg_Actions"/></actionbarstyle>
+<actionbuttonstyle bgcolor="none"/><font size="8pt" style="bold"/><border/></actionbar>
+<background allowoverride="false"/>
+<body><richtext>
+<pardef id="1" leftmargin="1in" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_Langue"/></run><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_ServeurSDSBB"/></run><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_FichierSDSBB"/></run><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><sharedfieldref name="SF_Serveur"/></run><run><font size="8pt" color="red"/></run></par>
+<par def="1"><run><font size="8pt" color="red"/>Identificateurs : </run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Form"><code event="defaultvalue"><formula>"F_Prod"</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" style="bold underline" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Cle"><code event="defaultvalue"><formula>Prod_NoProposition + ";" + Prod_NoSite + ";" + Prod_CleProduit</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="18" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Description"><code event="defaultvalue"><formula>Prod_CodeProduit + ";" + Prod_DescProduitFR</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="27" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Titre"><code event="defaultvalue"><formula>Prod_DescProduitFR</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="36" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run></par>
+<pardef id="2" leftmargin="1in" hide="notes web mobile"/>
+<par def="2"><run><font size="8pt" color="red"/>Autres champs : </run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Prod_NoProposition"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Prod_NoSite"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="19" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Prod_NoProduit"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="25" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font color="red"/></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Prod_CleProduit"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="34" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prop_PropositionAcceptee_1"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="general" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@IfError(@DbLookup("" : "NoCache"; "";"V_Prop20"; Prod_NoProposition; "Prop_PropositionAcceptee"); "")</formula></code></field></run><run><font size="8pt" color="red"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_ModifierPrixSV_1"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="general" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@If(Prod_ClasseProduit != "SV";@False;
+@If(Prod_PrixModifiable != "1"; @False; @IsMember("[Directeur]"; @UserRoles) | @IsMember("[Technique]"; @UserRoles); @True; Prop_PropositionAcceptee_1 != "1" | Prod_TypeProduit != "1"))</formula></code></field></run><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Prop_TypeProposition_1"><code event="defaultvalue"><formula>@IfError(@DbLookup("" : "NoCache"; "";"V_Prop20"; Prod_NoProposition; "Prop_TypeProposition"); "")</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="52" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/><field type="text" kind="computedfordisplay" name="Prop_PropositionStatut_1"><code event="defaultvalue"><formula>@IfError(@DbLookup("" : "NoCache"; "";"V_Prop20"; Prod_NoProposition; "Prop_Statut"); "")</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="58" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/><field borderstyle="inset" type="number" kind="computed" name="Prod_NbUtilisateursLicense"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Prod_NoContratFmt_CS"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="70" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="8pt" color="red"/><field type="text" kind="computed" name="Prod_NoProduitSeq_CS"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="76" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="3" leftmargin="1in" rightmargin="100%" hide="notes web mobile"/><subformref name="Entete | SF_Ente"/>
+<pardef id="4"/>
+<par def="4"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="15.5625in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="6" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/>Proposition :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="7" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="8" keepwithnext="true" keeptogether="true"/>
+<par def="8"><run><font size="9pt"/></run><run><font size="9pt"/><computedtext><code event="value"><formula>@IfError(@DbLookup(""; ""; "V_Prop20"; Prod_NoProposition; 2); "")</formula></code></computedtext></run><run><font size="9pt" color="red"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/>Site :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="9" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="10" keepwithnext="true" keeptogether="true"/>
+<par def="10"><run><font size="9pt"/></run><run><font size="9pt"/><computedtext><code event="value"><formula>@IfError(@DbLookup(""; ""; "V_Site20"; Prod_NoSite; 3); "")</formula></code></computedtext></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="5" leftmargin="1in" rightmargin="100%"/>
+<par def="5"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="15.5521in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="12" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="12"><run><font size="8pt" style="bold" color="maroon"/>Produit</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="13" keepwithnext="true" keeptogether="true"/>
+<par def="13"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="4"><run><font size="3pt"/></run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="15.5625in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/>Classe :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="14" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="14"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_ClasseProduit"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 2); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="14"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_ClasseDescFR"><code event="defaultvalue"><formula>v_NomTable := "Prod_Classe_FR";
+v_Cle := Prod_ClasseProduit;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="14"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_ClasseDescEN"><code event="defaultvalue"><formula>v_NomTable := "Prod_Classe_EN";
+v_Cle := Prod_ClasseProduit;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="14"><run><font size="9pt" color="red"/><field type="number" kind="computed" name="Prod_ClasseIcone"><numberformat format="general" varying="true" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt" color="red"/></run></par>
+<par def="10"><run><font size="9pt"/><field type="text" kind="computedfordisplay" name="Prod_ClasseProduit_1"><code event="defaultvalue"><formula>@GetField("Prod_ClasseDesc" + SF_Langue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par></tablecell></tablerow></table>
+<pardef id="15" hide="notes web"/>
+<par def="15"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.3153in" refwidth="15.5625in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="1.5750in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="16" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="16"><run><font size="9pt"/>Produit :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="17" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen" enabled="false"><formula>!@IsNewDoc</formula></code></pardef>
+<par def="17"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="18" keepwithnext="true" keeptogether="true"/>
+<par def="18"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computed" name="Prod_CodeProduit"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 3); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="19" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="19"><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_DescProduitFR"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 4); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="19"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_DescProduitEN"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 5); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<pardef id="20" keepwithnext="true" keeptogether="true"/>
+<par def="20"><run><font size="9pt"/></run><run><font size="9pt" color="maroon"/><field type="text" kind="computedfordisplay" name="Prod_DescProduit_1"><code event="defaultvalue"><formula>@GetField("Prod_DescProduit" + SF_Langue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="maroon"/></run></par>
+<par def="19"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_DescContratFR"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 14); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="19"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_DescContratEN"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 15); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="20"><run><font size="9pt"/></run><run><font size="9pt" color="gray"/><field type="text" kind="computedfordisplay" name="Prod_DescContrat_1"><code event="defaultvalue"><formula>v_DescContrat := @GetField("Prod_DescContrat" + SF_Langue);
+@If(@GetField("Prod_DescProduit" + SF_Langue) = v_DescContrat; "";
+v_DescContrat)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="maroon"/></run></par></tablecell></tablerow></table>
+<par def="15"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="15.5625in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/>Catégorie :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="14"><run><font size="9pt"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_CategorieProduit"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 6); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="14"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_CategorieDescFR"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Cate20"; Prod_CategorieProduit; 4); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="14"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_CategorieDescEN"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Cate20"; Prod_CategorieProduit; 5); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="14"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="number" kind="computed" name="Prod_CategorieIcone"><numberformat format="general" varying="true" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Cate20"; Prod_CategorieProduit; 6); @ThisValue)</formula></code></field></run><run><font size="9pt" color="red"/></run></par>
+<par def="14"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_CategorieCode"><code event="defaultvalue"><formula>@IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Cate20"; Prod_CategorieProduit; 3); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="10"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computedfordisplay" name="Prod_CategorieDesc_1"><code event="defaultvalue"><formula>@GetField("Prod_CategorieDesc" + SF_Langue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="21" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Departement)</formula></code></pardef>
+<par def="21"><run><font size="9pt"/>Département :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="22" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Departement)</formula></code></pardef>
+<par def="22"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="23" hide="notes web mobile" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Departement)</formula></code></pardef>
+<par def="23"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_Departement"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="23"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_DepartementDescFR"><code event="defaultvalue"><formula>v_NomTable := "SDS_DepartementsFR";
+v_Cle := Prod_Departement;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="11" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="23"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_DepartementDescEN"><code event="defaultvalue"><formula>v_NomTable := "SDS_DepartementsEN";
+v_Cle := Prod_Departement;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; @Subset(@DbName; 1) : "SI_GDK.nsf"; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="11" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<pardef id="24" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Departement)</formula></code></pardef>
+<par def="24"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" kind="computedfordisplay" name="Prod_DepartementDesc_1"><code event="defaultvalue"><formula>@GetField("Prod_DepartementDesc" + SF_Langue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="15"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.3153in" rightmargin="100%" refwidth="15.5625in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="2.1146in" sizetofit="true"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="25" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="25"><run><font size="9pt"/>Quantité :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="26" align="right" hide="read print preview embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_Quantite != ""</formula></code></pardef>
+<par def="26"><run><font size="9pt"/></run><picture width="12px" height="16px"><imageref name="img_Obligatoire.gif|img_Obligatoire"/></picture><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="27" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="27"><run><font size="9pt" color="red"/><field defaultfocus="true" borderstyle="inset" type="text" kind="computed" name="Prod_QuantiteModifiable"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><code event="defaultvalue"><formula>@IfError(@DbLookup("" : "NoCache"; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 22); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="27"><run><font size="9pt" color="red"/><field defaultfocus="true" borderstyle="inset" type="text" kind="computed" name="Prod_RemettreQuantiteZero"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><code event="defaultvalue"><formula>@IfError(@DbLookup("" : "NoCache"; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 13); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<pardef id="28" hide="read print preview embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_QuantiteModifiable != "1"</formula></code></pardef>
+<par def="28"><run><font size="9pt"/><field defaultfocus="true" usenotesstyle="false" height="0.2340in" width="0.3938in" multiline="true" borderstyle="single" type="number" kind="editable" name="Prod_Quantite"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputtranslation"><formula>@If(@ThisValue = ""; 0; @ThisValue)</formula></code><code event="inputvalidation"><formula>@If(@IsNull(@ThisValue); @Success;
+@ThisValue &lt; 0; @Failure("The quantity is invalid.");
+@ThisValue = 0 &amp; @IsNull(Prod_CleParent) &amp; Prod_RemettreQuantiteZero != "1";@Failure("The quantity is invalid.");
+@Success)</formula></code><code event="onfocus"><lotusscript>Sub Onfocus(Source As Field)
+	Call FProd_Entering
+End Sub
+</lotusscript></code><code event="exiting"><lotusscript>Sub Exiting(Source As Field)
+	Call FProd_Exiting
+End Sub</lotusscript></code></field></run>  </par>
+<pardef id="29" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsDocBeingEdited &amp; Prod_QuantiteModifiable = "1"</formula></code></pardef>
+<par def="29"><run><font size="9pt"/><field defaultfocus="true" borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_Quantite_1"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_Quantite</formula></code></field></run> </par>
+<par def="27"><run><font size="9pt" color="red"/><field defaultfocus="true" borderstyle="inset" type="number" kind="computed" name="Prod_QuantiteListe"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><numberformat format="general" varying="true" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="30" hide="read print copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_QuantiteModifiee != "1"</formula></code></pardef>
+<par def="30"><run><font size="9pt"/></run><actionhotspot hotspotstyle="none"><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Croix.GIF|hs_Croix"/></picture><run><font size="9pt"/></run><code event="options"><lotusscript>Option Declare
+
+</lotusscript></code><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsQuantiteNonModifiable
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="31" hide="read print copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_QuantiteModifiee = "1" |  Prod_RemettreQuantiteZero != "1" | Prod_QuantiteModifiable = "1"</formula></code></pardef>
+<par def="31"><run><font size="9pt"/></run><actionhotspot hotspotstyle="none"><picture width="20px" height="20px" align="top"><imageref name="hs_Zero"/></picture><run><font size="9pt"/></run><code event="options"><lotusscript>Option Declare
+
+</lotusscript></code><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_HsRemettreQuantiteZero
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<par def="15"><run><font size="9pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.3153in" rightmargin="100%" refwidth="15.5625in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="25"><run><font size="9pt"/>Prix unitaire :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="32" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="32"><run><font size="9pt" color="red"/><field defaultfocus="true" borderstyle="inset" type="text" kind="computedfordisplay" name="Prod_Gratuit_1"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><code event="defaultvalue"><formula>@IfError(@DbLookup("" : ""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 20); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="32"><run><font size="9pt" color="red"/><field defaultfocus="true" borderstyle="inset" type="text" kind="computed" name="Prod_PrixModifiable"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><code event="defaultvalue"><formula>@IfError(@DbLookup("" : "NoCache"; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 7); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="32"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_TypePrix"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="32"><run><font size="9pt" color="red"/><field type="text" kind="computedfordisplay" name="Prod_TypePrixDescFrequ_1"><code event="defaultvalue"><formula>v_NomTable := "Prod_TypePrix_" + SF_Langue;
+v_Cle := Prod_TypePrix;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 11); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="32"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_TypePrixDescEN"><code event="defaultvalue"><formula>v_NomTable := "Prod_TypePrix_EN";
+v_Cle := Prod_TypePrix;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="32"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_TypePrixDescFR"><code event="defaultvalue"><formula>v_NomTable := "Prod_TypePrix_FR";
+v_Cle := Prod_TypePrix;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="33" hide="read copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_PrixModifie  != "1" | (Prod_PrixModifiable != "1" |  @IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles) | Prop_PropositionStatut_1 &gt;= "50")</formula></code></pardef>
+<par def="33"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.8660in" alignwithparagraph="true" multiline="true" borderstyle="single" type="number" kind="editable" name="Prod_PrixUnitaire"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputtranslation"><formula>@If(@ThisValue = ""; 0; @Round(@ThisValue; 0.01))</formula></code><code event="inputvalidation"><formula>@If(@ThisValue = ""; @Success; @ThisValue &lt; 0; @Failure("The unit price is invalid."); Prod_PrixModifie != "1"; @Success; @ThisValue &lt; Prod_CoutUnitaire &amp; Prod_Gratuit_1 !="1"; @Failure("The unit price cannot be less than the unit cost."); @Success)</formula></code><code event="onfocus"><lotusscript>Sub Onfocus(Source As Field)
+	Dim nuiws As New NotesUIWorkspace
+	If nuiws.CurrentDocument.EditMode Then
+		Call nuiws.CurrentDocument.Selectall
+	End If
+End Sub</lotusscript></code></field></run><run><font size="9pt"/> </run><run><font size="9pt"/><computedtext><code event="value"><formula>Prod_TypePrixDescFrequ_1</formula></code></computedtext></run><run><font size="9pt"/>  </run><actionhotspot hotspotstyle="none"><run><font size="9pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Croix"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsPrixNonModifiable
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="34" hide="read print copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_PrixModifie = "1" | (Prod_PrixModifiable != "1" |  @IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles) | Prop_PropositionStatut_1 &gt;= "50")</formula></code></pardef>
+<par def="34"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_PrixUnitaire_1"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_PrixUnitaire</formula></code></field></run><run><font size="9pt"/> </run><run><font size="9pt"/><computedtext><code event="value"><formula>Prod_TypePrixDescFrequ_1</formula></code></computedtext></run><run><font size="9pt"/>  </run><actionhotspot hotspotstyle="none"><run><font size="9pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Crayon"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsPrixModifiable
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="35" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsDocBeingEdited &amp; Prod_PrixModifiable = "1" &amp; !(@IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles) | Prop_PropositionStatut_1 &gt;= "50")</formula></code></pardef>
+<par def="35"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_PrixUnitaire_2"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_PrixUnitaire</formula></code></field></run> <run><font size="9pt"/><computedtext><code event="value"><formula>Prod_TypePrixDescFrequ_1</formula></code></computedtext></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="36" keepwithnext="true" keeptogether="true"/>
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="37" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="37"><run><font size="9pt"/>Prix total :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="38" keepwithnext="true" keeptogether="true"/>
+<par def="38"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="39" keepwithnext="true" keeptogether="true"/>
+<par def="39"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computed" name="Prod_PrixTotal"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>v_PrixTotal := Prod_Quantite * Prod_PrixUnitaire;
+"RoundUp";
+@If(v_PrixTotal - @Integer(v_PrixTotal) &gt;0;@Integer(v_PrixTotal) +1
+;@Integer(v_PrixTotal))</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="25"><run><font size="9pt"/>Coût unitaire :</run></par>
+<par def="25"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="32"><run><font size="9pt" color="red"/><field defaultfocus="true" borderstyle="inset" type="text" kind="computed" name="Prod_CoutModifiable"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><code event="defaultvalue"><formula>@IfError(@DbLookup("" : "NoCache"; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 8); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par>
+<pardef id="40" hide="read print copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_CoutModifie != "1"</formula></code></pardef>
+<par def="40"><run><font size="9pt"/></run><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.8660in" multiline="true" borderstyle="single" type="number" kind="editable" name="Prod_CoutUnitaire"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="inputtranslation"><formula>@If(@ThisValue = ""; 0; @Round(@ThisValue; 0.01))</formula></code><code event="inputvalidation"><formula>@If(@ThisValue = ""; @Success; @ThisValue &lt; 0; @Failure("The unit cost is invalid."); @Success)</formula></code><code event="onfocus"><lotusscript>Sub Onfocus(Source As Field)
+	Dim nuiws As New NotesUIWorkspace
+	If nuiws.CurrentDocument.EditMode Then
+		Call nuiws.CurrentDocument.Selectall
+	End If
+End Sub</lotusscript></code></field></run><run><font size="9pt"/>  </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsCoutNonModifiable	
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="41" hide="read print copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_CoutModifie = "1" | Prod_CoutModifiable != "1"</formula></code></pardef>
+<par def="41"><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_CoutUnitaire_1"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_CoutUnitaire</formula></code></field></run><run><font size="9pt"/>  </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Crayon"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsCoutModifiable
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="42" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsDocBeingEdited &amp; Prod_CoutModifiable = "1"</formula></code></pardef>
+<par def="42"><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_CoutUnitaire_2"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_CoutUnitaire</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/>Coût total :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="39"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computed" name="Prod_CoutTotal"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_Quantite * Prod_CoutUnitaire</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="25"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="9"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="43" keepwithnext="true" keeptogether="true"/>
+<par def="43"><run><font size="9pt" color="red"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/>Profit :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="38"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="39"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computed" name="Prod_Profit"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="true" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_PrixTotal - Prod_CoutTotal</formula></code></field></run><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="44" leftmargin="1in" rightmargin="3in" hide="notes web mobile"/>
+<par def="44"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<par def="4"/>
+<table widthtype="fitmargins" minrowheight="0.3153in" rightmargin="100%" refwidth="15.5625in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/><tablecolumn width="0.1500in"/><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="50%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<pardef id="45" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_ClasseProduit != "LG"</formula></code></pardef>
+<par def="45"><run><font size="9pt"/>Volume calculé :</run></par>
+<par def="45"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="46" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_ClasseProduit != "LG"</formula></code></pardef>
+<par def="46"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="47" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="47"><run><font size="9pt" color="red"/><field defaultfocus="true" borderstyle="inset" type="text" kind="computed" name="Prod_NbUtilisateursObligatoire"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><code event="defaultvalue"><formula>@IfError(@DbLookup("" : "NoCache"; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 21); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="48" hide="notes web mobile" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Departement)</formula></code></pardef>
+<par def="48"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_LibelleNbUtilisateursFR"><code event="defaultvalue"><formula>v_Valeur := @DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 23);
+@If(@IsError(v_Valeur); ""; @If(@IsNull(v_Valeur);"utilisateur(s)";@ThisValue))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="48"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_LibelleNbUtilisateursEN"><code event="defaultvalue"><formula>v_Valeur := @DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 24);
+@If(@IsError(v_Valeur); ""; @If(@IsNull(v_Valeur);"user(s)";@ThisValue))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="11" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="49" hide="read print copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_ClasseProduit != "LG" | (Prod_ClasseProduit = "LG" &amp; Prod_NbUtilisateursModifie != "1" | (Prod_NbUtilisateursObligatoire != "1" |  @IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles) | Prop_PropositionStatut_1 &gt;= "50") )</formula></code></pardef>
+<par def="49"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.3938in" alignwithparagraph="true" multiline="true" borderstyle="single" type="number" kind="editable" name="Prod_NbUtilisateursCalcule"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/> </run><run><font size="9pt"/><computedtext><code event="value"><formula>@GetField("Prod_LibelleNbUtilisateurs" + SF_Langue)</formula></code></computedtext></run><run><font size="9pt"/>  </run><actionhotspot hotspotstyle="none"><picture width="20px" height="20px" align="top"><imageref name="hs_Croix.GIF|hs_Croix"/></picture><run><font size="9pt"/></run><code event="options"><lotusscript>Option Declare
+
+</lotusscript></code><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsNbUtilisateursNonModifiable
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="9pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Prix.gif"/></picture><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsAfficherPrix
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="50" hide="read print copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_ClasseProduit != "LG" | (Prod_ClasseProduit = "LG" &amp; Prod_NbUtilisateursModifie = "1" | (Prod_NbUtilisateursObligatoire != "1" |  @IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles) | Prop_PropositionStatut_1 &gt;= "50") )</formula></code></pardef>
+<par def="50"><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_NbUtilisateursCalcule_1"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_NbUtilisateursCalcule</formula></code></field></run> <run><font size="9pt"/><computedtext><code event="value"><formula>@GetField("Prod_LibelleNbUtilisateurs" + SF_Langue)</formula></code></computedtext></run>  <actionhotspot hotspotstyle="none"><picture width="20px" height="20px" align="top"><imageref name="hs_Crayon.GIF|hs_Crayon"/></picture><run><font size="9pt"/></run><code event="options"><lotusscript>Option Declare
+
+</lotusscript></code><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsNbUtilisateursModifiable
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/> </run><actionhotspot hotspotstyle="none"><picture width="20px" height="20px" align="top"><imageref name="hs_Prix.gif"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsAfficherPrix
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="51" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_ClasseProduit != "LG" | (Prod_ClasseProduit = "LG" &amp; @IsDocBeingEdited &amp; Prod_NbUtilisateursObligatoire = "1") &amp; !(
+@IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles) | Prop_PropositionStatut_1 &gt;= "50")</formula></code></pardef>
+<par def="51"><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_NbUtilisateursCalcule_2"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_NbUtilisateursCalcule</formula></code></field></run><run><font size="9pt"/> </run><run><font size="9pt"/><computedtext><code event="value"><formula>@GetField("Prod_LibelleNbUtilisateurs" + SF_Langue)</formula></code></computedtext></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="52" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_ClasseProduit != "LG"</formula></code></pardef>
+<par def="52"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="53" leftmargin="0.0785in" tabs="L0.5000in L1in L1.5000in L2in L2.5000in L3in L3.5000in L4in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_ClasseProduit != "LG"</formula></code></pardef>
+<par def="53"><run><font size="9pt"/>Départements calculés :</run></par>
+<par def="53"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="54" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_ClasseProduit != "LG"</formula></code></pardef>
+<par def="54"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="55" hide="notes web mobile" keepwithnext="true" keeptogether="true"/>
+<par def="55"><run><font size="9pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="Prod_DepartementsSDS" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="55"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="Prod_DepartementsSDSDescFR" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>v_NomTable := "Prod_DepartementsFR";
+v_Cle := Prod_DepartementsSDS;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="55"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" allowmultivalues="true" kind="computed" name="Prod_DepartementsSDSDescEN" listinputseparators="comma semicolon" listdisplayseparator="semicolon"><code event="defaultvalue"><formula>v_NomTable := "Prod_DepartementsEN";
+v_Cle := Prod_DepartementsSDS;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<pardef id="56" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_ClasseProduit != "LG"</formula></code></pardef>
+<par def="56"><run><font size="9pt"/></run><run><font size="9pt"/><field type="text" allowmultivalues="true" kind="computedfordisplay" name="Prod_DepartementSDSDesc_1" listinputseparators="comma semicolon" listdisplayseparator="comma"><code event="defaultvalue"><formula>@GetField("Prod_DepartementsSDSDesc" + SF_Langue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="25"><run><font size="9pt"/>Volume du prix :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="57" keepwithnext="true" keeptogether="true"/>
+<par def="57"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="58" keepwithnext="true" keeptogether="true"/>
+<par def="58"><run><font size="9pt"/></run><run><font size="9pt"/><computedtext><code event="value"><formula>@Text(Prod_NbUtilisateursLicense) + " " + @GetField("Prod_LibelleNbUtilisateurs" + SF_Langue)</formula></code></computedtext></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="36"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="59" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Garantie)</formula></code></pardef>
+<par def="59"><run><font size="9pt"/>Garantie :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="60" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Garantie)</formula></code></pardef>
+<par def="60"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="61" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Garantie)</formula></code></pardef>
+<par def="61"><run><font size="9pt"/><field type="number" kind="computed" name="Prod_Garantie"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><run><font size="9pt"/> mois</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="25"><run><font size="9pt"/>Frais d'entretien :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="62" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Garantie)</formula></code></pardef>
+<par def="62"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="47"><run><font size="9pt" color="red"/><field defaultfocus="true" borderstyle="inset" type="text" kind="computed" name="Prod_FraisEntretienModifiable"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><code event="defaultvalue"><formula>@IfError(@DbLookup("" : "NoCache"; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Prod20"; Prod_CleProduit; 16); @ThisValue)</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="63" hide="read copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_FraisEntretienMensuelsModifie != "1" |  Prod_FraisEntretienModifie = "1" |
+Prod_FraisEntretienModifiable != "1" | Prop_PropositionStatut_1 &gt;= "50" |
+@IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles)</formula></code></pardef>
+<par def="63"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.8660in" alignwithparagraph="true" multiline="true" borderstyle="single" type="number" kind="editable" name="Prod_FraisEntretienMensuels"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code><code event="inputtranslation"><formula>@If(@ThisValue = ""; 0; @Round(@ThisValue; 0.01))</formula></code><code event="inputvalidation"><formula>@If(@ThisValue = ""; @Success; @ThisValue &lt; 0; @Failure("The monthly maintenance fee is invalid."); @Success)</formula></code><code event="entering"><lotusscript>Sub Entering(Source As Field)
+	Call FProd_Entering
+End Sub
+</lotusscript></code><code event="exiting"><lotusscript>Sub Exiting(Source As Field)
+	Call FProd_Exiting
+End Sub</lotusscript></code></field></run><run><font size="9pt"/> par mois  </run><actionhotspot hotspotstyle="none"><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Croix"/></picture><code event="options"><lotusscript>Option Declare
+
+</lotusscript></code><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsFraisEntretienMensNonModifiable
+End Sub</lotusscript></code></actionhotspot></par>
+<pardef id="64" hide="read print copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_FraisEntretienModifie = "1" |
+Prod_FraisEntretienMensuelsModifie = "1" | Prod_FraisEntretienModifiable != "1" | Prop_PropositionStatut_1 &gt;= "50" |
+@IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles)</formula></code></pardef>
+<par def="64"><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_FraisEntretienMensuels_1"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_FraisEntretienMensuels</formula></code></field></run><run><font size="9pt"/> par mois  </run><actionhotspot hotspotstyle="none"><run><font size="9pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Crayon"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsFraisEntretienMensModifiable
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="65" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsDocBeingEdited &amp; (Prod_FraisEntretienModifiable = "1" &amp; Prod_FraisEntretienModifie != "1") &amp; !( Prop_PropositionStatut_1 &gt;= "50" |
+@IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles))</formula></code></pardef>
+<par def="65"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_FraisEntretienMensuels_2"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_FraisEntretienMensuels</formula></code></field></run> <run><font size="9pt"/>par mois</run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="66" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Garantie)</formula></code></pardef>
+<par def="66"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="37"><run><font size="9pt"/>Code de produit d'entretien :</run></par>
+<par def="37"><run><font size="3pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="60"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="55"><run><font size="9pt" color="red"/><field defaultfocus="true" borderstyle="inset" type="text" kind="computed" name="Prod_CleProduitAH"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="55"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_TypePrixAH"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<par def="55"><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_TypePrixAHDescEN"><code event="defaultvalue"><formula>v_NomTable := "Prod_TypePrix_EN";
+v_Cle := Prod_TypePrixAH;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par>
+<par def="55"><run><font size="9pt" color="red"/></run><run><font size="9pt" color="red"/><field type="text" kind="computed" name="Prod_TypePrixAHDescFR"><code event="defaultvalue"><formula>v_NomTable := "Prod_TypePrix_FR";
+v_Cle := Prod_TypePrixAH;
+
+@If(@IsNull(v_Cle); ""; @Replace(v_Cle; @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 4); ""); @IfError(@DbLookup(""; SF_ServeurSDSBB : SF_FichierSDSBB; "V_Tabl20"; v_NomTable; 5); "")))</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="10" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata></par>
+<pardef id="67" keepwithnext="true" keeptogether="true"/>
+<par def="67"><run><font size="9pt"/><field defaultfocus="true" borderstyle="inset" type="text" kind="computed" name="Prod_CodeProduitAH"><keywords helperbutton="false" recalconchange="true" columns="2" ui="radiobutton"/><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="8" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="25"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="57"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="68" hide="read copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_FraisEntretienModifie != "1"  | Prod_FraisEntretienMensuelsModifie = "1" | Prod_FraisEntretienModifiable != "1" | Prop_PropositionStatut_1 &gt;= "50" |
+@IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles)</formula></code></pardef>
+<par def="68"><run><font size="9pt"/><field usenotesstyle="false" height="0.2340in" width="0.8660in" alignwithparagraph="true" multiline="true" borderstyle="single" type="number" kind="editable" name="Prod_FraisEntretienAnnuels"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>@ThisValue</formula></code><code event="inputtranslation"><formula>@If(@ThisValue = ""; 0; @Round(@ThisValue; 0.01))</formula></code><code event="inputvalidation"><formula>@If(@ThisValue = ""; @Success; @ThisValue &lt; 0; @Failure("The maintenance fee is invalid."); @Success)</formula></code><code event="entering"><lotusscript>Sub Entering(Source As Field)
+	Call FProd_Entering
+End Sub
+</lotusscript></code><code event="exiting"><lotusscript>Sub Exiting(Source As Field)
+	Call FProd_Exiting
+End Sub</lotusscript></code></field></run><run><font size="9pt"/> par année  </run><actionhotspot hotspotstyle="none"><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Croix"/></picture><code event="options"><lotusscript>Option Declare
+
+</lotusscript></code><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsFraisEntretienNonModifiable
+End Sub</lotusscript></code></actionhotspot></par>
+<pardef id="69" hide="read print copy preview previewedit embedded" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prod_FraisEntretienMensuelsModifie = "1" |
+Prod_FraisEntretienModifie = "1" | Prod_FraisEntretienModifiable != "1" | Prop_PropositionStatut_1 &gt;= "50" |
+@IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles)</formula></code></pardef>
+<par def="69"><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_FraisEntretienAnnuels_1"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_FraisEntretienAnnuels</formula></code></field></run><run><font size="9pt"/> par année  </run><actionhotspot hotspotstyle="none"><run><font size="9pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in" align="top"><imageref name="hs_Crayon"/></picture><run><font size="9pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call FProd_hsFraisEntretienModifiable
+End Sub</lotusscript></code></actionhotspot><run><font size="9pt"/></run></par>
+<pardef id="70" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsDocBeingEdited &amp; (Prod_FraisEntretienModifiable = "1" &amp; Prod_FraisEntretienMensuelsModifie != "1") &amp; !(Prop_PropositionStatut_1 &gt;= "50" |
+@IsNotMember("[Directeur]" : "[Verificateur]" : "[Prod_ModiPrix]"; @UserRoles))</formula></code></pardef>
+<par def="70"><run><font size="9pt"/></run><run><font size="9pt"/><field borderstyle="inset" type="number" kind="computedfordisplay" name="Prod_FraisEntretienAnnuels_2"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_FraisEntretienAnnuels</formula></code></field></run> <run><font size="9pt"/>par année</run></par>
+<par def="47"><run><font size="9pt" color="red"/><field borderstyle="inset" type="number" kind="computed" name="Prod_FraisEntretienTotal"><keywords helperbutton="false" columns="4" ui="radiobutton"/><numberformat format="fixed" digits="2" punctuated="false" parens="true" percent="false" bytes="false"/><code event="defaultvalue"><formula>Prod_Quantite * Prod_FraisEntretienAnnuels</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="66"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="71" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Garantie)</formula></code></pardef>
+<par def="71"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="60"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<pardef id="72" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>@IsNull(Prod_Garantie)</formula></code></pardef>
+<par def="72"><run><font size="9pt"/></run></par></tablecell></tablerow></table>
+<pardef id="11" firstlineleftmargin="1in"/>
+<par def="11"><run><font size="9pt"/></run></par>
+<par def="44"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fitmargins" minrowheight="0.2757in" rightmargin="100%" refwidth="15.5625in"><tablecolumn width="1.5750in"/><tablecolumn width="0.1771in"/><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="0px">
+<par def="6"><run><font size="9pt"/>Notes :</run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="7"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px">
+<par def="8"><run><font size="9pt"/><field type="text" kind="computed" name="Prod_NotesCreation"><code event="defaultvalue"><formula>@ThisValue</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="6" containertype="65418" aftercontainercount="1" afterbegincount="3">
+Yg4BAIQAAAAAAAEAAAA=
+</compositedata><run><font size="9pt" color="red"/></run></par></tablecell></tablerow></table>
+<par def="44"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<par def="4"><run><font size="9pt"/></run></par>
+<table widthtype="fitmargins" cellbordercolor="#2f2f2f" refwidth="15.5521in"><tablecolumn width="100%"/>
+<tablerow>
+<tablecell borderwidth="1px 1px 0px" bgcolor="#e6eff4">
+<pardef id="73" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prop_TypeProposition_1 = "3" |
+@IsNull(@ServerName)</formula></code></pardef>
+<par def="73"><run><font size="8pt" style="bold" color="maroon"/>Log des modifications</run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="#bb8d09">
+<cellbackground><imageref><code event="value"><formula>"cl_" + @If(@IsNull(Theme); "SI"; Theme)</formula></code></imageref></cellbackground>
+<pardef id="74" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>Prop_TypeProposition_1 = "3" |
+@IsNull(@ServerName)</formula></code></pardef>
+<par def="74"><run><font size="1pt" style="bold"/></run></par></tablecell></tablerow></table>
+<pardef id="75" firstlineleftmargin="1in"><code event="hidewhen"><formula>Prop_TypeProposition_1 = "3" |
+@IsNull(@ServerName)</formula></code></pardef>
+<par def="75"><run><font size="3pt"/></run></par>
+<pardef id="76" hide="notes web mobile"/>
+<par def="76"><run><font size="8pt" color="red"/>KILO:</run></par>
+<pardef id="77" rightmargin="100%"><code event="hidewhen"><formula>Prop_TypeProposition_1 = "3" |
+@IsNull(@ServerName)  |
+SF_Serveur = "zulu"</formula></code></pardef>
+<par def="77"><run><font size="8pt" color="red"/></run><embeddedview name="V_Prod70" widthtype="fitwindow" width="97%" height="2in" scrollbars="true" database="8525803A00667548"><code event="showsinglecategory"><formula>Prod_NoProduit</formula></code></embeddedview><run><font size="9pt" color="red"/></run></par>
+<pardef id="78" rightmargin="100%"><code event="hidewhen"><formula>Prop_TypeProposition_1 = "3" |
+@IsNull(@ServerName)  |
+SF_Serveur != "zulu"</formula></code></pardef>
+<par def="78"><run><font size="8pt" color="red"/>ZULU:</run></par>
+<pardef id="79" leftmargin="1in" rightmargin="100%"><code event="hidewhen"><formula>Prop_TypeProposition_1 = "3" |
+@IsNull(@ServerName)  |
+SF_Serveur != "zulu"</formula></code></pardef>
+<par def="79"><run><font size="9pt"/></run><embeddedview name="V_Prod70" widthtype="fitwindow" width="97%" height="2in" scrollbars="true" database="85257FF4006F06B4"><code event="showsinglecategory"><formula>Prod_NoProduit</formula></code></embeddedview><run><font size="9pt"/></run></par>
+<pardef id="80" leftmargin="1in"/>
+<par def="80"><run><font size="9pt"/></run></par>
+<pardef id="81" leftmargin="1in" rightmargin="100%" hide="notes web"/><subformref name="Historique | SF_Histo"/>
+<par def="81"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<par def="81"><run><font size="8pt" color="red"/></run></par></richtext></body>
+<item name="$$Tabl_Valeurs" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Dim nuiws As New Notesuiworkspace
+	Dim nuid As Notesuidocument
+	Set nuid = nuiws.Currentdocument
+	Call nuid.Refresh
+End Sub<break/></text></item>
+<item name="$Tabl_Valeurs_O" sign="true">
+<rawitemdata type="14">
+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
+</rawitemdata></item>
+<item name="HistoDC_1" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Tabl_ValeurDefaut" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$$Pret_Contenu" summary="false" sign="true"><text>'++LotusScript Development Environment:2:5:(Options):0:66
+
+'++LotusScript Development Environment:2:5:(Forward):0:1
+Declare Sub Exiting(Source As Field)
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents(Byval Objectname_ As String)
+	Static Source As FIELD
+	Set Source = Bind(Objectname_)
+	On Event Exiting From Source Call Exiting
+End Sub
+
+'++LotusScript Development Environment:2:2:Exiting:1:12
+Sub Exiting(Source As Field)
+	Dim nuiws As New Notesuiworkspace
+	Dim nuid As Notesuidocument
+	Set nuid = nuiws.Currentdocument
+	Call nuid.Refresh
+End Sub<break/></text></item>
+<item name="$Pret_Contenu_O" sign="true">
+<rawitemdata type="14">
+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
+</rawitemdata></item>
+<item name="PRET_Quand" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="PRET_Retour" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="PRET_QUAND30" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Note_DateRelance" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Docu_Date" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="OriginalModTime" sign="true"><datetime>20061214T172750,79-05</datetime></item>
+<item name="DOCU_ICONETYPEDOCUMENT" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_Quantite" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_PrixUnitaire" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_PrixTotal" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_CoutUnitaire" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_CoutTotal" summary="false" sign="true"><number>0</number></item>
+<item name="Equi_Profit" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_NbUtilisateursLicenseSDS" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_NbUtilisateursLicenseSDSM" summary="false" sign="true"><number>0</number></item>
+<item name="HISTODP" summary="false" sign="true">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="Prod_FraisEntretienAlloc" summary="false" sign="true"><number>0</number></item>
+<item name="Prod_NotesInclus" summary="false"><number>0</number></item>
+<item name="$SCRIPTOBJ_0" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEQAvAAQAAAC8BAgCAAAAACQCmAI0AwAAAAAoAOgAHAA8AP//BAEA
+AAAAAAAAAAIAAAAYAGwBAAAAAGwBbAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAEAAABAAkACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEACQAIAAAAAAAAA
+AAAAAAAAAAAAAAAAAAQAAADMAPgDNAM0AwAAAAAAAAAAAAAAAPgD+APMAMwAAAAAAAAAAAAAAAAA
+AAAAAKQCpAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAALwAAAAAAAAC8BAAACAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAUAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAMAgAAAABYAAoAJABWADUAQQBDAFQASQBPAE4AUwAAAAAAcAADAE4ARQBXAAAAhAAGAEQA
+RQBMAEUAVABFAAAAAABIAQoASQBOAEkAVABJAEEATABJAFoARQAAAAAAsAAJAFQARQBSAE0ASQBO
+AEEAVABFAAAAjAAGAE8AQgBKAEUAQwBUAAAAAADUAAAAAAAAAP//DwAoAEcATABPAEIAQQBMAFMA
+KQBGAF8AUABSAE8ARAAAACABDwAoAEcAbABvAGIAYQBsAHMAKQBGAF8AUAByAG8AZAAAAP//BgBT
+AE8AVQBSAEMARQAAAAAANAEKAEIASQBOAEQARQBWAEUATgBUAFMAAAAAAFgBCwBPAEIASgBFAEMA
+VABOAEEATQBFAF8AAACIAQYAQgBVAFQAVABPAE4AAAAAAP//BgAlAEwAUwBJAEQARQAAAAAAtAEF
+AEMATABJAEMASwAAAP//FQBGAFAAUgBPAEQAXwBBAEMATQBPAEQASQBGAEkAQwBBAFQASQBPAE4A
+UwAAAJwBBgBGAF8AUABSAE8ARAAAAAAAyAEJAE4ATwBUAEUAUwBWAEkARQBXAAAA//8GACUATABT
+AFgAQgBFAAAAAADoAQ0ATgBPAFQARQBTAEQATwBDAFUATQBFAE4AVAAAAP//DQBOAE8AVABFAFMA
+RABBAFQAQQBCAEEAUwBFAAAABQDABAAAAABmWPs8GAAAAAAAkAAQ7LUMyJV9EQQAAAAIAAAAbAEA
+AOwAAAAAAAAAAgAAALAAXAEAAAAAAAAAAAAAAAAAAAAAsACwAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+XAFcAQAAAAAAAAAAAQAAAAIAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAQBcAQAACAEGCAAAAAAaAAAAOAH//wAA
+AAAQAAAApAIAACQBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAARYTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAAAABkAAAA
+AAAAAAAAAAAAAAAAAgDAAAAAFAIAAAAAWgQBAP//AAADACAAAAAAANgACQIAAMwACAAAAAAAAABM
+AQAAAAAAAAEAAAAEAgQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQC
+BAIAAAAAAAAAAAEAAAAHAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAEAAAAAANgACQIAAMwAEwAAAEwBAADVAAAA
+AAAAABgAAAAEAIwBwMjkGsiVfRGsAwAAIQAkAkgHAAAIAEAAAAAAAFwBAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAkC
+pAIJAjQDGgDAALgB//8AAAAAEAAAADQDAACgAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMUEyntLmkQv10A3QERhrcAAAAA
+AAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAIAmAIAAAAAzAAAAAIAAQD//wAAEAAEAPgDAADM
+AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAQUEyntLmkQv10A3QERhrcAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAA
+AAIAmALEAwAA+AMAAAIAAQD//wAAEgAUAAAAAAD//wkCAAAAAI0EAAAAADQDmAL//wAAAAAGAAIA
+AAAJAjQDCQI0AwkC+AMZABAAAAAAAAAA7AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACFBMp7S5pEL9dAN0BEYa3AAAAAAAA
+AAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAACAJgCiAQAAKQCAAACAAEA//8AABIAFAAAAAAA//8J
+AgAAAAASBAAAAAD4A5gC//8AAAAABgADAAAACQL4AwkC+AMGCAYIGQAEADMAAAAAANK0AB0AABoL
+AFtcAUmwAMrMAKYaDABHXAHL1QAAAGwBGg0AHRoRAClAAiMaEgAdAgAAABEAGAAAAAAA//8BAAMA
+AwAAAAYA7AAIAEwBDwAKAAAAAA==
+</rawitemdata></item>
+<item name="$SubForm_RepIDs" sign="true"><textlist><text>0000000000000000</text><text>0000000000000000</text></textlist></item>
+<item name="Prod_NbUtilisateursLicense" summary="false"><number>0</number></item>
+<item name="Prod_ClasseIcone" summary="false"><number>0</number></item>
+<item name="Prod_CategorieIcone" summary="false"><number>0</number></item>
+<item name="Prod_Quantite" summary="false"><number>0</number></item>
+<item name="PROD_QUANTITELISTE" summary="false"><number>0</number></item>
+<item name="PROD_PRIXUNITAIRE" summary="false"><number>0</number></item>
+<item name="PROD_PRIXTOTAL" summary="false"><number>0</number></item>
+<item name="PROD_COUTUNITAIRE" summary="false"><number>0</number></item>
+<item name="PROD_COUTTOTAL" summary="false"><number>0</number></item>
+<item name="Prod_Profit" summary="false"><number>0</number></item>
+<item name="PROD_NBUTILISATEURSCALCULE" summary="false"><number>0</number></item>
+<item name="Prod_Garantie" summary="false"><number>0</number></item>
+<item name="Prod_FraisEntretienMensuels" summary="false"><number>0</number></item>
+<item name="PROD_FRAISENTRETIENANNUELS" summary="false"><number>0</number></item>
+<item name="PROD_FRAISENTRETIENTOTAL" summary="false"><number>0</number></item>
+<item name="HistoDC" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="HistoDM" summary="false">
+<rawitemdata type="400">
+AAAAAAAAAAA=
+</rawitemdata></item>
+<item name="$Prod_Quantite_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEgBHAAQAAAB0BAgCAAAAANwCTANYAwAAAAAwAPAAJABEAP//DAEA
+AAAAAAAAAAMAAAAYABQCAAAAABQCFAIAAAAAAAAAAGwBbAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAIAAAD4AiAEAAAAAPgC+AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAIAQgBAIAAADMAFgDAAAAAMwAzABYA1gDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAARwAAAAAAAAB0BAAACAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAYAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAMAgAAAABgAA8AJAAkAFAAUgBPAEQAXwBRAFUAQQBOAFQASQBUAEUAAAB4AAMATgBFAFcA
+AACMAAYARABFAEwARQBUAEUAAAAAAEwBCgBJAE4ASQBUAEkAQQBMAEkAWgBFAAAAAAC4AAkAVABF
+AFIATQBJAE4AQQBUAEUAAACUAAYATwBCAEoARQBDAFQAAAAAANwAAAAAAAAA9AEPACgARwBMAE8A
+QgBBAEwAUwApAEYAXwBQAFIATwBEAAAAuAEPACgARwBsAG8AYgBhAGwAcwApAEYAXwBQAHIAbwBk
+AAAAKAEGAFMATwBVAFIAQwBFAAAAAAA4AQoAQgBJAE4ARABFAFYARQBOAFQAUwAAAAAAmAELAE8A
+QgBKAEUAQwBUAE4AQQBNAEUAXwAAAGABBQBGAEkARQBMAEQAAAD//wYAJQBMAFMASQBEAEUAAAAA
+AHQBBwBPAE4ARgBPAEMAVQBTAAAA//8HAEUAWABJAFQASQBOAEcAAAD//w4ARgBQAFIATwBEAF8A
+RQBOAFQARQBSAEkATgBHAAAAAADMAQ0ARgBQAFIATwBEAF8ARQBYAEkAVABJAE4ARwAAAP//BgBG
+AF8AUABSAE8ARAAAAAAA//8QAE4ATwBUAEUAUwBVAEkAVwBPAFIASwBTAFAAQQBDAEUAAAAAAP//
+BgAlAEwAUwBYAFUASQAAAAAABQB4BAAAAAATxTbbGAAAAAAAmADAN2YggMEvIAQAAAAIAAAAbAEA
+APQAAAAAAAAAAgAAALAAXAEAAAAAAAAAAAAAAAAAAAAAsACwAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+XAFcAQAAAAAAAAAAAQAAAAIAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAQBcAQAAEAEGCAAAAAAaAAAAPAH//wAA
+AAAQAAAAWAMAACwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAxYTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAAAABkAAAA
+AAAAAAAAAAAAAAAAAgDAAAAAzAIAAAAAXAQBAP//AAADACAAAAAAAOAACQIAAMwACAAAABQCAABQ
+AQAAAAAAAAEAAAAEAgQCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQC
+BAIAAAAAAAAAAAEAAAAHAAAAMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAEAAAAAAOAACQIAAMwACAAAAAAAAABkAQAA
+AAAAAAEAAACsAqwCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwCrAIA
+AAAAAAAAAAEAAAAHAAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAEAAAAAAOAACQIAAMwAEwAAAFABAAAtAQAAAAAA
+ABMAvAJkAQAA1wAAAAAAAAAYAAAABAC8AVgALyCAwS8gfAQAACEA3AKoCwAACABAACAEAAB4AQAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAgAJAlgDGgDAAPgB//8AAAAAEAAAAAAAAADQAQAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIVEyntLmkQv10A
+3QERhrcAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAIATAPoAwAAzAAAAAoAAQD//wAA
+EgAUAAAAAAD//wkCAAAAAAAGAAAAAFgDTAP//wAAAAAEAAEAAAAJAlgDCQJYAxkAIQDcAoAGAAAI
+AEAAAAAAAJwBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAEAEsAAAAAANK8AB0AABoMAFtcAUmwAMrMAKYaDQBH
+XAHLLQEAAGwBGg4AR1wBy9cAAAAUAhoPAB0aEwAp+AIjGhQAHRoXACkgBCMaGAAdAgAAABEAHAAA
+AAAA//8BAAMAAwAAAAcA9AAJAFABEQBkARUACgAAAAA=
+</rawitemdata></item>
+<item name="$Prod_PrixUnitaire_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEQBVAAQAAAAEBCwCAAAAAAQAFAIkAwAAAAA4APgALABMANgBFAEA
+AAAAAAAAAAIAAAAYAGwBAAAAAAAAAAAAAAAAAAAAAGwBbAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAMAAADMACQDJAMkA8wAzAAgAiACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAAVQAAAAAAAAAEBAAALAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAUAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAwAgAAAABoABMAJAAkAFAAUgBPAEQAXwBQAFIASQBYAFUATgBJAFQAQQBJAFIARQAAAIAA
+AwBOAEUAVwAAAJQABgBEAEUATABFAFQARQAAAAAAVAEKAEkATgBJAFQASQBBAEwASQBaAEUAAAAA
+AMAACQBUAEUAUgBNAEkATgBBAFQARQAAAJwABgBPAEIASgBFAEMAVAAAAAAA5AAAAAAAAACgAQ8A
+KABHAEwATwBCAEEATABTACkARgBfAFAAUgBPAEQAAAD//w8AKABHAGwAbwBiAGEAbABzACkARgBf
+AFAAcgBvAGQAAAAwAQYAUwBPAFUAUgBDAEUAAAAAAEABCgBCAEkATgBEAEUAVgBFAE4AVABTAAAA
+AABoAQsATwBCAEoARQBDAFQATgBBAE0ARQBfAAAA8AEFAEYASQBFAEwARAAAAP//BgAlAEwAUwBJ
+AEQARQAAAAAACAIHAE8ATgBGAE8AQwBVAFMAAAB4AQUATgBVAEkAVwBTAAAAtAEQAE4ATwBUAEUA
+UwBVAEkAVwBPAFIASwBTAFAAQQBDAEUAAAAAAP//BgAlAEwAUwBYAFUASQAAAAAA//8PAEMAVQBS
+AFIARQBOAFQARABPAEMAVQBNAEUATgBUAAAA//8IAEUARABJAFQATQBPAEQARQAAAAAA//8JAFMA
+RQBMAEUAQwBUAEEATABMAAAA//8PAE4ATwBUAEUAUwBVAEkARABPAEMAVQBNAEUATgBUAAAABQAI
+BAAAAABmUpf4GAAAAAAAoADAN2YggMEvIAQAAAAIAAAAbAEAAPwAAAAAAAAAAgAAALAAXAEAAAAA
+AAAAAAAAAAAAAAAAsACwAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAFcAQAAAAAAAAAAAQAAAAIAAAAG
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAMAAQBcAQAAGAEGCAAAAAAaAAAARAH//wAAAAAQAAAAIAIAADQBAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AxYTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAAAAAAAAgDAAAAA8AIA
+AAAAXAQBAP//AAADACAAAAAAAOgACQIAAMwACAAAAAAAAABYAQAAAAAAAAIAAAAEAuAC4ALgAgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCBAIAAAAAAAAAAAEAAAAKAAAAJAAA
+AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAADAAEA4AIAAOgACQIAAMwAGgDAAKQB//8AAAAAEAAAACQDAAB8AQAAAAAAAAEAAAAA
+AwADAAAAAAADAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIV
+EyntLmkQv10A3QERhrcAAAAAAAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAIAFAKwAgAAzAAA
+AAoAAQD//wAAEgAUAAAAAAD//wkCAAAAAAAGAAAAACACFAL//wAAAAAEAAEAAAAJAiACCQIgAhkA
+AwACAAAAAABsAQkCAAAgAhMAAABYAQAALQEAAAAAAAARABAFAAAAALgBCQLiBQAAAAAAAAAAAAAA
+AAAAAAAAAAAAJAMQAAAAAAAAAAwCAAAAAAAAAgAAALQD2AMAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAALQD2AMAAAAABBUTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAA
+AAAAAABkAAAAAAAAAAAAAAAAAAAAAgAUAgAAAAAgAgAACgABAP//AAARABAE2APYA9wBAAClBgAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAASABQAAAAAAPQBCgAAAAAA7wYAAAAAJAMUAv//AAAAAAMAAQAA
+AAoACQIkAwQAWQAAAAAA0sQAHQAAGgsAW1wBSbAAyswAphoMAEdcAcstAQAAbAEaDQAdGhEAXuAC
+KyACJKYaEgBL4AItAAMjLbQDIzgOABoTAEvgAi0AAyMs2AMjGhQAGhUAHQIAAAARABgAAAAAAP//
+AQADAAMAAAAGAPwACABYAQ8ACgAAAAA=
+</rawitemdata></item>
+<item name="$Prod_CoutUnitaire_O" sign="true">
+<rawitemdata type="14">
+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
+AQADAAMAAAAGAPwACABYAQ8ACgAAAAA=
+</rawitemdata></item>
+<item name="$Prod_FraisEntretienMensuels_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEgBHAAQAAAB0BCgCAAAAANwCTANYAwAAAABMAAAAQABgAGgBKAF8
+AAAAAAAAAAMAAAAYABQCAAAAABQCFAIAAAAAbAFsAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAIAAAD4AiAEAAAAAPgC+AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAIAQgBAIAAADMAFgDAAAAAMwAzABYA1gDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAARwAAAAAAAAB0BAAAKAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAYAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAsAgAAAAAMAR0AJAAkAFAAUgBPAEQAXwBGAFIAQQBJAFMARQBOAFQAUgBFAFQASQBFAE4A
+TQBFAE4AUwBVAEUATABTAAAAlAADAE4ARQBXAAAAqAAGAEQARQBMAEUAVABFAAAAAACUAQoASQBO
+AEkAVABJAEEATABJAFoARQAAAAAA1AAJAFQARQBSAE0ASQBOAEEAVABFAAAAsAAGAE8AQgBKAEUA
+QwBUAAAAAAD4AAAAAAAAABQCDwAoAEcATABPAEIAQQBMAFMAKQBGAF8AUABSAE8ARAAAANgBDwAo
+AEcAbABvAGIAYQBsAHMAKQBGAF8AUAByAG8AZAAAAEQBBgBTAE8AVQBSAEMARQAAAAAAVAEKAEIA
+SQBOAEQARQBWAEUATgBUAFMAAAAAALgBCwBPAEIASgBFAEMAVABOAEEATQBFAF8AAACAAQUARgBJ
+AEUATABEAAAA//8GACUATABTAEkARABFAAAAAAD//wgARQBOAFQARQBSAEkATgBHAAAAAAD//wcA
+RQBYAEkAVABJAE4ARwAAAP//DgBGAFAAUgBPAEQAXwBFAE4AVABFAFIASQBOAEcAAAAAAOwBDQBG
+AFAAUgBPAEQAXwBFAFgASQBUAEkATgBHAAAA//8GAEYAXwBQAFIATwBEAAAAAAD//xAATgBPAFQA
+RQBTAFUASQBXAE8AUgBLAFMAUABBAEMARQAAAAAA//8GACUATABTAFgAVQBJAAAAAAAFAHgEAAAA
+AMxVGHMYAAAAAAC0AMA3ZiCAwS8gBAAAAAgAAABsAQAAEAEAAAAAAAACAAAAsABcAQAAAAAAAAAA
+AAAAAAAAAACwALAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAVwBAAAAAAAAAAABAAAAAgAAAAYAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAwABAFwBAAAsAQYIAAAAABoAAABYAf//AAAAABAAAABYAwAASAEAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFhMp
+7S5pEL9dAN0BEYa3AAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAACAMAAAADMAgAAAABc
+BAEA//8AAAMAIAAAAAAA/AAJAgAAzAAIAAAAFAIAAGwBAAAAAAAAAQAAAAQCBAIAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIEAgAAAAAAAAAAAQAAAAcAAAAxAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAMAAQAAAAAA/AAJAgAAzAAIAAAAAAAAAIQBAAAAAAAAAQAAAKwCrAIAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArAKsAgAAAAAAAAAAAQAAAAcAAAA8AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAMAAQAAAAAA/AAJAgAAzAATAAAAbAEAANYAAAAAAAAAEwC8AoQBAADXAAAAAAAAABgAAAAEANwB
+WAAvIIDBLyB8BAAAIQDcAqgLAAAIAEAAIAQAAJgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAkCWAMaAMAAGAL//wAA
+AAAQAAAAAAAAAPABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAhUTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAAAABkAAAA
+AAAAAAAAAAAAAAAAAgBMA+gDAADMAAAACgABAP//AAASABQAAAAAAP//CQIAAAAAAAYAAAAAWANM
+A///AAAAAAQAAQAAAAkCWAMJAlgDGQAhANwCgAYAAAgAQAAAAAAAvAEAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA
+AAQASwAAAAAA0tgAHQAAGgwAW1wBSbAAyswAphoNAEdcAcvWAAAAbAEaDgBHXAHL1wAAABQCGg8A
+HRoTACn4AiMaFAAdGhcAKSAEIxoYAB0CAAAAEQAcAAAAAAD//wEAAwADAAAABwAQAQkAbAERAIQB
+FQAKAAAAAA==
+</rawitemdata></item>
+<item name="$Prod_FraisEntretienAnnuels_O" sign="true">
+<rawitemdata type="14">
+AQAAAkxTT0IDABQIZW4AAAQAEgBHAAQAAAB0BCgCAAAAANwCTANYAwAAAABMAAwBQABgAAAAKAF8
+AAAAAAAAAAMAAAAYABQCAAAAABQCFAIAAAAAbAFsAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAGAAYAAIAAAD4AiAEAAAAAPgC+AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAIAQgBAIAAADMAFgDAAAAAMwAzABYA1gDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAARwAAAAAAAAB0BAAAKAIAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAYAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAsAgAAAABoARwAJAAkAFAAUgBPAEQAXwBGAFIAQQBJAFMARQBOAFQAUgBFAFQASQBFAE4A
+QQBOAE4AVQBFAEwAUwAAAAAAlAADAE4ARQBXAAAAqAAGAEQARQBMAEUAVABFAAAAAACUAQoASQBO
+AEkAVABJAEEATABJAFoARQAAAAAA1AAJAFQARQBSAE0ASQBOAEEAVABFAAAAsAAGAE8AQgBKAEUA
+QwBUAAAAAAD4AAAAAAAAABQCDwAoAEcATABPAEIAQQBMAFMAKQBGAF8AUABSAE8ARAAAANgBDwAo
+AEcAbABvAGIAYQBsAHMAKQBGAF8AUAByAG8AZAAAAEQBBgBTAE8AVQBSAEMARQAAAAAAVAEKAEIA
+SQBOAEQARQBWAEUATgBUAFMAAAAAALgBCwBPAEIASgBFAEMAVABOAEEATQBFAF8AAACAAQUARgBJ
+AEUATABEAAAA//8GACUATABTAEkARABFAAAAAAD//wgARQBOAFQARQBSAEkATgBHAAAAAAD//wcA
+RQBYAEkAVABJAE4ARwAAAP//DgBGAFAAUgBPAEQAXwBFAE4AVABFAFIASQBOAEcAAAAAAOwBDQBG
+AFAAUgBPAEQAXwBFAFgASQBUAEkATgBHAAAA//8GAEYAXwBQAFIATwBEAAAAAAD//xAATgBPAFQA
+RQBTAFUASQBXAE8AUgBLAFMAUABBAEMARQAAAAAA//8GACUATABTAFgAVQBJAAAAAAAFAHgEAAAA
+ANk0OYYYAAAAAAC0AMA3ZiCAwS8gBAAAAAgAAABsAQAAEAEAAAAAAAACAAAAsABcAQAAAAAAAAAA
+AAAAAAAAAACwALAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAVwBAAAAAAAAAAABAAAAAgAAAAYAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAwABAFwBAAAsAQYIAAAAABoAAABYAf//AAAAABAAAABYAwAASAEAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADFhMp
+7S5pEL9dAN0BEYa3AAAAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAAAAAAACAMAAAADMAgAAAABc
+BAEA//8AAAMAIAAAAAAA/AAJAgAAzAAIAAAAFAIAAGwBAAAAAAAAAQAAAAQCBAIAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIEAgAAAAAAAAAAAQAAAAcAAAAxAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAMAAQAAAAAA/AAJAgAAzAAIAAAAAAAAAIQBAAAAAAAAAQAAAKwCrAIAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArAKsAgAAAAAAAAAAAQAAAAcAAAA8AAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAMAAQAAAAAA/AAJAgAAzAATAAAAbAEAANYAAAAAAAAAEwC8AoQBAADXAAAAAAAAABgAAAAEANwB
+WAAvIIDBLyB8BAAAIQDcAqgLAAAIAEAAIAQAAJgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAkCWAMaAMAAGAL//wAA
+AAAQAAAAAAAAAPABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAhUTKe0uaRC/XQDdARGGtwAAAAAAAAAAAAAAAAAAAABkAAAA
+AAAAAAAAAAAAAAAAAgBMA+gDAADMAAAACgABAP//AAASABQAAAAAAP//CQIAAAAAAAYAAAAAWANM
+A///AAAAAAQAAQAAAAkCWAMJAlgDGQAhANwCgAYAAAgAQAAAAAAAvAEAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA
+AAQASwAAAAAA0tgAHQAAGgwAW1wBSbAAyswAphoNAEdcAcvWAAAAbAEaDgBHXAHL1wAAABQCGg8A
+HRoTACn4AiMaFAAdGhcAKSAEIxoYAB0CAAAAEQAcAAAAAAD//wEAAwADAAAABwAQAQkAbAERAIQB
+FQAKAAAAAA==
+</rawitemdata></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>F_Prod</text></item></form>
+
+</database>

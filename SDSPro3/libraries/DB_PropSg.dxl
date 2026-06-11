@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="DB_PropSg" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="55568e" unid="161FC166B842F5FD852586B40011FB3D" sequence="76">
+<created><datetime dst="true">20210410T231624,29-04</datetime></created>
+<modified><datetime>20260105T014836,92-05</datetime></modified>
+<revised><datetime>20250319T073640,50-05</datetime></revised>
+<lastaccessed><datetime>20260105T014836,91-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014836,91-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Clients"
+Use "x_SDSP3"
+Use "x_PJ"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_DBPropSg As NotesSession
+Dim gndb_DBPropSg As NotesDatabase
+
+Dim gnuiws_DBPropSg As NotesUIWorkspace
+Dim gnuid_DBPropSg As NotesUIDocument
+Dim gnd_DBPropSg As NotesDocument
+Dim gnd_Prop_DBPropSg As NotesDocument
+
+Dim g_Origine_DBPropSg As String
+
+' Traitement des erreurs
+Const gc_TypeElement_DBPropSg = "SL"
+Const gc_Element_DBPropSg = "DBPropSg"
+
+
+
+
+</lotusscript></code><code event="DBPropSg_hsSelectionnerClientSite"><lotusscript>Sub DBPropSg_hsSelectionnerClientSite(p_PosSite As String)
+' --------------------------------------------
+' Sélection d'un client à partir de SI Clients
+' --------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Client As NotesDocument	
+	
+	' Initialisations
+	Call DBPropSg_Initialisations
+	
+	' Sélectionner un client
+	' ----------------------
+	Set nd_Client = SICl_ndSelectionnerClient("")
+	If Not (nd_Client Is Nothing) Then	
+		Call gnd_DBPropSg.ReplaceItemValue("DB_SiteClientNoFmt" &amp; p_PosSite, xVar(nd_Client, "Clie_ClientNoFmt", ""))
+		Call gnd_DBPropSg.ReplaceItemValue("DB_SiteClientNo1_" &amp; p_PosSite, xVar(nd_Client, "Clie_ClientNo1", ""))
+		Call gnd_DBPropSg.ReplaceItemValue("DB_SiteClientNo2_" &amp; p_PosSite,  Right("000" &amp; Cstr(xVar(nd_Client, "Clie_ClientNo2", "")), 3))
+		
+		On Error 4412 Goto FinSub
+		Call gnuid_DBPropSg.Refresh
+		On Error 4412 Goto GererErreur
+	End If
+	
+FinSub :
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropSg, gc_Element_DBPropSg, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBPropSg_PostOpen"><lotusscript>Sub DBPropSg_PostOpen(p_Source As NotesUIDocument)
+	On Error GoTo GererErreur
+	
+	Dim a_NomSites As Variant
+	Dim v_NomSiteDefaut As String
+	
+	' Initialisations
+	Set gnuid_DBPropSg = p_Source
+	Set gnd_DBPropSg = p_Source.Document
+	
+	Set gnd_Prop_DBPropSg = xSDSP3_xndProp(xVar(gnd_DBPropSg, "DB_NoProposition", ""), True)
+	g_Origine_DBPropSg = xVar(gnd_Prop_DBPropSg, "Prop_Origine", "")
+		
+	'Call gnuid_DBPropSg.Refreshhideformulas()
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropSg, gc_Element_DBPropSg, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="DBPropSg_Initialisations"><lotusscript>Sub DBPropSg_Initialisations
+	On Error Goto GererErreur
+	
+	If gns_DBPropSg Is Nothing Then
+		Set gns_DBPropSg = New NotesSession
+		Set gndb_DBPropSg = gns_DBPropSg.CurrentDatabase		
+		Set gnuiws_DBPropSg = New NotesUIWorkspace		
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropSg, gc_Element_DBPropSg, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="DBPropSg_Queryclose"><lotusscript>Function DBPropSg_Queryclose(p_Source As NotesUIDocument) As Boolean
+	On Error Goto GererErreur
+	
+	Dim nd_CliePJ As NotesDocument
+	Dim v_NbAttachements As Variant
+	Dim v_Commentaire As String
+	Dim v_Client As String	
+	Dim v_FichierAttache As String
+	Dim v_Langue As String
+	Dim v_NbSitesSansClients As Integer
+	Dim a_NoSite As Variant
+	Dim v_NoSite As String
+	Dim v_NoItem As String
+	Dim v_SiteClientNoFmt As String
+	Dim v_ClientFactNoFmt As String
+	Dim v_CleClientFact As String
+	Dim v_SiteOrigneCle As String
+	Dim v_CleClientSite As String
+	Dim v_PosSite As Integer
+	
+	' Initialisations
+	DBPropSg_Queryclose = False
+	v_Langue = xLangue
+	v_ClientFactNoFmt = xVar(gnd_DBPropSg, "DB_ClientNoFmt", "")
+	
+	
+	' Variables pour message GDK "SI.."
+	If v_langue = "EN" Then
+		v_Commentaire = "comments"
+		v_Client = "customer"
+		v_FichierAttache = "attached file"		
+	Else
+		v_Commentaire = "commentaire"
+		v_Client = "client"
+		v_FichierAttache = "fichier attaché"		
+	End If
+	
+	If p_Source.DialogBoxCanceled = False Then
+		' Validation
+		If xVar(gnd_DBPropSg, "DB_SansContrat", "") = "" Then
+			v_NbAttachements = Evaluate("@Attachments",gnd_DBPropSg)
+			If v_NbAttachements(0) = 0 Then
+				' Le fichier attaché est obligatoire
+				Messagebox xGDK_xMessage("SI", 190, "", v_FichierAttache) , 16, xGDK_xMessage("SI", 1, "", "")
+				DBPropSg_Queryclose = False
+				Exit Function
+			Elseif v_NbAttachements(0) &gt; 1 Then
+				' Vous ne pouvez pas selectionnez plus qu'un ficher attaché
+				Messagebox xGDK_xMessage("SDSPP", 122, "", "") , 16, xGDK_xMessage("SI", 1, "", "")
+				DBPropSg_Queryclose = False
+				Exit Function
+			End If
+		End If
+				
+		If xVar(gnd_DBPropSg, "DB_CopierCommissions", "") &lt;&gt; ""  Then
+			If xVarElem(gnd_DBPropSg, "DB_NomSites", 0, "") = "" Then
+				' Veuillez sélectionner les sites à copier dans la bases des commisssions.
+				MessageBox xGDK_xMessage("SDSPP", 159, "", v_Commentaire) , 16, xGDK_xMessage("SI", 1, "", "")
+				DBPropSg_Queryclose = False
+				Exit Function
+			End If
+		End if
+		
+		If g_Origine_DBPropSg &lt;&gt; "SICl" Then
+			v_CleClientFact = xPJ_xVarProj(g_Origine_DBPropSg, xVar(gnd_Prop_DBPropSg, "Prop_NoProjet", ""), "CleClient", "", True)
+			If v_ClientFactNoFmt = "" Then
+				' Le no de client est obligatoire
+				Messagebox xGDK_xMessage("SI", 190, "", v_Client) , 16, xGDK_xMessage("SI", 1, "", "")
+				DBPropSg_Queryclose = False
+				Exit Function
+			Else
+				
+				If v_ClientFactNoFmt &lt;&gt; "" Then
+					' Selectionnez le doc de client 					
+					Set nd_CliePJ = xPJ_xndClieSI(g_Origine_DBPropSg, v_ClientFactNoFmt, True)						
+				End If
+				
+				'Set nd_CliePJ = xPJ_xndClieSI(g_Origine_DBPropSg, v_ClientFactNoFmt, True)
+				If nd_CliePJ Is Nothing Then
+	%REM
+					' Le client n'existe pas dans projeto				
+					MessageBox xGDK_xMessage("SDSPP", 136, "", v_ClientFactNoFmt) , 16, xGDK_xMessage("SI", 1, "", "")
+					DBPropSg_QueryClose = False
+					Exit Function
+	%END REM
+				Else
+					If xVar(nd_CliePJ, "CleClient", "") &lt;&gt; v_CleClientFact And xVar(gnd_DBPropSg, "DB_ClientRequis", "") = "1" Then
+						'If Not nd_CliePJ Is Nothing Then
+						' Le no de client &amp; est assigné à un autre client dans Projeto.		
+						Messagebox "Le no de client " &amp; v_ClientFactNoFmt &amp; " est assigné à un autre client dans Projeto.", 16, xGDK_xMessage("SI", 1, "", "")
+						DBPropSg_QueryClose = False
+						Exit Function
+					End If
+				End If
+			End If
+		End If
+		
+		v_NbSitesSansClients = xVar(gnd_DBPropSg, "DB_NbSitesSansNoClient", 0)	
+		If v_NbSitesSansClients &gt; 0 Then
+			a_NoSite = xVarArray(gnd_Prop_DBPropSg, "Prop_NoSites")
+			For v_PosSite = 1 To Ubound(a_NoSite) + 1	
+				v_NoItem = Format(v_PosSite, "000")		
+				v_NoSite = xVar(gnd_DBPropSg, "DB_SiteNoSite" &amp; v_NoItem, "")
+				
+				If v_NoSite &lt;&gt; "" Then
+					
+					v_SiteClientNoFmt = xVar(gnd_DBPropSg, "DB_SiteClientNoFmt" &amp; v_NoItem, "")
+					
+					If v_SiteClientNoFmt = "" Then
+						
+						' Le no de site XXX est obligatoire**					
+						Messagebox xGDK_xMessage("SDSPP", 135, "", xVar(gnd_DBPropSg,"DB_SiteClientNom" &amp; v_NoItem,"")) , 16, xGDK_xMessage("SI", 1, "", "")
+						DBPropSg_QueryClose = False
+						Exit Function
+						
+					Else
+						v_SiteOrigneCle = xVar(gnd_DBPropSg, "DB_SiteOrigneCle" &amp; v_NoItem, "")
+						If v_SiteOrigneCle = v_CleClientFact And v_SiteClientNoFmt &lt;&gt; v_ClientFactNoFmt Then
+							' Le no de client de facturation ne peut pas être assigné à un site d'un autre client.		
+							Messagebox "Le no de client de facturation ne peut pas être assigné à un site d'un autre client.", 16, xGDK_xMessage("SI", 1, "", "")
+							DBPropSg_QueryClose = False
+							Exit Function
+						Elseif g_Origine_DBPropSg &lt;&gt; "SICl" Then
+							Set nd_CliePJ = xPJ_xndClieSI(g_Origine_DBPropSg, v_SiteClientNoFmt, True)
+							If nd_CliePJ Is Nothing Then
+	%REM
+							' Le client n'existe pas dans projeto				
+							MessageBox xGDK_xMessage("SDSPP", 136, "", v_SiteClientNoFmt) , 16, xGDK_xMessage("SI", 1, "", "")
+							DBPropSg_QueryClose = False
+							Exit Function
+	%END REM
+							Else
+								v_CleClientSite = xVar(nd_CliePJ, "CleClient", "")
+								If v_CleClientSite &lt;&gt; v_SiteOrigneCle Then
+									' Le no de client &amp; est assigné à un autre client dans Projeto.		
+									Messagebox "Le no de client " &amp; v_SiteClientNoFmt &amp; " est assigné à un autre client dans Projeto.", 16, xGDK_xMessage("SI", 1, "", "")
+									DBPropSg_QueryClose = False
+									Exit Function
+								End If
+							End If
+						End If
+					End If
+				End If			
+			Next
+		End If
+	End If
+	
+	On Error 4412 GoTo FinSub
+	Call p_Source.Save
+	On Error 4412 GoTo GererErreur
+		
+	
+	DBPropSg_Queryclose = True
+	Exit Function
+	
+FinSub:
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropSg, gc_Element_DBPropSg, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="DBPropSg_hsSelectionClient"><lotusscript>Sub DBPropSg_hsSelectionClient
+	' --------------------------------------------
+	' Sélection d'un client à partir de SI Clients
+	' --------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Client As NotesDocument
+	Dim v_Origine As String
+	
+	'Initialisations
+	Call DBPropSg_Initialisations
+	
+	' Sélectionner un client
+	' ----------------------
+	Set nd_Client = SICl_ndSelectionnerClient("")
+	If Not (nd_Client Is Nothing) Then
+		gnd_DBPropSg.DB_ClientNo1 = xVar(nd_Client, "Clie_ClientNo1", "")
+		gnd_DBPropSg.DB_ClientNo2 = Right("000" &amp; Cstr(xVar(nd_Client, "Clie_ClientNo2", "")), 3)
+			
+		On Error 4412 Goto FinSub
+		Call gnuid_DBPropSg.Refresh
+		On Error 4412 Goto GererErreur
+		
+	End If
+	
+FinSub :
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_DBPropSg, gc_Element_DBPropSg, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073640,50-05</datetime></item></scriptlibrary>
+
+</database>

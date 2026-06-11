@@ -1,0 +1,478 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Clients" hide="v3 v4strict" designerversion="8.5.3" comment="1.13d">
+<noteinfo noteid="555946" unid="D5E56BF962C6791485258B7A005F1775" sequence="6">
+<created><datetime dst="true">20240815T131839,25-04</datetime></created>
+<modified><datetime>20260105T014838,34-05</datetime></modified>
+<revised><datetime>20250319T073640,34-05</datetime></revised>
+<lastaccessed><datetime>20260105T014838,33-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,33-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Jabber"
+Use "SI_Selection"
+Use "SI_tString"
+Use "x_SICl"
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SICl As Notessession
+Dim gndb_SICl As Notesdatabase
+
+Dim gnuiws_SICl As NotesUIWorkspace
+
+Dim ga_ItemsClie(24) As String
+Dim ga_ItemsRecherche As Variant
+
+' Base de documents SI Clients
+' -----------------------------------------
+Const gc_AdresseSICl = "SI Clients"
+Dim gnv_Clie10_SICl As NotesView
+Dim gnv_Clie20_SICl As Notesview
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SICl = "SL"
+Const gc_Element_SICl = "SI_Clients"
+
+</lotusscript></code><code event="SICl_acTelephoner"><lotusscript>Sub SICl_acTelephoner(p_NoClient As String)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de communiquer avec le client en utilisant Jabber.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error Goto GererErreur
+	
+	Dim nd_Client As NotesDocument	
+	Dim s As String
+	
+	' Initialisations
+	Call SICl_Initialisations(True)
+	If gnv_Clie20_SICl Is Nothing Then
+		Set gnv_Clie20_SICl = gndb_xSICl.Getview("V_Clie20")
+	End If
+	
+	'Sélectionner le client à ouvrir
+	' -----------------------------------------
+	Set nd_Client =  gnv_Clie20_SICl.GetDocumentByKey(p_NoClient, True)
+	If nd_Client Is Nothing Then
+		' Le client n'existe pas
+		Messagebox xGDK_xMessage("SIRc", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+	Else
+		s = Replace(SItS_TelephoneLD(xVar(nd_Client, "Clie_ClientPays", ""), xVar(nd_Client, "Clie_ClientTelephone1", "")), Evaluate(|" " : "-" : "(" : ")"|), "")
+		Call SICJ_Telephoner(s) 
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICl, gc_Element_SICl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICl_RedigerTelecopie"><lotusscript>Sub SICl_RedigerTelecopie(p_NoClient As String, p_Destinataire As String)
+'===========================================================
+'	Envoyer un courriel au numéro de télécopieur du client
+'===========================================================	
+	On Error Goto GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim v_DbMail As String
+	Dim v_MailServer As String
+	Dim v_ClientTelecopieur As String
+	Dim ndb_Courriel As NotesDatabase
+	Dim nuid As NotesUIDocument
+	
+	' Initialisations
+	Call SICl_Initialisations(True)
+	
+	v_DbMail = gns_SICl.GetEnvironmentString("MailFile", True)
+	v_MailServer = gns_SICl.GetEnvironmentString("MailServer", True)	
+	Set ndb_Courriel = gns_SICl.GetDatabase(v_MailServer, v_DbMail)
+	
+	If ndb_Courriel Is Nothing Then
+		Print "La base de données de courriel est introuvable."
+	Elseif ndb_Courriel.IsOpen Then
+		v_ClientTelecopieur = xSICl_xVarClie(p_NoClient, "Clie_ClientTelecopieur", "", True)
+		If Len(v_ClientTelecopieur) &gt; 0 Then
+			v_ClientTelecopieur = SItS_TelephoneLD(xSICl_xVarClie(p_NoClient, "Clie_ClientPays", "", True), v_ClientTelecopieur)
+			Set nuid = nuiws.ComposeDocument( v_MailServer, v_DbMail, "Memo")
+			Call nuid.GotoField( "EnterSendTo" ) 
+			Call nuid.InsertText(p_Destinataire &amp; "@" &amp; v_ClientTelecopieur &amp;  "@fax")
+			If p_Destinataire = "" Then
+				Call nuid.GotoField( "EnterSendTo" )
+			Else
+				Call nuid.GotoField( "Subject" )
+			End If
+		Else
+			Print "Le numéro de télécopieur du client n'est pas défini."
+		End If
+	Else
+		Print "La base de données de courriel est introuvable."
+	End If
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICl, gc_Element_SICl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICl_MajSoutien"><lotusscript>Sub SICl_MajSoutien(p_NoClient As String , p_TypeSoutien As String)
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	' Le script permet de communiquer avec le client en utilisant Jabber.
+	'---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	On Error GoTo GererErreur
+	
+	Dim nd_Client As NotesDocument	
+	Dim s As String
+	
+	' Initialisations
+	Call SICl_Initialisations(True)
+	If gnv_Clie20_SICl Is Nothing Then
+		Set gnv_Clie20_SICl = gndb_xSICl.Getview("V_Clie20")
+	End If
+	
+	'Sélectionner le client 
+	' -----------------------------------------
+	Set nd_Client =  gnv_Clie20_SICl.GetDocumentByKey(p_NoClient, True)
+	If Not nd_Client Is Nothing Then
+
+		If p_TypeSoutien = "" Then
+			nd_Client.CSA_Statut = "2"
+			nd_Client.CSA_Suspendu = "1"
+		Else
+			nd_Client.CSA_Statut = "1"
+			nd_Client.CSA_Suspendu = ""
+		End If		
+		
+		Call nd_Client.Save( True, False)		
+ 
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICl, gc_Element_SICl, GetThreadInfo(1), "", False)
+	Exit Sub
+End Sub
+
+
+</lotusscript></code><code event="SICl_SoumettreDDM"><lotusscript>Function SICl_SoumettreDDM(pnd_Orig As NotesDocument, _
+p_ItemsOrig As Variant, p_ClientNoFmt) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de soumettre une demande de modification de client.
+	' Paramètres:
+	'	pnd_Orig				Le document duquel provient l'information.
+	'	p_ItemsOrig			Si null, utilise les même noms d'item que dans le document SI Clients
+	'								Si un string, utilise les noms d'item de SI Clients mais remplace le préfixe (avant le _) par la valeur reçue.
+	'								Si un tableau, utilise les valeurs reçues comme noms d'items
+	'	p_ClientNoFmt		Le numéro de client SI Clients d'où provient l'information.
+	'
+	' X-Ref
+	'	Masque				F_CDDM (F/E)
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim nd As NotesDocument
+	Dim a_ItemOrig As String
+	Dim i As Long
+	Dim v_Envoyer As Boolean
+	Dim v_Securite(1) As String
+	Dim ni As NotesItem
+	
+	SICl_SoumettreDDM = False
+	
+	' Initialisations
+	
+	If Not SICl_Initialisations(False) Then
+		Exit Function
+	End If
+	
+	If Not Isarray(p_ItemsOrig) Then
+		If p_ItemsOrig = "" Then
+			p_ItemsOrig = "Clie"
+		End If
+	End If
+	
+	' Créer le document de saisie des modifications
+	Set nd = New NotesDocument(gndb_SICl)
+	
+	nd.Form = "F_CDDM"
+	nd.Cle = p_ClientNoFmt
+	nd.SI_DialogBox = "1"
+	nd.CDDM_CodeNomClient = "1"
+	
+	nd.Clie_ClientNoFmt = p_ClientNoFmt
+	
+	For i = 0 To Ubound(ga_ItemsClie)
+		' Initialiser le nom des items du document de destination
+		If Isarray(p_ItemsOrig) Then
+			If i &lt;= Ubound(p_ItemsOrig) Then
+				a_ItemOrig = p_ItemsOrig(i)
+			Else
+				a_ItemOrig = ""
+			End If
+		Else
+			a_ItemOrig = p_ItemsOrig &amp; ga_ItemsClie(i)
+		End If
+		
+		' Mise à jours des informations du client
+		If a_ItemOrig &lt;&gt; "" Then			
+			Call nd.ReplaceItemValue("Clie" &amp; ga_ItemsClie(i), xVar(pnd_Orig, a_ItemOrig, ""))
+			Call nd.ReplaceItemValue("CDDM" &amp; ga_ItemsClie(i), xVar(pnd_Orig, a_ItemOrig, ""))
+			If i = 0 Then
+				nd.Description = xVar(pnd_Orig, a_ItemOrig, "")
+			End If
+		End If		
+	Next
+	
+	' Afficher le dialogbox
+	If nuiws.DialogBox("F_CDDM", True, True, False, False, False, False, _
+	xGDK_xMessage("SI", 90, "", ""), nd, False, False, True) Then
+		' Vérifier si des valeurs ont changé
+		v_Envoyer = False
+		For i = 0 To Ubound(ga_ItemsClie)			
+			If xVar(nd, "Clie" &amp; ga_ItemsClie(i), "") &lt;&gt; xVar(nd, "CDDM" &amp; ga_ItemsClie(i), "") Then
+				v_Envoyer = True
+			End If				
+		Next
+		
+		' Si des valeurs ont changé, envoyer le document à la base SI Clients
+		If v_Envoyer Then
+			
+			' Calculer nom de l'entreprise Nom du client (PJ)  ---&gt;  Nom de l'entreprise (SICl)
+			Call nd.ReplaceItemValue("Clie_ClientNomEntreprise", xVar(nd, "Clie_ClientNom", ""))
+			Call nd.ReplaceItemValue("CDDM_ClientNomEntreprise", xVar(nd, "CDDM_ClientNom", ""))
+			
+			' Sécurité
+			v_Securite(0) = "[Admin]"
+			v_Securite(1) = "[DDM]"
+			Set ni = New NotesItem(nd, "Auteur", v_Securite, AUTHORS)
+			
+			' Historique
+			nd.HistoDC = Now
+			nd.HistoUC = gns_SICl.UserName
+			
+			nd.SendTo = gc_AdresseSICl
+			Call nd.Send(False)
+			
+			Messagebox xGDK_xMessage("SI", 91, "", ""), 64, ""
+		Else
+			Messagebox xGDK_xMessage("SI", 92, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+		End If
+	End If
+	
+	SICl_SoumettreDDM = True
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICl, gc_Element_SICl, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICl_ModifierInfoClient"><lotusscript>Function SICl_ModifierInfoClient(pnd_Dest As NotesDocument, _
+p_ItemsDest As Variant, Byval p_ClientNoFmt As String) As Boolean
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet d'initialiser les valeurs du client dans le document. 
+	' 
+	' Paramètres:
+	'	pnd_Dest				Le document dans lequel il faut mettre à jour l'information.
+	'	p_ItemsDest			Si null, utilise les même noms d'item que dans le document SI Clients
+	'								Si un string, utilise les noms d'item de SI Clients mais remplace le préfixe (avant le _) par la valeur reçue.
+	'								Si un tableau, utilise les valeurs reçues comme noms d'items
+	'	p_ClientNoFmt		Le numéro de client SI Clients d'où provient l'information.
+	'
+	' Valeur retournée:
+	'								True = Une valeur du client a été modifiée
+	'								False = Aucune valeur du client a été modifiée (ou erreur)
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim v_ClientModifie As Boolean
+	Dim nd_SICl As NotesDocument
+	Dim a_ItemDest As String
+	Dim i As Long
+	
+	SICl_ModifierInfoClient = False
+	v_ClientModifie = False
+	
+	' Initialisations
+	If Not SICl_Initialisations(True) Then
+		Exit Function
+	End If
+	
+	' Extraire le document SI Clients
+	Set nd_SICl = xSICl_xndClie(p_ClientNoFmt, False)
+	If nd_SICl Is Nothing Then
+		Messagebox xGDK_xMessage("SI", 78, "", p_ClientNoFmt), 16, xGDK_xMessage("SI", 1, "", "")
+		Exit Function
+	End If
+	
+	If Not Isarray(p_ItemsDest) Then
+		If p_ItemsDest = "" Then
+			p_ItemsDest = "Clie"
+		End If
+	End If
+	
+	For i = 0 To Ubound(ga_ItemsClie)
+		' Initialiser le nom des items du document de destination
+		If Isarray(p_ItemsDest) Then
+			If i &lt;= Ubound(p_ItemsDest) Then
+				a_ItemDest = p_ItemsDest(i)
+			Else
+				a_ItemDest = ""
+			End If
+		Else
+			a_ItemDest = p_ItemsDest &amp; ga_ItemsClie(i)
+		End If
+		
+		' Mise à jours des informations du client
+		If a_ItemDest &lt;&gt; "" Then
+			If Cstr(xVar(nd_SICl, "Clie" &amp; ga_ItemsClie(i), "")) &lt;&gt; Cstr(xVar(pnd_Dest, a_ItemDest, "")) Then
+				Call pnd_Dest.ReplaceItemValue(a_ItemDest, xVar(nd_SICl, "Clie" &amp; ga_ItemsClie(i), ""))
+				v_ClientModifie = True
+			End If
+		End If		
+	Next
+	
+	SICl_ModifierInfoClient = v_ClientModifie
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICl, gc_Element_SICl, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICl_Initialisations"><lotusscript>Function SICl_Initialisations(p_InitialiserNdbSICl As Boolean) As Boolean
+	SICl_Initialisations = False
+	
+	If gns_SICl Is Nothing Then
+		Set gns_SICl = New Notessession	
+		Set gndb_SICl = gns_SICl.Currentdatabase		
+		
+		
+		' Initialisation du tableau des items du client
+		ga_ItemsRecherche = Evaluate({"Clie_ClientNom1" : "Clie_ClientNom2"})
+		
+		' Initialisation du tableau des items du client
+		ga_ItemsClie(0) = "_ClientNom"
+		ga_ItemsClie(1) = "_ClientNom1"
+		ga_ItemsClie(2) = "_ClientNom2"
+		ga_ItemsClie(3) = "_ClientCodeAct"
+		ga_ItemsClie(4) = "_ClientNomInterne"	
+		ga_ItemsClie(5) = "_ClientNomLegal"
+		ga_ItemsClie(6) = "_ClientAdresse1"		
+		ga_ItemsClie(7) = "_ClientAdresse2"
+		ga_ItemsClie(8) = "_ClientVille"
+		ga_ItemsClie(9) = "_ClientPays"
+		ga_ItemsClie(10) = "_ClientTablePays"
+		ga_ItemsClie(11) = "_ClientProvince"
+		ga_ItemsClie(12) = "_ClientCodePostal"
+		ga_ItemsClie(13) = "_ClientTelephone1"
+		ga_ItemsClie(14) = "_ClientTelephone2"
+		ga_ItemsClie(15) = "_ClientTelecopieur"
+		ga_ItemsClie(16) = "_ClientLangue"
+		ga_ItemsClie(17) = "_GeoInactif"
+		ga_ItemsClie(18) = "_GeoLatitude"
+		ga_ItemsClie(19) = "_GeoLongitude"
+		ga_ItemsClie(20) = "_GeoDate"		
+		ga_ItemsClie(21) = "_TypeInstallationSDS"	
+		ga_ItemsClie(22) = "_TypeInstallationSDSIcone"	
+		ga_ItemsClie(23) = "_TypeContratServiceSDS"	
+		ga_ItemsClie(24) = "_TypeContratServiceSDSIcone"	
+		
+	End If
+	
+	If p_InitialiserNdbSICl And gndb_xSICl Is Nothing Then
+		
+		' Extraire la base de documents SI Clients
+		' -------------------------------------------------------
+		Call xSICl_Initialisation
+		If gndb_xSICl Is Nothing Then
+			' 48 - La base de documents &amp; est introuvable.
+			MessageBox xGDK_xMessage("SI", 48, "", gc_AdresseSICl), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		ElseIf Not gndb_xSICl.IsOpen Then
+			' 48 - La base de documents &amp; est introuvable.
+			MessageBox xGDK_xMessage("SI", 48, "", gc_AdresseSICl), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If
+		
+	End If
+	
+	SICl_Initialisations = True
+End Function
+
+</lotusscript></code><code event="SICl_OuvrirClient"><lotusscript>Sub SICl_OuvrirClient(p_NoClient As String)
+%REM
+------------------------------------------------------------------------------------------------------------------------------	
+	Ouvrir le contact dans SI Contacts.
+	Paramètres:	p_NoClient		String.  Le numéro du client à afficher.
+------------------------------------------------------------------------------------------------------------------------------	
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nd_Client As NotesDocument	
+	
+	' Initialisations
+	Call SICl_Initialisations(True)
+	If gnuiws_SICl Is Nothing Then
+		Set gnuiws_SICl = New NotesUIWorkspace
+	End If
+	If gnv_Clie20_SICl Is Nothing Then
+		Set gnv_Clie20_SICl = gndb_xSICl.Getview("V_Clie20")
+	End If
+	
+	'Sélectionner le client à ouvrir
+	' -----------------------------------------
+	Set nd_Client =  gnv_Clie20_SICl.GetDocumentByKey(p_NoClient, True)
+	If nd_Client Is Nothing Then
+		' Le client n'existe pas
+		Messagebox xGDK_xMessage("SI", 78, "", p_NoClient), 16, xGDK_xMessage("SI", 1, "", "")
+	Else
+		' Ouvrir le document du client en consultation
+		Call gnuiws_SICl.EditDocument(False, nd_Client)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICl, gc_Element_SICl, Getthreadinfo(1), p_NoClient, False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICl_ndSelectionnerClient"><lotusscript>Function SICl_ndSelectionnerClient(ByVal p_fDescription As String) As Notesdocument
+	'------------------------------------------------------------------------------------------------------------------------------	
+	' Le script permet de sélectionner un client.
+	'		p_fDescription	String.  Une formule permettant de construire la description de chaque document.
+	'						C'est cette description qui sera affichée dans le dialog box.
+	'						Si nul, utilise "NoClient - Nom client"
+	'------------------------------------------------------------------------------------------------------------------------------	
+	On Error Goto GererErreur
+	
+	Dim ndc As NotesDocumentCollection
+	
+	Set SICl_ndSelectionnerClient = Nothing
+	
+	' Initialisations
+	If Not SICl_Initialisations(True) Then
+		Exit Function
+	End If
+	If gnv_Clie10_SICl Is Nothing Then
+		Set gnv_Clie10_SICl = gndb_xSICl.Getview("V_Clie10")
+	End If
+	
+	' Sélectionner lun client
+	' -------------------------------
+	If p_fDescription = "" Then
+		p_fDescription = |Clie_ClientNoFmt + " - " + Clie_ClientNom1 + @If(@IsNull(Clie_ClientNom2); ""; " " + Clie_ClientNom2) + @If(@IsNull(Clie_ClientNomInterne); ""; " (" + Clie_ClientNomInterne + ")")|
+	End If
+	Set SICl_ndSelectionnerClient = SISe_ndSelectionnerDocument("", ga_ItemsRecherche, SISe_PROMPT, gnv_Clie10_SICl, _
+	p_fDescription, xGDK_xMessage("SI", 79, "", ""),"", False)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICl, gc_Element_SICl, Getthreadinfo(1), "", False)
+	Exit Function
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073640,34-05</datetime></item></scriptlibrary>
+
+</database>

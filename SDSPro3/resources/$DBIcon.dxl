@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="$DBIcon" hide="design" noreplace="true" publicaccess="false" designerversion="8.5.3" imagename="N:\Notes\Serti\Design Notes\Notes SI\SDS\SDSBB\Logo SDSP3 32x32b.png">
+<noteinfo noteid="1676" unid="4459E62F665B410085257FFC0045717D" sequence="6">
+<created><datetime dst="true">20160726T083830,37-04</datetime></created>
+<modified><datetime dst="true">20190830T082056,14-04</datetime></modified>
+<revised><datetime dst="true">20190830T082056,12-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T082056,12-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205707,50-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><png>
+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
+SUVORK5CYII=
+</png>
+<item name="$FileSize" sign="true"><number>1946</number></item>
+<item name="$MimeType" sign="true"><text>image/png</text></item>
+<item name="$FileModDT" sign="true"><datetime>20160211T105621,15-05</datetime></item></imageresource>
+
+</database>

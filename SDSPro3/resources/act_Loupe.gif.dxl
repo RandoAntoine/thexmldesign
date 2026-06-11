@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><imageresource name="act_Loupe.gif" alias="act_Loupe" publicaccess="false" designerversion="6" imagename="search.gif">
+<noteinfo noteid="177e" unid="86FA4EB3021EB34385257FF800712321" sequence="12">
+<created><datetime dst="true">20160722T163545,61-04</datetime></created>
+<modified><datetime dst="true">20190830T091557,37-04</datetime></modified>
+<revised><datetime dst="true">20180718T105555,79-04</datetime></revised>
+<lastaccessed><datetime dst="true">20190830T091557,35-04</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205708,92-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Lotus Notes Template Development/O=Lotus Notes</name><name>CN=Patrick Beauchamp/OU=sds/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><gif>
+R0lGODlhFAAUALP/AP///+/v78DAwMDAwLKyso+Pj4KCP4CAgC8vLwAAAAAAAAAAAAAAAAAAAAAA
+AAAAACH5BAEAAAIALAAAAAAUABQAQASRUMhpULoJmTnTAEMCjOMQfmQoWWTbHhmFjMlhDjA6agJS
+uDfcRVdATBAIgotEQMpAotLhAPC0NIlAyTqCUVuBhCChXKZqB4KYY8gUBoHAoJjYcChuuJxu57AA
+MBc2LTESZIBfgIg6aj0/IS04VToAdFqTLjlgQ2cYNVxbFWaEUzsboqNbMH09SaNNRncynjx3EQA7
+</gif>
+<item name="$Babel_Tags" summary="false" sign="true"><text>B94A5FB0:05rEmE0BpIA057IRU0BpLU</text></item>
+<item name="$LastBuildTime" sign="true"><datetime>20010322T161225,85+00</datetime></item>
+<item name="$BabelInfo" sign="true"><text>CA76B95C0F0B4D9A852566BB00422762</text></item></imageresource>
+
+</database>

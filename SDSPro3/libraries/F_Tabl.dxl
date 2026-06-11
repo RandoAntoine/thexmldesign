@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="F_Tabl" hide="v3 v4strict" designerversion="8" comment="4.3a">
+<noteinfo noteid="5556de" unid="DB33B12EC3303F37852586B40011FB59" sequence="76">
+<created><datetime dst="true">20210410T231624,57-04</datetime></created>
+<modified><datetime>20260105T014837,12-05</datetime></modified>
+<revised><datetime>20250319T073636,19-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,11-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,11-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_Arrays"
+
+'	Les fonctions définies dans cette bibliothèque de script permettent la gestion de tous les
+'	opérations reliés au formulaire Table | F_Tabl.
+
+
+</lotusscript></code><code event="declarations"><lotusscript>Dim gns_FTabl As Notessession
+Dim gndb_FTabl As Notesdatabase
+Dim gnuiws_FTabl As Notesuiworkspace
+
+' Traitement des erreurs
+Const gc_TypeElement_FTabl = "SL"
+Const gc_Element_FTabl = "F_Tabl"
+
+</lotusscript></code><code event="FTabl_Querysave"><lotusscript>Sub FTabl_Querysave(pnuid_Source As Notesuidocument, p_Continue As Variant)
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	
+	p_Continue = False
+	
+	Call FTabl_Initialisations
+	Set nd = pnuid_Source.Document
+	
+	' Initialisation des champs cachés liés aux descriptions
+	Call FTabl_InitTable(nd)
+	
+	' Initialisation des champs cachés liés aux compléments
+	Call FTabl_InitComplement(nd, "1")
+	Call FTabl_InitComplement(nd, "2")
+	Call FTabl_InitComplement(nd, "3")
+	Call FTabl_InitComplement(nd, "4")
+	
+	p_Continue = True
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FTabl, gc_Element_FTabl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FTabl_InitComplement"><lotusscript>Sub FTabl_InitComplement(pnd As Notesdocument, p_NoComplement As String)
+	On Error Goto GererErreur
+	
+	Dim ni As NotesItem
+	Dim v_aValeursComp() As String
+	Dim i As Long
+	
+	' Initialisation des champs cachés liés aux complément 
+	Set ni = pnd.GetFirstItem("Tabl_Complement" &amp; p_NoComplement)
+	If Ubound(ni.Values) &gt; 0 Or ni.Values(0) &lt;&gt; "" Then
+		Redim v_aValeursComp(Ubound(ni.Values)) As String
+		For i = Lbound(pnd.Tabl_Valeurs) To Ubound(pnd.Tabl_Valeurs)
+			v_aValeursComp(i) = ni.Values(i) &amp; "|" &amp; pnd.Tabl_Valeurs(i)
+		Next
+		If xVar(pnd, "Tabl_TrierDescriptions", "") = "1" Then
+			Call TrierArray(v_aValeursComp)
+		End If
+		Call pnd.Replaceitemvalue("Tabl_ValeursComp" &amp; p_NoComplement, v_aValeursComp)
+	Else
+		Call pnd.Replaceitemvalue("Tabl_ValeursComp" &amp; p_NoComplement, pnd.Tabl_Valeurs)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FTabl, gc_Element_FTabl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FTabl_Initialisations"><lotusscript>Sub FTabl_Initialisations
+	If gns_FTabl Is Nothing Then
+		Set gns_FTabl = New Notessession
+		Set gndb_FTabl = gns_FTabl.Currentdatabase		
+		Set gnuiws_FTabl = New Notesuiworkspace
+	End If
+End Sub
+
+</lotusscript></code><code event="FTabl_InitTable"><lotusscript>Sub FTabl_InitTable(pnd As Notesdocument)
+	On Error Goto GererErreur
+	
+	Dim v_aValeursAlias() As String
+	Dim v_aValeursDesc() As String
+	Dim v_aValeursDescAlias() As String
+	Dim v_aValeursComp1() As String
+	Dim v_aValeursComp2() As String
+	Dim i As Long
+	
+	' Initialisation des champs cachés liés aux descriptions
+	If Ubound(pnd.Tabl_Descriptions) &gt; 0 Or pnd.Tabl_Descriptions(0) &lt;&gt; "" Then
+		Redim v_aValeursAlias(Ubound(pnd.Tabl_Valeurs)) As String
+		Redim v_aValeursDesc(Ubound(pnd.Tabl_Valeurs)) As String
+		Redim v_aValeursDescAlias(Ubound(pnd.Tabl_Valeurs)) As String
+		
+		For i = Lbound(pnd.Tabl_Valeurs) To Ubound(pnd.Tabl_Valeurs)
+			v_aValeursAlias(i) = pnd.Tabl_Descriptions(i) &amp; "|" &amp; pnd.Tabl_Valeurs(i)
+			v_aValeursDesc(i) = pnd.Tabl_Valeurs(i) &amp; " - " &amp; pnd.Tabl_Descriptions(i)
+			v_aValeursDescAlias(i) = pnd.Tabl_Valeurs(i) &amp; " - " &amp; pnd.Tabl_Descriptions(i) &amp; "|" &amp; pnd.Tabl_Valeurs(i)
+		Next
+		
+		If xVar(pnd, "Tabl_TrierDescriptions", "") = "1" Then
+			Call TrierArray(v_aValeursAlias)
+		End If
+		Call pnd.Replaceitemvalue("Tabl_ValeursAlias", v_aValeursAlias)
+		Call pnd.Replaceitemvalue("Tabl_ValeursDesc", v_aValeursDesc)
+		Call pnd.Replaceitemvalue("Tabl_ValeursDescAlias", v_aValeursDescAlias)
+	Else
+		Call pnd.Replaceitemvalue("Tabl_ValeursAlias", pnd.Tabl_Valeurs)
+		Call pnd.Replaceitemvalue("Tabl_ValeursDesc", pnd.Tabl_Valeurs)
+		Call pnd.Replaceitemvalue("Tabl_ValeursDescAlias", pnd.Tabl_Valeurs)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FTabl, gc_Element_FTabl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FTabl_acTrierLesValeurs"><lotusscript>Sub FTabl_acTrierLesValeurs
+	On Error Goto GererErreur
+	
+	Dim nd As Notesdocument
+	Dim a_Valeurs As Variant
+	
+	Call FTabl_Initialisations
+	
+	' Rafraîchir le document pour effectuer les validations
+	On Error 4412 Goto FinSub
+	Call Gnuiws_FTabl.Currentdocument.Refresh
+	On Error 4412 Goto GererErreur
+	
+	' Trier les tableaux de valeurs et de descriptions
+	Set nd = Gnuiws_FTabl.Currentdocument.Document
+	
+	' Trier les tableaux
+	Call FTabl_TrierLesValeurs(nd, "Tabl_Descriptions")
+	Call FTabl_TrierLesValeurs(nd, "Tabl_Icones")
+	Call FTabl_TrierLesValeurs(nd, "Tabl_Complement1")
+	Call FTabl_TrierLesValeurs(nd, "Tabl_Complement2")
+	Call FTabl_TrierLesValeurs(nd, "Tabl_Complement3")
+	Call FTabl_TrierLesValeurs(nd, "Tabl_Complement4")
+	
+	' Trier les valeurs
+	a_Valeurs = xVarArray(nd, "Tabl_Valeurs")
+	If TrierArray(a_Valeurs) Then
+		nd.Tabl_Valeurs = a_Valeurs
+	End If
+FinSub:
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FTabl, gc_Element_FTabl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="FTabl_TrierLesValeurs"><lotusscript>Sub FTabl_TrierLesValeurs(pnd As NotesDocument, p_NomItem As String)
+	On Error Goto GererErreur
+	
+	Dim a_Valeurs As Variant
+	Dim a_Descriptions As Variant
+	
+	a_Valeurs = xVarArray(pnd, "Tabl_Valeurs")
+	
+	' Trier les valeurs
+	If Ubound(a_Valeurs) &gt; 0 Then
+		a_Descriptions = xVarArray(pnd, p_NomItem)
+		If Trier2Arrays(a_Valeurs, a_Descriptions) Then
+			Call pnd.ReplaceItemValue(p_NomItem, a_Descriptions)
+		End If
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_FTabl, gc_Element_FTabl, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub</lotusscript></code>
+<item name="$POID"><datetime>20250319T073636,19-05</datetime></item></scriptlibrary>
+
+</database>

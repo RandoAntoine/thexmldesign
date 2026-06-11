@@ -1,0 +1,446 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><form name="Admin\Compteurs séquentiels" alias="DB_SICS" hide="web mobile" nocompose="true" noquery="true" publicaccess="false" designerversion="8" comment="2.1b" bgcolor="system">
+<noteinfo noteid="1766" unid="80F89992D83ABA578525828A004B5846" sequence="714">
+<created><datetime dst="true">20180511T094257,98-04</datetime></created>
+<modified><datetime>20250319T074050,27-05</datetime></modified>
+<revised><datetime>20250319T073750,54-05</datetime></revised>
+<lastaccessed><datetime>20250319T074050,26-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20180910T205708,61-04</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<globals><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "DB_SICS"
+
+</lotusscript></code></globals><code event="postopen"><lotusscript>Sub Postopen(Source As Notesuidocument)
+	Call DBSICS_Postopen(Source)
+End Sub
+</lotusscript></code><code event="queryopen"><lotusscript>Sub Queryopen(Source As Notesuidocument, Mode As Integer, Isnewdoc As Variant, Continue As Variant)
+	Call DBSICS_Queryopen(Source, Mode, Isnewdoc, Continue)
+End Sub</lotusscript></code>
+<actionbar bgcolor="silver" bordercolor="black">
+<actionbuttonstyle bgcolor="silver"/><border width="0px 0px 1px"/>
+<action title="Categori_ze" showinbar="false" hide="notes web" systemcommand="categorize"/>
+<action title="_Edit Document" showinbar="false" hide="notes web" systemcommand="edit"/>
+<action title="Send Docu_ment" showinbar="false" hide="notes web" systemcommand="send"/>
+<action title="_Forward" showinbar="false" hide="notes web" systemcommand="forward"/>
+<action title="_Move To Folder..." showinbar="false" hide="notes web" systemcommand="movetofolder"/>
+<action title="_Remove From Folder" showinbar="false" hide="notes web" systemcommand="removefromfolder"/></actionbar>
+<body><richtext>
+<pardef id="1" hide="notes web"/>
+<par def="1"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par>
+<table widthtype="fixedleft" colorstyle="solid" bgcolor="white" rowspacing="0.0396in" refwidth="3.9757in"><tablecolumn width="0.1375in"/><tablecolumn width="1.9688in"/><tablecolumn width="0.1771in"/><tablecolumn width="0.7875in"/><tablecolumn width="0.1771in"/><tablecolumn width="0.5903in"/><tablecolumn width="0.1375in"/>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="3" keepwithnext="true" keeptogether="true"/>
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="4" keepwithnext="true" keeptogether="true"/>
+<par def="4"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="5" keepwithnext="true" keeptogether="true"/>
+<par def="5"><run><font size="8pt"/></run></par></tablecell>
+<tablecell columnspan="3" borderwidth="0px" bgcolor="system">
+<pardef id="8" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NbPages = 1</formula></code></pardef>
+<par def="8"><run><font size="8pt"/>Page </run><run><font size="8pt"/><field showdelimiters="false" type="number" kind="computedfordisplay" name="SICS_Page"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_Page</formula></code></field></run><run><font size="8pt"/> de </run><run><font size="8pt"/><field showdelimiters="false" type="number" kind="computedfordisplay" name="SICS_NbPages"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_NbPages</formula></code></field></run><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="9" keepwithnext="true" keeptogether="true"/>
+<par def="9"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="10" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NbPages = 1</formula></code></pardef>
+<par def="10"><run><font size="8pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="11" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_Page = 1</formula></code></pardef>
+<par def="11"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="21px" height="21px" scaledheight="0.2188in" scaledwidth="0.2188in"><gif>
+R0lGODlhFQAVALICAICAgAAAAP///8DAwACAgP///wAAAAAAACH5BAEAAAUALAAAAAAVABUAAAM2
+WLrc/jDKSau1IFyVgbgdMHxUSAwEGYVoqz4BQJw0+j6CMLfnDeW11CXn2hSAvkrOyGw6n5cEACH+
+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw==
+</gif></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_InitialiserPage(-1)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="12" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NbPages = 1</formula></code></pardef>
+<par def="12"><run><font size="8pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="13" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NbPages = 1</formula></code></pardef>
+<par def="13"><run><font size="8pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="14" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NbPages = 1</formula></code></pardef>
+<par def="14"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="15" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_Page = SICS_NbPages</formula></code></pardef>
+<par def="15"><run><font size="8pt" style="bold"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt" style="bold"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_InitialiserPage(-1)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="21px" height="21px"><gif>
+R0lGODlhFQAVALIEAAAAAICAgMDAwACAgP///////wAAAAAAACH5BAEAAAUALAAAAAAVABUAAAM1
+WLrc/jDKSat1IFwWQt4FIHSfFQzCQGqUiKLrdKa06kluPRC8NL88QosWNAmKFyRoyWw6mwkAIf4f
+T3B0aW1pemVkIGJ5IFVsZWFkIFNtYXJ0U2F2ZXIhAAA7
+</gif></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_InitialiserPage(1)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="16" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NbPages = 1</formula></code></pardef>
+<par def="16"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="8pt" style="bold"/>Nom du compteur</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="8pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="17" align="right" keepwithnext="true" keeptogether="true"/>
+<par def="17"><run><font size="8pt" style="bold"/>Valeur</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="7" keepwithnext="true" keeptogether="true"/>
+<par def="7"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="18" keepwithnext="true" keeptogether="true"/>
+<par def="18"><run><font size="8pt" style="bold"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_1"><code event="defaultvalue"><formula>SICS_NomCompteur_1</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="7" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="19" hide="notes web" keepwithnext="true" keeptogether="true"/>
+<par def="19"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="17"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_1"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_1</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="20" hide="notes web" keepwithnext="true" keeptogether="true"/>
+<par def="20"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="21" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_1 = ""</formula></code></pardef>
+<par def="21"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(1)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(1)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="22" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_2 = ""</formula></code></pardef>
+<par def="22"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="23" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_2 = ""</formula></code></pardef>
+<par def="23"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_2"><code event="defaultvalue"><formula>SICS_NomCompteur_2</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="24" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_2 = ""</formula></code></pardef>
+<par def="24"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="25" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_2 = ""</formula></code></pardef>
+<par def="25"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_2"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_2</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="26" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_2 = ""</formula></code></pardef>
+<par def="26"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="27" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_2 = ""</formula></code></pardef>
+<par def="27"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(2)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(2)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="28" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_2 = ""</formula></code></pardef>
+<par def="28"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="29" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_3 = ""</formula></code></pardef>
+<par def="29"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="30" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_3 = ""</formula></code></pardef>
+<par def="30"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_3"><code event="defaultvalue"><formula>SICS_NomCompteur_3</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="31" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_3 = ""</formula></code></pardef>
+<par def="31"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="32" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_3 = ""</formula></code></pardef>
+<par def="32"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_3"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_3</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="33" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_3 = ""</formula></code></pardef>
+<par def="33"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="34" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_3 = ""</formula></code></pardef>
+<par def="34"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(3)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(3)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="35" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_3 = ""</formula></code></pardef>
+<par def="35"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="36" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_4 = ""</formula></code></pardef>
+<par def="36"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="37" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_4 = ""</formula></code></pardef>
+<par def="37"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_4"><code event="defaultvalue"><formula>SICS_NomCompteur_4</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="38" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_4 = ""</formula></code></pardef>
+<par def="38"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="39" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_4 = ""</formula></code></pardef>
+<par def="39"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_4"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_4</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="40" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_4 = ""</formula></code></pardef>
+<par def="40"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="41" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_4 = ""</formula></code></pardef>
+<par def="41"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(4)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(4)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="42" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_4 = ""</formula></code></pardef>
+<par def="42"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="43" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_5 = ""</formula></code></pardef>
+<par def="43"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="44" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_5 = ""</formula></code></pardef>
+<par def="44"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_5"><code event="defaultvalue"><formula>SICS_NomCompteur_5</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="45" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_5 = ""</formula></code></pardef>
+<par def="45"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="46" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_5 = ""</formula></code></pardef>
+<par def="46"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_5"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_5</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="47" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_5 = ""</formula></code></pardef>
+<par def="47"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="48" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_5 = ""</formula></code></pardef>
+<par def="48"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(5)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(5)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="49" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_5 = ""</formula></code></pardef>
+<par def="49"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="50" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_6 = ""</formula></code></pardef>
+<par def="50"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="51" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_6 = ""</formula></code></pardef>
+<par def="51"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_6"><code event="defaultvalue"><formula>SICS_NomCompteur_6</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="52" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_6 = ""</formula></code></pardef>
+<par def="52"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="53" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_6 = ""</formula></code></pardef>
+<par def="53"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_6"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_6</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="54" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_6 = ""</formula></code></pardef>
+<par def="54"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="55" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_6 = ""</formula></code></pardef>
+<par def="55"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(6)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(6)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="56" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_6 = ""</formula></code></pardef>
+<par def="56"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="57" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_7 = ""</formula></code></pardef>
+<par def="57"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="58" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_7 = ""</formula></code></pardef>
+<par def="58"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_7"><code event="defaultvalue"><formula>SICS_NomCompteur_7</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="59" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_7 = ""</formula></code></pardef>
+<par def="59"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="60" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_7 = ""</formula></code></pardef>
+<par def="60"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_7"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_7</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="61" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_7 = ""</formula></code></pardef>
+<par def="61"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="62" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_7 = ""</formula></code></pardef>
+<par def="62"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(7)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(7)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="63" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_7 = ""</formula></code></pardef>
+<par def="63"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="64" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_8 = ""</formula></code></pardef>
+<par def="64"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="65" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_8 = ""</formula></code></pardef>
+<par def="65"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_8"><code event="defaultvalue"><formula>SICS_NomCompteur_8</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="66" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_8 = ""</formula></code></pardef>
+<par def="66"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="67" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_8 = ""</formula></code></pardef>
+<par def="67"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_8"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_8</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="68" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_8 = ""</formula></code></pardef>
+<par def="68"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="69" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_8 = ""</formula></code></pardef>
+<par def="69"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(8)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(8)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="70" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_8 = ""</formula></code></pardef>
+<par def="70"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="71" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_9 = ""</formula></code></pardef>
+<par def="71"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="72" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_9 = ""</formula></code></pardef>
+<par def="72"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_9"><code event="defaultvalue"><formula>SICS_NomCompteur_9</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="73" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_9 = ""</formula></code></pardef>
+<par def="73"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="74" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_9 = ""</formula></code></pardef>
+<par def="74"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_9"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_9</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="75" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_9 = ""</formula></code></pardef>
+<par def="75"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="76" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_9 = ""</formula></code></pardef>
+<par def="76"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(9)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(9)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="77" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_9 = ""</formula></code></pardef>
+<par def="77"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="78" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_0 = ""</formula></code></pardef>
+<par def="78"><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="79" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_0 = ""</formula></code></pardef>
+<par def="79"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="text" kind="computed" name="SICS_NomCompteur_0"><code event="defaultvalue"><formula>SICS_NomCompteur_0</formula></code></field></run><compositedata type="98" prevtype="65418" nexttype="222" afterparcount="9" containertype="65418" aftercontainercount="1" afterbegincount="4">
+Yg4BAIQAAAAAAAAAAAA=
+</compositedata><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="80" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_0 = ""</formula></code></pardef>
+<par def="80"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="81" align="right" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_0 = ""</formula></code></pardef>
+<par def="81"><run><font size="9pt"/></run><run><font size="9pt"/><field showdelimiters="false" type="number" kind="computed" name="SICS_ValeurCompteur_0"><numberformat format="general" varying="true" digits="2" punctuated="false" parens="false" percent="false" bytes="false"/><code event="defaultvalue"><formula>SICS_ValeurCompteur_0</formula></code></field></run><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="82" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_0 = ""</formula></code></pardef>
+<par def="82"><run><font size="8pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="83" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_0 = ""</formula></code></pardef>
+<par def="83"><run><font size="8pt"/></run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Modifier.gif|act_Modifier"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsModifierCompteur(0)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/> </run><actionhotspot hotspotstyle="none"><run><font size="8pt"/></run><picture width="20px" height="20px" scaledheight="0.2083in" scaledwidth="0.2083in"><imageref name="act_Croix.gif|act_Croix"/></picture><run><font size="8pt"/></run><code event="click"><lotusscript>Sub Click(Source As Button)
+	Call DBSICS_hsSupprimerCompteur(0)
+End Sub</lotusscript></code></actionhotspot><run><font size="8pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="84" keepwithnext="true" keeptogether="true"><code event="hidewhen"><formula>SICS_NomCompteur_0 = ""</formula></code></pardef>
+<par def="84"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<pardef id="6" keepwithnext="true" keeptogether="true"/>
+<par def="6"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="18"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="9pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="8pt"/></run></par></tablecell>
+<tablecell columnspan="5" borderwidth="0px" bgcolor="#f1f1b4">
+<pardef id="89" leftmargin="0.0785in" keepwithnext="true" keeptogether="true"/>
+<par def="89"><run><font size="8pt"/>Note: Pour modifier la valeur d'un compteur, appuyer sur le crayon à sa droite.  Pour supprimer un compteur, appuyer sur la croix.</run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="8pt" style="bold"/></run></par></tablecell></tablerow>
+<tablerow>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="3"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="4"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="5"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="6"><run><font size="9pt"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="7"><run><font size="4pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="18"><run><font size="5pt" name="Arial" pitch="variable" truetype="true" familyid="20"/></run></par></tablecell>
+<tablecell borderwidth="0px" bgcolor="system">
+<par def="9"><run><font size="9pt" style="bold"/></run></par></tablecell></tablerow></table>
+<par def="1"><run><font size="8pt" color="red"/>&lt;Caché&gt;</run></par></richtext></body>
+<item name="AdmC_Page" summary="false"><number>0</number></item>
+<item name="AdmC_NbPages" summary="false"><number>0</number></item>
+<item name="Edition" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_1" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_2" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_3" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_4" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_5" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_6" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_7" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_8" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_9" summary="false"><number>0</number></item>
+<item name="SIGC_ValeurCompteur_0" summary="false"><number>0</number></item>
+<item name="OriginalModTime"><datetime dst="true">20050506T101727,25-04</datetime></item>
+<item name="SICS_ValeurCompteur_1" summary="false"><number>0</number></item>
+<item name="SICS_ValeurCompteur_2" summary="false"><number>0</number></item>
+<item name="SICS_ValeurCompteur_3" summary="false"><number>0</number></item>
+<item name="SICS_ValeurCompteur_4" summary="false"><number>0</number></item>
+<item name="SICS_ValeurCompteur_5" summary="false"><number>0</number></item>
+<item name="SICS_ValeurCompteur_6" summary="false"><number>0</number></item>
+<item name="SICS_ValeurCompteur_7" summary="false"><number>0</number></item>
+<item name="SICS_ValeurCompteur_8" summary="false"><number>0</number></item>
+<item name="SICS_ValeurCompteur_9" summary="false"><number>0</number></item>
+<item name="SICS_ValeurCompteur_0" summary="false"><number>0</number></item>
+<item name="$$ScriptName" summary="false" sign="true"><text>DB_SICS</text></item></form>
+
+</database>

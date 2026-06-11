@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SI_Contacts" hide="v3 v4strict" comment="1.2">
+<noteinfo noteid="5556f6" unid="B35FB5E0FB745790852586B40011FB75" sequence="76">
+<created><datetime dst="true">20210410T231624,85-04</datetime></created>
+<modified><datetime>20260105T014837,18-05</datetime></modified>
+<revised><datetime>20250319T073635,61-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,17-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,17-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Christian De-Nardi/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SI_Selection"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ----------------------------------
+Dim gns_SICo As Notessession
+Dim gndb_SICo As Notesdatabase
+Dim gndb_SICo_SICo As NotesDatabase
+
+Dim gnuiws_SICo As Notesuiworkspace
+
+' Base de documents SI Contacts
+' -----------------------------------------
+Const gc_NomBaseSICo = "SI Contacts"
+Dim gnv_Cont10_SICo As NotesView
+Dim gnv_Cont20_SICo As NotesView
+
+' Traitement des erreurs
+' -----------------------------------
+Const gc_TypeElement_SICo = "SL"
+Const gc_Element_SICo = "SI_Contacts"
+
+</lotusscript></code><code event="SICo_NouveauContact"><lotusscript>Sub SICo_NouveauContact(p_ClientNoFmt As String)
+%REM
+------------------------------------------------------------------------------------------------------------------------------	
+	Permettre à l'utilisateur de créer un nouveau contact.
+	Paramètres:	p_ClientNoFmt	String.  Le numéro de client auquel le contact sera
+												rattaché.
+------------------------------------------------------------------------------------------------------------------------------	
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nd As NotesDocument
+	
+	' Initialisations
+	Call SICo_Initialisations	
+	
+	' Créer le document qui contiendra le nouveau contact
+	Set nd = New NotesDocument(gndb_SICo_SICo)	
+	nd.Form = "F_Cont"
+	nd.Cont_ClientNo1 = Cint(Strleftback( p_ClientNoFmt, "-" ))
+	nd.Cont_ClientNo2 = Strrightback(p_ClientNoFmt,"-")
+	
+	' Ouvrir le noubveau contact en édition
+	Call gnuiws_SICo.EditDocument(True, nd, False, , ,)
+	
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICo, gc_Element_SICo, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICo_OuvrirContact"><lotusscript>Sub SICo_OuvrirContact(p_NoContact As String)
+%REM
+------------------------------------------------------------------------------------------------------------------------------	
+	Ouvrir le contact dans SI Contacts.
+	Paramètres:	p_NoContact		String.  Le numéro du contact à afficher.
+------------------------------------------------------------------------------------------------------------------------------	
+%ENDREM
+	On Error Goto GererErreur
+	
+	Dim nd_Contact As NotesDocument	
+	
+	' Initialisations
+	Call SICo_Initialisations
+	If gnv_Cont20_SICo Is Nothing Then
+		Set gnv_Cont20_SICo = gndb_SICo_SICo.Getview("V_Cont20")
+	End If
+	
+	'Sélectionner le contact à ouvrir
+	' -----------------------------------------
+	Set nd_Contact =  gnv_Cont20_SICo.GetDocumentByKey(p_NoContact, True)
+	If nd_Contact Is Nothing Then
+		' Le contact n'existe pas
+		Messagebox xGDK_xMessage("SIRc", 2, "", ""), 16, xGDK_xMessage("SI", 1, "", "")
+	Else
+		' Ouvrir le document du contact en consultation
+		Call gnuiws_SICo.EditDocument(False, nd_Contact)
+	End If
+	Exit Sub
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICo, gc_Element_SICo, Getthreadinfo(1), "", False)
+	Exit Sub
+End Sub
+
+</lotusscript></code><code event="SICo_ndSelectionnerContact"><lotusscript>Function SICo_ndSelectionnerContact(p_ClientNoFmt As String) As Notesdocument
+%REM
+------------------------------------------------------------------------------------------------------------------------------	
+	Ouvrir le contact dans SI Contacts.
+	Paramètres:	p_ClientNoFmt	String.  Le numéro de client duquel il faut 
+												sélectionner un contact.
+	Valeur retournée:					Notesdocument.  Le contact sélectionné.
+------------------------------------------------------------------------------------------------------------------------------	
+%ENDREM
+	On Error Goto GererErreur
+	
+	Set SICo_ndSelectionnerContact = Nothing
+	
+	' Initialisations
+	If Not SICo_Initialisations Then
+		Exit Function
+	End If
+	If gnv_Cont10_SICo Is Nothing Then
+		Set gnv_Cont10_SICo = gndb_SICo_SICo.Getview("V_Cont11")
+	End If
+	Call gnv_Cont10_SICo.Refresh
+	
+	' Sélectionner d'un contact
+	' --------------------------------------
+	Set SICo_ndSelectionnerContact = SISe_ndPickList(gnv_Cont10_SICo, _
+	"Sélection d'un contact", p_ClientNoFmt)
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SICo, gc_Element_SICo, Getthreadinfo(1), "", False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SICo_Initialisations"><lotusscript>Function SICo_Initialisations As Boolean
+	SICo_Initialisations = False
+	
+	If gns_SICo Is Nothing Then
+		Set gns_SICo = New Notessession	
+		Set gndb_SICo = gns_SICo.Currentdatabase
+		
+		Set gnuiws_SICo = New Notesuiworkspace
+		
+		' Extraire la base de documents SI Contacts
+		' -------------------------------------------------------
+		Set gndb_SICo_SICo = xGDK_xndbNDB(gc_NomBaseSICo)
+		If gndb_SICo_SICo Is Nothing Then			
+			' 48 - La base de documents &amp; est introuvable.
+			Messagebox xGDK_xMessage("SI", 48, "", gc_NomBaseSICo), 16, xGDK_xMessage("SI", 1, "", "")			
+			Exit Function
+		Elseif Not gndb_SICo_SICo.IsOpen Then
+			' 48 - La base de documents &amp; est introuvable.
+			Messagebox xGDK_xMessage("SI", 48, "", gc_NomBaseSICo), 16, xGDK_xMessage("SI", 1, "", "")
+			Exit Function
+		End If		
+	End If	
+	
+	SICo_Initialisations = True
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073635,61-05</datetime></item></scriptlibrary>
+
+</database>

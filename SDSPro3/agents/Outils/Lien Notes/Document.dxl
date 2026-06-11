@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><agent name="Outils\Lien Notes\Document" alias="A_OLDC" hide="v3" publicaccess="false" designerversion="8.5.3" comment="2.3" restrictions="unrestricted" enabled="false">
+<noteinfo noteid="3a74e6" unid="4199E554367F685F852589210071019A" sequence="35">
+<created><datetime>20221223T153419,78-05</datetime></created>
+<modified><datetime>20250319T074052,52-05</datetime></modified>
+<revised><datetime>20250319T073741,98-05</datetime></revised>
+<lastaccessed><datetime>20250319T074052,51-05</datetime></lastaccessed>
+<addedtofile><datetime>20230112T233623,04-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby>
+<designchange><datetime>20250319T073741,52-05</datetime></designchange>
+<trigger type="actionsmenu"/>
+<documentset type="selected"/><code event="options"><lotusscript>Option Public
+Option Explicit
+Use "SI_NotesDocument"
+Use "SL_Clipboard"
+
+
+</lotusscript></code><code event="initialize"><lotusscript>Sub Initialize
+	On Error Goto GererErreur
+	
+	Dim nuiws As New NotesUIWorkspace
+	Dim ns As New NotesSession
+	Dim ndb As NotesDatabase
+	Dim ndc As NotesDocumentCollection
+	Dim nd As NotesDocument
+	Dim v_URL As String
+	
+	Set ndb = ns.Currentdatabase
+	Set ndc = ndb.UnprocessedDocuments
+	If ndc.Count = 0 Then
+		Print "Aucun document sélectionné."
+		Exit Sub
+	ElseIf ndc.Count &gt; 1 Then
+		Print "Un seul document doit être sélectionné."
+		Exit Sub
+	End If
+
+	Set nd = ndc.GetFirstDocument
+	v_URL = SIND_NotesURL(nd)
+	If v_URL = "" Then
+		Print "Aucun document sélectionné."
+		Exit Sub
+	End If
+	
+	Call SLCl_AssignerTexteClipBoard(v_URL)
+	
+	Call nuiws.CurrentView.DeselectAll
+	Print "L'URL du document a été copié dans le clipboard."
+	Exit Sub
+	
+GererErreur:
+	Call nuiws.Prompt(PROMPT_OK, GetThreadInfo(1), "Erreur " &amp; Cstr(Err()) &amp; " à la ligne " &amp; Cstr(Erl()) &amp; ": " &amp; Error())
+	Exit Sub
+End Sub</lotusscript></code>
+<rundata processeddocs="0" exitcode="0">
+<agentmodified><datetime>20221223T155446,55-05</datetime></agentmodified></rundata>
+<item name="$POID"><datetime>20250319T073741,98-05</datetime></item></agent>
+
+</database>

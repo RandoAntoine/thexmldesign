@@ -1,0 +1,630 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="x_SDSBB" hide="v3 v4strict" designerversion="8.5.3" comment="1.5 SDS Base II">
+<noteinfo noteid="55576a" unid="FCC3FBE3ACBB64D0852586B40011FBA5" sequence="76">
+<created><datetime dst="true">20210410T231625,33-04</datetime></created>
+<modified><datetime>20260105T014837,45-05</datetime></modified>
+<revised><datetime>20250319T073637,47-05</datetime></revised>
+<lastaccessed><datetime>20260105T014837,44-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014837,44-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Mourad Zellouf/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "x_GDK"
+'
+' Cette bibliothèque de script permet d'extraire un document ou un item d'un document.  Les documents
+' à extraire ne se trouvent pas dans la base de documents courante.  Il faut rechercher la base de documents
+' à utiliser dans le GDK.
+'
+' Instructions
+'	1.	Renommer le script library.  Le nouveau nom devrait être "x_SDSBB" ou "SDSBB" est 
+'		l'identifiant de la base de documents.
+'	2.	Inscrire le nom usuel de la base de documents de recherche, le nom de l'item qui contient
+'		la clé et le nom de la vue de recherche dans la section (Declarations).
+'	3.	Remplacer toutes les occurences de "SDSBB" par l'identifiant de la base de documents.  
+'		Les subs seront automatiquement renommés.
+'	4.	Remplacer toutes les occurences de "Prod" par l'identifiant du type de document.  
+'		Les subs seront automatiquement renommés.
+
+</lotusscript></code><code event="declarations"><lotusscript>' Section 1 - Paramètres de la session - Définis dans le sub Initialisation_xELrod
+Dim gndb_xSDSBB As Notesdatabase
+
+' Section 2 - Définition des valeurs conservées dans la cache
+Dim gnd_Prof_SDSBB As NotesDocument
+Dim gnvTabl_xSDSBB As Notesview
+Dim gndTabl_xSDSBB As Notesdocument
+Dim gnv_Cate_xSDSBB As Notesview					' La vue d'ou est extrait le document
+Dim gnd_Cate_xSDSBB As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_TpPp_xSDSBB As Notesview					' La vue d'ou est extrait le document
+Dim gnd_TpPp_xSDSBB As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_Prod_xSDSBB As Notesview					' La vue d'ou est extrait le document
+Dim gnd_Prod_xSDSBB As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_ProdCode_xSDSBB As Notesview					' La vue d'ou est extrait le document
+Dim gnd_ProdCode_xSDSBB As Notesdocument			' Le document qui contient les informations recherchées
+'Dim gnv_Comp_xSDSBB As Notesview					' La vue d'ou est extrait le document
+'Dim gnd_Comp_xSDSBB As Notesdocument			' Le document qui contient les informations recherchées
+Dim gnv_Comp20_xSDSBB As NotesView
+Dim gnv_Depe20_xSDSBB As NotesView
+Dim gnv_BTAs20_xSDSBB As NotesView
+Dim gnd_Comm_xSDSBB As NotesDocument
+Dim gnv_Comm_xSDSBB As Notesview				' La vue d'ou est extrait le document
+Dim gnv_Prix_xSDSBB As NotesView				' La vue d'ou est extrait le document
+Dim gnd_Prix_xSDSBB As NotesDocument		' Le document qui contient les informations recherchées
+
+' Section 3 - Les constantes à définir
+Const gc_NomBD_xSDSBB = "SDSBB"		' Inscrire le nom usuel de la base de documents
+																' de recherche, tel que déclaré dans le GDK.
+Const gc_NomItemCate_xSDSBB = "Cate_CleCategorie"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueCate_xSDSBB = "V_Cate20"		' Le nom de la vue de recherche
+Const gc_NomItemTpPp_xSDSBB = "TpPp_CleTypeProposition"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueTpPp_xSDSBB = "V_TpPp20"		' Le nom de la vue de recherche
+Const gc_NomItemProd_xSDSBB = "Prod_CleProduit"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueProd_xSDSBB = "V_Prod20"		' Le nom de la vue de recherche
+Const gc_NomItemProdCode_xSDSBB = "Prod_CodeProduit"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVueProdCode_xSDSBB = "V_Prod21"		' Le nom de la vue de recherche
+'Const gc_NomItemCom_xSDSBB = "Prod_CleComposant"	' Le nom de l'item servant de clé (selon la vue de recherche)
+'Const gc_NomVueComp_xSDSBB = "V_Comp20"		' Le nom de la vue de recherche
+Const gc_NomVueComm_xSDSBB = "V_Comm20"				' Le nom de la vue de recherche
+Const gc_NomItemCleComm_xSDSBB = "Comm_CodeCommissions"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomItemPrix_xSDSBB = "Prix_CleProduit"	' Le nom de l'item servant de clé (selon la vue de recherche)
+Const gc_NomVuePrix_xSDSBB = "V_Prix21"	
+Const gc_NomVueBTAs_xSDSBB = "V_BTAs20"
+
+
+</lotusscript></code><code event="xSDSBB_xndTabl"><lotusscript>Function xSDSBB_xndTabl(Byval pCle As Variant, Byval pCache As Integer) As Notesdocument
+	' Cette fonction retourne un document de type F_Tabl.
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd("Tabl_Nom", pCle, pCache, gndb_xSDSBB, "V_Tabl20", gnvTabl_xSDSBB, gndTabl_xSDSBB)
+	'	Paramètres:		1	String.  Le nom du champs servant de clé dans le document recherché.
+	'						2	Variant.  La valeur de la clé recherchée. ** Ne pas modifier **
+	'						3	Boolean.  Indiquer True pour réutiliser le document en mémoire lorsqu'il correspond
+	'							au document recherché.  Si vous indiquez False, le document est relu même s'il est
+	'							déjà en mémoire. ** Ne pas modifier **
+	'						4	Notesdatabase. La base de documents dans laquelle le document sera recherché.
+	'							** Déclarée dans les variables globales **
+	'						5	String.  Le nom de la vue de recherche.
+	'						6	Notesview.  La vue de recherche. ** Déclarée dans les variables globales **
+	'							
+	'						7	Notesdocument.  Le document recherché.  S'il est déjà en mémoire et que Cache
+	'							contient True, le document envoyé sera retourné.
+	'							** Déclarée dans les variables globales **
+	
+	' Retourne le document défini en variable globale
+	Set xSDSBB_xndTabl = gndTabl_xSDSBB
+End Function
+
+</lotusscript></code><code event="xSDSBB_xIcnTabl"><lotusscript>Function xSDSBB_xIcnTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_Cache As Integer) As Integer	
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Icones As Variant
+	Dim i As Long
+	
+	xSDSBB_xIcnTabl = 0
+	
+	' Extraire les valeurs et les Icones
+	v_Valeurs = xSDSBB_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Icones = xSDSBB_xVarTabl(p_Table, "Tabl_Icones", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Icones) Then
+					If i &gt;= Lbound(v_Icones) And i &lt;= Ubound(v_Icones) Then
+						xSDSBB_xIcnTabl = v_Icones(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Icones) Then
+				xSDSBB_xIcnTabl = v_Icones(0)
+			Else
+				xSDSBB_xIcnTabl = v_Icones
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xSDSBB_xVarProd_Code"><lotusscript>Function xSDSBB_xVarProd_Code(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	' p_Cle = CodeProduit
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Call xSDSBB_xndProd_Code(p_Cle, p_Cache)
+	xSDSBB_xVarProd_Code = xVar(gnd_ProdCode_xSDSBB, p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSDSBB_xBoniComm"><lotusscript>Function xSDSBB_xBoniComm(Byval p_Code As String, p_Contributions As Double) As Double
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	Dim nd As NotesDocument
+	Dim a_Contributions As Variant
+	Dim a_Montants As Variant
+	Dim i As Integer
+	
+%REM
+v_Contributions := @IfError(@DbLookup(""; ""; "V_Comm1"; Prop_CommissionsRepresentant; 10); 0);
+@If(@Elements(v_Contributions) = 0; @Return(0); "");
+v_Montants := @IfError(@DbLookup(""; ""; "V_Comm1"; Prop_CommissionsRepresentant; 11); 0);
+@If(@Elements(v_Montants) = 0; @Return(0); "");
+
+REM {Montant supérieur à la dernière borne, retourner le dernier montant};
+@If(Prop_ContribMarginalesBrutes_7 &gt; @Subset(v_Contributions; -1); @Return(@Subset(v_Montants; -1)); "");
+
+REM {Boucle sur le tableau des contributions};
+v_Indice := 1;
+@While(v_Indice &lt; @Elements(v_Contributions) &amp; Prop_ContribMarginalesBrutes_7 &gt; @Subset(@Subset(v_Contributions; v_Indice); -1); v_Indice := v_Indice + 1);
+
+REM {Extrait la valeur appropriée};
+@If(v_Indice &gt; @Elements(v_Montants); @Subset(v_Montants; -1); @Subset(@Subset(v_Montants; v_Indice); -1))
+%END REM
+	
+	xSDSBB_xBoniComm = 0
+	Set nd = xSDSBB_xndComm(p_Code, True)
+	a_Contributions = xVarArray(nd, "Comm_BoniContributions")
+	a_Montants = xVarArray(nd, "Comm_BoniMontants")
+	If Isarray(a_Contributions) And Isarray(a_Montants) Then
+		For i = 0 To Ubound(a_Contributions)
+			If i &gt; Ubound(a_Montants) Then
+				Exit Function
+			Else
+				xSDSBB_xBoniComm = a_Montants(i)
+				If p_Contributions &lt;= a_Contributions(i) Then
+					Exit Function
+				End If
+			End If
+		Next
+	End If
+	
+End Function
+
+</lotusscript></code><code event="xSDSBB_xVarTpPp"><lotusscript>Function xSDSBB_xVarTpPp(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	' p_Cle = CleTypeProposition
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Call xSDSBB_xndTpPp(p_Cle, p_Cache)
+	xSDSBB_xVarTpPp = xVar(gnd_TpPp_xSDSBB, p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSDSBB_xndAssignation"><lotusscript>Function xSDSBB_xndAssignation(ByVal p_Cle As Variant, ByVal p_Cache As Integer) As NotesDocument
+	' Cette fonction retourne une collection des dépendants d'un produit.
+	' Lookup avec une cle --&gt;  TypeParent;CleParent;Statut;TypeProp
+
+	If gnv_BTAs20_xSDSBB Is Nothing Then
+		Set gnv_BTAs20_xSDSBB = gndb_xSDSBB.GetView("V_BTAs20")
+		Call gnv_BTAs20_xSDSBB.Refresh
+	End If
+	
+	' Retourne le document défini en variable globale
+	Set xSDSBB_xndAssignation = gnv_BTAs20_xSDSBB.GetDocumentByKey(p_Cle, True)	
+End Function
+
+
+
+</lotusscript></code><code event="xSDSBB_Initialisations"><lotusscript>Sub xSDSBB_Initialisations
+	' Initialisation des variables globales
+	If gndb_xSDSBB Is Nothing Then
+		Set gndb_xSDSBB = xGDK_xndbNDB(gc_NomBD_xSDSBB)
+	End If
+End Sub
+
+</lotusscript></code><code event="xSDSBB_xndcProd_Depe"><lotusscript>Function xSDSBB_xndcProd_Depe(Byval p_Cle As Variant) As NotesDocumentCollection
+	' Cette fonction retourne une collection des dépendants d'un produit.
+	' p_Cle = CleProduit
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	If gnv_Depe20_xSDSBB Is Nothing Then
+		Set gnv_Depe20_xSDSBB = gndb_xSDSBB.GetView("V_Depe20")
+		Call gnv_Depe20_xSDSBB.Refresh
+	End If
+	
+	' Retourne le document défini en variable globale
+	Set xSDSBB_xndcProd_Depe = gnv_Depe20_xSDSBB.GetAllDocumentsByKey(p_Cle &amp; ";", False)
+End Function
+
+</lotusscript></code><code event="xSDSBB_xDescTabl"><lotusscript>Function xSDSBB_xDescTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_Cache As Integer) As String	
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Descriptions As Variant
+	Dim i As Long
+	
+	xSDSBB_xDescTabl = ""
+	
+	' Extraire les valeurs et les descriptions
+	v_Valeurs = xSDSBB_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Descriptions = xSDSBB_xVarTabl(p_Table, "Tabl_Descriptions", "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Descriptions) Then
+					If i &gt;= Lbound(v_Descriptions) And i &lt;= Ubound(v_Descriptions) Then
+						xSDSBB_xDescTabl = v_Descriptions(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Descriptions) Then
+				xSDSBB_xDescTabl = v_Descriptions(0)
+			Else
+				xSDSBB_xDescTabl = v_Descriptions
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xSDSBB_xVarTabl"><lotusscript>Function xSDSBB_xVarTabl(Byval pCle As Variant, Byval pNomVar As String, Byval pValeurNulle As Variant, _
+Byval pCache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document de type F_Tabl.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xndYYY)
+	xSDSBB_xVarTabl = xVar(xSDSBB_xndTabl(pCle, pCache), pNomVar, pValeurNulle)
+	'	Paramètres:		1	Notesdocument.  Le document contenant la valeur recherchée.
+	'							** Appel de la fonction d'extraction du document **
+	'						2	String.  Le nom de la variable contenant la valeur recherchée.  ** Ne pas modifier **
+	'						3	Variant.  La valeur à retourner si la variable recherchée n'existe pas dans le document
+	'							recherché.  ** Ne pas modifier **
+End Function
+
+</lotusscript></code><code event="xSDSBB_xndPrix"><lotusscript>Function xSDSBB_xndPrix(Byval p_CleProduit As Variant, Byval p_Devise As String, Byval p_Pays As String, _
+Byval p_Province As String, Byval p_NbUsagers As Long) As NotesDocument	
+	Dim v_Cle(3) As String
+	Dim nd_Prix As NotesDocument
+	Dim ni As NotesItem
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations	
+	
+	' Rechercher le document de prix correspondant aux paramètres
+	v_Cle(0) = p_CleProduit
+	v_Cle(1) = p_Devise
+	v_Cle(2) = p_Pays
+	v_Cle(3) = p_Province
+	Call xnd("", v_Cle, False, gndb_xSDSBB, gc_NomVuePrix_xSDSBB, gnv_Prix_xSDSBB, nd_Prix)
+	
+	'2eme lookup ici
+	Do
+		If nd_Prix Is Nothing Then
+			If v_Cle(3) &lt;&gt; "" Then
+				v_Cle(3) = ""
+				Call xnd("", v_Cle, False, gndb_xSDSBB, gc_NomVuePrix_xSDSBB, gnv_Prix_xSDSBB, nd_Prix)	
+			End If
+			If nd_Prix Is Nothing Then
+				If v_Cle(2) &lt;&gt; "" Then
+					v_Cle(2) = ""
+					Call xnd("", v_Cle, False, gndb_xSDSBB, gc_NomVuePrix_xSDSBB, gnv_Prix_xSDSBB, nd_Prix)	
+				End If
+			End If
+		End If
+		
+		' Rechercher le prix en fonction du nombre d'usagers
+		Do Until p_NbUsagers &lt;= xVar(nd_Prix, "Prix_Usagers", 99999)
+			Set nd_Prix = gnv_Prix_xSDSBB.Getnextdocument(nd_Prix)
+			Set ni = nd_Prix.GetFirstItem("Prix_Province")
+			If xVar(nd_Prix, "Prix_CleProduit", "") &lt;&gt; v_Cle(0) _
+			Or xVar(nd_Prix, "Prix_Devise", "") &lt;&gt; v_Cle(1) _
+			Or xVar(nd_Prix, "Prix_Pays", "") &lt;&gt; v_Cle(2) _
+			Or Not ni.contains(v_Cle(3)) Then
+				Set nd_Prix = Nothing
+			End If
+		Loop
+	Loop While nd_Prix Is Nothing And (v_Cle(2) &lt;&gt; "" Or v_Cle(3) &lt;&gt; "")
+	
+	Set  xSDSBB_xndPrix = nd_Prix
+End Function
+
+</lotusscript></code><code event="xSDSBB_xValeurExisteTabl"><lotusscript>Function xSDSBB_xValeurExisteTabl(Byval p_Cle As Variant, p_Valeur As Variant, _
+Byval p_Cache As Integer) As Integer
+	Dim ni As NotesItem
+	
+	xSDSBB_xValeurExisteTabl = False
+	
+	If Not (xSDSBB_xndTabl(p_Cle, True) Is Nothing) Then
+		Set ni = gndTabl_xSDSBB.GetFirstItem("Tabl_Valeurs")
+		If ni.Contains(p_Valeur) Then
+			xSDSBB_xValeurExisteTabl = True
+		End If
+	End If	
+End Function
+
+</lotusscript></code><code event="xSDSBB_xVarPrix"><lotusscript>Function xSDSBB_xVarPrix(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_Devise As String, _
+Byval p_Pays As String, Byval p_Province As String, Byval p_NbUsagers As Long) As Double
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSDSBB_xVarPrix = xVar(xSDSBB_xndPrix(p_Cle, p_Devise, p_Pays, p_Province, p_NbUsagers), p_NomVar, 0)
+End Function
+
+
+</lotusscript></code><code event="xSDSBB_xndTpPp"><lotusscript>Function xSDSBB_xndTpPp(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	' p_Cle = CleTypeProposition
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemTpPp_xSDSBB, p_Cle, p_Cache, gndb_xSDSBB, gc_NomVueTpPp_xSDSBB, gnv_TpPp_xSDSBB, gnd_TpPp_xSDSBB)
+	
+	' Retourne le document défini en variable globale
+	Set xSDSBB_xndTpPp = gnd_TpPp_xSDSBB
+End Function
+
+</lotusscript></code><code event="xSDSBB_xndProd_CS"><lotusscript>Function xSDSBB_xndProd_CS(ByVal p_CleProduitCS As Variant, ByVal p_Cache As Integer) As NotesDocument
+	' Lookup avec une clé de produit sur site (CS)
+	
+	Dim ndc_Prod_SDSBB As NotesDocumentCollection
+	Dim v_Formule As String
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	v_Formule = {Form = "F_Prod" &amp; Prod_CleProduitCS ="} &amp; p_CleProduitCS &amp; {"}
+	
+	Set ndc_Prod_SDSBB = gndb_xSDSBB.Search(v_Formule, Nothing, 0)
+	
+	If ndc_Prod_SDSBB.Count &gt; 0 Then
+		Set xSDSBB_xndProd_CS =ndc_Prod_SDSBB.GetFirstDocument
+	End If
+	
+	Exit Function	
+End Function
+
+</lotusscript></code><code event="xSDSBB_xndProd"><lotusscript>Function xSDSBB_xndProd(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	' p_Cle = CleProduit
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemProd_xSDSBB, p_Cle, p_Cache, gndb_xSDSBB, gc_NomVueProd_xSDSBB, gnv_Prod_xSDSBB, gnd_Prod_xSDSBB)
+	
+	' Retourne le document défini en variable globale
+	Set xSDSBB_xndProd = gnd_Prod_xSDSBB
+End Function
+
+
+
+</lotusscript></code><code event="xSDSBB_xndCate"><lotusscript>Function xSDSBB_xndCate(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	' p_Cle = CleCategorie
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCate_xSDSBB, p_Cle, p_Cache, gndb_xSDSBB, gc_NomVueCate_xSDSBB, gnv_Cate_xSDSBB, gnd_Cate_xSDSBB)
+	
+	' Retourne le document défini en variable globale
+	Set xSDSBB_xndCate = gnd_Cate_xSDSBB
+End Function
+
+</lotusscript></code><code event="xSDSBB_xndComm"><lotusscript>Function xSDSBB_xndComm(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	' Changer le Cle en numerique!
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemCleComm_xSDSBB, p_Cle, p_Cache, gndb_xSDSBB, gc_NomVueComm_xSDSBB, gnv_Comm_xSDSBB, gnd_Comm_xSDSBB)
+	
+	' Retourne le document défini en variable globale
+	Set  xSDSBB_xndComm = gnd_Comm_xSDSBB
+End Function
+
+</lotusscript></code><code event="xSDSBB_xndProd_AH"><lotusscript>Function xSDSBB_xndProd_AH(ByVal p_CleProduitAH As Variant, ByVal p_Cache As Integer) As NotesDocument
+	' Lookup avec une clé de produit hébergé (AH)
+	
+	Dim ndc_Prod_SDSBB As NotesDocumentCollection
+	Dim v_Formule As String
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	v_Formule = {Form = "F_Prod" &amp; Prod_CleProduitAH ="} &amp; p_CleProduitAH &amp; {"}
+	
+	Set ndc_Prod_SDSBB = gndb_xSDSBB.Search(v_Formule, Nothing, 0)
+	
+	If ndc_Prod_SDSBB.Count &gt; 0 Then
+		Set xSDSBB_xndProd_AH = ndc_Prod_SDSBB.GetFirstDocument
+	End If
+		
+	Exit Function	
+End Function
+
+
+</lotusscript></code><code event="xSDSBB_xTypMLProd"><lotusscript>Function xSDSBB_xTypMLProd(Byval p_Cle As Variant,Byval p_VersionSDS As String) As String
+	'---------------------------------------------------------------------------------------------------------------------
+	'Cette fonction permet d'extraire le type de média à utiliser pour le programme en question.
+	'Parametres:  		p_Cle ---&gt; Nom du programme (logiciel) de SDS Base (LPDBMM)
+	'							p_VersionSDS ----&gt; La version SDS utilisée chez le client (Provient de CSA)
+	'Retourne le type de média qui correspond à la version SDS pour cette distribution 
+	'pour ce programme
+	'-----------------------------------------------------------------------------------------------------------------------
+	
+	Dim nd_Logiciel As NotesDocument
+	Dim a_LProdVersion As Variant
+	Dim a_LProdTypeMedia As Variant
+	Dim i As Integer
+	
+	'Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	xSDSBB_xTypMLProd = "Internet"
+	
+	'Extraire la liste des versions et les médias qui y correspondent
+	Set nd_Logiciel = xSDSBB_xndProd_Code(p_Cle, True)
+	a_LProdVersion = xVarArray(nd_Logiciel, "Prod_MediaVersions")
+	a_LProdTypeMedia = xVarArray(nd_Logiciel, "Prod_MediaTypes")
+	
+	If Isarray(a_LProdVersion) And Isarray(a_LProdTypeMedia) Then
+		If Ubound(a_LProdVersion) &lt;&gt; Ubound(a_LProdTypeMedia) Then
+			Exit Function
+		End If
+		
+		'Boucler jusqu'à ce qu'on ait trouvé l'emplacement de la version de SDS de notre client
+		For i = Ubound(a_LProdVersion) To 0 Step -1
+			If p_VersionSDS &gt;= a_LProdVersion(i) Then
+				'Retourner le type de média qui correspond à la version SDS
+				xSDSBB_xTypMLProd = a_LProdTypeMedia(i)	
+				Exit Function
+			End If
+		Next
+	End If
+End Function
+
+</lotusscript></code><code event="xSDSBB_xndcProd_Comp"><lotusscript>Function xSDSBB_xndcProd_Comp(Byval p_Cle As Variant) As NotesDocumentCollection
+	' Cette fonction retourne une collection des composants d'un produit.
+	' p_Cle = CleProduit
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	If gnv_Comp20_xSDSBB Is Nothing Then
+		Set gnv_Comp20_xSDSBB = gndb_xSDSBB.GetView("V_Comp20")
+		Call gnv_Comp20_xSDSBB.Refresh
+	End If
+	
+	' Retourne le document défini en variable globale
+	Set xSDSBB_xndcProd_Comp = gnv_Comp20_xSDSBB.GetAllDocumentsByKey(p_Cle &amp; ";", False)
+End Function
+
+
+</lotusscript></code><code event="xSDSBB_xVarProd"><lotusscript>Function xSDSBB_xVarProd(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	' p_Cle = CleProduit
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Call xSDSBB_xndProd(p_Cle, p_Cache)
+	xSDSBB_xVarProd = xVar(gnd_Prod_xSDSBB, p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSDSBB_xVarComm"><lotusscript>Function xSDSBB_xVarComm(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSDSBB_xVarComm = xVar(xSDSBB_xndComm(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSDSBB_xndProd_Code"><lotusscript>Function xSDSBB_xndProd_Code(Byval p_Cle As Variant, Byval p_Cache As Integer) As Notesdocument	
+	' Cette fonction retourne un document du type approprié.
+	' p_Cle = CodeProduit
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	' Si nécéssaire, extraire le document qui contient la variable recherchée.
+	Call xnd(gc_NomItemProdCode_xSDSBB, p_Cle, p_Cache, gndb_xSDSBB, gc_NomVueProdCode_xSDSBB, gnv_ProdCode_xSDSBB, gnd_ProdCode_xSDSBB)
+	
+	' Retourne le document défini en variable globale
+	Set xSDSBB_xndProd_Code = gnd_ProdCode_xSDSBB
+End Function
+
+</lotusscript></code><code event="xSDSBB_xVarProf"><lotusscript>Function xSDSBB_xVarProf(Byval p_NomVar As String, Byval p_ValeurNulle As Variant) As Variant
+	' Cette fonction retourne la valeur d'une variable du profil de la base de documents.
+	
+	' Initialisation des variables globales
+	Call xSDSBB_Initialisations
+	
+	' Extraire le document de profil
+	If gnd_Prof_SDSBB Is Nothing Then
+		Set gnd_Prof_SDSBB = gndb_xSDSBB.Getprofiledocument("F_Prof")
+	End If
+	
+	If gnd_Prof_SDSBB Is Nothing Then
+		xSDSBB_xVarProf = p_ValeurNulle
+	Else
+		xSDSBB_xVarProf = xVar(gnd_Prof_SDSBB, p_NomVar, p_ValeurNulle)		
+	End If
+End Function
+
+</lotusscript></code><code event="xSDSBB_xVarCate"><lotusscript>Function xSDSBB_xVarCate(Byval p_Cle As Variant, Byval p_NomVar As String, Byval p_ValeurNulle As Variant, _
+Byval p_Cache As Integer) As Variant
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	' p_Cle = CleCateuit
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	Call xSDSBB_xndCate(p_Cle, p_Cache)
+	xSDSBB_xVarCate = xVar(gnd_Cate_xSDSBB, p_NomVar, p_ValeurNulle)
+End Function
+
+</lotusscript></code><code event="xSDSBB_xComplTabl"><lotusscript>Function xSDSBB_xComplTabl(Byval p_Cle As String, Byval p_Table As String, Byval p_NoComplement As String, _
+Byval p_Cache As Integer) As String	
+	' Cette fonction retourne la description d'un élément d'une table.
+	
+	Dim v_Valeurs As Variant
+	Dim v_Descriptions As Variant
+	Dim i As Long
+	
+	xSDSBB_xComplTabl = ""
+	
+	' Extraire les valeurs et les descriptions
+	v_Valeurs = xSDSBB_xVarTabl(p_Table, "Tabl_Valeurs", "", True)
+	v_Descriptions = xSDSBB_xVarTabl(p_Table, "Tabl_Complement" &amp; p_NoComplement, "", True)
+	
+	' S'il n'y a plusieurs valeurs, rechercher la valeur recherchée
+	If Isarray(v_Valeurs) Then
+		For i = Lbound(v_Valeurs) To Ubound(v_Valeurs)
+			If v_Valeurs(i) = p_Cle Then
+				If Isarray(v_Descriptions) Then
+					If i &gt;= Lbound(v_Descriptions) And i &lt;= Ubound(v_Descriptions) Then
+						xSDSBB_xComplTabl = v_Descriptions(i)
+					End If
+				End If
+				
+				Exit For
+			End If
+		Next
+		
+	' S'il n'y a qu'une valeur, et qu'elle correspond à la valeur recherchée, retourner la description
+	Else
+		If v_Valeurs = p_Cle Then
+			If Isarray(v_Descriptions) Then
+				xSDSBB_xComplTabl = v_Descriptions(0)
+			Else
+				xSDSBB_xComplTabl = v_Descriptions
+			End If
+		End If
+	End If
+End Function
+
+</lotusscript></code><code event="xSDSBB_xVarAssignation"><lotusscript>Function xSDSBB_xVarAssignation(ByVal p_Cle As Variant, ByVal p_NomVar As String, ByVal p_ValeurNulle As Variant, _
+	ByVal p_Cache As Integer) As Variant
+	' Lookup avec une cle --&gt;  TypeParent;CleParent;Statut;TypeProp
+	
+	' Cette fonction retourne la valeur d'une variable d'un document.
+	
+	' Extraire la variable recherchée du document retourné par la fonction xnd)
+	xSDSBB_xVarAssignation = xVar(xSDSBB_xndAssignation(p_Cle, p_Cache), p_NomVar, p_ValeurNulle)
+End Function</lotusscript></code>
+<item name="$POID"><datetime>20250319T073637,47-05</datetime></item></scriptlibrary>
+
+</database>

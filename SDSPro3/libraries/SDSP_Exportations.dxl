@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE database SYSTEM 'xmlschemas/domino_11_0_1.dtd'>
+<database xmlns="http://www.lotus.com/dxl" version="11.0" maintenanceversion="1.8" replicaid="85257E4600665675" path="CN=Kilo/O=Serti Informatique!!Interne\SDS\sds_propositions3.nsf" title="SDS Pro III" fromtemplate="TMP SDS Pro III 11.9b" allowstoredforms="false" multilingual="true" maintainunread="false" increasemaxfields="true" defaultlanguage="fr"><scriptlibrary name="SDSP_Exportations" hide="v3 v4strict" designerversion="8.5.3">
+<noteinfo noteid="5559b2" unid="D4A0FF045FAC94E985258C9F0071D2CF" sequence="2">
+<created><datetime dst="true">20250604T164315,35-04</datetime></created>
+<modified><datetime>20260105T014838,57-05</datetime></modified>
+<revised><datetime dst="true">20250604T164316,45-04</datetime></revised>
+<lastaccessed><datetime>20260105T014838,56-05</datetime></lastaccessed>
+<addedtofile><datetime>20260105T014838,56-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Mark Knollin/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Emmanuelle Beauchamp/OU=SDS/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Juneau/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name><name>CN=Patrick Beauchamp/OU=Reseautique/O=Serti Informatique</name><name>CN=Developpement Serti/O=Serti Informatique</name></updatedby>
+<wassignedby><name>CN=Developpement Serti/O=Serti Informatique</name></wassignedby><code event="options"><lotusscript>Option Public
+Option Declare
+Use "SDSP_Impression"
+Use "SI_Exportations"
+Use "SI_Temp"
+
+
+</lotusscript></code><code event="declarations"><lotusscript>' Déclarations globales
+' ---------------------
+Dim gns_SDSPEx As NotesSession
+Dim gndb_SDSPEx As NotesDatabase
+
+' Traitement des erreurs
+' ----------------------
+Const gc_TypeElement_SDSPEx = "SL"
+Const gc_Element_SDSPEx = "SDSP_Exportations"
+
+
+</lotusscript></code><code event="SDSPEx_ExporterPropositions"><lotusscript>Function SDSPEx_ExporterPropositions(pndc As NotesDocumentCollection, p_Exportation As String) As Integer     ' RQ51336 PBE
+	' Valeur retournée : '	&gt; 0 = Nb de documents exportés (ok), 0 = Aucun document sélectionné, &lt; 0 = Erreur
+	'		-265 = Exportation annulée, -238 = Erreur générale
+	On Error GoTo GererErreur
+	
+	Dim v_NomMasque As String
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Prod As NotesDocument
+	Dim nd_Temp As NotesDocument
+	Dim ndc_Temp As NotesDocumentCollection
+	Dim l_Commissions As Variant
+	
+	Dim v_NbLus As Long
+	
+	SDSPEx_ExporterPropositions = -1
+
+	' Initialisations
+	Call SDSI_Initialisations
+	If Not SITp_Initialisations Then
+		Exit Function
+	End If
+	
+	' Sélectionner l'exportation à effectuer
+	p_Exportation = SIEx_SelectionnerExportation("")
+	If p_Exportation = "" Then
+		SDSPEx_ExporterPropositions = -265
+		Print "Exportation annulée."
+		Exit Function
+	End If
+	
+	Set ndc_Temp = gndb_Temp_SITp.CreateDocumentCollection
+	v_NomMasque = xUnique("")
+	Print "Copie des propositions dans la db temporaitre - 0/" &amp; CStr(pndc.Count)
+	
+	' Copier les propositions dans la base de documents temporaire
+	Set nd_Suivant = pndc.GetFirstDocument
+	Do Until nd_Suivant Is Nothing
+		Set nd_Prod = nd_Suivant
+		Set nd_Suivant = pndc.GetNextDocument(nd_Suivant)
+		v_NbLus = v_NbLus + 1
+				
+		Set nd_Temp = New NotesDocument(gndb_Temp_SITp)
+		Call nd_Prod.CopyAllItems(nd_Temp)
+		nd_Temp.Form = v_NomMasque
+		Call nd_Temp.Removeitem("Lecteur")
+		Call nd_Temp.Removeitem("LecteurAdmin")
+		Call nd_Temp.Removeitem("Auteur")		
+		Call nd_Temp.Removeitem("AuteurAdmin")
+		
+		' Copier l'information calculée
+		l_Commissions = SDSPCP_CalculerCommissions(nd_Temp)
+		ForAll v_Element In l_Commissions
+			Call nd_Temp.ReplaceItemValue("Prop_" &amp; ListTag(v_Element), v_Element)
+		End ForAll
+		
+		Call nd_Temp.Save(True, False)
+		Call ndc_Temp.AddDocument(nd_Temp)
+		
+		If v_NbLus Mod 100 = 0 Then
+			Print "Copie des propositions dans la db temporaire - " &amp; CStr(v_NbLus) &amp; "/" &amp; CStr(pndc.Count)
+		End If 
+	Loop
+	
+	If v_NbLus = 0 Then
+		SDSPEx_ExporterPropositions = 0
+		Exit Function
+	End If
+	
+	' Exporter les documents de la collection
+	Print "Exportation vers MS Excel..."
+	SDSPEx_ExporterPropositions = SIEx_ExporterCollection(ndc_Temp, p_Exportation, "", "", "", True, "", True)
+	%REM
+		SIEx_ExporterCollection(Pndc As Variant, P_exportation As String, P_categorie As String, P_langue As String, 
+		Pa_parametres As Variant, P_sauvegarderexportation As Boolean, P_cheminfichier As String, P_afficherdb As Integer) As Long
+		
+	%END REM
+
+	' Effacer les documents temporaires
+	Print "Suppression des documents temporaires..."
+	Call ndc_Temp.RemoveAll(True)
+
+	Exit Function
+	
+GererErreur:
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPEx, gc_Element_SDSPEx, GetThreadInfo(1), xVar(nd_Prod, "Prop_NoProposition", ""), False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPEx_ExporterPropositionSommaire"><lotusscript>Function SDSPEx_ExporterPropositionSommaire(pnd_Prop As NotesDocument) As Integer     ' RQ51336 PBE
+	' Valeur retournée : 1 = Exportation sauvegardée, 0 = Exportation annulée, -1 = Erreur
+	On Error GoTo GererErreur
+	
+	Dim l_Sommaire As Variant
+	Dim l_Escomptes List As Double
+	Dim a_Parametres(10) As String
+	Dim v_NomFichier As String
+	
+	Dim a_NoSites As Variant
+	Dim nd_Site As NotesDocument
+	Dim v_Site As String
+	Dim a_NbUtilisateurs As Variant
+
+	Dim ndc As NotesDocumentCollection
+	
+	Dim i As Integer
+	Dim j As Integer
+	
+	Dim nv_Prod25 As NotesView
+	Dim v_NoProposition As String
+	Dim v_CleSite As String
+	Dim nd_Suivant As NotesDocument
+	Dim nd_Prod As NotesDocument
+	Dim v_NbProd As Integer
+	
+	Const c_Exportation = "PropSommaire"
+	
+	' Initialisations
+	SDSPEx_ExporterPropositionSommaire = 0
+	Call SDSPEx_Initialisations
+	
+	Set gnd_SIEx_SIEx = xndSIEx(c_Exportation, False)
+	If gnd_SIEx_SIEx Is Nothing Then
+		Exit Function
+	End If
+	
+	l_Sommaire = SDSI_CalculerSommaire(pnd_Prop)
+	l_Sommaire("EntretienAnnuelLG") = l_Sommaire("EntretienAnnuelLG") / 12
+	l_Escomptes("E") = xVar(pnd_Prop, "Prop_EscompteMontant", 0)
+	l_Escomptes("C") = xVar(pnd_Prop, "Prop_EscompteCorporatif", 0)
+	l_Escomptes("M") = xVar(pnd_Prop, "Prop_EscompteMensualite", 0)
+	
+	a_Parametres(0) = xVar(pnd_Prop, "Prop_ClientNom", "")
+	a_Parametres(1) = Format(l_Sommaire("PrixTotalPR"), "Fixed")
+	a_Parametres(3) = Format(l_Escomptes("E"), "Fixed")
+	a_Parametres(2) = Format(l_Escomptes("C"), "Fixed")
+	a_Parametres(4) = Format(l_Sommaire("PrixTotalPR") - l_Escomptes("C") - l_Escomptes("E"), "Fixed")
+	a_Parametres(5) = Format(l_Sommaire("EntretienAnnuelLG"), "Fixed")
+	a_Parametres(6) = Format(l_Escomptes("M"), "Fixed")
+	a_Parametres(7) = Format(l_Sommaire("EntretienAnnuelLG") - l_Escomptes("M"), "Fixed")
+	a_Parametres(8) = xVar(pnd_Prop, "Prop_NomGroupeClient", "")
+	'a_Parametres(9) = xVar(pnd_Prop, "Prop_ContratDuree", "")
+	a_Parametres(9) = xSDSBB_xDescTabl(xVar(pnd_Prop, "Prop_ContratDuree", ""), "Prop_ContDuree_" &amp; xLangue, True)	
+	a_Parametres(10) = xVar(pnd_Prop, "Prop_TauxContrat", "")
+	
+	If xVar(nd_Prod, "Prop_Langue", "") = "EN" Then
+		v_NomFichier = "Proposal " &amp; a_Parametres(0)
+	Else
+		v_NomFichier = "Proposition " &amp; a_Parametres(0)
+	End If
+	
+	' Ouvrir le document d'exportation dans Excel
+	' ------------------------------------------------------------------------
+	If SIEx_OuvrirDocumentExportation(c_Exportation, xVar(pnd_Prop, "Prop_Langue", ""), a_Parametres, True, v_NomFichier) Then
+		Set nv_Prod25 = gndb_SDSPEx.GetView("V_Prod25")
+		Call nv_Prod25.Refresh
+		v_NoProposition = xVar(pnd_Prop, "Prop_NoProposition", "")
+		
+		' Boucler sur les sites
+		a_NoSites = xVarArray(pnd_Prop, "Prop_NoSites")
+		If IsArray(a_NoSites) Then
+			For i = LBound(a_NoSites) To UBound(a_NoSites)
+				Set nd_Site = XSDSP3_xndSite(a_NoSites(i), True)
+				
+				' Calculer le nombre d'utilisateurs par département
+				Call SDSPS_NbUtilisateursParDepartement(nd_Site, a_NbUtilisateurs)
+				
+				v_Site = "Site " &amp; CStr(i + 1)
+				g_LigneCourante_SIEx = g_LigneCourante_SIEx + 1
+				Call SIMX_InsererTexteCellule(v_Site, g_LigneCourante_SIEx, 1) 
+				Call SIMX_InsererTexteCellule(xVar2(nd_Site, "Site_NomSiteAbrege", "Site_ClientNomInterne", ""), g_LigneCourante_SIEx, 2)
+				For j = 0 To 5
+					Call SIMX_InsererTexteCellule(CStr(a_NbUtilisateurs(j)), g_LigneCourante_SIEx, 3 + j)
+				Next
+				
+				' Exporter les produits du site
+				v_CleSite = a_NoSites(i) &amp; ";"
+				Set ndc = nv_Prod25.GetAllDocumentsByKey(v_CleSite, False)
+				If ndc.Count &gt; 0 Then
+					ReDim a_TriProd(ndc.Count) As String	
+					ReDim and_Prod(ndc.Count) As NotesDocument	
+					v_NbProd = 0
+
+					Set nd_Suivant = ndc.Getfirstdocument
+					Do Until nd_Suivant Is Nothing
+						Set nd_Prod = nd_Suivant
+						Set nd_Suivant = ndc.Getnextdocument(nd_Suivant)
+						
+						' Ajouter un document dans le tableau
+						' ---------------------------------
+						If xVar(nd_Prod, "Prod_Quantite", 0) &lt;&gt; 0  And xVar(nd_Prod, "Prod_TypeDescendant", "") &lt;&gt; "C" Then
+							a_TriProd(v_NbProd) = xVar(nd_Prod, "Prod_ClasseDescFR", 0) &amp; "  ;" &amp; xVar(nd_Prod, "Prod_CategorieDescFR", 0) &amp; "  ;" &amp; xVar(nd_Prod, "Prod_DescProduitFR", 0) 
+							Set and_Prod(v_NbProd) = nd_Prod
+							v_NbProd = v_NbProd + 1
+						End If
+					Loop
+					
+					' Exporter le tableau dans le fichier Excel
+					If v_NbProd &gt; 0 Then
+						v_NbProd = v_NbProd - 1
+						ReDim Preserve a_TriProd(v_NbProd) As String	
+						ReDim Preserve and_Prod(v_NbProd) As NotesDocument
+						Call Trier2Arrays(a_TriProd, and_Prod)
+						For j = 0 To v_NbProd
+							and_Prod(j).Temp_Site = v_Site
+							If Not SIEx_AjouterDocument(and_Prod(j), c_Exportation) Then
+								Set nd_Suivant = Nothing
+							End If
+						Next
+					End If
+				End If
+			Next
+		End If
+		
+		If g_NbDocumentsExportes_SIEx = 0 Then
+			MessageBox "Aucun document à exporter", 32, "Opération annulée"
+			GoTo FermerExcel
+		Else
+						
+			' Ajuster la largeur des colonnes et des lignes
+			' ------------------------------------------------------------
+			If xVarSIEx(c_Exportation, "SIEx_AjusterColonnes", "", True) = "1" Then
+				Call SIMX_AjusterLargeurColonnes
+			End If
+			
+			' Réactiver les calculs automatiques
+			Call SIMX_ReactiverCalculsAutomatiques
+			
+			' Afficher le document Excel
+			' --------------------------------------------
+			Call SIMX_OuvrirFeuille("Summary", "False")
+			g_ExcelFeuille_SIMX.Cells.Range("A8").Activate
+			Call SIEx_FermerExcel(True)
+			SDSPEx_ExporterPropositionSommaire = 1
+			Exit function
+			
+	%rem
+			' Sauvegarder le document excel
+			' --------------------------------------------
+			If SIEx_EnregistrerExportation(c_Exportation, v_NomFichier, True) Then
+					SDSPEx_ExporterPropositionSommaire = 1
+				End If
+			End If
+	%end rem
+		End If
+	End If
+	
+	' Fermer Excel
+	' ---------------------
+FermerExcel:
+	Call SIEx_FermerExcel(False)
+	Exit Function
+	
+GererErreur:
+	SDSPEx_ExporterPropositionSommaire = -1
+	Call SIGE_TraiterErreur(gc_TypeElement_SDSPEx, gc_Element_SDSPEx, GetThreadInfo(1), v_NoProposition, False)
+	Call SIEx_FermerExcel(False)
+	Exit Function
+End Function
+
+</lotusscript></code><code event="SDSPEx_Initialisations"><lotusscript>Sub SDSPEx_Initialisations
+	If gns_SDSPEx Is Nothing Then
+		Set gns_SDSPEx = New NotesSession
+		Set gndb_SDSPEx = gns_SDSPEx.CurrentDatabase
+	End If
+End Sub</lotusscript></code>
+<item name="$POID"><datetime dst="true">20250604T164316,45-04</datetime></item></scriptlibrary>
+
+</database>
